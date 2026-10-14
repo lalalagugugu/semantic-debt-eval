@@ -1,0 +1,99 @@
+{
+  "question_id": 82,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT m.EmployeeKey AS ManagerKey, m.FirstName, m.LastName, count(*) AS DirectReports, avg(dateDiff('day', parseDateTimeBestEffortOrNull(e.HireDate), today()) / 365.25) AS AvgTenureYears FROM retail.DimEmployee e INNER JOIN retail.DimEmployee m ON e.ParentEmployeeKey = m.EmployeeKey GROUP BY m.EmployeeKey, m.FirstName, m.LastName ORDER BY DirectReports DESC",
+  "rows": [
+    [
+      9,
+      "Terry",
+      "Adams",
+      89,
+      27.14148382283952
+    ],
+    [
+      6,
+      "Yoichiro",
+      "Okada",
+      65,
+      26.298741641657454
+    ],
+    [
+      10,
+      "David",
+      "Probst",
+      44,
+      26.749051085806734
+    ],
+    [
+      7,
+      "Pilar",
+      "Ackerman",
+      33,
+      25.83676601746417
+    ],
+    [
+      8,
+      "Aaron",
+      "Painter",
+      33,
+      27.237550038371396
+    ],
+    [
+      1,
+      "Kim",
+      "Abercrombie",
+      7,
+      27.89283269776083
+    ],
+    [
+      2,
+      "Sagiv",
+      "Hadaya",
+      6,
+      27.73990417522245
+    ],
+    [
+      3,
+      "Luka",
+      "Abrus",
+      5,
+      27.661054072553046
+    ],
+    [
+      18,
+      "Pieter",
+      "Uittenbogaard",
+      5,
+      28.76659822039699
+    ],
+    [
+      5,
+      "Humberto",
+      "Acevedo",
+      3,
+      27.839379420488253
+    ],
+    [
+      4,
+      "Kirk",
+      "Nason",
+      3,
+      27.855806525211044
+    ]
+  ],
+  "columns": [
+    "ManagerKey",
+    "m.FirstName",
+    "m.LastName",
+    "DirectReports",
+    "AvgTenureYears"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 7703,
+  "latency_ms_exec": 508,
+  "tokens_in": 19132,
+  "tokens_out": 201,
+  "claude_error": null,
+  "sql_error": null
+}

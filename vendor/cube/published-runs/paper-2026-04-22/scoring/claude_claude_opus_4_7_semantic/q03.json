@@ -1,0 +1,11 @@
+{
+  "question_id": 3,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return exactly 18869 unique customers; the candidate uses ClickHouse's native `countDistinct()` which is semantically equivalent to `COUNT(DISTINCT ...)`.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 189,
+  "judge_latency_ms": 10631
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": 31,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sum(fs.SalesAmount) AS ActualSalesRevenue,\n    sum(fsq.SalesAmountQuota) AS BudgetSalesRevenue,\n    ActualSalesRevenue - BudgetSalesRevenue AS Variance,\n    round(if(BudgetSalesRevenue != 0, (ActualSalesRevenue / BudgetSalesRevenue) * 100, NULL), 2) AS ActualVsBudgetPct\nFROM retail.DimProductCategory pc\nLEFT JOIN retail.DimProductSubcategory ps ON ps.ProductCategoryKey = pc.ProductCategoryKey\nLEFT JOIN retail.DimProduct p ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nLEFT JOIN (\n    SELECT ProductKey, sum(SalesAmount) AS SalesAmount\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY ProductKey\n) fs ON fs.ProductKey = p.ProductKey\nLEFT JOIN (\n    SELECT ProductKey, sum(SalesAmountQuota) AS SalesAmountQuota\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY ProductKey\n) fsq ON fsq.ProductKey = p.ProductKey\nGROUP BY pc.ProductCategoryName\nORDER BY ActualSalesRevenue DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      1120727501.9230006,
+      3035271170.3585963,
+      -1914543668.4355958,
+      36.92
+    ],
+    [
+      "Computers",
+      938926781.7259997,
+      2549230710.352302,
+      -1610303928.6263022,
+      36.83
+    ],
+    [
+      "Cameras and camcorders",
+      636574743.3996,
+      1723693842.3495002,
+      -1087119098.9499002,
+      36.93
+    ],
+    [
+      "TV and Video",
+      460183910.89769995,
+      1246031408.1987998,
+      -785847497.3010999,
+      36.93
+    ],
+    [
+      "Cell phones",
+      268104778.23470017,
+      725977425.2155995,
+      -457872646.98089933,
+      36.93
+    ],
+    [
+      "Audio",
+      68947296.3517,
+      186715834.58669996,
+      -117768538.23499997,
+      36.93
+    ],
+    [
+      "Music, Movies and Audio Books",
+      37524972.71169999,
+      101646150.99570005,
+      -64121178.284000054,
+      36.92
+    ],
+    [
+      "Games and Toys",
+      8873229.886899998,
+      24033741.594999995,
+      -15160511.708099997,
+      36.92
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "ActualSalesRevenue",
+    "BudgetSalesRevenue",
+    "Variance",
+    "ActualVsBudgetPct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 10346,
+  "latency_ms_exec": 554,
+  "tokens_in": 13799,
+  "tokens_out": 460,
+  "claude_error": null,
+  "sql_error": null
+}

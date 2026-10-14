@@ -1,0 +1,11 @@
+{
+  "question_id": 18,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate groups by `PromotionCategory` (\"Store\") instead of `PromotionType` (\"Seasonal Discount\") as required, answering a different question despite the aggregate totals being numerically close.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 385,
+  "judge_latency_ms": 13437
+}

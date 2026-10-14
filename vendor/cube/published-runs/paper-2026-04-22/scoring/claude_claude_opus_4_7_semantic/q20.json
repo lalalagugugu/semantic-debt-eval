@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes the latest date per (StoreKey, ProductKey) pair rather than the single global MAX(DateKey), returning different rows (different products/quantities) than the reference, answering a subtly different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 435,
+  "judge_latency_ms": 21619
+}

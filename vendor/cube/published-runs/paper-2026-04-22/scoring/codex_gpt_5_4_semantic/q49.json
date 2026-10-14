@@ -1,0 +1,11 @@
+{
+  "question_id": 49,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT e.EntityKey, toInt32OrNull(e.ParentEntityKey) AS ParentEntityKey, e.EntityName, el.hierarchy_level + 1 AS hierarchy_level FROM retail.DimEntity AS e INNER JOIN entity_levels AS el ON toInt32OrNull(e.ParentEntityKey) = el.EntityKey. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

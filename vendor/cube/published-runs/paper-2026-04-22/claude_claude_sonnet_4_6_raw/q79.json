@@ -1,0 +1,92 @@
+{
+  "question_id": 79,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    s.StoreKey,\n    st.StoreName,\n    sum(s.SalesAmount) AS TotalSales,\n    sum(q.SalesAmountQuota) AS TotalQuota,\n    sum(s.SalesAmount) / sum(q.SalesAmountQuota) AS Attainment\nFROM retail.FactSales s\nJOIN retail.DimStore st ON s.StoreKey = st.StoreKey\nJOIN (\n    SELECT StoreKey, sum(SalesAmountQuota) AS SalesAmountQuota\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n) q ON s.StoreKey = q.StoreKey\nWHERE toYear(s.DateKey) = 2009\nGROUP BY s.StoreKey, st.StoreName\nHAVING TotalQuota > 0\nORDER BY Attainment DESC\nLIMIT 10",
+  "rows": [
+    [
+      223,
+      "Contoso Venezia Store",
+      1614187.7529999982,
+      2560762630.6620183,
+      0.0006303543068272173
+    ],
+    [
+      65,
+      "Contoso Racine No.2 Store",
+      2485142.3119999976,
+      4559193069.987048,
+      0.0005450838062462351
+    ],
+    [
+      273,
+      "Contoso Kyoto Store",
+      4431766.162999982,
+      13290357908.768702,
+      0.00033345724723304816
+    ],
+    [
+      216,
+      "Contoso Marseille Store",
+      3645384.620099994,
+      11257049631.578938,
+      0.0003238312647990595
+    ],
+    [
+      228,
+      "Contoso Berlin Store",
+      3743782.0474999915,
+      11632583289.971294,
+      0.00032183582564395546
+    ],
+    [
+      222,
+      "Contoso Roma Store",
+      4042906.401599992,
+      13070687923.611246,
+      0.0003093109119602478
+    ],
+    [
+      203,
+      "Contoso Glasgow Store",
+      4235886.787799994,
+      14065342527.04645,
+      0.00030115774142398214
+    ],
+    [
+      234,
+      "Contoso Dusseldorf Store",
+      4143375.7994999965,
+      13792156781.231567,
+      0.000300415363979789
+    ],
+    [
+      227,
+      "Contoso Naples Store",
+      4619530.012499999,
+      16337424737.228495,
+      0.00028275753901245903
+    ],
+    [
+      246,
+      "Contoso Berne Store",
+      4785769.582499994,
+      16951527377.90438,
+      0.0002823208478982282
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "TotalSales",
+    "TotalQuota",
+    "Attainment"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 8810,
+  "latency_ms_exec": 605,
+  "tokens_in": 13806,
+  "tokens_out": 320,
+  "claude_error": null,
+  "sql_error": null
+}

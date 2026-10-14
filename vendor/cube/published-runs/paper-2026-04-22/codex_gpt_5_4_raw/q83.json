@@ -1,0 +1,25 @@
+{
+  "question_id": 83,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    count() AS first_bought_in_2007,\n    countIf(bought_2008 = 1) AS came_back_in_2008,\n    countIf(bought_2008 = 1 AND bought_2009 = 1) AS came_back_again_in_2009\nFROM\n(\n    SELECT\n        CustomerKey,\n        min(toYear(DateKey)) AS first_purchase_year,\n        max(toYear(DateKey) = 2008) AS bought_2008,\n        max(toYear(DateKey) = 2009) AS bought_2009\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nWHERE first_purchase_year = 2007",
+  "rows": [
+    [
+      18868,
+      18723,
+      17671
+    ]
+  ],
+  "columns": [
+    "first_bought_in_2007",
+    "came_back_in_2008",
+    "came_back_again_in_2009"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 15047,
+  "latency_ms_exec": 547,
+  "tokens_in": 16395,
+  "tokens_out": 317,
+  "claude_error": null,
+  "sql_error": null
+}

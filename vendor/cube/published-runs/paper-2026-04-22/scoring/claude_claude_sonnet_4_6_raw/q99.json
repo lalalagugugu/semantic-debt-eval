@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing substantially different sales figures and a different row ordering (e.g., Cell phones ranks 3rd vs 7th), so the results answer a different question with wrong values even after accounting for the ratio-vs-percentage difference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 344,
+  "judge_latency_ms": 13475
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 66,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries the wrong table (FactSales instead of FactOnlineSales) and uses a different filter (DiscountAmount > 0 vs PromotionKey <> 1), producing substantially different values across all four quarters.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 229,
+  "judge_latency_ms": 11176
+}

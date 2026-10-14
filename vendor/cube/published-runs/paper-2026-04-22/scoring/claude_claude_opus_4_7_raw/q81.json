@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same cohort_year, customer counts, and avg LTV values (within rounding) as the reference for both rows, but omits the total_ltv column; since the core measures match exactly, it analytically answers the question correctly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 283,
+  "judge_latency_ms": 13812
+}

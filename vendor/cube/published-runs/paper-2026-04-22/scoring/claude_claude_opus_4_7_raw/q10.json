@@ -1,0 +1,11 @@
+{
+  "question_id": 10,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both the reference and candidate queries return 294; the candidate's simpler filter (Status = 'On') produces the same count as the reference's compound condition, indicating all open stores have Status = 'On'.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 198,
+  "judge_latency_ms": 10593
+}

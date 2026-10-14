@@ -1,0 +1,115 @@
+{
+  "question_id": 74,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT StoreKey, StoreName, ProductKey, ProductName, product_sales, store_total, product_sales * 100.0 / nullif(store_total, 0) AS share_pct, rn\nFROM (\n  SELECT\n    s.StoreKey AS StoreKey,\n    st.StoreName AS StoreName,\n    s.ProductKey AS ProductKey,\n    p.ProductName AS ProductName,\n    sum(s.SalesAmount) AS product_sales,\n    sum(sum(s.SalesAmount)) OVER (PARTITION BY s.StoreKey) AS store_total,\n    row_number() OVER (PARTITION BY s.StoreKey ORDER BY sum(s.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales s\n  JOIN retail.DimStore st ON st.StoreKey = s.StoreKey\n  JOIN retail.DimProduct p ON p.ProductKey = s.ProductKey\n  WHERE toYear(s.DateKey) = 2009\n  GROUP BY s.StoreKey, st.StoreName, s.ProductKey, p.ProductName\n)\nWHERE rn <= 3\nORDER BY StoreKey, rn",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      1336795.8225000063,
+      291980819.32549995,
+      0.4578368625679304,
+      1
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      1133436.4579999966,
+      291980819.32549995,
+      0.3881886695908071,
+      2
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      1963,
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      951837.0254999975,
+      291980819.32549995,
+      0.3259929976560859,
+      3
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      882941.2407999989,
+      233982982.9233,
+      0.37735275863605366,
+      1
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      880253.2492000011,
+      233982982.9233,
+      0.3762039607335673,
+      2
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      869373.283199998,
+      233982982.9233,
+      0.3715540644615938,
+      3
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      1927,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      1079996.6249999967,
+      282498324.19799984,
+      0.3823019580969406,
+      1
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      1075196.6399999969,
+      282498324.19799984,
+      0.3806028382831765,
+      2
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      1047996.724999996,
+      282498324.19799984,
+      0.37097449267184573,
+      3
+    ]
+  ],
+  "columns": [
+    "StoreKey",
+    "StoreName",
+    "ProductKey",
+    "ProductName",
+    "product_sales",
+    "store_total",
+    "share_pct",
+    "rn"
+  ],
+  "row_count": 9,
+  "latency_ms_gen": 9622,
+  "latency_ms_exec": 836,
+  "tokens_in": 23332,
+  "tokens_out": 425,
+  "claude_error": null,
+  "sql_error": null
+}

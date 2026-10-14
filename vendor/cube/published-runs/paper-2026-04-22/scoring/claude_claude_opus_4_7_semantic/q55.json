@@ -1,0 +1,11 @@
+{
+  "question_id": 55,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return 9344; countDistinct(CustomerKey) produces the same result as count(*) here since each row represents a unique customer with Gender='F'.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 172,
+  "judge_latency_ms": 11165
+}

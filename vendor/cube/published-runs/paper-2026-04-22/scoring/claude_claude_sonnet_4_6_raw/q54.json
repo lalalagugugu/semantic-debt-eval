@@ -1,0 +1,11 @@
+{
+  "question_id": 54,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same sum (29244318.2048 vs 29244318.2048, difference is negligible floating-point precision well under 1%) with only a different column alias.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 175,
+  "judge_latency_ms": 9874
+}

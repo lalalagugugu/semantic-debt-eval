@@ -1,0 +1,11 @@
+{
+  "question_id": 1,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same scalar value (2233) as the reference, differing only by an added alias which does not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 168,
+  "judge_latency_ms": 9487
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 63,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All five rows match on Occupation with numeric drift well under 1% (max ~0.09% on Clerical), caused only by a slightly different but semantically equivalent averaging method (avg of per-order sums vs. total sum / distinct orders).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 685,
+  "judge_latency_ms": 18670
+}

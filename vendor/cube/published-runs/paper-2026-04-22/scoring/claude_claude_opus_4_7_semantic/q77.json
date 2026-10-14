@@ -1,0 +1,11 @@
+{
+  "question_id": 77,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 62, server response: Code: 62. DB::Exception: Syntax error (Multi-statements are not allowed): failed at position 376 (end of query) (line 1, col 376): ;\n\nWait, let me redo this properly.\n\nSELECT m AS Month, monthly_sales AS SalesAmount, prev_sales AS PrevMonthSales, (monthly_sales - prev_sales) * 100.0 / nullif(pr... . (SYNTAX_ERROR) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

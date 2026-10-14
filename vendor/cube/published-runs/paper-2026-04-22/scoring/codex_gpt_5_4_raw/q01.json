@@ -1,0 +1,11 @@
+{
+  "question_id": 1,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same scalar value (2233); the candidate simply adds an alias, which does not affect the result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 142,
+  "judge_latency_ms": 9894
+}

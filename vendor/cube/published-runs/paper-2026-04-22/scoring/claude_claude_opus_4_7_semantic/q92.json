@@ -1,0 +1,11 @@
+{
+  "question_id": 92,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 11 rows (no LIMIT 10) vs the reference's 10, and omits revenue and gross_margin_pct columns, but the top-10 gross margin values match the reference within floating-point precision and the brands are correctly ranked, making it analytically correct.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 602,
+  "judge_latency_ms": 19870
+}

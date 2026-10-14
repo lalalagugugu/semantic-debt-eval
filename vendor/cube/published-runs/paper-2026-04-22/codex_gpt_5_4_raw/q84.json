@@ -1,0 +1,31 @@
+{
+  "question_id": 84,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    abc_class,\n    count() AS product_count\nFROM\n(\n    SELECT\n        ProductKey,\n        multiIf(cumulative_revenue_share <= 0.80, 'A', cumulative_revenue_share <= 0.95, 'B', 'C') AS abc_class\n    FROM\n    (\n        SELECT\n            ProductKey,\n            product_revenue,\n            sum(product_revenue) OVER (ORDER BY product_revenue DESC, ProductKey ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) / total_revenue AS cumulative_revenue_share\n        FROM\n        (\n            SELECT\n                ProductKey,\n                sum(SalesAmount) AS product_revenue,\n                sum(sum(SalesAmount)) OVER () AS total_revenue\n            FROM retail.FactSales\n            WHERE toYear(DateKey) = 2009\n            GROUP BY ProductKey\n        )\n    )\n)\nGROUP BY abc_class\nORDER BY abc_class;",
+  "rows": [
+    [
+      "A",
+      1119
+    ],
+    [
+      "B",
+      672
+    ],
+    [
+      "C",
+      713
+    ]
+  ],
+  "columns": [
+    "abc_class",
+    "product_count"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 15817,
+  "latency_ms_exec": 536,
+  "tokens_in": 17266,
+  "tokens_out": 308,
+  "claude_error": null,
+  "sql_error": null
+}

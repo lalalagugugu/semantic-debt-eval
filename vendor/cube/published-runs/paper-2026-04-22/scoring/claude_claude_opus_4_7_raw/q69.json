@@ -1,0 +1,11 @@
+{
+  "question_id": 69,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Revenue matches exactly; discount metric differs in method (AVG stated DiscountPercent \u2248 12.996% vs effective rate 13.109%), but relative drift is ~0.86% (within 1%) and both address the \"average discount percent\" question, so analytically acceptable.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1819,
+  "judge_latency_ms": 36761
+}

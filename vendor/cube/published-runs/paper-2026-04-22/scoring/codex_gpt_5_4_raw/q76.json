@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns all 8 categories with identical values (100.0 each); the only difference is alphabetical vs. descending sort order, which is irrelevant when all values are equal.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 199,
+  "judge_latency_ms": 11858
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 95,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT coalesce(pc.ProductCategoryName, 'Unknown') AS product_category, round(sumIf(s.sales_amount, s.is_promoted = 1), 2) AS promoted_revenue, round(sumIf(s.sales_amount, s.is_promoted = 0), 2) AS full_price_revenue, round(sumIf(s.sales_amount, s.is_promoted = 1) - sumIf(s.sales_amount, s.is_promoted = 0), 2) AS incremental_revenue_vs_full_price, round(divide(sumIf(s.sales_amount, s.is_promoted = 1) - sumIf(s.sales_amount, s.is_promoted = 0), nullIf(sumIf(s.sales_amount, s.is_promoted = 0), 0)) * 100, 2) AS incremental_revenue_pct_vs_full_price FROM (SELECT ProductKey, SalesAmount AS sales_amount, if((DiscountAmount > 0) OR (DiscountQuantity > 0), 1, 0) AS is_promoted FROM retail.FactSales UNION ALL SELECT ProductKey, SalesAmount AS sales_amount, if((DiscountAmount > 0) OR (DiscountQuantity > 0), 1, 0) AS is_promoted FROM retail.FactOnlineSales) AS s LEFT JOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey LEFT JOIN retail.DimProductSubcategory AS ps ON toInt32OrNull(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey LEFT JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY coalesce(pc.ProductCategoryName, 'Unknown') ORDER BY incremental_revenue_vs_full_price DESC. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

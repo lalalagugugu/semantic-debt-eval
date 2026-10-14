@@ -1,0 +1,11 @@
+{
+  "question_id": 83,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate's three count values (18868, 18723, 17671) exactly match the corresponding counts in the reference row; the omitted percentage columns were not part of the question and are merely derived from those same counts.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 599,
+  "judge_latency_ms": 19690
+}

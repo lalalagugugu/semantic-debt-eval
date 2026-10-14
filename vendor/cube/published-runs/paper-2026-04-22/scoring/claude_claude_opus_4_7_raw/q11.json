@@ -1,0 +1,11 @@
+{
+  "question_id": 11,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing completely different (much larger) sales totals per category that do not match the reference values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 180,
+  "judge_latency_ms": 10796
+}

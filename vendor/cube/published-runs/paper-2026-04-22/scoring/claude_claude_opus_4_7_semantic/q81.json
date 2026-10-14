@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same cohort years, customer counts, and avg LTV values (within negligible floating-point precision), answering the question correctly; it simply omits the total_ltv column present in the reference, which is irrelevant to the question asked.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 315,
+  "judge_latency_ms": 13778
+}

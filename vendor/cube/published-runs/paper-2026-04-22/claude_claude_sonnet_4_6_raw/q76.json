@@ -1,0 +1,69 @@
+{
+  "question_id": 76,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH repeat_customers AS (\n    SELECT CustomerKey\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING countDistinct(SalesOrderNumber) >= 2\n)\nSELECT\n    pc.ProductCategoryName,\n    round(sum(fos.SalesAmount), 2) AS total_sales,\n    round(sumIf(fos.SalesAmount, fos.CustomerKey IN (SELECT CustomerKey FROM repeat_customers)), 2) AS repeat_customer_sales,\n    round(\n        100.0 * sumIf(fos.SalesAmount, fos.CustomerKey IN (SELECT CustomerKey FROM repeat_customers)) / sum(fos.SalesAmount),\n        2\n    ) AS repeat_customer_pct\nFROM retail.FactOnlineSales fos\nJOIN retail.DimProduct dp ON fos.ProductKey = dp.ProductKey\nJOIN retail.DimProductSubcategory dps ON toInt32(dp.ProductSubcategoryKey) = dps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON dps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY repeat_customer_pct DESC",
+  "rows": [
+    [
+      "Audio",
+      36856719.46,
+      36856719.46,
+      100.0
+    ],
+    [
+      "Computers",
+      482566800.18,
+      482566800.18,
+      100.0
+    ],
+    [
+      "Home Appliances",
+      833911778.54,
+      833911778.54,
+      100.0
+    ],
+    [
+      "TV and Video",
+      412304199.82,
+      412304199.82,
+      100.0
+    ],
+    [
+      "Cell phones",
+      165713212.0,
+      165713212.0,
+      100.0
+    ],
+    [
+      "Games and Toys",
+      6047306.74,
+      6047306.74,
+      100.0
+    ],
+    [
+      "Cameras and camcorders",
+      598334988.68,
+      598334988.68,
+      100.0
+    ],
+    [
+      "Music, Movies and Audio Books",
+      30345766.3,
+      30345766.3,
+      100.0
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "total_sales",
+    "repeat_customer_sales",
+    "repeat_customer_pct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 14255,
+  "latency_ms_exec": 987,
+  "tokens_in": 13808,
+  "tokens_out": 855,
+  "claude_error": null,
+  "sql_error": null
+}

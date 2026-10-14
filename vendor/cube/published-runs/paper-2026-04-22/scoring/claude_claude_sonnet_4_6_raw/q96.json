@@ -1,0 +1,11 @@
+{
+  "question_id": 96,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 63, server response: Code: 63. DB::Exception: Aggregate function with name 'toYear' does not exist. In scope SELECT s.CustomerKey, toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey) AS cohort_year, max(if(toYear(s.DateKey) > toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey), 1, 0)) OVER (PARTITION BY s.CustomerKey) AS has_return FROM retail.FactOnlineSales AS s. (UNKNOWN_AGGREGATE_FUNCTION) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

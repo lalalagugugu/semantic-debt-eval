@@ -1,0 +1,115 @@
+{
+  "question_id": 93,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.PromotionName,\n    p.PromotionCategory,\n    p.DiscountPercent,\n    sum(f.SalesQuantity)                                                        AS total_units_sold,\n    countDistinct(f.SalesOrderNumber)                                           AS total_orders,\n    round(sum(f.SalesQuantity) / nullif(countDistinct(f.SalesOrderNumber), 0), 2) AS avg_units_per_order,\n    round(sum(f.SalesAmount), 2)                                                AS total_sales_amount,\n    round(sum(f.DiscountAmount), 2)                                             AS total_discount_given\nFROM retail.FactOnlineSales f\nJOIN retail.DimPromotion p ON f.PromotionKey = p.PromotionKey\nWHERE f.PromotionKey != 1          -- exclude \"No Discount\" baseline\n  AND p.DiscountPercent IS NOT NULL\nGROUP BY\n    p.PromotionName,\n    p.PromotionCategory,\n    p.DiscountPercent\nORDER BY p.DiscountPercent ASC",
+  "rows": [
+    [
+      "North America Spring Promotion",
+      "Store",
+      0.05,
+      967948,
+      206866,
+      4.68,
+      221816063.46,
+      11798642.8
+    ],
+    [
+      "European Spring Promotion",
+      "Store",
+      0.07,
+      1084791,
+      202255,
+      5.36,
+      240892539.68,
+      18294374.33
+    ],
+    [
+      "North America Back-to-School Promotion",
+      "Store",
+      0.1,
+      1267127,
+      156354,
+      8.1,
+      270850648.59,
+      30386924.15
+    ],
+    [
+      "European Back-to-Scholl Promotion",
+      "Store",
+      0.1,
+      600464,
+      90726,
+      6.62,
+      133233659.76,
+      14990041.28
+    ],
+    [
+      "Asian Summer Promotion",
+      "Store",
+      0.1,
+      746926,
+      65540,
+      11.4,
+      152920879.96,
+      17166609.08
+    ],
+    [
+      "Asian Holiday Promotion",
+      "Store",
+      0.15,
+      1179919,
+      90171,
+      13.09,
+      222746886.72,
+      39685686.85
+    ],
+    [
+      "North America Holiday Promotion",
+      "Store",
+      0.2,
+      890723,
+      93804,
+      9.5,
+      170661412.89,
+      43058829.95
+    ],
+    [
+      "Asian Spring Promotion",
+      "Store",
+      0.2,
+      822869,
+      81443,
+      10.1,
+      156855247.59,
+      39712371.85
+    ],
+    [
+      "European Holiday Promotion",
+      "Store",
+      0.2,
+      1098471,
+      190991,
+      5.75,
+      212452641.89,
+      53810637.1
+    ]
+  ],
+  "columns": [
+    "PromotionName",
+    "PromotionCategory",
+    "DiscountPercent",
+    "total_units_sold",
+    "total_orders",
+    "avg_units_per_order",
+    "total_sales_amount",
+    "total_discount_given"
+  ],
+  "row_count": 9,
+  "latency_ms_gen": 13205,
+  "latency_ms_exec": 1004,
+  "tokens_in": 16764,
+  "tokens_out": 473,
+  "claude_error": null,
+  "sql_error": null
+}

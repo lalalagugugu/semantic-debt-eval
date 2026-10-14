@@ -1,0 +1,30 @@
+{
+  "question_id": 68,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    if(d.IsHoliday = 'Yes', 'Holiday', 'Non-Holiday') AS day_type,\n    countDistinct(o.SalesOrderNumber) AS online_orders,\n    sum(o.SalesAmount) AS revenue\nFROM retail.FactOnlineSales AS o\nINNER JOIN retail.DimDate AS d\n    ON o.DateKey = d.DateKey\nWHERE d.CalendarYear = 2009\nGROUP BY day_type\nORDER BY day_type",
+  "rows": [
+    [
+      "Holiday",
+      106571,
+      243875865.30868787
+    ],
+    [
+      "Non-Holiday",
+      271499,
+      613852166.0362269
+    ]
+  ],
+  "columns": [
+    "day_type",
+    "online_orders",
+    "revenue"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 11182,
+  "latency_ms_exec": 712,
+  "tokens_in": 16379,
+  "tokens_out": 143,
+  "claude_error": null,
+  "sql_error": null
+}

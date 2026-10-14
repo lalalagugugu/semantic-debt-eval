@@ -1,0 +1,11 @@
+{
+  "question_id": 22,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 65 rows with identical CustomerKey, country, total_spend, and rank values as the reference; the only differences are a concatenated name column and an additional secondary ORDER BY clause, which do not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 280,
+  "judge_latency_ms": 12513
+}

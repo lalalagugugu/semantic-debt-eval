@@ -1,0 +1,11 @@
+{
+  "question_id": 8,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 17 salesperson rows with matching FirstName/LastName values; the extra columns (EmployeeKey, Title, DepartmentName, EmailAddress) and different ordering do not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 214,
+  "judge_latency_ms": 11212
+}

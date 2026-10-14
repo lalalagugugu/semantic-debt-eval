@@ -1,0 +1,33 @@
+{
+  "question_id": 84,
+  "sql": "WITH prod_rev AS (\n  SELECT ProductKey, SUM(SalesAmount) AS rev\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY ProductKey\n),\nranked AS (\n  SELECT ProductKey, rev,\n         SUM(rev) OVER (ORDER BY rev DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum_rev,\n         SUM(rev) OVER () AS total_rev\n  FROM prod_rev\n),\nclassed AS (\n  SELECT ProductKey,\n         CASE WHEN cum_rev / total_rev <= 0.80 THEN 'A'\n              WHEN cum_rev / total_rev <= 0.95 THEN 'B'\n              ELSE 'C' END AS abc_class,\n         rev\n  FROM ranked\n)\nSELECT abc_class,\n       count() AS product_count,\n       round(sum(rev), 2) AS revenue,\n       round(sum(rev) * 100.0 / (SELECT sum(rev) FROM prod_rev), 2) AS pct_of_revenue\nFROM classed\nGROUP BY abc_class\nORDER BY abc_class",
+  "rows": [
+    [
+      "A",
+      1131,
+      686163556.22,
+      80.0
+    ],
+    [
+      "B",
+      666,
+      128626493.5,
+      15.0
+    ],
+    [
+      "C",
+      707,
+      42937981.63,
+      5.01
+    ]
+  ],
+  "columns": [
+    "abc_class",
+    "product_count",
+    "revenue",
+    "pct_of_revenue"
+  ],
+  "row_count": 3,
+  "exec_ms": 534,
+  "error": null
+}

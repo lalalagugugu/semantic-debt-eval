@@ -1,0 +1,39 @@
+{
+  "question_id": 63,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    c.Occupation,\n    avg(o.SalesAmount) AS AvgOrderValue\nFROM retail.FactOnlineSales o\nJOIN retail.DimCustomer c ON o.CustomerKey = c.CustomerKey\nGROUP BY c.Occupation\nORDER BY AvgOrderValue DESC",
+  "rows": [
+    [
+      "Management",
+      231.16575120687645
+    ],
+    [
+      "Professional",
+      226.65027451806807
+    ],
+    [
+      "Skilled Manual",
+      216.34556768893924
+    ],
+    [
+      "Clerical",
+      205.37921621317264
+    ],
+    [
+      "Manual",
+      197.04844316561608
+    ]
+  ],
+  "columns": [
+    "Occupation",
+    "AvgOrderValue"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 7192,
+  "latency_ms_exec": 707,
+  "tokens_in": 13796,
+  "tokens_out": 152,
+  "claude_error": null,
+  "sql_error": null
+}

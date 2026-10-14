@@ -1,0 +1,23 @@
+{
+  "question_id": 36,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n  CASE\n    WHEN dateDiff('day', last_order_date, today()) <= 90 THEN 'Active'\n    WHEN dateDiff('day', last_order_date, today()) <= 180 THEN 'At Risk'\n    ELSE 'Churned'\n  END AS CustomerSegment,\n  count() AS CustomerCount\nFROM\n(\n  SELECT CustomerKey, max(DateKey) AS last_order_date\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nGROUP BY CustomerSegment\nORDER BY CustomerSegment",
+  "rows": [
+    [
+      "Churned",
+      18869
+    ]
+  ],
+  "columns": [
+    "CustomerSegment",
+    "CustomerCount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7711,
+  "latency_ms_exec": 610,
+  "tokens_in": 19123,
+  "tokens_out": 217,
+  "claude_error": null,
+  "sql_error": null
+}

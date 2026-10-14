@@ -1,0 +1,21 @@
+{
+  "question_id": 56,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT avg(YearlyIncome) AS AverageYearlyIncome FROM retail.DimCustomer",
+  "rows": [
+    [
+      260174.8900312682
+    ]
+  ],
+  "columns": [
+    "AverageYearlyIncome"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5756,
+  "latency_ms_exec": 502,
+  "tokens_in": 19114,
+  "tokens_out": 43,
+  "claude_error": null,
+  "sql_error": null
+}

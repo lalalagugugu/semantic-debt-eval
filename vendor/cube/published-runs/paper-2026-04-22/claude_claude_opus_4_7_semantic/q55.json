@@ -1,0 +1,21 @@
+{
+  "question_id": 55,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT countDistinct(CustomerKey) FROM retail.DimCustomer WHERE Gender = 'F'",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "countDistinct(CustomerKey)"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5814,
+  "latency_ms_exec": 506,
+  "tokens_in": 23310,
+  "tokens_out": 45,
+  "claude_error": null,
+  "sql_error": null
+}

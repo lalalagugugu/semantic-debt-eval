@@ -1,0 +1,21 @@
+{
+  "question_id": 53,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT count() AS OnlineOrderCount\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      5001060
+    ]
+  ],
+  "columns": [
+    "OnlineOrderCount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6507,
+  "latency_ms_exec": 490,
+  "tokens_in": 13796,
+  "tokens_out": 69,
+  "claude_error": null,
+  "sql_error": null
+}

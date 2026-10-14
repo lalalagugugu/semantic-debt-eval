@@ -1,0 +1,27 @@
+{
+  "question_id": 26,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    d.CalendarQuarterLabel AS quarter,\n    count() AS customers_first_purchase\nFROM\n(\n    SELECT\n        CustomerKey,\n        min(DateKey) AS first_purchase_date\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING toYear(first_purchase_date) = 2007\n) fp\nINNER JOIN retail.DimDate d\n    ON d.DateKey = fp.first_purchase_date\nGROUP BY d.CalendarQuarterLabel, toQuarter(fp.first_purchase_date)\nORDER BY toQuarter(fp.first_purchase_date)",
+  "rows": [
+    [
+      "Q1",
+      18015
+    ],
+    [
+      "Q2",
+      853
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "customers_first_purchase"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 15109,
+  "latency_ms_exec": 556,
+  "tokens_in": 18829,
+  "tokens_out": 220,
+  "claude_error": null,
+  "sql_error": null
+}

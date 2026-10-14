@@ -1,0 +1,21 @@
+{
+  "question_id": 53,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT count(DISTINCT SalesOrderNumber) AS OrderCount FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      378070
+    ]
+  ],
+  "columns": [
+    "OrderCount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6883,
+  "latency_ms_exec": 628,
+  "tokens_in": 19114,
+  "tokens_out": 64,
+  "claude_error": null,
+  "sql_error": null
+}

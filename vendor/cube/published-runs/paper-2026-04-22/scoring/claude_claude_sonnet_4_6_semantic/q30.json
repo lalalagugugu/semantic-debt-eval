@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the expected rows exactly across all 31 December 2009 dates, with identical daily_sales and moving_avg_7d values; only the filter syntax and query structure differ semantically.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 182,
+  "judge_latency_ms": 11303
+}

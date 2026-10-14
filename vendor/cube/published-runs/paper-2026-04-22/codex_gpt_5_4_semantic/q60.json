@@ -1,0 +1,21 @@
+{
+  "question_id": 60,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT count() AS production_employee_count\nFROM retail.DimEmployee\nWHERE DepartmentName = 'Production'",
+  "rows": [
+    [
+      176
+    ]
+  ],
+  "columns": [
+    "production_employee_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13621,
+  "latency_ms_exec": 494,
+  "tokens_in": 19679,
+  "tokens_out": 55,
+  "claude_error": null,
+  "sql_error": null
+}

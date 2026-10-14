@@ -1,0 +1,75 @@
+{
+  "question_id": 62,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.BrandName AS BrandName, sum(o.SalesAmount) AS TotalRevenue, sum(o.SalesQuantity) AS UnitsSold FROM retail.FactOnlineSales AS o INNER JOIN retail.DimProduct AS p ON o.ProductKey = p.ProductKey WHERE toYear(o.DateKey) = 2008 GROUP BY p.BrandName HAVING sum(o.SalesQuantity) >= 500 ORDER BY TotalRevenue DESC",
+  "rows": [
+    [
+      "Contoso",
+      193395697.22647154,
+      1210662
+    ],
+    [
+      "Fabrikam",
+      151603963.53327644,
+      316673
+    ],
+    [
+      "Litware",
+      116908261.69229525,
+      291923
+    ],
+    [
+      "Proseware",
+      75323290.35557213,
+      280101
+    ],
+    [
+      "Adventure Works",
+      67393335.99456812,
+      192218
+    ],
+    [
+      "Wide World Importers",
+      50004618.57218622,
+      154607
+    ],
+    [
+      "Northwind Traders",
+      41398038.692098975,
+      50916
+    ],
+    [
+      "The Phone Company",
+      40131848.389991626,
+      154724
+    ],
+    [
+      "A. Datum",
+      37053899.64600323,
+      154158
+    ],
+    [
+      "Southridge Video",
+      28061126.356511053,
+      252431
+    ],
+    [
+      "Tailspin Toys",
+      1064239.3875001147,
+      133425
+    ]
+  ],
+  "columns": [
+    "BrandName",
+    "TotalRevenue",
+    "UnitsSold"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 6924,
+  "latency_ms_exec": 542,
+  "tokens_in": 19135,
+  "tokens_out": 186,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,25 @@
+{
+  "question_id": 29,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH daily AS (\n  SELECT d.IsHoliday AS is_holiday, f.DateKey AS date_key, sum(f.SalesAmount) AS day_total\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON f.DateKey = d.DateKey\n  GROUP BY d.IsHoliday, f.DateKey\n),\nagg AS (\n  SELECT\n    avgIf(day_total, is_holiday = 'Yes') AS avg_holiday,\n    avgIf(day_total, is_holiday = 'No') AS avg_regular\n  FROM daily\n)\nSELECT\n  avg_holiday,\n  avg_regular,\n  (avg_holiday - avg_regular) * 100.0 / nullif(avg_regular, 0) AS pct_difference\nFROM agg",
+  "rows": [
+    [
+      2480578.0704991673,
+      2479926.3671079185,
+      0.02627914279603552
+    ]
+  ],
+  "columns": [
+    "avg_holiday",
+    "avg_regular",
+    "pct_difference"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9192,
+  "latency_ms_exec": 642,
+  "tokens_in": 23322,
+  "tokens_out": 338,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,25 @@
+{
+  "question_id": 67,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.ColorName,\n    sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_online_unit_price_realized,\n    sum(f.SalesQuantity) AS units_sold\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimProduct AS p\n    ON f.ProductKey = p.ProductKey\nWHERE p.ColorName IS NOT NULL\nGROUP BY p.ColorName\nHAVING sum(f.SalesQuantity) >= 1000\nORDER BY avg_online_unit_price_realized DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Green",
+      523.4705784231749,
+      232982
+    ]
+  ],
+  "columns": [
+    "ColorName",
+    "avg_online_unit_price_realized",
+    "units_sold"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 12668,
+  "latency_ms_exec": 610,
+  "tokens_in": 18837,
+  "tokens_out": 216,
+  "claude_error": null,
+  "sql_error": null
+}

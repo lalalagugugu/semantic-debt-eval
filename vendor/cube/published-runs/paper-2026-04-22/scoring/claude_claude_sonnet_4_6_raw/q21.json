@@ -1,0 +1,11 @@
+{
+  "question_id": 21,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses a single global MAX(DateKey) instead of per-(StoreKey,ProductKey) max date; store/product pairs whose latest record predates the global max are excluded or get wrong summed values, making it a wrong filter that may produce different results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1090,
+  "judge_latency_ms": 27904
+}

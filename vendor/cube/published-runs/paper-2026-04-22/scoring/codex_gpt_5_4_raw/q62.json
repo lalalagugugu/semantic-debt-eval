@@ -1,0 +1,11 @@
+{
+  "question_id": 62,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 11 brand rows match with only negligible floating-point differences; the different sort order (units vs revenue) is immaterial since the question imposes no required ranking.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 508,
+  "judge_latency_ms": 16508
+}

@@ -1,0 +1,195 @@
+{
+  "question_id": 100,
+  "sql": "WITH cust AS (\n  SELECT CustomerKey,\n         countDistinct(SalesOrderNumber) AS orders,\n         sum(SalesAmount) / nullif(countDistinct(SalesOrderNumber), 0) AS aov\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nthresholds AS (\n  SELECT quantile(0.9)(orders) AS orders_p90,\n         quantile(0.9)(aov) AS aov_p90\n  FROM cust\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       cu.orders,\n       cu.aov,\n       cu.orders * cu.aov AS lifetime_value\nFROM cust cu\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer c ON c.CustomerKey = cu.CustomerKey\nWHERE cu.orders >= t.orders_p90 AND cu.aov >= t.aov_p90\nORDER BY lifetime_value DESC\nLIMIT 30",
+  "rows": [
+    [
+      "Not Provided Not Provided",
+      272,
+      70332.54881065736,
+      19130453.276498802
+    ],
+    [
+      "Not Provided Not Provided",
+      360,
+      51664.925473610805,
+      18599373.17049989
+    ],
+    [
+      "Not Provided Not Provided",
+      355,
+      51796.79810507522,
+      18387863.327301703
+    ],
+    [
+      "Not Provided Not Provided",
+      285,
+      64101.71967719167,
+      18268990.107999627
+    ],
+    [
+      "Not Provided Not Provided",
+      343,
+      53049.33750875265,
+      18195922.76550216
+    ],
+    [
+      "Not Provided Not Provided",
+      356,
+      50861.010197759584,
+      18106519.630402412
+    ],
+    [
+      "Not Provided Not Provided",
+      265,
+      67781.73568680404,
+      17962159.95700307
+    ],
+    [
+      "Not Provided Not Provided",
+      262,
+      68538.70037251599,
+      17957139.49759919
+    ],
+    [
+      "Not Provided Not Provided",
+      274,
+      64763.41208541442,
+      17745174.91140355
+    ],
+    [
+      "Not Provided Not Provided",
+      269,
+      65910.63289145925,
+      17729960.247802537
+    ],
+    [
+      "Not Provided Not Provided",
+      355,
+      49789.198214934135,
+      17675165.36630162
+    ],
+    [
+      "Not Provided Not Provided",
+      248,
+      71025.83352218896,
+      17614406.71350286
+    ],
+    [
+      "Not Provided Not Provided",
+      275,
+      60259.590589098945,
+      16571387.41200221
+    ],
+    [
+      "Not Provided Not Provided",
+      364,
+      45414.879021434004,
+      16531015.963801978
+    ],
+    [
+      "Not Provided Not Provided",
+      443,
+      36743.26214628115,
+      16277265.13080255
+    ],
+    [
+      "Not Provided Not Provided",
+      343,
+      47375.58309271384,
+      16249825.000800846
+    ],
+    [
+      "Not Provided Not Provided",
+      269,
+      59810.59084684673,
+      16089048.93780177
+    ],
+    [
+      "Not Provided Not Provided",
+      354,
+      44696.406905934964,
+      15822528.044700976
+    ],
+    [
+      "Not Provided Not Provided",
+      281,
+      55806.49999609369,
+      15681626.498902326
+    ],
+    [
+      "Not Provided Not Provided",
+      293,
+      51369.878290105735,
+      15051374.33900098
+    ],
+    [
+      "Not Provided Not Provided",
+      204,
+      73176.39130395635,
+      14927983.826007094
+    ],
+    [
+      "Not Provided Not Provided",
+      286,
+      52184.561709446796,
+      14924784.648901783
+    ],
+    [
+      "Not Provided Not Provided",
+      307,
+      48539.53118730763,
+      14901636.074503442
+    ],
+    [
+      "Not Provided Not Provided",
+      305,
+      48077.169542635704,
+      14663536.71050389
+    ],
+    [
+      "Not Provided Not Provided",
+      354,
+      41339.63663841921,
+      14634231.3700004
+    ],
+    [
+      "Not Provided Not Provided",
+      283,
+      50854.070469979124,
+      14391701.943004092
+    ],
+    [
+      "Not Provided Not Provided",
+      320,
+      43842.530241561595,
+      14029609.67729971
+    ],
+    [
+      "Not Provided Not Provided",
+      265,
+      52705.37791322048,
+      13966925.147003427
+    ],
+    [
+      "Not Provided Not Provided",
+      294,
+      47307.25634558292,
+      13908333.36560138
+    ],
+    [
+      "Not Provided Not Provided",
+      196,
+      70553.98460206398,
+      13828580.98200454
+    ]
+  ],
+  "columns": [
+    "customer_name",
+    "orders",
+    "aov",
+    "lifetime_value"
+  ],
+  "row_count": 30,
+  "exec_ms": 1019,
+  "error": null
+}

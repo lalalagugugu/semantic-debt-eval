@@ -1,0 +1,21 @@
+{
+  "question_id": 78,
+  "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       round(disc, 2) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       round(disc * 100.0 / nullif(sum(disc) OVER (), 0), 2) AS pct_of_total\nFROM promo\nORDER BY rnk",
+  "rows": [
+    [
+      "Store",
+      84164891.87,
+      1,
+      100.0
+    ]
+  ],
+  "columns": [
+    "category",
+    "discount_total",
+    "rnk",
+    "pct_of_total"
+  ],
+  "row_count": 1,
+  "exec_ms": 531,
+  "error": null
+}

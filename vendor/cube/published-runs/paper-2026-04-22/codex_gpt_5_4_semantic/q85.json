@@ -1,0 +1,15 @@
+{
+  "question_id": 85,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH\nactuals AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmount) AS actual_sales\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nquotas AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmountQuota) AS sales_amount_quota\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nstore_attainment AS (\n    SELECT\n        s.StoreKey,\n        ds.StoreName,\n        a.actual_sales,\n        q.sales_amount_quota,\n        a.actual_sales / nullIf(q.sales_amount_quota, 0) AS quota_attainment\n    FROM actuals a\n    INNER JOIN quotas q ON a.StoreKey = q.StoreKey\n    INNER JOIN retail.DimStore ds ON a.StoreKey = ds.StoreKey\n),\nranked AS (\n    SELECT\n        *,\n        row_number() OVER (ORDER BY quota_attainment DESC, StoreKey) AS top_rank,\n        row_number() OVER (ORDER BY quota_attainment ASC, StoreKey) AS bottom_rank\n    FROM store_attainment\n)\nSELECT\n    if(top_rank <= 5, 'Top 5', 'Bottom 5') AS performer_group,\n    StoreKey,\n    StoreName,\n    actual_sales,\n    sales_amount_quota,\n    quota_attainment\nFROM ranked\nWHERE top_rank <= 5 OR bottom_rank <= 5\nORDER BY performer_group DESC, quota_attainment DESC, StoreKey",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 22657,
+  "latency_ms_exec": null,
+  "tokens_in": 18840,
+  "tokens_out": 711,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `s.StoreKey` in scope  store_attainment. Maybe you meant: ['q.StoreKey']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

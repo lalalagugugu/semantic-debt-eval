@@ -1,0 +1,21 @@
+{
+  "question_id": 40,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    sum(s.SalesAmount * fer_eur.EndOfDayRate / fer_sale.EndOfDayRate) AS SalesAmount_EUR\nFROM retail.FactOnlineSales AS s\nJOIN retail.FactExchangeRate AS fer_sale\n    ON fer_sale.CurrencyKey = s.CurrencyKey\n    AND fer_sale.DateKey = s.DateKey\nJOIN retail.DimCurrency AS dc_eur\n    ON dc_eur.CurrencyName = 'Euro'\nJOIN retail.FactExchangeRate AS fer_eur\n    ON fer_eur.CurrencyKey = dc_eur.CurrencyKey\n    AND fer_eur.DateKey = s.DateKey",
+  "rows": [
+    [
+      0.0
+    ]
+  ],
+  "columns": [
+    "SalesAmount_EUR"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 17839,
+  "latency_ms_exec": 493,
+  "tokens_in": 13802,
+  "tokens_out": 736,
+  "claude_error": null,
+  "sql_error": null
+}

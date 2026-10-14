@@ -1,0 +1,11 @@
+{
+  "question_id": 42,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate collapses the year-by-year trend into one row with different metrics, but targets the correct category, its total SalesAmount (\u2248598.3M) matches the sum of all reference years, and provides a valid performance summary for the ambiguous question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1120,
+  "judge_latency_ms": 38364
+}

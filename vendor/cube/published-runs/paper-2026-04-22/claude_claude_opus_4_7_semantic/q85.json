@@ -1,0 +1,70 @@
+{
+  "question_id": 85,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT StoreName, attainment_pct, bucket FROM (\n  (SELECT s.StoreName AS StoreName,\n          sum(f.SalesAmount) * 100.0 / nullif(sum(q.SalesAmountQuota), 0) AS attainment_pct,\n          'Top' AS bucket\n   FROM retail.FactSales f\n   JOIN retail.DimStore s ON s.StoreKey = f.StoreKey\n   JOIN (SELECT StoreKey, sum(SalesAmountQuota) AS SalesAmountQuota\n         FROM retail.FactSalesQuota\n         WHERE toYear(DateKey) = 2009\n         GROUP BY StoreKey) q ON q.StoreKey = f.StoreKey\n   WHERE toYear(f.DateKey) = 2009\n   GROUP BY s.StoreName, q.SalesAmountQuota\n   HAVING sum(q.SalesAmountQuota) > 0\n   ORDER BY attainment_pct DESC\n   LIMIT 5)\n  UNION ALL\n  (SELECT s.StoreName AS StoreName,\n          sum(f.SalesAmount) * 100.0 / nullif(sum(q.SalesAmountQuota), 0) AS attainment_pct,\n          'Bottom' AS bucket\n   FROM retail.FactSales f\n   JOIN retail.DimStore s ON s.StoreKey = f.StoreKey\n   JOIN (SELECT StoreKey, sum(SalesAmountQuota) AS SalesAmountQuota\n         FROM retail.FactSalesQuota\n         WHERE toYear(DateKey) = 2009\n         GROUP BY StoreKey) q ON q.StoreKey = f.StoreKey\n   WHERE toYear(f.DateKey) = 2009\n   GROUP BY s.StoreName, q.SalesAmountQuota\n   HAVING sum(q.SalesAmountQuota) > 0\n   ORDER BY attainment_pct ASC\n   LIMIT 5)\n)\nORDER BY bucket DESC, attainment_pct DESC",
+  "rows": [
+    [
+      "Contoso Venezia Store",
+      0.06303543068272215,
+      "Top"
+    ],
+    [
+      "Contoso Racine No.2 Store",
+      0.054508380624623945,
+      "Top"
+    ],
+    [
+      "Contoso Kyoto Store",
+      0.03334572472330401,
+      "Top"
+    ],
+    [
+      "Contoso Marseille Store",
+      0.03238312647990602,
+      "Top"
+    ],
+    [
+      "Contoso Berlin Store",
+      0.03218358256439628,
+      "Top"
+    ],
+    [
+      "Contoso North America Reseller",
+      0.0008787020597743104,
+      "Bottom"
+    ],
+    [
+      "Contoso Europe Online Store",
+      0.0006228373049585451,
+      "Bottom"
+    ],
+    [
+      "Contoso Catalog Store",
+      0.0006203498328249328,
+      "Bottom"
+    ],
+    [
+      "Contoso Asia Online Store",
+      0.0005676016739140333,
+      "Bottom"
+    ],
+    [
+      "Contoso North America Online Store",
+      0.0005045886816058216,
+      "Bottom"
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "attainment_pct",
+    "bucket"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 11284,
+  "latency_ms_exec": 561,
+  "tokens_in": 23345,
+  "tokens_out": 728,
+  "claude_error": null,
+  "sql_error": null
+}

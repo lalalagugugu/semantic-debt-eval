@@ -1,0 +1,51 @@
+{
+  "question_id": 76,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH repeat_customers AS (\n  SELECT CustomerKey\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n  HAVING countDistinct(SalesOrderNumber) >= 2\n)\nSELECT\n  pc.ProductCategoryName AS ProductCategoryName,\n  sumIf(f.SalesAmount, f.CustomerKey IN (SELECT CustomerKey FROM repeat_customers)) * 100.0\n    / nullif(sum(f.SalesAmount), 0) AS RepeatCustomerSalesPct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY RepeatCustomerSalesPct DESC",
+  "rows": [
+    [
+      "TV and Video",
+      100.00000000000001
+    ],
+    [
+      "Audio",
+      100.0
+    ],
+    [
+      "Computers",
+      100.0
+    ],
+    [
+      "Home Appliances",
+      100.0
+    ],
+    [
+      "Cell phones",
+      100.0
+    ],
+    [
+      "Games and Toys",
+      100.0
+    ],
+    [
+      "Cameras and camcorders",
+      100.0
+    ],
+    [
+      "Music, Movies and Audio Books",
+      100.0
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "RepeatCustomerSalesPct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 11176,
+  "latency_ms_exec": 847,
+  "tokens_in": 23333,
+  "tokens_out": 475,
+  "claude_error": null,
+  "sql_error": null
+}

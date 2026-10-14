@@ -1,0 +1,11 @@
+{
+  "question_id": 87,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match the reference exactly in product names, on-hand quantities, and days-of-coverage values; differences are purely rounding precision (e.g., 228.32 vs 228.3), well within the 1% tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 251,
+  "judge_latency_ms": 12754
+}

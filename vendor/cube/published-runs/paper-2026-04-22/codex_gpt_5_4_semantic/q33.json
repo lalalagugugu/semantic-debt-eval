@@ -1,0 +1,92 @@
+{
+  "question_id": 33,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    p1.ProductKey AS product_1_key,\n    p1.ProductName AS product_1_name,\n    p2.ProductKey AS product_2_key,\n    p2.ProductName AS product_2_name,\n    count() AS orders_together\nFROM\n(\n    SELECT DISTINCT SalesOrderNumber, ProductKey\n    FROM retail.FactOnlineSales\n) AS a\nINNER JOIN\n(\n    SELECT DISTINCT SalesOrderNumber, ProductKey\n    FROM retail.FactOnlineSales\n) AS b\n    ON a.SalesOrderNumber = b.SalesOrderNumber\n   AND a.ProductKey < b.ProductKey\nINNER JOIN retail.DimProduct AS p1\n    ON a.ProductKey = p1.ProductKey\nINNER JOIN retail.DimProduct AS p2\n    ON b.ProductKey = p2.ProductKey\nGROUP BY\n    p1.ProductKey,\n    p1.ProductName,\n    p2.ProductKey,\n    p2.ProductName\nORDER BY orders_together DESC\nLIMIT 10",
+  "rows": [
+    [
+      153,
+      "Adventure Works 26\" 720p LCD HDTV M140 Silver",
+      176,
+      "SV 16xDVD M360 Black",
+      269201
+    ],
+    [
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      1293,
+      "Contoso Telephoto Conversion Lens X400 Silver",
+      112247
+    ],
+    [
+      66,
+      "NT Bluetooth Stereo Headphones E52 Blue",
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      73566
+    ],
+    [
+      8,
+      "Contoso 4G MP3 Player E400 Silver",
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      73550
+    ],
+    [
+      66,
+      "NT Bluetooth Stereo Headphones E52 Blue",
+      1293,
+      "Contoso Telephoto Conversion Lens X400 Silver",
+      73535
+    ],
+    [
+      8,
+      "Contoso 4G MP3 Player E400 Silver",
+      1293,
+      "Contoso Telephoto Conversion Lens X400 Silver",
+      73519
+    ],
+    [
+      8,
+      "Contoso 4G MP3 Player E400 Silver",
+      66,
+      "NT Bluetooth Stereo Headphones E52 Blue",
+      73505
+    ],
+    [
+      176,
+      "SV 16xDVD M360 Black",
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      37572
+    ],
+    [
+      153,
+      "Adventure Works 26\" 720p LCD HDTV M140 Silver",
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      37569
+    ],
+    [
+      176,
+      "SV 16xDVD M360 Black",
+      1293,
+      "Contoso Telephoto Conversion Lens X400 Silver",
+      37455
+    ]
+  ],
+  "columns": [
+    "product_1_key",
+    "product_1_name",
+    "product_2_key",
+    "product_2_name",
+    "orders_together"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 13159,
+  "latency_ms_exec": 3015,
+  "tokens_in": 18824,
+  "tokens_out": 272,
+  "claude_error": null,
+  "sql_error": null
+}

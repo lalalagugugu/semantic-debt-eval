@@ -1,0 +1,11 @@
+{
+  "question_id": 42,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters on ProductCategoryName = 'Cameras' instead of 'Cameras and camcorders', returning 0 rows versus the expected 3 rows of yearly sales data.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 204,
+  "judge_latency_ms": 9775
+}

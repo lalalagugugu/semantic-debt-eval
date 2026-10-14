@@ -1,0 +1,21 @@
+{
+  "question_id": 41,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT sum(SalesAmount) AS SalesAmount FROM retail.FactSales WHERE toYear(DateKey) = toYear(addQuarters(toDate('2026-04-23'), -1)) AND toQuarter(DateKey) = toQuarter(addQuarters(toDate('2026-04-23'), -1))",
+  "rows": [
+    [
+      0.0
+    ]
+  ],
+  "columns": [
+    "SalesAmount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13844,
+  "latency_ms_exec": 499,
+  "tokens_in": 19111,
+  "tokens_out": 117,
+  "claude_error": null,
+  "sql_error": null
+}

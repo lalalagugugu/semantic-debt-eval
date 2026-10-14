@@ -1,0 +1,59 @@
+{
+  "question_id": 7,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT ProductName, UnitPrice FROM retail.DimProduct ORDER BY UnitPrice DESC NULLS LAST LIMIT 10",
+  "rows": [
+    [
+      "Litware Refrigerator L1200 Orange",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      3199.99
+    ],
+    [
+      "Litware Refrigerator 24.7CuFt X980 White",
+      3199.99
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      3199.99
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      3199.99
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Blue",
+      3199.99
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "UnitPrice"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 5905,
+  "latency_ms_exec": 501,
+  "tokens_in": 19118,
+  "tokens_out": 59,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,722 @@
+{
+  "question_id": 20,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    fi.ProductKey,\n    dp.ProductName,\n    sum(fi.OnHandQuantity) AS total_on_hand_quantity,\n    sum(fi.SafetyStockQuantity) AS total_safety_stock_quantity,\n    sum(fi.SafetyStockQuantity) - sum(fi.OnHandQuantity) AS shortage_quantity\nFROM retail.FactInventory AS fi\nINNER JOIN retail.DimProduct AS dp\n    ON fi.ProductKey = dp.ProductKey\nWHERE fi.DateKey = (\n    SELECT max(DateKey)\n    FROM retail.FactInventory\n)\nGROUP BY\n    fi.ProductKey,\n    dp.ProductName\nHAVING sum(fi.OnHandQuantity) < sum(fi.SafetyStockQuantity)\nORDER BY shortage_quantity DESC, dp.ProductName ASC",
+  "rows": [
+    [
+      1617,
+      "Contoso DVD Player M110 Silver",
+      237,
+      1090,
+      853
+    ],
+    [
+      1582,
+      "SV DVD 48 DVD Storage Binder M50 Black",
+      284,
+      1050,
+      766
+    ],
+    [
+      1634,
+      "Contoso DVD 38 DVD Storage Binder E25 Silver",
+      396,
+      1120,
+      724
+    ],
+    [
+      1588,
+      "SV DVD 58 DVD Storage Binder M55 Silver",
+      270,
+      970,
+      700
+    ],
+    [
+      1571,
+      "SV DVD Player M100 Black",
+      250,
+      950,
+      700
+    ],
+    [
+      1642,
+      "Contoso DVD External DVD Burner M200 Black",
+      340,
+      1020,
+      680
+    ],
+    [
+      1681,
+      "MGS Hand Games men M300 Silver",
+      909,
+      1584,
+      675
+    ],
+    [
+      1662,
+      "MGS Hand Games for students E400 Yellow",
+      1497,
+      2160,
+      663
+    ],
+    [
+      1664,
+      "MGS Hand Games women M400 Yellow",
+      1056,
+      1716,
+      660
+    ],
+    [
+      1584,
+      "SV DVD 38 DVD Storage Binder E25 Black",
+      416,
+      1070,
+      654
+    ],
+    [
+      1616,
+      "Contoso DVD Player M100 Black",
+      231,
+      880,
+      649
+    ],
+    [
+      1623,
+      "Contoso DVD Recorder L210 Silver",
+      228,
+      870,
+      642
+    ],
+    [
+      1596,
+      "SV DVD 55DVD Storage Binder M56 Red",
+      358,
+      1000,
+      642
+    ],
+    [
+      1607,
+      "SV DVD 12-Inch Player Portable M400 Silver",
+      241,
+      880,
+      639
+    ],
+    [
+      1576,
+      "SV DVD Movies E100 Yellow",
+      575,
+      1210,
+      635
+    ],
+    [
+      1578,
+      "SV DVD Recorder L210 Silver",
+      126,
+      750,
+      624
+    ],
+    [
+      1646,
+      "Contoso DVD 9-Inch Player Portable M300 Black",
+      297,
+      920,
+      623
+    ],
+    [
+      1595,
+      "SV DVD 60 DVD Storage Binder L20 Red",
+      188,
+      810,
+      622
+    ],
+    [
+      1647,
+      "Contoso DVD 12-Inch Player Portable M400 Black",
+      163,
+      780,
+      617
+    ],
+    [
+      1572,
+      "SV DVD Player M110 Silver",
+      192,
+      790,
+      598
+    ],
+    [
+      1660,
+      "Contoso DVD 15-Inch Player Portable L200 White",
+      157,
+      750,
+      593
+    ],
+    [
+      1613,
+      "SV DVD 7-Inch Player Portable E200 White",
+      374,
+      960,
+      586
+    ],
+    [
+      1621,
+      "Contoso DVD Movies E100 Yellow",
+      591,
+      1170,
+      579
+    ],
+    [
+      1632,
+      "Contoso DVD 48 DVD Storage Binder M50 Silver",
+      204,
+      770,
+      566
+    ],
+    [
+      1652,
+      "Contoso DVD 12-Inch Player Portable M400 Silver",
+      268,
+      830,
+      562
+    ],
+    [
+      1643,
+      "Contoso DVD External DVD Burner M200 Grey",
+      196,
+      750,
+      554
+    ],
+    [
+      1580,
+      "SV DVD Recorder L230 Grey",
+      202,
+      750,
+      548
+    ],
+    [
+      1598,
+      "SV DVD External DVD Burner M200 Grey",
+      220,
+      760,
+      540
+    ],
+    [
+      1638,
+      "Contoso DVD 58 DVD Storage Binder M55 Red",
+      175,
+      710,
+      535
+    ],
+    [
+      1673,
+      "MGS Hand Games for kids E300 Red",
+      1015,
+      1524,
+      509
+    ],
+    [
+      1599,
+      "SV DVD External DVD Burner M200 Blue",
+      225,
+      720,
+      495
+    ],
+    [
+      1574,
+      "SV DVD Player M130 Grey",
+      261,
+      750,
+      489
+    ],
+    [
+      1677,
+      "MGS Hand Games for 12-16 boys E600 Red",
+      1300,
+      1782,
+      482
+    ],
+    [
+      1577,
+      "SV DVD Recorder L200 Black",
+      171,
+      650,
+      479
+    ],
+    [
+      1657,
+      "Contoso DVD 12-Inch Player Portable M400 White",
+      152,
+      630,
+      478
+    ],
+    [
+      1603,
+      "SV DVD 7-Inch Player Portable E200 Black",
+      404,
+      880,
+      476
+    ],
+    [
+      1618,
+      "Contoso DVD Player M120 White",
+      260,
+      730,
+      470
+    ],
+    [
+      1630,
+      "Contoso DVD 60 DVD Storage Binder L20 Black",
+      135,
+      600,
+      465
+    ],
+    [
+      1629,
+      "Contoso DVD 38 DVD Storage Binder E25 Black",
+      352,
+      810,
+      458
+    ],
+    [
+      1656,
+      "Contoso DVD 9-Inch Player Portable M300 White",
+      232,
+      690,
+      458
+    ],
+    [
+      1601,
+      "SV DVD 9-Inch Player Portable M300 Black",
+      283,
+      740,
+      457
+    ],
+    [
+      1627,
+      "Contoso DVD 48 DVD Storage Binder M50 Black",
+      144,
+      590,
+      446
+    ],
+    [
+      1650,
+      "Contoso DVD 15-Inch Player Portable L200 Black",
+      96,
+      540,
+      444
+    ],
+    [
+      1575,
+      "SV DVD Player M140 Gold",
+      139,
+      580,
+      441
+    ],
+    [
+      1641,
+      "Contoso DVD 55DVD Storage Binder M56 Red",
+      205,
+      640,
+      435
+    ],
+    [
+      1645,
+      "Contoso DVD External DVD Burner M200 Silver",
+      195,
+      630,
+      435
+    ],
+    [
+      1651,
+      "Contoso DVD 9-Inch Player Portable M300 Silver",
+      236,
+      670,
+      434
+    ],
+    [
+      1611,
+      "SV DVD 9-Inch Player Portable M300 White",
+      267,
+      700,
+      433
+    ],
+    [
+      1592,
+      "SV DVD 48 DVD Storage Binder M50 Red",
+      168,
+      600,
+      432
+    ],
+    [
+      1615,
+      "SV DVD 15-Inch Player Portable L200 White",
+      155,
+      580,
+      425
+    ],
+    [
+      1605,
+      "SV DVD 15-Inch Player Portable L200 Black",
+      117,
+      540,
+      423
+    ],
+    [
+      1604,
+      "SV DVD 14-Inch Player Portable L100 Black",
+      152,
+      570,
+      418
+    ],
+    [
+      1612,
+      "SV DVD 12-Inch Player Portable M400 White",
+      163,
+      580,
+      417
+    ],
+    [
+      1637,
+      "Contoso DVD 48 DVD Storage Binder M50 Red",
+      174,
+      590,
+      416
+    ],
+    [
+      1614,
+      "SV DVD 14-Inch Player Portable L100 White",
+      154,
+      570,
+      416
+    ],
+    [
+      1606,
+      "SV DVD 9-Inch Player Portable M300 Silver",
+      171,
+      580,
+      409
+    ],
+    [
+      1579,
+      "SV DVD Recorder L220 White",
+      122,
+      530,
+      408
+    ],
+    [
+      1649,
+      "Contoso DVD 14-Inch Player Portable L100 Black",
+      134,
+      540,
+      406
+    ],
+    [
+      1631,
+      "Contoso DVD 55DVD Storage Binder M56 Black",
+      196,
+      600,
+      404
+    ],
+    [
+      1633,
+      "Contoso DVD 58 DVD Storage Binder M55 Silver",
+      202,
+      600,
+      398
+    ],
+    [
+      1619,
+      "Contoso DVD Player M130 Grey",
+      242,
+      640,
+      398
+    ],
+    [
+      1636,
+      "Contoso DVD 55DVD Storage Binder M56 Silver",
+      193,
+      590,
+      397
+    ],
+    [
+      1622,
+      "Contoso DVD Recorder L200 Black",
+      114,
+      510,
+      396
+    ],
+    [
+      1625,
+      "Contoso DVD Recorder L230 Grey",
+      174,
+      570,
+      396
+    ],
+    [
+      1586,
+      "SV DVD 55DVD Storage Binder M56 Black",
+      175,
+      570,
+      395
+    ],
+    [
+      1624,
+      "Contoso DVD Recorder L220 White",
+      116,
+      510,
+      394
+    ],
+    [
+      1573,
+      "SV DVD Player M120 White",
+      304,
+      690,
+      386
+    ],
+    [
+      1602,
+      "SV DVD 12-Inch Player Portable M400 Black",
+      139,
+      520,
+      381
+    ],
+    [
+      1640,
+      "Contoso DVD 60 DVD Storage Binder L20 Red",
+      151,
+      530,
+      379
+    ],
+    [
+      1628,
+      "Contoso DVD 58 DVD Storage Binder M55 Black",
+      205,
+      560,
+      355
+    ],
+    [
+      1608,
+      "SV DVD 7-Inch Player Portable E200 Silver",
+      437,
+      790,
+      353
+    ],
+    [
+      1654,
+      "Contoso DVD 14-Inch Player Portable L100 Silver",
+      102,
+      450,
+      348
+    ],
+    [
+      1658,
+      "Contoso DVD 7-Inch Player Portable E200 White",
+      250,
+      590,
+      340
+    ],
+    [
+      1583,
+      "SV DVD 58 DVD Storage Binder M55 Black",
+      160,
+      500,
+      340
+    ],
+    [
+      1659,
+      "Contoso DVD 14-Inch Player Portable L100 White",
+      128,
+      460,
+      332
+    ],
+    [
+      1698,
+      "SV Hand Games for students E40 Red",
+      1256,
+      1578,
+      322
+    ],
+    [
+      1610,
+      "SV DVD 15-Inch Player Portable L200 Silver",
+      70,
+      390,
+      320
+    ],
+    [
+      1620,
+      "Contoso DVD Player M140 Gold",
+      184,
+      500,
+      316
+    ],
+    [
+      1594,
+      "SV DVD 38 DVD Storage Binder E25 Red",
+      235,
+      550,
+      315
+    ],
+    [
+      1655,
+      "Contoso DVD 15-Inch Player Portable L200 Silver",
+      108,
+      420,
+      312
+    ],
+    [
+      1597,
+      "SV DVD External DVD Burner M200 Black",
+      119,
+      410,
+      291
+    ],
+    [
+      1692,
+      "SV Hand Games for students E40 Black",
+      1879,
+      2166,
+      287
+    ],
+    [
+      1644,
+      "Contoso DVD External DVD Burner M200 Blue",
+      165,
+      440,
+      275
+    ],
+    [
+      1653,
+      "Contoso DVD 7-Inch Player Portable E200 Silver",
+      228,
+      480,
+      252
+    ],
+    [
+      1591,
+      "SV DVD 55DVD Storage Binder M56 Silver",
+      199,
+      450,
+      251
+    ],
+    [
+      1686,
+      "SV Hand Games for students E40 Yellow",
+      1957,
+      2208,
+      251
+    ],
+    [
+      1675,
+      "MGS Hand Games men M300 Red",
+      1090,
+      1332,
+      242
+    ],
+    [
+      1609,
+      "SV DVD 14-Inch Player Portable L100 Silver",
+      89,
+      330,
+      241
+    ],
+    [
+      1587,
+      "SV DVD 48 DVD Storage Binder M50 Silver",
+      161,
+      400,
+      239
+    ],
+    [
+      1600,
+      "SV DVD External DVD Burner M200 Silver",
+      166,
+      400,
+      234
+    ],
+    [
+      1626,
+      "Contoso DVD Recorder L240 Gold",
+      91,
+      320,
+      229
+    ],
+    [
+      1585,
+      "SV DVD 60 DVD Storage Binder L20 Black",
+      47,
+      270,
+      223
+    ],
+    [
+      1668,
+      "MGS Hand Games for students E400 Black",
+      1246,
+      1458,
+      212
+    ],
+    [
+      1688,
+      "SV Hand Games women M40 Yellow",
+      1020,
+      1230,
+      210
+    ],
+    [
+      1648,
+      "Contoso DVD 7-Inch Player Portable E200 Black",
+      177,
+      380,
+      203
+    ],
+    [
+      1676,
+      "MGS Hand Games women M400 Red",
+      925,
+      1122,
+      197
+    ],
+    [
+      1696,
+      "SV Hand Games for Office worker L28 Black",
+      529,
+      726,
+      197
+    ],
+    [
+      1702,
+      "SV Hand Games for Office worker L28 Red",
+      787,
+      984,
+      197
+    ],
+    [
+      1670,
+      "MGS Hand Games women M400 Black",
+      1213,
+      1404,
+      191
+    ],
+    [
+      1593,
+      "SV DVD 58 DVD Storage Binder M55 Red",
+      80,
+      270,
+      190
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "total_on_hand_quantity",
+    "total_safety_stock_quantity",
+    "shortage_quantity"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 17810,
+  "latency_ms_exec": 518,
+  "tokens_in": 17226,
+  "tokens_out": 210,
+  "claude_error": null,
+  "sql_error": null
+}

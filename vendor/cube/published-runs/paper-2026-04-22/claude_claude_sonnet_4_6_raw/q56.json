@@ -1,0 +1,21 @@
+{
+  "question_id": 56,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT avg(YearlyIncome) AS AvgYearlyIncome FROM retail.DimCustomer WHERE YearlyIncome IS NOT NULL",
+  "rows": [
+    [
+      260174.8900312682
+    ]
+  ],
+  "columns": [
+    "AvgYearlyIncome"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6097,
+  "latency_ms_exec": 585,
+  "tokens_in": 13795,
+  "tokens_out": 60,
+  "claude_error": null,
+  "sql_error": null
+}

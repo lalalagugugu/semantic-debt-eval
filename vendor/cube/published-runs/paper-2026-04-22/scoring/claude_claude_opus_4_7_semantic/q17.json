@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same two rows (WorkDay/WeekEnd) with identical sales amounts and percentages that differ only in rounding (unrounded vs rounded to 2 decimals), well within the 1% tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 184,
+  "judge_latency_ms": 15743
+}

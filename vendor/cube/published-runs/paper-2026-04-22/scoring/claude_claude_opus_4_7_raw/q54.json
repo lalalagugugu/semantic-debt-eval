@@ -1,0 +1,11 @@
+{
+  "question_id": 54,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, differing only in column alias capitalization, and returns the exact same value (29244318.2048).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 163,
+  "judge_latency_ms": 10501
+}

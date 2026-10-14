@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 100 rows instead of the reference's top-10 (missing LIMIT) and includes an extra StoreKey column, but the top 10 stores, their order, and sales_per_sqft values match the reference exactly \u2014 an analyst would accept this as correct.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 529,
+  "judge_latency_ms": 16971
+}

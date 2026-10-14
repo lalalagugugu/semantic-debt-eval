@@ -1,0 +1,11 @@
+{
+  "question_id": 68,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same two rows with identical order counts and revenue values within negligible floating-point precision; the only differences are column aliases and an added ORDER BY clause.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 198,
+  "judge_latency_ms": 11849
+}

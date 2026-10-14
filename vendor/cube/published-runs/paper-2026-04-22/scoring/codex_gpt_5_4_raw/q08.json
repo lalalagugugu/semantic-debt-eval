@@ -1,0 +1,11 @@
+{
+  "question_id": 8,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 17 sales employees with matching FirstName/LastName values; extra columns and different sort order are permissible under the strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 224,
+  "judge_latency_ms": 11146
+}

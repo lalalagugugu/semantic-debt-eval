@@ -1,0 +1,11 @@
+{
+  "question_id": 64,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate subtracts ReturnAmount and DiscountAmount from SalesAmount before computing gross margin, yielding substantially lower dollar values and margin percentages than the reference (which simply computes SalesAmount \u2212 TotalCost), answering a different measure entirely.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 237,
+  "judge_latency_ms": 11252
+}

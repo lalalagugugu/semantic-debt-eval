@@ -1,0 +1,11 @@
+{
+  "question_id": 56,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical scalar value (260174.89) as the reference, differing only in the column alias.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 149,
+  "judge_latency_ms": 11560
+}

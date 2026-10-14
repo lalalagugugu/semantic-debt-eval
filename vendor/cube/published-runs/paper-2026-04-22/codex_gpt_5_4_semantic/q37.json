@@ -1,0 +1,39 @@
+{
+  "question_id": 37,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    ds.StoreName,\n    s.total_sales,\n    percent_rank() OVER (ORDER BY s.total_sales) AS sales_percentile_rank\nFROM\n(\n    SELECT\n        StoreKey,\n        sum(SalesAmount) AS total_sales\n    FROM retail.FactOnlineSales\n    GROUP BY StoreKey\n) AS s\nLEFT JOIN retail.DimStore AS ds\n    ON s.StoreKey = ds.StoreKey\nORDER BY s.total_sales DESC",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      1031261452.7919643,
+      1.0
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      849584948.836169,
+      0.5
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      837356228.1802413,
+      0.0
+    ]
+  ],
+  "columns": [
+    "StoreKey",
+    "StoreName",
+    "total_sales",
+    "sales_percentile_rank"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 11944,
+  "latency_ms_exec": 531,
+  "tokens_in": 18823,
+  "tokens_out": 199,
+  "claude_error": null,
+  "sql_error": null
+}

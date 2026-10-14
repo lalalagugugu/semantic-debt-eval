@@ -1,0 +1,11 @@
+{
+  "question_id": 73,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters by a single global max DateKey instead of per-(StoreKey, ProductKey) max date, yielding different products, different aggregated values, and a different top-10 ranking than the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 224,
+  "judge_latency_ms": 11187
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 28,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    channel,\n    round(sum(transaction_value) / count(), 2) AS avg_transaction_value\nFROM\n(\n    SELECT\n        'Store' AS channel,\n        SalesKey AS transaction_id,\n        SalesAmount AS transaction_value\n    FROM retail.FactSales\n\n    UNION ALL\n\n    SELECT\n        'Online' AS channel,\n        SalesOrderNumber AS transaction_id,\n        sum(SalesAmount) AS transaction_value\n    FROM retail.FactOnlineSales\n    GROUP BY SalesOrderNumber\n)\nGROUP BY channel\nORDER BY channel;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 19327,
+  "latency_ms_exec": null,
+  "tokens_in": 17223,
+  "tokens_out": 289,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 386, server response: Code: 386. DB::Exception: There is no supertype for types Int64, String because some of them are String/FixedString/Enum and some of them are not. (NO_COMMON_TYPE) (for url https://clickhouse.vanya.cc:443)"
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 7,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate SQL is identical to the reference SQL and produces exactly the same rows in the same order.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 112,
+  "judge_latency_ms": 11450
+}

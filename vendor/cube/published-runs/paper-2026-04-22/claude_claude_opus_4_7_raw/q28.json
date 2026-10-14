@@ -1,0 +1,30 @@
+{
+  "question_id": 28,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT CASE WHEN channel = 'Online' THEN 'Online' ELSE 'Store' END AS ChannelGroup,\n       avg(TransactionValue) AS AvgTransactionValue,\n       count() AS TransactionCount\nFROM (\n    SELECT 'Online' AS channel, SalesOrderNumber AS OrderId, sum(SalesAmount) AS TransactionValue\n    FROM retail.FactOnlineSales\n    GROUP BY SalesOrderNumber\n    UNION ALL\n    SELECT c.ChannelName AS channel, toString(s.SalesKey) AS OrderId, s.SalesAmount AS TransactionValue\n    FROM retail.FactSales s\n    LEFT JOIN retail.DimChannel c ON s.channelKey = c.ChannelKey\n)\nGROUP BY ChannelGroup\nORDER BY ChannelGroup",
+  "rows": [
+    [
+      "Online",
+      2342.392421103151,
+      2303543
+    ],
+    [
+      "Store",
+      3506.131939321907,
+      2776866
+    ]
+  ],
+  "columns": [
+    "ChannelGroup",
+    "AvgTransactionValue",
+    "TransactionCount"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 10091,
+  "latency_ms_exec": 760,
+  "tokens_in": 19117,
+  "tokens_out": 314,
+  "claude_error": null,
+  "sql_error": null
+}

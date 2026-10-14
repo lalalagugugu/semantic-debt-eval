@@ -1,0 +1,11 @@
+{
+  "question_id": 29,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses wrong IsHoliday literals ('true'/'false' instead of 'Yes'/'No') and queries FactSales instead of FactOnlineSales, producing NULL instead of the expected 0.03.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 225,
+  "judge_latency_ms": 11849
+}

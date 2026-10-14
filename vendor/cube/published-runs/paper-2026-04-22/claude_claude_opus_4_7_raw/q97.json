@@ -1,0 +1,162 @@
+{
+  "question_id": 97,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS H1Sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS H2Sales,\n       H2Sales - H1Sales AS Diff,\n       if(H1Sales = 0, NULL, H2Sales / H1Sales) AS Ratio\nFROM retail.FactSales AS f\nINNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductName\nHAVING H1Sales > 0 AND H2Sales > H1Sales\nORDER BY Diff DESC\nLIMIT 20",
+  "rows": [
+    [
+      "WWI Laptop16 M0160 White",
+      477522.8,
+      3278896.0499999984,
+      2801373.2499999986,
+      6.866470145509279
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Silver",
+      2067692.8699999985,
+      4572124.233999997,
+      2504431.363999999,
+      2.2112201963534366
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 White",
+      1666624.2529999993,
+      3889176.588999997,
+      2222552.3359999973,
+      2.333565338437445
+    ],
+    [
+      "Proseware Laptop15.4W M518 White",
+      1634020.6,
+      3797617.9000000027,
+      2163597.3000000026,
+      2.3240942617247313
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Black",
+      2521251.305999997,
+      4318955.106999997,
+      1797703.801,
+      1.7130204738900399
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      3010646.591699996,
+      4709585.282499995,
+      1698938.690799999,
+      1.5643102367058879
+    ],
+    [
+      "WWI Laptop19W X0196 Blue",
+      3210478.5,
+      4898464.049999999,
+      1687985.5499999989,
+      1.5257738215658503
+    ],
+    [
+      "Adventure Works Laptop12 M1201 Silver",
+      342012.64499999996,
+      1864009.1250000033,
+      1521996.4800000032,
+      5.450117568021509
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Brown",
+      2172382.508999998,
+      3681827.3039999963,
+      1509444.794999998,
+      1.6948338005606725
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      3221685.9321999964,
+      4684145.361999995,
+      1462459.4297999986,
+      1.4539422713999086
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      726643.2240000002,
+      2132882.238,
+      1406239.0139999997,
+      2.9352537360205253
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      812979.2800000003,
+      2078880.0999999999,
+      1265900.8199999996,
+      2.5571132636984295
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      3640116.6245999965,
+      4828144.911999996,
+      1188028.2873999993,
+      1.3263709408020818
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      3827540.038899994,
+      5005744.356999998,
+      1178204.318100004,
+      1.3078228591015892
+    ],
+    [
+      "WWI Laptop19W X0196 Black",
+      3467031.000000001,
+      4580728.649999998,
+      1113697.6499999966,
+      1.3212251779692759
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      481860.49999999994,
+      1581933.0500000003,
+      1100072.5500000003,
+      3.282968929804374
+    ],
+    [
+      "Fabrikam Laptop17 M7000 Black",
+      3997506.240000001,
+      5089962.150000002,
+      1092455.910000001,
+      1.2732843538975942
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Black",
+      738005.104,
+      1825609.8000000003,
+      1087604.6960000002,
+      2.4737089081161696
+    ],
+    [
+      "Contoso Projector 1080p X981 White",
+      2701543.949999999,
+      3773115.149999998,
+      1071571.1999999993,
+      1.396651403727857
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Brown",
+      675048.3,
+      1707749.0999999996,
+      1032700.7999999996,
+      2.529817644159684
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "H1Sales",
+    "H2Sales",
+    "Diff",
+    "Ratio"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 9875,
+  "latency_ms_exec": 547,
+  "tokens_in": 19140,
+  "tokens_out": 282,
+  "claude_error": null,
+  "sql_error": null
+}

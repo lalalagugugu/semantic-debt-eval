@@ -1,0 +1,11 @@
+{
+  "question_id": 27,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes realized profit margin from aggregated sales transactions (FactSales + FactOnlineSales), while the reference uses catalog-level UnitPrice/UnitCost from DimProduct; the resulting top-10 products and margin values are entirely different, answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 325,
+  "judge_latency_ms": 13108
+}

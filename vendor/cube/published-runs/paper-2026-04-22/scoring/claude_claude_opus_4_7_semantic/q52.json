@@ -1,0 +1,11 @@
+{
+  "question_id": 52,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same scalar value (3199.99) using MAX(UnitPrice) from retail.DimProduct; only the column alias differs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 150,
+  "judge_latency_ms": 11463
+}

@@ -1,0 +1,25 @@
+{
+  "question_id": 29,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH daily_sales AS (\n    SELECT\n        f.DateKey,\n        d.IsHoliday,\n        sum(f.SalesAmount) AS day_total\n    FROM retail.FactOnlineSales f\n    JOIN retail.DimDate d ON f.DateKey = d.DateKey\n    GROUP BY f.DateKey, d.IsHoliday\n),\navg_by_type AS (\n    SELECT\n        IsHoliday,\n        avg(day_total) AS avg_daily_sales\n    FROM daily_sales\n    GROUP BY IsHoliday\n)\nSELECT\n    sumIf(avg_daily_sales, IsHoliday = 'Yes')  AS avg_holiday_sales,\n    sumIf(avg_daily_sales, IsHoliday = 'No')   AS avg_regular_sales,\n    (\n        sumIf(avg_daily_sales, IsHoliday = 'Yes')\n        - sumIf(avg_daily_sales, IsHoliday = 'No')\n    ) * 100.0\n    / nullif(sumIf(avg_daily_sales, IsHoliday = 'No'), 0) AS holiday_vs_regular_pct_diff\nFROM avg_by_type",
+  "rows": [
+    [
+      2480578.070499166,
+      2479926.3671079194,
+      0.026279142795941624
+    ]
+  ],
+  "columns": [
+    "avg_holiday_sales",
+    "avg_regular_sales",
+    "holiday_vs_regular_pct_diff"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 11479,
+  "latency_ms_exec": 762,
+  "tokens_in": 16757,
+  "tokens_out": 458,
+  "claude_error": null,
+  "sql_error": null
+}

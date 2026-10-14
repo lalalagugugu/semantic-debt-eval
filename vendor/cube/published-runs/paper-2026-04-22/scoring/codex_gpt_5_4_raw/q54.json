@@ -1,0 +1,11 @@
+{
+  "question_id": 54,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is identical to the reference and returns the same value (29244318.2048 vs 29244318.2048), with only negligible floating-point precision difference well within 1%.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 202,
+  "judge_latency_ms": 10143
+}

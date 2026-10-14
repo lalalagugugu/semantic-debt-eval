@@ -1,0 +1,51 @@
+{
+  "question_id": 11,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sum(fs.SalesAmount) AS TotalSalesAmount\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimProduct AS p\n    ON fs.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory AS pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY TotalSalesAmount DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      3922736787.191539
+    ],
+    [
+      "Computers",
+      2621439170.995109
+    ],
+    [
+      "Cameras and camcorders",
+      2549018371.3901386
+    ],
+    [
+      "TV and Video",
+      1360121114.7641802
+    ],
+    [
+      "Cell phones",
+      884350954.897903
+    ],
+    [
+      "Music, Movies and Audio Books",
+      165804705.9810862
+    ],
+    [
+      "Audio",
+      151614364.3108998
+    ],
+    [
+      "Games and Toys",
+      32442331.03359859
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "TotalSalesAmount"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 10530,
+  "latency_ms_exec": 534,
+  "tokens_in": 16364,
+  "tokens_out": 131,
+  "claude_error": null,
+  "sql_error": null
+}

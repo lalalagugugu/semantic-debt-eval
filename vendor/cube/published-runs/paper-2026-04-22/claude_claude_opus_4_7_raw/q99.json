@@ -1,0 +1,78 @@
+{
+  "question_id": 99,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT pc.ProductCategoryName AS ProductCategoryName, avg(if(d.CalendarDayOfWeekNumber IN (1,7), daily.SalesAmount, NULL)) AS AvgWeekend, avg(if(d.CalendarDayOfWeekNumber NOT IN (1,7), daily.SalesAmount, NULL)) AS AvgWeekday, AvgWeekend - AvgWeekday AS AbsoluteDifference, (AvgWeekend - AvgWeekday) / AvgWeekday AS RelativeDifference FROM (SELECT f.DateKey AS DateKey, pc.ProductCategoryKey AS ProductCategoryKey, sum(f.SalesAmount) AS SalesAmount FROM retail.FactSales f INNER JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY f.DateKey, pc.ProductCategoryKey) AS daily INNER JOIN retail.DimDate d ON daily.DateKey = d.DateKey INNER JOIN retail.DimProductCategory pc ON daily.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY RelativeDifference DESC",
+  "rows": [
+    [
+      "Audio",
+      140865.40178210856,
+      137322.46941647513,
+      3542.932365633431,
+      0.025800092153079
+    ],
+    [
+      "Cameras and camcorders",
+      2340148.5541201276,
+      2319989.621903576,
+      20158.93221655162,
+      0.008689233790628342
+    ],
+    [
+      "TV and Video",
+      1241373.9404801913,
+      1240831.5088044708,
+      542.4316757204942,
+      0.00043715175821342736
+    ],
+    [
+      "Cell phones",
+      806487.9883335464,
+      807050.082438826,
+      -562.0941052795388,
+      -0.0006964798313147378
+    ],
+    [
+      "Home Appliances",
+      3568738.2052737996,
+      3583297.227254529,
+      -14559.02198072942,
+      -0.0040630238178383914
+    ],
+    [
+      "Music, Movies and Audio Books",
+      150813.22575974444,
+      151468.92250102168,
+      -655.6967412772356,
+      -0.004328919295460181
+    ],
+    [
+      "Computers",
+      2380012.618164536,
+      2396545.6213403544,
+      -16533.00317581836,
+      -0.006898680763094209
+    ],
+    [
+      "Games and Toys",
+      29433.293637060713,
+      29667.57359540229,
+      -234.27995834157628,
+      -0.0078968358362102
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "AvgWeekend",
+    "AvgWeekday",
+    "AbsoluteDifference",
+    "RelativeDifference"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 11268,
+  "latency_ms_exec": 551,
+  "tokens_in": 19127,
+  "tokens_out": 546,
+  "claude_error": null,
+  "sql_error": null
+}

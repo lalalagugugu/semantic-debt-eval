@@ -1,0 +1,11 @@
+{
+  "question_id": 23,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 36, server response: Code: 36. DB::Exception: Incorrect syntax '%B', symbol is not supported 'B' for function formatDateTime: while executing function formatDateTime on arguments __table1.DateKey Date UInt16(size = 0), '%B'_String String Const(size = 0, String(size = 1)). (BAD_ARGUMENTS) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

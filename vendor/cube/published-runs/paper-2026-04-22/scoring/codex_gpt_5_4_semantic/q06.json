@@ -1,0 +1,11 @@
+{
+  "question_id": 6,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query produces the identical scalar value (857728031.345896) as the reference, differing only by the addition of a column alias.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 156,
+  "judge_latency_ms": 9971
+}

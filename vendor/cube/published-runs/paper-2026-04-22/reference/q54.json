@@ -1,0 +1,15 @@
+{
+  "question_id": 54,
+  "sql": "SELECT sum(ReturnAmount) AS total_return_amount FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      29244318.204799965
+    ]
+  ],
+  "columns": [
+    "total_return_amount"
+  ],
+  "row_count": 1,
+  "exec_ms": 495,
+  "error": null
+}

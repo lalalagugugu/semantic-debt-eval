@@ -1,0 +1,11 @@
+{
+  "question_id": 85,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate groups by `q.SalesAmountQuota` (an already-aggregated subquery value), distorting the attainment ratios into tiny decimals (~0.03\u20130.06 vs. ~118\u2013122%), and returns completely different stores, answering a different effective question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 268,
+  "judge_latency_ms": 14809
+}

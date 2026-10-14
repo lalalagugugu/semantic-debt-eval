@@ -1,0 +1,11 @@
+{
+  "question_id": 52,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical scalar value (3199.99) as the reference, just with a different column alias.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 141,
+  "judge_latency_ms": 8879
+}

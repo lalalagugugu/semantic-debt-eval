@@ -1,0 +1,11 @@
+{
+  "question_id": 13,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same 100 rows with equivalent values: the extra StoreKey column and ORDER BY are immaterial, and sum/countDistinct(SalesKey) equals avg(SalesAmount) since SalesKey is a unique primary key, making all three metrics identical to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 597,
+  "judge_latency_ms": 17647
+}

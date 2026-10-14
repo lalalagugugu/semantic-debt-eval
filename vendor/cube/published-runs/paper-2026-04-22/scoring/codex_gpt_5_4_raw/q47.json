@@ -1,0 +1,11 @@
+{
+  "question_id": 47,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match reference exactly (same store names, same avg downtime values, same ordering); the extra StoreKey column and use of ifNull(DownTime,0) instead of a NULL filter produce identical numeric results, indicating no NULL DownTime values exist in the data.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 322,
+  "judge_latency_ms": 14366
+}

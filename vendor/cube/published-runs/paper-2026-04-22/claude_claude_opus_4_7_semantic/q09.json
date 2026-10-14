@@ -1,0 +1,21 @@
+{
+  "question_id": 9,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT avg(UnitCost) FROM retail.DimProduct",
+  "rows": [
+    [
+      159.24048813255706
+    ]
+  ],
+  "columns": [
+    "avg(UnitCost)"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6860,
+  "latency_ms_exec": 505,
+  "tokens_in": 23312,
+  "tokens_out": 28,
+  "claude_error": null,
+  "sql_error": null
+}

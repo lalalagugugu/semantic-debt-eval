@@ -1,0 +1,63 @@
+{
+  "question_id": 38,
+  "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as error_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
+  "rows": [
+    [
+      "Cameras and camcorders",
+      167792908.6534999,
+      168138998.1834998,
+      0.21
+    ],
+    [
+      "Computers",
+      277376545.31950027,
+      278804660.9101001,
+      0.51
+    ],
+    [
+      "TV and Video",
+      124024668.18500015,
+      124280165.86479996,
+      0.21
+    ],
+    [
+      "Cell phones",
+      72564974.64049996,
+      72805324.85890003,
+      0.33
+    ],
+    [
+      "Audio",
+      18955899.80200002,
+      19052113.422299985,
+      0.51
+    ],
+    [
+      "Music, Movies and Audio Books",
+      9605471.937500006,
+      9678890.843600007,
+      0.76
+    ],
+    [
+      "Games and Toys",
+      17357265.654099986,
+      17459025.1637,
+      0.59
+    ],
+    [
+      "Home Appliances",
+      292059270.9649998,
+      295923451.9621001,
+      1.32
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "actual",
+    "forecast",
+    "error_pct"
+  ],
+  "row_count": 8,
+  "exec_ms": 505,
+  "error": null
+}

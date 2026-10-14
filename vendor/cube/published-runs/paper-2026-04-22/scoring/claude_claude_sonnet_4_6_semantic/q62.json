@@ -1,0 +1,11 @@
+{
+  "question_id": 62,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 11 rows with identical structure and values; minor floating-point differences (< 0.0001% relative drift) are within acceptable precision tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 196,
+  "judge_latency_ms": 11232
+}

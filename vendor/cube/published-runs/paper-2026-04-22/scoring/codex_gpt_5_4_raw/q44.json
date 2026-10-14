@@ -1,0 +1,11 @@
+{
+  "question_id": 44,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same years, effectively identical sales amounts, and matching YoY growth percentages (-15.94, 0.95); the first-row growth is null vs. Infinity (both convey \"no prior year\"), and the extra columns (orders_count, yoy_sales_change) are acceptable additions.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 249,
+  "judge_latency_ms": 11859
+}

@@ -1,0 +1,39 @@
+{
+  "question_id": 84,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH product_revenue AS (\n    SELECT\n        ProductKey,\n        sum(SalesAmount) AS revenue\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY ProductKey\n),\nranked AS (\n    SELECT\n        ProductKey,\n        revenue,\n        sum(revenue) OVER (ORDER BY revenue DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_revenue,\n        sum(revenue) OVER () AS total_revenue\n    FROM product_revenue\n),\nclassified AS (\n    SELECT\n        ProductKey,\n        revenue,\n        cumulative_revenue,\n        total_revenue,\n        (cumulative_revenue - revenue) / total_revenue AS prev_pct,\n        cumulative_revenue / total_revenue AS curr_pct,\n        CASE\n            WHEN (cumulative_revenue - revenue) / total_revenue < 0.80 THEN 'A'\n            WHEN (cumulative_revenue - revenue) / total_revenue < 0.95 THEN 'B'\n            ELSE 'C'\n        END AS abc_class\n    FROM ranked\n)\nSELECT\n    abc_class,\n    count() AS product_count,\n    round(sum(revenue), 2) AS class_revenue,\n    round(sum(revenue) / max(total_revenue) * 100, 2) AS revenue_pct\nFROM classified\nGROUP BY abc_class\nORDER BY abc_class",
+  "rows": [
+    [
+      "A",
+      1120,
+      2992424836.61,
+      80.0
+    ],
+    [
+      "B",
+      672,
+      561192342.97,
+      15.0
+    ],
+    [
+      "C",
+      712,
+      186865939.6,
+      5.0
+    ]
+  ],
+  "columns": [
+    "abc_class",
+    "product_count",
+    "class_revenue",
+    "revenue_pct"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 9573,
+  "latency_ms_exec": 490,
+  "tokens_in": 13840,
+  "tokens_out": 385,
+  "claude_error": null,
+  "sql_error": null
+}

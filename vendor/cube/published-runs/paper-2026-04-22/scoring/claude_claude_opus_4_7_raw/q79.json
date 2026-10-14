@@ -1,0 +1,11 @@
+{
+  "question_id": 79,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate joins the pre-aggregated quota subquery to the row-level FactSales table and groups by the already-summed quota column, causing massive quota inflation and near-zero attainment ratios (~0.0003\u20130.0006) instead of the expected ~100%, returning completely different stores and values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 284,
+  "judge_latency_ms": 13309
+}

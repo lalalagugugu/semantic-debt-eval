@@ -1,0 +1,11 @@
+{
+  "question_id": 35,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT e.EmployeeKey, concat(e.FirstName, ' ', e.LastName) AS employee_name, concat(m.FirstName, ' ', m.LastName) AS manager_name FROM retail.DimEmployee AS e LEFT JOIN retail.DimEmployee AS m ON toInt32OrNull(e.ParentEmployeeKey) = m.EmployeeKey ORDER BY e.EmployeeKey ASC. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

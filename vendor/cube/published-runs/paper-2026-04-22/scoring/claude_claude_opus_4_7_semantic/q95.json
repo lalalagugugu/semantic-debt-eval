@@ -1,0 +1,11 @@
+{
+  "question_id": 95,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 category rows match on promo_revenue, full_price_revenue, and total_discount_given (minor float precision only); candidate adds derived columns and uses a different sort order, both acceptable since the question imposes no specific ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 732,
+  "judge_latency_ms": 24196
+}

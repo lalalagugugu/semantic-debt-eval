@@ -1,0 +1,21 @@
+{
+  "question_id": 57,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT count(DISTINCT BrandName) AS distinct_brands FROM retail.DimProduct WHERE BrandName IS NOT NULL",
+  "rows": [
+    [
+      11
+    ]
+  ],
+  "columns": [
+    "distinct_brands"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7304,
+  "latency_ms_exec": 545,
+  "tokens_in": 19114,
+  "tokens_out": 56,
+  "claude_error": null,
+  "sql_error": null
+}

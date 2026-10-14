@@ -1,0 +1,11 @@
+{
+  "question_id": 23,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows are identical to the reference rows \u2014 same monthly sales and cumulative sales values for all 12 months of 2009.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 121,
+  "judge_latency_ms": 12669
+}

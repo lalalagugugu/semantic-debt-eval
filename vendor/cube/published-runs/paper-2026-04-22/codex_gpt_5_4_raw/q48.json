@@ -1,0 +1,27 @@
+{
+  "question_id": 48,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    corr(total_downtime_minutes, total_sales_amount) AS outage_sales_correlation,\n    count() AS store_day_count,\n    avg(total_downtime_minutes) AS avg_daily_downtime_minutes,\n    avg(total_sales_amount) AS avg_daily_sales_amount\nFROM\n(\n    SELECT\n        coalesce(s.DateKey, o.DateKey) AS DateKey,\n        coalesce(s.StoreKey, o.StoreKey) AS StoreKey,\n        ifNull(o.total_downtime_minutes, 0) AS total_downtime_minutes,\n        ifNull(s.total_sales_amount, 0) AS total_sales_amount\n    FROM\n    (\n        SELECT\n            DateKey,\n            StoreKey,\n            sum(SalesAmount) AS total_sales_amount\n        FROM retail.FactSales\n        GROUP BY DateKey, StoreKey\n    ) AS s\n    FULL OUTER JOIN\n    (\n        SELECT\n            DateKey,\n            StoreKey,\n            sum(ifNull(DownTime, 0)) AS total_downtime_minutes\n        FROM retail.FactITSLA\n        GROUP BY DateKey, StoreKey\n    ) AS o\n        ON s.DateKey = o.DateKey\n       AND s.StoreKey = o.StoreKey\n)",
+  "rows": [
+    [
+      0.05420645105158342,
+      309171,
+      1.2831054659072163,
+      40151.429496581506
+    ]
+  ],
+  "columns": [
+    "outage_sales_correlation",
+    "store_day_count",
+    "avg_daily_downtime_minutes",
+    "avg_daily_sales_amount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 21007,
+  "latency_ms_exec": 548,
+  "tokens_in": 16369,
+  "tokens_out": 717,
+  "claude_error": null,
+  "sql_error": null
+}

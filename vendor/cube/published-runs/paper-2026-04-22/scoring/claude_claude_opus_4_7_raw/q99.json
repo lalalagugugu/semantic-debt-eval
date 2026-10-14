@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, yielding values roughly 4\u00d7 larger and a different category ordering (e.g., Audio weekend avg 140,865 vs 34,031), so it answers a genuinely different question with wrong measures.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 668,
+  "judge_latency_ms": 20152
+}

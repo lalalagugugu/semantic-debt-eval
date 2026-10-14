@@ -1,0 +1,21 @@
+{
+  "question_id": 52,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT max(UnitPrice) AS highest_unit_price\nFROM retail.DimProduct",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "highest_unit_price"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5747,
+  "latency_ms_exec": 508,
+  "tokens_in": 16753,
+  "tokens_out": 51,
+  "claude_error": null,
+  "sql_error": null
+}

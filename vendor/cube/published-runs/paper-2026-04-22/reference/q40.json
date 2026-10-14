@@ -1,0 +1,15 @@
+{
+  "question_id": 40,
+  "sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey AND s.CurrencyKey = er.CurrencyKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE c.CurrencyName = 'EUR'",
+  "rows": [
+    [
+      0.0
+    ]
+  ],
+  "columns": [
+    "sales_eur"
+  ],
+  "row_count": 1,
+  "exec_ms": 521,
+  "error": null
+}

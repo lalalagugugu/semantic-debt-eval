@@ -1,0 +1,11 @@
+{
+  "question_id": 95,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate matches promo/full-price revenue per category within float tolerance and directly computes incremental_revenue; it omits total_discount_given and expresses the ratio as a percentage vs decimal, but an analyst would accept these as equivalent answers to the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 753,
+  "judge_latency_ms": 23824
+}

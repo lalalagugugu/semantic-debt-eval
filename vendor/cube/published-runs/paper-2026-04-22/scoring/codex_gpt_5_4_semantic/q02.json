@@ -1,0 +1,11 @@
+{
+  "question_id": 2,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical aggregate sum (2718202629.8081865 vs 2718202629.808186) with only a negligible floating-point rounding difference, well within the 1% tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 196,
+  "judge_latency_ms": 9679
+}

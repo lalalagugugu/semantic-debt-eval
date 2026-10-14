@@ -1,0 +1,141 @@
+{
+  "question_id": 87,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH latest_inventory AS (\n    SELECT\n        i.ProductKey,\n        sum(i.OnHandQuantity) AS total_on_hand\n    FROM retail.FactInventory i\n    INNER JOIN (\n        SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n        FROM retail.FactInventory\n        GROUP BY StoreKey, ProductKey\n    ) latest\n        ON i.StoreKey = latest.StoreKey\n       AND i.ProductKey = latest.ProductKey\n       AND i.DateKey = latest.max_date\n    GROUP BY i.ProductKey\n),\navg_daily_sales AS (\n    SELECT\n        ProductKey,\n        sum(SalesQuantity) / 90.0 AS avg_daily_qty\n    FROM retail.FactOnlineSales\n    WHERE DateKey >= toDate('2009-10-03')\n      AND DateKey <= toDate('2009-12-31')\n    GROUP BY ProductKey\n)\nSELECT\n    p.ProductName,\n    li.total_on_hand,\n    round(ads.avg_daily_qty, 4)                             AS avg_daily_sales_qty,\n    round(li.total_on_hand / nullif(ads.avg_daily_qty, 0), 2) AS days_of_coverage\nFROM latest_inventory li\nJOIN avg_daily_sales ads ON li.ProductKey = ads.ProductKey\nJOIN retail.DimProduct p  ON li.ProductKey = p.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
+  "rows": [
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      2268,
+      9.9333,
+      228.32
+    ],
+    [
+      "SV Hand Games men M30 Yellow",
+      5591,
+      21.8889,
+      255.43
+    ],
+    [
+      "Contoso Bluetooth Active Headphones L15 White",
+      15968,
+      61.7778,
+      258.47
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 White",
+      2077,
+      7.6667,
+      270.91
+    ],
+    [
+      "Litware 180 CFM Vertical Discharge Fan X450 Black",
+      1266,
+      4.6111,
+      274.55
+    ],
+    [
+      "Contoso Reserve Pen - Tablet Pen E200 Grey",
+      2331,
+      8.1333,
+      286.6
+    ],
+    [
+      "A. Datum Ultra Compact Digital Camera M190 Grey",
+      2125,
+      7.0222,
+      302.61
+    ],
+    [
+      "MGS Hand Games men M300 Red",
+      6000,
+      19.6667,
+      305.08
+    ],
+    [
+      "Contoso Macro Zoom Lens X300 White",
+      1097,
+      3.5333,
+      310.47
+    ],
+    [
+      "Contoso Reserve Pen - Tablet Pen E200 Gold",
+      2583,
+      8.2222,
+      314.15
+    ],
+    [
+      "WWI Stereo Bluetooth Headphones New Generation M370 White",
+      1557,
+      4.9556,
+      314.19
+    ],
+    [
+      "SV Hand Games men M30 Red",
+      4645,
+      14.5,
+      320.34
+    ],
+    [
+      "The Phone Company Microsoft Windows Mobile M200 Black",
+      1667,
+      5.1667,
+      322.65
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      934,
+      2.8222,
+      330.94
+    ],
+    [
+      "The Phone Company Smart phones -320 x 320 M86 Black",
+      1429,
+      4.2667,
+      334.92
+    ],
+    [
+      "Contoso Washer & Dryer 27in L270 Pink",
+      529,
+      1.5444,
+      342.52
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 White",
+      3552,
+      10.1778,
+      349.0
+    ],
+    [
+      "SV Car Video LCD9.2W X9280 Brown",
+      1008,
+      2.8667,
+      351.63
+    ],
+    [
+      "Contoso Washer & Dryer 27in L270 White",
+      552,
+      1.5556,
+      354.86
+    ],
+    [
+      "A. Datum SLR Camera 35\" X358 Pink",
+      1639,
+      4.6111,
+      355.45
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "total_on_hand",
+    "avg_daily_sales_qty",
+    "days_of_coverage"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 21413,
+  "latency_ms_exec": 745,
+  "tokens_in": 16787,
+  "tokens_out": 1274,
+  "claude_error": null,
+  "sql_error": null
+}

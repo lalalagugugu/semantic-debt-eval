@@ -1,0 +1,21 @@
+{
+  "question_id": 32,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    sum(SalesAmount) AS TotalLifetimeValue\nFROM retail.FactOnlineSales\nWHERE CustomerKey IN (\n    SELECT CustomerKey\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING uniqExact(toYear(DateKey)) = (\n        SELECT uniqExact(toYear(DateKey))\n        FROM retail.FactOnlineSales\n    )\n)",
+  "rows": [
+    [
+      1191133222.2768998
+    ]
+  ],
+  "columns": [
+    "TotalLifetimeValue"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9349,
+  "latency_ms_exec": 745,
+  "tokens_in": 13803,
+  "tokens_out": 273,
+  "claude_error": null,
+  "sql_error": null
+}

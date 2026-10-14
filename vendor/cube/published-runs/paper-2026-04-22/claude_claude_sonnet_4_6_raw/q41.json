@@ -1,0 +1,23 @@
+{
+  "question_id": 41,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    sum(SalesAmount) AS TotalSalesAmount,\n    sum(SalesQuantity) AS TotalSalesQuantity\nFROM retail.FactSales\nWHERE toQuarter(DateKey) = toQuarter(today() - INTERVAL 3 MONTH)\n  AND toYear(DateKey) = toYear(today() - INTERVAL 3 MONTH)",
+  "rows": [
+    [
+      0.0,
+      0
+    ]
+  ],
+  "columns": [
+    "TotalSalesAmount",
+    "TotalSalesQuantity"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7677,
+  "latency_ms_exec": 495,
+  "tokens_in": 13792,
+  "tokens_out": 164,
+  "claude_error": null,
+  "sql_error": null
+}

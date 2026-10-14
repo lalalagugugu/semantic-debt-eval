@@ -1,0 +1,11 @@
+{
+  "question_id": 38,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses AccountKey = 50 instead of AccountKey = 4, returning zeros/nulls instead of the correct per-category actuals and forecasts.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 187,
+  "judge_latency_ms": 9896
+}

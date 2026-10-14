@@ -1,0 +1,21 @@
+{
+  "question_id": 55,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT count() AS female_customer_count\nFROM retail.DimCustomer\nWHERE Gender = 'F';",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "female_customer_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9127,
+  "latency_ms_exec": 499,
+  "tokens_in": 16364,
+  "tokens_out": 35,
+  "claude_error": null,
+  "sql_error": null
+}

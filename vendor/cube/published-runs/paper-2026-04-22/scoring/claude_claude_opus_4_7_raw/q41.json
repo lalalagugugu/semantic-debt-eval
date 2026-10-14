@@ -1,0 +1,11 @@
+{
+  "question_id": 41,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries the wrong table (FactSales instead of FactOnlineSales) and the wrong time period (Q1 2026 based on current date instead of Q4 2009 from actual data), returning 0.0 vs the expected ~210,717,985.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 258,
+  "judge_latency_ms": 11773
+}

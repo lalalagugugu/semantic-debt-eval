@@ -1,0 +1,99 @@
+{
+  "question_id": 67,
+  "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC LIMIT 20",
+  "rows": [
+    [
+      "Green",
+      523.4705784231749,
+      232982
+    ],
+    [
+      "Brown",
+      436.5818774482564,
+      215131
+    ],
+    [
+      "Silver Grey",
+      386.3856684917161,
+      55341
+    ],
+    [
+      "Blue",
+      378.80722063417227,
+      558656
+    ],
+    [
+      "Orange",
+      354.12345047468256,
+      198309
+    ],
+    [
+      "Grey",
+      278.8296201710859,
+      1064160
+    ],
+    [
+      "Gold",
+      267.7956176326217,
+      148157
+    ],
+    [
+      "Silver",
+      258.66343965554563,
+      2206075
+    ],
+    [
+      "White",
+      230.50474883650176,
+      2031660
+    ],
+    [
+      "Black",
+      186.27746065038602,
+      2731014
+    ],
+    [
+      "Azure",
+      185.65512043142488,
+      50809
+    ],
+    [
+      "Pink",
+      172.63147462937945,
+      313218
+    ],
+    [
+      "Red",
+      138.13012107048402,
+      664696
+    ],
+    [
+      "Purple",
+      49.58271642601374,
+      9211
+    ],
+    [
+      "blue",
+      36.82392212319288,
+      5049
+    ],
+    [
+      "Yellow",
+      26.995736643463736,
+      248380
+    ],
+    [
+      "Transparent",
+      2.675034782608332,
+      90160
+    ]
+  ],
+  "columns": [
+    "ColorName",
+    "avg_realized_price",
+    "units"
+  ],
+  "row_count": 17,
+  "exec_ms": 594,
+  "error": null
+}

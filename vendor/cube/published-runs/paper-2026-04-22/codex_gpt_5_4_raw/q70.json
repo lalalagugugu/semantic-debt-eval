@@ -1,0 +1,40 @@
+{
+  "question_id": 70,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    ds.StoreType,\n    sum(fs.SalesAmount) AS total_all_channel_sales,\n    avg_store.avg_selling_area_size\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimStore AS ds\n    ON fs.StoreKey = ds.StoreKey\nINNER JOIN\n(\n    SELECT\n        StoreType,\n        avg(SellingAreaSize) AS avg_selling_area_size\n    FROM retail.DimStore\n    GROUP BY StoreType\n) AS avg_store\n    ON ds.StoreType = avg_store.StoreType\nGROUP BY\n    ds.StoreType,\n    avg_store.avg_selling_area_size\nORDER BY ds.StoreType ASC",
+  "rows": [
+    [
+      "Catalog",
+      1078007547.2265768,
+      462.0
+    ],
+    [
+      "Online",
+      2677599035.0761414,
+      31766.666666666668
+    ],
+    [
+      "Reseller",
+      1715197831.4425414,
+      31600.333333333332
+    ],
+    [
+      "Store",
+      6942853195.126731,
+      607.5953177257525
+    ]
+  ],
+  "columns": [
+    "ds.StoreType",
+    "total_all_channel_sales",
+    "avg_selling_area_size"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 14228,
+  "latency_ms_exec": 593,
+  "tokens_in": 16376,
+  "tokens_out": 312,
+  "claude_error": null,
+  "sql_error": null
+}

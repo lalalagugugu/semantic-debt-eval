@@ -1,0 +1,29 @@
+{
+  "question_id": 38,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    sumIf(sp.Amount, sp.ScenarioKey = 1) AS actual_sales,\n    sumIf(sp.Amount, sp.ScenarioKey = 3) AS forecast_sales,\n    forecast_sales - actual_sales AS variance_amount,\n    (forecast_sales - actual_sales) * 100.0 / nullIf(actual_sales, 0) AS variance_pct,\n    100.0 - (abs(forecast_sales - actual_sales) * 100.0 / nullIf(actual_sales, 0)) AS forecast_accuracy_pct\nFROM retail.FactStrategyPlan AS sp\nINNER JOIN retail.DimDate AS d\n    ON sp.DateKey = d.DateKey\nWHERE sp.AccountKey = 50\n  AND sp.ScenarioKey IN (1, 3)\n  AND d.CalendarYear = 2009\n  AND d.CalendarQuarterLabel = 'Q4'",
+  "rows": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      null,
+      null
+    ]
+  ],
+  "columns": [
+    "actual_sales",
+    "forecast_sales",
+    "variance_amount",
+    "variance_pct",
+    "forecast_accuracy_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 17061,
+  "latency_ms_exec": 507,
+  "tokens_in": 18829,
+  "tokens_out": 369,
+  "claude_error": null,
+  "sql_error": null
+}

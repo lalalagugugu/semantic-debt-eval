@@ -1,0 +1,27 @@
+{
+  "question_id": 28,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT c.ChannelName, sum(f.SalesAmount) / nullif(count(), 0) AS avg_transaction_value\nFROM retail.FactSales f\nJOIN retail.DimChannel c ON f.channelKey = c.ChannelKey\nWHERE c.ChannelName IN ('Store', 'Online')\nGROUP BY c.ChannelName",
+  "rows": [
+    [
+      "Store",
+      3193.7727681998995
+    ],
+    [
+      "Online",
+      4255.405532020897
+    ]
+  ],
+  "columns": [
+    "ChannelName",
+    "avg_transaction_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 8590,
+  "latency_ms_exec": 541,
+  "tokens_in": 23316,
+  "tokens_out": 244,
+  "claude_error": null,
+  "sql_error": null
+}

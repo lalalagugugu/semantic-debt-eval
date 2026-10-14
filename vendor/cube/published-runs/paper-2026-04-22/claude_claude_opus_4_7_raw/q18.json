@@ -1,0 +1,27 @@
+{
+  "question_id": 18,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.PromotionType AS PromotionType, sum(f.DiscountAmount) AS TotalDiscountAmount\nFROM retail.FactSales AS f\nINNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey\nGROUP BY p.PromotionType\nORDER BY TotalDiscountAmount DESC",
+  "rows": [
+    [
+      "Seasonal Discount",
+      204157104.0844695
+    ],
+    [
+      "No Discount",
+      0.0
+    ]
+  ],
+  "columns": [
+    "PromotionType",
+    "TotalDiscountAmount"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7031,
+  "latency_ms_exec": 530,
+  "tokens_in": 19117,
+  "tokens_out": 135,
+  "claude_error": null,
+  "sql_error": null
+}

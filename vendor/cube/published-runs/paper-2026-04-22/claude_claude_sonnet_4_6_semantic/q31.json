@@ -1,0 +1,15 @@
+{
+  "question_id": 31,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sumIf(sp.Amount, sp.ScenarioKey = 1) AS ActualRevenue,\n    sumIf(sp.Amount, sp.ScenarioKey = 2) AS BudgetRevenue,\n    sumIf(sp.Amount, sp.ScenarioKey = 1) - sumIf(sp.Amount, sp.ScenarioKey = 2) AS Variance,\n    (sumIf(sp.Amount, sp.ScenarioKey = 1) - sumIf(sp.Amount, sp.ScenarioKey = 2))\n        * 100.0 / nullif(sumIf(sp.Amount, sp.ScenarioKey = 2), 0) AS VariancePct\nFROM retail.FactStrategyPlan sp\nJOIN retail.DimProductCategory pc\n    ON sp.ProductCategoryKey = pc.ProductCategoryKey\nWHERE toYear(sp.DateKey) = 2009\n  AND sp.ScenarioKey IN (1, 2)\n  AND sp.AccountKey = 50\nGROUP BY pc.ProductCategoryName\nORDER BY ActualRevenue DESC",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 10433,
+  "latency_ms_exec": 502,
+  "tokens_in": 16756,
+  "tokens_out": 401,
+  "claude_error": null,
+  "sql_error": null
+}

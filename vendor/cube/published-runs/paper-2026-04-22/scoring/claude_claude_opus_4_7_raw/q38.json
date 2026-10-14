@@ -1,0 +1,11 @@
+{
+  "question_id": 38,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses entirely different tables (FactSalesQuota/FactSales vs FactStrategyPlan), returns a single aggregate row instead of per-category breakdowns, and produces wildly different values (~98.8% variance vs <2% error per category), answering a fundamentally different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 269,
+  "judge_latency_ms": 12101
+}

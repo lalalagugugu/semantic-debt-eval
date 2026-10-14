@@ -1,0 +1,23 @@
+{
+  "question_id": 25,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT NorthAmericaSeason, avg(daily_total) AS avg_daily_sales\nFROM (\n  SELECT d.NorthAmericaSeason AS NorthAmericaSeason, f.DateKey AS DateKey, sum(f.SalesAmount) AS daily_total\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON f.DateKey = d.DateKey\n  GROUP BY d.NorthAmericaSeason, f.DateKey\n)\nGROUP BY NorthAmericaSeason\nORDER BY avg_daily_sales DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Back to School",
+      2634610.850055211
+    ]
+  ],
+  "columns": [
+    "NorthAmericaSeason",
+    "avg_daily_sales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9906,
+  "latency_ms_exec": 641,
+  "tokens_in": 23316,
+  "tokens_out": 297,
+  "claude_error": null,
+  "sql_error": null
+}

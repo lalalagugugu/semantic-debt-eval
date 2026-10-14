@@ -1,0 +1,51 @@
+{
+  "question_id": 5,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    count() AS ProductCount\nFROM retail.DimProduct p\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY ProductCount DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      661
+    ],
+    [
+      "Computers",
+      459
+    ],
+    [
+      "Cameras and camcorders",
+      358
+    ],
+    [
+      "Cell phones",
+      282
+    ],
+    [
+      "TV and Video",
+      222
+    ],
+    [
+      "Audio",
+      115
+    ],
+    [
+      "Music, Movies and Audio Books",
+      90
+    ],
+    [
+      "Games and Toys",
+      46
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "ProductCount"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 6781,
+  "latency_ms_exec": 818,
+  "tokens_in": 16752,
+  "tokens_out": 120,
+  "claude_error": null,
+  "sql_error": null
+}

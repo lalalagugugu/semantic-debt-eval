@@ -1,0 +1,81 @@
+{
+  "question_id": 27,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.ProductName, sum(f.SalesAmount) AS SalesAmount, sum(f.TotalCost) AS TotalCost, (sum(f.SalesAmount) - sum(f.TotalCost)) / sum(f.SalesAmount) * 100 AS ProfitMarginPct FROM retail.FactSales AS f INNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey GROUP BY p.ProductName HAVING sum(f.SalesAmount) > 0 ORDER BY ProfitMarginPct DESC LIMIT 10",
+  "rows": [
+    [
+      "WWI Screen 125in M1611 White",
+      1458518.4000000006,
+      483462.31999999896,
+      66.85250456902027
+    ],
+    [
+      "Adventure Works LCD22W M200 White",
+      5223750.700000006,
+      1732044.0299999914,
+      66.84290408422459
+    ],
+    [
+      "WWI Screen 125in M1611 Silver",
+      1541491.8300000003,
+      511140.87999999896,
+      66.8411554279857
+    ],
+    [
+      "Contoso Bluetooth Active Headphones L15 Black",
+      7628441.051699993,
+      2529931.799999994,
+      66.83553319932648
+    ],
+    [
+      "Contoso Bluetooth Active Headphones L15 Red",
+      8157691.436999994,
+      2705657.399999993,
+      66.83305049112028
+    ],
+    [
+      "Contoso Bluetooth Active Headphones L15 White",
+      7974490.030499992,
+      2645359.3999999915,
+      66.82722794959554
+    ],
+    [
+      "Fabrikam Trendsetter 1/2\" 3mm X300 Orange",
+      18515490.0,
+      6143004.119999994,
+      66.8223518794264
+    ],
+    [
+      "A. Datum Full Frame Digital Camera X300 Grey",
+      4420422.929999999,
+      1466620.9199999985,
+      66.82170590405477
+    ],
+    [
+      "Contoso SLR Camera 35\" X358 Pink",
+      5147926.000000004,
+      1708388.8199999975,
+      66.81403695391121
+    ],
+    [
+      "Proseware Screen 125in X1609 White",
+      1267918.65,
+      420805.35999999923,
+      66.81132815579302
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "SalesAmount",
+    "TotalCost",
+    "ProfitMarginPct"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 7489,
+  "latency_ms_exec": 597,
+  "tokens_in": 19118,
+  "tokens_out": 214,
+  "claude_error": null,
+  "sql_error": null
+}

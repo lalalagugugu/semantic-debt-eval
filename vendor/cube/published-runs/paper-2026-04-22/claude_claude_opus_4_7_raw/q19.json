@@ -1,0 +1,27 @@
+{
+  "question_id": 19,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT c.Gender AS Gender, avg(o.SalesAmount) AS AverageOrderValue\nFROM retail.FactOnlineSales AS o\nINNER JOIN retail.DimCustomer AS c ON o.CustomerKey = c.CustomerKey\nGROUP BY c.Gender\nORDER BY AverageOrderValue DESC",
+  "rows": [
+    [
+      "M",
+      217.1471194540227
+    ],
+    [
+      "F",
+      213.470851861613
+    ]
+  ],
+  "columns": [
+    "Gender",
+    "AverageOrderValue"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 6479,
+  "latency_ms_exec": 808,
+  "tokens_in": 19113,
+  "tokens_out": 128,
+  "claude_error": null,
+  "sql_error": null
+}

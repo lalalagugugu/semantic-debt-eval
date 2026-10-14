@@ -1,0 +1,11 @@
+{
+  "question_id": 48,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses FactOnlineSales (wrong table), returns per-store/month rows with Pearson correlation, vs the reference's 2-row High/Low Downtime grouping with avg sales from FactSales \u2014 different source data, different structure, different values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 578,
+  "judge_latency_ms": 20428
+}

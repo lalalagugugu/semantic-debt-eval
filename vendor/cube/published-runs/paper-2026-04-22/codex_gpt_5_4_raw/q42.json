@@ -1,0 +1,15 @@
+{
+  "question_id": 42,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    toYear(s.DateKey) AS year,\n    toMonth(s.DateKey) AS month,\n    sum(s.SalesQuantity) AS units_sold,\n    sum(s.SalesAmount) AS gross_sales,\n    sum(s.ReturnAmount) AS returns_amount,\n    sum(s.DiscountAmount) AS discount_amount,\n    sum(s.SalesAmount - s.ReturnAmount - s.DiscountAmount) AS net_sales,\n    sum(s.SalesAmount - s.ReturnAmount - s.DiscountAmount - s.TotalCost) AS gross_profit,\n    round(\n        sum(s.SalesAmount - s.ReturnAmount - s.DiscountAmount - s.TotalCost)\n        / nullIf(sum(s.SalesAmount - s.ReturnAmount - s.DiscountAmount), 0),\n        4\n    ) AS gross_margin_pct\nFROM\n(\n    SELECT\n        DateKey,\n        ProductKey,\n        SalesQuantity,\n        SalesAmount,\n        ReturnAmount,\n        DiscountAmount,\n        TotalCost\n    FROM retail.FactSales\n    UNION ALL\n    SELECT\n        DateKey,\n        ProductKey,\n        SalesQuantity,\n        SalesAmount,\n        ReturnAmount,\n        DiscountAmount,\n        TotalCost\n    FROM retail.FactOnlineSales\n) AS s\nINNER JOIN retail.DimProduct AS p\n    ON s.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory AS pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nWHERE pc.ProductCategoryName = 'Cameras'\nGROUP BY\n    year,\n    month\nORDER BY\n    year,\n    month",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 23203,
+  "latency_ms_exec": 993,
+  "tokens_in": 17221,
+  "tokens_out": 690,
+  "claude_error": null,
+  "sql_error": null
+}

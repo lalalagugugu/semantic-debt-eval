@@ -1,0 +1,11 @@
+{
+  "question_id": 37,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns percentile rank as decimal (1.0, 0.9967) instead of percentage (100.0, 99.67) and adds an extra StoreKey column \u2014 strict fail; analytically passes per the decimal-vs-percentage equivalence rule.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 569,
+  "judge_latency_ms": 22755
+}

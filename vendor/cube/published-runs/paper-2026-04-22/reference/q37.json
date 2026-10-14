@@ -1,0 +1,514 @@
+{
+  "question_id": 37,
+  "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, round(PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100, 2) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
+  "rows": [
+    [
+      "Contoso Catalog Store",
+      1078007547.2267466,
+      100.0
+    ],
+    [
+      "Contoso North America Online Store",
+      984249404.2534311,
+      99.67
+    ],
+    [
+      "Contoso Asia Online Store",
+      887049174.4335108,
+      99.34
+    ],
+    [
+      "Contoso Europe Online Store",
+      806300456.3878686,
+      99.02
+    ],
+    [
+      "Contoso North America Reseller",
+      628168708.5233318,
+      98.69
+    ],
+    [
+      "Contoso Asia Reseller",
+      563941179.690008,
+      98.36
+    ],
+    [
+      "Contoso Europe Reseller",
+      523087943.2288077,
+      98.03
+    ],
+    [
+      "Contoso Sydney No.1 Store",
+      37929553.43050009,
+      97.7
+    ],
+    [
+      "Contoso Tehran No.2 Store",
+      37733360.95600013,
+      97.38
+    ],
+    [
+      "Contoso Sydney  No.2 Store",
+      37719118.16500007,
+      97.05
+    ],
+    [
+      "Contoso Kolkata Store",
+      37649289.012000114,
+      96.72
+    ],
+    [
+      "Contoso Taipei  Store",
+      37610056.378500134,
+      96.39
+    ],
+    [
+      "Contoso Bishkek Store",
+      37599400.74300016,
+      96.07
+    ],
+    [
+      "Contoso Urumqi Store",
+      37523589.58950007,
+      95.74
+    ],
+    [
+      "Contoso Damascus No.2 Store",
+      37502773.74850005,
+      95.41
+    ],
+    [
+      "Contoso Tehran No.1 Store",
+      37483598.35949999,
+      95.08
+    ],
+    [
+      "Contoso Moscow  No.2 Store",
+      37426777.63740007,
+      94.75
+    ],
+    [
+      "Contoso New Delhi Store",
+      37417079.49100006,
+      94.43
+    ],
+    [
+      "Contoso Bangkok No.2 Store",
+      37416713.12350011,
+      94.1
+    ],
+    [
+      "Contoso Tokyo No.1 Store",
+      37382717.147500105,
+      93.77
+    ],
+    [
+      "Contoso Yerevan Store",
+      37267993.470000096,
+      93.44
+    ],
+    [
+      "Contoso Osaka No.1 Store",
+      37080959.850000106,
+      93.11
+    ],
+    [
+      "Contoso Ashgabat No.1 Store",
+      37053783.24600011,
+      92.79
+    ],
+    [
+      "Contoso Islamabad No.1 Store",
+      37016662.74550004,
+      92.46
+    ],
+    [
+      "Contoso Tokyo No.2 Store",
+      36945141.564000085,
+      92.13
+    ],
+    [
+      "Contoso Hong Kong No.1 Store",
+      36915837.557500176,
+      91.8
+    ],
+    [
+      "Contoso Canberra Store",
+      36913603.69050011,
+      91.48
+    ],
+    [
+      "Contoso Thimphu No.2 Store",
+      36887032.72650005,
+      91.15
+    ],
+    [
+      "Contoso Mumbai Store",
+      36852710.283500046,
+      90.82
+    ],
+    [
+      "Contoso Shanghai No.1 Store",
+      36834657.191,
+      90.49
+    ],
+    [
+      "Contoso Shanghai No.2 Store",
+      36782308.13250002,
+      90.16
+    ],
+    [
+      "Contoso Ashgabat  No.2 Store",
+      36758701.42050004,
+      89.84
+    ],
+    [
+      "Contoso Busan Store",
+      36573180.10550007,
+      89.51
+    ],
+    [
+      "Contoso Yokohama Store",
+      36436543.23500015,
+      89.18
+    ],
+    [
+      "Contoso Singapore Store",
+      36263091.30350005,
+      88.85
+    ],
+    [
+      "Contoso Hong Kong No.2 Store",
+      35666112.20200007,
+      88.52
+    ],
+    [
+      "Contoso Osaka No.2 Store",
+      34489779.81850006,
+      88.2
+    ],
+    [
+      "Contoso Sapporo Store",
+      31217723.448499933,
+      87.87
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      29213300.336999934,
+      87.54
+    ],
+    [
+      "Contoso Islamabad  No.2 Store",
+      27299295.452499975,
+      87.21
+    ],
+    [
+      "Contoso Ridgely Store",
+      23776552.1450001,
+      86.89
+    ],
+    [
+      "Contoso Sheboygan Store",
+      23714383.06600012,
+      86.56
+    ],
+    [
+      "Contoso Sebring Store",
+      23555460.483500104,
+      86.23
+    ],
+    [
+      "Contoso Calgary  Store",
+      23493114.433000065,
+      85.9
+    ],
+    [
+      "Contoso North Harford Store",
+      23485872.85200008,
+      85.57
+    ],
+    [
+      "Contoso Vancouver  No.1 Store",
+      23440233.261500057,
+      85.25
+    ],
+    [
+      "Contoso East Troy Store",
+      23434287.78600008,
+      84.92
+    ],
+    [
+      "Contoso Lowell Store",
+      23429062.90750005,
+      84.59
+    ],
+    [
+      "Contoso Fort Collins Store",
+      23397040.10900009,
+      84.26
+    ],
+    [
+      "Contoso Charleston Store",
+      23372585.874000076,
+      83.93
+    ],
+    [
+      "Contoso Denton Store",
+      23349814.318500094,
+      83.61
+    ],
+    [
+      "Contoso Loveland Store",
+      23277716.327000074,
+      83.28
+    ],
+    [
+      "Contoso Midland Store",
+      23273211.94050003,
+      82.95
+    ],
+    [
+      "Contoso Thornton Store",
+      23254190.623500146,
+      82.62
+    ],
+    [
+      "Contoso Newark No.2 Store",
+      23248998.266500063,
+      82.3
+    ],
+    [
+      "Contoso Rochester No.1 Store",
+      23244748.627500057,
+      81.97
+    ],
+    [
+      "Contoso Framingham Store",
+      23239851.722000096,
+      81.64
+    ],
+    [
+      "Contoso Northampton Store",
+      23230910.27600012,
+      81.31
+    ],
+    [
+      "Contoso Annapolis Store",
+      23220581.86050011,
+      80.98
+    ],
+    [
+      "Contoso North Bend Store",
+      23216442.862000093,
+      80.66
+    ],
+    [
+      "Contoso Sedalia Store",
+      23204157.962000065,
+      80.33
+    ],
+    [
+      "Contoso Desoto Store",
+      23195677.545500085,
+      80.0
+    ],
+    [
+      "Contoso Morristown Store",
+      23191297.1620001,
+      79.67
+    ],
+    [
+      "Contoso Nantucket Store",
+      23170240.775000088,
+      79.34
+    ],
+    [
+      "Contoso Milwaukee No.1 Store",
+      23169860.714500077,
+      79.02
+    ],
+    [
+      "Contoso Orono Store",
+      23153727.461000044,
+      78.69
+    ],
+    [
+      "Contoso Port Washington Store",
+      23120183.0000001,
+      78.36
+    ],
+    [
+      "Contoso Boulder Store",
+      23113009.595000077,
+      78.03
+    ],
+    [
+      "Contoso Bacliff Store",
+      23112797.98300009,
+      77.7
+    ],
+    [
+      "Contoso Beaumont No.1 Store",
+      23112373.888000082,
+      77.38
+    ],
+    [
+      "Contoso Denver No.3 Store",
+      23111475.588500075,
+      77.05
+    ],
+    [
+      "Contoso Waukesha No.2 Store",
+      23094079.14950011,
+      76.72
+    ],
+    [
+      "Contoso Cle Elum Store",
+      23092694.339000076,
+      76.39
+    ],
+    [
+      "Contoso Austin Store",
+      23092451.725000076,
+      76.07
+    ],
+    [
+      "Contoso Fort Atkinson Store",
+      23091486.971000116,
+      75.74
+    ],
+    [
+      "Contoso Hackensack Store",
+      23075662.58250007,
+      75.41
+    ],
+    [
+      "Contoso Newark No.1 Store",
+      23069439.141000092,
+      75.08
+    ],
+    [
+      "Contoso Stoughton Store",
+      23061108.6570001,
+      74.75
+    ],
+    [
+      "Contoso Richardson Store",
+      23060800.865000054,
+      74.43
+    ],
+    [
+      "Contoso Vancouver  No.2 Store",
+      23058497.855000027,
+      74.1
+    ],
+    [
+      "Contoso Wapato Store",
+      23038106.466500092,
+      73.77
+    ],
+    [
+      "Contoso Berthoud Store",
+      23031618.49100007,
+      73.44
+    ],
+    [
+      "Contoso Toronto No.1 Store",
+      23027554.895000096,
+      73.11
+    ],
+    [
+      "Contoso Fort Worth Store",
+      23019433.78950011,
+      72.79
+    ],
+    [
+      "Contoso Toppenish Store",
+      23001652.78900008,
+      72.46
+    ],
+    [
+      "Contoso Georgetown Store",
+      23000135.4315001,
+      72.13
+    ],
+    [
+      "Contoso Seattle No.1 Store",
+      22994925.16950009,
+      71.8
+    ],
+    [
+      "Contoso Cape Canaveral Store",
+      22992894.75450013,
+      71.48
+    ],
+    [
+      "Contoso Beaumont No.2 Store",
+      22986908.84450011,
+      71.15
+    ],
+    [
+      "Contoso Ottawa No.2 Store",
+      22982409.601000085,
+      70.82
+    ],
+    [
+      "Contoso Greeley No.2 Store",
+      22975399.041000128,
+      70.49
+    ],
+    [
+      "Contoso Milliken Store",
+      22972604.726000052,
+      70.16
+    ],
+    [
+      "Contoso Plattsburgh Store",
+      22969249.306500077,
+      69.84
+    ],
+    [
+      "Contoso New York No.1 Store",
+      22967683.935500145,
+      69.51
+    ],
+    [
+      "Contoso Provincetown Store",
+      22943490.149500087,
+      69.18
+    ],
+    [
+      "Contoso Grand Junction Store",
+      22929282.37200008,
+      68.85
+    ],
+    [
+      "Contoso South Portland Store",
+      22928230.12200007,
+      68.52
+    ],
+    [
+      "Contoso Marshall Store",
+      22919012.718000088,
+      68.2
+    ],
+    [
+      "Contoso Greenville Store",
+      22917396.124500055,
+      67.87
+    ],
+    [
+      "Contoso Yakima Store",
+      22903891.26100007,
+      67.54
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "total_sales",
+    "percentile"
+  ],
+  "row_count": 100,
+  "exec_ms": 553,
+  "error": null
+}

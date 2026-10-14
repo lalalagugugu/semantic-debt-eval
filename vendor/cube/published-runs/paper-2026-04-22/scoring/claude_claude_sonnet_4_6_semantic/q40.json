@@ -1,0 +1,11 @@
+{
+  "question_id": 40,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both the reference and candidate return 0.0; despite using 'Euro' vs 'EUR' as the currency name filter (and a subquery join instead of explicit JOIN), the numeric result is identical.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 189,
+  "judge_latency_ms": 12556
+}

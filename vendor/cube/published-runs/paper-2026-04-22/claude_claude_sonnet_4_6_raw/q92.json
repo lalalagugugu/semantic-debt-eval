@@ -1,0 +1,15 @@
+{
+  "question_id": 92,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.BrandName,\n    sum(s.SalesAmount) AS TotalRevenue,\n    sum(s.TotalCost) AS TotalCost,\n    sum(s.SalesAmount - s.TotalCost) AS GrossProfit\nFROM retail.FactSales AS s\nJOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey\nWHERE toQuarter(s.DateKey) = toQuarter(today() - INTERVAL 1 QUARTER)\n  AND toYear(s.DateKey) = toYear(today() - INTERVAL 1 QUARTER)\nGROUP BY p.BrandName\nORDER BY GrossProfit DESC",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 9129,
+  "latency_ms_exec": 489,
+  "tokens_in": 13795,
+  "tokens_out": 278,
+  "claude_error": null,
+  "sql_error": null
+}

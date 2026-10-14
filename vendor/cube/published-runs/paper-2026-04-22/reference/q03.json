@@ -1,0 +1,15 @@
+{
+  "question_id": 3,
+  "sql": "SELECT count(DISTINCT CustomerKey) FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      18869
+    ]
+  ],
+  "columns": [
+    "countDistinct(CustomerKey)"
+  ],
+  "row_count": 1,
+  "exec_ms": 508,
+  "error": null
+}

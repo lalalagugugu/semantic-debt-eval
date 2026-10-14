@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, yielding different product counts per class (A:1119 vs 1131, B:672 vs 666, C:713 vs 707), meaning it answers the question on a different data source and produces genuinely wrong results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 232,
+  "judge_latency_ms": 13536
+}

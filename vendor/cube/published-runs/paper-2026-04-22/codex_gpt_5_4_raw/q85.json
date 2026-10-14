@@ -1,0 +1,15 @@
+{
+  "question_id": 85,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH store_attainment AS (\n    SELECT\n        s.StoreKey,\n        ds.StoreName,\n        sum(s.actual_sales) AS actual_sales,\n        sum(q.sales_quota) AS sales_amount_quota,\n        sum(s.actual_sales) / nullIf(sum(q.sales_quota), 0) AS quota_attainment\n    FROM\n    (\n        SELECT\n            StoreKey,\n            sum(SalesAmount) AS actual_sales\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = 2009\n        GROUP BY StoreKey\n    ) AS s\n    INNER JOIN\n    (\n        SELECT\n            StoreKey,\n            sum(SalesAmountQuota) AS sales_quota\n        FROM retail.FactSalesQuota\n        WHERE toYear(DateKey) = 2009\n        GROUP BY StoreKey\n    ) AS q\n        ON s.StoreKey = q.StoreKey\n    INNER JOIN retail.DimStore AS ds\n        ON s.StoreKey = ds.StoreKey\n    GROUP BY\n        s.StoreKey,\n        ds.StoreName\n)\nSELECT\n    performer_group,\n    StoreKey,\n    StoreName,\n    actual_sales,\n    sales_amount_quota,\n    quota_attainment\nFROM\n(\n    SELECT\n        'top_5' AS performer_group,\n        StoreKey,\n        StoreName,\n        actual_sales,\n        sales_amount_quota,\n        quota_attainment\n    FROM store_attainment\n    ORDER BY quota_attainment DESC\n    LIMIT 5\n)\nUNION ALL\nSELECT\n    performer_group,\n    StoreKey,\n    StoreName,\n    actual_sales,\n    sales_amount_quota,\n    quota_attainment\nFROM\n(\n    SELECT\n        'bottom_5' AS performer_group,\n        StoreKey,\n        StoreName,\n        actual_sales,\n        sales_amount_quota,\n        quota_attainment\n    FROM store_attainment\n    ORDER BY quota_attainment ASC\n    LIMIT 5\n)\nORDER BY performer_group, quota_attainment DESC;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 20675,
+  "latency_ms_exec": null,
+  "tokens_in": 16385,
+  "tokens_out": 569,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope SELECT 'top_5' AS performer_group, StoreKey, StoreName, actual_sales, sales_amount_quota, quota_attainment FROM store_attainment ORDER BY quota_attainment DESC LIMIT 5. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

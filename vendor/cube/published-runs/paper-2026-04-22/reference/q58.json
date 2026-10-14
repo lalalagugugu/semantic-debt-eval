@@ -1,0 +1,15 @@
+{
+  "question_id": 58,
+  "sql": "SELECT max(SalesAmount) AS max_line_sales_amount FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "max_line_sales_amount"
+  ],
+  "row_count": 1,
+  "exec_ms": 505,
+  "error": null
+}

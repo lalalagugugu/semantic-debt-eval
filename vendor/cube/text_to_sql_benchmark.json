@@ -1,0 +1,1033 @@
+{
+  "benchmark_name": "Contoso Retail Text-to-SQL Benchmark",
+  "database": "retail",
+  "questions": [
+    {
+      "id": 1,
+      "level": "simple",
+      "question": "How many products are in the catalog?",
+      "expected_sql": "SELECT count() FROM retail.DimProduct",
+      "tricky_aspects": []
+    },
+    {
+      "id": 2,
+      "level": "simple",
+      "question": "What is the total sales amount from online sales?",
+      "expected_sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales",
+      "tricky_aspects": []
+    },
+    {
+      "id": 3,
+      "level": "simple",
+      "question": "How many unique customers have made online purchases?",
+      "expected_sql": "SELECT count(DISTINCT CustomerKey) FROM retail.FactOnlineSales",
+      "tricky_aspects": []
+    },
+    {
+      "id": 4,
+      "level": "simple",
+      "question": "List all products from the brand Contoso",
+      "expected_sql": "SELECT ProductName FROM retail.DimProduct WHERE BrandName = 'Contoso'",
+      "tricky_aspects": [
+        "string_matching"
+      ]
+    },
+    {
+      "id": 5,
+      "level": "simple",
+      "question": "How many products are there in each product category?",
+      "expected_sql": "SELECT pc.ProductCategoryName, count() as product_count FROM retail.DimProduct p JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+      "tricky_aspects": [
+        "multi_table_hierarchy"
+      ]
+    },
+    {
+      "id": 6,
+      "level": "simple",
+      "question": "What were the total online sales in 2009?",
+      "expected_sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+      "tricky_aspects": [
+        "date_extraction"
+      ]
+    },
+    {
+      "id": 7,
+      "level": "simple",
+      "question": "What are the top 10 most expensive products by unit price?",
+      "expected_sql": "SELECT ProductName, UnitPrice FROM retail.DimProduct ORDER BY UnitPrice DESC LIMIT 10",
+      "tricky_aspects": []
+    },
+    {
+      "id": 8,
+      "level": "simple",
+      "question": "List all employees who are sales people",
+      "expected_sql": "SELECT FirstName, LastName FROM retail.DimEmployee WHERE IsSalesPerson = 'Yes'",
+      "tricky_aspects": [
+        "string_boolean"
+      ]
+    },
+    {
+      "id": 9,
+      "level": "simple",
+      "question": "What is the average unit cost across all products?",
+      "expected_sql": "SELECT avg(UnitCost) FROM retail.DimProduct",
+      "tricky_aspects": [
+        "null_handling"
+      ]
+    },
+    {
+      "id": 10,
+      "level": "simple",
+      "question": "How many stores are currently open?",
+      "expected_sql": "SELECT count() FROM retail.DimStore WHERE Status = 'On' OR CloseDate IS NULL",
+      "tricky_aspects": [
+        "status_semantics",
+        "null_logic"
+      ]
+    },
+    {
+      "id": 11,
+      "level": "medium",
+      "question": "Show total sales amount by product category",
+      "expected_sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC",
+      "tricky_aspects": [
+        "three_table_join"
+      ]
+    },
+    {
+      "id": 12,
+      "level": "medium",
+      "question": "What were the monthly online sales for 2008?",
+      "expected_sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2008 GROUP BY month ORDER BY month",
+      "tricky_aspects": [
+        "date_functions"
+      ]
+    },
+    {
+      "id": 13,
+      "level": "medium",
+      "question": "For each store, show total sales, average order value, and number of transactions",
+      "expected_sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, avg(f.SalesAmount) as avg_order_value, count() as num_transactions FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreName",
+      "tricky_aspects": [
+        "multiple_aggregations"
+      ]
+    },
+    {
+      "id": 14,
+      "level": "medium",
+      "question": "Which customers have spent more than $10,000 in total?",
+      "expected_sql": "SELECT c.FirstName, c.LastName, sum(s.SalesAmount) as total_spent FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey GROUP BY c.CustomerKey, c.FirstName, c.LastName HAVING sum(s.SalesAmount) > 10000",
+      "tricky_aspects": [
+        "having_clause"
+      ]
+    },
+    {
+      "id": 15,
+      "level": "medium",
+      "question": "What are the total online sales by country?",
+      "expected_sql": "SELECT g.RegionCountryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName ORDER BY total_sales DESC",
+      "tricky_aspects": [
+        "join_path_through_customer"
+      ]
+    },
+    {
+      "id": 16,
+      "level": "medium",
+      "question": "Compare total online sales between 2008 and 2009",
+      "expected_sql": "SELECT toYear(DateKey) as year, sum(SalesAmount) as total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008, 2009) GROUP BY year ORDER BY year",
+      "tricky_aspects": [
+        "year_comparison"
+      ]
+    },
+    {
+      "id": 17,
+      "level": "medium",
+      "question": "What percentage of sales occur on weekends vs weekdays?",
+      "expected_sql": "SELECT d.IsWorkDay, sum(s.SalesAmount) as sales, round(sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales), 2) as percentage FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.IsWorkDay",
+      "tricky_aspects": [
+        "string_boolean_workday",
+        "percentage_calculation"
+      ]
+    },
+    {
+      "id": 18,
+      "level": "medium",
+      "question": "What is the total discount amount given by each promotion type?",
+      "expected_sql": "SELECT p.PromotionType, sum(s.DiscountAmount) as total_discount FROM retail.FactOnlineSales s JOIN retail.DimPromotion p ON s.PromotionKey = p.PromotionKey WHERE p.PromotionKey != 1 GROUP BY p.PromotionType",
+      "tricky_aspects": [
+        "exclude_no_discount"
+      ]
+    },
+    {
+      "id": 19,
+      "level": "medium",
+      "question": "What is the average order value by customer gender?",
+      "expected_sql": "SELECT c.Gender, avg(s.SalesAmount) as avg_order_value FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey GROUP BY c.Gender",
+      "tricky_aspects": [
+        "gender_string"
+      ]
+    },
+    {
+      "id": 20,
+      "level": "medium",
+      "question": "Which products currently have inventory below their safety stock level?",
+      "expected_sql": "WITH latest AS (SELECT MAX(DateKey) as max_date FROM retail.FactInventory) SELECT p.ProductName, i.OnHandQuantity, i.SafetyStockQuantity FROM retail.FactInventory i JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey JOIN latest ON i.DateKey = latest.max_date WHERE i.OnHandQuantity < i.SafetyStockQuantity",
+      "tricky_aspects": [
+        "latest_snapshot",
+        "comparison"
+      ]
+    },
+    {
+      "id": 21,
+      "level": "complex",
+      "question": "What is the current inventory level for each product in each store?",
+      "expected_sql": "WITH latest AS (SELECT StoreKey, ProductKey, MAX(DateKey) as max_date FROM retail.FactInventory GROUP BY StoreKey, ProductKey) SELECT s.StoreName, p.ProductName, i.OnHandQuantity FROM retail.FactInventory i JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date JOIN retail.DimStore s ON i.StoreKey = s.StoreKey JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey",
+      "tricky_aspects": [
+        "max_date_per_group",
+        "snapshot_data"
+      ]
+    },
+    {
+      "id": 22,
+      "level": "complex",
+      "question": "Rank the top 5 customers by total spend in each country",
+      "expected_sql": "WITH customer_sales AS (SELECT c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName, sum(s.SalesAmount) as total_spent, ROW_NUMBER() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(s.SalesAmount) DESC) as rn FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName) SELECT * FROM customer_sales WHERE rn <= 5",
+      "tricky_aspects": [
+        "window_function",
+        "partition_by"
+      ]
+    },
+    {
+      "id": 23,
+      "level": "complex",
+      "question": "Show cumulative monthly sales for 2009",
+      "expected_sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales, sum(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey)) as cumulative_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+      "tricky_aspects": [
+        "running_total",
+        "window_function"
+      ]
+    },
+    {
+      "id": 24,
+      "level": "complex",
+      "question": "What is the return rate by product category?",
+      "expected_sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+      "tricky_aspects": [
+        "ratio_calculation",
+        "division_by_zero",
+        "multi_join"
+      ]
+    },
+    {
+      "id": 25,
+      "level": "complex",
+      "question": "Which season has the highest average daily sales in North America?",
+      "expected_sql": "SELECT d.NorthAmericaSeason, avg(daily_sales) as avg_daily_sales FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales GROUP BY DateKey) s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
+      "tricky_aspects": [
+        "nested_aggregation",
+        "date_dimension_join"
+      ]
+    },
+    {
+      "id": 26,
+      "level": "complex",
+      "question": "How many customers made their first purchase in each quarter of 2007?",
+      "expected_sql": "WITH first_purchase AS (SELECT CustomerKey, MIN(DateKey) as first_date FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT toQuarter(first_date) as quarter, count() as new_customers FROM first_purchase WHERE toYear(first_date) = 2007 GROUP BY quarter ORDER BY quarter",
+      "tricky_aspects": [
+        "cohort_analysis",
+        "min_aggregation"
+      ]
+    },
+    {
+      "id": 27,
+      "level": "complex",
+      "question": "What are the top 10 products by profit margin percentage?",
+      "expected_sql": "SELECT ProductName, UnitPrice, UnitCost, round((UnitPrice - UnitCost) * 100.0 / nullIf(UnitPrice, 0), 2) as margin_pct FROM retail.DimProduct WHERE UnitPrice > 0 ORDER BY margin_pct DESC LIMIT 10",
+      "tricky_aspects": [
+        "calculated_field",
+        "null_handling",
+        "division_by_zero"
+      ]
+    },
+    {
+      "id": 28,
+      "level": "complex",
+      "question": "Compare average transaction value between Store and Online channels",
+      "expected_sql": "SELECT 'Online' as channel, avg(SalesAmount) as avg_transaction FROM retail.FactOnlineSales UNION ALL SELECT 'Store' as channel, avg(SalesAmount) FROM retail.FactSales WHERE channelKey = 1",
+      "tricky_aspects": [
+        "multiple_fact_tables",
+        "schema_understanding"
+      ]
+    },
+    {
+      "id": 29,
+      "level": "complex",
+      "question": "What percentage more or less do we sell on holidays compared to regular days?",
+      "expected_sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT round((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales, 2) as pct_difference FROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
+      "tricky_aspects": [
+        "percentage_difference",
+        "string_boolean",
+        "self_join"
+      ]
+    },
+    {
+      "id": 30,
+      "level": "complex",
+      "question": "Calculate a 7-day moving average of daily online sales for December 2009",
+      "expected_sql": "SELECT DateKey, daily_sales, avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as moving_avg_7d FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales WHERE DateKey >= '2009-12-01' AND DateKey <= '2009-12-31' GROUP BY DateKey) ORDER BY DateKey",
+      "tricky_aspects": [
+        "window_function_rows",
+        "date_range"
+      ]
+    },
+    {
+      "id": 31,
+      "level": "advanced",
+      "question": "Compare actual sales revenue to budget for each product category in 2009",
+      "expected_sql": "SELECT pc.ProductCategoryName, sum(CASE WHEN sp.ScenarioKey = 1 THEN sp.Amount ELSE 0 END) as actual, sum(CASE WHEN sp.ScenarioKey = 2 THEN sp.Amount ELSE 0 END) as budget FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey = pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey = a.AccountKey WHERE a.AccountName = 'Sale Revenue' AND toYear(sp.DateKey) = 2009 GROUP BY pc.ProductCategoryName",
+      "tricky_aspects": [
+        "scenario_filtering",
+        "pivot_logic",
+        "account_filter"
+      ]
+    },
+    {
+      "id": 32,
+      "level": "advanced",
+      "question": "What is the total lifetime value for customers who made purchases in all 3 years?",
+      "expected_sql": "SELECT count() as customer_count, sum(total_ltv) as total_ltv FROM (SELECT CustomerKey, sum(SalesAmount) as total_ltv FROM retail.FactOnlineSales GROUP BY CustomerKey HAVING count(DISTINCT toYear(DateKey)) = 3)",
+      "tricky_aspects": [
+        "having_distinct_years",
+        "nested_aggregation"
+      ]
+    },
+    {
+      "id": 33,
+      "level": "advanced",
+      "question": "Which products are most frequently purchased together in the same order?",
+      "expected_sql": "SELECT p1.ProductName as product1, p2.ProductName as product2, count() as times_together FROM retail.FactOnlineSales s1 JOIN retail.FactOnlineSales s2 ON s1.SalesOrderNumber = s2.SalesOrderNumber AND s1.ProductKey < s2.ProductKey JOIN retail.DimProduct p1 ON s1.ProductKey = p1.ProductKey JOIN retail.DimProduct p2 ON s2.ProductKey = p2.ProductKey GROUP BY p1.ProductName, p2.ProductName ORDER BY times_together DESC LIMIT 20",
+      "tricky_aspects": [
+        "self_join",
+        "market_basket",
+        "exclude_self_pairs"
+      ]
+    },
+    {
+      "id": 34,
+      "level": "advanced",
+      "question": "Calculate inventory turnover ratio by product for 2009",
+      "expected_sql": "WITH cogs AS (SELECT ProductKey, sum(TotalCost) as total_cogs FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey), avg_inv AS (SELECT ProductKey, avg(OnHandQuantity * UnitCost) as avg_inventory FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey) SELECT p.ProductName, c.total_cogs, a.avg_inventory, round(c.total_cogs / nullIf(a.avg_inventory, 0), 2) as turnover_ratio FROM cogs c JOIN avg_inv a ON c.ProductKey = a.ProductKey JOIN retail.DimProduct p ON c.ProductKey = p.ProductKey ORDER BY turnover_ratio DESC",
+      "tricky_aspects": [
+        "business_metric",
+        "multiple_ctes",
+        "division"
+      ]
+    },
+    {
+      "id": 35,
+      "level": "advanced",
+      "question": "List all employees and their manager's name",
+      "expected_sql": "SELECT e.FirstName, e.LastName, e.Title, m.FirstName as manager_first, m.LastName as manager_last FROM retail.DimEmployee e LEFT JOIN retail.DimEmployee m ON e.ParentEmployeeKey = m.EmployeeKey",
+      "tricky_aspects": [
+        "self_join_hierarchy",
+        "nullable_fk"
+      ]
+    },
+    {
+      "id": 36,
+      "level": "advanced",
+      "question": "Classify customers into Active, At Risk, and Churned based on recency",
+      "expected_sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN 'Active' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN 'At Risk' ELSE 'Churned' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+      "tricky_aspects": [
+        "relative_date_logic",
+        "case_classification",
+        "date_arithmetic"
+      ]
+    },
+    {
+      "id": 37,
+      "level": "advanced",
+      "question": "Show each store's total sales and its percentile rank",
+      "expected_sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, round(PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100, 2) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
+      "tricky_aspects": [
+        "percentile_window_function"
+      ]
+    },
+    {
+      "id": 38,
+      "level": "advanced",
+      "question": "How accurate were the sales forecasts compared to actuals for Q4 2009?",
+      "expected_sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as error_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
+      "tricky_aspects": [
+        "scenario_comparison",
+        "mape_calculation",
+        "multiple_ctes"
+      ]
+    },
+    {
+      "id": 39,
+      "level": "advanced",
+      "question": "Analyze if new product introductions affected existing product sales by subcategory",
+      "expected_sql": "-- This requires identifying new products by AvailableForSaleDate and comparing before/after sales\nWITH new_products AS (SELECT ProductSubcategoryKey, MIN(toDate(AvailableForSaleDate)) as first_new FROM retail.DimProduct WHERE AvailableForSaleDate IS NOT NULL GROUP BY ProductSubcategoryKey HAVING MIN(toDate(AvailableForSaleDate)) > '2007-06-01'), existing_sales AS (SELECT p.ProductSubcategoryKey AS ProductSubcategoryKey, CASE WHEN s.DateKey < np.first_new THEN 'before' ELSE 'after' END as period, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN new_products np ON p.ProductSubcategoryKey = np.ProductSubcategoryKey WHERE toDate(p.AvailableForSaleDate) < np.first_new GROUP BY p.ProductSubcategoryKey, period) SELECT ps.ProductSubcategoryName, sum(CASE WHEN period = 'before' THEN sales END) as before_sales, sum(CASE WHEN period = 'after' THEN sales END) as after_sales FROM existing_sales es JOIN retail.DimProductSubcategory ps ON es.ProductSubcategoryKey = ps.ProductSubcategoryKey GROUP BY ps.ProductSubcategoryName",
+      "tricky_aspects": [
+        "time_series_analysis",
+        "product_lifecycle",
+        "very_complex"
+      ]
+    },
+    {
+      "id": 40,
+      "level": "advanced",
+      "question": "What would online sales have been in EUR using end-of-day exchange rates?",
+      "expected_sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey AND s.CurrencyKey = er.CurrencyKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE c.CurrencyName = 'EUR'",
+      "tricky_aspects": [
+        "currency_conversion",
+        "multi_key_join"
+      ]
+    },
+    {
+      "id": 41,
+      "level": "expert",
+      "question": "What were last quarter's sales?",
+      "expected_sql": "-- Ambiguous: assuming last quarter of available data (Q4 2009)\nSELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE DateKey >= '2009-10-01' AND DateKey <= '2009-12-31'",
+      "tricky_aspects": [
+        "ambiguous_time_reference",
+        "requires_data_context"
+      ]
+    },
+    {
+      "id": 42,
+      "level": "expert",
+      "question": "How is the Cameras category performing?",
+      "expected_sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(sum(s.SalesAmount)) OVER (ORDER BY toYear(s.DateKey)) as yoy_change FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
+      "tricky_aspects": [
+        "ambiguous_metric",
+        "requires_interpretation"
+      ]
+    },
+    {
+      "id": 43,
+      "level": "expert",
+      "question": "Show me the gross margin by region",
+      "expected_sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.ContinentName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.ContinentName",
+      "tricky_aspects": [
+        "business_term_interpretation",
+        "region_ambiguity"
+      ]
+    },
+    {
+      "id": 44,
+      "level": "expert",
+      "question": "Are online sales growing?",
+      "expected_sql": "-- Interpreting as year-over-year growth\nSELECT toYear(DateKey) as year, sum(SalesAmount) as sales, round((sum(SalesAmount) - lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey))) * 100.0 / lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey)), 2) as growth_pct FROM retail.FactOnlineSales GROUP BY year ORDER BY year",
+      "tricky_aspects": [
+        "undefined_comparison_basis"
+      ]
+    },
+    {
+      "id": 45,
+      "level": "expert",
+      "question": "Which stores have the best sales per square foot?",
+      "expected_sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC LIMIT 10",
+      "tricky_aspects": [
+        "domain_knowledge",
+        "null_handling",
+        "derived_metric"
+      ]
+    },
+    {
+      "id": 46,
+      "level": "expert",
+      "question": "What's our most profitable customer segment?",
+      "expected_sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Education as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Education IS NOT NULL GROUP BY c.Education ORDER BY profit DESC LIMIT 1",
+      "tricky_aspects": [
+        "ambiguous_segment",
+        "ambiguous_profitable"
+      ]
+    },
+    {
+      "id": 47,
+      "level": "expert",
+      "question": "What's the average machine downtime per store?",
+      "expected_sql": "SELECT s.StoreName, avg(i.DownTime) as avg_downtime_minutes FROM retail.FactITSLA i JOIN retail.DimStore s ON i.StoreKey = s.StoreKey WHERE i.DownTime IS NOT NULL GROUP BY s.StoreKey, s.StoreName ORDER BY avg_downtime_minutes DESC",
+      "tricky_aspects": [
+        "operational_data",
+        "null_handling"
+      ]
+    },
+    {
+      "id": 48,
+      "level": "expert",
+      "question": "Is there a correlation between IT outages and sales performance?",
+      "expected_sql": "-- Complex: comparing stores with high outages vs low outages\nWITH store_outages AS (SELECT StoreKey, count() as outage_count, sum(DownTime) as total_downtime FROM retail.FactITSLA GROUP BY StoreKey), store_sales AS (SELECT StoreKey, sum(SalesAmount) as total_sales FROM retail.FactSales GROUP BY StoreKey) SELECT CASE WHEN so.total_downtime > 1000 THEN 'High Downtime' ELSE 'Low Downtime' END as downtime_group, avg(ss.total_sales) as avg_sales, count() as store_count FROM store_outages so JOIN store_sales ss ON so.StoreKey = ss.StoreKey GROUP BY downtime_group",
+      "tricky_aspects": [
+        "cross_domain_analysis",
+        "statistical_concept"
+      ]
+    },
+    {
+      "id": 49,
+      "level": "expert",
+      "question": "Roll up sales to the entity hierarchy level",
+      "expected_sql": "-- Using FactStrategyPlan which has EntityKey linkage\nWITH RECURSIVE entity_tree AS (SELECT EntityKey, EntityName, ParentEntityKey, EntityKey as root_key FROM retail.DimEntity WHERE ParentEntityKey IS NULL UNION ALL SELECT e.EntityKey, e.EntityName, e.ParentEntityKey, t.root_key FROM retail.DimEntity e JOIN entity_tree t ON e.ParentEntityKey = t.EntityKey) SELECT et.EntityName, sum(sp.Amount) as total_amount FROM retail.FactStrategyPlan sp JOIN entity_tree et ON sp.EntityKey = et.EntityKey WHERE sp.ScenarioKey = 1 AND sp.AccountKey = 4 GROUP BY et.EntityName",
+      "tricky_aspects": [
+        "recursive_cte",
+        "hierarchy_rollup"
+      ]
+    },
+    {
+      "id": 50,
+      "level": "expert",
+      "question": "What's the same-store sales growth comparing 2009 to 2008?",
+      "expected_sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, round((s9.sales - s8.sales) * 100.0 / s8.sales, 2) as growth_pct FROM sales_2009 s9, sales_2008 s8",
+      "tricky_aspects": [
+        "same_store_concept",
+        "intersect_logic",
+        "business_knowledge"
+      ]
+    },
+    {
+      "id": 51,
+      "level": "simple",
+      "question": "How many stores are there in total?",
+      "expected_sql": "SELECT count(*) AS total_stores FROM retail.DimStore",
+      "tricky_aspects": [
+        "No status filter \u2014 all stores including closed"
+      ]
+    },
+    {
+      "id": 52,
+      "level": "simple",
+      "question": "What is the highest unit price in the product catalog?",
+      "expected_sql": "SELECT max(UnitPrice) AS max_unit_price FROM retail.DimProduct",
+      "tricky_aspects": [
+        "Use catalog UnitPrice, not sales-derived"
+      ]
+    },
+    {
+      "id": 53,
+      "level": "simple",
+      "question": "How many online orders were placed in 2009?",
+      "expected_sql": "SELECT countDistinct(SalesOrderNumber) AS total_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+      "tricky_aspects": [
+        "Orders = distinct SalesOrderNumber, not row count"
+      ]
+    },
+    {
+      "id": 54,
+      "level": "simple",
+      "question": "What is the total return amount from online sales?",
+      "expected_sql": "SELECT sum(ReturnAmount) AS total_return_amount FROM retail.FactOnlineSales",
+      "tricky_aspects": [
+        "Use FactOnlineSales as default for unqualified online questions"
+      ]
+    },
+    {
+      "id": 55,
+      "level": "simple",
+      "question": "How many female customers are in the database?",
+      "expected_sql": "SELECT count(*) AS female_customers FROM retail.DimCustomer WHERE Gender = 'F'",
+      "tricky_aspects": [
+        "Gender is single-letter 'F'/'M'"
+      ]
+    },
+    {
+      "id": 56,
+      "level": "simple",
+      "question": "What is the average yearly income of our customers?",
+      "expected_sql": "SELECT avg(YearlyIncome) AS avg_yearly_income FROM retail.DimCustomer",
+      "tricky_aspects": [
+        "YearlyIncome is Nullable"
+      ]
+    },
+    {
+      "id": 57,
+      "level": "simple",
+      "question": "How many distinct product brands do we carry?",
+      "expected_sql": "SELECT countDistinct(BrandName) AS total_brands FROM retail.DimProduct",
+      "tricky_aspects": [
+        "BrandName Nullable"
+      ]
+    },
+    {
+      "id": 58,
+      "level": "simple",
+      "question": "What was the largest single online sale amount ever recorded?",
+      "expected_sql": "SELECT max(SalesAmount) AS max_line_sales_amount FROM retail.FactOnlineSales",
+      "tricky_aspects": [
+        "This is line-level max, not order-level"
+      ]
+    },
+    {
+      "id": 59,
+      "level": "simple",
+      "question": "How many holidays are on the calendar?",
+      "expected_sql": "SELECT count(*) AS holiday_days FROM retail.DimDate WHERE IsHoliday = 'Yes'",
+      "tricky_aspects": [
+        "IsHoliday is string 'Yes'/'No'"
+      ]
+    },
+    {
+      "id": 60,
+      "level": "simple",
+      "question": "How many employees work in the Production department?",
+      "expected_sql": "SELECT count(*) AS production_employees FROM retail.DimEmployee WHERE DepartmentName = 'Production'",
+      "tricky_aspects": [
+        "Case-sensitive string match"
+      ]
+    },
+    {
+      "id": 61,
+      "level": "medium",
+      "question": "Which product subcategories generated more than $1 million in online sales in 2009?",
+      "expected_sql": "SELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC",
+      "tricky_aspects": [
+        "FactOnlineSales default",
+        "HAVING threshold",
+        "subcategory join"
+      ]
+    },
+    {
+      "id": 62,
+      "level": "medium",
+      "question": "For each product brand, show total online revenue and units sold in 2008, listing only brands with at least 500 units.",
+      "expected_sql": "SELECT p.BrandName, sum(f.SalesAmount) AS revenue, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey WHERE toYear(f.DateKey) = 2008 GROUP BY p.BrandName HAVING units >= 500 ORDER BY revenue DESC",
+      "tricky_aspects": [
+        "multiple aggregations",
+        "HAVING on sum of quantity"
+      ]
+    },
+    {
+      "id": 63,
+      "level": "medium",
+      "question": "What is the average online order value by customer occupation?",
+      "expected_sql": "SELECT c.Occupation, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS avg_order_value, countDistinct(f.SalesOrderNumber) AS orders FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey GROUP BY c.Occupation ORDER BY avg_order_value DESC",
+      "tricky_aspects": [
+        "AOV formula using distinct order count",
+        "NULL occupation possible"
+      ]
+    },
+    {
+      "id": 64,
+      "level": "medium",
+      "question": "Show monthly online gross margin dollars and margin percent for 2009.",
+      "expected_sql": "SELECT toMonth(DateKey) AS month, sum(SalesAmount) - sum(TotalCost) AS gross_margin, (sum(SalesAmount) - sum(TotalCost)) * 100.0 / nullif(sum(SalesAmount), 0) AS margin_pct FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+      "tricky_aspects": [
+        "margin formula",
+        "12-row output"
+      ]
+    },
+    {
+      "id": 65,
+      "level": "medium",
+      "question": "Which store managers run stores with more than $5M in total all-channel sales?",
+      "expected_sql": "SELECT s.StoreManager, s.StoreName, sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreManager, s.StoreName HAVING total_sales > 5000000 ORDER BY total_sales DESC LIMIT 50",
+      "tricky_aspects": [
+        "FactSales for all-channels",
+        "HAVING filter"
+      ]
+    },
+    {
+      "id": 66,
+      "level": "medium",
+      "question": "What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?",
+      "expected_sql": "SELECT toQuarter(DateKey) AS quarter, sum(DiscountAmount) AS total_discount, countDistinct(SalesOrderNumber) AS discounted_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 AND PromotionKey <> 1 GROUP BY quarter ORDER BY quarter",
+      "tricky_aspects": [
+        "exclude PromotionKey=1",
+        "toQuarter"
+      ]
+    },
+    {
+      "id": 67,
+      "level": "medium",
+      "question": "Which product colors have the highest average online unit price realized, among colors with at least 1000 units sold?",
+      "expected_sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC LIMIT 20",
+      "tricky_aspects": [
+        "HAVING on volume threshold",
+        "realized avg price"
+      ]
+    },
+    {
+      "id": 68,
+      "level": "medium",
+      "question": "How many online orders were placed on holidays vs non-holidays in 2009, and the revenue for each?",
+      "expected_sql": "SELECT d.IsHoliday, countDistinct(f.SalesOrderNumber) AS orders, sum(f.SalesAmount) AS revenue FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey WHERE toYear(f.DateKey) = 2009 GROUP BY d.IsHoliday",
+      "tricky_aspects": [
+        "string boolean IsHoliday",
+        "DimDate join"
+      ]
+    },
+    {
+      "id": 69,
+      "level": "medium",
+      "question": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
+      "expected_sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
+      "tricky_aspects": [
+        "exclude no-discount",
+        "derived discount percentage"
+      ]
+    },
+    {
+      "id": 70,
+      "level": "medium",
+      "question": "For each store type, what are the total all-channel sales and average selling area size?",
+      "expected_sql": "SELECT s.StoreType, sum(f.SalesAmount) AS revenue, avg(s.SellingAreaSize) AS avg_area, countDistinct(f.StoreKey) AS stores FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
+      "tricky_aspects": [
+        "FactSales",
+        "multiple aggs"
+      ]
+    },
+    {
+      "id": 71,
+      "level": "complex",
+      "question": "For each product category, which subcategory had the highest online sales in 2009, and what was that amount?",
+      "expected_sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n  JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked WHERE rn = 1\nORDER BY sales_amount DESC",
+      "tricky_aspects": [
+        "row_number window partitioned by category",
+        "3-table product hierarchy join",
+        "filter window result with rn=1"
+      ]
+    },
+    {
+      "id": 72,
+      "level": "complex",
+      "question": "Show the running cumulative total of online sales by quarter across 2007-2009.",
+      "expected_sql": "SELECT toYear(DateKey) AS year, toQuarter(DateKey) AS quarter,\n       round(sum(SalesAmount), 2) AS quarterly_sales,\n       round(sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), 2) AS cumulative_sales\nFROM retail.FactOnlineSales\nGROUP BY year, quarter\nORDER BY year, quarter",
+      "tricky_aspects": [
+        "nested aggregation inside window function",
+        "running total across multi-year quarters"
+      ]
+    },
+    {
+      "id": 73,
+      "level": "complex",
+      "question": "Which 10 products have the largest gap between their current on-hand inventory and safety stock level?",
+      "expected_sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nJOIN retail.DimProduct p ON i.ProductKey = p.ProductKey\nGROUP BY p.ProductName\nORDER BY gap DESC\nLIMIT 10",
+      "tricky_aspects": [
+        "MAX(DateKey) snapshot pattern",
+        "aggregation across stores for the gap"
+      ]
+    },
+    {
+      "id": 74,
+      "level": "complex",
+      "question": "For each store, rank the top 3 products by sales in 2009 and show each product's share of the store's total.",
+      "expected_sql": "WITH prod_store AS (\n  SELECT f.StoreKey, f.ProductKey, sum(f.SalesAmount) AS sales\n  FROM retail.FactOnlineSales f\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY f.StoreKey, f.ProductKey\n),\nranked AS (\n  SELECT StoreKey, ProductKey, sales,\n         row_number() OVER (PARTITION BY StoreKey ORDER BY sales DESC) AS rn,\n         sum(sales) OVER (PARTITION BY StoreKey) AS store_total\n  FROM prod_store\n)\nSELECT s.StoreName, p.ProductName, round(r.sales, 2) AS product_sales,\n       round(r.sales * 100.0 / nullif(r.store_total, 0), 2) AS pct_of_store\nFROM ranked r\nJOIN retail.DimStore s ON r.StoreKey = s.StoreKey\nJOIN retail.DimProduct p ON r.ProductKey = p.ProductKey\nWHERE r.rn <= 3\nORDER BY s.StoreName, r.rn\nLIMIT 50",
+      "tricky_aspects": [
+        "two window functions (rank and partition total)",
+        "null-safe percentage",
+        "3-table join"
+      ]
+    },
+    {
+      "id": 75,
+      "level": "complex",
+      "question": "Which customers increased their spending by more than 50% from 2008 to 2009?",
+      "expected_sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY pct_growth DESC\nLIMIT 25",
+      "tricky_aspects": [
+        "conditional sumIf pivot",
+        "null-safe ratio",
+        "filter both years had sales"
+      ]
+    },
+    {
+      "id": 76,
+      "level": "complex",
+      "question": "For each product category, what percentage of total online sales came from repeat customers (customers with 2+ orders)?",
+      "expected_sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       round(sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0), 2) AS pct_repeat_customer_sales\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY pct_repeat_customer_sales DESC",
+      "tricky_aspects": [
+        "CTE defining customer segment",
+        "conditional aggregate as ratio",
+        "4-table hierarchy join"
+      ]
+    },
+    {
+      "id": 77,
+      "level": "complex",
+      "question": "For each month in 2009, what is the month-over-month growth rate of online sales?",
+      "expected_sql": "WITH monthly AS (\n  SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS sales\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY month\n)\nSELECT month,\n       round(sales, 2) AS sales,\n       round(lagInFrame(sales) OVER (ORDER BY month), 2) AS prev_month_sales,\n       round((sales - lagInFrame(sales) OVER (ORDER BY month)) * 100.0 / nullif(lagInFrame(sales) OVER (ORDER BY month), 0), 2) AS mom_growth_pct\nFROM monthly\nORDER BY month",
+      "tricky_aspects": [
+        "lagInFrame window function",
+        "null handling for first month",
+        "ClickHouse-specific lag syntax"
+      ]
+    },
+    {
+      "id": 78,
+      "level": "complex",
+      "question": "Rank promotion categories by total discount amount given in 2009, and show each one's share of all discounts.",
+      "expected_sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       round(disc, 2) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       round(disc * 100.0 / nullif(sum(disc) OVER (), 0), 2) AS pct_of_total\nFROM promo\nORDER BY rnk",
+      "tricky_aspects": [
+        "exclude PromotionKey=1 (No Discount)",
+        "rank window + unbounded window total",
+        "null-safe share"
+      ]
+    },
+    {
+      "id": 79,
+      "level": "complex",
+      "question": "Which 10 stores had the highest sales-to-quota attainment in 2009?",
+      "expected_sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 1\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       round(a.actual_sales, 2) AS actual_sales,\n       round(q.quota, 2) AS quota,\n       round(a.actual_sales * 100.0 / nullif(q.quota, 0), 2) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
+      "tricky_aspects": [
+        "two CTEs joined",
+        "null-safe ratio",
+        "quota table uses separate grain"
+      ]
+    },
+    {
+      "id": 80,
+      "level": "complex",
+      "question": "For each country, what is the average days between a customer's first and most recent purchase?",
+      "expected_sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nWHERE cust.first_d != cust.last_d\nGROUP BY country\nORDER BY avg_active_days DESC\nLIMIT 20",
+      "tricky_aspects": [
+        "CTE computing per-customer min/max dates",
+        "filter out single-purchase customers",
+        "3-table join with geography"
+      ]
+    },
+    {
+      "id": 81,
+      "level": "advanced",
+      "question": "Compute the average customer lifetime value broken down by the year each customer first made a purchase, and include how many customers fall into each cohort.",
+      "expected_sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       round(avg(lifetime_spend), 2) AS avg_ltv,\n       round(sum(lifetime_spend), 2) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
+      "tricky_aspects": [
+        "multiple CTEs",
+        "cohort definition via MIN(DateKey)",
+        "LTV metric"
+      ]
+    },
+    {
+      "id": 82,
+      "level": "advanced",
+      "question": "For each manager with direct reports, show how many people they manage and the average hire tenure of their team in years.",
+      "expected_sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('year', toDate(HireDate), toDate('2009-12-31'))) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name\nLIMIT 25",
+      "tricky_aspects": [
+        "self-join on ParentEmployeeKey",
+        "tenure calc against dataset end"
+      ]
+    },
+    {
+      "id": 83,
+      "level": "advanced",
+      "question": "Show the year-over-year retention: of customers who first bought in 2007, how many came back in 2008, and of those how many came back again in 2009?",
+      "expected_sql": "WITH first_yr AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS first_year\n  FROM retail.FactOnlineSales GROUP BY CustomerKey\n),\ncohort_2007 AS (\n  SELECT CustomerKey FROM first_yr WHERE first_year = 2007\n),\nactive AS (\n  SELECT CustomerKey, toYear(DateKey) AS y\n  FROM retail.FactOnlineSales\n  WHERE CustomerKey IN (SELECT CustomerKey FROM cohort_2007)\n  GROUP BY CustomerKey, y\n)\nSELECT (SELECT count() FROM cohort_2007) AS cohort_size_2007,\n       countDistinctIf(CustomerKey, y = 2008) AS returned_2008,\n       round(countDistinctIf(CustomerKey, y = 2008) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2008_pct,\n       countDistinctIf(CustomerKey, y = 2008 AND CustomerKey IN (\n           SELECT CustomerKey FROM active WHERE y = 2009\n       )) AS returned_2008_and_2009,\n       round(countDistinctIf(CustomerKey, y = 2009) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2009_pct\nFROM active",
+      "tricky_aspects": [
+        "cohort filter",
+        "nested IN subquery",
+        "retention metric"
+      ]
+    },
+    {
+      "id": 84,
+      "level": "advanced",
+      "question": "Perform ABC analysis on products for 2009: identify the 'A' products (top 80% of revenue), 'B' (next 15%), and 'C' (remaining 5%), and report how many products fall in each class.",
+      "expected_sql": "WITH prod_rev AS (\n  SELECT ProductKey, SUM(SalesAmount) AS rev\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY ProductKey\n),\nranked AS (\n  SELECT ProductKey, rev,\n         SUM(rev) OVER (ORDER BY rev DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum_rev,\n         SUM(rev) OVER () AS total_rev\n  FROM prod_rev\n),\nclassed AS (\n  SELECT ProductKey,\n         CASE WHEN cum_rev / total_rev <= 0.80 THEN 'A'\n              WHEN cum_rev / total_rev <= 0.95 THEN 'B'\n              ELSE 'C' END AS abc_class,\n         rev\n  FROM ranked\n)\nSELECT abc_class,\n       count() AS product_count,\n       round(sum(rev), 2) AS revenue,\n       round(sum(rev) * 100.0 / (SELECT sum(rev) FROM prod_rev), 2) AS pct_of_revenue\nFROM classed\nGROUP BY abc_class\nORDER BY abc_class",
+      "tricky_aspects": [
+        "window cumulative sum",
+        "ABC classification CASE WHEN",
+        "nested aggregation"
+      ]
+    },
+    {
+      "id": 85,
+      "level": "advanced",
+      "question": "Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.",
+      "expected_sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC LIMIT 5)\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC LIMIT 5)\n) ORDER BY bucket, attainment_pct DESC",
+      "tricky_aspects": [
+        "quota vs actual",
+        "union of top/bottom",
+        "multiple CTEs"
+      ]
+    },
+    {
+      "id": 86,
+      "level": "advanced",
+      "question": "Analyze the relationship between discount depth and sales volume: for each product subcategory, show the correlation between promotion discount percent and sales quantity in 2009.",
+      "expected_sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  JOIN retail.DimProduct dp ON dp.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC\nLIMIT 20",
+      "tricky_aspects": [
+        "corr() function",
+        "subcategory hierarchy join",
+        "HAVING on count"
+      ]
+    },
+    {
+      "id": 87,
+      "level": "advanced",
+      "question": "Calculate days-of-inventory-coverage per product: current on-hand quantity divided by average daily sales quantity in the last 90 days of 2009. Show the 20 products with the lowest coverage.",
+      "expected_sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / 90.0 AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT p.ProductName,\n       c.on_hand,\n       round(r.avg_daily_qty, 2) AS avg_daily_qty,\n       round(c.on_hand / r.avg_daily_qty, 1) AS days_of_coverage\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nJOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
+      "tricky_aspects": [
+        "snapshot MAX(DateKey) pattern",
+        "days-of-coverage metric",
+        "3 CTEs"
+      ]
+    },
+    {
+      "id": 88,
+      "level": "advanced",
+      "question": "Identify loyal customers who made at least one purchase in every quarter of 2009, and show their total spend ranked highest to lowest (top 20).",
+      "expected_sql": "WITH cust_q AS (\n  SELECT CustomerKey, toQuarter(DateKey) AS q\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY CustomerKey, q\n),\nloyal AS (\n  SELECT CustomerKey\n  FROM cust_q GROUP BY CustomerKey HAVING count(distinct q) = 4\n),\nspend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS spend_2009\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009 AND CustomerKey IN (SELECT CustomerKey FROM loyal)\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       round(s.spend_2009, 2) AS total_spend_2009\nFROM spend s\nJOIN retail.DimCustomer c ON c.CustomerKey = s.CustomerKey\nORDER BY s.spend_2009 DESC\nLIMIT 20",
+      "tricky_aspects": [
+        "HAVING count(distinct q) = 4",
+        "cohort filter",
+        "nested IN subquery"
+      ]
+    },
+    {
+      "id": 89,
+      "level": "advanced",
+      "question": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
+      "expected_sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n           ELSE 'Churned'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       round(avg(total_spend), 2) AS avg_spend,\n       round(avg(distinct_products), 1) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN 'Active' THEN 1 WHEN 'At Risk' THEN 2 ELSE 3 END",
+      "tricky_aspects": [
+        "recency segment logic",
+        "nested aggregation",
+        "custom ordering"
+      ]
+    },
+    {
+      "id": 90,
+      "level": "advanced",
+      "question": "Compute the gross margin percentage trend by product category across 2007, 2008, and 2009 and show the year-over-year change in margin in percentage points.",
+      "expected_sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimProduct p ON p.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
+      "tricky_aspects": [
+        "pivot by year",
+        "pp delta",
+        "category hierarchy"
+      ]
+    },
+    {
+      "id": 91,
+      "level": "expert",
+      "question": "Is there a relationship between a customer's yearly income and how much they spend online?",
+      "expected_sql": "SELECT corr(c.YearlyIncome, cust_spend.total_spend) AS income_spend_correlation,\n       count() AS customers_analyzed\nFROM (\n  SELECT CustomerKey, sum(SalesAmount) AS total_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n) cust_spend\nJOIN retail.DimCustomer c ON c.CustomerKey = cust_spend.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
+      "tricky_aspects": [
+        "Correlation across aggregated customer spend",
+        "Filter nulls",
+        "Interpretation that 'relationship' = corr coefficient"
+      ]
+    },
+    {
+      "id": 92,
+      "level": "expert",
+      "question": "Which product brands were our most profitable last quarter?",
+      "expected_sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC\nLIMIT 10",
+      "tricky_aspects": [
+        "'Last quarter' = Q4 2009",
+        "'Most profitable' defined as gross margin $",
+        "Ambiguous metric choice"
+      ]
+    },
+    {
+      "id": 93,
+      "level": "expert",
+      "question": "Is there evidence of price elasticity \u2014 do bigger discount percentages actually move more units across our promotions?",
+      "expected_sql": "WITH promo_stats AS (\n  SELECT f.PromotionKey,\n         dp.DiscountPercent,\n         sum(f.SalesQuantity) AS units_sold,\n         sum(f.SalesAmount) AS revenue\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion dp ON dp.PromotionKey = f.PromotionKey\n  WHERE f.PromotionKey <> 1 AND dp.DiscountPercent IS NOT NULL\n  GROUP BY f.PromotionKey, dp.DiscountPercent\n)\nSELECT corr(DiscountPercent, units_sold) AS discount_qty_correlation,\n       corr(DiscountPercent, revenue) AS discount_revenue_correlation,\n       count() AS promos_analyzed\nFROM promo_stats",
+      "tricky_aspects": [
+        "Excludes PromotionKey=1 (No Discount)",
+        "Correlation at promotion-level aggregation",
+        "Interprets 'price elasticity' as discount-vs-volume corr"
+      ]
+    },
+    {
+      "id": 94,
+      "level": "expert",
+      "question": "Which of our stores look like they're losing momentum going into year-end \u2014 sales trending down from Q3 to Q4 2009?",
+      "expected_sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC\nLIMIT 20",
+      "tricky_aspects": [
+        "QoQ comparison with sumIf",
+        "'Losing momentum' \u2192 negative QoQ growth",
+        "All-channel FactSales because it's about stores"
+      ]
+    },
+    {
+      "id": 95,
+      "level": "expert",
+      "question": "How much incremental revenue do our promotions actually drive per product category compared to what we sell at full price?",
+      "expected_sql": "SELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nJOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC",
+      "tricky_aspects": [
+        "PromotionKey=1 means no discount",
+        "Incremental framing requires promo vs non-promo split",
+        "Product category requires two-hop subcategory join"
+      ]
+    },
+    {
+      "id": 96,
+      "level": "expert",
+      "question": "For each yearly customer cohort, what fraction actually came back and bought again in a later year?",
+      "expected_sql": "WITH first_year AS (\n  SELECT CustomerKey, toYear(min(DateKey)) AS first_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nyears_active AS (\n  SELECT CustomerKey, countDistinct(toYear(DateKey)) AS years_with_activity\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT fy.first_year AS cohort_year,\n       count() AS cohort_size,\n       countIf(ya.years_with_activity > 1) AS returning_customers,\n       countIf(ya.years_with_activity > 1) * 100.0 / count() AS retention_pct\nFROM first_year fy\nJOIN years_active ya ON ya.CustomerKey = fy.CustomerKey\nGROUP BY fy.first_year\nORDER BY cohort_year",
+      "tricky_aspects": [
+        "Cohort definition via first purchase",
+        "Repeat-purchase means appearing in later year",
+        "Customers in 2009 cohort can't retain (no future years)"
+      ]
+    },
+    {
+      "id": 97,
+      "level": "expert",
+      "question": "Which products had the biggest second-half comeback in 2009 \u2014 meaning H2 sales dramatically exceeded H1?",
+      "expected_sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
+      "tricky_aspects": [
+        "Half-year segmentation",
+        "Filters noise by requiring baseline H1 sales",
+        "'Comeback' requires H2>H1"
+      ]
+    },
+    {
+      "id": 98,
+      "level": "expert",
+      "question": "Which product categories depend most heavily on a single quarter for their annual sales?",
+      "expected_sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n)\nSELECT ProductCategoryName,\n       max(q_sales) / sum(q_sales) * 100 AS peak_quarter_share_pct,\n       argMax(q, q_sales) AS peak_quarter\nFROM cat_q\nGROUP BY ProductCategoryName\nORDER BY peak_quarter_share_pct DESC",
+      "tricky_aspects": [
+        "Seasonality concentration metric (max-share)",
+        "argMax to label peak quarter",
+        "Two-hop category join"
+      ]
+    },
+    {
+      "id": 99,
+      "level": "expert",
+      "question": "For each product category, how much bigger is an average weekend day compared to an average weekday?",
+      "expected_sql": "WITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC",
+      "tricky_aspects": [
+        "String-boolean IsWorkDay values",
+        "Daily totals before averaging (not per-transaction)",
+        "Category hierarchy join"
+      ]
+    },
+    {
+      "id": 100,
+      "level": "expert",
+      "question": "Who are our true power customers \u2014 people who are both in the top 10% by order count AND top 10% by average order size?",
+      "expected_sql": "WITH cust AS (\n  SELECT CustomerKey,\n         countDistinct(SalesOrderNumber) AS orders,\n         sum(SalesAmount) / nullif(countDistinct(SalesOrderNumber), 0) AS aov\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nthresholds AS (\n  SELECT quantile(0.9)(orders) AS orders_p90,\n         quantile(0.9)(aov) AS aov_p90\n  FROM cust\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       cu.orders,\n       cu.aov,\n       cu.orders * cu.aov AS lifetime_value\nFROM cust cu\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer c ON c.CustomerKey = cu.CustomerKey\nWHERE cu.orders >= t.orders_p90 AND cu.aov >= t.aov_p90\nORDER BY lifetime_value DESC\nLIMIT 30",
+      "tricky_aspects": [
+        "Two-dimensional top-decile intersection",
+        "Quantile thresholds computed globally then filtered",
+        "AOV defined as spend/orders"
+      ]
+    }
+  ],
+  "schema_challenges": {
+    "string_booleans": [
+      "IsSalesPerson: Yes/No",
+      "IsWorkDay: WorkDay/WeekEnd",
+      "IsHoliday: Yes/No",
+      "Gender: M/F",
+      "MaritalStatus: M/S"
+    ],
+    "hierarchies": [
+      "Product->Subcategory->Category",
+      "Employee->ParentEmployee",
+      "Account->ParentAccount",
+      "Entity->ParentEntity"
+    ],
+    "multiple_fact_tables": [
+      "FactOnlineSales (online)",
+      "FactSales (all channels)",
+      "FactInventory (snapshots)",
+      "FactStrategyPlan (planning)"
+    ],
+    "implicit_defaults": [
+      "PromotionKey=1 means No Discount",
+      "Various NULL foreign keys"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical rows and values as the reference (M: 217.147, F: 213.471), just sorted differently, which is acceptable since the question doesn't require a specific ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 192,
+  "judge_latency_ms": 10339
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 8,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 17 rows with matching FirstName and LastName values; extra columns (EmployeeKey, Title, etc.) are ignored under strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 194,
+  "judge_latency_ms": 11001
+}

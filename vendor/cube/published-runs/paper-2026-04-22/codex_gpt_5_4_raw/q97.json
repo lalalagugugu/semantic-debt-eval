@@ -1,0 +1,103 @@
+{
+  "question_id": 97,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    sumIf(fs.SalesAmount, toMonth(fs.DateKey) BETWEEN 1 AND 6) AS h1_sales_2009,\n    sumIf(fs.SalesAmount, toMonth(fs.DateKey) BETWEEN 7 AND 12) AS h2_sales_2009,\n    h2_sales_2009 - h1_sales_2009 AS comeback_amount,\n    if(h1_sales_2009 = 0, NULL, (h2_sales_2009 - h1_sales_2009) / h1_sales_2009) AS comeback_pct\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimProduct AS p\n    ON fs.ProductKey = p.ProductKey\nWHERE toYear(fs.DateKey) = 2009\nGROUP BY\n    p.ProductKey,\n    p.ProductName\nHAVING h2_sales_2009 > h1_sales_2009\nORDER BY\n    comeback_amount DESC,\n    h2_sales_2009 DESC\nLIMIT 10",
+  "rows": [
+    [
+      399,
+      "WWI Laptop16 M0160 White",
+      477522.8,
+      3278896.0499999984,
+      2801373.2499999986,
+      5.86647014550928
+    ],
+    [
+      145,
+      "Adventure Works 52\" LCD HDTV X590 Silver",
+      2067692.8699999985,
+      4572124.233999997,
+      2504431.363999999,
+      1.2112201963534366
+    ],
+    [
+      147,
+      "Adventure Works 52\" LCD HDTV X590 White",
+      1666624.2529999993,
+      3889176.588999997,
+      2222552.3359999973,
+      1.3335653384374446
+    ],
+    [
+      414,
+      "Proseware Laptop15.4W M518 White",
+      1634020.6,
+      3797617.9000000027,
+      2163597.3000000026,
+      1.3240942617247313
+    ],
+    [
+      146,
+      "Adventure Works 52\" LCD HDTV X590 Black",
+      2521251.305999997,
+      4318955.106999997,
+      1797703.801,
+      0.71302047389004
+    ],
+    [
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      3010646.591699996,
+      4709585.282499995,
+      1698938.690799999,
+      0.5643102367058878
+    ],
+    [
+      402,
+      "WWI Laptop19W X0196 Blue",
+      3210478.5,
+      4898464.049999999,
+      1687985.5499999989,
+      0.5257738215658504
+    ],
+    [
+      376,
+      "Adventure Works Laptop12 M1201 Silver",
+      342012.64499999996,
+      1864009.1250000033,
+      1521996.4800000032,
+      4.450117568021508
+    ],
+    [
+      350,
+      "Fabrikam Laptop12W M2080 Silver",
+      0.0,
+      1519032.8999999992,
+      1519032.8999999992,
+      null
+    ],
+    [
+      148,
+      "Adventure Works 52\" LCD HDTV X590 Brown",
+      2172382.508999998,
+      3681827.3039999963,
+      1509444.794999998,
+      0.6948338005606725
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "h1_sales_2009",
+    "h2_sales_2009",
+    "comeback_amount",
+    "comeback_pct"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 20509,
+  "latency_ms_exec": 526,
+  "tokens_in": 16377,
+  "tokens_out": 393,
+  "claude_error": null,
+  "sql_error": null
+}

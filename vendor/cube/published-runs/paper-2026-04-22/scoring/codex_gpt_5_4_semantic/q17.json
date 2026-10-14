@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns a single pivoted row with both percentages as separate columns (~28.47% weekend, ~71.53% weekday), which matches the reference values but differs in shape (1 wide row vs. 2 tall rows); analytically it answers the same question correctly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 300,
+  "judge_latency_ms": 12333
+}

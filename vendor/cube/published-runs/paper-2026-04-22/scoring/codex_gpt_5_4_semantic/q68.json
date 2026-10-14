@@ -1,0 +1,11 @@
+{
+  "question_id": 68,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same two rows with identical order counts and revenue values within negligible floating-point drift; the only difference is a cosmetic label transformation (Yes\u2192Holiday, No\u2192Non-Holiday).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 215,
+  "judge_latency_ms": 12321
+}

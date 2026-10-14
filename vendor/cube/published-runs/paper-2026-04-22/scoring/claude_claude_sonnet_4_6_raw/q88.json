@@ -1,0 +1,11 @@
+{
+  "question_id": 88,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 20 customers with matching spend values (within <1% numeric drift), an extra CustomerKey column (ignored), and minor reordering among tied rows \u2014 all acceptable under the strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 226,
+  "judge_latency_ms": 12397
+}

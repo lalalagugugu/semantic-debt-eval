@@ -1,0 +1,11 @@
+{
+  "question_id": 79,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the ScenarioKey=1 filter and joins the quota subquery at the row level before aggregating sales, causing massive inflation of TotalQuota (fan-out multiplication), resulting in near-zero attainment values (~0.0003) instead of 100% for the top 10 stores.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 369,
+  "judge_latency_ms": 13767
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical rows with the same values as the reference; only the column ordering (daily_sales and moving_avg swapped) differs, which is irrelevant per strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 225,
+  "judge_latency_ms": 12592
+}

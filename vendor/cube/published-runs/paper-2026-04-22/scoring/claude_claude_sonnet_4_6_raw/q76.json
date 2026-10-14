@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns all 8 categories with 100.0% repeat customer sales, matching the reference exactly; the extra columns (total_sales, repeat_customer_sales) are irrelevant to the verdict, and row ordering differences are immaterial since all percentages are equal.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 245,
+  "judge_latency_ms": 11205
+}

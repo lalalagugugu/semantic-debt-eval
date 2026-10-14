@@ -1,0 +1,35 @@
+{
+  "question_id": 89,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH customer_metrics AS (\n    SELECT\n        CustomerKey,\n        dateDiff('month', max(DateKey), toDate('2009-12-31')) AS months_since_last_purchase,\n        sum(SalesAmount) AS total_spend,\n        countDistinct(ProductKey) AS product_variety\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nSELECT\n    multiIf(\n        months_since_last_purchase <= 6, 'Active',\n        months_since_last_purchase <= 12, 'At Risk',\n        'Churned'\n    ) AS recency_segment,\n    avg(total_spend) AS average_spend,\n    avg(product_variety) AS average_product_variety\nFROM customer_metrics\nGROUP BY recency_segment\nORDER BY\n    multiIf(\n        recency_segment = 'Active', 1,\n        recency_segment = 'At Risk', 2,\n        3\n    )",
+  "rows": [
+    [
+      "Active",
+      76861.7851426865,
+      74.97377146240379
+    ],
+    [
+      "At Risk",
+      344026.72974015196,
+      138.58229223248236
+    ],
+    [
+      "Churned",
+      5700390.357222763,
+      780.3623188405797
+    ]
+  ],
+  "columns": [
+    "recency_segment",
+    "average_spend",
+    "average_product_variety"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 13825,
+  "latency_ms_exec": 653,
+  "tokens_in": 18848,
+  "tokens_out": 279,
+  "claude_error": null,
+  "sql_error": null
+}

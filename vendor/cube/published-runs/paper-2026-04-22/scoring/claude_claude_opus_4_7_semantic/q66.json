@@ -1,0 +1,11 @@
+{
+  "question_id": 66,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same four quarters with matching TotalDiscountAmount values (differences are sub-0.01% floating-point noise); the missing countDistinct column is an extra column in the reference that does not affect the core answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 208,
+  "judge_latency_ms": 13242
+}

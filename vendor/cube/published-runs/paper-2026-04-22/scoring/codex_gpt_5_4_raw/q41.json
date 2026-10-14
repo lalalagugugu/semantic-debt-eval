@@ -1,0 +1,11 @@
+{
+  "question_id": 41,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries a different table (FactSales instead of FactOnlineSales) and uses a different date range (the quarter before the max date in FactSales, not Q4 2009), producing a wildly different value (~972M vs ~211M) that answers a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 245,
+  "judge_latency_ms": 12614
+}

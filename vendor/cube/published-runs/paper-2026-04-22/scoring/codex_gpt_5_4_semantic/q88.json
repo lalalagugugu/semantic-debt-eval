@@ -1,0 +1,11 @@
+{
+  "question_id": 88,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Same 20 loyal customers with matching spend values (negligible float drift); differences are only tie-breaking order among equal-spend rows and split vs. concatenated name columns \u2014 both acceptable.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 355,
+  "judge_latency_ms": 15459
+}

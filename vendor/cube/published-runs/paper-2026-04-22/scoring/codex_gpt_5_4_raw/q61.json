@@ -1,0 +1,11 @@
+{
+  "question_id": 61,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 30 subcategories in the same order with values differing only by negligible floating-point rounding (well under 1% relative drift), making it functionally identical to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 194,
+  "judge_latency_ms": 11069
+}

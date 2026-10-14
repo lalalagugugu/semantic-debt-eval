@@ -1,0 +1,11 @@
+{
+  "question_id": 93,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a different data source (UNION of FactSales + FactOnlineSales vs. FactOnlineSales only), different filters (DiscountPercent > 0 vs. PromotionKey <> 1), and produces materially different correlation values (-0.1262 vs. -0.0041 for qty), making it a genuinely different analysis.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 498,
+  "judge_latency_ms": 15375
+}

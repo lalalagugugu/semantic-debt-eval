@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses today() as the reference date instead of '2009-12-31', producing tenure values of ~27 years instead of ~10 years; additionally the 11th row differs (Kirk Nason vs. Humberto Acevedo), indicating a genuinely different answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 320,
+  "judge_latency_ms": 13279
+}

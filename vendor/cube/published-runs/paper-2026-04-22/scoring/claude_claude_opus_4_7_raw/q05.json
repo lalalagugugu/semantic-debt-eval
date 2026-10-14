@@ -1,0 +1,11 @@
+{
+  "question_id": 5,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical rows (same 8 categories with identical counts) as the reference, differing only in sort order (DESC by count), which is acceptable since the question does not require a specific ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 182,
+  "judge_latency_ms": 11000
+}

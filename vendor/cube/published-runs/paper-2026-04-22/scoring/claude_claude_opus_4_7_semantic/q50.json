@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns only the growth percentage (-9.54%) which matches the reference value, but omits the sales_2009 and sales_2008 columns present in the expected rows; analytically it correctly answers the same-store sales growth question with the same result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 290,
+  "judge_latency_ms": 15767
+}

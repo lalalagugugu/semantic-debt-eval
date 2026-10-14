@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same two rows with identical sales amounts and percentages that match within rounding (28.47 vs 28.47250 and 71.53 vs 71.52750), which is within 1% relative drift; row ordering differs but is not required.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 250,
+  "judge_latency_ms": 191423
+}

@@ -1,0 +1,87 @@
+{
+  "question_id": 95,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT pc.ProductCategoryName AS category,\n       sumIf(f.SalesAmount, f.PromotionKey != 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.DiscountAmount, f.PromotionKey != 1) AS total_discount_given,\n       sumIf(f.SalesAmount, f.PromotionKey != 1) - sumIf(f.SalesAmount, f.PromotionKey = 1) AS incremental_revenue_vs_full_price,\n       (sumIf(f.SalesAmount, f.PromotionKey != 1) - sumIf(f.SalesAmount, f.PromotionKey = 1)) * 100.0\n         / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS incremental_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY incremental_revenue_vs_full_price DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      537421310.2826875,
+      296490468.260131,
+      82304322.14606568,
+      240930842.02255654,
+      81.26090644208222
+    ],
+    [
+      "Cameras and camcorders",
+      397299705.27279603,
+      201035283.40998492,
+      59235341.27066711,
+      196264421.86281112,
+      97.62685362178725
+    ],
+    [
+      "Computers",
+      316131740.3796394,
+      166435059.80005372,
+      48471951.99804142,
+      149696680.57958567,
+      89.94299684178523
+    ],
+    [
+      "TV and Video",
+      274775186.6487643,
+      137529013.16988975,
+      39972357.092646696,
+      137246173.47887456,
+      99.79434180141627
+    ],
+    [
+      "Cell phones",
+      107974717.04534048,
+      57738494.94979353,
+      16544005.575543314,
+      50236222.095546946,
+      87.00646274072405
+    ],
+    [
+      "Audio",
+      23801094.08169908,
+      13055625.380005822,
+      3642558.3030998837,
+      10745468.70169326,
+      82.30527752542228
+    ],
+    [
+      "Music, Movies and Audio Books",
+      19896830.90339734,
+      10448935.400006056,
+      3043383.589899172,
+      9447895.503391284,
+      90.41969484647986
+    ],
+    [
+      "Games and Toys",
+      4050585.4434996033,
+      1996721.2999986517,
+      616047.8557996214,
+      2053864.1435009516,
+      102.86183372222946
+    ]
+  ],
+  "columns": [
+    "category",
+    "promo_revenue",
+    "full_price_revenue",
+    "total_discount_given",
+    "incremental_revenue_vs_full_price",
+    "incremental_pct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 11832,
+  "latency_ms_exec": 597,
+  "tokens_in": 23331,
+  "tokens_out": 592,
+  "claude_error": null,
+  "sql_error": null
+}

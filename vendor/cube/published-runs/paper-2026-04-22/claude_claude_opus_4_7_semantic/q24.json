@@ -1,0 +1,51 @@
+{
+  "question_id": 24,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT pc.ProductCategoryName, sum(f.ReturnQuantity) * 100.0 / nullif(sum(f.SalesQuantity), 0) AS ReturnRatePct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY ReturnRatePct DESC",
+  "rows": [
+    [
+      "Music, Movies and Audio Books",
+      1.2172438496979894
+    ],
+    [
+      "Home Appliances",
+      1.2012533808004038
+    ],
+    [
+      "Computers",
+      1.157928290466699
+    ],
+    [
+      "Cameras and camcorders",
+      0.9936528465127382
+    ],
+    [
+      "Audio",
+      0.7708451135482343
+    ],
+    [
+      "TV and Video",
+      0.6652930083117972
+    ],
+    [
+      "Cell phones",
+      0.4222296893667861
+    ],
+    [
+      "Games and Toys",
+      0.24946935017773572
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "ReturnRatePct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 7784,
+  "latency_ms_exec": 609,
+  "tokens_in": 23310,
+  "tokens_out": 247,
+  "claude_error": null,
+  "sql_error": null
+}

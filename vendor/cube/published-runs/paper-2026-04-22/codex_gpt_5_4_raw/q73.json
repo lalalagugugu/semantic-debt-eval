@@ -1,0 +1,92 @@
+{
+  "question_id": 73,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    sum(i.OnHandQuantity) AS current_on_hand_inventory,\n    sum(i.SafetyStockQuantity) AS current_safety_stock_level,\n    sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS inventory_gap\nFROM retail.FactInventory AS i\nINNER JOIN retail.DimProduct AS p\n    ON i.ProductKey = p.ProductKey\nWHERE i.DateKey = (\n    SELECT max(DateKey)\n    FROM retail.FactInventory\n)\nGROUP BY\n    p.ProductKey,\n    p.ProductName\nORDER BY inventory_gap DESC\nLIMIT 10",
+  "rows": [
+    [
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      9263,
+      2658,
+      6605
+    ],
+    [
+      2515,
+      "Contoso In-Line Coupler E180 White",
+      8346,
+      2760,
+      5586
+    ],
+    [
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      11788,
+      6882,
+      4906
+    ],
+    [
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      7690,
+      3579,
+      4111
+    ],
+    [
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      6641,
+      2610,
+      4031
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      6001,
+      2568,
+      3433
+    ],
+    [
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      5992,
+      2715,
+      3277
+    ],
+    [
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      6502,
+      3507,
+      2995
+    ],
+    [
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      5694,
+      2700,
+      2994
+    ],
+    [
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      6775,
+      3819,
+      2956
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "current_on_hand_inventory",
+    "current_safety_stock_level",
+    "inventory_gap"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 14611,
+  "latency_ms_exec": 492,
+  "tokens_in": 16374,
+  "tokens_out": 230,
+  "claude_error": null,
+  "sql_error": null
+}

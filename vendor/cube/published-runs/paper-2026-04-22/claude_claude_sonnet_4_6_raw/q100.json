@@ -1,0 +1,43 @@
+{
+  "question_id": 100,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH customer_stats AS (\n    SELECT\n        CustomerKey,\n        count() AS order_count,\n        avg(SalesAmount) AS avg_order_size\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\nthresholds AS (\n    SELECT\n        quantile(0.9)(order_count) AS p90_order_count,\n        quantile(0.9)(avg_order_size) AS p90_avg_order_size\n    FROM customer_stats\n)\nSELECT\n    cs.CustomerKey,\n    dc.FirstName,\n    dc.LastName,\n    cs.order_count,\n    cs.avg_order_size\nFROM customer_stats cs\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer dc ON dc.CustomerKey = cs.CustomerKey\nWHERE cs.order_count >= t.p90_order_count\n  AND cs.avg_order_size >= t.p90_avg_order_size\nORDER BY cs.order_count DESC, cs.avg_order_size DESC",
+  "rows": [
+    [
+      18800,
+      "Not Provided",
+      "Not Provided",
+      16875,
+      353.7271517037197
+    ],
+    [
+      1170,
+      "Abigail",
+      "Howard",
+      246,
+      338.40400609756097
+    ],
+    [
+      2327,
+      "Bob",
+      "Fernandez",
+      243,
+      340.60750411522633
+    ]
+  ],
+  "columns": [
+    "cs.CustomerKey",
+    "FirstName",
+    "LastName",
+    "order_count",
+    "avg_order_size"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 9369,
+  "latency_ms_exec": 654,
+  "tokens_in": 13815,
+  "tokens_out": 358,
+  "claude_error": null,
+  "sql_error": null
+}

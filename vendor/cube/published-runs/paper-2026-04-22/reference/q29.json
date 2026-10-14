@@ -1,0 +1,15 @@
+{
+  "question_id": 29,
+  "sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT round((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales, 2) as pct_difference FROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
+  "rows": [
+    [
+      0.03
+    ]
+  ],
+  "columns": [
+    "pct_difference"
+  ],
+  "row_count": 1,
+  "exec_ms": 694,
+  "error": null
+}

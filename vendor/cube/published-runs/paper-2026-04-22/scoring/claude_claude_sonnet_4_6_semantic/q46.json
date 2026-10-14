@@ -1,0 +1,11 @@
+{
+  "question_id": 46,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate segments by Occupation instead of Education, answering a genuinely different question \u2014 it returns \"Professional\" as top segment with different values, while the reference returns \"Partial College\" (an education-based segment).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 202,
+  "judge_latency_ms": 11581
+}

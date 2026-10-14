@@ -1,0 +1,11 @@
+{
+  "question_id": 26,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical rows to the reference ([Q1: 18015, Q2: 853]) using semantically equivalent SQL \u2014 same logic, just different alias names.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 152,
+  "judge_latency_ms": 10863
+}

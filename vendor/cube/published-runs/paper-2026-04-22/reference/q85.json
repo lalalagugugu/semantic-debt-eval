@@ -1,0 +1,86 @@
+{
+  "question_id": 85,
+  "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC LIMIT 5)\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC LIMIT 5)\n) ORDER BY bucket, attainment_pct DESC",
+  "rows": [
+    [
+      "BOTTOM",
+      "Contoso Amsterdam Store",
+      4781201.857399987,
+      4036479.743600005,
+      118.45
+    ],
+    [
+      "BOTTOM",
+      "Contoso Berne Store",
+      4785769.582499997,
+      4040335.996200004,
+      118.45
+    ],
+    [
+      "BOTTOM",
+      "Contoso Landstuhl Store",
+      4811971.671599985,
+      4062456.8380000014,
+      118.45
+    ],
+    [
+      "BOTTOM",
+      "Contoso Venezia Store",
+      1614187.753000001,
+      1362761.1564,
+      118.45
+    ],
+    [
+      "BOTTOM",
+      "Contoso Munich Store",
+      5074852.717099994,
+      4284391.417200007,
+      118.45
+    ],
+    [
+      "TOP",
+      "Contoso Thimphu No.1 Store",
+      6622523.097499983,
+      5426568.730800002,
+      122.04
+    ],
+    [
+      "TOP",
+      "Contoso Tehran No.1 Store",
+      13351954.934500113,
+      10940739.663800022,
+      122.04
+    ],
+    [
+      "TOP",
+      "Contoso Singapore Store",
+      13167637.068000088,
+      10789707.561000023,
+      122.04
+    ],
+    [
+      "TOP",
+      "Contoso Osaka No.2 Store",
+      13393145.600000082,
+      10974491.750699997,
+      122.04
+    ],
+    [
+      "TOP",
+      "Contoso Sydney No.1 Store",
+      13881637.556500094,
+      11374767.466700029,
+      122.04
+    ]
+  ],
+  "columns": [
+    "bucket",
+    "StoreName",
+    "actual_amt",
+    "quota_amt",
+    "attainment_pct"
+  ],
+  "row_count": 10,
+  "exec_ms": 526,
+  "error": null
+}

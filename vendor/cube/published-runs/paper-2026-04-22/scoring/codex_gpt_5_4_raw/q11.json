@@ -1,0 +1,11 @@
+{
+  "question_id": 11,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing substantially different (roughly 4\u20135\u00d7 larger) sales totals that don't match or aggregate to the reference values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 195,
+  "judge_latency_ms": 10188
+}

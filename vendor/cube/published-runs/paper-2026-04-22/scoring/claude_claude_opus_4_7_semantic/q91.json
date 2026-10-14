@@ -1,0 +1,11 @@
+{
+  "question_id": 91,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns per-income-bracket breakdowns with within-bracket correlations instead of a single overall Pearson correlation (0.735) across all customers; the overall correlation cannot be recovered by aggregating the per-bracket values, so both verdicts fail.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 711,
+  "judge_latency_ms": 23935
+}

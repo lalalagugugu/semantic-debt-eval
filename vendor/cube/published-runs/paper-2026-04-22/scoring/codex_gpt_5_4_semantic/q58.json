@@ -1,0 +1,11 @@
+{
+  "question_id": 58,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical value (3199.99) as the reference, just with a different column alias, making it a strict and analytical pass.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 148,
+  "judge_latency_ms": 10556
+}

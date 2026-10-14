@@ -1,0 +1,141 @@
+{
+  "question_id": 45,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT s.StoreName, s.SellingAreaSize, sum(f.SalesAmount) AS TotalSales, sum(f.SalesAmount) / s.SellingAreaSize AS SalesPerSquareFoot FROM retail.FactSales f INNER JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize > 0 GROUP BY s.StoreName, s.SellingAreaSize ORDER BY SalesPerSquareFoot DESC LIMIT 20",
+  "rows": [
+    [
+      "Contoso Catalog Store",
+      462.0,
+      1078007547.2267299,
+      2333349.6693219263
+    ],
+    [
+      "Contoso North America Online Store",
+      500.0,
+      984249404.2534225,
+      1968498.808506845
+    ],
+    [
+      "Contoso North America Reseller",
+      450.0,
+      628168708.5233309,
+      1395930.4633851799
+    ],
+    [
+      "Contoso Europe Reseller",
+      551.0,
+      523087943.22880584,
+      949342.909671154
+    ],
+    [
+      "Contoso Europe Online Store",
+      1000.0,
+      806300456.3878686,
+      806300.4563878686
+    ],
+    [
+      "Contoso Sydney No.1 Store",
+      480.0,
+      37929553.430500105,
+      79019.90298020856
+    ],
+    [
+      "Contoso Tehran No.2 Store",
+      480.0,
+      37733360.95600012,
+      78611.16865833358
+    ],
+    [
+      "Contoso Sydney  No.2 Store",
+      480.0,
+      37719118.16500011,
+      78581.49617708357
+    ],
+    [
+      "Contoso Kolkata Store",
+      480.0,
+      37649289.01200013,
+      78436.01877500027
+    ],
+    [
+      "Contoso Taipei  Store",
+      480.0,
+      37610056.378500104,
+      78354.28412187521
+    ],
+    [
+      "Contoso Bishkek Store",
+      480.0,
+      37599400.743000165,
+      78332.08488125034
+    ],
+    [
+      "Contoso Urumqi Store",
+      480.0,
+      37523589.58950009,
+      78174.14497812519
+    ],
+    [
+      "Contoso Damascus No.2 Store",
+      480.0,
+      37502773.74850009,
+      78130.77864270851
+    ],
+    [
+      "Contoso Tehran No.1 Store",
+      480.0,
+      37483598.35950004,
+      78090.82991562509
+    ],
+    [
+      "Contoso Moscow  No.2 Store",
+      480.0,
+      37426777.63740014,
+      77972.4534112503
+    ],
+    [
+      "Contoso New Delhi Store",
+      480.0,
+      37417079.491000116,
+      77952.24893958357
+    ],
+    [
+      "Contoso Bangkok No.2 Store",
+      480.0,
+      37416713.12350012,
+      77951.4856739586
+    ],
+    [
+      "Contoso Tokyo No.1 Store",
+      480.0,
+      37382717.14750011,
+      77880.66072395857
+    ],
+    [
+      "Contoso Yerevan Store",
+      480.0,
+      37267993.47000009,
+      77641.65306250019
+    ],
+    [
+      "Contoso Osaka No.1 Store",
+      480.0,
+      37080959.85000013,
+      77251.99968750027
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "SellingAreaSize",
+    "TotalSales",
+    "SalesPerSquareFoot"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 7612,
+  "latency_ms_exec": 584,
+  "tokens_in": 19115,
+  "tokens_out": 193,
+  "claude_error": null,
+  "sql_error": null
+}

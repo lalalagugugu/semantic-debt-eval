@@ -1,0 +1,21 @@
+{
+  "question_id": 1,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT count() AS total_products\nFROM retail.DimProduct",
+  "rows": [
+    [
+      2233
+    ]
+  ],
+  "columns": [
+    "total_products"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6307,
+  "latency_ms_exec": 504,
+  "tokens_in": 16750,
+  "tokens_out": 41,
+  "claude_error": null,
+  "sql_error": null
+}

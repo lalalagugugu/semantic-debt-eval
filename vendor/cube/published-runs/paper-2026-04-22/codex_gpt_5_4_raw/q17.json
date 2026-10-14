@@ -1,0 +1,27 @@
+{
+  "question_id": 17,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    day_type,\n    round(100.0 * sales_amount / sum(sales_amount) OVER (), 2) AS sales_percentage\nFROM\n(\n    SELECT\n        if(d.CalendarDayOfWeekLabel IN ('Saturday', 'Sunday'), 'Weekend', 'Weekday') AS day_type,\n        sum(fs.SalesAmount) AS sales_amount\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimDate AS d\n        ON fs.DateKey = d.DateKey\n    GROUP BY day_type\n)\nORDER BY day_type;",
+  "rows": [
+    [
+      "Weekday",
+      71.5
+    ],
+    [
+      "Weekend",
+      28.5
+    ]
+  ],
+  "columns": [
+    "day_type",
+    "sales_percentage"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 13641,
+  "latency_ms_exec": 620,
+  "tokens_in": 16366,
+  "tokens_out": 271,
+  "claude_error": null,
+  "sql_error": null
+}

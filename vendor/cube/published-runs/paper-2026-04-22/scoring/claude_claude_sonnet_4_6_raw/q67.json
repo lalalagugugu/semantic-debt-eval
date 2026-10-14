@@ -1,0 +1,11 @@
+{
+  "question_id": 67,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the expected rows exactly in color, rank order, and unit counts, with only negligible floating-point precision differences (well under 1%) in the average price values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 213,
+  "judge_latency_ms": 11225
+}

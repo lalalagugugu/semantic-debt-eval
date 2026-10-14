@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns extra columns (total_sales, repeat_customer_sales) but the key percentage values match exactly (100.0 for all 8 categories), and all category rows are identical to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 201,
+  "judge_latency_ms": 14249
+}

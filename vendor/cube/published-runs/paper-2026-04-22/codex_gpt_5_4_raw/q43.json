@@ -1,0 +1,155 @@
+{
+  "question_id": 43,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    g.RegionCountryName AS region,\n    sum(s.gross_margin) AS gross_margin\nFROM\n(\n    SELECT\n        StoreKey,\n        SalesAmount - ReturnAmount - DiscountAmount - TotalCost AS gross_margin\n    FROM retail.FactSales\n    UNION ALL\n    SELECT\n        StoreKey,\n        SalesAmount - ReturnAmount - DiscountAmount - TotalCost AS gross_margin\n    FROM retail.FactOnlineSales\n) AS s\nINNER JOIN retail.DimStore st ON s.StoreKey = st.StoreKey\nINNER JOIN retail.DimGeography g ON st.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY gross_margin DESC",
+  "rows": [
+    [
+      "United States",
+      4250283158.6409025
+    ],
+    [
+      "China",
+      1209544111.2020948
+    ],
+    [
+      "Germany",
+      864905907.5554597
+    ],
+    [
+      "France",
+      350129714.6354035
+    ],
+    [
+      "United Kingdom",
+      166821228.18100354
+    ],
+    [
+      "Canada",
+      136117026.36600208
+    ],
+    [
+      "Japan",
+      126265815.20200062
+    ],
+    [
+      "Australia",
+      60106783.75200021
+    ],
+    [
+      "India",
+      59551869.43300059
+    ],
+    [
+      "Russia",
+      54187574.77160023
+    ],
+    [
+      "Italy",
+      41394553.72019981
+    ],
+    [
+      "Iran",
+      40219471.50099988
+    ],
+    [
+      "Turkmenistan",
+      39294895.743000016
+    ],
+    [
+      "Syria",
+      35575443.79100003
+    ],
+    [
+      "Pakistan",
+      34265791.87600012
+    ],
+    [
+      "South Korea",
+      28264908.022999875
+    ],
+    [
+      "Thailand",
+      28197601.711000055
+    ],
+    [
+      "Bhutan",
+      23622144.383000053
+    ],
+    [
+      "Taiwan",
+      20094171.677000057
+    ],
+    [
+      "Kyrgyzstan",
+      20046045.395999923
+    ],
+    [
+      "Armenia",
+      19824737.05999994
+    ],
+    [
+      "Singapore",
+      19268013.606999937
+    ],
+    [
+      "Romania",
+      11516192.209000003
+    ],
+    [
+      "Greece",
+      11410177.344000004
+    ],
+    [
+      "Denmark",
+      11405311.157400029
+    ],
+    [
+      "Portugal",
+      11381178.805400021
+    ],
+    [
+      "Spain",
+      11379016.185800023
+    ],
+    [
+      "the Netherlands",
+      11320440.331599968
+    ],
+    [
+      "Ireland",
+      11311521.08560004
+    ],
+    [
+      "Poland",
+      11299607.82140001
+    ],
+    [
+      "Malta",
+      11288744.69900002
+    ],
+    [
+      "Slovenia",
+      11206106.507000018
+    ],
+    [
+      "Sweden",
+      11074184.964599997
+    ],
+    [
+      "Switzerland",
+      10990364.310799995
+    ]
+  ],
+  "columns": [
+    "region",
+    "gross_margin"
+  ],
+  "row_count": 34,
+  "latency_ms_gen": 17807,
+  "latency_ms_exec": 707,
+  "tokens_in": 16364,
+  "tokens_out": 519,
+  "claude_error": null,
+  "sql_error": null
+}

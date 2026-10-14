@@ -1,0 +1,21 @@
+{
+  "question_id": 55,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT countDistinct(CustomerKey) AS female_customer_count\nFROM retail.DimCustomer\nWHERE Gender = 'F'",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "female_customer_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 10032,
+  "latency_ms_exec": 493,
+  "tokens_in": 18820,
+  "tokens_out": 79,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,54 @@
+{
+  "question_id": 31,
+  "sql": "SELECT pc.ProductCategoryName, sum(CASE WHEN sp.ScenarioKey = 1 THEN sp.Amount ELSE 0 END) as actual, sum(CASE WHEN sp.ScenarioKey = 2 THEN sp.Amount ELSE 0 END) as budget FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey = pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey = a.AccountKey WHERE a.AccountName = 'Sale Revenue' AND toYear(sp.DateKey) = 2009 GROUP BY pc.ProductCategoryName",
+  "rows": [
+    [
+      "Audio",
+      68947296.3516999,
+      66382110.116599925
+    ],
+    [
+      "Computers",
+      1072783640.1496015,
+      1031921108.2871001
+    ],
+    [
+      "Home Appliances",
+      1120727501.9230013,
+      1082509104.5187016
+    ],
+    [
+      "TV and Video",
+      460183910.8976993,
+      441435583.4327003
+    ],
+    [
+      "Cell phones",
+      273552011.1491,
+      263473631.91159952
+    ],
+    [
+      "Games and Toys",
+      65337761.59039996,
+      63224134.39450003
+    ],
+    [
+      "Cameras and camcorders",
+      641426024.409099,
+      615357780.6781998
+    ],
+    [
+      "Music, Movies and Audio Books",
+      37524972.71170001,
+      36076108.56009991
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "actual",
+    "budget"
+  ],
+  "row_count": 8,
+  "exec_ms": 504,
+  "error": null
+}

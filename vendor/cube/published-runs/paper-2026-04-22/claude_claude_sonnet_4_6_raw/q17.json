@@ -1,0 +1,36 @@
+{
+  "question_id": 17,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    d.IsWorkDay,\n    sum(s.SalesAmount) AS TotalSales,\n    round(100.0 * sum(s.SalesAmount) / sum(sum(s.SalesAmount)) OVER (), 2) AS SalesPct,\n    count() AS TransactionCount,\n    round(100.0 * count() / sum(count()) OVER (), 2) AS TransactionPct\nFROM retail.FactSales s\nJOIN retail.DimDate d ON s.DateKey = d.DateKey\nGROUP BY d.IsWorkDay\nORDER BY d.IsWorkDay",
+  "rows": [
+    [
+      "WeekEnd",
+      3538060405.8262925,
+      28.5,
+      970081,
+      28.48
+    ],
+    [
+      "WorkDay",
+      8875597203.0668,
+      71.5,
+      2436008,
+      71.52
+    ]
+  ],
+  "columns": [
+    "IsWorkDay",
+    "TotalSales",
+    "SalesPct",
+    "TransactionCount",
+    "TransactionPct"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 8348,
+  "latency_ms_exec": 522,
+  "tokens_in": 13797,
+  "tokens_out": 242,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 13,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactOnlineSales instead of FactSales, returning only 3 online-store rows with entirely different values, whereas the reference returns 100 physical/all-channel store rows \u2014 a fundamentally different dataset and measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 245,
+  "judge_latency_ms": 12266
+}

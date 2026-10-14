@@ -1,0 +1,11 @@
+{
+  "question_id": 88,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 20 customers in the same order with matching spend values (within negligible floating-point drift), just with split name columns instead of concatenated \u2014 semantically equivalent.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 199,
+  "judge_latency_ms": 11458
+}

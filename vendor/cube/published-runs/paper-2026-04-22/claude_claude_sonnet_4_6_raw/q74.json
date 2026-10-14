@@ -1,0 +1,924 @@
+{
+  "question_id": 74,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    StoreKey,\n    ProductKey,\n    ProductName,\n    product_sales,\n    store_total_sales,\n    round(product_sales / store_total_sales * 100, 2) AS pct_of_store,\n    rnk\nFROM (\n    SELECT\n        fs.StoreKey,\n        fs.ProductKey,\n        dp.ProductName,\n        sum(fs.SalesAmount) AS product_sales,\n        sum(sum(fs.SalesAmount)) OVER (PARTITION BY fs.StoreKey) AS store_total_sales,\n        rank() OVER (PARTITION BY fs.StoreKey ORDER BY sum(fs.SalesAmount) DESC) AS rnk\n    FROM retail.FactSales fs\n    JOIN retail.DimProduct dp ON dp.ProductKey = fs.ProductKey\n    WHERE toYear(fs.DateKey) = 2009\n    GROUP BY fs.StoreKey, fs.ProductKey, dp.ProductName\n)\nWHERE rnk <= 3\nORDER BY StoreKey, rnk",
+  "rows": [
+    [
+      1,
+      395,
+      "WWI Laptop8.9 E0089 Black",
+      54474.600000000006,
+      5689948.474499999,
+      0.96,
+      1
+    ],
+    [
+      1,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      50879.841,
+      5689948.474499999,
+      0.89,
+      2
+    ],
+    [
+      1,
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      47139.6,
+      5689948.474499999,
+      0.83,
+      3
+    ],
+    [
+      2,
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      63999.8,
+      5670320.1665,
+      1.13,
+      1
+    ],
+    [
+      2,
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      62862.8,
+      5670320.1665,
+      1.11,
+      2
+    ],
+    [
+      2,
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      51199.84,
+      5670320.1665,
+      0.9,
+      3
+    ],
+    [
+      3,
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      56636.4,
+      5265844.23,
+      1.08,
+      1
+    ],
+    [
+      3,
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      50559.842000000004,
+      5265844.23,
+      0.96,
+      2
+    ],
+    [
+      3,
+      341,
+      "Fabrikam Laptop16W M6080 Black",
+      48640.1,
+      5265844.23,
+      0.92,
+      3
+    ],
+    [
+      4,
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      63999.8,
+      4978945.9315,
+      1.29,
+      1
+    ],
+    [
+      4,
+      1897,
+      "Fabrikam Refrigerator 24.7CuFt X9800 White",
+      60799.81,
+      4978945.9315,
+      1.22,
+      2
+    ],
+    [
+      4,
+      1909,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      49279.846000000005,
+      4978945.9315,
+      0.99,
+      3
+    ],
+    [
+      5,
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      55727.1,
+      5454459.594,
+      1.02,
+      1
+    ],
+    [
+      5,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      47679.850999999995,
+      5454459.594,
+      0.87,
+      2
+    ],
+    [
+      5,
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      45382.15,
+      5454459.594,
+      0.83,
+      3
+    ],
+    [
+      6,
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      60639.81050000001,
+      5400918.634,
+      1.12,
+      1
+    ],
+    [
+      6,
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      50401.2,
+      5400918.634,
+      0.93,
+      2
+    ],
+    [
+      6,
+      2514,
+      "Contoso Bluetooth Active Headphones L15 White",
+      49396.2,
+      5400918.634,
+      0.91,
+      3
+    ],
+    [
+      7,
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      72755.403,
+      5264184.8495,
+      1.38,
+      1
+    ],
+    [
+      7,
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      63999.8,
+      5264184.8495,
+      1.22,
+      2
+    ],
+    [
+      7,
+      539,
+      "Proseware Projector 1080p LCD86 Black",
+      63686.25,
+      5264184.8495,
+      1.21,
+      3
+    ],
+    [
+      8,
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      48476.200000000004,
+      5232022.926999999,
+      0.93,
+      1
+    ],
+    [
+      8,
+      1207,
+      "Fabrikam Independent Filmmaker 2/3'' 17mm X100 Grey",
+      47880.0,
+      5232022.926999999,
+      0.92,
+      2
+    ],
+    [
+      8,
+      341,
+      "Fabrikam Laptop16W M6080 Black",
+      44578.7,
+      5232022.926999999,
+      0.85,
+      3
+    ],
+    [
+      9,
+      375,
+      "Adventure Works Laptop15 M1501 Silver",
+      60673.2,
+      5288980.195,
+      1.15,
+      1
+    ],
+    [
+      9,
+      2158,
+      "Adventure Works Coffee Maker Super-Auto 12C X125 Grey",
+      49665.0,
+      5288980.195,
+      0.94,
+      2
+    ],
+    [
+      9,
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      46079.856,
+      5288980.195,
+      0.87,
+      3
+    ],
+    [
+      10,
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      65439.79549999999,
+      5712335.175000001,
+      1.15,
+      1
+    ],
+    [
+      10,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60479.811,
+      5712335.175000001,
+      1.06,
+      2
+    ],
+    [
+      10,
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      58192.05,
+      5712335.175000001,
+      1.02,
+      3
+    ],
+    [
+      11,
+      564,
+      "Proseware Projector 1080p DLP86 Silver",
+      64974.0,
+      5759753.042499999,
+      1.13,
+      1
+    ],
+    [
+      11,
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      63999.8,
+      5759753.042499999,
+      1.11,
+      2
+    ],
+    [
+      11,
+      319,
+      "SV Car Video LCD9.2W X9281 Silver",
+      47273.6,
+      5759753.042499999,
+      0.82,
+      3
+    ],
+    [
+      12,
+      611,
+      "WWI Projector 1080p LCD86 Black",
+      63915.75,
+      5589772.207,
+      1.14,
+      1
+    ],
+    [
+      12,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      49919.844,
+      5589772.207,
+      0.89,
+      2
+    ],
+    [
+      12,
+      552,
+      "Proseware Projector 1080p DLP86 White",
+      46981.2,
+      5589772.207,
+      0.84,
+      3
+    ],
+    [
+      13,
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      67542.804,
+      5626838.6465,
+      1.2,
+      1
+    ],
+    [
+      13,
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      60793.2,
+      5626838.6465,
+      1.08,
+      2
+    ],
+    [
+      13,
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      51996.0,
+      5626838.6465,
+      0.92,
+      3
+    ],
+    [
+      14,
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      64430.399999999994,
+      5663581.816000001,
+      1.14,
+      1
+    ],
+    [
+      14,
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      56898.6,
+      5663581.816000001,
+      1.0,
+      2
+    ],
+    [
+      14,
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      56039.4,
+      5663581.816000001,
+      0.99,
+      3
+    ],
+    [
+      15,
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      60319.811499999996,
+      5452615.104,
+      1.11,
+      1
+    ],
+    [
+      15,
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      58325.1,
+      5452615.104,
+      1.07,
+      2
+    ],
+    [
+      15,
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      58065.299999999996,
+      5452615.104,
+      1.06,
+      3
+    ],
+    [
+      16,
+      374,
+      "Adventure Works Laptop19W X1980 Silver",
+      67548.0,
+      5379044.263000001,
+      1.26,
+      1
+    ],
+    [
+      16,
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      50879.841,
+      5379044.263000001,
+      0.95,
+      2
+    ],
+    [
+      16,
+      540,
+      "Proseware Projector 1080p DLP86 Black",
+      47231.1,
+      5379044.263000001,
+      0.88,
+      3
+    ],
+    [
+      17,
+      633,
+      "WWI Projector 1080p LCD86 Silver",
+      53129.25,
+      5276828.855499999,
+      1.01,
+      1
+    ],
+    [
+      17,
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      49015.399999999994,
+      5276828.855499999,
+      0.93,
+      2
+    ],
+    [
+      17,
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      44596.799999999996,
+      5276828.855499999,
+      0.85,
+      3
+    ],
+    [
+      18,
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      51996.0,
+      5396581.006500001,
+      0.96,
+      1
+    ],
+    [
+      18,
+      1927,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      47039.853,
+      5396581.006500001,
+      0.87,
+      2
+    ],
+    [
+      18,
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      43233.15,
+      5396581.006500001,
+      0.8,
+      3
+    ],
+    [
+      19,
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      92159.712,
+      5379416.997500001,
+      1.71,
+      1
+    ],
+    [
+      19,
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      55207.5,
+      5379416.997500001,
+      1.03,
+      2
+    ],
+    [
+      19,
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      39879.3,
+      5379416.997500001,
+      0.74,
+      3
+    ],
+    [
+      20,
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      69301.65000000001,
+      5362242.290499999,
+      1.29,
+      1
+    ],
+    [
+      20,
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      54785.15,
+      5362242.290499999,
+      1.02,
+      2
+    ],
+    [
+      20,
+      397,
+      "WWI Laptop15 M0150 White",
+      54661.8,
+      5362242.290499999,
+      1.02,
+      3
+    ],
+    [
+      21,
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      55745.25,
+      5564243.985999999,
+      1.0,
+      1
+    ],
+    [
+      21,
+      396,
+      "WWI Laptop19W X0196 White",
+      46764.0,
+      5564243.985999999,
+      0.84,
+      2
+    ],
+    [
+      21,
+      551,
+      "Proseware Projector 1080p LCD86 White",
+      43605.0,
+      5564243.985999999,
+      0.78,
+      3
+    ],
+    [
+      22,
+      390,
+      "WWI Laptop19W X0196 Black",
+      46634.1,
+      5200949.225,
+      0.9,
+      1
+    ],
+    [
+      22,
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      45322.2,
+      5200949.225,
+      0.87,
+      2
+    ],
+    [
+      22,
+      611,
+      "WWI Projector 1080p LCD86 Black",
+      43146.0,
+      5200949.225,
+      0.83,
+      3
+    ],
+    [
+      23,
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      92479.71100000001,
+      5488869.754,
+      1.68,
+      1
+    ],
+    [
+      23,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60159.812000000005,
+      5488869.754,
+      1.1,
+      2
+    ],
+    [
+      23,
+      160,
+      "Adventure Works 37\" 1080p LCD HDTV M150W Brown",
+      54889.501000000004,
+      5488869.754,
+      1.0,
+      3
+    ],
+    [
+      24,
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      69182.3,
+      5523148.850000001,
+      1.25,
+      1
+    ],
+    [
+      24,
+      2134,
+      "Contoso Coffee Maker Super-Auto 12C X1250 Grey",
+      52305.0,
+      5523148.850000001,
+      0.95,
+      2
+    ],
+    [
+      24,
+      1229,
+      "Fabrikam Independent Filmmaker 1/2'' 3mm X300 Black",
+      46800.0,
+      5523148.850000001,
+      0.85,
+      3
+    ],
+    [
+      25,
+      394,
+      "WWI Laptop15.4W M0156 Black",
+      50331.2,
+      5638599.208,
+      0.89,
+      1
+    ],
+    [
+      25,
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      47679.850999999995,
+      5638599.208,
+      0.85,
+      2
+    ],
+    [
+      25,
+      384,
+      "Adventure Works Laptop15.4W M1548 Red",
+      47109.7,
+      5638599.208,
+      0.84,
+      3
+    ],
+    [
+      26,
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      45919.8565,
+      5421266.838000001,
+      0.85,
+      1
+    ],
+    [
+      26,
+      588,
+      "Contoso Projector 1080p X981 White",
+      43232.7,
+      5421266.838000001,
+      0.8,
+      2
+    ],
+    [
+      26,
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      37750.8,
+      5421266.838000001,
+      0.7,
+      3
+    ],
+    [
+      27,
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      70090.0,
+      5430032.842499999,
+      1.29,
+      1
+    ],
+    [
+      27,
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      55077.6,
+      5430032.842499999,
+      1.01,
+      2
+    ],
+    [
+      27,
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      50358.0,
+      5430032.842499999,
+      0.93,
+      3
+    ],
+    [
+      28,
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      50559.842000000004,
+      5788302.551,
+      0.87,
+      1
+    ],
+    [
+      28,
+      393,
+      "WWI Laptop16 M0160 Black",
+      50016.5,
+      5788302.551,
+      0.86,
+      2
+    ],
+    [
+      28,
+      2128,
+      "Contoso Coffee Maker Super-Auto 12C X1250 White",
+      49995.0,
+      5788302.551,
+      0.86,
+      3
+    ],
+    [
+      29,
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      60799.81,
+      5728383.381500001,
+      1.06,
+      1
+    ],
+    [
+      29,
+      381,
+      "Adventure Works Laptop15 M1501 Red",
+      47462.1,
+      5728383.381500001,
+      0.83,
+      2
+    ],
+    [
+      29,
+      145,
+      "Adventure Works 52\" LCD HDTV X590 Silver",
+      45529.843,
+      5728383.381500001,
+      0.79,
+      3
+    ],
+    [
+      30,
+      1963,
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      51199.84,
+      5649518.129999998,
+      0.91,
+      1
+    ],
+    [
+      30,
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      51199.84,
+      5649518.129999998,
+      0.91,
+      1
+    ],
+    [
+      30,
+      1204,
+      "Fabrikam Independent Filmmaker 1'' 25mm X400 Grey",
+      48000.0,
+      5649518.129999998,
+      0.85,
+      3
+    ],
+    [
+      31,
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      81279.74600000001,
+      5567825.140500001,
+      1.46,
+      1
+    ],
+    [
+      31,
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      63999.8,
+      5567825.140500001,
+      1.15,
+      2
+    ],
+    [
+      31,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      63999.8,
+      5567825.140500001,
+      1.15,
+      2
+    ],
+    [
+      32,
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      77994.0,
+      5333484.391000001,
+      1.46,
+      1
+    ],
+    [
+      32,
+      1909,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      63999.8,
+      5333484.391000001,
+      1.2,
+      2
+    ],
+    [
+      32,
+      622,
+      "WWI Projector 1080p LCD86 White",
+      58752.0,
+      5333484.391000001,
+      1.1,
+      3
+    ],
+    [
+      33,
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      115870.8,
+      5774754.376,
+      2.01,
+      1
+    ],
+    [
+      33,
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60479.811,
+      5774754.376,
+      1.05,
+      2
+    ],
+    [
+      33,
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      55114.85,
+      5774754.376,
+      0.95,
+      3
+    ],
+    [
+      34,
+      564,
+      "Proseware Projector 1080p DLP86 Silver",
+      49980.0,
+      5230429.8965,
+      0.96,
+      1
+    ]
+  ],
+  "columns": [
+    "StoreKey",
+    "ProductKey",
+    "ProductName",
+    "product_sales",
+    "store_total_sales",
+    "pct_of_store",
+    "rnk"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 10302,
+  "latency_ms_exec": 1113,
+  "tokens_in": 13815,
+  "tokens_out": 346,
+  "claude_error": null,
+  "sql_error": null
+}

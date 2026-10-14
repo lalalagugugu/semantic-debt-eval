@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 62, server response: Code: 62. DB::Exception: Syntax error: failed at position 253 ()) (line 7, col 1): ) AS customer_stats\nGROUP BY cohort_year\nORDER BY cohort_year\n\nWait, let me write this properly with a subquery:\n\nSELECT\n    cohort_year,\n    count() AS num_customers,\n ... Unmatched parentheses: ). (SYNTAX_ERROR) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

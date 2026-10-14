@@ -1,0 +1,11 @@
+{
+  "question_id": 69,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Revenue matches within 0.001% drift; discount is returned as a decimal (0.1300\u224812.996%) vs reference percentage (13.109%)\u2014only 0.85% relative difference\u2014qualifying as decimal/percentage equivalence for analytical pass, but raw values differ ~100\u00d7 so strict fails.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1553,
+  "judge_latency_ms": 33820
+}

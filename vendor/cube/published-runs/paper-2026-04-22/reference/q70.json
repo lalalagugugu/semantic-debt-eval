@@ -1,0 +1,39 @@
+{
+  "question_id": 70,
+  "sql": "SELECT s.StoreType, sum(f.SalesAmount) AS revenue, avg(s.SellingAreaSize) AS avg_area, countDistinct(f.StoreKey) AS stores FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
+  "rows": [
+    [
+      "Store",
+      6942853195.152252,
+      602.1765826138798,
+      299
+    ],
+    [
+      "Online",
+      2677599035.0747848,
+      29372.659613523345,
+      3
+    ],
+    [
+      "Reseller",
+      1715197831.4418173,
+      30329.76526770878,
+      3
+    ],
+    [
+      "Catalog",
+      1078007547.2267466,
+      462.0,
+      1
+    ]
+  ],
+  "columns": [
+    "StoreType",
+    "revenue",
+    "avg_area",
+    "stores"
+  ],
+  "row_count": 4,
+  "exec_ms": 542,
+  "error": null
+}

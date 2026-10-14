@@ -1,0 +1,21 @@
+{
+  "question_id": 48,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH sales_daily AS (\n    SELECT\n        StoreKey,\n        DateKey,\n        sum(SalesAmount) AS total_sales\n    FROM retail.FactSales\n    GROUP BY\n        StoreKey,\n        DateKey\n),\noutage_daily AS (\n    SELECT\n        StoreKey,\n        DateKey,\n        sum(ifNull(DownTime, 0)) AS total_downtime\n    FROM retail.FactITSLA\n    GROUP BY\n        StoreKey,\n        DateKey\n)\nSELECT corr(ifNull(o.total_downtime, 0), ifNull(s.total_sales, 0)) AS outage_sales_correlation\nFROM sales_daily AS s\nFULL OUTER JOIN outage_daily AS o\n    ON s.StoreKey = o.StoreKey\n   AND s.DateKey = o.DateKey",
+  "rows": [
+    [
+      0.05420645105158344
+    ]
+  ],
+  "columns": [
+    "outage_sales_correlation"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 18580,
+  "latency_ms_exec": 536,
+  "tokens_in": 18821,
+  "tokens_out": 555,
+  "claude_error": null,
+  "sql_error": null
+}

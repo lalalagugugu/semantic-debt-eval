@@ -1,0 +1,135 @@
+{
+  "question_id": 80,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT g.RegionCountryName AS Country, avg(date_diff) AS AvgDaysBetweenFirstAndLastPurchase\nFROM (\n    SELECT CustomerKey, dateDiff('day', min(DateKey), max(DateKey)) AS date_diff\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n) s\nJOIN retail.DimCustomer c ON c.CustomerKey = s.CustomerKey\nJOIN retail.DimGeography g ON g.GeographyKey = c.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY AvgDaysBetweenFirstAndLastPurchase DESC",
+  "rows": [
+    [
+      "Poland",
+      1087.0
+    ],
+    [
+      "France",
+      1080.7116868798237
+    ],
+    [
+      "Germany",
+      1078.6007816862088
+    ],
+    [
+      "United Kingdom",
+      1077.9772138788192
+    ],
+    [
+      "Armenia",
+      1068.0
+    ],
+    [
+      "Russia",
+      1051.5
+    ],
+    [
+      "Bhutan",
+      1047.0
+    ],
+    [
+      "Iran",
+      1041.0
+    ],
+    [
+      "Taiwan",
+      1034.0
+    ],
+    [
+      "Singapore",
+      1024.0
+    ],
+    [
+      "Italy",
+      1021.0
+    ],
+    [
+      "Spain",
+      998.0
+    ],
+    [
+      "Japan",
+      996.2857142857143
+    ],
+    [
+      "United States",
+      990.727801137769
+    ],
+    [
+      "Australia",
+      988.2822913797852
+    ],
+    [
+      "Canada",
+      987.7441418619379
+    ],
+    [
+      "Portugal",
+      985.0
+    ],
+    [
+      "India",
+      958.6666666666666
+    ],
+    [
+      "China",
+      956.8
+    ],
+    [
+      "Ireland",
+      954.0
+    ],
+    [
+      "South Korea",
+      949.0
+    ],
+    [
+      "Pakistan",
+      927.0
+    ],
+    [
+      "Syria",
+      904.0
+    ],
+    [
+      "Switzerland",
+      902.0
+    ],
+    [
+      "Greece",
+      888.0
+    ],
+    [
+      "the Netherlands",
+      881.0
+    ],
+    [
+      "Kyrgyzstan",
+      881.0
+    ],
+    [
+      "Thailand",
+      866.0
+    ],
+    [
+      "Turkmenistan",
+      860.0
+    ]
+  ],
+  "columns": [
+    "Country",
+    "AvgDaysBetweenFirstAndLastPurchase"
+  ],
+  "row_count": 29,
+  "latency_ms_gen": 7865,
+  "latency_ms_exec": 536,
+  "tokens_in": 19124,
+  "tokens_out": 247,
+  "claude_error": null,
+  "sql_error": null
+}

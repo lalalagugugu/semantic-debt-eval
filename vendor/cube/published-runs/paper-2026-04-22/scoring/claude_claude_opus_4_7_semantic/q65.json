@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate groups only by StoreManager (collapsing multiple stores per manager), changing both granularity and HAVING filter semantics (per-manager total vs. per-store total), producing different values and answering a different question than the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1247,
+  "judge_latency_ms": 32670
+}

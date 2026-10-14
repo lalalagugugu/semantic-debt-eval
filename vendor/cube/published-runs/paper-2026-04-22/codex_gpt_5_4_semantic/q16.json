@@ -1,0 +1,27 @@
+{
+  "question_id": 16,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    toYear(DateKey) AS year,\n    sum(SalesAmount) AS total_online_sales\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) IN (2008, 2009)\nGROUP BY year\nORDER BY year;",
+  "rows": [
+    [
+      2008,
+      849671203.4333403
+    ],
+    [
+      2009,
+      857728031.35628
+    ]
+  ],
+  "columns": [
+    "year",
+    "total_online_sales"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 13378,
+  "latency_ms_exec": 519,
+  "tokens_in": 19681,
+  "tokens_out": 179,
+  "claude_error": null,
+  "sql_error": null
+}

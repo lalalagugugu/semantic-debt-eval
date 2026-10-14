@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate uses FactSales instead of FactOnlineSales (different absolute values), but the resulting percentages (Weekday ~71.48%, Weekend ~28.52%) match the reference (71.53%/28.47%) within ~0.1% drift, correctly answering the percentage question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 799,
+  "judge_latency_ms": 24828
+}

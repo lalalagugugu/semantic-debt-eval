@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate groups by country (RegionCountryName) returning 29 rows instead of the 3 continent-level rows, but the country-level GrossMargin values aggregate to the expected continent totals (e.g., US+Canada \u2248 524.35M matches North America), making it a valid OLAP breakdown of the same measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 638,
+  "judge_latency_ms": 16787
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 91,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses net spend (SalesAmount \u2212 ReturnAmount \u2212 DiscountAmount) instead of gross SalesAmount, yielding correlation 0.730 vs reference 0.735 (~0.67% drift); this reflects a different business measure, not mere floating-point imprecision.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1072,
+  "judge_latency_ms": 25934
+}

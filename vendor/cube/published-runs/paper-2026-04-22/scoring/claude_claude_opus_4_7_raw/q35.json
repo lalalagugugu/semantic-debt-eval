@@ -1,0 +1,11 @@
+{
+  "question_id": 35,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same employee-manager name pairs as the reference across all 100 rows; the extra EmployeeKey column and ORDER BY clause do not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 179,
+  "judge_latency_ms": 11269
+}

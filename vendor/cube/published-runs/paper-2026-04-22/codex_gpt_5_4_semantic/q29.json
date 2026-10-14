@@ -1,0 +1,21 @@
+{
+  "question_id": 29,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH daily_sales AS (\n    SELECT\n        d.IsHoliday,\n        f.DateKey,\n        sum(f.SalesAmount) AS day_total\n    FROM retail.FactOnlineSales AS f\n    INNER JOIN retail.DimDate AS d\n        ON f.DateKey = d.DateKey\n    GROUP BY\n        d.IsHoliday,\n        f.DateKey\n),\nbucket_avgs AS (\n    SELECT\n        IsHoliday,\n        avg(day_total) AS avg_daily_sales\n    FROM daily_sales\n    GROUP BY IsHoliday\n)\nSELECT\n    (maxIf(avg_daily_sales, IsHoliday = 'Yes') - maxIf(avg_daily_sales, IsHoliday = 'No')) * 100.0\n        / nullIf(maxIf(avg_daily_sales, IsHoliday = 'No'), 0) AS holiday_vs_regular_pct\nFROM bucket_avgs",
+  "rows": [
+    [
+      0.02627914279612943
+    ]
+  ],
+  "columns": [
+    "holiday_vs_regular_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13272,
+  "latency_ms_exec": 633,
+  "tokens_in": 18828,
+  "tokens_out": 275,
+  "claude_error": null,
+  "sql_error": null
+}

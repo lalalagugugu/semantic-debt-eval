@@ -1,0 +1,17 @@
+{
+  "question_id": 18,
+  "sql": "SELECT p.PromotionType, sum(s.DiscountAmount) as total_discount FROM retail.FactOnlineSales s JOIN retail.DimPromotion p ON s.PromotionKey = p.PromotionKey WHERE p.PromotionKey != 1 GROUP BY p.PromotionType",
+  "rows": [
+    [
+      "Seasonal Discount",
+      268904117.38993096
+    ]
+  ],
+  "columns": [
+    "PromotionType",
+    "total_discount"
+  ],
+  "row_count": 1,
+  "exec_ms": 583,
+  "error": null
+}

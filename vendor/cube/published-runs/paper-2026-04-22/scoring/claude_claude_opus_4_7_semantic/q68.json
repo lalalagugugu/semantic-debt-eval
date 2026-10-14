@@ -1,0 +1,11 @@
+{
+  "question_id": 68,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference (only adds a column alias), and the row values match exactly in counts with negligible floating-point drift (<0.001%) in revenue figures.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 174,
+  "judge_latency_ms": 10486
+}

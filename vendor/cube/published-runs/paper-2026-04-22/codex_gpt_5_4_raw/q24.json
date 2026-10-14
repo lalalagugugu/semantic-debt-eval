@@ -1,0 +1,15 @@
+{
+  "question_id": 24,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    coalesce(pc.ProductCategoryName, 'Unknown') AS product_category,\n    sum(t.return_quantity) AS total_return_quantity,\n    sum(t.sales_quantity) AS total_sales_quantity,\n    round(sum(t.return_quantity) / nullIf(sum(t.sales_quantity), 0), 4) AS return_rate\nFROM\n(\n    SELECT\n        ProductKey,\n        SalesQuantity AS sales_quantity,\n        ReturnQuantity AS return_quantity\n    FROM retail.FactSales\n    UNION ALL\n    SELECT\n        ProductKey,\n        SalesQuantity AS sales_quantity,\n        ReturnQuantity AS return_quantity\n    FROM retail.FactOnlineSales\n) AS t\nLEFT JOIN retail.DimProduct p\n    ON t.ProductKey = p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps\n    ON toInt32OrNull(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY product_category\nORDER BY return_rate DESC, product_category ASC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 15581,
+  "latency_ms_exec": null,
+  "tokens_in": 16365,
+  "tokens_out": 376,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT coalesce(pc.ProductCategoryName, 'Unknown') AS product_category, sum(t.return_quantity) AS total_return_quantity, sum(t.sales_quantity) AS total_sales_quantity, round(sum(t.return_quantity) / nullIf(sum(t.sales_quantity), 0), 4) AS return_rate FROM (SELECT ProductKey, SalesQuantity AS sales_quantity, ReturnQuantity AS return_quantity FROM retail.FactSales UNION ALL SELECT ProductKey, SalesQuantity AS sales_quantity, ReturnQuantity AS return_quantity FROM retail.FactOnlineSales) AS t LEFT JOIN retail.DimProduct AS p ON t.ProductKey = p.ProductKey LEFT JOIN retail.DimProductSubcategory AS ps ON toInt32OrNull(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey LEFT JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY product_category ORDER BY return_rate DESC, product_category ASC. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)"
+}

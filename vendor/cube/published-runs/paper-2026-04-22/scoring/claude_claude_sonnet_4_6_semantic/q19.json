@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes total sales divided by distinct order numbers (~1681 F, ~1565 M), while the reference averages per sales line row (~213 F, ~217 M); the values differ by ~7-8x, representing a genuinely different aggregation method.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 272,
+  "judge_latency_ms": 11684
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": 51,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT count() AS total_stores\nFROM retail.DimStore;",
+  "rows": [
+    [
+      306
+    ]
+  ],
+  "columns": [
+    "total_stores"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8981,
+  "latency_ms_exec": 520,
+  "tokens_in": 16365,
+  "tokens_out": 32,
+  "claude_error": null,
+  "sql_error": null
+}

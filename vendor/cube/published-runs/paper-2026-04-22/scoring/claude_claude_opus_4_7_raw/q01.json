@@ -1,0 +1,11 @@
+{
+  "question_id": 1,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate SQL is identical to the reference SQL and returns the exact same scalar value of 2233.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 143,
+  "judge_latency_ms": 9817
+}

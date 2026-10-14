@@ -1,0 +1,21 @@
+{
+  "question_id": 10,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT count() AS currently_open_stores\nFROM retail.DimStore\nWHERE (Status IS NULL OR lowerUTF8(Status) NOT IN ('closed', 'close'))\n  AND (CloseDate IS NULL OR CloseDate = '')",
+  "rows": [
+    [
+      0
+    ]
+  ],
+  "columns": [
+    "currently_open_stores"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 12511,
+  "latency_ms_exec": 487,
+  "tokens_in": 17222,
+  "tokens_out": 111,
+  "claude_error": null,
+  "sql_error": null
+}

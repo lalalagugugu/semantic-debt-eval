@@ -1,0 +1,11 @@
+{
+  "question_id": 27,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits ROUND(), causing different sort order among near-tied margins; the 10th row is a different product (\"Contoso behind Centrex X15 Grey\" vs \"Contoso Bluetooth Active Headphones L15 White\").",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 549,
+  "judge_latency_ms": 18716
+}

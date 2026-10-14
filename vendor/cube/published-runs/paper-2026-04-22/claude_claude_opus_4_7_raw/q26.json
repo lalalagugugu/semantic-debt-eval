@@ -1,0 +1,27 @@
+{
+  "question_id": 26,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT toQuarter(FirstPurchase) AS Quarter, count() AS Customers FROM (SELECT CustomerKey, min(DateKey) AS FirstPurchase FROM retail.FactOnlineSales GROUP BY CustomerKey) WHERE toYear(FirstPurchase) = 2007 GROUP BY Quarter ORDER BY Quarter",
+  "rows": [
+    [
+      1,
+      18015
+    ],
+    [
+      2,
+      853
+    ]
+  ],
+  "columns": [
+    "Quarter",
+    "Customers"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7100,
+  "latency_ms_exec": 530,
+  "tokens_in": 19121,
+  "tokens_out": 135,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 55,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same scalar value (9344) for the count of female customers, using semantically equivalent COUNT expressions with the same filter.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 146,
+  "judge_latency_ms": 9506
+}

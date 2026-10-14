@@ -1,0 +1,63 @@
+{
+  "question_id": 46,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    c.Occupation                                                                        AS customer_segment,\n    count(DISTINCT f.CustomerKey)                                                       AS num_customers,\n    sum(f.SalesAmount)                                                                  AS total_sales,\n    sum(f.TotalCost)                                                                    AS total_cost,\n    sum(f.SalesAmount) - sum(f.TotalCost)                                               AS gross_margin,\n    round(\n        (sum(f.SalesAmount) - sum(f.TotalCost)) * 100.0\n        / nullif(sum(f.SalesAmount), 0),\n        2\n    )                                                                                   AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nWHERE c.Occupation IS NOT NULL\nGROUP BY c.Occupation\nORDER BY gross_margin DESC",
+  "rows": [
+    [
+      "Professional",
+      5606,
+      671762629.08669,
+      333944542.919539,
+      337818086.167151,
+      50.29
+    ],
+    [
+      "Clerical",
+      3014,
+      597233107.924744,
+      293957849.0099854,
+      303275258.9147586,
+      50.78
+    ],
+    [
+      "Skilled Manual",
+      4649,
+      517686818.55597687,
+      260119014.26982963,
+      257567804.28614724,
+      49.75
+    ],
+    [
+      "Management",
+      3147,
+      486591192.1746074,
+      236681137.8597883,
+      249910054.3148191,
+      51.36
+    ],
+    [
+      "Manual",
+      2453,
+      444928882.06933665,
+      219552363.66019356,
+      225376518.4091431,
+      50.65
+    ]
+  ],
+  "columns": [
+    "customer_segment",
+    "num_customers",
+    "total_sales",
+    "total_cost",
+    "gross_margin",
+    "gross_margin_pct"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 16037,
+  "latency_ms_exec": 630,
+  "tokens_in": 16750,
+  "tokens_out": 772,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 2,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same scalar sum (2718202629.8081865 vs 2718202629.808186), differing only by a negligible floating-point rounding error well within 1%, with an added alias that doesn't affect the result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 189,
+  "judge_latency_ms": 10790
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 22,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `CustomerKey` in scope SELECT RegionCountryName, CustomerKey, FirstName, LastName, TotalSpend, CountryRank FROM (SELECT g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName, sum(f.SalesAmount) AS TotalSpend, rank() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(f.SalesAmount) DESC) AS CountryRank FROM retail.FactOnlineSales AS f INNER JOIN retail.DimCustomer AS c ON f.CustomerKey = c.CustomerKey INNER JOIN retail.DimGeography AS g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName) WHERE CountryRank <= 5 ORDER BY RegionCountryName ASC, CountryRank ASC. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

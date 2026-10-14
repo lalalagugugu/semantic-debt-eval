@@ -1,0 +1,33 @@
+{
+  "question_id": 38,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT toQuarter(q.DateKey) AS Quarter, toYear(q.DateKey) AS Year, sum(q.SalesAmountQuota) AS ForecastAmount, sum(a.SalesAmount) AS ActualAmount, sum(a.SalesAmount) - sum(q.SalesAmountQuota) AS Variance, (sum(a.SalesAmount) - sum(q.SalesAmountQuota)) / sum(q.SalesAmountQuota) * 100 AS VariancePercent, sum(a.SalesAmount) / sum(q.SalesAmountQuota) * 100 AS AccuracyPercent FROM (SELECT DateKey, sum(SalesAmountQuota) AS SalesAmountQuota FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 AND toQuarter(DateKey) = 4 GROUP BY DateKey) q LEFT JOIN (SELECT DateKey, sum(SalesAmount) AS SalesAmount FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND toQuarter(DateKey) = 4 GROUP BY DateKey) a ON q.DateKey = a.DateKey GROUP BY Year, Quarter",
+  "rows": [
+    [
+      4,
+      2009,
+      2653569866.5449677,
+      31357030.180200033,
+      -2622212836.3647676,
+      -98.81830772290809,
+      1.1816922770919118
+    ]
+  ],
+  "columns": [
+    "Quarter",
+    "Year",
+    "ForecastAmount",
+    "ActualAmount",
+    "Variance",
+    "VariancePercent",
+    "AccuracyPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8777,
+  "latency_ms_exec": 532,
+  "tokens_in": 19127,
+  "tokens_out": 444,
+  "claude_error": null,
+  "sql_error": null
+}

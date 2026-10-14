@@ -1,0 +1,11 @@
+{
+  "question_id": 10,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters on Status = 'Open' (returning 0 rows) instead of the correct Status = 'On' OR CloseDate IS NULL (expected 294), producing a completely wrong result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 196,
+  "judge_latency_ms": 10231
+}

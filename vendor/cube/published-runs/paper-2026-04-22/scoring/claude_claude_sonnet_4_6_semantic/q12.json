@@ -1,0 +1,11 @@
+{
+  "question_id": 12,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 12 monthly rows with matching sales amounts (differences are sub-0.001% floating-point noise) plus an extra MonthName column, which is semantically equivalent to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 189,
+  "judge_latency_ms": 10867
+}

@@ -1,0 +1,29 @@
+{
+  "question_id": 38,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH\n    (\n        SELECT any(ChannelKey)\n        FROM retail.DimChannel\n        WHERE lower(ChannelName) LIKE '%online%'\n    ) AS online_channel_key,\n    forecast AS (\n        SELECT sum(coalesce(SalesAmountQuota, 0)) AS forecast_sales_amount\n        FROM retail.FactSalesQuota\n        WHERE toYear(DateKey) = 2009\n          AND toQuarter(DateKey) = 4\n    ),\n    actual AS (\n        SELECT sum(SalesAmount) AS actual_sales_amount\n        FROM\n        (\n            SELECT SalesAmount\n            FROM retail.FactSales\n            WHERE toYear(DateKey) = 2009\n              AND toQuarter(DateKey) = 4\n\n            UNION ALL\n\n            SELECT SalesAmount\n            FROM retail.FactOnlineSales\n            WHERE toYear(DateKey) = 2009\n              AND toQuarter(DateKey) = 4\n        )\n    )\nSELECT\n    forecast.forecast_sales_amount,\n    actual.actual_sales_amount,\n    actual.actual_sales_amount - forecast.forecast_sales_amount AS variance_amount,\n    if(\n        forecast.forecast_sales_amount = 0,\n        NULL,\n        round(actual.actual_sales_amount / forecast.forecast_sales_amount * 100, 2)\n    ) AS actual_vs_forecast_pct,\n    if(\n        forecast.forecast_sales_amount = 0,\n        NULL,\n        round((1 - abs(actual.actual_sales_amount - forecast.forecast_sales_amount) / forecast.forecast_sales_amount) * 100, 2)\n    ) AS forecast_accuracy_pct\nFROM forecast\nCROSS JOIN actual",
+  "rows": [
+    [
+      2653569866.544999,
+      1190454989.8553042,
+      -1463114876.689695,
+      44.86,
+      44.86
+    ]
+  ],
+  "columns": [
+    "forecast_sales_amount",
+    "actual_sales_amount",
+    "variance_amount",
+    "actual_vs_forecast_pct",
+    "forecast_accuracy_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 23350,
+  "latency_ms_exec": 505,
+  "tokens_in": 16375,
+  "tokens_out": 846,
+  "claude_error": null,
+  "sql_error": null
+}

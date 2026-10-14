@@ -1,0 +1,15 @@
+{
+  "question_id": 39,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT\n  psc.ProductSubcategoryName,\n  toYear(f.DateKey) AS SalesYear,\n  sumIf(f.SalesAmount, toYear(toDate(p.AvailableForSaleDate)) = toYear(f.DateKey)) AS NewProductSales,\n  sumIf(f.SalesAmount, toYear(toDate(p.AvailableForSaleDate)) < toYear(f.DateKey)) AS ExistingProductSales,\n  countDistinctIf(f.ProductKey, toYear(toDate(p.AvailableForSaleDate)) = toYear(f.DateKey)) AS NewProductCount,\n  countDistinctIf(f.ProductKey, toYear(toDate(p.AvailableForSaleDate)) < toYear(f.DateKey)) AS ExistingProductCount,\n  ExistingProductSales - anyIf(ExistingProductSales, 0) AS _placeholder\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nWHERE p.AvailableForSaleDate IS NOT NULL\nGROUP BY psc.ProductSubcategoryName, SalesYear\nORDER BY psc.ProductSubcategoryName, SalesYear",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 14622,
+  "latency_ms_exec": null,
+  "tokens_in": 23322,
+  "tokens_out": 770,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Aggregate function sumIf(f.SalesAmount, toYear(toDate(p.AvailableForSaleDate)) < toYear(f.DateKey)) AS ExistingProductSales is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (for url https://clickhouse.vanya.cc:443)"
+}

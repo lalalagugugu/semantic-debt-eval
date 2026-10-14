@@ -1,0 +1,11 @@
+{
+  "question_id": 29,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns ~0.0263, which rounds to 0.03 \u2014 matching the reference exactly; the logic is semantically equivalent, just missing the final ROUND() call.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 234,
+  "judge_latency_ms": 13777
+}

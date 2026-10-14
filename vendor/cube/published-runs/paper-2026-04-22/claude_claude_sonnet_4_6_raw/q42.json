@@ -1,0 +1,15 @@
+{
+  "question_id": 42,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toYear(fs.DateKey) AS SalesYear,\n    toQuarter(fs.DateKey) AS SalesQuarter,\n    sum(fs.SalesAmount) AS TotalSalesAmount,\n    sum(fs.TotalCost) AS TotalCost,\n    sum(fs.SalesAmount) - sum(fs.TotalCost) AS GrossProfit,\n    round((sum(fs.SalesAmount) - sum(fs.TotalCost)) / nullIf(sum(fs.SalesAmount), 0) * 100, 2) AS GrossMarginPct,\n    sum(fs.SalesQuantity) AS TotalUnitsSold,\n    sum(fs.ReturnQuantity) AS TotalReturns,\n    sum(fs.ReturnAmount) AS TotalReturnAmount,\n    sum(fs.DiscountAmount) AS TotalDiscounts\nFROM retail.FactSales AS fs\nJOIN retail.DimProduct AS dp ON fs.ProductKey = dp.ProductKey\nJOIN retail.DimProductSubcategory AS dps ON dp.ProductSubcategoryKey = dps.ProductSubcategoryKey\nJOIN retail.DimProductCategory AS dpc ON dps.ProductCategoryKey = dpc.ProductCategoryKey\nWHERE dpc.ProductCategoryName = 'Cameras'\nGROUP BY SalesYear, SalesQuarter\nORDER BY SalesYear, SalesQuarter",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 14122,
+  "latency_ms_exec": 495,
+  "tokens_in": 27868,
+  "tokens_out": 550,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 94,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 99 rows (all declining stores) vs the reference's top-20 due to a missing LIMIT clause, but all 20 reference rows appear correctly at the top of the candidate result with matching store names, Q3/Q4 sales values, and percentage changes (minor rounding only).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 550,
+  "judge_latency_ms": 20406
+}

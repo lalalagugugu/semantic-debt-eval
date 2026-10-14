@@ -1,0 +1,15 @@
+{
+  "question_id": 1,
+  "sql": "SELECT count() FROM retail.DimProduct",
+  "rows": [
+    [
+      2233
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "exec_ms": 500,
+  "error": null
+}

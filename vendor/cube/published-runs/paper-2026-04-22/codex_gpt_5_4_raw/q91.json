@@ -1,0 +1,27 @@
+{
+  "question_id": 91,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    count() AS customer_count,\n    corr(c.YearlyIncome, s.total_online_spend) AS income_spend_correlation,\n    avg(c.YearlyIncome) AS avg_yearly_income,\n    avg(s.total_online_spend) AS avg_total_online_spend\nFROM retail.DimCustomer AS c\nINNER JOIN\n(\n    SELECT\n        CustomerKey,\n        sum(SalesAmount - ReturnAmount - DiscountAmount) AS total_online_spend\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n) AS s\n    ON c.CustomerKey = s.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
+  "rows": [
+    [
+      18869,
+      0.7299777669770346,
+      260174.8900312682,
+      128255.56172624503
+    ]
+  ],
+  "columns": [
+    "customer_count",
+    "income_spend_correlation",
+    "avg_yearly_income",
+    "avg_total_online_spend"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 19831,
+  "latency_ms_exec": 545,
+  "tokens_in": 16372,
+  "tokens_out": 244,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 85,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope WITH actual AS (SELECT StoreKey, sum(SalesAmount) AS actual_sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY StoreKey), quota AS (SELECT StoreKey, sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 GROUP BY StoreKey), attainment AS (SELECT a.StoreKey, st.StoreName, a.actual_sales, q.quota_amount, a.actual_sales / nullif(q.quota_amount, 0) AS quota_attainment FROM actual AS a INNER JOIN quota AS q ON a.StoreKey = q.StoreKey INNER JOIN retail.DimStore AS st ON a.StoreKey = st.StoreKey) SELECT StoreKey, StoreName, actual_sales, quota_amount, quota_attainment, 'Top 5' AS segment FROM attainment ORDER BY quota_attainment DESC LIMIT 5. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

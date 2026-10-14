@@ -1,0 +1,21 @@
+{
+  "question_id": 57,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT countDistinct(BrandName) AS distinct_product_brands\nFROM retail.DimProduct\nWHERE BrandName IS NOT NULL AND BrandName != ''",
+  "rows": [
+    [
+      11
+    ]
+  ],
+  "columns": [
+    "distinct_product_brands"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 10184,
+  "latency_ms_exec": 500,
+  "tokens_in": 16366,
+  "tokens_out": 45,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 72,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same 12 rows with identical values as the reference; the only differences are an explicit WHERE year BETWEEN 2007 AND 2009 filter (which doesn't change results) and omission of rounding (numeric values match within negligible floating-point precision well under 1%).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 279,
+  "judge_latency_ms": 13013
+}

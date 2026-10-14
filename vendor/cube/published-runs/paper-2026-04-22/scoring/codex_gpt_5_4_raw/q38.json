@@ -1,0 +1,11 @@
+{
+  "question_id": 38,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses entirely different source tables (FactSalesQuota + FactSales/FactOnlineSales instead of FactStrategyPlan), produces a single scalar row vs. 8 per-category rows, and returns wildly different values (e.g., forecast ~2.65B vs ~979M expected), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 327,
+  "judge_latency_ms": 12505
+}

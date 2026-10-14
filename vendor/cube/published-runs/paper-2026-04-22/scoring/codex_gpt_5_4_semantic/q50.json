@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns only the growth percentage (-9.54%) omitting the absolute 2008/2009 sales columns, so it fails strict row match, but the growth figure is correct and directly answers the same-store sales growth question, making it an analytical pass.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 366,
+  "judge_latency_ms": 13118
+}

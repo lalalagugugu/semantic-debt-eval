@@ -1,0 +1,15 @@
+{
+  "question_id": 92,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.BrandName AS BrandName, sum(f.SalesAmount - f.TotalCost) AS Profit\nFROM retail.FactSales AS f\nINNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey\nWHERE toYear(f.DateKey) = toYear(subtractQuarters(toDate('2026-04-23'), 1))\n  AND toQuarter(f.DateKey) = toQuarter(subtractQuarters(toDate('2026-04-23'), 1))\nGROUP BY p.BrandName\nORDER BY Profit DESC",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 7840,
+  "latency_ms_exec": 522,
+  "tokens_in": 19117,
+  "tokens_out": 213,
+  "claude_error": null,
+  "sql_error": null
+}

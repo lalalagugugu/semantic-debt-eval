@@ -1,0 +1,9 @@
+{
+  "question_id": 39,
+  "sql": "-- This requires identifying new products by AvailableForSaleDate and comparing before/after sales\nWITH new_products AS (SELECT ProductSubcategoryKey, MIN(toDate(AvailableForSaleDate)) as first_new FROM retail.DimProduct WHERE AvailableForSaleDate IS NOT NULL GROUP BY ProductSubcategoryKey HAVING MIN(toDate(AvailableForSaleDate)) > '2007-06-01'), existing_sales AS (SELECT p.ProductSubcategoryKey AS ProductSubcategoryKey, CASE WHEN s.DateKey < np.first_new THEN 'before' ELSE 'after' END as period, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN new_products np ON p.ProductSubcategoryKey = np.ProductSubcategoryKey WHERE toDate(p.AvailableForSaleDate) < np.first_new GROUP BY p.ProductSubcategoryKey, period) SELECT ps.ProductSubcategoryName, sum(CASE WHEN period = 'before' THEN sales END) as before_sales, sum(CASE WHEN period = 'after' THEN sales END) as after_sales FROM existing_sales es JOIN retail.DimProductSubcategory ps ON es.ProductSubcategoryKey = ps.ProductSubcategoryKey GROUP BY ps.ProductSubcategoryName",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "exec_ms": 699,
+  "error": null
+}

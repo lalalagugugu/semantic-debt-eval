@@ -1,0 +1,11 @@
+{
+  "question_id": 23,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 12 months with matching monthly_sales and cumulative_sales values (within negligible floating-point drift), differing only in using month name labels instead of month numbers, which is semantically equivalent.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 206,
+  "judge_latency_ms": 10491
+}

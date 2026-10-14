@@ -1,0 +1,11 @@
+{
+  "question_id": 67,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly (same 17 colors, same ordering, same units) with only negligible floating-point precision differences well under 1% relative drift.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 204,
+  "judge_latency_ms": 11044
+}

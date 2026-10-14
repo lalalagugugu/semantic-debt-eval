@@ -1,0 +1,106 @@
+{
+  "question_id": 72,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    quarter_start,\n    toYear(quarter_start) AS calendar_year,\n    concat('Q', toString(toQuarter(quarter_start))) AS calendar_quarter,\n    quarterly_sales,\n    sum(quarterly_sales) OVER (ORDER BY quarter_start ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_cumulative_sales\nFROM\n(\n    SELECT\n        toStartOfQuarter(DateKey) AS quarter_start,\n        sum(SalesAmount) AS quarterly_sales\n    FROM retail.FactOnlineSales\n    WHERE DateKey >= toDate('2007-01-01')\n      AND DateKey < toDate('2010-01-01')\n    GROUP BY quarter_start\n)\nORDER BY quarter_start;",
+  "rows": [
+    [
+      "2007-01-01",
+      2007,
+      "Q1",
+      245958338.86436743,
+      245958338.86436743
+    ],
+    [
+      "2007-04-01",
+      2007,
+      "Q2",
+      273913970.8968512,
+      519872309.7612186
+    ],
+    [
+      "2007-07-01",
+      2007,
+      "Q3",
+      260994081.97646603,
+      780866391.7376846
+    ],
+    [
+      "2007-10-01",
+      2007,
+      "Q4",
+      229937003.30089334,
+      1010803395.0385779
+    ],
+    [
+      "2008-01-01",
+      2008,
+      "Q1",
+      177970951.07291847,
+      1188774346.1114964
+    ],
+    [
+      "2008-04-01",
+      2008,
+      "Q2",
+      229982830.92524663,
+      1418757177.0367432
+    ],
+    [
+      "2008-07-01",
+      2008,
+      "Q3",
+      231094485.09008986,
+      1649851662.126833
+    ],
+    [
+      "2008-10-01",
+      2008,
+      "Q4",
+      210622936.33615494,
+      1860474598.462988
+    ],
+    [
+      "2009-01-01",
+      2009,
+      "Q1",
+      178152181.58828196,
+      2038626780.0512698
+    ],
+    [
+      "2009-04-01",
+      2009,
+      "Q2",
+      233793837.51235494,
+      2272420617.563625
+    ],
+    [
+      "2009-07-01",
+      2009,
+      "Q3",
+      235064027.54698578,
+      2507484645.1106105
+    ],
+    [
+      "2009-10-01",
+      2009,
+      "Q4",
+      210717984.699468,
+      2718202629.8100786
+    ]
+  ],
+  "columns": [
+    "quarter_start",
+    "calendar_year",
+    "calendar_quarter",
+    "quarterly_sales",
+    "running_cumulative_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 15432,
+  "latency_ms_exec": 526,
+  "tokens_in": 18829,
+  "tokens_out": 276,
+  "claude_error": null,
+  "sql_error": null
+}

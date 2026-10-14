@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate uses per-product max date vs. global max date, but all visible rows share \"2009-12-26\", so both approaches yield the same 100 rows; extra columns and different ordering are permissible under the grading rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1825,
+  "judge_latency_ms": 42319
+}

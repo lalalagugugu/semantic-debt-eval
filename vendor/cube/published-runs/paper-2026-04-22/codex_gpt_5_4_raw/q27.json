@@ -1,0 +1,70 @@
+{
+  "question_id": 27,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    round(100.0 * sum(s.NetSales - s.TotalCost) / nullIf(sum(s.NetSales), 0), 2) AS ProfitMarginPercentage\nFROM\n(\n    SELECT\n        ProductKey,\n        (SalesAmount - ReturnAmount - DiscountAmount) AS NetSales,\n        TotalCost\n    FROM retail.FactSales\n    UNION ALL\n    SELECT\n        ProductKey,\n        (SalesAmount - ReturnAmount - DiscountAmount) AS NetSales,\n        TotalCost\n    FROM retail.FactOnlineSales\n) AS s\nINNER JOIN retail.DimProduct AS p\n    ON p.ProductKey = s.ProductKey\nGROUP BY\n    p.ProductKey,\n    p.ProductName\nHAVING sum(s.NetSales) > 0\nORDER BY ProfitMarginPercentage DESC\nLIMIT 10",
+  "rows": [
+    [
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      65.96
+    ],
+    [
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      65.76
+    ],
+    [
+      1684,
+      "MGS Hand Games for Office worker L299 Silver",
+      65.64
+    ],
+    [
+      1696,
+      "SV Hand Games for Office worker L28 Black",
+      65.63
+    ],
+    [
+      1702,
+      "SV Hand Games for Office worker L28 Red",
+      65.58
+    ],
+    [
+      1678,
+      "MGS Hand Games for Office worker L299 Red",
+      65.52
+    ],
+    [
+      1690,
+      "SV Hand Games for Office worker L28 Yellow",
+      65.51
+    ],
+    [
+      1666,
+      "MGS Hand Games for Office worker L299 Yellow",
+      65.45
+    ],
+    [
+      1672,
+      "MGS Hand Games for Office worker L299 Black",
+      65.43
+    ],
+    [
+      2514,
+      "Contoso Bluetooth Active Headphones L15 White",
+      65.41
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "ProfitMarginPercentage"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 19459,
+  "latency_ms_exec": 1429,
+  "tokens_in": 17227,
+  "tokens_out": 365,
+  "claude_error": null,
+  "sql_error": null
+}

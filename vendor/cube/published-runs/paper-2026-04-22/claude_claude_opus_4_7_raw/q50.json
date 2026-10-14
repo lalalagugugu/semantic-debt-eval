@@ -1,0 +1,27 @@
+{
+  "question_id": 50,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n    sumIf(SalesAmount, toYear(DateKey) = 2008) AS Sales2008,\n    sumIf(SalesAmount, toYear(DateKey) = 2009) AS Sales2009,\n    Sales2009 - Sales2008 AS AbsoluteGrowth,\n    (Sales2009 - Sales2008) / Sales2008 * 100 AS GrowthPercent\nFROM retail.FactSales\nWHERE StoreKey IN (\n    SELECT StoreKey\n    FROM retail.FactSales\n    WHERE toYear(DateKey) IN (2008, 2009)\n    GROUP BY StoreKey\n    HAVING countDistinct(toYear(DateKey)) = 2\n)\nAND toYear(DateKey) IN (2008, 2009)",
+  "rows": [
+    [
+      4111233534.684118,
+      3719161099.2358155,
+      -392072435.44830227,
+      -9.536613090465725
+    ]
+  ],
+  "columns": [
+    "Sales2008",
+    "Sales2009",
+    "AbsoluteGrowth",
+    "GrowthPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8991,
+  "latency_ms_exec": 582,
+  "tokens_in": 19123,
+  "tokens_out": 278,
+  "claude_error": null,
+  "sql_error": null
+}

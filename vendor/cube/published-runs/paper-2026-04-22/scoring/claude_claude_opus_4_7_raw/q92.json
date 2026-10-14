@@ -1,0 +1,11 @@
+{
+  "question_id": 92,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns 0 rows because it queries FactSales (wrong table vs FactOnlineSales) for Q1 2026 (wrong period \u2014 no data exists), while the reference returns 10 brand rows for Q4 2009.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 259,
+  "judge_latency_ms": 14327
+}

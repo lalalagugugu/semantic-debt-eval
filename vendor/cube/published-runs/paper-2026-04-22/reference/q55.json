@@ -1,0 +1,15 @@
+{
+  "question_id": 55,
+  "sql": "SELECT count(*) AS female_customers FROM retail.DimCustomer WHERE Gender = 'F'",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "female_customers"
+  ],
+  "row_count": 1,
+  "exec_ms": 492,
+  "error": null
+}

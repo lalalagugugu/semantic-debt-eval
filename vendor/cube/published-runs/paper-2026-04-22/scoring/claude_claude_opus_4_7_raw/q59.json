@@ -1,0 +1,11 @@
+{
+  "question_id": 59,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters IsHoliday = 'True' instead of the correct value 'Yes', returning 0 instead of the expected 731 holidays.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 182,
+  "judge_latency_ms": 10283
+}

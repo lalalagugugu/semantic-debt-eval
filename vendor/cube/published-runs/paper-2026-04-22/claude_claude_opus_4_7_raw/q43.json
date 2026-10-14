@@ -1,0 +1,155 @@
+{
+  "question_id": 43,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT g.RegionCountryName AS Region, sum(f.SalesAmount - f.TotalCost) AS GrossMargin FROM retail.FactSales AS f INNER JOIN retail.DimStore AS s ON f.StoreKey = s.StoreKey INNER JOIN retail.DimGeography AS g ON s.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName ORDER BY GrossMargin DESC",
+  "rows": [
+    [
+      "United States",
+      4004724134.8907857
+    ],
+    [
+      "China",
+      937679803.3405573
+    ],
+    [
+      "Germany",
+      576088165.8028061
+    ],
+    [
+      "France",
+      372941015.9486943
+    ],
+    [
+      "United Kingdom",
+      178137501.46549
+    ],
+    [
+      "Canada",
+      142747749.157999
+    ],
+    [
+      "Japan",
+      134011276.89600006
+    ],
+    [
+      "Australia",
+      63926481.82600087
+    ],
+    [
+      "India",
+      63344700.63650123
+    ],
+    [
+      "Russia",
+      57600828.46080052
+    ],
+    [
+      "Italy",
+      44471235.180100285
+    ],
+    [
+      "Iran",
+      42780962.84549987
+    ],
+    [
+      "Turkmenistan",
+      41810107.01650005
+    ],
+    [
+      "Syria",
+      37785321.62550005
+    ],
+    [
+      "Pakistan",
+      36411992.36799996
+    ],
+    [
+      "South Korea",
+      30035476.57149989
+    ],
+    [
+      "Thailand",
+      29982593.300499987
+    ],
+    [
+      "Bhutan",
+      24944731.291499957
+    ],
+    [
+      "Taiwan",
+      21349878.72850002
+    ],
+    [
+      "Kyrgyzstan",
+      21331764.782999992
+    ],
+    [
+      "Armenia",
+      21110061.75000009
+    ],
+    [
+      "Singapore",
+      20513652.5135001
+    ],
+    [
+      "Romania",
+      12298929.929499947
+    ],
+    [
+      "Denmark",
+      12212385.528699977
+    ],
+    [
+      "Greece",
+      12200807.191999966
+    ],
+    [
+      "Portugal",
+      12151157.682699999
+    ],
+    [
+      "Spain",
+      12148109.952900024
+    ],
+    [
+      "the Netherlands",
+      12141915.665799998
+    ],
+    [
+      "Ireland",
+      12141542.207799986
+    ],
+    [
+      "Poland",
+      12117512.990699923
+    ],
+    [
+      "Malta",
+      12054658.974500014
+    ],
+    [
+      "Slovenia",
+      11948953.033499977
+    ],
+    [
+      "Sweden",
+      11857220.402299952
+    ],
+    [
+      "Switzerland",
+      11758377.145399965
+    ]
+  ],
+  "columns": [
+    "Region",
+    "GrossMargin"
+  ],
+  "row_count": 34,
+  "latency_ms_gen": 6805,
+  "latency_ms_exec": 659,
+  "tokens_in": 19111,
+  "tokens_out": 164,
+  "claude_error": null,
+  "sql_error": null
+}

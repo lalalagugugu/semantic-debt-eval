@@ -1,0 +1,35 @@
+{
+  "question_id": 66,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    toQuarter(DateKey) AS quarter,\n    sum(DiscountAmount) AS total_discount_amount\nFROM retail.FactSales\nWHERE toYear(DateKey) = 2009\n  AND DiscountAmount > 0\nGROUP BY quarter\nORDER BY quarter",
+  "rows": [
+    [
+      1,
+      16776782.633699901
+    ],
+    [
+      2,
+      6641271.996300006
+    ],
+    [
+      3,
+      12556983.158799915
+    ],
+    [
+      4,
+      26263429.848899856
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "total_discount_amount"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 14546,
+  "latency_ms_exec": 504,
+  "tokens_in": 17234,
+  "tokens_out": 246,
+  "claude_error": null,
+  "sql_error": null
+}

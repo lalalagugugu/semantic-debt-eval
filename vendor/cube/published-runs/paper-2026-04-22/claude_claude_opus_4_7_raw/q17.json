@@ -1,0 +1,30 @@
+{
+  "question_id": 17,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT multiIf(d.CalendarDayOfWeekNumber IN (1,7), 'Weekend', 'Weekday') AS DayType, sum(f.SalesAmount) AS TotalSales, sum(f.SalesAmount) * 100.0 / sum(sum(f.SalesAmount)) OVER () AS Percentage FROM retail.FactSales AS f INNER JOIN retail.DimDate AS d ON f.DateKey = d.DateKey GROUP BY DayType ORDER BY DayType",
+  "rows": [
+    [
+      "Weekday",
+      8872897000.313307,
+      71.47689488355472
+    ],
+    [
+      "Weekend",
+      3540760608.5803423,
+      28.523105116445272
+    ]
+  ],
+  "columns": [
+    "DayType",
+    "TotalSales",
+    "Percentage"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7698,
+  "latency_ms_exec": 536,
+  "tokens_in": 19121,
+  "tokens_out": 184,
+  "claude_error": null,
+  "sql_error": null
+}

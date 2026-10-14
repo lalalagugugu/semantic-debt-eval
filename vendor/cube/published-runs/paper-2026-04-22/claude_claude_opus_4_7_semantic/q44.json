@@ -1,0 +1,31 @@
+{
+  "question_id": 44,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toYear(DateKey) AS year, sum(SalesAmount) AS total_sales\nFROM retail.FactOnlineSales\nGROUP BY year\nORDER BY year",
+  "rows": [
+    [
+      2007,
+      1010803395.0379745
+    ],
+    [
+      2008,
+      849671203.4333403
+    ],
+    [
+      2009,
+      857728031.3559369
+    ]
+  ],
+  "columns": [
+    "year",
+    "total_sales"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 8195,
+  "latency_ms_exec": 528,
+  "tokens_in": 23308,
+  "tokens_out": 185,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,80 @@
+{
+  "question_id": 64,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    toMonth(DateKey) AS month,\n    round(sum(SalesAmount - ReturnAmount - DiscountAmount - TotalCost), 2) AS online_gross_margin_dollars,\n    round(\n        100.0 * sum(SalesAmount - ReturnAmount - DiscountAmount - TotalCost)\n        / nullIf(sum(SalesAmount - ReturnAmount - DiscountAmount), 0),\n        2\n    ) AS margin_percent\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009\nGROUP BY month\nORDER BY month;",
+  "rows": [
+    [
+      1,
+      18813836.61,
+      39.15
+    ],
+    [
+      2,
+      22545488.48,
+      43.45
+    ],
+    [
+      3,
+      22922772.16,
+      43.57
+    ],
+    [
+      4,
+      29177973.95,
+      46.78
+    ],
+    [
+      5,
+      41316818.74,
+      52.89
+    ],
+    [
+      6,
+      41417096.67,
+      53.18
+    ],
+    [
+      7,
+      41325227.35,
+      52.44
+    ],
+    [
+      8,
+      35256404.56,
+      49.51
+    ],
+    [
+      9,
+      33984091.58,
+      49.55
+    ],
+    [
+      10,
+      36172485.04,
+      51.59
+    ],
+    [
+      11,
+      15322244.58,
+      29.85
+    ],
+    [
+      12,
+      15493191.39,
+      29.67
+    ]
+  ],
+  "columns": [
+    "month",
+    "online_gross_margin_dollars",
+    "margin_percent"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 18068,
+  "latency_ms_exec": 524,
+  "tokens_in": 16371,
+  "tokens_out": 487,
+  "claude_error": null,
+  "sql_error": null
+}

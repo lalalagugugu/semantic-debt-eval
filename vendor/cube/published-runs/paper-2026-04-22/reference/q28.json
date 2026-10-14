@@ -1,0 +1,21 @@
+{
+  "question_id": 28,
+  "sql": "SELECT 'Online' as channel, avg(SalesAmount) as avg_transaction FROM retail.FactOnlineSales UNION ALL SELECT 'Store' as channel, avg(SalesAmount) FROM retail.FactSales WHERE channelKey = 1",
+  "rows": [
+    [
+      "Online",
+      215.25871169014627
+    ],
+    [
+      "Store",
+      3193.7727681961182
+    ]
+  ],
+  "columns": [
+    "channel",
+    "avg_transaction"
+  ],
+  "row_count": 2,
+  "exec_ms": 514,
+  "error": null
+}

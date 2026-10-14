@@ -1,0 +1,11 @@
+{
+  "question_id": 32,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the correct total lifetime value (\u22481,191,133,222.28, within 1% of reference) but omits the customer_count column; analytically it fully answers the question asked.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 483,
+  "judge_latency_ms": 16478
+}

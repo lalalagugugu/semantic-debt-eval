@@ -1,0 +1,11 @@
+{
+  "question_id": 97,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate orders by absolute comeback_amount DESC instead of comeback_pct DESC, omits the h1_sales >= 1000 filter, and has no LIMIT 15, producing a completely different top-15 ranking (e.g., top result is Fabrikam Refrigerator at ~69% vs. expected Contoso Macro Zoom Lens at ~834%).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 391,
+  "judge_latency_ms": 13810
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": 2,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT sum(SalesAmount) AS TotalSalesAmount FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      2718202629.8081865
+    ]
+  ],
+  "columns": [
+    "TotalSalesAmount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5562,
+  "latency_ms_exec": 522,
+  "tokens_in": 13795,
+  "tokens_out": 45,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,31 @@
+{
+  "question_id": 84,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH product_revenue AS (\n    SELECT\n        ProductKey,\n        sum(SalesAmount) AS revenue\n    FROM retail.FactOnlineSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY ProductKey\n),\nranked_products AS (\n    SELECT\n        ProductKey,\n        revenue,\n        sum(revenue) OVER (ORDER BY revenue DESC, ProductKey ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) / nullif(sum(revenue) OVER (), 0) AS cumulative_revenue_pct\n    FROM product_revenue\n)\nSELECT\n    abc_class,\n    count() AS product_count\nFROM (\n    SELECT\n        ProductKey,\n        CASE\n            WHEN cumulative_revenue_pct <= 0.80 THEN 'A'\n            WHEN cumulative_revenue_pct <= 0.95 THEN 'B'\n            ELSE 'C'\n        END AS abc_class\n    FROM ranked_products\n)\nGROUP BY abc_class\nORDER BY abc_class",
+  "rows": [
+    [
+      "A",
+      1131
+    ],
+    [
+      "B",
+      666
+    ],
+    [
+      "C",
+      707
+    ]
+  ],
+  "columns": [
+    "abc_class",
+    "product_count"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 12598,
+  "latency_ms_exec": 521,
+  "tokens_in": 18861,
+  "tokens_out": 249,
+  "claude_error": null,
+  "sql_error": null
+}

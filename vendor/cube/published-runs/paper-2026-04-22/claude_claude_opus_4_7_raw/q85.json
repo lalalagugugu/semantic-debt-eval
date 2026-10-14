@@ -1,0 +1,15 @@
+{
+  "question_id": 85,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "WITH actuals AS (\n    SELECT StoreKey, sum(SalesAmount) AS ActualSales\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nquotas AS (\n    SELECT StoreKey, sum(SalesAmountQuota) AS QuotaAmount\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nperf AS (\n    SELECT\n        s.StoreKey AS StoreKey,\n        st.StoreName AS StoreName,\n        a.ActualSales AS ActualSales,\n        q.QuotaAmount AS QuotaAmount,\n        a.ActualSales / nullIf(q.QuotaAmount, 0) AS Attainment\n    FROM actuals a\n    INNER JOIN quotas q ON a.StoreKey = q.StoreKey\n    INNER JOIN retail.DimStore st ON st.StoreKey = a.StoreKey\n    CROSS JOIN (SELECT 1) s2\n    WHERE a.StoreKey = st.StoreKey\n),\nranked AS (\n    SELECT StoreKey, StoreName, ActualSales, QuotaAmount, Attainment,\n           'Top' AS Performance\n    FROM perf\n    ORDER BY Attainment DESC\n    LIMIT 5\n    UNION ALL\n    SELECT StoreKey, StoreName, ActualSales, QuotaAmount, Attainment,\n           'Bottom' AS Performance\n    FROM perf\n    ORDER BY Attainment ASC\n    LIMIT 5\n)\nSELECT Performance, StoreKey, StoreName, ActualSales, QuotaAmount, Attainment\nFROM ranked\nORDER BY Performance, Attainment DESC;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 12386,
+  "latency_ms_exec": null,
+  "tokens_in": 19146,
+  "tokens_out": 716,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `s.StoreKey` in scope  perf. Maybe you meant: ['q.StoreKey']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

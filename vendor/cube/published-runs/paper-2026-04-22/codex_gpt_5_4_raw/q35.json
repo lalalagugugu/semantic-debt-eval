@@ -1,0 +1,15 @@
+{
+  "question_id": 35,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    e.EmployeeKey,\n    concat(e.FirstName, ' ', e.LastName) AS employee_name,\n    concat(m.FirstName, ' ', m.LastName) AS manager_name\nFROM retail.DimEmployee AS e\nLEFT JOIN retail.DimEmployee AS m\n    ON toInt32OrNull(e.ParentEmployeeKey) = m.EmployeeKey\nORDER BY e.EmployeeKey",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10655,
+  "latency_ms_exec": null,
+  "tokens_in": 16365,
+  "tokens_out": 116,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT e.EmployeeKey, concat(e.FirstName, ' ', e.LastName) AS employee_name, concat(m.FirstName, ' ', m.LastName) AS manager_name FROM retail.DimEmployee AS e LEFT JOIN retail.DimEmployee AS m ON toInt32OrNull(e.ParentEmployeeKey) = m.EmployeeKey ORDER BY e.EmployeeKey ASC. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)"
+}

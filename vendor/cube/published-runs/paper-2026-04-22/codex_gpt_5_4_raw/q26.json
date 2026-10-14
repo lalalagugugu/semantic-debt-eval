@@ -1,0 +1,27 @@
+{
+  "question_id": 26,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    toQuarter(first_purchase_date) AS quarter,\n    count() AS customers_first_purchase\nFROM\n(\n    SELECT\n        CustomerKey,\n        min(DateKey) AS first_purchase_date\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nWHERE toYear(first_purchase_date) = 2007\nGROUP BY quarter\nORDER BY quarter",
+  "rows": [
+    [
+      1,
+      18015
+    ],
+    [
+      2,
+      853
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "customers_first_purchase"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 11429,
+  "latency_ms_exec": 587,
+  "tokens_in": 16371,
+  "tokens_out": 153,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,25 @@
+{
+  "question_id": 50,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH same_stores AS (\n    SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009\n    INTERSECT\n    SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008\n)\nSELECT\n    sumIf(SalesAmount, toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM same_stores)) AS sales_2009,\n    sumIf(SalesAmount, toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM same_stores)) AS sales_2008,\n    (\n        sumIf(SalesAmount, toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM same_stores))\n        - sumIf(SalesAmount, toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM same_stores))\n    ) * 100.0 / nullif(\n        sumIf(SalesAmount, toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM same_stores)),\n        0\n    ) AS same_store_sales_growth_pct\nFROM retail.FactSales\nWHERE toYear(DateKey) IN (2008, 2009)",
+  "rows": [
+    [
+      3719161099.2358136,
+      4111233534.684118,
+      -9.536613090465769
+    ]
+  ],
+  "columns": [
+    "sales_2009",
+    "sales_2008",
+    "same_store_sales_growth_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9417,
+  "latency_ms_exec": 518,
+  "tokens_in": 16760,
+  "tokens_out": 366,
+  "claude_error": null,
+  "sql_error": null
+}

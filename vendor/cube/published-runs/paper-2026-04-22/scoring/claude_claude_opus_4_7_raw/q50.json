@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same sales_2008, sales_2009, and growth_pct values (\u22129.537 rounds to \u22129.54) as the reference, just with columns in a different order and an extra AbsoluteGrowth column, which is ignored under strict matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 386,
+  "judge_latency_ms": 13075
+}

@@ -1,0 +1,162 @@
+{
+  "question_id": 87,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH latest_inventory AS (\n    SELECT\n        StoreKey,\n        ProductKey,\n        max(DateKey) AS max_date\n    FROM retail.FactInventory\n    GROUP BY StoreKey, ProductKey\n),\ncurrent_inventory AS (\n    SELECT\n        i.ProductKey,\n        sum(i.OnHandQuantity) AS current_on_hand_quantity\n    FROM retail.FactInventory AS i\n    INNER JOIN latest_inventory AS li\n        ON i.StoreKey = li.StoreKey\n       AND i.ProductKey = li.ProductKey\n       AND i.DateKey = li.max_date\n    GROUP BY i.ProductKey\n),\nsales_90d AS (\n    SELECT\n        ProductKey,\n        sum(SalesQuantity) / 90.0 AS avg_daily_sales_quantity_90d\n    FROM retail.FactOnlineSales\n    WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n    GROUP BY ProductKey\n)\nSELECT\n    p.ProductKey,\n    p.ProductName,\n    ci.current_on_hand_quantity,\n    s.avg_daily_sales_quantity_90d,\n    ci.current_on_hand_quantity / nullIf(s.avg_daily_sales_quantity_90d, 0) AS days_inventory_coverage\nFROM current_inventory AS ci\nINNER JOIN sales_90d AS s\n    ON ci.ProductKey = s.ProductKey\nINNER JOIN retail.DimProduct AS p\n    ON ci.ProductKey = p.ProductKey\nWHERE s.avg_daily_sales_quantity_90d > 0\nORDER BY days_inventory_coverage ASC\nLIMIT 20",
+  "rows": [
+    [
+      834,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      2268,
+      9.933333333333334,
+      228.3221476510067
+    ],
+    [
+      1687,
+      "SV Hand Games men M30 Yellow",
+      5591,
+      21.88888888888889,
+      255.4263959390863
+    ],
+    [
+      2514,
+      "Contoso Bluetooth Active Headphones L15 White",
+      15968,
+      61.77777777777778,
+      258.47482014388487
+    ],
+    [
+      804,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 White",
+      2077,
+      7.666666666666667,
+      270.9130434782609
+    ],
+    [
+      2460,
+      "Litware 180 CFM Vertical Discharge Fan X450 Black",
+      1266,
+      4.611111111111111,
+      274.5542168674699
+    ],
+    [
+      825,
+      "Contoso Reserve Pen - Tablet Pen E200 Grey",
+      2331,
+      8.133333333333333,
+      286.59836065573774
+    ],
+    [
+      961,
+      "A. Datum Ultra Compact Digital Camera M190 Grey",
+      2125,
+      7.022222222222222,
+      302.6107594936709
+    ],
+    [
+      1675,
+      "MGS Hand Games men M300 Red",
+      6000,
+      19.666666666666668,
+      305.08474576271186
+    ],
+    [
+      1291,
+      "Contoso Macro Zoom Lens X300 White",
+      1097,
+      3.533333333333333,
+      310.47169811320754
+    ],
+    [
+      841,
+      "Contoso Reserve Pen - Tablet Pen E200 Gold",
+      2583,
+      8.222222222222221,
+      314.1486486486487
+    ],
+    [
+      107,
+      "WWI Stereo Bluetooth Headphones New Generation M370 White",
+      1557,
+      4.955555555555556,
+      314.19282511210764
+    ],
+    [
+      1699,
+      "SV Hand Games men M30 Red",
+      4645,
+      14.5,
+      320.3448275862069
+    ],
+    [
+      1471,
+      "The Phone Company Microsoft Windows Mobile M200 Black",
+      1667,
+      5.166666666666667,
+      322.64516129032256
+    ],
+    [
+      220,
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      934,
+      2.8222222222222224,
+      330.94488188976374
+    ],
+    [
+      1476,
+      "The Phone Company Smart phones -320 x 320 M86 Black",
+      1429,
+      4.266666666666667,
+      334.921875
+    ],
+    [
+      1892,
+      "Contoso Washer & Dryer 27in L270 Pink",
+      529,
+      1.5444444444444445,
+      342.51798561151077
+    ],
+    [
+      803,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 White",
+      3552,
+      10.177777777777777,
+      348.99563318777297
+    ],
+    [
+      334,
+      "SV Car Video LCD9.2W X9280 Brown",
+      1008,
+      2.8666666666666667,
+      351.62790697674416
+    ],
+    [
+      1867,
+      "Contoso Washer & Dryer 27in L270 White",
+      552,
+      1.5555555555555556,
+      354.85714285714283
+    ],
+    [
+      1065,
+      "A. Datum SLR Camera 35\" X358 Pink",
+      1639,
+      4.611111111111111,
+      355.44578313253015
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "current_on_hand_quantity",
+    "avg_daily_sales_quantity_90d",
+    "days_inventory_coverage"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 22260,
+  "latency_ms_exec": 785,
+  "tokens_in": 18853,
+  "tokens_out": 542,
+  "claude_error": null,
+  "sql_error": null
+}

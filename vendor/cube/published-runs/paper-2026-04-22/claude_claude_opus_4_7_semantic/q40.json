@@ -1,0 +1,21 @@
+{
+  "question_id": 40,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT sum(f.SalesAmount * e.EndOfDayRate) AS SalesAmountEUR\nFROM retail.FactOnlineSales f\nINNER JOIN retail.FactExchangeRate e ON f.DateKey = e.DateKey\nINNER JOIN retail.DimCurrency c ON e.CurrencyKey = c.CurrencyKey\nWHERE c.CurrencyName = 'EUR'",
+  "rows": [
+    [
+      53934387.92781161
+    ]
+  ],
+  "columns": [
+    "SalesAmountEUR"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6838,
+  "latency_ms_exec": 528,
+  "tokens_in": 23323,
+  "tokens_out": 152,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 47,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the expected rows exactly in store name and avg_downtime values; the extra StoreKey column and omission of the explicit NULL filter are inconsequential since AVG ignores NULLs natively.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 211,
+  "judge_latency_ms": 11022
+}

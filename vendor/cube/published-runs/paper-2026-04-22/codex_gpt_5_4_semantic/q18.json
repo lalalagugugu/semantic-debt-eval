@@ -1,0 +1,23 @@
+{
+  "question_id": 18,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.PromotionCategory AS promotion_type,\n    sum(f.DiscountAmount) AS total_discount_amount\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimPromotion AS p\n    ON f.PromotionKey = p.PromotionKey\nWHERE f.PromotionKey != 1\nGROUP BY p.PromotionCategory\nORDER BY total_discount_amount DESC",
+  "rows": [
+    [
+      "Store",
+      268904117.389618
+    ]
+  ],
+  "columns": [
+    "promotion_type",
+    "total_discount_amount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13286,
+  "latency_ms_exec": 572,
+  "tokens_in": 18823,
+  "tokens_out": 263,
+  "claude_error": null,
+  "sql_error": null
+}

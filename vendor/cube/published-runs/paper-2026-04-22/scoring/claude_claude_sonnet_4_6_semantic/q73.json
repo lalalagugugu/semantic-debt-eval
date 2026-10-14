@@ -1,0 +1,11 @@
+{
+  "question_id": 73,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the expected rows exactly in product name, on-hand quantity, safety stock, and gap values; the only difference is an extra ProductKey column, which is permitted under the strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 231,
+  "judge_latency_ms": 11395
+}

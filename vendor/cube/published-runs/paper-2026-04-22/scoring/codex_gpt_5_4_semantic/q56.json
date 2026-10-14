@@ -1,0 +1,11 @@
+{
+  "question_id": 56,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the identical scalar value (260174.89); the IS NOT NULL filter is semantically equivalent since AVG already ignores NULLs in SQL.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 153,
+  "judge_latency_ms": 10228
+}

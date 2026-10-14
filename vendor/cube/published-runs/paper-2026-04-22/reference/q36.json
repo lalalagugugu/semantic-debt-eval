@@ -1,0 +1,25 @@
+{
+  "question_id": 36,
+  "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN 'Active' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN 'At Risk' ELSE 'Churned' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+  "rows": [
+    [
+      "At Risk",
+      1841
+    ],
+    [
+      "Churned",
+      138
+    ],
+    [
+      "Active",
+      16890
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customers"
+  ],
+  "row_count": 3,
+  "exec_ms": 522,
+  "error": null
+}

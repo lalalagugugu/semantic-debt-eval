@@ -1,0 +1,24 @@
+{
+  "question_id": 68,
+  "sql": "SELECT d.IsHoliday, countDistinct(f.SalesOrderNumber) AS orders, sum(f.SalesAmount) AS revenue FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey WHERE toYear(f.DateKey) = 2009 GROUP BY d.IsHoliday",
+  "rows": [
+    [
+      "Yes",
+      106571,
+      243875865.30850756
+    ],
+    [
+      "No",
+      271499,
+      613852166.038213
+    ]
+  ],
+  "columns": [
+    "IsHoliday",
+    "orders",
+    "revenue"
+  ],
+  "row_count": 2,
+  "exec_ms": 610,
+  "error": null
+}

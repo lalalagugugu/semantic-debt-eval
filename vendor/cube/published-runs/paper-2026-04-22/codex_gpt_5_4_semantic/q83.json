@@ -1,0 +1,25 @@
+{
+  "question_id": 83,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH first_purchase AS (\n    SELECT\n        CustomerKey,\n        min(DateKey) AS first_purchase_date\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncohort_2007 AS (\n    SELECT CustomerKey\n    FROM first_purchase\n    WHERE toYear(first_purchase_date) = 2007\n),\nreturned_2008 AS (\n    SELECT DISTINCT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN cohort_2007 c ON f.CustomerKey = c.CustomerKey\n    WHERE toYear(f.DateKey) = 2008\n),\nreturned_2009 AS (\n    SELECT DISTINCT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN returned_2008 r ON f.CustomerKey = r.CustomerKey\n    WHERE toYear(f.DateKey) = 2009\n)\nSELECT\n    (SELECT count() FROM cohort_2007) AS customers_first_bought_2007,\n    (SELECT count() FROM returned_2008) AS came_back_in_2008,\n    (SELECT count() FROM returned_2009) AS came_back_again_in_2009",
+  "rows": [
+    [
+      18868,
+      18723,
+      17671
+    ]
+  ],
+  "columns": [
+    "customers_first_bought_2007",
+    "came_back_in_2008",
+    "came_back_again_in_2009"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 14683,
+  "latency_ms_exec": 648,
+  "tokens_in": 18851,
+  "tokens_out": 344,
+  "claude_error": null,
+  "sql_error": null
+}

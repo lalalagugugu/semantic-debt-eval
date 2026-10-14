@@ -1,0 +1,21 @@
+{
+  "question_id": 1,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT count(*) FROM retail.DimProduct",
+  "rows": [
+    [
+      2233
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6495,
+  "latency_ms_exec": 500,
+  "tokens_in": 23310,
+  "tokens_out": 23,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 11,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same 8 categories in the same order with values differing only by negligible floating-point precision (well under 1% relative drift), making it a strict match.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 176,
+  "judge_latency_ms": 10448
+}

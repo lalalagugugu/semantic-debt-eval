@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate queries FactSales (all channels) instead of FactOnlineSales, so absolute sales amounts differ significantly; however, the weekend/weekday percentages are nearly identical (28.5% vs 28.47% and 71.5% vs 71.53%), correctly answering the percentage question within analytical tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 861,
+  "judge_latency_ms": 24702
+}

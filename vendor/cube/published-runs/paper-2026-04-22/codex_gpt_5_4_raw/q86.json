@@ -1,0 +1,139 @@
+{
+  "question_id": 86,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    dps.ProductSubcategoryName AS product_subcategory,\n    corr(ifNull(dp.DiscountPercent, 0.0), toFloat64(fs.SalesQuantity)) AS discount_sales_quantity_correlation\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimDate AS dd\n    ON fs.DateKey = dd.DateKey\nINNER JOIN retail.DimProduct AS pr\n    ON fs.ProductKey = pr.ProductKey\nINNER JOIN retail.DimProductSubcategory AS dps\n    ON toInt32(pr.ProductSubcategoryKey) = dps.ProductSubcategoryKey\nINNER JOIN retail.DimPromotion AS dp\n    ON fs.PromotionKey = dp.PromotionKey\nWHERE dd.CalendarYear = 2009\nGROUP BY dps.ProductSubcategoryName\nORDER BY dps.ProductSubcategoryName",
+  "rows": [
+    [
+      "Air Conditioners",
+      0.040693906840445916
+    ],
+    [
+      "Bluetooth Headphones",
+      0.04622909342397053
+    ],
+    [
+      "Boxed Games",
+      0.09675335302354252
+    ],
+    [
+      "Camcorders",
+      0.025535413965012375
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      0.06738536478426822
+    ],
+    [
+      "Car Video",
+      0.025704160745904356
+    ],
+    [
+      "Cell phones Accessories",
+      0.062882566701343
+    ],
+    [
+      "Coffee Machines",
+      0.04249097313378814
+    ],
+    [
+      "Computers Accessories",
+      0.05031528805132066
+    ],
+    [
+      "Digital Cameras",
+      0.03389882838635661
+    ],
+    [
+      "Digital SLR Cameras",
+      0.03736694468717406
+    ],
+    [
+      "Fans",
+      0.05383128621604373
+    ],
+    [
+      "Home & Office Phones",
+      0.03183779214702524
+    ],
+    [
+      "Home Theater System",
+      0.05325964709823227
+    ],
+    [
+      "Lamps",
+      0.04175307481542896
+    ],
+    [
+      "Laptops",
+      0.05237935361401834
+    ],
+    [
+      "MP4&MP3",
+      0.043774948835019444
+    ],
+    [
+      "Microwaves",
+      0.02445972677757795
+    ],
+    [
+      "Monitors",
+      0.023600095456763212
+    ],
+    [
+      "Movie DVD",
+      0.014012942953939692
+    ],
+    [
+      "Printers, Scanners & Fax",
+      0.02831548344624491
+    ],
+    [
+      "Projectors & Screens",
+      0.024523814357596176
+    ],
+    [
+      "Recording Pen",
+      0.028814702981126157
+    ],
+    [
+      "Refrigerators",
+      0.031947620178263185
+    ],
+    [
+      "Smart phones & PDAs",
+      -0.0003983956999268408
+    ],
+    [
+      "Televisions",
+      0.046783982961848
+    ],
+    [
+      "Touch Screen Phones",
+      0.047708627540805675
+    ],
+    [
+      "VCD & DVD",
+      0.06139743357176488
+    ],
+    [
+      "Washers & Dryers",
+      0.025090166088198477
+    ],
+    [
+      "Water Heaters",
+      0.024926160560248437
+    ]
+  ],
+  "columns": [
+    "product_subcategory",
+    "discount_sales_quantity_correlation"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 16473,
+  "latency_ms_exec": 554,
+  "tokens_in": 16388,
+  "tokens_out": 413,
+  "claude_error": null,
+  "sql_error": null
+}

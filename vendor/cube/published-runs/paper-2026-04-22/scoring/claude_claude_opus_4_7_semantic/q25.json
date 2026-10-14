@@ -1,0 +1,11 @@
+{
+  "question_id": 25,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns \"Back to School\" with avg_daily_sales \u2248 2,634,610.85, matching the expected row within negligible floating-point precision.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 189,
+  "judge_latency_ms": 11344
+}

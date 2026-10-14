@@ -1,0 +1,11 @@
+{
+  "question_id": 77,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 63, server response: Code: 63. DB::Exception: Aggregate function with name 'neighbor' does not exist. In scope SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS monthly_sales, neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC) AS prev_month_sales, round(((sum(SalesAmount) - neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC)) / nullIf(neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC), 0)) * 100, 2) AS mom_growth_rate_pct FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month ASC. (UNKNOWN_AGGREGATE_FUNCTION) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

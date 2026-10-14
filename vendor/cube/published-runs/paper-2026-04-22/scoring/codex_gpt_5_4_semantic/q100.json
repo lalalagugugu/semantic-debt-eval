@@ -1,0 +1,11 @@
+{
+  "question_id": 100,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses `quantileExact` vs `quantile`, producing different thresholds and 100 rows vs 30; it also omits `lifetime_value` and the `ORDER BY lifetime_value DESC LIMIT 30`, so the row sets and ordering differ meaningfully.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 911,
+  "judge_latency_ms": 24047
+}

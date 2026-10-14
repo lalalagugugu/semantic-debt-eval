@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes tenure as days/365.0 instead of integer year differences, producing systematically higher values (e.g., 10.84 vs 10.0 for Terry Adams, ~8% drift), and the last row differs (Kirk Nason vs Humberto Acevedo), so both values and rows diverge beyond acceptable tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 491,
+  "judge_latency_ms": 17543
+}

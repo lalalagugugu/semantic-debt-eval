@@ -1,0 +1,105 @@
+{
+  "question_id": 97,
+  "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
+  "rows": [
+    [
+      "Contoso Macro Zoom Lens X300 White",
+      18913.980000000003,
+      176750.41000000056,
+      834.4961240310105
+    ],
+    [
+      "Contoso Conversion Lens M550 Silver",
+      12628.0,
+      103535.25,
+      719.8863636363636
+    ],
+    [
+      "Adventure Works Laptop12 M1201 Silver",
+      35078.21999999999,
+      254776.63499999826,
+      626.3100436681176
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      72528.59999999999,
+      522560.80000000284,
+      620.4892966360896
+    ],
+    [
+      "The Phone Company PDA Wifi 3.5-inch M200 White",
+      22848.0,
+      136416.0,
+      497.05882352941177
+    ],
+    [
+      "The Phone Company Smart phones -320 x 320 M86 Black",
+      34790.39999999998,
+      177033.5999999978,
+      408.85761589403364
+    ],
+    [
+      "WWI Laptop16 M0160 White",
+      103267.60000000021,
+      502890.4500000075,
+      386.97795823666524
+    ],
+    [
+      "Contoso Digital Camera Accessory kit M200 Blue",
+      3211.204000000006,
+      13669.605000000134,
+      325.6847275975027
+    ],
+    [
+      "The Phone Company PDA Phone 4.7 inches L360 Silver",
+      40843.200000000004,
+      166347.6000000007,
+      307.2834645669308
+    ],
+    [
+      "Litware 180 CFM Vertical Discharge Fan X450 Red",
+      31566.768000000025,
+      127625.47800000009,
+      304.30327868852453
+    ],
+    [
+      "WWI Stereo Bluetooth Headphones New Generation M370 Orange",
+      18129.19679999999,
+      73284.1394999999,
+      304.2326877934269
+    ],
+    [
+      "The Phone Company Smart phones 320 x 320 M86 White",
+      38592.00000000002,
+      151775.99999999886,
+      293.2835820895491
+    ],
+    [
+      "The Phone Company Smart phones 320 x 320 M86 Grey",
+      38361.600000000035,
+      142977.59999999957,
+      272.71021021020874
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      7126.479999999965,
+      25856.38999999986,
+      262.82133676092525
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 White",
+      7016.559999999961,
+      25343.429999999797,
+      261.19451697127846
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "h1_sales",
+    "h2_sales",
+    "h2_vs_h1_pct"
+  ],
+  "row_count": 15,
+  "exec_ms": 677,
+  "error": null
+}

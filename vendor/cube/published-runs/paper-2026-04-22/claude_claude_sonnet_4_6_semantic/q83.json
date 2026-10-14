@@ -1,0 +1,29 @@
+{
+  "question_id": 83,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH cohort_2007 AS (\n    SELECT CustomerKey\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING toYear(MIN(DateKey)) = 2007\n),\nreturned_2008 AS (\n    SELECT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN cohort_2007 c ON f.CustomerKey = c.CustomerKey\n    WHERE toYear(f.DateKey) = 2008\n    GROUP BY f.CustomerKey\n),\nreturned_2009 AS (\n    SELECT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN returned_2008 r ON f.CustomerKey = r.CustomerKey\n    WHERE toYear(f.DateKey) = 2009\n    GROUP BY f.CustomerKey\n)\nSELECT\n    count(DISTINCT c.CustomerKey)                                          AS cohort_2007_customers,\n    count(DISTINCT r8.CustomerKey)                                         AS returned_in_2008,\n    round(count(DISTINCT r8.CustomerKey) * 100.0\n          / nullIf(count(DISTINCT c.CustomerKey), 0), 2)                  AS retention_2007_to_2008_pct,\n    count(DISTINCT r9.CustomerKey)                                         AS returned_in_2009,\n    round(count(DISTINCT r9.CustomerKey) * 100.0\n          / nullIf(count(DISTINCT r8.CustomerKey), 0), 2)                 AS retention_2008_to_2009_pct\nFROM cohort_2007 c\nLEFT JOIN returned_2008 r8 ON c.CustomerKey = r8.CustomerKey\nLEFT JOIN returned_2009 r9 ON r8.CustomerKey = r9.CustomerKey",
+  "rows": [
+    [
+      18868,
+      18724,
+      99.24,
+      17672,
+      94.38
+    ]
+  ],
+  "columns": [
+    "cohort_2007_customers",
+    "returned_in_2008",
+    "retention_2007_to_2008_pct",
+    "returned_in_2009",
+    "retention_2008_to_2009_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 11201,
+  "latency_ms_exec": 654,
+  "tokens_in": 16783,
+  "tokens_out": 541,
+  "claude_error": null,
+  "sql_error": null
+}

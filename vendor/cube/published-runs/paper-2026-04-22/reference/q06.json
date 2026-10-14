@@ -1,0 +1,15 @@
+{
+  "question_id": 6,
+  "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      857728031.345896
+    ]
+  ],
+  "columns": [
+    "sum(SalesAmount)"
+  ],
+  "row_count": 1,
+  "exec_ms": 585,
+  "error": null
+}

@@ -1,0 +1,40 @@
+{
+  "question_id": 70,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT s.StoreType AS StoreType, sum(f.SalesAmount) AS TotalSales, avg(s.SellingAreaSize) AS AvgSellingAreaSize FROM retail.FactSales AS f INNER JOIN retail.DimStore AS s ON f.StoreKey = s.StoreKey GROUP BY s.StoreType ORDER BY TotalSales DESC",
+  "rows": [
+    [
+      "Store",
+      6942853195.151987,
+      602.1765826138798
+    ],
+    [
+      "Online",
+      2677599035.0748754,
+      29372.659613523345
+    ],
+    [
+      "Reseller",
+      1715197831.4418766,
+      30329.76526770878
+    ],
+    [
+      "Catalog",
+      1078007547.2267232,
+      462.0
+    ]
+  ],
+  "columns": [
+    "StoreType",
+    "TotalSales",
+    "AvgSellingAreaSize"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 6687,
+  "latency_ms_exec": 554,
+  "tokens_in": 19123,
+  "tokens_out": 141,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,543 @@
+{
+  "question_id": 22,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT country, CustomerKey, FirstName, LastName, total_spend, rnk\nFROM (\n    SELECT\n        g.RegionCountryName AS country,\n        c.CustomerKey AS CustomerKey,\n        c.FirstName AS FirstName,\n        c.LastName AS LastName,\n        sum(o.SalesAmount) AS total_spend,\n        row_number() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(o.SalesAmount) DESC) AS rnk\n    FROM retail.FactOnlineSales AS o\n    INNER JOIN retail.DimCustomer AS c ON o.CustomerKey = c.CustomerKey\n    INNER JOIN retail.DimGeography AS g ON c.GeographyKey = g.GeographyKey\n    GROUP BY g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName\n)\nWHERE rnk <= 5\nORDER BY country ASC, rnk ASC;",
+  "rows": [
+    [
+      "Armenia",
+      19144,
+      "Not Provided",
+      "Not Provided",
+      7481458.273998031,
+      1
+    ],
+    [
+      "Australia",
+      19088,
+      "Not Provided",
+      "Not Provided",
+      14901636.074503442,
+      1
+    ],
+    [
+      "Australia",
+      19087,
+      "Not Provided",
+      "Not Provided",
+      14663536.71050389,
+      2
+    ],
+    [
+      "Australia",
+      19086,
+      "Not Provided",
+      "Not Provided",
+      14391701.943004092,
+      3
+    ],
+    [
+      "Australia",
+      19085,
+      "Not Provided",
+      "Not Provided",
+      13966925.147003427,
+      4
+    ],
+    [
+      "Australia",
+      19106,
+      "Not Provided",
+      "Not Provided",
+      13586963.356004007,
+      5
+    ],
+    [
+      "Bhutan",
+      19141,
+      "Not Provided",
+      "Not Provided",
+      8522927.499996422,
+      1
+    ],
+    [
+      "Canada",
+      18790,
+      "Not Provided",
+      "Not Provided",
+      3156664.4979999373,
+      1
+    ],
+    [
+      "Canada",
+      18817,
+      "Not Provided",
+      "Not Provided",
+      3151250.6719999383,
+      2
+    ],
+    [
+      "Canada",
+      18866,
+      "Not Provided",
+      "Not Provided",
+      3074497.0690001086,
+      3
+    ],
+    [
+      "Canada",
+      18820,
+      "Not Provided",
+      "Not Provided",
+      3034748.942999925,
+      4
+    ],
+    [
+      "Canada",
+      18874,
+      "Not Provided",
+      "Not Provided",
+      2601131.109499804,
+      5
+    ],
+    [
+      "China",
+      19137,
+      "Not Provided",
+      "Not Provided",
+      11113033.272004059,
+      1
+    ],
+    [
+      "China",
+      19120,
+      "Not Provided",
+      "Not Provided",
+      9510723.960498799,
+      2
+    ],
+    [
+      "China",
+      19126,
+      "Not Provided",
+      "Not Provided",
+      8954249.653502095,
+      3
+    ],
+    [
+      "China",
+      19125,
+      "Not Provided",
+      "Not Provided",
+      8857397.704004182,
+      4
+    ],
+    [
+      "China",
+      19143,
+      "Not Provided",
+      "Not Provided",
+      8540702.187495716,
+      5
+    ],
+    [
+      "France",
+      19050,
+      "Not Provided",
+      "Not Provided",
+      17957139.49759919,
+      1
+    ],
+    [
+      "France",
+      19059,
+      "Not Provided",
+      "Not Provided",
+      14924784.648901783,
+      2
+    ],
+    [
+      "France",
+      19047,
+      "Not Provided",
+      "Not Provided",
+      14029609.67729971,
+      3
+    ],
+    [
+      "France",
+      19076,
+      "Not Provided",
+      "Not Provided",
+      11622717.680000298,
+      4
+    ],
+    [
+      "France",
+      8034,
+      "Omar",
+      "Lin",
+      72572.51629999999,
+      5
+    ],
+    [
+      "Germany",
+      19053,
+      "Not Provided",
+      "Not Provided",
+      19130453.276498802,
+      1
+    ],
+    [
+      "Germany",
+      19041,
+      "Not Provided",
+      "Not Provided",
+      18387863.327301703,
+      2
+    ],
+    [
+      "Germany",
+      19042,
+      "Not Provided",
+      "Not Provided",
+      18106519.630402412,
+      3
+    ],
+    [
+      "Germany",
+      19039,
+      "Not Provided",
+      "Not Provided",
+      17675165.36630162,
+      4
+    ],
+    [
+      "Germany",
+      19049,
+      "Not Provided",
+      "Not Provided",
+      16571387.41200221,
+      5
+    ],
+    [
+      "Greece",
+      19062,
+      "Not Provided",
+      "Not Provided",
+      13096318.10469924,
+      1
+    ],
+    [
+      "India",
+      19133,
+      "Not Provided",
+      "Not Provided",
+      10933021.15500439,
+      1
+    ],
+    [
+      "India",
+      19128,
+      "Not Provided",
+      "Not Provided",
+      9321375.309504451,
+      2
+    ],
+    [
+      "India",
+      19131,
+      "Not Provided",
+      "Not Provided",
+      9246923.883504307,
+      3
+    ],
+    [
+      "Iran",
+      19140,
+      "Not Provided",
+      "Not Provided",
+      8356473.265997167,
+      1
+    ],
+    [
+      "Ireland",
+      19067,
+      "Not Provided",
+      "Not Provided",
+      12886836.462006673,
+      1
+    ],
+    [
+      "Italy",
+      19073,
+      "Not Provided",
+      "Not Provided",
+      12933040.402004346,
+      1
+    ],
+    [
+      "Japan",
+      19135,
+      "Not Provided",
+      "Not Provided",
+      10752734.975504093,
+      1
+    ],
+    [
+      "Japan",
+      19134,
+      "Not Provided",
+      "Not Provided",
+      10456884.023004482,
+      2
+    ],
+    [
+      "Japan",
+      19132,
+      "Not Provided",
+      "Not Provided",
+      10169541.871505378,
+      3
+    ],
+    [
+      "Japan",
+      19130,
+      "Not Provided",
+      "Not Provided",
+      9865556.668003744,
+      4
+    ],
+    [
+      "Japan",
+      19129,
+      "Not Provided",
+      "Not Provided",
+      9113799.8395046,
+      5
+    ],
+    [
+      "Kyrgyzstan",
+      19121,
+      "Not Provided",
+      "Not Provided",
+      8787155.089998577,
+      1
+    ],
+    [
+      "Pakistan",
+      19127,
+      "Not Provided",
+      "Not Provided",
+      9423419.85900258,
+      1
+    ],
+    [
+      "Poland",
+      19078,
+      "Not Provided",
+      "Not Provided",
+      11575240.71199913,
+      1
+    ],
+    [
+      "Portugal",
+      19070,
+      "Not Provided",
+      "Not Provided",
+      13020482.359005691,
+      1
+    ],
+    [
+      "Russia",
+      19074,
+      "Not Provided",
+      "Not Provided",
+      12129502.272000767,
+      1
+    ],
+    [
+      "Russia",
+      19077,
+      "Not Provided",
+      "Not Provided",
+      11506312.399999259,
+      2
+    ],
+    [
+      "Singapore",
+      19138,
+      "Not Provided",
+      "Not Provided",
+      11235199.702004554,
+      1
+    ],
+    [
+      "South Korea",
+      19136,
+      "Not Provided",
+      "Not Provided",
+      11558446.593503108,
+      1
+    ],
+    [
+      "South Korea",
+      19122,
+      "Not Provided",
+      "Not Provided",
+      9801531.857101211,
+      2
+    ],
+    [
+      "Spain",
+      19071,
+      "Not Provided",
+      "Not Provided",
+      13624008.936005568,
+      1
+    ],
+    [
+      "Switzerland",
+      19063,
+      "Not Provided",
+      "Not Provided",
+      13504432.46020173,
+      1
+    ],
+    [
+      "Syria",
+      19124,
+      "Not Provided",
+      "Not Provided",
+      8432194.8256016,
+      1
+    ],
+    [
+      "Taiwan",
+      19139,
+      "Not Provided",
+      "Not Provided",
+      8921717.02809796,
+      1
+    ],
+    [
+      "Thailand",
+      19119,
+      "Not Provided",
+      "Not Provided",
+      8554068.063898236,
+      1
+    ],
+    [
+      "Turkmenistan",
+      19118,
+      "Not Provided",
+      "Not Provided",
+      8808346.209197948,
+      1
+    ],
+    [
+      "United Kingdom",
+      19040,
+      "Not Provided",
+      "Not Provided",
+      18599373.17049989,
+      1
+    ],
+    [
+      "United Kingdom",
+      19051,
+      "Not Provided",
+      "Not Provided",
+      18268990.107999627,
+      2
+    ],
+    [
+      "United Kingdom",
+      19043,
+      "Not Provided",
+      "Not Provided",
+      18195922.76550216,
+      3
+    ],
+    [
+      "United Kingdom",
+      19052,
+      "Not Provided",
+      "Not Provided",
+      17962159.95700307,
+      4
+    ],
+    [
+      "United Kingdom",
+      19055,
+      "Not Provided",
+      "Not Provided",
+      17745174.91140355,
+      5
+    ],
+    [
+      "United States",
+      18800,
+      "Not Provided",
+      "Not Provided",
+      5969145.68500027,
+      1
+    ],
+    [
+      "United States",
+      19036,
+      "Not Provided",
+      "Not Provided",
+      5093392.120000673,
+      2
+    ],
+    [
+      "United States",
+      18798,
+      "Not Provided",
+      "Not Provided",
+      3554491.847500294,
+      3
+    ],
+    [
+      "United States",
+      18794,
+      "Not Provided",
+      "Not Provided",
+      3494115.0045004347,
+      4
+    ],
+    [
+      "United States",
+      18795,
+      "Not Provided",
+      "Not Provided",
+      3437486.975500537,
+      5
+    ],
+    [
+      "the Netherlands",
+      19061,
+      "Not Provided",
+      "Not Provided",
+      11803685.799099829,
+      1
+    ]
+  ],
+  "columns": [
+    "country",
+    "CustomerKey",
+    "FirstName",
+    "LastName",
+    "total_spend",
+    "rnk"
+  ],
+  "row_count": 65,
+  "latency_ms_gen": 10376,
+  "latency_ms_exec": 932,
+  "tokens_in": 19118,
+  "tokens_out": 351,
+  "claude_error": null,
+  "sql_error": null
+}

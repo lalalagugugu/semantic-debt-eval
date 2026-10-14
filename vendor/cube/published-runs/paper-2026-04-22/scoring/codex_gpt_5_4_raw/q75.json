@@ -1,0 +1,11 @@
+{
+  "question_id": 75,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns 100 rows vs reference's LIMIT 25, so strict row count differs; analytically the candidate is a valid superset answering \"which customers grew >50%\" more completely, with matching spend values and equivalent growth ordering (decimal vs percentage scale).",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1509,
+  "judge_latency_ms": 35785
+}

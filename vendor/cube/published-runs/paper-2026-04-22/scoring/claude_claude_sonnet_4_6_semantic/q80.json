@@ -1,0 +1,11 @@
+{
+  "question_id": 80,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same country-level avg_days values as the reference (within rounding) for all matching rows; it omits the n_customers column (not required by the question) and has no LIMIT 20, returning a superset of countries, which is valid since the question asks \"for each country.\"",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 457,
+  "judge_latency_ms": 17498
+}

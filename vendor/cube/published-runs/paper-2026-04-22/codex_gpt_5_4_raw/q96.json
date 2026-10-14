@@ -1,0 +1,33 @@
+{
+  "question_id": 96,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH customer_first_year AS (\n    SELECT\n        CustomerKey,\n        toYear(min(DateKey)) AS cohort_year\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncustomer_return_flags AS (\n    SELECT\n        cf.CustomerKey,\n        cf.cohort_year,\n        max(if(toYear(fos.DateKey) > cf.cohort_year, 1, 0)) AS returned_later\n    FROM customer_first_year AS cf\n    INNER JOIN retail.FactOnlineSales AS fos\n        ON fos.CustomerKey = cf.CustomerKey\n    GROUP BY\n        cf.CustomerKey,\n        cf.cohort_year\n)\nSELECT\n    cohort_year,\n    count() AS cohort_customers,\n    sum(returned_later) AS customers_returned_later,\n    sum(returned_later) / count() AS return_fraction\nFROM customer_return_flags\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      18861,
+      0.999629001483994
+    ],
+    [
+      2009,
+      1,
+      0,
+      0.0
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "cohort_customers",
+    "customers_returned_later",
+    "return_fraction"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 13539,
+  "latency_ms_exec": 810,
+  "tokens_in": 16377,
+  "tokens_out": 283,
+  "claude_error": null,
+  "sql_error": null
+}

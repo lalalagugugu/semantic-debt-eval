@@ -1,0 +1,11 @@
+{
+  "question_id": 55,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return 9344 female customers; countDistinct(CustomerKey) is equivalent to count(*) here since each row represents a unique customer, yielding identical results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 174,
+  "judge_latency_ms": 11918
+}

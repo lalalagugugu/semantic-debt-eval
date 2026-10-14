@@ -1,0 +1,141 @@
+{
+  "question_id": 88,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT c.CustomerKey AS CustomerKey, any(c.FirstName) AS FirstName, any(c.LastName) AS LastName, sum(o.SalesAmount) AS TotalSpend\nFROM retail.FactOnlineSales AS o\nINNER JOIN retail.DimCustomer AS c ON c.CustomerKey = o.CustomerKey\nWHERE toYear(o.DateKey) = 2009\nGROUP BY c.CustomerKey\nHAVING uniqExact(toQuarter(o.DateKey)) = 4\nORDER BY TotalSpend DESC\nLIMIT 20",
+  "rows": [
+    [
+      19036,
+      "Not Provided",
+      "Not Provided",
+      3755230.3410000554
+    ],
+    [
+      2453,
+      "Kaitlyn",
+      "Evans",
+      22980.876500000002
+    ],
+    [
+      2446,
+      "Logan",
+      "Davis",
+      22724.466500000002
+    ],
+    [
+      2449,
+      "Catherine",
+      "Ward",
+      22724.466500000002
+    ],
+    [
+      2429,
+      "Marcus",
+      "Ramirez",
+      22724.466500000002
+    ],
+    [
+      2448,
+      "Destiny",
+      "Cox",
+      22724.466500000002
+    ],
+    [
+      2447,
+      "Katelyn",
+      "Scott",
+      22724.466500000002
+    ],
+    [
+      2445,
+      "Abby",
+      "Lopez",
+      22724.466500000002
+    ],
+    [
+      2431,
+      "Edward",
+      "Griffin",
+      22723.7465
+    ],
+    [
+      2440,
+      "Arturo",
+      "Lin",
+      22723.7465
+    ],
+    [
+      2430,
+      "Gabrielle",
+      "Washington",
+      22723.7465
+    ],
+    [
+      2418,
+      "Ian",
+      "Cox",
+      22689.466500000002
+    ],
+    [
+      2351,
+      "Isaac",
+      "Sandberg",
+      22689.466500000002
+    ],
+    [
+      2427,
+      "Taylor",
+      "Williams",
+      22689.466500000002
+    ],
+    [
+      2428,
+      "Connor",
+      "Winston",
+      22689.466500000002
+    ],
+    [
+      2349,
+      "Noah",
+      "Young",
+      22688.7465
+    ],
+    [
+      2421,
+      "Jordan",
+      "Turner",
+      22688.7465
+    ],
+    [
+      2423,
+      "Jacqueline",
+      "Washington",
+      22688.7465
+    ],
+    [
+      2347,
+      "Gregory",
+      "Chande",
+      22678.746500000005
+    ],
+    [
+      2660,
+      "Clayton",
+      "Shan",
+      22447.494000000002
+    ]
+  ],
+  "columns": [
+    "CustomerKey",
+    "FirstName",
+    "LastName",
+    "TotalSpend"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 7743,
+  "latency_ms_exec": 578,
+  "tokens_in": 19147,
+  "tokens_out": 219,
+  "claude_error": null,
+  "sql_error": null
+}

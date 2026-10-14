@@ -1,0 +1,21 @@
+{
+  "question_id": 69,
+  "sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
+  "rows": [
+    [
+      "Store",
+      1782429980.5593388,
+      268904117.38993096,
+      13.10874311786106
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "revenue",
+    "total_discount",
+    "avg_discount_pct"
+  ],
+  "row_count": 1,
+  "exec_ms": 599,
+  "error": null
+}

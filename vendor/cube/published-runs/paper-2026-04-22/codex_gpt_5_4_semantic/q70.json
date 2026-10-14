@@ -1,0 +1,40 @@
+{
+  "question_id": 70,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreType,\n    sum(fs_store.store_sales) AS total_all_channel_sales,\n    avg(s.SellingAreaSize) AS average_selling_area_size\nFROM\n(\n    SELECT\n        StoreKey,\n        sum(SalesAmount) AS store_sales\n    FROM retail.FactSales\n    GROUP BY StoreKey\n) AS fs_store\nINNER JOIN retail.DimStore AS s\n    ON fs_store.StoreKey = s.StoreKey\nGROUP BY s.StoreType\nORDER BY total_all_channel_sales DESC",
+  "rows": [
+    [
+      "Store",
+      6942853195.144024,
+      607.5953177257525
+    ],
+    [
+      "Online",
+      2677599035.0748105,
+      31766.666666666668
+    ],
+    [
+      "Reseller",
+      1715197831.4421473,
+      31600.333333333332
+    ],
+    [
+      "Catalog",
+      1078007547.2267466,
+      462.0
+    ]
+  ],
+  "columns": [
+    "StoreType",
+    "total_all_channel_sales",
+    "average_selling_area_size"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 12983,
+  "latency_ms_exec": 510,
+  "tokens_in": 18831,
+  "tokens_out": 256,
+  "claude_error": null,
+  "sql_error": null
+}

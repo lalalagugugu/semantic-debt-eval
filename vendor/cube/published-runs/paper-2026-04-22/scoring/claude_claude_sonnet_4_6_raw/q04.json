@@ -1,0 +1,11 @@
+{
+  "question_id": 4,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 100 Contoso products with matching ProductName values; extra columns do not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 167,
+  "judge_latency_ms": 12121
+}

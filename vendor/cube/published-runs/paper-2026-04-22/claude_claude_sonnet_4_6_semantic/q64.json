@@ -1,0 +1,93 @@
+{
+  "question_id": 64,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    toMonth(DateKey) AS MonthNumber,\n    any(dd.CalendarMonthLabel) AS MonthLabel,\n    sum(SalesAmount) - sum(TotalCost) AS GrossMarginDollars,\n    (sum(SalesAmount) - sum(TotalCost)) / nullif(sum(SalesAmount), 0) AS GrossMarginPct\nFROM retail.FactOnlineSales f\nJOIN retail.DimDate dd ON dd.DateKey = f.DateKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY MonthNumber\nORDER BY MonthNumber",
+  "rows": [
+    [
+      1,
+      "January",
+      28206957.48119995,
+      0.49095484078285917
+    ],
+    [
+      2,
+      "February",
+      30544338.521599237,
+      0.5099951899404987
+    ],
+    [
+      3,
+      "March",
+      31120046.544999085,
+      0.511779789780192
+    ],
+    [
+      4,
+      "April",
+      36688677.44789936,
+      0.5249614364866565
+    ],
+    [
+      5,
+      "May",
+      45285640.81239808,
+      0.5517074365938626
+    ],
+    [
+      6,
+      "June",
+      45351636.23199779,
+      0.5542664904847346
+    ],
+    [
+      7,
+      "July",
+      45300954.7863976,
+      0.5472485653995934
+    ],
+    [
+      8,
+      "August",
+      41652536.38819816,
+      0.5367609151493503
+    ],
+    [
+      9,
+      "September",
+      40088287.28299817,
+      0.5367667211364142
+    ],
+    [
+      10,
+      "October",
+      41266728.75719846,
+      0.5486629277398395
+    ],
+    [
+      11,
+      "November",
+      31166470.441900514,
+      0.4639582617178227
+    ],
+    [
+      12,
+      "December",
+      31611047.899100266,
+      0.46262623112121676
+    ]
+  ],
+  "columns": [
+    "MonthNumber",
+    "MonthLabel",
+    "GrossMarginDollars",
+    "GrossMarginPct"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 7744,
+  "latency_ms_exec": 545,
+  "tokens_in": 16756,
+  "tokens_out": 218,
+  "claude_error": null,
+  "sql_error": null
+}

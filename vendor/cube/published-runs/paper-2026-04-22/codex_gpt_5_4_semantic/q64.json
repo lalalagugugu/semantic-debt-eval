@@ -1,0 +1,93 @@
+{
+  "question_id": 64,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    d.CalendarMonthLabel AS month,\n    d.MonthNumber AS month_number,\n    sum(f.SalesAmount) - sum(f.TotalCost) AS gross_margin_dollars,\n    (sum(f.SalesAmount) - sum(f.TotalCost)) / nullif(sum(f.SalesAmount), 0) AS gross_margin_percent\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimDate AS d\n    ON f.DateKey = d.DateKey\nWHERE d.CalendarYear = 2009\nGROUP BY\n    d.CalendarMonthLabel,\n    d.MonthNumber\nORDER BY d.MonthNumber",
+  "rows": [
+    [
+      "January",
+      1,
+      28206957.48118847,
+      0.49095484078273155
+    ],
+    [
+      "February",
+      2,
+      30544338.52157317,
+      0.509995189940228
+    ],
+    [
+      "March",
+      3,
+      31120046.544982925,
+      0.5117797897800153
+    ],
+    [
+      "April",
+      4,
+      36688677.44784054,
+      0.5249614364862323
+    ],
+    [
+      "May",
+      5,
+      45285640.812377736,
+      0.551707436593772
+    ],
+    [
+      "June",
+      6,
+      45351636.23195927,
+      0.5542664904845073
+    ],
+    [
+      "July",
+      7,
+      45300954.78637387,
+      0.5472485653994197
+    ],
+    [
+      "August",
+      8,
+      41652536.38817202,
+      0.5367609151491466
+    ],
+    [
+      "September",
+      9,
+      40088287.2829678,
+      0.5367667211361852
+    ],
+    [
+      "October",
+      10,
+      41266728.757138014,
+      0.5486629277393988
+    ],
+    [
+      "November",
+      11,
+      31166470.44185789,
+      0.4639582617174856
+    ],
+    [
+      "December",
+      12,
+      31611047.89904449,
+      0.46262623112067663
+    ]
+  ],
+  "columns": [
+    "month",
+    "month_number",
+    "gross_margin_dollars",
+    "gross_margin_percent"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 12111,
+  "latency_ms_exec": 587,
+  "tokens_in": 18826,
+  "tokens_out": 192,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,19 @@
+{
+  "question_id": 50,
+  "sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, round((s9.sales - s8.sales) * 100.0 / s8.sales, 2) as growth_pct FROM sales_2009 s9, sales_2008 s8",
+  "rows": [
+    [
+      3719161099.2358155,
+      4111233534.684119,
+      -9.54
+    ]
+  ],
+  "columns": [
+    "sales_2009",
+    "sales_2008",
+    "growth_pct"
+  ],
+  "row_count": 1,
+  "exec_ms": 515,
+  "error": null
+}

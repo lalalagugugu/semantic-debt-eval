@@ -1,0 +1,11 @@
+{
+  "question_id": 49,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 306, server response: Code: 306. DB::Exception: Maximum recursive CTE evaluation depth (1000) exceeded, during evaluation of  entity_rollup AS er. Consider raising max_recursive_cte_evaluation_depth setting: While executing RecursiveCTESource. (TOO_DEEP_RECURSION) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

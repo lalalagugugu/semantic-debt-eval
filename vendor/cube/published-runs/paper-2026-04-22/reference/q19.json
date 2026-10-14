@@ -1,0 +1,21 @@
+{
+  "question_id": 19,
+  "sql": "SELECT c.Gender, avg(s.SalesAmount) as avg_order_value FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey GROUP BY c.Gender",
+  "rows": [
+    [
+      "F",
+      213.470851861613
+    ],
+    [
+      "M",
+      217.1471194540227
+    ]
+  ],
+  "columns": [
+    "Gender",
+    "avg_order_value"
+  ],
+  "row_count": 2,
+  "exec_ms": 613,
+  "error": null
+}

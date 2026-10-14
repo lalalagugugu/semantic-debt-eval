@@ -1,0 +1,21 @@
+{
+  "question_id": 60,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT count(*) FROM retail.DimEmployee WHERE DepartmentName = 'Production'",
+  "rows": [
+    [
+      176
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6166,
+  "latency_ms_exec": 513,
+  "tokens_in": 23311,
+  "tokens_out": 40,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,80 @@
+{
+  "question_id": 77,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH monthly_sales AS (\n    SELECT\n        toStartOfMonth(DateKey) AS month_start,\n        sum(SalesAmount) AS monthly_sales\n    FROM retail.FactOnlineSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY month_start\n)\nSELECT\n    month_start,\n    monthly_sales,\n    (monthly_sales - lagInFrame(monthly_sales) OVER (ORDER BY month_start)) * 100.0\n        / nullIf(lagInFrame(monthly_sales) OVER (ORDER BY month_start), 0) AS mom_growth_rate_pct\nFROM monthly_sales\nORDER BY month_start;",
+  "rows": [
+    [
+      "2009-01-01",
+      57453262.78119649,
+      null
+    ],
+    [
+      "2009-02-01",
+      59891424.7116477,
+      4.243731012695727
+    ],
+    [
+      "2009-03-01",
+      60807494.09501542,
+      1.5295501614433415
+    ],
+    [
+      "2009-04-01",
+      69888328.73795332,
+      14.9337425889456
+    ],
+    [
+      "2009-05-01",
+      82082708.71228096,
+      17.448378283662404
+    ],
+    [
+      "2009-06-01",
+      81822800.06187512,
+      -0.31664238971069963
+    ],
+    [
+      "2009-07-01",
+      82779485.68643701,
+      1.1692164333638508
+    ],
+    [
+      "2009-08-01",
+      77599793.89808355,
+      -6.257216682855187
+    ],
+    [
+      "2009-09-01",
+      74684747.9629358,
+      -3.756512470865904
+    ],
+    [
+      "2009-10-01",
+      75213262.4072214,
+      0.7076604778098602
+    ],
+    [
+      "2009-11-01",
+      67175159.95183311,
+      -10.687081238237228
+    ],
+    [
+      "2009-12-01",
+      68329562.33904275,
+      1.7184959262283632
+    ]
+  ],
+  "columns": [
+    "month_start",
+    "monthly_sales",
+    "mom_growth_rate_pct"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 16759,
+  "latency_ms_exec": 503,
+  "tokens_in": 18831,
+  "tokens_out": 190,
+  "claude_error": null,
+  "sql_error": null
+}

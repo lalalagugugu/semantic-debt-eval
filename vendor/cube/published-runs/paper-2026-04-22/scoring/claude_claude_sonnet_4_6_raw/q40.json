@@ -1,0 +1,11 @@
+{
+  "question_id": 40,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same value of 0.0; the candidate uses a cross-rate approach (sale currency \u2192 EUR) which is a different but valid method, and the numeric result matches the reference exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 201,
+  "judge_latency_ms": 12207
+}

@@ -1,0 +1,1025 @@
+{
+  "question_id": 49,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    COALESCE(e3.EntityName, e2.EntityName, e1.EntityName) AS level1_entity,\n    COALESCE(e2.EntityName, e1.EntityName, NULL)           AS level2_entity,\n    e1.EntityName                                          AS level3_entity,\n    e1.EntityType                                          AS entity_type,\n    sum(fs.SalesAmount)                                    AS total_sales,\n    sum(fs.TotalCost)                                      AS total_cost,\n    sum(fs.SalesAmount) - sum(fs.TotalCost)                AS gross_margin,\n    round(\n        (sum(fs.SalesAmount) - sum(fs.TotalCost))\n        / nullIf(sum(fs.SalesAmount), 0) * 100,\n        2\n    )                                                      AS gross_margin_pct\nFROM retail.FactSales fs\nJOIN retail.DimStore ds\n    ON fs.StoreKey = ds.StoreKey\n   AND ds.EntityKey IS NOT NULL\nJOIN retail.DimEntity e1\n    ON toInt32(ds.EntityKey) = e1.EntityKey\nLEFT JOIN retail.DimEntity e2\n    ON toInt32(e1.ParentEntityKey) = e2.EntityKey\nLEFT JOIN retail.DimEntity e3\n    ON toInt32(e2.ParentEntityKey) = e3.EntityKey\nGROUP BY\n    level1_entity,\n    level2_entity,\n    level3_entity,\n    entity_type\nORDER BY\n    level1_entity,\n    level2_entity NULLS LAST,\n    level3_entity NULLS LAST",
+  "rows": [
+    [
+      "Contoso Asia",
+      "Contoso China",
+      "Contoso Asia Online Store",
+      "Store",
+      887049174.4335072,
+      386711429.2400086,
+      500337745.1934986,
+      56.4
+    ],
+    [
+      "Contoso Asia",
+      "Contoso China",
+      "Contoso Asia Reseller",
+      "Store",
+      563941179.690021,
+      245299141.4100012,
+      318642038.2800199,
+      56.5
+    ],
+    [
+      "Contoso Australia",
+      "Contoso Armenia",
+      "Contoso Yerevan Store",
+      "Store",
+      37267993.470000155,
+      16157931.720000055,
+      21110061.7500001,
+      56.64
+    ],
+    [
+      "Contoso Australia",
+      "Contoso Australian Capital Territory",
+      "Contoso Canberra Store",
+      "Store",
+      36913603.690500095,
+      15976335.509999996,
+      20937268.180500098,
+      56.72
+    ],
+    [
+      "Contoso Australia",
+      "Contoso New South Wales",
+      "Contoso Sydney  No.2 Store",
+      "Store",
+      37719118.16500014,
+      16304383.230000032,
+      21414734.935000107,
+      56.77
+    ],
+    [
+      "Contoso Australia",
+      "Contoso New South Wales",
+      "Contoso Sydney No.1 Store",
+      "Store",
+      37929553.43050009,
+      16355074.720000051,
+      21574478.71050004,
+      56.88
+    ],
+    [
+      "Contoso Bhutan",
+      "Contoso Thimphu District",
+      "Contoso Thimphu No.1 Store",
+      "Store",
+      6986780.584999979,
+      2972979.8699999955,
+      4013800.714999983,
+      57.45
+    ],
+    [
+      "Contoso Bhutan",
+      "Contoso Thimphu District",
+      "Contoso Thimphu No.2 Store",
+      "Store",
+      36887032.72650015,
+      15956102.150000062,
+      20930930.57650009,
+      56.74
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Alberta",
+      "Contoso Calgary  Store",
+      "Store",
+      23493114.433000058,
+      10152608.079999993,
+      13340506.353000065,
+      56.78
+    ],
+    [
+      "Contoso Canada",
+      "Contoso British Columbia",
+      "Contoso Vancouver  No.1 Store",
+      "Store",
+      23440233.261500046,
+      10013322.760000013,
+      13426910.501500033,
+      57.28
+    ],
+    [
+      "Contoso Canada",
+      "Contoso British Columbia",
+      "Contoso Vancouver  No.2 Store",
+      "Store",
+      23058497.855000027,
+      9878773.39999998,
+      13179724.455000047,
+      57.16
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Ontario",
+      "Contoso Ottawa No.1 Store",
+      "Store",
+      22333610.625000104,
+      9609337.069999982,
+      12724273.555000123,
+      56.97
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Ontario",
+      "Contoso Ottawa No.2 Store",
+      "Store",
+      22982409.601000074,
+      9888133.209999997,
+      13094276.391000077,
+      56.98
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Ontario",
+      "Contoso Toronto No.1 Store",
+      "Store",
+      23027554.895000078,
+      9900965.449999984,
+      13126589.445000093,
+      57.0
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Ontario",
+      "Contoso Toronto No.2 Store",
+      "Store",
+      22444208.650000058,
+      9698463.26999998,
+      12745745.380000077,
+      56.79
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Ontario",
+      "Contoso Toronto No.3 Store",
+      "Store",
+      22537482.361000076,
+      9706672.749999968,
+      12830809.611000108,
+      56.93
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Quebec",
+      "Contoso Montreal No.1 Store",
+      "Store",
+      22544106.280000076,
+      9742645.509999996,
+      12801460.77000008,
+      56.78
+    ],
+    [
+      "Contoso Canada",
+      "Contoso Quebec",
+      "Contoso Montreal No.2 Store",
+      "Store",
+      22549416.573500052,
+      9720198.439999964,
+      12829218.133500088,
+      56.89
+    ],
+    [
+      "Contoso China",
+      "Contoso Beijing",
+      "Contoso Beijing Store",
+      "Store",
+      19431783.94350012,
+      8389648.69000002,
+      11042135.2535001,
+      56.83
+    ],
+    [
+      "Contoso China",
+      "Contoso Guangdong",
+      "Contoso Guangzhou Store",
+      "Store",
+      6460684.530999981,
+      2752364.6999999955,
+      3708319.8309999853,
+      57.4
+    ],
+    [
+      "Contoso China",
+      "Contoso Hong Kong",
+      "Contoso Hong Kong No.1 Store",
+      "Store",
+      36915837.557500154,
+      16050847.140000079,
+      20864990.417500075,
+      56.52
+    ],
+    [
+      "Contoso China",
+      "Contoso Hong Kong",
+      "Contoso Hong Kong No.2 Store",
+      "Store",
+      35666112.20200021,
+      15462996.440000016,
+      20203115.762000192,
+      56.65
+    ],
+    [
+      "Contoso China",
+      "Contoso Shanghai",
+      "Contoso Shanghai No.1 Store",
+      "Store",
+      36834657.19100011,
+      15985278.290000038,
+      20849378.901000075,
+      56.6
+    ],
+    [
+      "Contoso China",
+      "Contoso Shanghai",
+      "Contoso Shanghai No.2 Store",
+      "Store",
+      36782308.13250008,
+      16013294.710000068,
+      20769013.422500014,
+      56.46
+    ],
+    [
+      "Contoso China",
+      "Contoso Xinjiang",
+      "Contoso Urumqi Store",
+      "Store",
+      37523589.58950022,
+      16260523.31000005,
+      21263066.279500168,
+      56.67
+    ],
+    [
+      "Contoso Denmark",
+      "Contoso Copenhagen",
+      "Contoso Copenhagen Store",
+      "Store",
+      21535956.858700097,
+      9323571.330000006,
+      12212385.528700091,
+      56.71
+    ],
+    [
+      "Contoso Europe",
+      "Contoso France",
+      "Contoso Europe Reseller",
+      "Store",
+      523087943.22880894,
+      227172192.11000344,
+      295915751.1188055,
+      56.57
+    ],
+    [
+      "Contoso Europe",
+      "Contoso Germany",
+      "Contoso Europe Online Store",
+      "Store",
+      806300456.3878872,
+      349854524.19000435,
+      456445932.1978829,
+      56.61
+    ],
+    [
+      "Contoso France",
+      "Contoso Alsace",
+      "Contoso Strasbourg Store",
+      "Store",
+      21587408.599400096,
+      9295414.899999991,
+      12291993.699400105,
+      56.94
+    ],
+    [
+      "Contoso France",
+      "Contoso Ile-del-France",
+      "Contoso Paris Store",
+      "Store",
+      21207333.263800047,
+      9204991.630000003,
+      12002341.633800045,
+      56.6
+    ],
+    [
+      "Contoso France",
+      "Contoso Midi-Pyrenees",
+      "Contoso Toulouse Store",
+      "Store",
+      21377469.398800105,
+      9235473.67000001,
+      12141995.728800096,
+      56.8
+    ],
+    [
+      "Contoso France",
+      "Contoso Pays de la Loire",
+      "Contoso Nantes Store",
+      "Store",
+      21409974.016300082,
+      9325182.669999987,
+      12084791.346300095,
+      56.44
+    ],
+    [
+      "Contoso France",
+      "Contoso Provence-Alpes-Cote d'Azur",
+      "Contoso Marseille Store",
+      "Store",
+      7514886.243099982,
+      3248954.0199999996,
+      4265932.223099982,
+      56.77
+    ],
+    [
+      "Contoso France",
+      "Contoso Provence-Alpes-C\u00f4te d'Azur",
+      "Contoso Nice Store",
+      "Store",
+      21484387.72850007,
+      9279232.629999988,
+      12205155.09850008,
+      56.81
+    ],
+    [
+      "Contoso France",
+      "Contoso Rhone-Alpes",
+      "Contoso Lyon Store",
+      "Store",
+      21253119.690000106,
+      9220064.590000004,
+      12033055.100000102,
+      56.62
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Bavaria",
+      "Contoso Giebelstadt Store",
+      "Store",
+      21303929.447400123,
+      9197210.820000004,
+      12106718.627400119,
+      56.83
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Bavaria",
+      "Contoso Munich Store",
+      "Store",
+      21588771.737300087,
+      9359700.469999999,
+      12229071.267300088,
+      56.65
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Bavaria",
+      "Contoso obamberg Store",
+      "Store",
+      21411171.604400076,
+      9230558.249999989,
+      12180613.354400087,
+      56.89
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Berlin",
+      "Contoso Berlin Store",
+      "Store",
+      5084164.121499989,
+      2222010.0399999972,
+      2862154.081499992,
+      56.3
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Hesse",
+      "Contoso Hofheim Store",
+      "Store",
+      21161395.264500078,
+      9154951.06,
+      12006444.204500077,
+      56.74
+    ],
+    [
+      "Contoso Germany",
+      "Contoso North Rhine-Westphalia",
+      "Contoso Dusseldorf Store",
+      "Store",
+      12973045.139299992,
+      5571316.840000007,
+      7401728.299299985,
+      57.05
+    ],
+    [
+      "Contoso Germany",
+      "Contoso North Rhine-Westphalia",
+      "Contoso koln No.1 Store",
+      "Store",
+      21329402.732400127,
+      9253856.430000026,
+      12075546.302400101,
+      56.61
+    ],
+    [
+      "Contoso Germany",
+      "Contoso North Rhine-Westphalia",
+      "Contoso koln No.2 Store",
+      "Store",
+      21341284.688500114,
+      9262829.949999994,
+      12078454.73850012,
+      56.6
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Rhineland-Palatinate",
+      "Contoso Baumholder Store",
+      "Store",
+      21680324.729900062,
+      9376243.000000004,
+      12304081.729900058,
+      56.75
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Rhineland-Palatinate",
+      "Contoso Landstuhl Store",
+      "Store",
+      21178911.59090013,
+      9235457.600000013,
+      11943453.990900118,
+      56.39
+    ],
+    [
+      "Contoso Germany",
+      "Contoso Rhineland-Palatinate",
+      "Contoso Ramstein Store",
+      "Store",
+      21965573.97880013,
+      9511606.970000003,
+      12453967.008800127,
+      56.7
+    ],
+    [
+      "Contoso Greece",
+      "Contoso Central Greece and Evvoia",
+      "Contoso Athens Store",
+      "Store",
+      21456075.94200005,
+      9255268.750000015,
+      12200807.192000035,
+      56.86
+    ],
+    [
+      "Contoso India",
+      "Contoso India Capital Territory",
+      "Contoso New Delhi Store",
+      "Store",
+      37417079.4910001,
+      16263580.040000066,
+      21153499.451000035,
+      56.53
+    ],
+    [
+      "Contoso India",
+      "Contoso Maharashtra",
+      "Contoso Mumbai Store",
+      "Store",
+      36852710.283500105,
+      16000287.210000036,
+      20852423.073500067,
+      56.58
+    ],
+    [
+      "Contoso India",
+      "Contoso West Bengal",
+      "Contoso Kolkata Store",
+      "Store",
+      37649289.01200016,
+      16310510.900000034,
+      21338778.112000123,
+      56.68
+    ],
+    [
+      "Contoso Iran",
+      "Contoso Tehran",
+      "Contoso Tehran No.1 Store",
+      "Store",
+      37483598.359500095,
+      16139962.40000002,
+      21343635.959500074,
+      56.94
+    ],
+    [
+      "Contoso Iran",
+      "Contoso Tehran",
+      "Contoso Tehran No.2 Store",
+      "Store",
+      37733360.956000105,
+      16296034.070000038,
+      21437326.886000067,
+      56.81
+    ],
+    [
+      "Contoso Ireland",
+      "Contoso Leinster",
+      "Contoso Dublin Store",
+      "Store",
+      21449079.04780008,
+      9307536.840000004,
+      12141542.207800075,
+      56.61
+    ],
+    [
+      "Contoso Italy",
+      "Contoso Lombardy",
+      "Contoso Milan Store",
+      "Store",
+      21174935.89960006,
+      9169225.129999999,
+      12005710.76960006,
+      56.7
+    ],
+    [
+      "Contoso Italy",
+      "Contoso Province of Florence",
+      "Contoso Firenze Store",
+      "Store",
+      21694875.852100093,
+      9429381.11999999,
+      12265494.732100103,
+      56.54
+    ],
+    [
+      "Contoso Italy",
+      "Contoso Province of Turin",
+      "Contoso Torino Store",
+      "Store",
+      21583682.325000092,
+      9351170.540000007,
+      12232511.785000086,
+      56.67
+    ],
+    [
+      "Contoso Italy",
+      "Contoso Roma",
+      "Contoso Roma Store",
+      "Store",
+      12264100.260399986,
+      5302328.010000006,
+      6961772.25039998,
+      56.77
+    ],
+    [
+      "Contoso Italy",
+      "Contoso Venice",
+      "Contoso Venezia Store",
+      "Store",
+      1773000.1829999993,
+      767254.5400000002,
+      1005745.6429999991,
+      56.73
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Chubu",
+      "Contoso Nagoya Store",
+      "Store",
+      18177347.68200013,
+      7878491.630000027,
+      10298856.052000104,
+      56.66
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Hokkaido",
+      "Contoso Sapporo Store",
+      "Store",
+      31217723.44850017,
+      13499571.130000055,
+      17718152.318500116,
+      56.76
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kansai",
+      "Contoso Kyoto Store",
+      "Store",
+      4694285.360499998,
+      2013836.1499999985,
+      2680449.210499999,
+      57.1
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kansai",
+      "Contoso Osaka No.1 Store",
+      "Store",
+      37080959.85000013,
+      16054264.020000039,
+      21026695.830000088,
+      56.7
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kansai",
+      "Contoso Osaka No.2 Store",
+      "Store",
+      34489779.81850016,
+      14926680.330000047,
+      19563099.488500115,
+      56.72
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kanto",
+      "Contoso Tokyo No.1 Store",
+      "Store",
+      37382717.14750017,
+      16213600.200000022,
+      21169116.94750015,
+      56.63
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kanto",
+      "Contoso Tokyo No.2 Store",
+      "Store",
+      36945141.564000115,
+      16025889.950000068,
+      20919251.614000045,
+      56.62
+    ],
+    [
+      "Contoso Japan",
+      "Contoso Kanto",
+      "Contoso Yokohama Store",
+      "Store",
+      36436543.23500017,
+      15800887.800000045,
+      20635655.435000125,
+      56.63
+    ],
+    [
+      "Contoso Kyrgyzstan",
+      "Contoso Chui Province",
+      "Contoso Bishkek Store",
+      "Store",
+      37599400.74300015,
+      16267635.960000042,
+      21331764.783000108,
+      56.73
+    ],
+    [
+      "Contoso Malta",
+      "Contoso Valletta",
+      "Contoso Valletta Store",
+      "Store",
+      21276135.024500065,
+      9221476.050000008,
+      12054658.974500056,
+      56.66
+    ],
+    [
+      "Contoso North America",
+      "Contoso United States",
+      "Contoso Catalog Store",
+      "Store",
+      1078007547.2267287,
+      465463702.6800015,
+      612543844.5467272,
+      56.82
+    ],
+    [
+      "Contoso North America",
+      "Contoso United States",
+      "Contoso North America Online Store",
+      "Store",
+      984249404.2534177,
+      426728409.70002455,
+      557520994.5533931,
+      56.64
+    ],
+    [
+      "Contoso North America",
+      "Contoso United States",
+      "Contoso North America Reseller",
+      "Store",
+      628168708.5233392,
+      271087533.8200003,
+      357081174.70333886,
+      56.84
+    ],
+    [
+      "Contoso Pakistan",
+      "Contoso Islamabad Capital Territory",
+      "Contoso Islamabad  No.2 Store",
+      "Store",
+      27299295.452500172,
+      11789655.710000034,
+      15509639.742500138,
+      56.81
+    ],
+    [
+      "Contoso Pakistan",
+      "Contoso Islamabad Capital Territory",
+      "Contoso Islamabad No.1 Store",
+      "Store",
+      37016662.74550012,
+      16114310.120000016,
+      20902352.6255001,
+      56.47
+    ],
+    [
+      "Contoso Poland",
+      "Contoso Warszawa",
+      "Contoso Warsaw Store",
+      "Store",
+      21450381.880700145,
+      9332868.889999993,
+      12117512.990700152,
+      56.49
+    ],
+    [
+      "Contoso Portugal",
+      "Contoso Lisboa Region",
+      "Contoso Lisbon Store",
+      "Store",
+      21451249.582700122,
+      9300091.900000002,
+      12151157.68270012,
+      56.65
+    ],
+    [
+      "Contoso Romania",
+      "Contoso Bucharest",
+      "Contoso Bucharest Store",
+      "Store",
+      21677572.089500073,
+      9378642.160000004,
+      12298929.92950007,
+      56.74
+    ],
+    [
+      "Contoso Russia",
+      "Contoso Central Federal District",
+      "Contoso Moscow  No.1 Store",
+      "Store",
+      21444124.272000086,
+      9307363.63999999,
+      12136760.632000096,
+      56.6
+    ],
+    [
+      "Contoso Russia",
+      "Contoso Central Federal District",
+      "Contoso Moscow  No.2 Store",
+      "Store",
+      37426777.637400046,
+      16069229.340000037,
+      21357548.29740001,
+      57.06
+    ],
+    [
+      "Contoso Russia",
+      "Contoso Nizhny Novgorod Oblast",
+      "Contoso Nizhny Novgorod Store",
+      "Store",
+      21349251.210900106,
+      9225124.660000004,
+      12124126.550900102,
+      56.79
+    ],
+    [
+      "Contoso Russia",
+      "Contoso Northwestern",
+      "Contoso Saint Petersburg Store",
+      "Store",
+      21129080.21050012,
+      9146687.229999997,
+      11982392.980500124,
+      56.71
+    ],
+    [
+      "Contoso Singapore",
+      "Contoso Singapore",
+      "Contoso Singapore Store",
+      "Store",
+      36263091.3035001,
+      15749438.79000005,
+      20513652.51350005,
+      56.57
+    ],
+    [
+      "Contoso Slovenia",
+      "Contoso Ljubljana",
+      "Contoso Ljubljana Store",
+      "Store",
+      21116855.583500095,
+      9167902.549999995,
+      11948953.0335001,
+      56.58
+    ],
+    [
+      "Contoso South Korea",
+      "Contoso Busan",
+      "Contoso Busan Store",
+      "Store",
+      36573180.10550009,
+      15895560.810000027,
+      20677619.295500062,
+      56.54
+    ],
+    [
+      "Contoso South Korea",
+      "Contoso Seoul",
+      "Contoso Seoul Store",
+      "Store",
+      16567667.516000157,
+      7209810.240000013,
+      9357857.276000144,
+      56.48
+    ],
+    [
+      "Contoso Spain",
+      "Contoso Madrid",
+      "Contoso Madrid Store",
+      "Store",
+      21386046.722900085,
+      9237936.769999998,
+      12148109.952900087,
+      56.8
+    ],
+    [
+      "Contoso Sweden",
+      "Contoso Stockholm",
+      "Contoso Stockholm Store",
+      "Store",
+      21017382.482300106,
+      9160162.08000001,
+      11857220.402300097,
+      56.42
+    ],
+    [
+      "Contoso Switzerland",
+      "Contoso Bern",
+      "Contoso Berne Store",
+      "Store",
+      20797430.745400053,
+      9039053.599999994,
+      11758377.145400058,
+      56.54
+    ],
+    [
+      "Contoso Syria",
+      "Contoso Damascus",
+      "Contoso Damascus No.1 Store",
+      "Store",
+      29213300.337000225,
+      12648298.52000004,
+      16565001.817000184,
+      56.7
+    ],
+    [
+      "Contoso Syria",
+      "Contoso Damascus",
+      "Contoso Damascus No.2 Store",
+      "Store",
+      37502773.748500094,
+      16282453.940000033,
+      21220319.80850006,
+      56.58
+    ],
+    [
+      "Contoso Taiwan",
+      "Contoso Taiwan",
+      "Contoso Taipei  Store",
+      "Store",
+      37610056.378500074,
+      16260177.650000054,
+      21349878.72850002,
+      56.77
+    ],
+    [
+      "Contoso Thailand",
+      "Contoso Bangkok",
+      "Contoso Bangkok No.1 Store",
+      "Store",
+      15459414.487000145,
+      6695103.350000014,
+      8764311.137000132,
+      56.69
+    ],
+    [
+      "Contoso Thailand",
+      "Contoso Bangkok",
+      "Contoso Bangkok No.2 Store",
+      "Store",
+      37416713.12350004,
+      16198430.960000057,
+      21218282.163499985,
+      56.71
+    ],
+    [
+      "Contoso Turkmenistan",
+      "Contoso Ahal Province",
+      "Contoso Ashgabat  No.2 Store",
+      "Store",
+      36758701.42050016,
+      15915173.56000004,
+      20843527.86050012,
+      56.7
+    ],
+    [
+      "Contoso Turkmenistan",
+      "Contoso Ahal Province",
+      "Contoso Ashgabat No.1 Store",
+      "Store",
+      37053783.246000044,
+      16087204.090000024,
+      20966579.156000018,
+      56.58
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Baildon Store",
+      "Store",
+      21545276.95080009,
+      9379730.27999999,
+      12165546.670800101,
+      56.47
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Carlisle Store",
+      "Store",
+      21071609.610600084,
+      9179612.680000015,
+      11891996.93060007,
+      56.44
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Cheshire Store",
+      "Store",
+      21376867.365100082,
+      9247734.110000007,
+      12129133.255100075,
+      56.74
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Knotty Ash Store",
+      "Store",
+      21365723.892500095,
+      9283073.980000002,
+      12082649.912500093,
+      56.55
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Lancashire Store",
+      "Store",
+      21600150.29240011,
+      9366892.489999998,
+      12233257.802400112,
+      56.64
+    ],
+    [
+      "Contoso UK",
+      "Contoso England",
+      "Contoso Leeds Store",
+      "Store",
+      21616232.212500073,
+      9350808.70999999,
+      12265423.502500083,
+      56.74
+    ]
+  ],
+  "columns": [
+    "level1_entity",
+    "level2_entity",
+    "level3_entity",
+    "entity_type",
+    "total_sales",
+    "total_cost",
+    "gross_margin",
+    "gross_margin_pct"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 27741,
+  "latency_ms_exec": 3176,
+  "tokens_in": 16750,
+  "tokens_out": 1760,
+  "claude_error": null,
+  "sql_error": null
+}

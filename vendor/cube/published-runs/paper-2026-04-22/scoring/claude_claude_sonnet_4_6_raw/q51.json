@@ -1,0 +1,11 @@
+{
+  "question_id": 51,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries count all rows in DimStore and return the same scalar value of 306; count() and count(*) are semantically equivalent in ClickHouse.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 151,
+  "judge_latency_ms": 11053
+}

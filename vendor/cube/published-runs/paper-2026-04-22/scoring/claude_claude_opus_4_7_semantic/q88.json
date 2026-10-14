@@ -1,0 +1,11 @@
+{
+  "question_id": 88,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 20 loyal customers with identical spend values (within floating-point precision), just with split name columns instead of a concatenated one and an extra CustomerKey column; tied rows appear in different order, which is acceptable.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 243,
+  "judge_latency_ms": 12952
+}

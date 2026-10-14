@@ -1,0 +1,123 @@
+{
+  "question_id": 95,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    dpc.ProductCategoryName,\n    sumIf(fs.SalesAmount, fs.DiscountAmount > 0)                                      AS promotional_revenue,\n    sumIf(fs.SalesAmount, fs.DiscountAmount = 0)                                      AS full_price_revenue,\n    sumIf(fs.DiscountAmount, fs.DiscountAmount > 0)                                   AS total_discount_given,\n    sumIf(fs.SalesQuantity, fs.DiscountAmount > 0)                                    AS promo_units_sold,\n    sumIf(fs.SalesQuantity, fs.DiscountAmount = 0)                                    AS full_price_units_sold,\n    round(\n        sumIf(fs.SalesAmount, fs.DiscountAmount > 0) /\n        nullIf(sumIf(fs.SalesQuantity, fs.DiscountAmount > 0), 0), 2\n    )                                                                                  AS avg_promo_price_per_unit,\n    round(\n        sumIf(fs.SalesAmount, fs.DiscountAmount = 0) /\n        nullIf(sumIf(fs.SalesQuantity, fs.DiscountAmount = 0), 0), 2\n    )                                                                                  AS avg_full_price_per_unit,\n    round(\n        promotional_revenue - full_price_revenue, 2\n    )                                                                                  AS incremental_revenue_vs_full_price,\n    round(\n        100.0 * sumIf(fs.SalesAmount, fs.DiscountAmount > 0) /\n        nullIf(sum(fs.SalesAmount), 0), 2\n    )                                                                                  AS promo_revenue_pct\nFROM retail.FactSales AS fs\nJOIN retail.DimProduct AS dp\n    ON fs.ProductKey = dp.ProductKey\nJOIN retail.DimProductSubcategory AS dps\n    ON dp.ProductSubcategoryKey = dps.ProductSubcategoryKey\nJOIN retail.DimProductCategory AS dpc\n    ON dps.ProductCategoryKey = dpc.ProductCategoryKey\nGROUP BY dpc.ProductCategoryName\nORDER BY incremental_revenue_vs_full_price DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      2117322765.1812234,
+      1805414022.0077634,
+      75559191.75898327,
+      5734844,
+      4644628,
+      369.2,
+      388.71,
+      311908743.17,
+      53.98
+    ],
+    [
+      "Cameras and camcorders",
+      1381169116.9001374,
+      1167849254.4899664,
+      40364080.419901386,
+      3497025,
+      2854353,
+      394.96,
+      409.15,
+      213319862.41,
+      54.18
+    ],
+    [
+      "Computers",
+      1405861855.7450016,
+      1215577315.2500286,
+      41203747.40499988,
+      4254875,
+      3481348,
+      330.41,
+      349.17,
+      190284540.49,
+      53.63
+    ],
+    [
+      "TV and Video",
+      737716930.854219,
+      622404183.9099662,
+      21885320.945799958,
+      1909210,
+      1539986,
+      386.4,
+      404.16,
+      115312746.94,
+      54.24
+    ],
+    [
+      "Cell phones",
+      479452582.93799704,
+      404898371.9600648,
+      12327247.672000634,
+      7035209,
+      5635007,
+      68.15,
+      71.85,
+      74554210.98,
+      54.22
+    ],
+    [
+      "Music, Movies and Audio Books",
+      90300919.63109767,
+      75503786.34998553,
+      2697201.3488997607,
+      841244,
+      682171,
+      107.34,
+      110.68,
+      14797133.28,
+      54.46
+    ],
+    [
+      "Audio",
+      82177611.50090021,
+      69436752.80999613,
+      2429793.5290999357,
+      747886,
+      605412,
+      109.88,
+      114.69,
+      12740858.69,
+      54.2
+    ],
+    [
+      "Games and Toys",
+      18083105.5735996,
+      14359225.459999923,
+      105752.36639999965,
+      2092370,
+      1628299,
+      8.64,
+      8.82,
+      3723880.11,
+      55.74
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "promotional_revenue",
+    "full_price_revenue",
+    "total_discount_given",
+    "promo_units_sold",
+    "full_price_units_sold",
+    "avg_promo_price_per_unit",
+    "avg_full_price_per_unit",
+    "incremental_revenue_vs_full_price",
+    "promo_revenue_pct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 19864,
+  "latency_ms_exec": 555,
+  "tokens_in": 13808,
+  "tokens_out": 1080,
+  "claude_error": null,
+  "sql_error": null
+}

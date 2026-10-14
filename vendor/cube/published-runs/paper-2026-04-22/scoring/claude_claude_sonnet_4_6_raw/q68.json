@@ -1,0 +1,11 @@
+{
+  "question_id": 68,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses count() (row count) instead of countDistinct(SalesOrderNumber), producing wildly wrong order counts (3,583,012 vs 271,499 for non-holidays and 1,418,048 vs 106,571 for holidays); revenue values match but the order count measure is fundamentally incorrect.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 278,
+  "judge_latency_ms": 17256
+}

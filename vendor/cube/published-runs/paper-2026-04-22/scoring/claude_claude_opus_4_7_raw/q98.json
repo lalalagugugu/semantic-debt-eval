@@ -1,0 +1,11 @@
+{
+  "question_id": 98,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, omits the 2009-only filter (returning all years grouped by CalendarYear), and produces different numeric values \u2014 making it a fundamentally different and non-equivalent query.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 455,
+  "judge_latency_ms": 20857
+}

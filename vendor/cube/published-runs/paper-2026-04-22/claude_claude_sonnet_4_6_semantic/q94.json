@@ -1,0 +1,39 @@
+{
+  "question_id": 94,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3 AND toYear(f.DateKey) = 2009) AS q3_sales,\n    sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4 AND toYear(f.DateKey) = 2009) AS q4_sales,\n    q4_sales - q3_sales AS sales_change,\n    round((q4_sales - q3_sales) * 100.0 / nullIf(q3_sales, 0), 2) AS pct_change\nFROM retail.FactOnlineSales f\nJOIN retail.DimStore s ON f.StoreKey = s.StoreKey\nWHERE toYear(f.DateKey) = 2009\n  AND toQuarter(f.DateKey) IN (3, 4)\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0\n   AND q4_sales < q3_sales\nORDER BY pct_change ASC",
+  "rows": [
+    [
+      306,
+      "Contoso Europe Online Store",
+      68987563.18266153,
+      49851406.35517047,
+      -19136156.82749106,
+      -27.74
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      87101484.06392705,
+      81786134.28053032,
+      -5315349.783396736,
+      -6.1
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "q3_sales",
+    "q4_sales",
+    "sales_change",
+    "pct_change"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 9676,
+  "latency_ms_exec": 563,
+  "tokens_in": 16772,
+  "tokens_out": 365,
+  "claude_error": null,
+  "sql_error": null
+}

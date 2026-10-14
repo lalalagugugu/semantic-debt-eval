@@ -1,0 +1,23 @@
+{
+  "question_id": 25,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    d.NorthAmericaSeason,\n    sum(s.SalesAmount) / count(DISTINCT s.DateKey) AS AvgDailySales\nFROM retail.FactSales s\nJOIN retail.DimDate d ON s.DateKey = d.DateKey\nWHERE d.NorthAmericaSeason != ''\nGROUP BY d.NorthAmericaSeason\nORDER BY AvgDailySales DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Holiday",
+      12646782.816982029
+    ]
+  ],
+  "columns": [
+    "NorthAmericaSeason",
+    "AvgDailySales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7780,
+  "latency_ms_exec": 607,
+  "tokens_in": 13797,
+  "tokens_out": 167,
+  "claude_error": null,
+  "sql_error": null
+}

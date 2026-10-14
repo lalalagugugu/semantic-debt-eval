@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate groups by StoreManager only, collapsing multiple stores per manager into one row with wrong aggregated values (100 rows vs 50), answering a different question than per-store sales threshold.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 873,
+  "judge_latency_ms": 23555
+}

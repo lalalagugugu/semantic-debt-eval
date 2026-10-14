@@ -1,0 +1,23 @@
+{
+  "question_id": 83,
+  "sql": "WITH first_yr AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS first_year\n  FROM retail.FactOnlineSales GROUP BY CustomerKey\n),\ncohort_2007 AS (\n  SELECT CustomerKey FROM first_yr WHERE first_year = 2007\n),\nactive AS (\n  SELECT CustomerKey, toYear(DateKey) AS y\n  FROM retail.FactOnlineSales\n  WHERE CustomerKey IN (SELECT CustomerKey FROM cohort_2007)\n  GROUP BY CustomerKey, y\n)\nSELECT (SELECT count() FROM cohort_2007) AS cohort_size_2007,\n       countDistinctIf(CustomerKey, y = 2008) AS returned_2008,\n       round(countDistinctIf(CustomerKey, y = 2008) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2008_pct,\n       countDistinctIf(CustomerKey, y = 2008 AND CustomerKey IN (\n           SELECT CustomerKey FROM active WHERE y = 2009\n       )) AS returned_2008_and_2009,\n       round(countDistinctIf(CustomerKey, y = 2009) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2009_pct\nFROM active",
+  "rows": [
+    [
+      18868,
+      18723,
+      99.23,
+      17671,
+      94.39
+    ]
+  ],
+  "columns": [
+    "cohort_size_2007",
+    "returned_2008",
+    "retention_2008_pct",
+    "returned_2008_and_2009",
+    "retention_2009_pct"
+  ],
+  "row_count": 1,
+  "exec_ms": 633,
+  "error": null
+}

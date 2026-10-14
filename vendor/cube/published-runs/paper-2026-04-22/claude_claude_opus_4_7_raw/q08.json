@@ -1,0 +1,15 @@
+{
+  "question_id": 8,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT EmployeeKey, FirstName, LastName, Title, DepartmentName, HireDate, EmailAddress, Phone, Gender, BaseRate, Status FROM retail.DimEmployee WHERE IsSalesPerson = 'True'",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 6722,
+  "latency_ms_exec": 506,
+  "tokens_in": 19110,
+  "tokens_out": 92,
+  "claude_error": null,
+  "sql_error": null
+}

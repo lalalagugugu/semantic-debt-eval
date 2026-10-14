@@ -1,0 +1,21 @@
+{
+  "question_id": 40,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT sum(os.SalesAmount * fx.EndOfDayRate) AS online_sales_eur\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.FactExchangeRate AS fx\n    ON os.DateKey = fx.DateKey\nINNER JOIN retail.DimCurrency AS c\n    ON fx.CurrencyKey = c.CurrencyKey\nWHERE c.CurrencyName = 'EUR'",
+  "rows": [
+    [
+      53934387.9278116
+    ]
+  ],
+  "columns": [
+    "online_sales_eur"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 14591,
+  "latency_ms_exec": 1501,
+  "tokens_in": 18828,
+  "tokens_out": 321,
+  "claude_error": null,
+  "sql_error": null
+}

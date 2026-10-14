@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses both FactSales+FactOnlineSales (reference: only FactOnlineSales), joins geography via store instead of customer, groups by country instead of continent, and subtracts returns+discounts \u2014 producing incompatible values at wrong granularity.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 700,
+  "judge_latency_ms": 17767
+}

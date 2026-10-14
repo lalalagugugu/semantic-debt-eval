@@ -1,0 +1,11 @@
+{
+  "question_id": 34,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match the reference exactly in product names, COGS, avg_inventory, and turnover ratio values (minor unrounded vs rounded difference well within 1%); extra ProductKey column is irrelevant.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 257,
+  "judge_latency_ms": 13238
+}

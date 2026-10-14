@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 categories are present with 100.0% repeat customer sales matching the reference; extra columns (total_sales, repeat_customer_sales) are ignored for row-level comparison, and row ordering is equivalent (both DESC by percentage).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 227,
+  "judge_latency_ms": 11827
+}

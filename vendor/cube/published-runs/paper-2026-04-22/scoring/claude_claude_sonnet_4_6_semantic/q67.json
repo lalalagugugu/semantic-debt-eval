@@ -1,0 +1,11 @@
+{
+  "question_id": 67,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same 17 rows with identical color names, unit counts, and average prices that differ only by negligible floating-point precision (well under 1% drift); the extra IS NOT NULL filter doesn't change results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 225,
+  "judge_latency_ms": 11233
+}

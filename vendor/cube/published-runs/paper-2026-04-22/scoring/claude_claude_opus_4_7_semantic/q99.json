@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `pc.ProductCategoryName` in scope SELECT pc.ProductCategoryName, avgIf(day_total, IsWorkDay = 'WeekEnd') AS avg_weekend_day, avgIf(day_total, IsWorkDay = 'WorkDay') AS avg_weekday, avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay') AS abs_difference, ((avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay')) * 100.) / nullif(avgIf(day_total, IsWorkDay = 'WorkDay'), 0) AS pct_bigger FROM (SELECT f.DateKey AS DateKey, pc.ProductCategoryKey AS ProductCategoryKey, pc.ProductCategoryName AS ProductCategoryName, d.IsWorkDay AS IsWorkDay, sum(f.SalesAmount) AS day_total FROM retail.FactOnlineSales AS f INNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey INNER JOIN retail.DimDate AS d ON f.DateKey = d.DateKey GROUP BY f.DateKey, pc.ProductCategoryKey, pc.ProductCategoryName, d.IsWorkDay) AS t GROUP BY ProductCategoryName ORDER BY pct_bigger DESC. Maybe you meant: ['t.ProductCategoryName']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

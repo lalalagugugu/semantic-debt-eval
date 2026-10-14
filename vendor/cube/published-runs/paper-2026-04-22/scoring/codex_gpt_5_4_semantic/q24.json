@@ -1,0 +1,11 @@
+{
+  "question_id": 24,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same return rate as a decimal ratio (e.g., 0.01217) while the reference returns it as a percentage (e.g., 1.22); per the analytical rules, percentage vs. decimal representation of the same measure is an analytical pass.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 430,
+  "judge_latency_ms": 16089
+}

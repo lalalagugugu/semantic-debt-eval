@@ -1,0 +1,67 @@
+{
+  "question_id": 12,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS monthly_sales\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2008\nGROUP BY month\nORDER BY month",
+  "rows": [
+    [
+      1,
+      56738060.407199666
+    ],
+    [
+      2,
+      60673391.766299784
+    ],
+    [
+      3,
+      60559498.8992998
+    ],
+    [
+      4,
+      75567228.14840616
+    ],
+    [
+      5,
+      77899819.79760626
+    ],
+    [
+      6,
+      76515782.9792075
+    ],
+    [
+      7,
+      84399362.09040618
+    ],
+    [
+      8,
+      74672334.95440339
+    ],
+    [
+      9,
+      72022788.04580273
+    ],
+    [
+      10,
+      69434585.45280735
+    ],
+    [
+      11,
+      69174095.22250138
+    ],
+    [
+      12,
+      72014255.66010083
+    ]
+  ],
+  "columns": [
+    "month",
+    "monthly_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 5991,
+  "latency_ms_exec": 525,
+  "tokens_in": 23314,
+  "tokens_out": 89,
+  "claude_error": null,
+  "sql_error": null
+}

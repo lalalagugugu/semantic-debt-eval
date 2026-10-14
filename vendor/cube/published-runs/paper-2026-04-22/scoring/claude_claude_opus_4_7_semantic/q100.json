@@ -1,0 +1,11 @@
+{
+  "question_id": 100,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns 100 rows (no LIMIT 30) vs reference's 30, but the top rows match exactly in order and values; an analyst would accept the full qualifying set as a correct answer to the power-customer question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 453,
+  "judge_latency_ms": 17402
+}

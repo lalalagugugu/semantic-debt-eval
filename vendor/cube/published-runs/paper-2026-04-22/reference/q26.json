@@ -1,0 +1,21 @@
+{
+  "question_id": 26,
+  "sql": "WITH first_purchase AS (SELECT CustomerKey, MIN(DateKey) as first_date FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT toQuarter(first_date) as quarter, count() as new_customers FROM first_purchase WHERE toYear(first_date) = 2007 GROUP BY quarter ORDER BY quarter",
+  "rows": [
+    [
+      1,
+      18015
+    ],
+    [
+      2,
+      853
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "new_customers"
+  ],
+  "row_count": 2,
+  "exec_ms": 520,
+  "error": null
+}

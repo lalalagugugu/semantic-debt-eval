@@ -1,0 +1,11 @@
+{
+  "question_id": 15,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically equivalent to the reference, using the same joins and aggregation, and produces identical rows in the same order.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 151,
+  "judge_latency_ms": 9577
+}

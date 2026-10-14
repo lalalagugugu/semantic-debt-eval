@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes avg order value as total sales / distinct order numbers (order-level average ~1681F, ~1565M), while the reference uses avg(SalesAmount) per row (line-level average ~213F, ~217M), resulting in substantially different values that answer a different granularity of question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 276,
+  "judge_latency_ms": 12005
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 36,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same three segment rows (Active=16890, At Risk=1841, Churned=138) as the reference, just with an extra percentage column and explicit ordering; the core counts match exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 218,
+  "judge_latency_ms": 11413
+}

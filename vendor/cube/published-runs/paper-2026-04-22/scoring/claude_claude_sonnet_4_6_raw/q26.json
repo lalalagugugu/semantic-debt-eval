@@ -1,0 +1,11 @@
+{
+  "question_id": 26,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically equivalent to the reference and produces identical rows: Q1\u219218015, Q2\u2192853.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 142,
+  "judge_latency_ms": 9891
+}

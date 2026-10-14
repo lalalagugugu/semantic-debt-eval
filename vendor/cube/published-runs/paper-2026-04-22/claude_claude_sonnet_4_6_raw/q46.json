@@ -1,0 +1,63 @@
+{
+  "question_id": 46,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    c.Occupation,\n    count(DISTINCT f.CustomerKey) AS customer_count,\n    sum(f.SalesAmount) AS total_revenue,\n    sum(f.TotalCost) AS total_cost,\n    sum(f.SalesAmount - f.TotalCost) AS gross_profit,\n    round(100.0 * sum(f.SalesAmount - f.TotalCost) / sum(f.SalesAmount), 2) AS profit_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nWHERE c.Occupation IS NOT NULL\nGROUP BY c.Occupation\nORDER BY gross_profit DESC",
+  "rows": [
+    [
+      "Professional",
+      5606,
+      671762629.08669,
+      333944542.919539,
+      337818086.16637075,
+      50.29
+    ],
+    [
+      "Clerical",
+      3014,
+      597233107.924744,
+      293957849.0099854,
+      303275258.9133034,
+      50.78
+    ],
+    [
+      "Skilled Manual",
+      4649,
+      517686818.555832,
+      260119014.26983893,
+      257567804.28465313,
+      49.75
+    ],
+    [
+      "Management",
+      3147,
+      486591192.1741586,
+      236681137.85979348,
+      249910054.31427014,
+      51.36
+    ],
+    [
+      "Manual",
+      2453,
+      444928882.06933665,
+      219552363.66019356,
+      225376518.4092635,
+      50.65
+    ]
+  ],
+  "columns": [
+    "Occupation",
+    "customer_count",
+    "total_revenue",
+    "total_cost",
+    "gross_profit",
+    "profit_margin_pct"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 9229,
+  "latency_ms_exec": 1201,
+  "tokens_in": 13793,
+  "tokens_out": 295,
+  "claude_error": null,
+  "sql_error": null
+}

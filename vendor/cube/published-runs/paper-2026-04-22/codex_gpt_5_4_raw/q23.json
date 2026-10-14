@@ -1,0 +1,80 @@
+{
+  "question_id": 23,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    month,\n    monthly_sales,\n    sum(monthly_sales) OVER (ORDER BY month ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_monthly_sales\nFROM\n(\n    SELECT\n        toMonth(DateKey) AS month,\n        sum(SalesAmount) AS monthly_sales\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY month\n)\nORDER BY month",
+  "rows": [
+    [
+      1,
+      269770345.06119883,
+      269770345.06119883
+    ],
+    [
+      2,
+      266002676.16239932,
+      535773021.2235981
+    ],
+    [
+      3,
+      270769957.9146997,
+      806542979.1382978
+    ],
+    [
+      4,
+      309157751.2146971,
+      1115700730.352995
+    ],
+    [
+      5,
+      341560286.1457939,
+      1457261016.4987888
+    ],
+    [
+      6,
+      331299978.9771941,
+      1788560995.475983
+    ],
+    [
+      7,
+      333374435.1585973,
+      2121935430.6345801
+    ],
+    [
+      8,
+      325030342.9581947,
+      2446965773.592775
+    ],
+    [
+      9,
+      313780340.43239635,
+      2760746114.0251713
+    ],
+    [
+      10,
+      326836387.9251912,
+      3087582501.9503627
+    ],
+    [
+      11,
+      322166203.77219987,
+      3409748705.722563
+    ],
+    [
+      12,
+      330734413.4597003,
+      3740483119.182263
+    ]
+  ],
+  "columns": [
+    "month",
+    "monthly_sales",
+    "cumulative_monthly_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 15969,
+  "latency_ms_exec": 501,
+  "tokens_in": 17224,
+  "tokens_out": 177,
+  "claude_error": null,
+  "sql_error": null
+}

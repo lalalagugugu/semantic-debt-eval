@@ -1,0 +1,11 @@
+{
+  "question_id": 49,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The reference query returns 0 rows (empty result from FactStrategyPlan with ScenarioKey=1 and AccountKey=4), while the candidate returns 100 rows by joining FactSales with DimStore and DimEntity \u2014 completely different tables, measures, and filters yielding incompatible results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 412,
+  "judge_latency_ms": 14368
+}

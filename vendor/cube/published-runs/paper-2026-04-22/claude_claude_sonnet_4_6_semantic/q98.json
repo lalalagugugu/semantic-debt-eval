@@ -1,0 +1,15 @@
+{
+  "question_id": 98,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    concat('Q', toString(dominant_qtr)) AS dominant_quarter,\n    round(avg_max_pct, 2) AS avg_pct_of_annual_from_best_quarter\nFROM (\n    SELECT\n        ProductCategoryName,\n        argMax(qtr, avg_qtr_pct) AS dominant_qtr,\n        max(avg_qtr_pct) AS avg_max_pct\n    FROM (\n        SELECT\n            pc.ProductCategoryName,\n            toQuarter(f.DateKey) AS qtr,\n            sum(f.SalesAmount) * 100.0\n                / nullIf(sum(sum(f.SalesAmount)) OVER (PARTITION BY pc.ProductCategoryName, toYear(f.DateKey)), 0)\n                AS pct_of_annual,\n            avg(\n                sum(f.SalesAmount) * 100.0\n                / nullIf(sum(sum(f.SalesAmount)) OVER (PARTITION BY pc.ProductCategoryName, toYear(f.DateKey)), 0)\n            ) OVER (PARTITION BY pc.ProductCategoryName, toQuarter(f.DateKey)) AS avg_qtr_pct\n        FROM retail.FactOnlineSales f\n        JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n        JOIN retail.DimProductSubcategory ps ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n        JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\n        GROUP BY pc.ProductCategoryName, toYear(f.DateKey), toQuarter(f.DateKey)\n    )\n    GROUP BY ProductCategoryName, qtr\n    HAVING qtr = argMax(qtr, avg_qtr_pct)  -- keep only the dominant quarter row per category\n) sub\nGROUP BY ProductCategoryName, dominant_qtr, avg_max_pct\nORDER BY avg_pct_of_annual_from_best_quarter DESC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 31532,
+  "latency_ms_exec": null,
+  "tokens_in": 16757,
+  "tokens_out": 1636,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Window function sum(sum(f.SalesAmount)) OVER (PARTITION BY pc.ProductCategoryName, toYear(f.DateKey)) is found inside another window function in query. (ILLEGAL_AGGREGATION) (for url https://clickhouse.vanya.cc:443)"
+}

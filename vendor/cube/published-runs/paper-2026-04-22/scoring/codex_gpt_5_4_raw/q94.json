@@ -1,0 +1,11 @@
+{
+  "question_id": 94,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits LIMIT 20 and returns 99 rows (all declining stores) vs the reference's 20, and adds extra columns (StoreKey, sales_change), but the matching rows have correct values and ordering \u2014 an analyst would accept the full list as a valid answer to \"which stores are losing momentum.\"",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 445,
+  "judge_latency_ms": 17819
+}

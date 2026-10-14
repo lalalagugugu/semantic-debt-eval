@@ -1,0 +1,21 @@
+{
+  "question_id": 55,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT countDistinct(CustomerKey) AS female_customer_count\nFROM retail.DimCustomer\nWHERE Gender = 'F'",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "female_customer_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5960,
+  "latency_ms_exec": 505,
+  "tokens_in": 16751,
+  "tokens_out": 65,
+  "claude_error": null,
+  "sql_error": null
+}

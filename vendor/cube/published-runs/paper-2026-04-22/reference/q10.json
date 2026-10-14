@@ -1,0 +1,15 @@
+{
+  "question_id": 10,
+  "sql": "SELECT count() FROM retail.DimStore WHERE Status = 'On' OR CloseDate IS NULL",
+  "rows": [
+    [
+      294
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "exec_ms": 491,
+  "error": null
+}

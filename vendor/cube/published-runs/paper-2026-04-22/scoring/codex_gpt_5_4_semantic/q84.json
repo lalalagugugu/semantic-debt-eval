@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same ABC class product counts (A=1131, B=666, C=707) as the reference, matching exactly on the key measure; the omitted revenue and percentage columns are extra in the reference but not required by the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 200,
+  "judge_latency_ms": 12499
+}

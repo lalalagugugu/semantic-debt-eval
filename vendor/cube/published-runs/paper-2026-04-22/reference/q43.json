@@ -1,0 +1,25 @@
+{
+  "question_id": 43,
+  "sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.ContinentName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.ContinentName",
+  "rows": [
+    [
+      "Europe",
+      419881695.00088644
+    ],
+    [
+      "Asia",
+      429716989.9300331
+    ],
+    [
+      "North America",
+      524349037.1592154
+    ]
+  ],
+  "columns": [
+    "region",
+    "gross_margin"
+  ],
+  "row_count": 3,
+  "exec_ms": 611,
+  "error": null
+}

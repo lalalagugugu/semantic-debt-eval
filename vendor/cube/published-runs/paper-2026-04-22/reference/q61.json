@@ -1,0 +1,133 @@
+{
+  "question_id": 61,
+  "sql": "SELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC",
+  "rows": [
+    [
+      "Camcorders",
+      73068729.8299963
+    ],
+    [
+      "Projectors & Screens",
+      67523354.93999252
+    ],
+    [
+      "Laptops",
+      66922899.668494314
+    ],
+    [
+      "Washers & Dryers",
+      64400719.6619959
+    ],
+    [
+      "Refrigerators",
+      62920032.84797621
+    ],
+    [
+      "Home Theater System",
+      52866813.41398308
+    ],
+    [
+      "Digital SLR Cameras",
+      48962745.8289915
+    ],
+    [
+      "Coffee Machines",
+      39700534.95239422
+    ],
+    [
+      "Lamps",
+      39060917.81639924
+    ],
+    [
+      "Televisions",
+      31463974.333507057
+    ],
+    [
+      "Monitors",
+      25316411.49999103
+    ],
+    [
+      "Smart phones & PDAs",
+      24839157.879999056
+    ],
+    [
+      "Microwaves",
+      23792157.789615445
+    ],
+    [
+      "Air Conditioners",
+      22763070.664205655
+    ],
+    [
+      "Water Heaters",
+      22505275.7000006
+    ],
+    [
+      "Digital Cameras",
+      21999626.000003323
+    ],
+    [
+      "Car Video",
+      20935974.629998222
+    ],
+    [
+      "Touch Screen Phones",
+      19684686.74000156
+    ],
+    [
+      "Printers, Scanners & Fax",
+      16265530.550001577
+    ],
+    [
+      "Cell phones Accessories",
+      15003897.672000447
+    ],
+    [
+      "Movie DVD",
+      8857910.86930376
+    ],
+    [
+      "Fans",
+      7068738.211402438
+    ],
+    [
+      "MP4&MP3",
+      6199726.490300186
+    ],
+    [
+      "Bluetooth Headphones",
+      5476681.371199815
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      5397207.499400079
+    ],
+    [
+      "Recording Pen",
+      4419299.384999959
+    ],
+    [
+      "VCD & DVD",
+      3261383.419999725
+    ],
+    [
+      "Computers Accessories",
+      3006752.5024996344
+    ],
+    [
+      "Home & Office Phones",
+      2720716.393099642
+    ],
+    [
+      "Boxed Games",
+      2057197.88499923
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "total_sales"
+  ],
+  "row_count": 30,
+  "exec_ms": 540,
+  "error": null
+}

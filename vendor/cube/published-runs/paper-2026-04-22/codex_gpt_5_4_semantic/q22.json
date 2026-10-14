@@ -1,0 +1,15 @@
+{
+  "question_id": 22,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    country,\n    CustomerKey,\n    customer_name,\n    total_spend,\n    country_rank\nFROM\n(\n    SELECT\n        g.RegionCountryName AS country,\n        c.CustomerKey,\n        concat(c.FirstName, ' ', c.LastName) AS customer_name,\n        sum(fos.SalesAmount) AS total_spend,\n        row_number() OVER (\n            PARTITION BY g.RegionCountryName\n            ORDER BY sum(fos.SalesAmount) DESC, c.CustomerKey\n        ) AS country_rank\n    FROM retail.FactOnlineSales AS fos\n    INNER JOIN retail.DimCustomer AS c\n        ON fos.CustomerKey = c.CustomerKey\n    INNER JOIN retail.DimGeography AS g\n        ON c.GeographyKey = g.GeographyKey\n    GROUP BY\n        g.RegionCountryName,\n        c.CustomerKey,\n        c.FirstName,\n        c.LastName\n)\nWHERE country_rank <= 5\nORDER BY country, country_rank, CustomerKey",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 16012,
+  "latency_ms_exec": null,
+  "tokens_in": 18825,
+  "tokens_out": 293,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `CustomerKey` in scope SELECT country, CustomerKey, customer_name, total_spend, country_rank FROM (SELECT g.RegionCountryName AS country, c.CustomerKey, concat(c.FirstName, ' ', c.LastName) AS customer_name, sum(fos.SalesAmount) AS total_spend, row_number() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(fos.SalesAmount) DESC, c.CustomerKey ASC) AS country_rank FROM retail.FactOnlineSales AS fos INNER JOIN retail.DimCustomer AS c ON fos.CustomerKey = c.CustomerKey INNER JOIN retail.DimGeography AS g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName) WHERE country_rank <= 5 ORDER BY country ASC, country_rank ASC, CustomerKey ASC. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

@@ -1,0 +1,27 @@
+{
+  "question_id": 19,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    coalesce(dc.Gender, 'Unknown') AS customer_gender,\n    avg(order_value) AS average_order_value\nFROM\n(\n    SELECT\n        fos.SalesOrderNumber,\n        fos.CustomerKey,\n        sum(fos.SalesAmount) AS order_value\n    FROM retail.FactOnlineSales AS fos\n    GROUP BY\n        fos.SalesOrderNumber,\n        fos.CustomerKey\n) AS orders\nLEFT JOIN retail.DimCustomer AS dc\n    ON orders.CustomerKey = dc.CustomerKey\nGROUP BY customer_gender\nORDER BY customer_gender",
+  "rows": [
+    [
+      "F",
+      1681.5959412302684
+    ],
+    [
+      "M",
+      1563.4758594205678
+    ]
+  ],
+  "columns": [
+    "customer_gender",
+    "average_order_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 12060,
+  "latency_ms_exec": 819,
+  "tokens_in": 16369,
+  "tokens_out": 207,
+  "claude_error": null,
+  "sql_error": null
+}

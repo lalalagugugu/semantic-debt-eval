@@ -1,0 +1,11 @@
+{
+  "question_id": 87,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses UNION ALL of FactSales + FactOnlineSales for average daily sales (instead of only FactOnlineSales), massively inflating sales quantities and producing days-of-coverage values of ~1\u20133 days vs. the expected ~228\u2013314 days, yielding completely different products and values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 341,
+  "judge_latency_ms": 14470
+}

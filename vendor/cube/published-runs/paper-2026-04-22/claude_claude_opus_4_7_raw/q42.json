@@ -1,0 +1,47 @@
+{
+  "question_id": 42,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT toYear(fs.DateKey) AS Year, sum(fs.SalesAmount) AS TotalSales, sum(fs.SalesQuantity) AS TotalQuantity, sum(fs.SalesAmount - fs.TotalCost) AS GrossProfit, sum(fs.ReturnAmount) AS TotalReturns, sum(fs.DiscountAmount) AS TotalDiscounts FROM retail.FactSales AS fs INNER JOIN retail.DimProduct AS p ON fs.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY Year ORDER BY Year",
+  "rows": [
+    [
+      2007,
+      1098555433.3784769,
+      2509968,
+      664774269.2083786,
+      13692737.800000645,
+      17502081.98160157
+    ],
+    [
+      2008,
+      813888194.6121123,
+      1929375,
+      490078318.9320568,
+      9845079.110000353,
+      12954301.157899901
+    ],
+    [
+      2009,
+      636574743.3996545,
+      1912035,
+      375156558.7695591,
+      7353052.410000361,
+      9907697.2804002
+    ]
+  ],
+  "columns": [
+    "Year",
+    "TotalSales",
+    "TotalQuantity",
+    "GrossProfit",
+    "TotalReturns",
+    "TotalDiscounts"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 8439,
+  "latency_ms_exec": 560,
+  "tokens_in": 19112,
+  "tokens_out": 343,
+  "claude_error": null,
+  "sql_error": null
+}

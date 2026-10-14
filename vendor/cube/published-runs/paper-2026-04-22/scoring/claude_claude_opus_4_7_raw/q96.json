@@ -1,0 +1,11 @@
+{
+  "question_id": 96,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the retention as a decimal fraction (0.9996\u2026) instead of a percentage (99.96\u2026), but cohort_year, cohort_size, and returning_customers are identical; this is the same measure in different units, so analytically correct.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 269,
+  "judge_latency_ms": 14581
+}

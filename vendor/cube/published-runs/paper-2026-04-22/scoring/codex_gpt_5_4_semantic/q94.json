@@ -1,0 +1,11 @@
+{
+  "question_id": 94,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactOnlineSales instead of FactSales, returning only 2 online store rows with entirely different stores and values, not matching any of the 20 expected physical store rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 206,
+  "judge_latency_ms": 11283
+}

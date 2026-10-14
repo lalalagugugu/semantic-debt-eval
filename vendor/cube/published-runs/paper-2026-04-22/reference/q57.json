@@ -1,0 +1,15 @@
+{
+  "question_id": 57,
+  "sql": "SELECT countDistinct(BrandName) AS total_brands FROM retail.DimProduct",
+  "rows": [
+    [
+      11
+    ]
+  ],
+  "columns": [
+    "total_brands"
+  ],
+  "row_count": 1,
+  "exec_ms": 499,
+  "error": null
+}

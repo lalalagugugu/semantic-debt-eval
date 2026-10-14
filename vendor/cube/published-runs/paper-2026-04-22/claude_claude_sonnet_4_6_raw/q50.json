@@ -1,0 +1,25 @@
+{
+  "question_id": 50,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    sum(if(toYear(DateKey) = 2008, SalesAmount, 0)) AS sales_2008,\n    sum(if(toYear(DateKey) = 2009, SalesAmount, 0)) AS sales_2009,\n    round(\n        (sum(if(toYear(DateKey) = 2009, SalesAmount, 0)) - sum(if(toYear(DateKey) = 2008, SalesAmount, 0)))\n        / sum(if(toYear(DateKey) = 2008, SalesAmount, 0)) * 100,\n        2\n    ) AS same_store_sales_growth_pct\nFROM retail.FactSales\nWHERE toYear(DateKey) IN (2008, 2009)\n  AND StoreKey IN (\n      SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008\n      INTERSECT\n      SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009\n  )",
+  "rows": [
+    [
+      4111233534.684118,
+      3719161099.2358155,
+      -9.54
+    ]
+  ],
+  "columns": [
+    "sales_2008",
+    "sales_2009",
+    "same_store_sales_growth_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 10202,
+  "latency_ms_exec": 511,
+  "tokens_in": 13803,
+  "tokens_out": 322,
+  "claude_error": null,
+  "sql_error": null
+}

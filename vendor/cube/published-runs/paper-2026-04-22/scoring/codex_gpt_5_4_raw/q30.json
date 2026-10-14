@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate's 7-day moving averages are systematically wrong (e.g., Dec-01 shows 2,160,684 instead of 2,044,410, and Dec-02 shows only its own daily value instead of a 2-day average), likely because the LEFT JOIN with DimDate introduces extra rows that corrupt the window frame ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 1140,
+  "judge_latency_ms": 27113
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": 59,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT count() AS holiday_count\nFROM retail.DimDate\nWHERE IsHoliday = 'Yes'",
+  "rows": [
+    [
+      731
+    ]
+  ],
+  "columns": [
+    "holiday_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9917,
+  "latency_ms_exec": 491,
+  "tokens_in": 18819,
+  "tokens_out": 61,
+  "claude_error": null,
+  "sql_error": null
+}

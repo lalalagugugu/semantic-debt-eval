@@ -1,0 +1,51 @@
+{
+  "question_id": 46,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT\n  c.Occupation AS CustomerSegment,\n  sum(f.SalesAmount) - sum(f.TotalCost) AS GrossMargin,\n  sum(f.SalesAmount) AS SalesAmount,\n  (sum(f.SalesAmount) - sum(f.TotalCost)) / nullif(sum(f.SalesAmount), 0) AS GrossMarginPct\nFROM retail.FactOnlineSales f\nJOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nGROUP BY CustomerSegment\nORDER BY GrossMargin DESC",
+  "rows": [
+    [
+      "Professional",
+      337818086.167151,
+      671762629.08669,
+      0.5028831190363167
+    ],
+    [
+      "Clerical",
+      303275258.9147586,
+      597233107.924744,
+      0.5078004800647684
+    ],
+    [
+      "Skilled Manual",
+      257567804.2859931,
+      517686818.555832,
+      0.49753595234377146
+    ],
+    [
+      "Management",
+      249910054.3143651,
+      486591192.1741586,
+      0.5135934606578707
+    ],
+    [
+      "Manual",
+      225376518.4091431,
+      444928882.06933665,
+      0.506545040099287
+    ]
+  ],
+  "columns": [
+    "CustomerSegment",
+    "GrossMargin",
+    "SalesAmount",
+    "GrossMarginPct"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 10634,
+  "latency_ms_exec": 625,
+  "tokens_in": 23312,
+  "tokens_out": 409,
+  "claude_error": null,
+  "sql_error": null
+}

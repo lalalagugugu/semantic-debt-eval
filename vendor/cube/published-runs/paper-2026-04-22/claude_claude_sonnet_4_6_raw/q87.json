@@ -1,0 +1,141 @@
+{
+  "question_id": 87,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductName,\n    li.total_on_hand,\n    round(ds.avg_daily_sales, 4) AS avg_daily_sales_qty,\n    round(li.total_on_hand / ds.avg_daily_sales, 2) AS days_coverage\nFROM (\n    SELECT\n        ProductKey,\n        sum(OnHandQuantity) AS total_on_hand\n    FROM retail.FactInventory\n    WHERE DateKey = (SELECT max(DateKey) FROM retail.FactInventory)\n    GROUP BY ProductKey\n) AS li\nJOIN (\n    SELECT\n        ProductKey,\n        sum(SalesQuantity) / 90.0 AS avg_daily_sales\n    FROM retail.FactSales\n    WHERE DateKey >= toDate('2009-10-03')\n      AND DateKey <= toDate('2009-12-31')\n    GROUP BY ProductKey\n    HAVING avg_daily_sales > 0\n) AS ds ON li.ProductKey = ds.ProductKey\nJOIN retail.DimProduct p ON li.ProductKey = p.ProductKey\nORDER BY days_coverage ASC\nLIMIT 20",
+  "rows": [
+    [
+      "SV 16xDVD M350 Silver",
+      14,
+      10.8556,
+      1.29
+    ],
+    [
+      "Proseware Wall Lamp E0315 Silver",
+      67,
+      23.8444,
+      2.81
+    ],
+    [
+      "Fabrikam Business Videographer 1'' 25mm M600 Black",
+      31,
+      10.3667,
+      2.99
+    ],
+    [
+      "WWI Stereo Bluetooth Headphones New Generation M370 Black",
+      35,
+      11.3222,
+      3.09
+    ],
+    [
+      "Litware Home Theater System 5.1 Channel M510 Brown",
+      31,
+      9.9333,
+      3.12
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      1599,
+      508.8889,
+      3.14
+    ],
+    [
+      "Contoso Water Heater 1.5GPM E0800 Blue",
+      94,
+      29.4889,
+      3.19
+    ],
+    [
+      "WWI LCD17W E200 Black",
+      76,
+      23.5111,
+      3.23
+    ],
+    [
+      "Fabrikam Coffee Maker 4C E080 White",
+      75,
+      22.7333,
+      3.3
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Black",
+      73,
+      21.7333,
+      3.36
+    ],
+    [
+      "SV DVD 60 DVD Storage Binder L20 Silver",
+      28,
+      6.9111,
+      4.05
+    ],
+    [
+      "Contoso Air conditioner 6000BTU E0180 Blue",
+      101,
+      24.8444,
+      4.07
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1520 Black",
+      58,
+      14.0444,
+      4.13
+    ],
+    [
+      "Proseware CRT19 E201 Black",
+      99,
+      23.9333,
+      4.14
+    ],
+    [
+      "The Phone Company Smart phones 160x160 M26 Grey",
+      46,
+      11.0889,
+      4.15
+    ],
+    [
+      "SV Car Video TFT7 M7000 Brown",
+      54,
+      11.9889,
+      4.5
+    ],
+    [
+      "Contoso SLR Camera 35\" M358 Silver Grey",
+      55,
+      10.9111,
+      5.04
+    ],
+    [
+      "Fabrikam Home and Vacation Moviemaker 2/3'' 17mm M103 White",
+      59,
+      11.5778,
+      5.1
+    ],
+    [
+      "Contoso Education Supplies Bundle E200 White",
+      114,
+      22.1778,
+      5.14
+    ],
+    [
+      "A. Datum All in One Digital Camera M200 Black",
+      61,
+      11.7222,
+      5.2
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "total_on_hand",
+    "avg_daily_sales_qty",
+    "days_coverage"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 21279,
+  "latency_ms_exec": 490,
+  "tokens_in": 13830,
+  "tokens_out": 975,
+  "claude_error": null,
+  "sql_error": null
+}

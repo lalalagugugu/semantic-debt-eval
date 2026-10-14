@@ -1,0 +1,114 @@
+{
+  "question_id": 80,
+  "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nWHERE cust.first_d != cust.last_d\nGROUP BY country\nORDER BY avg_active_days DESC\nLIMIT 20",
+  "rows": [
+    [
+      "Poland",
+      1,
+      1087.0
+    ],
+    [
+      "France",
+      1814,
+      1080.7
+    ],
+    [
+      "Germany",
+      1791,
+      1078.6
+    ],
+    [
+      "United Kingdom",
+      1931,
+      1078.0
+    ],
+    [
+      "Armenia",
+      1,
+      1068.0
+    ],
+    [
+      "Russia",
+      2,
+      1051.5
+    ],
+    [
+      "Bhutan",
+      1,
+      1047.0
+    ],
+    [
+      "Iran",
+      1,
+      1041.0
+    ],
+    [
+      "Taiwan",
+      1,
+      1034.0
+    ],
+    [
+      "Singapore",
+      1,
+      1024.0
+    ],
+    [
+      "Italy",
+      1,
+      1021.0
+    ],
+    [
+      "Spain",
+      1,
+      998.0
+    ],
+    [
+      "Japan",
+      7,
+      996.3
+    ],
+    [
+      "United States",
+      8086,
+      990.7
+    ],
+    [
+      "Australia",
+      3630,
+      988.6
+    ],
+    [
+      "Canada",
+      1579,
+      987.7
+    ],
+    [
+      "Portugal",
+      1,
+      985.0
+    ],
+    [
+      "India",
+      3,
+      958.7
+    ],
+    [
+      "China",
+      5,
+      956.8
+    ],
+    [
+      "Ireland",
+      1,
+      954.0
+    ]
+  ],
+  "columns": [
+    "country",
+    "n_customers",
+    "avg_active_days"
+  ],
+  "row_count": 20,
+  "exec_ms": 596,
+  "error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a pre-cumulative threshold check `(cum - revenue)/total < 0.80` vs the reference's post-cumulative `cum/total <= 0.80`, causing one boundary product to be classified differently (A=1132 vs 1131, C=706 vs 707), so counts don't match.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 553,
+  "judge_latency_ms": 16799
+}

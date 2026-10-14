@@ -1,0 +1,11 @@
+{
+  "question_id": 85,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope SELECT StoreKey, StoreName, actual_sales, sales_quota, round((actual_sales / nullIf(sales_quota, 0)) * 100, 2) AS attainment_pct, rank_pos FROM (SELECT s.StoreKey, st.StoreName, actual_sales, sales_quota, row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) DESC) AS rn_top, row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) ASC) AS rn_bottom, count(*) OVER () AS total, 'top' AS rank_pos FROM (SELECT StoreKey, sum(SalesAmount) AS actual_sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY StoreKey) AS s INNER JOIN (SELECT StoreKey, sum(SalesAmountQuota) AS sales_quota FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 GROUP BY StoreKey) AS q ON s.StoreKey = q.StoreKey INNER JOIN retail.DimStore AS st ON s.StoreKey = st.StoreKey) AS t WHERE (rn_top <= 5) OR (rn_bottom <= 5) ORDER BY attainment_pct DESC. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

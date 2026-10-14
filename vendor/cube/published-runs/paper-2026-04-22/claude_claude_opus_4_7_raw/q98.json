@@ -1,0 +1,190 @@
+{
+  "question_id": 98,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT ProductCategoryName, CalendarYear, max(QuarterSales) AS TopQuarterSales, sum(QuarterSales) AS AnnualSales, max(QuarterSales) / sum(QuarterSales) AS ConcentrationRatio FROM (SELECT pc.ProductCategoryName AS ProductCategoryName, d.CalendarYear AS CalendarYear, toQuarter(f.DateKey) AS Quarter, sum(f.SalesAmount) AS QuarterSales FROM retail.FactSales AS f INNER JOIN retail.DimDate AS d ON f.DateKey = d.DateKey INNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName, d.CalendarYear, toQuarter(f.DateKey)) GROUP BY ProductCategoryName, CalendarYear ORDER BY ConcentrationRatio DESC",
+  "rows": [
+    [
+      "Audio",
+      2008,
+      17906529.793999974,
+      52932396.052400485,
+      0.33829055794627894
+    ],
+    [
+      "Cameras and camcorders",
+      2007,
+      338883802.53599524,
+      1098555433.378369,
+      0.3084812948344642
+    ],
+    [
+      "Games and Toys",
+      2009,
+      2710782.213500035,
+      8873229.886900058,
+      0.3055011814245997
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      22580677.946000256,
+      74975760.8291,
+      0.3011730417443943
+    ],
+    [
+      "TV and Video",
+      2007,
+      128186748.6930005,
+      426671354.26120687,
+      0.3004343915118449
+    ],
+    [
+      "Home Appliances",
+      2007,
+      397327040.8800209,
+      1375117996.8143065,
+      0.2889403249761084
+    ],
+    [
+      "Audio",
+      2007,
+      8535607.48600011,
+      29734671.906800333,
+      0.28705907745523207
+    ],
+    [
+      "Computers",
+      2008,
+      221898247.2299974,
+      788289774.7309957,
+      0.2814932456858524
+    ],
+    [
+      "TV and Video",
+      2008,
+      132200776.69600034,
+      473265849.6053045,
+      0.279337241016341
+    ],
+    [
+      "Computers",
+      2009,
+      262217249.36899942,
+      938926781.7259938,
+      0.2792733730387106
+    ],
+    [
+      "Computers",
+      2007,
+      247859932.4930012,
+      894222614.5379976,
+      0.27717922636194864
+    ],
+    [
+      "Audio",
+      2009,
+      18955899.80199986,
+      68947296.35170048,
+      0.2749331852739479
+    ],
+    [
+      "TV and Video",
+      2009,
+      126474203.86800082,
+      460183910.897703,
+      0.2748340410712784
+    ],
+    [
+      "Cell phones",
+      2007,
+      99907473.71291444,
+      363847591.0821099,
+      0.2745860524066743
+    ],
+    [
+      "Cell phones",
+      2008,
+      68205064.2009993,
+      252398585.58119202,
+      0.2702276006973065
+    ],
+    [
+      "Home Appliances",
+      2008,
+      383035318.27499115,
+      1426891288.4533448,
+      0.2684404350734918
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2008,
+      14301123.386000149,
+      53303972.44030128,
+      0.26829376369682284
+    ],
+    [
+      "Games and Toys",
+      2007,
+      3672333.2715000026,
+      13733702.638299983,
+      0.267395717543698
+    ],
+    [
+      "Cell phones",
+      2009,
+      71452401.92199945,
+      268104778.23469412,
+      0.2665092446038067
+    ],
+    [
+      "Games and Toys",
+      2008,
+      2612093.568000025,
+      9835398.50840002,
+      0.2655808573256224
+    ],
+    [
+      "Cameras and camcorders",
+      2009,
+      167385311.838,
+      636574743.3995965,
+      0.2629468315756401
+    ],
+    [
+      "Home Appliances",
+      2009,
+      292162568.9937742,
+      1120727501.9231029,
+      0.2606901039658974
+    ],
+    [
+      "Cameras and camcorders",
+      2008,
+      211128381.25600055,
+      813888194.6121012,
+      0.25940710610334416
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2009,
+      9709643.064100431,
+      37524972.71170059,
+      0.25875150233148303
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "CalendarYear",
+    "TopQuarterSales",
+    "AnnualSales",
+    "ConcentrationRatio"
+  ],
+  "row_count": 24,
+  "latency_ms_gen": 10390,
+  "latency_ms_exec": 724,
+  "tokens_in": 19125,
+  "tokens_out": 442,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 78,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same single row (\"Store\", ~84164891.87, 100%) matching the reference values within precision; the absence of an explicit rank column is immaterial since there is only one category and the ORDER BY implies ranking.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 238,
+  "judge_latency_ms": 11445
+}

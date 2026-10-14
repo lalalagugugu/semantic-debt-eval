@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate's top 10 rows match the expected rows exactly (same store names, sales amounts, selling area sizes, and sales-per-sqft values); the only differences are an extra StoreKey column and no LIMIT clause, which don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 204,
+  "judge_latency_ms": 10884
+}

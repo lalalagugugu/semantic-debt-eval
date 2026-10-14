@@ -1,0 +1,11 @@
+{
+  "question_id": 48,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a monthly time-series of outage counts and total sales, while the reference groups stores by high/low downtime threshold and reports average sales per group \u2014 incompatible structure and measures that cannot be aggregated to match the reference rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 410,
+  "judge_latency_ms": 16688
+}

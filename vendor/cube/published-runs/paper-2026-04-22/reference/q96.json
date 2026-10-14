@@ -1,0 +1,27 @@
+{
+  "question_id": 96,
+  "sql": "WITH first_year AS (\n  SELECT CustomerKey, toYear(min(DateKey)) AS first_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nyears_active AS (\n  SELECT CustomerKey, countDistinct(toYear(DateKey)) AS years_with_activity\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT fy.first_year AS cohort_year,\n       count() AS cohort_size,\n       countIf(ya.years_with_activity > 1) AS returning_customers,\n       countIf(ya.years_with_activity > 1) * 100.0 / count() AS retention_pct\nFROM first_year fy\nJOIN years_active ya ON ya.CustomerKey = fy.CustomerKey\nGROUP BY fy.first_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      18861,
+      99.96290014839941
+    ],
+    [
+      2009,
+      1,
+      0,
+      0.0
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "cohort_size",
+    "returning_customers",
+    "retention_pct"
+  ],
+  "row_count": 2,
+  "exec_ms": 553,
+  "error": null
+}

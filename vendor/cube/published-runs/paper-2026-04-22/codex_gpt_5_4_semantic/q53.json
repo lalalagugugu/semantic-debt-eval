@@ -1,0 +1,21 @@
+{
+  "question_id": 53,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT countDistinct(SalesOrderNumber) AS online_orders_placed_2009\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      378070
+    ]
+  ],
+  "columns": [
+    "online_orders_placed_2009"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 11732,
+  "latency_ms_exec": 559,
+  "tokens_in": 18823,
+  "tokens_out": 83,
+  "claude_error": null,
+  "sql_error": null
+}

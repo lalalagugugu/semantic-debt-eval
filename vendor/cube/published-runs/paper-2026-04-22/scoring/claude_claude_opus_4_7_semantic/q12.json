@@ -1,0 +1,11 @@
+{
+  "question_id": 12,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate SQL is semantically identical to the reference and produces matching rows for all 12 months, with only negligible floating-point drift (< 0.0000001%) in one value.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 176,
+  "judge_latency_ms": 13293
+}

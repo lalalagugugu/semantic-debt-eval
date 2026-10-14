@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The direct report counts and manager names match, but the candidate computes tenure relative to today() (~27 years) instead of the reference date 2009-12-31 (~10 years), producing wildly different avg tenure values that cannot be reconciled by aggregation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 275,
+  "judge_latency_ms": 11645
+}

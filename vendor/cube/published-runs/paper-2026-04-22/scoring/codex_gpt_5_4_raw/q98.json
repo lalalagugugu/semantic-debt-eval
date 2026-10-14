@@ -1,0 +1,11 @@
+{
+  "question_id": 98,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses FactSales (not FactOnlineSales), omits the 2009 year filter, and finds peak quarters across all years \u2014 producing different tables, different years, and substantially different share percentages than the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 231,
+  "judge_latency_ms": 14041
+}

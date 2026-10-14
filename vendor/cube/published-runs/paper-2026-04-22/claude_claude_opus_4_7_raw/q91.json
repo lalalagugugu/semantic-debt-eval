@@ -1,0 +1,63 @@
+{
+  "question_id": 91,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n  CASE\n    WHEN YearlyIncome < 30000 THEN '1. <30K'\n    WHEN YearlyIncome < 60000 THEN '2. 30K-60K'\n    WHEN YearlyIncome < 90000 THEN '3. 60K-90K'\n    WHEN YearlyIncome < 120000 THEN '4. 90K-120K'\n    WHEN YearlyIncome >= 120000 THEN '5. 120K+'\n    ELSE '6. Unknown'\n  END AS IncomeBracket,\n  count(DISTINCT c.CustomerKey) AS CustomerCount,\n  round(sum(o.SalesAmount), 2) AS TotalSpend,\n  round(sum(o.SalesAmount) / count(DISTINCT c.CustomerKey), 2) AS AvgSpendPerCustomer,\n  round(avg(c.YearlyIncome), 2) AS AvgYearlyIncome,\n  round(corr(c.YearlyIncome, o.SalesAmount), 4) AS IncomeSpendCorrelation\nFROM retail.DimCustomer c\nINNER JOIN retail.FactOnlineSales o ON o.CustomerKey = c.CustomerKey\nGROUP BY IncomeBracket\nORDER BY IncomeBracket;",
+  "rows": [
+    [
+      "1. <30K",
+      2922,
+      83218276.02,
+      28479.9,
+      16142.12,
+      0.0073
+    ],
+    [
+      "2. 30K-60K",
+      5704,
+      210385613.35,
+      36883.87,
+      35542.34,
+      0.2035
+    ],
+    [
+      "3. 60K-90K",
+      6818,
+      232242941.51,
+      34063.21,
+      67752.85,
+      -0.017
+    ],
+    [
+      "4. 90K-120K",
+      1887,
+      83569597.16,
+      44287.01,
+      99579.76,
+      0.0186
+    ],
+    [
+      "5. 120K+",
+      1538,
+      2108786201.82,
+      1371122.37,
+      9765084.75,
+      -0.0522
+    ]
+  ],
+  "columns": [
+    "IncomeBracket",
+    "CustomerCount",
+    "TotalSpend",
+    "AvgSpendPerCustomer",
+    "AvgYearlyIncome",
+    "IncomeSpendCorrelation"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 10038,
+  "latency_ms_exec": 730,
+  "tokens_in": 19125,
+  "tokens_out": 457,
+  "claude_error": null,
+  "sql_error": null
+}

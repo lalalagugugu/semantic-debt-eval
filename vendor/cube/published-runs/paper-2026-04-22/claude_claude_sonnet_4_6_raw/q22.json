@@ -1,0 +1,15 @@
+{
+  "question_id": 22,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    RegionCountryName,\n    CustomerKey,\n    FirstName,\n    LastName,\n    TotalSpend,\n    CountryRank\nFROM (\n    SELECT\n        g.RegionCountryName,\n        c.CustomerKey,\n        c.FirstName,\n        c.LastName,\n        sum(f.SalesAmount) AS TotalSpend,\n        rank() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(f.SalesAmount) DESC) AS CountryRank\n    FROM retail.FactOnlineSales f\n    JOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\n    JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\n    GROUP BY g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName\n)\nWHERE CountryRank <= 5\nORDER BY RegionCountryName, CountryRank",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 8880,
+  "latency_ms_exec": null,
+  "tokens_in": 13799,
+  "tokens_out": 297,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `CustomerKey` in scope SELECT RegionCountryName, CustomerKey, FirstName, LastName, TotalSpend, CountryRank FROM (SELECT g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName, sum(f.SalesAmount) AS TotalSpend, rank() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(f.SalesAmount) DESC) AS CountryRank FROM retail.FactOnlineSales AS f INNER JOIN retail.DimCustomer AS c ON f.CustomerKey = c.CustomerKey INNER JOIN retail.DimGeography AS g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName, c.CustomerKey, c.FirstName, c.LastName) WHERE CountryRank <= 5 ORDER BY RegionCountryName ASC, CountryRank ASC. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

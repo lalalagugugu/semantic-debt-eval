@@ -1,0 +1,34 @@
+{
+  "question_id": 66,
+  "sql": "SELECT toQuarter(DateKey) AS quarter, sum(DiscountAmount) AS total_discount, countDistinct(SalesOrderNumber) AS discounted_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 AND PromotionKey <> 1 GROUP BY quarter ORDER BY quarter",
+  "rows": [
+    [
+      1,
+      23354773.011000298,
+      92019
+    ],
+    [
+      2,
+      12629896.61720015,
+      30637
+    ],
+    [
+      3,
+      13650342.693200234,
+      61758
+    ],
+    [
+      4,
+      34529879.548800066,
+      79965
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "total_discount",
+    "discounted_orders"
+  ],
+  "row_count": 4,
+  "exec_ms": 555,
+  "error": null
+}

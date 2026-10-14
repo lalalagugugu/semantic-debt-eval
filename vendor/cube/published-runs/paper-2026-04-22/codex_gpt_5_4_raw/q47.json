@@ -1,0 +1,520 @@
+{
+  "question_id": 47,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    avg(ifNull(f.DownTime, 0)) AS avg_machine_downtime\nFROM retail.FactITSLA AS f\nINNER JOIN retail.DimStore AS s\n    ON f.StoreKey = s.StoreKey\nGROUP BY\n    s.StoreKey,\n    s.StoreName\nORDER BY avg_machine_downtime DESC",
+  "rows": [
+    [
+      262,
+      "Contoso Bangkok No.1 Store",
+      464.6666666666667
+    ],
+    [
+      274,
+      "Contoso Seoul Store",
+      325.6666666666667
+    ],
+    [
+      159,
+      "Contoso Lynn Store",
+      325.55555555555554
+    ],
+    [
+      268,
+      "Contoso Tokyo No.2 Store",
+      324.6666666666667
+    ],
+    [
+      174,
+      "Contoso Waterbury Store",
+      289.375
+    ],
+    [
+      294,
+      "Contoso Tehran No.2 Store",
+      288.77777777777777
+    ],
+    [
+      281,
+      "Contoso Shanghai No.2 Store",
+      269.0769230769231
+    ],
+    [
+      303,
+      "Contoso Lisbon Store",
+      265.5
+    ],
+    [
+      115,
+      "Contoso New York No.1 Store",
+      247.5
+    ],
+    [
+      49,
+      "Contoso Milwaukee No.3 Store",
+      226.75
+    ],
+    [
+      79,
+      "Contoso Baytown Store",
+      217.5
+    ],
+    [
+      99,
+      "Contoso Fort Worth Store",
+      210.71428571428572
+    ],
+    [
+      149,
+      "Contoso New Bedford Store",
+      198.05555555555554
+    ],
+    [
+      146,
+      "Contoso Boston Store",
+      196.92857142857142
+    ],
+    [
+      240,
+      "Contoso Amsterdam Store",
+      195.92307692307693
+    ],
+    [
+      228,
+      "Contoso Berlin Store",
+      189.11111111111111
+    ],
+    [
+      81,
+      "Contoso Bacliff Store",
+      180.41666666666666
+    ],
+    [
+      164,
+      "Contoso Provincetown Store",
+      177.33333333333334
+    ],
+    [
+      305,
+      "Contoso Nizhny Novgorod Store",
+      174.8181818181818
+    ],
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      174.38095238095238
+    ],
+    [
+      270,
+      "Contoso Osaka No.1 Store",
+      174.2
+    ],
+    [
+      181,
+      "Contoso Virginia Beach Store",
+      172.14285714285714
+    ],
+    [
+      204,
+      "Contoso York Store",
+      171.0
+    ],
+    [
+      184,
+      "Contoso Alexandria Store",
+      166.77777777777777
+    ],
+    [
+      171,
+      "Contoso South Portland Store",
+      166.0
+    ],
+    [
+      244,
+      "Contoso Ljubljana Store",
+      155.1
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      150.30769230769232
+    ],
+    [
+      41,
+      "Contoso Parker Store",
+      149.8
+    ],
+    [
+      256,
+      "Contoso Mumbai Store",
+      149.42857142857142
+    ],
+    [
+      13,
+      "Contoso Snoqualmie Store",
+      149.4
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      149.05882352941177
+    ],
+    [
+      136,
+      "Contoso Passaic Store",
+      148.3
+    ],
+    [
+      185,
+      "Contoso Roanoke Store",
+      148.06666666666666
+    ],
+    [
+      101,
+      "Contoso Miami No.1 Store",
+      147.9
+    ],
+    [
+      197,
+      "Contoso Back River Store",
+      147.88888888888889
+    ],
+    [
+      147,
+      "Contoso Worcester No.1 Store",
+      145.9090909090909
+    ],
+    [
+      154,
+      "Contoso Quincy Store",
+      145.25
+    ],
+    [
+      120,
+      "Contoso Plattsburgh Store",
+      144.4375
+    ],
+    [
+      178,
+      "Contoso Litchfield County Store",
+      144.0
+    ],
+    [
+      119,
+      "Contoso Buffalo Store",
+      141.22222222222223
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      139.45283018867926
+    ],
+    [
+      177,
+      "Contoso New Haven Store",
+      139.3125
+    ],
+    [
+      70,
+      "Contoso Midland Store",
+      139.06666666666666
+    ],
+    [
+      195,
+      "Contoso Queen Anne's County Store",
+      138.69230769230768
+    ],
+    [
+      194,
+      "Contoso Ridgely Store",
+      137.73684210526315
+    ],
+    [
+      157,
+      "Contoso Somerville Store",
+      137.55555555555554
+    ],
+    [
+      113,
+      "Contoso Cape Canaveral Store",
+      137.5
+    ],
+    [
+      7,
+      "Contoso Granger Store",
+      136.21428571428572
+    ],
+    [
+      59,
+      "Contoso Manitowoc Store",
+      132.9375
+    ],
+    [
+      89,
+      "Contoso Round Rock Store",
+      132.75
+    ],
+    [
+      36,
+      "Contoso Denver No.3 Store",
+      131.16666666666666
+    ],
+    [
+      261,
+      "Contoso Damascus No.1 Store",
+      130.44776119402985
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      130.22222222222223
+    ],
+    [
+      235,
+      "Contoso Ramstein Store",
+      128.54545454545453
+    ],
+    [
+      64,
+      "Contoso Fort Atkinson Store",
+      127.76470588235294
+    ],
+    [
+      236,
+      "Contoso Baumholder Store",
+      127.25
+    ],
+    [
+      160,
+      "Contoso Northampton Store",
+      123.57142857142857
+    ],
+    [
+      253,
+      "Contoso Sydney No.1 Store",
+      123.1875
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      120.51612903225806
+    ],
+    [
+      158,
+      "Contoso Haverhill Store",
+      120.13333333333334
+    ],
+    [
+      51,
+      "Contoso Racine No.1 Store",
+      118.4
+    ],
+    [
+      190,
+      "Contoso Charleston Store",
+      117.5
+    ],
+    [
+      283,
+      "Contoso Ottawa No.2 Store",
+      117.45454545454545
+    ],
+    [
+      264,
+      "Contoso Ashgabat No.1 Store",
+      117.2
+    ],
+    [
+      263,
+      "Contoso Moscow  No.1 Store",
+      116.3
+    ],
+    [
+      137,
+      "Contoso Bayonne Store",
+      114.0
+    ],
+    [
+      42,
+      "Contoso Green Bay Store",
+      111.93333333333334
+    ],
+    [
+      277,
+      "Contoso Shanghai No.1 Store",
+      111.9090909090909
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      111.25
+    ],
+    [
+      4,
+      "Contoso Bellevue Store",
+      108.88235294117646
+    ],
+    [
+      71,
+      "Contoso Russellville Store",
+      107.57627118644068
+    ],
+    [
+      9,
+      "Contoso Toppenish Store",
+      107.42105263157895
+    ],
+    [
+      297,
+      "Contoso Moscow  No.2 Store",
+      107.0909090909091
+    ],
+    [
+      124,
+      "Contoso Rochester No.2 Store",
+      106.33333333333333
+    ],
+    [
+      73,
+      "Contoso Shreveport Store",
+      105.47058823529412
+    ],
+    [
+      179,
+      "Contoso New London Store",
+      105.0
+    ],
+    [
+      238,
+      "Contoso obamberg Store",
+      104.625
+    ],
+    [
+      249,
+      "Contoso Dublin Store",
+      104.46666666666667
+    ],
+    [
+      215,
+      "Contoso Paris Store",
+      104.0625
+    ],
+    [
+      22,
+      "Contoso Westminster Store",
+      103.84210526315789
+    ],
+    [
+      33,
+      "Contoso Berthoud Store",
+      103.28571428571429
+    ],
+    [
+      45,
+      "Contoso Oshkosh Store",
+      102.88636363636364
+    ],
+    [
+      291,
+      "Contoso Calgary  Store",
+      101.91666666666667
+    ],
+    [
+      304,
+      "Contoso Saint Petersburg Store",
+      101.2
+    ],
+    [
+      272,
+      "Contoso Sapporo Store",
+      100.1076923076923
+    ],
+    [
+      143,
+      "Contoso Hoboken Store",
+      98.27272727272727
+    ],
+    [
+      50,
+      "Contoso Waukesha No.1 Store",
+      97.58333333333333
+    ],
+    [
+      15,
+      "Contoso Renton Store",
+      96.625
+    ],
+    [
+      227,
+      "Contoso Naples Store",
+      95.76923076923077
+    ],
+    [
+      254,
+      "Contoso Yerevan Store",
+      93.5
+    ],
+    [
+      295,
+      "Contoso Damascus No.2 Store",
+      92.23529411764706
+    ],
+    [
+      122,
+      "Contoso Oswego Store",
+      91.86666666666666
+    ],
+    [
+      72,
+      "Contoso Minden Store",
+      90.70588235294117
+    ],
+    [
+      10,
+      "Contoso Wapato Store",
+      90.2
+    ],
+    [
+      62,
+      "Contoso Stoughton Store",
+      90.11764705882354
+    ],
+    [
+      198,
+      "Contoso North Harford Store",
+      88.46666666666667
+    ],
+    [
+      221,
+      "Contoso Strasbourg Store",
+      87.91666666666667
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      86.85714285714286
+    ],
+    [
+      200,
+      "Contoso Catalog Store",
+      84.79054054054055
+    ],
+    [
+      43,
+      "Contoso Appleton Store",
+      84.17647058823529
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "avg_machine_downtime"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 11335,
+  "latency_ms_exec": 526,
+  "tokens_in": 16364,
+  "tokens_out": 141,
+  "claude_error": null,
+  "sql_error": null
+}

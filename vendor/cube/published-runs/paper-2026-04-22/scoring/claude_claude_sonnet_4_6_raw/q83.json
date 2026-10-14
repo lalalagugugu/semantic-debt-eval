@@ -1,0 +1,11 @@
+{
+  "question_id": 83,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate omits percentage columns and counts differ by 1 (~0.005% drift); strict fails due to missing columns, but analytically it answers the same retention question with equivalent raw counts within 1% drift.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1114,
+  "judge_latency_ms": 28978
+}

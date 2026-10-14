@@ -1,0 +1,11 @@
+{
+  "question_id": 42,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing sales figures (~1.1B, ~814M, ~637M) that are roughly 3\u20134x larger than the expected values (~287M, ~162M, ~149M) and don't reduce to the reference via any aggregation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 337,
+  "judge_latency_ms": 12672
+}

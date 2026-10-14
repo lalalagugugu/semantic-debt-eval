@@ -1,0 +1,11 @@
+{
+  "question_id": 16,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference and returns the same two rows with only a negligible floating-point rounding difference (well under 1% relative drift) in the 2009 value.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 201,
+  "judge_latency_ms": 12165
+}

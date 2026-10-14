@@ -1,0 +1,114 @@
+{
+  "question_id": 86,
+  "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  JOIN retail.DimProduct dp ON dp.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC\nLIMIT 20",
+  "rows": [
+    [
+      "Water Heaters",
+      0.008,
+      38149
+    ],
+    [
+      "MP4&MP3",
+      0.007,
+      61038
+    ],
+    [
+      "Boxed Games",
+      0.004,
+      313184
+    ],
+    [
+      "Washers & Dryers",
+      0.004,
+      43787
+    ],
+    [
+      "Projectors & Screens",
+      0.003,
+      131107
+    ],
+    [
+      "Home & Office Phones",
+      0.003,
+      110601
+    ],
+    [
+      "Computers Accessories",
+      0.002,
+      165098
+    ],
+    [
+      "Coffee Machines",
+      0.002,
+      116704
+    ],
+    [
+      "Microwaves",
+      0.002,
+      144421
+    ],
+    [
+      "Camcorders",
+      0.002,
+      128872
+    ],
+    [
+      "Fans",
+      0.001,
+      147202
+    ],
+    [
+      "Refrigerators",
+      0.001,
+      103578
+    ],
+    [
+      "Printers, Scanners & Fax",
+      0.001,
+      125459
+    ],
+    [
+      "Digital SLR Cameras",
+      0.001,
+      130258
+    ],
+    [
+      "Bluetooth Headphones",
+      0.0,
+      73979
+    ],
+    [
+      "Laptops",
+      0.0,
+      128549
+    ],
+    [
+      "Cell phones Accessories",
+      -0.001,
+      998249
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      -0.001,
+      103504
+    ],
+    [
+      "Car Video",
+      -0.001,
+      64203
+    ],
+    [
+      "Digital Cameras",
+      -0.001,
+      126706
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "corr_discount_vs_qty",
+    "observations"
+  ],
+  "row_count": 20,
+  "exec_ms": 852,
+  "error": null
+}

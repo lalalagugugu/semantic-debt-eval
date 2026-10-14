@@ -1,0 +1,162 @@
+{
+  "question_id": 87,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey AS ProductKey,\n    p.ProductName AS ProductName,\n    inv.OnHandQty AS OnHandQuantity,\n    s.AvgDailySales AS AvgDailySalesQty90d,\n    inv.OnHandQty / s.AvgDailySales AS DaysOfCoverage\nFROM\n(\n    SELECT ProductKey, sum(SalesQuantity) / 90.0 AS AvgDailySales\n    FROM retail.FactSales\n    WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n    GROUP BY ProductKey\n    HAVING sum(SalesQuantity) > 0\n) AS s\nINNER JOIN\n(\n    SELECT ProductKey, sum(OnHandQuantity) AS OnHandQty\n    FROM retail.FactInventory\n    WHERE DateKey = (SELECT max(DateKey) FROM retail.FactInventory)\n    GROUP BY ProductKey\n) AS inv ON inv.ProductKey = s.ProductKey\nINNER JOIN retail.DimProduct AS p ON p.ProductKey = s.ProductKey\nORDER BY DaysOfCoverage ASC\nLIMIT 20;",
+  "rows": [
+    [
+      188,
+      "SV 16xDVD M350 Silver",
+      14,
+      10.855555555555556,
+      1.2896622313203685
+    ],
+    [
+      2291,
+      "Proseware Wall Lamp E0315 Silver",
+      67,
+      23.844444444444445,
+      2.8098788443616027
+    ],
+    [
+      1232,
+      "Fabrikam Business Videographer 1'' 25mm M600 Black",
+      31,
+      10.366666666666667,
+      2.990353697749196
+    ],
+    [
+      106,
+      "WWI Stereo Bluetooth Headphones New Generation M370 Black",
+      35,
+      11.322222222222223,
+      3.0912659470068693
+    ],
+    [
+      227,
+      "Litware Home Theater System 5.1 Channel M510 Brown",
+      31,
+      9.933333333333334,
+      3.120805369127517
+    ],
+    [
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      1599,
+      508.8888888888889,
+      3.142139737991266
+    ],
+    [
+      2094,
+      "Contoso Water Heater 1.5GPM E0800 Blue",
+      94,
+      29.488888888888887,
+      3.1876412961567446
+    ],
+    [
+      526,
+      "WWI LCD17W E200 Black",
+      76,
+      23.511111111111113,
+      3.2325141776937616
+    ],
+    [
+      2181,
+      "Fabrikam Coffee Maker 4C E080 White",
+      75,
+      22.733333333333334,
+      3.2991202346041053
+    ],
+    [
+      769,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Black",
+      73,
+      21.733333333333334,
+      3.3588957055214723
+    ],
+    [
+      1590,
+      "SV DVD 60 DVD Storage Binder L20 Silver",
+      28,
+      6.911111111111111,
+      4.05144694533762
+    ],
+    [
+      2381,
+      "Contoso Air conditioner 6000BTU E0180 Blue",
+      101,
+      24.844444444444445,
+      4.065295169946332
+    ],
+    [
+      247,
+      "Contoso Home Theater System 5.1 Channel M1520 Black",
+      58,
+      14.044444444444444,
+      4.129746835443038
+    ],
+    [
+      472,
+      "Proseware CRT19 E201 Black",
+      99,
+      23.933333333333334,
+      4.1364902506963785
+    ],
+    [
+      1484,
+      "The Phone Company Smart phones 160x160 M26 Grey",
+      46,
+      11.088888888888889,
+      4.148296593186373
+    ],
+    [
+      326,
+      "SV Car Video TFT7 M7000 Brown",
+      54,
+      11.988888888888889,
+      4.504170528266914
+    ],
+    [
+      1091,
+      "Contoso SLR Camera 35\" M358 Silver Grey",
+      55,
+      10.911111111111111,
+      5.040733197556008
+    ],
+    [
+      1171,
+      "Fabrikam Home and Vacation Moviemaker 2/3'' 17mm M103 White",
+      59,
+      11.577777777777778,
+      5.095969289827256
+    ],
+    [
+      783,
+      "Contoso Education Supplies Bundle E200 White",
+      114,
+      22.177777777777777,
+      5.140280561122244
+    ],
+    [
+      948,
+      "A. Datum All in One Digital Camera M200 Black",
+      61,
+      11.722222222222221,
+      5.2037914691943135
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "OnHandQuantity",
+    "AvgDailySalesQty90d",
+    "DaysOfCoverage"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 10288,
+  "latency_ms_exec": 566,
+  "tokens_in": 19166,
+  "tokens_out": 512,
+  "claude_error": null,
+  "sql_error": null
+}

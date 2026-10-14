@@ -1,0 +1,45 @@
+{
+  "question_id": 5,
+  "sql": "SELECT pc.ProductCategoryName, count() as product_count FROM retail.DimProduct p JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+  "rows": [
+    [
+      "Audio",
+      115
+    ],
+    [
+      "Computers",
+      459
+    ],
+    [
+      "Home Appliances",
+      661
+    ],
+    [
+      "TV and Video",
+      222
+    ],
+    [
+      "Cell phones",
+      282
+    ],
+    [
+      "Games and Toys",
+      46
+    ],
+    [
+      "Cameras and camcorders",
+      358
+    ],
+    [
+      "Music, Movies and Audio Books",
+      90
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "product_count"
+  ],
+  "row_count": 8,
+  "exec_ms": 494,
+  "error": null
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 74,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH store_product_sales AS (\n    SELECT\n        fos.StoreKey,\n        ds.StoreName,\n        fos.ProductKey,\n        dp.ProductName,\n        sum(fos.SalesAmount) AS product_sales\n    FROM retail.FactOnlineSales AS fos\n    INNER JOIN retail.DimStore AS ds ON fos.StoreKey = ds.StoreKey\n    INNER JOIN retail.DimProduct AS dp ON fos.ProductKey = dp.ProductKey\n    WHERE toYear(fos.DateKey) = 2009\n    GROUP BY\n        fos.StoreKey,\n        ds.StoreName,\n        fos.ProductKey,\n        dp.ProductName\n),\nranked AS (\n    SELECT\n        StoreKey,\n        StoreName,\n        ProductKey,\n        ProductName,\n        product_sales,\n        sum(product_sales) OVER (PARTITION BY StoreKey) AS store_total_sales,\n        row_number() OVER (PARTITION BY StoreKey ORDER BY product_sales DESC, ProductKey) AS product_rank\n    FROM store_product_sales\n)\nSELECT\n    StoreKey,\n    StoreName,\n    product_rank,\n    ProductKey,\n    ProductName,\n    product_sales AS sales_amount,\n    product_sales / nullIf(store_total_sales, 0) AS sales_share_of_store\nFROM ranked\nWHERE product_rank <= 3\nORDER BY StoreKey, product_rank",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 15081,
+  "latency_ms_exec": null,
+  "tokens_in": 18840,
+  "tokens_out": 375,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope  ranked. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

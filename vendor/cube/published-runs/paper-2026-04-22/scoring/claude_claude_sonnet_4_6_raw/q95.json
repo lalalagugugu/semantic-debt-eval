@@ -1,0 +1,11 @@
+{
+  "question_id": 95,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses FactSales + DiscountAmount>0 split instead of FactOnlineSales + PromotionKey\u22601, producing entirely different revenue figures and ratios \u2014 wrong table, wrong promo filter, wrong values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 529,
+  "judge_latency_ms": 19879
+}

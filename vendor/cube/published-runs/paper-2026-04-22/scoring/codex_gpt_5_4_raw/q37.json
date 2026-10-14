@@ -1,0 +1,11 @@
+{
+  "question_id": 37,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Same stores and total_sales; percentile_rank is returned as a decimal (0.9967) vs the reference's percentage (99.67) \u2014 a classic percentage-vs-decimal equivalence, so analytical pass applies.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 619,
+  "judge_latency_ms": 19230
+}

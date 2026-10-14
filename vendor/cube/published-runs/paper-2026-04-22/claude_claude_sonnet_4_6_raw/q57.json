@@ -1,0 +1,21 @@
+{
+  "question_id": 57,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT count(DISTINCT BrandName) AS DistinctBrandCount FROM retail.DimProduct WHERE BrandName IS NOT NULL",
+  "rows": [
+    [
+      11
+    ]
+  ],
+  "columns": [
+    "DistinctBrandCount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6226,
+  "latency_ms_exec": 1461,
+  "tokens_in": 13794,
+  "tokens_out": 58,
+  "claude_error": null,
+  "sql_error": null
+}

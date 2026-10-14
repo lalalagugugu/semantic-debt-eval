@@ -1,0 +1,520 @@
+{
+  "question_id": 20,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT p.ProductName, i.OnHandQuantity, i.SafetyStockQuantity\nFROM retail.FactInventory i\nINNER JOIN (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n) latest ON i.StoreKey = latest.StoreKey AND i.ProductKey = latest.ProductKey AND i.DateKey = latest.max_date\nINNER JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey\nWHERE i.OnHandQuantity < i.SafetyStockQuantity\nORDER BY (i.SafetyStockQuantity - i.OnHandQuantity) DESC",
+  "rows": [
+    [
+      "Contoso In-Line Coupler E180 Black",
+      12,
+      636
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      2,
+      618
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      84,
+      669
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      24,
+      597
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      28,
+      585
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      10,
+      567
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      6,
+      561
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      188,
+      741
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      64,
+      615
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      68,
+      612
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Red",
+      24,
+      552
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      8,
+      525
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      86,
+      597
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      26,
+      528
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      2,
+      501
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      126,
+      621
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Red",
+      106,
+      591
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      50,
+      531
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      94,
+      573
+    ],
+    [
+      "SV Hand Games for kids E30 Red",
+      92,
+      564
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      20,
+      489
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Silver",
+      116,
+      585
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      2,
+      468
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      10,
+      465
+    ],
+    [
+      "SV Hand Games for kids E30 Red",
+      20,
+      474
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      12,
+      465
+    ],
+    [
+      "Contoso In-Line Coupler E180 Black",
+      92,
+      543
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      58,
+      507
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      96,
+      540
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      234,
+      669
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      94,
+      525
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      64,
+      495
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      48,
+      471
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      76,
+      498
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      106,
+      528
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      16,
+      435
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      24,
+      438
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      68,
+      480
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      256,
+      666
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      56,
+      465
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      30,
+      435
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      58,
+      462
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      164,
+      567
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Silver",
+      42,
+      429
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Red",
+      100,
+      486
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      12,
+      396
+    ],
+    [
+      "Contoso In-Line Coupler E180 Black",
+      84,
+      465
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      112,
+      492
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      118,
+      498
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      110,
+      489
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      156,
+      534
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      112,
+      489
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      70,
+      447
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      82,
+      459
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      72,
+      447
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4,
+      378
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Black",
+      122,
+      495
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      98,
+      471
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      78,
+      450
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      310,
+      681
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      38,
+      408
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      28,
+      396
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      134,
+      498
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      116,
+      480
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      20,
+      384
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Silver",
+      14,
+      378
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      96,
+      456
+    ],
+    [
+      "Contoso In-Line Coupler E180 White",
+      114,
+      462
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      34,
+      381
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      30,
+      372
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      114,
+      456
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      40,
+      378
+    ],
+    [
+      "Contoso In-Line Coupler E180 Black",
+      26,
+      363
+    ],
+    [
+      "Contoso In-Line Coupler E180 Silver",
+      2,
+      339
+    ],
+    [
+      "MGS Hand Games for kids E300 Black",
+      324,
+      660
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      84,
+      420
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      76,
+      411
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      182,
+      513
+    ],
+    [
+      "SV Hand Games for 12-16 boys E60 Red",
+      344,
+      672
+    ],
+    [
+      "SV Hand Games for 12-16 boys E60 Black",
+      16,
+      342
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      130,
+      456
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Silver",
+      38,
+      363
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      18,
+      342
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      64,
+      387
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      28,
+      351
+    ],
+    [
+      "Contoso In-Line Coupler E180 White",
+      210,
+      531
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      150,
+      471
+    ],
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      152,
+      471
+    ],
+    [
+      "Contoso In-Line Coupler E180 White",
+      128,
+      447
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Black",
+      66,
+      384
+    ],
+    [
+      "Reusable Phone Screen Protector E120",
+      112,
+      429
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      190,
+      507
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      152,
+      465
+    ],
+    [
+      "Contoso In-Line Coupler E180 Silver",
+      116,
+      429
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      38,
+      351
+    ],
+    [
+      "MGS Hand Games for kids E300 Red",
+      12,
+      324
+    ],
+    [
+      "Contoso In-Line Coupler E180 White",
+      98,
+      408
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      86,
+      396
+    ],
+    [
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      12,
+      321
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Red",
+      264,
+      573
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "OnHandQuantity",
+    "SafetyStockQuantity"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 8614,
+  "latency_ms_exec": 3448,
+  "tokens_in": 23317,
+  "tokens_out": 276,
+  "claude_error": null,
+  "sql_error": null
+}

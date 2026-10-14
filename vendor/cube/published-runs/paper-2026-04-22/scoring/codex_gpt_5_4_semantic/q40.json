@@ -1,0 +1,11 @@
+{
+  "question_id": 40,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the `os.CurrencyKey = fx.CurrencyKey` join condition between FactOnlineSales and FactExchangeRate, causing a broader cross-date join that yields ~53.9M instead of the expected 0.0, answering a genuinely different (incorrectly filtered) question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 428,
+  "judge_latency_ms": 13099
+}

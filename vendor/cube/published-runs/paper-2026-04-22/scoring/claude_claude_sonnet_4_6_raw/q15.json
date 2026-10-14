@@ -1,0 +1,11 @@
+{
+  "question_id": 15,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate joins through DimStore to get store geography instead of joining through DimCustomer to get customer geography, producing only 3 rows with wildly different values (e.g., United States \u22481.03B vs 953M, China \u2248850M vs 47M), answering a different question entirely.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 262,
+  "judge_latency_ms": 14297
+}

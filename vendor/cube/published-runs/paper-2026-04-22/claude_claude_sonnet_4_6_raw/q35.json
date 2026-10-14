@@ -1,0 +1,621 @@
+{
+  "question_id": 35,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    e.EmployeeKey,\n    concat(e.FirstName, ' ', e.LastName) AS EmployeeName,\n    e.Title,\n    concat(m.FirstName, ' ', m.LastName) AS ManagerName\nFROM retail.DimEmployee e\nLEFT JOIN retail.DimEmployee m\n    ON toInt32(e.ParentEmployeeKey) = m.EmployeeKey\nORDER BY e.EmployeeKey",
+  "rows": [
+    [
+      1,
+      "Kim Abercrombie",
+      "Sales Region Manager",
+      "Pieter Uittenbogaard"
+    ],
+    [
+      2,
+      "Sagiv Hadaya",
+      "Sales Region Manager",
+      "Pieter Uittenbogaard"
+    ],
+    [
+      3,
+      "Luka Abrus",
+      "Sales Region Manager",
+      "Pieter Uittenbogaard"
+    ],
+    [
+      4,
+      "Kirk Nason",
+      "Sales Region Manager",
+      "Pieter Uittenbogaard"
+    ],
+    [
+      5,
+      "Humberto Acevedo",
+      "Sales Region Manager",
+      "Pieter Uittenbogaard"
+    ],
+    [
+      6,
+      "Yoichiro Okada",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      7,
+      "Pilar Ackerman",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      8,
+      "Aaron Painter",
+      "Sales State Manager",
+      "Luka Abrus"
+    ],
+    [
+      9,
+      "Terry Adams",
+      "Sales State Manager",
+      "Kirk Nason"
+    ],
+    [
+      10,
+      "David Probst",
+      "Sales State Manager",
+      "Humberto Acevedo"
+    ],
+    [
+      11,
+      "Manoj Agarwal",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      12,
+      "Michael Raheem",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      13,
+      "David Ahs",
+      "Sales State Manager",
+      "Luka Abrus"
+    ],
+    [
+      14,
+      "Miguel Saenz",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      15,
+      "Kim Akers",
+      "Sales Store Manager",
+      "Terry Adams"
+    ],
+    [
+      16,
+      "Kate Taneyhill",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      17,
+      "David Alexander",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      18,
+      "Pieter Uittenbogaard",
+      "Sales Group Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      19,
+      "Michelle Alexander",
+      "Sales State Manager",
+      "Kirk Nason"
+    ],
+    [
+      20,
+      "Rene Valdes",
+      "Sales State Manager",
+      "Humberto Acevedo"
+    ],
+    [
+      21,
+      "Michael Allen",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      22,
+      "Rohinton Wadia",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      23,
+      "Luis Alverca",
+      "Sales State Manager",
+      "Luka Abrus"
+    ],
+    [
+      24,
+      "Ming-Yang Xie",
+      "Sales Store Manager",
+      "Terry Adams"
+    ],
+    [
+      25,
+      "Antonio Alwan",
+      "Sales Store Manager",
+      "David Probst"
+    ],
+    [
+      26,
+      "David Yalovsky",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      27,
+      "Oleg Anashkin",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      28,
+      "Marko Zajc",
+      "Sales State Manager",
+      "Luka Abrus"
+    ],
+    [
+      29,
+      "Christen Anderson",
+      "Sales State Manager",
+      "Kirk Nason"
+    ],
+    [
+      30,
+      "Mike Nash",
+      "Sales State Manager",
+      "Humberto Acevedo"
+    ],
+    [
+      31,
+      "Diogo Andrade",
+      "Sales State Manager",
+      "Kim Abercrombie"
+    ],
+    [
+      32,
+      "Aneta Olecka",
+      "Sales State Manager",
+      "Sagiv Hadaya"
+    ],
+    [
+      33,
+      "Ben Andrews",
+      "Sales State Manager",
+      "Luka Abrus"
+    ],
+    [
+      34,
+      "Jae Pak",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      35,
+      "Roy Antebi",
+      "Sales Store Manager",
+      "David Probst"
+    ],
+    [
+      36,
+      "Prithvi Raj",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      37,
+      "Luca Argentiero",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      38,
+      "Suriya Sajjateerakool",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      39,
+      "Zainal Arifin",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      40,
+      "Amy Strande",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      41,
+      "Ties Arts",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      42,
+      "Daniel Taylor",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      43,
+      "Ronen Ashkenazi",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      44,
+      "Hans-Walter Untch",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      45,
+      "Chris Ashton",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      46,
+      "Michael Vanderhyde",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      47,
+      "Vivian Atlas",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      48,
+      "Robin Wakefield",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      49,
+      "Anahita Bahrami",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      50,
+      "Pieter Wycoff",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      51,
+      "Dev Balasubramanian",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      52,
+      "Steven Wright",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      54,
+      "Eiji Yasuda",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      55,
+      "Ed Banti",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      56,
+      "Mrina Natarajan",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      57,
+      "Dave Barnett",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      58,
+      "Manuel Oliveira",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      59,
+      "Adam Barr",
+      "Sales Store Manager",
+      "Yoichiro Okada"
+    ],
+    [
+      60,
+      "Rok Palcic",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      61,
+      "Shai Bassli",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      62,
+      "Yossi Ran",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      63,
+      "Shaun Beasley",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      64,
+      "Karolina Salas-Szlejter",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      65,
+      "Anna Bedecs",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      66,
+      "Oliver Szimmetat",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      67,
+      "Ann Beebe",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      68,
+      "Jeff Teper",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      69,
+      "Allie Bellew",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      70,
+      "Siri Velauthapillai",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      71,
+      "Nuno Bento",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      72,
+      "Anne Wallace",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      73,
+      "Matt Berg",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      74,
+      "John Yokim",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      75,
+      "Antonio Bermejo",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      76,
+      "Robert Zare",
+      "Sales Store Manager",
+      "Pilar Ackerman"
+    ],
+    [
+      77,
+      "Michael Berroth",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      79,
+      "Jimmy Bischoff",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      80,
+      "Michael Neipper",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      81,
+      "Ari Bixhorn",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      82,
+      "Paulo Neves",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      83,
+      "Rex Bloesser",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      84,
+      "Aaron Nicholls",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      85,
+      "Tomasz Bochenek",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      86,
+      "Toby Nixon",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      87,
+      "Corinna Bolender",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      88,
+      "Fabricio Noriega",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      89,
+      "Raffaella Bonaldi",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      90,
+      "Jerry Orman",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      91,
+      "Laurent Bonnet",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      92,
+      "Danni Ortman",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      93,
+      "Thomas Bouchard",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      94,
+      "Scott Oveson",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      95,
+      "Marc Boyer",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      96,
+      "Tude Palma",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      97,
+      "Peter Bankov",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      98,
+      "Dan Park",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      99,
+      "Bryan Bredehoeft",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      100,
+      "Rajesh Patel",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      101,
+      "Alan Brewer",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ],
+    [
+      102,
+      "Dorena Paschke",
+      "Sales Store Manager",
+      "Aaron Painter"
+    ]
+  ],
+  "columns": [
+    "EmployeeKey",
+    "EmployeeName",
+    "Title",
+    "ManagerName"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 7990,
+  "latency_ms_exec": 497,
+  "tokens_in": 13793,
+  "tokens_out": 154,
+  "claude_error": null,
+  "sql_error": null
+}

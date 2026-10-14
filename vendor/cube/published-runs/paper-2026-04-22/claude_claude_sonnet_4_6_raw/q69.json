@@ -1,0 +1,25 @@
+{
+  "question_id": 69,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.PromotionCategory,\n    sum(f.DiscountAmount) AS TotalDiscountedRevenue,\n    avg(p.DiscountPercent) AS AvgDiscountPercent\nFROM retail.FactOnlineSales f\nJOIN retail.DimPromotion p ON f.PromotionKey = p.PromotionKey\nWHERE f.DiscountAmount > 0\n  AND p.PromotionCategory IS NOT NULL\nGROUP BY p.PromotionCategory\nORDER BY TotalDiscountedRevenue DESC",
+  "rows": [
+    [
+      "Store",
+      268904117.38993096,
+      0.12996414067433965
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "TotalDiscountedRevenue",
+    "AvgDiscountPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7404,
+  "latency_ms_exec": 591,
+  "tokens_in": 13805,
+  "tokens_out": 221,
+  "claude_error": null,
+  "sql_error": null
+}

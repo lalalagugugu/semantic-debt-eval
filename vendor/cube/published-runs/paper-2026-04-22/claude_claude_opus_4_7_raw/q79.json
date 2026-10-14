@@ -1,0 +1,81 @@
+{
+  "question_id": 79,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT s.StoreName, sum(f.SalesAmount) AS SalesAmount, sum(q.SalesAmountQuota) AS SalesQuota, sum(f.SalesAmount) / nullIf(sum(q.SalesAmountQuota), 0) AS Attainment\nFROM retail.FactSales AS f\nINNER JOIN (SELECT StoreKey, sum(SalesAmountQuota) AS SalesAmountQuota FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 GROUP BY StoreKey) AS q ON f.StoreKey = q.StoreKey\nINNER JOIN retail.DimStore AS s ON f.StoreKey = s.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreName, q.SalesAmountQuota\nORDER BY Attainment DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso Venezia Store",
+      1614187.7529999982,
+      2560762630.6620183,
+      0.0006303543068272173
+    ],
+    [
+      "Contoso Racine No.2 Store",
+      2485142.3119999976,
+      4559193069.987048,
+      0.0005450838062462351
+    ],
+    [
+      "Contoso Kyoto Store",
+      4431766.162999982,
+      13290357908.768702,
+      0.00033345724723304816
+    ],
+    [
+      "Contoso Marseille Store",
+      3645384.620099995,
+      11257049631.578938,
+      0.0003238312647990596
+    ],
+    [
+      "Contoso Berlin Store",
+      3743782.0474999924,
+      11632583289.971294,
+      0.00032183582564395557
+    ],
+    [
+      "Contoso Roma Store",
+      4042906.401599991,
+      13070687923.611246,
+      0.0003093109119602477
+    ],
+    [
+      "Contoso Glasgow Store",
+      4235886.787799995,
+      14065342527.04645,
+      0.00030115774142398224
+    ],
+    [
+      "Contoso Dusseldorf Store",
+      4143375.7994999955,
+      13792156781.231567,
+      0.0003004153639797889
+    ],
+    [
+      "Contoso Naples Store",
+      4619530.012499997,
+      16337424737.228495,
+      0.0002827575390124589
+    ],
+    [
+      "Contoso Berne Store",
+      4785769.582499994,
+      16951527377.90438,
+      0.0002823208478982282
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "SalesAmount",
+    "SalesQuota",
+    "Attainment"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 8325,
+  "latency_ms_exec": 576,
+  "tokens_in": 19127,
+  "tokens_out": 325,
+  "claude_error": null,
+  "sql_error": null
+}

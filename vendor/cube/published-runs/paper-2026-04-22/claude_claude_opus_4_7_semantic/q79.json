@@ -1,0 +1,92 @@
+{
+  "question_id": 79,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT s.StoreKey, s.StoreName,\n       sum(fs.SalesAmount) AS actual_sales,\n       sum(fq.SalesAmountQuota) AS quota,\n       sum(fs.SalesAmount) / nullif(sum(fq.SalesAmountQuota), 0) * 100.0 AS attainment_pct\nFROM retail.DimStore s\nJOIN (\n    SELECT StoreKey, sum(SalesAmount) AS SalesAmount\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n) fs ON fs.StoreKey = s.StoreKey\nJOIN (\n    SELECT StoreKey, sum(SalesAmountQuota) AS SalesAmountQuota\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n) fq ON fq.StoreKey = s.StoreKey\nGROUP BY s.StoreKey, s.StoreName, fs.SalesAmount, fq.SalesAmountQuota\nORDER BY attainment_pct DESC\nLIMIT 10",
+  "rows": [
+    [
+      257,
+      "Contoso Kolkata Store",
+      13285310.854999984,
+      35040564.6012999,
+      37.914089017010696
+    ],
+    [
+      292,
+      "Contoso Thimphu No.2 Store",
+      13339734.636999996,
+      35184109.61030008,
+      37.91408901561294
+    ],
+    [
+      262,
+      "Contoso Bangkok No.1 Store",
+      12252554.356999997,
+      32316626.022500083,
+      37.91408901557141
+    ],
+    [
+      277,
+      "Contoso Shanghai No.1 Store",
+      13428894.192499992,
+      35419271.67779996,
+      37.9140890153225
+    ],
+    [
+      276,
+      "Contoso Bishkek Store",
+      13804578.112499986,
+      36410153.77409997,
+      37.91408901524538
+    ],
+    [
+      255,
+      "Contoso New Delhi Store",
+      13707108.436,
+      36153073.414600044,
+      37.91408901480704
+    ],
+    [
+      251,
+      "Contoso Singapore Store",
+      13167637.067999978,
+      34730195.055299975,
+      37.91408901399343
+    ],
+    [
+      274,
+      "Contoso Seoul Store",
+      12449907.392499968,
+      32837152.932699908,
+      37.9140890137954
+    ],
+    [
+      301,
+      "Contoso Osaka No.2 Store",
+      13393145.600000005,
+      35324983.26780008,
+      37.914089013053584
+    ],
+    [
+      254,
+      "Contoso Yerevan Store",
+      13768349.898499995,
+      36314600.34229988,
+      37.91408901301437
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "actual_sales",
+    "quota",
+    "attainment_pct"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 12589,
+  "latency_ms_exec": 506,
+  "tokens_in": 23326,
+  "tokens_out": 629,
+  "claude_error": null,
+  "sql_error": null
+}

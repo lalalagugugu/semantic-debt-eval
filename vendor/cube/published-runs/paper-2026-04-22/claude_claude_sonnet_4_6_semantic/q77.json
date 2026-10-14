@@ -1,0 +1,93 @@
+{
+  "question_id": 77,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH monthly_sales AS (\n    SELECT\n        toMonth(DateKey) AS month_num,\n        sum(SalesAmount) AS total_sales\n    FROM retail.FactOnlineSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY month_num\n    ORDER BY month_num\n),\nwith_prev AS (\n    SELECT\n        month_num,\n        total_sales,\n        lagInFrame(total_sales) OVER (ORDER BY month_num) AS prev_month_sales\n    FROM monthly_sales\n)\nSELECT\n    month_num,\n    total_sales,\n    prev_month_sales,\n    round(\n        (total_sales - prev_month_sales) * 100.0 / nullIf(prev_month_sales, 0),\n        2\n    ) AS mom_growth_rate_pct\nFROM with_prev\nORDER BY month_num",
+  "rows": [
+    [
+      1,
+      57453262.781200886,
+      0.0,
+      null
+    ],
+    [
+      2,
+      59891424.711600766,
+      57453262.781200886,
+      4.24
+    ],
+    [
+      3,
+      60807494.09499969,
+      59891424.711600766,
+      1.53
+    ],
+    [
+      4,
+      69888328.73790286,
+      60807494.09499969,
+      14.93
+    ],
+    [
+      5,
+      82082708.7124054,
+      69888328.73790286,
+      17.45
+    ],
+    [
+      6,
+      81822800.06200582,
+      82082708.7124054,
+      -0.32
+    ],
+    [
+      7,
+      82779485.6864034,
+      81822800.06200582,
+      1.17
+    ],
+    [
+      8,
+      77599793.89820383,
+      82779485.6864034,
+      -6.26
+    ],
+    [
+      9,
+      74684747.96300392,
+      77599793.89820383,
+      -3.76
+    ],
+    [
+      10,
+      75213262.40720837,
+      74684747.96300392,
+      0.71
+    ],
+    [
+      11,
+      67175159.95190069,
+      75213262.40720837,
+      -10.69
+    ],
+    [
+      12,
+      68329562.33910024,
+      67175159.95190069,
+      1.72
+    ]
+  ],
+  "columns": [
+    "month_num",
+    "total_sales",
+    "prev_month_sales",
+    "mom_growth_rate_pct"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 10154,
+  "latency_ms_exec": 516,
+  "tokens_in": 16764,
+  "tokens_out": 346,
+  "claude_error": null,
+  "sql_error": null
+}

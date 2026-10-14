@@ -1,0 +1,23 @@
+{
+  "question_id": 91,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    corr(c.YearlyIncome, s.total_online_spend) AS income_spend_correlation,\n    count() AS customers_with_income_and_spend\nFROM\n(\n    SELECT\n        CustomerKey,\n        sum(SalesAmount) AS total_online_spend\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n) AS s\nINNER JOIN retail.DimCustomer AS c\n    ON c.CustomerKey = s.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
+  "rows": [
+    [
+      0.7349257619515266,
+      18869
+    ]
+  ],
+  "columns": [
+    "income_spend_correlation",
+    "customers_with_income_and_spend"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 14151,
+  "latency_ms_exec": 547,
+  "tokens_in": 18829,
+  "tokens_out": 299,
+  "claude_error": null,
+  "sql_error": null
+}

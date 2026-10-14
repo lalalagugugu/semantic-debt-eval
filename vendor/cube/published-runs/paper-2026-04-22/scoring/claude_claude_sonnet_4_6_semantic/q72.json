@@ -1,0 +1,11 @@
+{
+  "question_id": 72,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly (same 12 quarters, same quarterly and cumulative sales values differing only by rounding, well within 1% relative drift); the added WHERE year BETWEEN 2007 AND 2009 is semantically equivalent since the data spans only those years.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 252,
+  "judge_latency_ms": 12088
+}

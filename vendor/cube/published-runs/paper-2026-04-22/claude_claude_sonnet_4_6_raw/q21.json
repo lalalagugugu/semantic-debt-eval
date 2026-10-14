@@ -1,0 +1,722 @@
+{
+  "question_id": 21,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    s.StoreName,\n    p.ProductName,\n    sum(fi.OnHandQuantity) AS TotalOnHand,\n    sum(fi.OnOrderQuantity) AS TotalOnOrder,\n    sum(fi.SafetyStockQuantity) AS TotalSafetyStock\nFROM retail.FactInventory fi\nJOIN retail.DimStore s ON fi.StoreKey = s.StoreKey\nJOIN retail.DimProduct p ON fi.ProductKey = p.ProductKey\nWHERE fi.DateKey = (\n    SELECT max(DateKey) FROM retail.FactInventory\n)\nGROUP BY s.StoreName, p.ProductName\nORDER BY s.StoreName, p.ProductName",
+  "rows": [
+    [
+      "Contoso Albany Store",
+      "A. Datum Bridge Digital Camera M300 Pink",
+      3,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "A. Datum Consumer Digital Camera E100 Black",
+      15,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "A. Datum Full Frame Digital Camera X300 Azure",
+      30,
+      0,
+      5
+    ],
+    [
+      "Contoso Albany Store",
+      "A. Datum Full Frame Digital Camera X300 Grey",
+      24,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "A. Datum SLR Camera M135 Black",
+      31,
+      26,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "A. Datum Slim Digital Camera M180 Green",
+      19,
+      0,
+      3
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works CRT19 E10 Black",
+      35,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Coffee Maker 12C M100 Silver",
+      5,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Coffee Maker Auto 10C M100 Black",
+      28,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Desk Lamp E1300 Black",
+      57,
+      0,
+      7
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Laptop15 M1501 White",
+      16,
+      12,
+      5
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Laptop15.4W M1548 White",
+      21,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Adventure Works Laptop16 M1601 Blue",
+      23,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso 16GB Mp5 Player M1600 Black",
+      28,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso 16GB Mp5 Player M1600 Blue",
+      22,
+      0,
+      10
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso 90W AC/DC Power Adapter E300 Grey",
+      17,
+      0,
+      11
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Grey",
+      51,
+      0,
+      5
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      57,
+      0,
+      7
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Air conditioner 12000BTU M0640 White",
+      6,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Air conditioner 6000BTU E0180 Silver",
+      33,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso DVD Player M110 Silver",
+      31,
+      3,
+      120
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Education Essentials Bundle M300 Grey",
+      16,
+      13,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Home Theater System 2.1 Channel E1200 Brown",
+      17,
+      0,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Home Theater System 4.1 Channel M1400 Silver",
+      28,
+      0,
+      5
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Home Theater System 4.1 Channel M1410 White",
+      28,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Home/Office Laptop Power Adapter E300 Black",
+      91,
+      0,
+      14
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Laptop Starter Bundle M200 Grey",
+      30,
+      0,
+      5
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Lens cap E80 Grey",
+      15,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Rechargeable Battery E100 Grey",
+      13,
+      0,
+      11
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      404,
+      0,
+      18
+    ],
+    [
+      "Contoso Albany Store",
+      "Contoso Water Heater 1.5GPM E0800 Red",
+      57,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Independent Filmmaker 2/3\" 17mm X100 Blue",
+      15,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Independent filmmaker 2/3'' 17mm X100 White",
+      17,
+      4,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Laptop12 M2002 Red",
+      28,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Microwave 0.8CuFt E0800 Grey",
+      15,
+      0,
+      3
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      13,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Refrigerator 4.6CuFt E2800 Green",
+      4,
+      0,
+      3
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Social Videographer 1\" 25mm E400 Orange",
+      51,
+      0,
+      8
+    ],
+    [
+      "Contoso Albany Store",
+      "Fabrikam Social Videographer 1/3\" 8.5mm E200 Blue",
+      19,
+      0,
+      8
+    ],
+    [
+      "Contoso Albany Store",
+      "Litware 120mm Blue LED Case Fan E901 Black",
+      3,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      13,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "MGS Hand Games for Office worker L299 Black",
+      16,
+      0,
+      78
+    ],
+    [
+      "Contoso Albany Store",
+      "MGS Hand Games for Office worker L299 Red",
+      45,
+      21,
+      78
+    ],
+    [
+      "Contoso Albany Store",
+      "NT Washer & Dryer 27in L2700 Blue",
+      8,
+      0,
+      3
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Desk Lamp E0120 Black",
+      32,
+      25,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Duplex Scanner M200 Black",
+      21,
+      0,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Floor Lamp M0215 Silver",
+      23,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Laser Jet Color Printer X300 Grey",
+      21,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Laser Jet Color Printer X300 White",
+      28,
+      0,
+      3
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Office Jet All-in-One Printer M500 White",
+      28,
+      0,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Screen 80in E1010 Silver",
+      48,
+      0,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "Proseware Wall Lamp E0215 White",
+      21,
+      0,
+      11
+    ],
+    [
+      "Contoso Albany Store",
+      "SV 16xDVD E340 Black",
+      17,
+      0,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "SV 8xDVD E140 Silver",
+      3,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "SV Car Video AM/FM E1001 Silver",
+      57,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "SV Hand Games for students E40 Black",
+      156,
+      130,
+      240
+    ],
+    [
+      "Contoso Albany Store",
+      "SV Hand Games women M40 Black",
+      121,
+      22,
+      18
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company PDA Palm 3.7 inch M830 Silver",
+      6,
+      0,
+      18
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company Smart phones 320 x 320 M86 Pink",
+      59,
+      9,
+      24
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company Smart phones 4 GB of Memory M300 Grey",
+      6,
+      0,
+      9
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company Smart phones Unlocked International M800 Grey",
+      13,
+      0,
+      18
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company Smart phones without camera E100 Pink",
+      11,
+      0,
+      27
+    ],
+    [
+      "Contoso Albany Store",
+      "The Phone Company Touch Screen Phones 26-1.4\" M250 Gold",
+      30,
+      9,
+      18
+    ],
+    [
+      "Contoso Albany Store",
+      "WWI Floor Lamp M215 White",
+      22,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "WWI Laptop12 M0120 Black",
+      30,
+      6,
+      12
+    ],
+    [
+      "Contoso Albany Store",
+      "WWI Laptop15 M0150 White",
+      24,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "WWI Screen 125in M1611 Silver",
+      4,
+      0,
+      6
+    ],
+    [
+      "Contoso Albany Store",
+      "WWI Screen 125in M1611 White",
+      29,
+      1,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "A. Datum Point n' Shoot Digital Camera M500 Azure",
+      22,
+      0,
+      9
+    ],
+    [
+      "Contoso Alexandria Store",
+      "A. Datum SLR Camera M138 Silver Grey",
+      34,
+      23,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Coffee Maker Auto 10C M100 White",
+      4,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Floor Lamp M2150 Black",
+      3,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works LCD20W M240 Black",
+      6,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works LCD24 X300 Black",
+      15,
+      2,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Laptop15 M1501 Blue",
+      23,
+      0,
+      3
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Laptop15.4W M1548 Black",
+      28,
+      0,
+      12
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Laptop15.4W M1548 Red",
+      23,
+      0,
+      9
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Adventure Works Laptop8.9 E0890 Red",
+      59,
+      9,
+      7
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso 16GB New Generation MP5 Player M1650 Black",
+      24,
+      0,
+      24
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso 16GB New Generation MP5 Player M1650 Silver",
+      52,
+      0,
+      14
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso 3 Handset Cordless Phone System E30 White",
+      52,
+      0,
+      24
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso 8GB MP3 Player new model M820 Yellow",
+      33,
+      5,
+      10
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Air conditioner 12000BTU M0640 Grey",
+      30,
+      8,
+      3
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Air conditioner 6000BTU E0180 White",
+      57,
+      0,
+      8
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Battery charger - bike E200 Black",
+      57,
+      0,
+      7
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Cables To Go USB 2.0 Hard Drive Enclosure E920 Black",
+      57,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Connectivity Starter Kit Smart Buy M680 White",
+      24,
+      0,
+      9
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso DVD 38 DVD Storage Binder E25 Red",
+      62,
+      5,
+      30
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso DVD Player M120 White",
+      31,
+      3,
+      60
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso General Carrying Case E304 Blue",
+      59,
+      2,
+      12
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Microwave 2.2CuFt M0125 Grey",
+      28,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Mini Battery Charger Kit E320 Red",
+      34,
+      0,
+      6
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Notebook Peripheral Kit M69 Grey",
+      4,
+      0,
+      12
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Phone with 13-Number Memory (210) M301 Black",
+      28,
+      0,
+      9
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      601,
+      543,
+      336
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso SLR Camera 35\" M358 Grey",
+      29,
+      1,
+      5
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso SLR Camera M144 Silver Grey",
+      33,
+      5,
+      9
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Washer & Dryer 25.5in M255 White",
+      8,
+      0,
+      3
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Water Heater 1.5GPM E0800 Red",
+      57,
+      0,
+      5
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Contoso Water Heater 2.6GPM E0900 Green",
+      6,
+      0,
+      12
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "ProductName",
+    "TotalOnHand",
+    "TotalOnOrder",
+    "TotalSafetyStock"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 8601,
+  "latency_ms_exec": 2957,
+  "tokens_in": 13798,
+  "tokens_out": 220,
+  "claude_error": null,
+  "sql_error": null
+}

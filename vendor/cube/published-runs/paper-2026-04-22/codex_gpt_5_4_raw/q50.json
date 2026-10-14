@@ -1,0 +1,25 @@
+{
+  "question_id": 50,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH same_stores AS (\n    SELECT\n        StoreKey\n    FROM retail.FactSales\n    WHERE toYear(DateKey) IN (2008, 2009)\n    GROUP BY StoreKey\n    HAVING sumIf(SalesAmount, toYear(DateKey) = 2008) > 0\n       AND sumIf(SalesAmount, toYear(DateKey) = 2009) > 0\n)\nSELECT\n    sumIf(fs.SalesAmount, toYear(fs.DateKey) = 2008) AS sales_2008,\n    sumIf(fs.SalesAmount, toYear(fs.DateKey) = 2009) AS sales_2009,\n    round(\n        (sumIf(fs.SalesAmount, toYear(fs.DateKey) = 2009) - sumIf(fs.SalesAmount, toYear(fs.DateKey) = 2008))\n        / nullIf(sumIf(fs.SalesAmount, toYear(fs.DateKey) = 2008), 0) * 100,\n        2\n    ) AS same_store_sales_growth_pct\nFROM retail.FactSales AS fs\nINNER JOIN same_stores AS ss ON fs.StoreKey = ss.StoreKey\nWHERE toYear(fs.DateKey) IN (2008, 2009);",
+  "rows": [
+    [
+      4111233534.68412,
+      3719161099.235816,
+      -9.54
+    ]
+  ],
+  "columns": [
+    "sales_2008",
+    "sales_2009",
+    "same_store_sales_growth_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 16883,
+  "latency_ms_exec": 528,
+  "tokens_in": 16372,
+  "tokens_out": 466,
+  "claude_error": null,
+  "sql_error": null
+}

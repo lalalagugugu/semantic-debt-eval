@@ -1,0 +1,63 @@
+{
+  "question_id": 92,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH\n    (\n        SELECT max(DateKey)\n        FROM\n        (\n            SELECT DateKey FROM retail.FactSales\n            UNION ALL\n            SELECT DateKey FROM retail.FactOnlineSales\n        )\n    ) AS max_date,\n    toStartOfQuarter(max_date) AS current_quarter_start,\n    addQuarters(current_quarter_start, -1) AS last_quarter_start\nSELECT\n    ifNull(p.BrandName, 'Unknown') AS brand_name,\n    round(\n        sum(sales_amount - return_amount - discount_amount - total_cost),\n        2\n    ) AS profit\nFROM\n(\n    SELECT\n        ProductKey,\n        DateKey,\n        SalesAmount AS sales_amount,\n        ReturnAmount AS return_amount,\n        DiscountAmount AS discount_amount,\n        TotalCost AS total_cost\n    FROM retail.FactSales\n\n    UNION ALL\n\n    SELECT\n        ProductKey,\n        DateKey,\n        SalesAmount AS sales_amount,\n        ReturnAmount AS return_amount,\n        DiscountAmount AS discount_amount,\n        TotalCost AS total_cost\n    FROM retail.FactOnlineSales\n) AS f\nINNER JOIN retail.DimProduct AS p\n    ON f.ProductKey = p.ProductKey\nWHERE f.DateKey >= last_quarter_start\n  AND f.DateKey < current_quarter_start\nGROUP BY brand_name\nORDER BY profit DESC, brand_name ASC",
+  "rows": [
+    [
+      "Contoso",
+      129106888.32
+    ],
+    [
+      "Fabrikam",
+      126155476.65
+    ],
+    [
+      "Adventure Works",
+      75394581.52
+    ],
+    [
+      "Litware",
+      73265183.59
+    ],
+    [
+      "Proseware",
+      56061765.54
+    ],
+    [
+      "Wide World Importers",
+      50225370.04
+    ],
+    [
+      "The Phone Company",
+      29547477.91
+    ],
+    [
+      "A. Datum",
+      29359915.18
+    ],
+    [
+      "Southridge Video",
+      20814837.98
+    ],
+    [
+      "Northwind Traders",
+      11685900.3
+    ],
+    [
+      "Tailspin Toys",
+      864026.65
+    ]
+  ],
+  "columns": [
+    "brand_name",
+    "profit"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 19920,
+  "latency_ms_exec": 520,
+  "tokens_in": 16369,
+  "tokens_out": 624,
+  "claude_error": null,
+  "sql_error": null
+}

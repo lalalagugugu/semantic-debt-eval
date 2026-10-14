@@ -1,0 +1,40 @@
+{
+  "question_id": 70,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreType,\n    sum(f.SalesAmount) AS TotalSales,\n    avg(s.SellingAreaSize) AS AvgSellingAreaSize\nFROM retail.FactSales f\nJOIN retail.DimStore s ON f.StoreKey = s.StoreKey\nGROUP BY s.StoreType\nORDER BY TotalSales DESC",
+  "rows": [
+    [
+      "Store",
+      6942853195.152252,
+      602.1765826138798
+    ],
+    [
+      "Online",
+      2677599035.074764,
+      29372.659613523345
+    ],
+    [
+      "Reseller",
+      1715197831.4418173,
+      30329.76526770878
+    ],
+    [
+      "Catalog",
+      1078007547.2267222,
+      462.0
+    ]
+  ],
+  "columns": [
+    "StoreType",
+    "TotalSales",
+    "AvgSellingAreaSize"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 6841,
+  "latency_ms_exec": 591,
+  "tokens_in": 16761,
+  "tokens_out": 149,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,33 @@
+{
+  "question_id": 28,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    dc.ChannelName,\n    sum(fs.SalesAmount)                                  AS TotalSalesAmount,\n    count(*)                                             AS TotalTransactions,\n    sum(fs.SalesAmount) / nullif(count(*), 0)            AS AvgTransactionValue\nFROM retail.FactSales fs\nJOIN retail.DimChannel dc ON fs.channelKey = dc.ChannelKey\nWHERE dc.ChannelName IN ('Store', 'Online')\nGROUP BY dc.ChannelName\nORDER BY AvgTransactionValue DESC",
+  "rows": [
+    [
+      "Online",
+      2677599035.074766,
+      629223,
+      4255.405532020867
+    ],
+    [
+      "Store",
+      6942853195.152252,
+      2173872,
+      3193.7727681998995
+    ]
+  ],
+  "columns": [
+    "ChannelName",
+    "TotalSalesAmount",
+    "TotalTransactions",
+    "AvgTransactionValue"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 17632,
+  "latency_ms_exec": 521,
+  "tokens_in": 16751,
+  "tokens_out": 731,
+  "claude_error": null,
+  "sql_error": null
+}

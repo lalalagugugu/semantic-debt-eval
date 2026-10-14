@@ -1,0 +1,1025 @@
+{
+  "question_id": 74,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    s.StoreKey,\n    st.StoreName,\n    s.ProductKey,\n    p.ProductName,\n    s.product_sales,\n    s.store_total_sales,\n    s.product_sales / s.store_total_sales AS sales_share,\n    s.sales_rank\nFROM\n(\n    SELECT\n        StoreKey,\n        ProductKey,\n        product_sales,\n        sum(product_sales) OVER (PARTITION BY StoreKey) AS store_total_sales,\n        row_number() OVER (PARTITION BY StoreKey ORDER BY product_sales DESC, ProductKey) AS sales_rank\n    FROM\n    (\n        SELECT\n            StoreKey,\n            ProductKey,\n            sum(SalesAmount) AS product_sales\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = 2009\n        GROUP BY\n            StoreKey,\n            ProductKey\n    )\n) AS s\nINNER JOIN retail.DimStore AS st\n    ON s.StoreKey = st.StoreKey\nINNER JOIN retail.DimProduct AS p\n    ON s.ProductKey = p.ProductKey\nWHERE s.sales_rank <= 3\nORDER BY\n    s.StoreKey,\n    s.sales_rank,\n    s.ProductKey;",
+  "rows": [
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      395,
+      "WWI Laptop8.9 E0089 Black",
+      54474.600000000006,
+      5894604.2360000005,
+      0.009241434678058342,
+      1
+    ],
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      50879.841,
+      5894604.2360000005,
+      0.008631595771818327,
+      2
+    ],
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      47139.6,
+      5894604.2360000005,
+      0.007997076328230018,
+      3
+    ],
+    [
+      2,
+      "Contoso Seattle No.2 Store",
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      63999.8,
+      5829718.989499999,
+      0.01097819639596198,
+      1
+    ],
+    [
+      2,
+      "Contoso Seattle No.2 Store",
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      62862.8,
+      5829718.989499999,
+      0.010783161266130187,
+      2
+    ],
+    [
+      2,
+      "Contoso Seattle No.2 Store",
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      51199.84,
+      5829718.989499999,
+      0.008782557116769582,
+      3
+    ],
+    [
+      3,
+      "Contoso Kennewick Store",
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      56636.4,
+      5443097.9645,
+      0.010405177413558198,
+      1
+    ],
+    [
+      3,
+      "Contoso Kennewick Store",
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      50559.842000000004,
+      5443097.9645,
+      0.009288798829224159,
+      2
+    ],
+    [
+      3,
+      "Contoso Kennewick Store",
+      341,
+      "Fabrikam Laptop16W M6080 Black",
+      48640.1,
+      5443097.9645,
+      0.008936105930341831,
+      3
+    ],
+    [
+      4,
+      "Contoso Bellevue Store",
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      63999.8,
+      5223093.4785,
+      0.0122532365663078,
+      1
+    ],
+    [
+      4,
+      "Contoso Bellevue Store",
+      1897,
+      "Fabrikam Refrigerator 24.7CuFt X9800 White",
+      60799.81,
+      5223093.4785,
+      0.01164057473799241,
+      2
+    ],
+    [
+      4,
+      "Contoso Bellevue Store",
+      1909,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      49279.846000000005,
+      5223093.4785,
+      0.009434992156057006,
+      3
+    ],
+    [
+      5,
+      "Contoso Redmond Store",
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      55727.1,
+      5690083.9035,
+      0.00979372201624689,
+      1
+    ],
+    [
+      5,
+      "Contoso Redmond Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      47679.850999999995,
+      5690083.9035,
+      0.008379463608730245,
+      2
+    ],
+    [
+      5,
+      "Contoso Redmond Store",
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      45382.15,
+      5690083.9035,
+      0.007975655679186946,
+      3
+    ],
+    [
+      6,
+      "Contoso Yakima Store",
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      60639.81050000001,
+      5658486.206,
+      0.010716613647604251,
+      1
+    ],
+    [
+      6,
+      "Contoso Yakima Store",
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      50401.2,
+      5658486.206,
+      0.008907187923610536,
+      2
+    ],
+    [
+      6,
+      "Contoso Yakima Store",
+      2514,
+      "Contoso Bluetooth Active Headphones L15 White",
+      49396.2,
+      5658486.206,
+      0.008729578583689489,
+      3
+    ],
+    [
+      7,
+      "Contoso Granger Store",
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      72755.403,
+      5466525.2825,
+      0.013309259399734609,
+      1
+    ],
+    [
+      7,
+      "Contoso Granger Store",
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      63999.8,
+      5466525.2825,
+      0.01170758328053155,
+      2
+    ],
+    [
+      7,
+      "Contoso Granger Store",
+      539,
+      "Proseware Projector 1080p LCD86 Black",
+      63686.25,
+      5466525.2825,
+      0.011650225089762037,
+      3
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      48476.200000000004,
+      5413995.746,
+      0.00895386739744217,
+      1
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      1207,
+      "Fabrikam Independent Filmmaker 2/3'' 17mm X100 Grey",
+      47880.0,
+      5413995.746,
+      0.00884374540474565,
+      2
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      341,
+      "Fabrikam Laptop16W M6080 Black",
+      44578.7,
+      5413995.746,
+      0.008233973961456451,
+      3
+    ],
+    [
+      9,
+      "Contoso Toppenish Store",
+      375,
+      "Adventure Works Laptop15 M1501 Silver",
+      60673.2,
+      5527158.039,
+      0.010977286983995357,
+      1
+    ],
+    [
+      9,
+      "Contoso Toppenish Store",
+      2158,
+      "Adventure Works Coffee Maker Super-Auto 12C X125 Grey",
+      49665.0,
+      5527158.039,
+      0.008985630526494884,
+      2
+    ],
+    [
+      9,
+      "Contoso Toppenish Store",
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      46079.856,
+      5527158.039,
+      0.00833698904117766,
+      3
+    ],
+    [
+      10,
+      "Contoso Wapato Store",
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      65439.79549999999,
+      5911069.2765,
+      0.011070720446495515,
+      1
+    ],
+    [
+      10,
+      "Contoso Wapato Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60479.811,
+      5911069.2765,
+      0.010231619385758691,
+      2
+    ],
+    [
+      10,
+      "Contoso Wapato Store",
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      58192.05,
+      5911069.2765,
+      0.009844589409795594,
+      3
+    ],
+    [
+      11,
+      "Contoso Cle Elum Store",
+      564,
+      "Proseware Projector 1080p DLP86 Silver",
+      64974.0,
+      5938246.982500001,
+      0.01094161293585097,
+      1
+    ],
+    [
+      11,
+      "Contoso Cle Elum Store",
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      63999.8,
+      5938246.982500001,
+      0.010777557785758533,
+      2
+    ],
+    [
+      11,
+      "Contoso Cle Elum Store",
+      319,
+      "SV Car Video LCD9.2W X9281 Silver",
+      47273.6,
+      5938246.982500001,
+      0.00796086793616284,
+      3
+    ],
+    [
+      12,
+      "Contoso North Bend Store",
+      611,
+      "WWI Projector 1080p LCD86 Black",
+      63915.75,
+      5793175.660499999,
+      0.011032938365014731,
+      1
+    ],
+    [
+      12,
+      "Contoso North Bend Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      49919.844,
+      5793175.660499999,
+      0.008617008515790716,
+      2
+    ],
+    [
+      12,
+      "Contoso North Bend Store",
+      552,
+      "Proseware Projector 1080p DLP86 White",
+      46981.2,
+      5793175.660499999,
+      0.008109748910314438,
+      3
+    ],
+    [
+      13,
+      "Contoso Snoqualmie Store",
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      67542.804,
+      5805181.357499999,
+      0.011634917126704085,
+      1
+    ],
+    [
+      13,
+      "Contoso Snoqualmie Store",
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      60793.2,
+      5805181.357499999,
+      0.010472230970262156,
+      2
+    ],
+    [
+      13,
+      "Contoso Snoqualmie Store",
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      51996.0,
+      5805181.357499999,
+      0.008956826117555107,
+      3
+    ],
+    [
+      14,
+      "Contoso Fall City Store",
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      64430.399999999994,
+      5869155.4520000005,
+      0.010977797491808536,
+      1
+    ],
+    [
+      14,
+      "Contoso Fall City Store",
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      56898.6,
+      5869155.4520000005,
+      0.009694512347702593,
+      2
+    ],
+    [
+      14,
+      "Contoso Fall City Store",
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      56039.4,
+      5869155.4520000005,
+      0.00954811990554855,
+      3
+    ],
+    [
+      15,
+      "Contoso Renton Store",
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      60319.811499999996,
+      5633681.395999999,
+      0.010706997300704296,
+      1
+    ],
+    [
+      15,
+      "Contoso Renton Store",
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      58325.1,
+      5633681.395999999,
+      0.01035292837848653,
+      2
+    ],
+    [
+      15,
+      "Contoso Renton Store",
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      58065.299999999996,
+      5633681.395999999,
+      0.010306812884595722,
+      3
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      374,
+      "Adventure Works Laptop19W X1980 Silver",
+      67548.0,
+      5701476.676499999,
+      0.011847457041859919,
+      1
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      50879.841,
+      5701476.676499999,
+      0.00892397599550191,
+      2
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      540,
+      "Proseware Projector 1080p DLP86 Black",
+      47231.1,
+      5701476.676499999,
+      0.008284011788502842,
+      3
+    ],
+    [
+      17,
+      "Contoso Spokane Store",
+      633,
+      "WWI Projector 1080p LCD86 Silver",
+      53129.25,
+      5530706.173,
+      0.009606232610831556,
+      1
+    ],
+    [
+      17,
+      "Contoso Spokane Store",
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      49015.399999999994,
+      5530706.173,
+      0.008862412586531017,
+      2
+    ],
+    [
+      17,
+      "Contoso Spokane Store",
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      44596.799999999996,
+      5530706.173,
+      0.008063491099511714,
+      3
+    ],
+    [
+      18,
+      "Contoso Veradale Store",
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      51996.0,
+      5629972.107999999,
+      0.009235569733305686,
+      1
+    ],
+    [
+      18,
+      "Contoso Veradale Store",
+      1927,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      47039.853,
+      5629972.107999999,
+      0.00835525507011979,
+      2
+    ],
+    [
+      18,
+      "Contoso Veradale Store",
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      43233.15,
+      5629972.107999999,
+      0.007679105539185028,
+      3
+    ],
+    [
+      19,
+      "Contoso Cheney Store",
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      92159.712,
+      5601093.6740000015,
+      0.01645387800382643,
+      1
+    ],
+    [
+      19,
+      "Contoso Cheney Store",
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      55207.5,
+      5601093.6740000015,
+      0.009856557167802866,
+      2
+    ],
+    [
+      19,
+      "Contoso Cheney Store",
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      39879.3,
+      5601093.6740000015,
+      0.007119913060036423,
+      3
+    ],
+    [
+      20,
+      "Contoso Englewood Store",
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      69301.65000000001,
+      5559369.226,
+      0.012465739759807781,
+      1
+    ],
+    [
+      20,
+      "Contoso Englewood Store",
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      54785.15,
+      5559369.226,
+      0.009854562230510143,
+      2
+    ],
+    [
+      20,
+      "Contoso Englewood Store",
+      397,
+      "WWI Laptop15 M0150 White",
+      54661.8,
+      5559369.226,
+      0.009832374461541117,
+      3
+    ],
+    [
+      21,
+      "Contoso Wheat Ridge Store",
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      55745.25,
+      5753184.777000002,
+      0.00968945934482368,
+      1
+    ],
+    [
+      21,
+      "Contoso Wheat Ridge Store",
+      396,
+      "WWI Laptop19W X0196 White",
+      46764.0,
+      5753184.777000002,
+      0.00812836747169193,
+      2
+    ],
+    [
+      21,
+      "Contoso Wheat Ridge Store",
+      551,
+      "Proseware Projector 1080p LCD86 White",
+      43605.0,
+      5753184.777000002,
+      0.007579280292599576,
+      3
+    ],
+    [
+      22,
+      "Contoso Westminster Store",
+      390,
+      "WWI Laptop19W X0196 Black",
+      46634.1,
+      5398120.765000001,
+      0.0086389508553353,
+      1
+    ],
+    [
+      22,
+      "Contoso Westminster Store",
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      45322.2,
+      5398120.765000001,
+      0.008395921835216666,
+      2
+    ],
+    [
+      22,
+      "Contoso Westminster Store",
+      611,
+      "WWI Projector 1080p LCD86 Black",
+      43146.0,
+      5398120.765000001,
+      0.007992781539780908,
+      3
+    ],
+    [
+      23,
+      "Contoso Grand Junction Store",
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      92479.71100000001,
+      5695060.8950000005,
+      0.01623858158938966,
+      1
+    ],
+    [
+      23,
+      "Contoso Grand Junction Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60159.812000000005,
+      5695060.8950000005,
+      0.010563506362647945,
+      2
+    ],
+    [
+      23,
+      "Contoso Grand Junction Store",
+      160,
+      "Adventure Works 37\" 1080p LCD HDTV M150W Brown",
+      54889.501000000004,
+      5695060.8950000005,
+      0.009638088514240549,
+      3
+    ],
+    [
+      24,
+      "Contoso New Castle Store",
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      69182.3,
+      5783502.136500002,
+      0.011962008203193474,
+      1
+    ],
+    [
+      24,
+      "Contoso New Castle Store",
+      2134,
+      "Contoso Coffee Maker Super-Auto 12C X1250 Grey",
+      52305.0,
+      5783502.136500002,
+      0.009043828248960132,
+      2
+    ],
+    [
+      24,
+      "Contoso New Castle Store",
+      1229,
+      "Fabrikam Independent Filmmaker 1/2'' 3mm X300 Black",
+      46800.0,
+      5783502.136500002,
+      0.008091982832450707,
+      3
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      394,
+      "WWI Laptop15.4W M0156 Black",
+      50331.2,
+      5858814.129999997,
+      0.008590680448843667,
+      1
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      47679.850999999995,
+      5858814.129999997,
+      0.00813814023487378,
+      2
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      384,
+      "Adventure Works Laptop15.4W M1548 Red",
+      47109.7,
+      5858814.129999997,
+      0.008040825149030631,
+      3
+    ],
+    [
+      26,
+      "Contoso Loveland Store",
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      45919.8565,
+      5612752.198999999,
+      0.008181343995229533,
+      1
+    ],
+    [
+      26,
+      "Contoso Loveland Store",
+      588,
+      "Contoso Projector 1080p X981 White",
+      43232.7,
+      5612752.198999999,
+      0.0077025848402326735,
+      2
+    ],
+    [
+      26,
+      "Contoso Loveland Store",
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      37750.8,
+      5612752.198999999,
+      0.006725898215625109,
+      3
+    ],
+    [
+      27,
+      "Contoso Lafayette Store",
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      70090.0,
+      5648188.835,
+      0.012409287657961244,
+      1
+    ],
+    [
+      27,
+      "Contoso Lafayette Store",
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      55077.6,
+      5648188.835,
+      0.009751373689686493,
+      2
+    ],
+    [
+      27,
+      "Contoso Lafayette Store",
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      50358.0,
+      5648188.835,
+      0.008915778397483412,
+      3
+    ],
+    [
+      28,
+      "Contoso Castle Rock Store",
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      50559.842000000004,
+      5998183.693,
+      0.008429192000072347,
+      1
+    ],
+    [
+      28,
+      "Contoso Castle Rock Store",
+      393,
+      "WWI Laptop16 M0160 Black",
+      50016.5,
+      5998183.693,
+      0.00833860757855253,
+      2
+    ],
+    [
+      28,
+      "Contoso Castle Rock Store",
+      2128,
+      "Contoso Coffee Maker Super-Auto 12C X1250 White",
+      49995.0,
+      5998183.693,
+      0.008335023160151825,
+      3
+    ],
+    [
+      29,
+      "Contoso Sedalia Store",
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      60799.81,
+      5953730.7565,
+      0.010212052322591453,
+      1
+    ],
+    [
+      29,
+      "Contoso Sedalia Store",
+      381,
+      "Adventure Works Laptop15 M1501 Red",
+      47462.1,
+      5953730.7565,
+      0.00797182505241493,
+      2
+    ],
+    [
+      29,
+      "Contoso Sedalia Store",
+      145,
+      "Adventure Works 52\" LCD HDTV X590 Silver",
+      45529.843,
+      5953730.7565,
+      0.007647279472672271,
+      3
+    ],
+    [
+      30,
+      "Contoso Fort Collins Store",
+      1963,
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      51199.84,
+      5856826.4004999995,
+      0.008741908415729898,
+      1
+    ],
+    [
+      30,
+      "Contoso Fort Collins Store",
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      51199.84,
+      5856826.4004999995,
+      0.008741908415729898,
+      2
+    ],
+    [
+      30,
+      "Contoso Fort Collins Store",
+      1204,
+      "Fabrikam Independent Filmmaker 1'' 25mm X400 Grey",
+      48000.0,
+      5856826.4004999995,
+      0.008195564750886628,
+      3
+    ],
+    [
+      31,
+      "Contoso Greeley No.2 Store",
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      81279.74600000001,
+      5806960.206000001,
+      0.013996952470247391,
+      1
+    ],
+    [
+      31,
+      "Contoso Greeley No.2 Store",
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      63999.8,
+      5806960.206000001,
+      0.011021222417517629,
+      2
+    ],
+    [
+      31,
+      "Contoso Greeley No.2 Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      63999.8,
+      5806960.206000001,
+      0.011021222417517629,
+      3
+    ],
+    [
+      32,
+      "Contoso Milliken Store",
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      77994.0,
+      5598149.761,
+      0.01393210316439764,
+      1
+    ],
+    [
+      32,
+      "Contoso Milliken Store",
+      1909,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      63999.8,
+      5598149.761,
+      0.011432312948442396,
+      2
+    ],
+    [
+      32,
+      "Contoso Milliken Store",
+      622,
+      "WWI Projector 1080p LCD86 White",
+      58752.0,
+      5598149.761,
+      0.010494896083220379,
+      3
+    ],
+    [
+      33,
+      "Contoso Berthoud Store",
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      115870.8,
+      5967438.362,
+      0.019417175841790455,
+      1
+    ],
+    [
+      33,
+      "Contoso Berthoud Store",
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      60479.811,
+      5967438.362,
+      0.010134970372736295,
+      2
+    ],
+    [
+      33,
+      "Contoso Berthoud Store",
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      55114.85,
+      5967438.362,
+      0.009235931174583283,
+      3
+    ],
+    [
+      34,
+      "Contoso Denver No.1 Store",
+      564,
+      "Proseware Projector 1080p DLP86 Silver",
+      49980.0,
+      5398392.4735,
+      0.009258311663211827,
+      1
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "s.ProductKey",
+    "ProductName",
+    "product_sales",
+    "store_total_sales",
+    "sales_share",
+    "sales_rank"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 19262,
+  "latency_ms_exec": 1046,
+  "tokens_in": 17241,
+  "tokens_out": 340,
+  "claude_error": null,
+  "sql_error": null
+}

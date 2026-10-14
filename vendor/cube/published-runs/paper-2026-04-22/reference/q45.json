@@ -1,0 +1,75 @@
+{
+  "question_id": 45,
+  "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC LIMIT 10",
+  "rows": [
+    [
+      "Contoso Catalog Store",
+      1078007547.2267466,
+      462.0,
+      2333349.67
+    ],
+    [
+      "Contoso North America Online Store",
+      984249404.2534311,
+      500.0,
+      1968498.81
+    ],
+    [
+      "Contoso North America Reseller",
+      628168708.5233318,
+      450.0,
+      1395930.46
+    ],
+    [
+      "Contoso Europe Reseller",
+      523087943.2288077,
+      551.0,
+      949342.91
+    ],
+    [
+      "Contoso Europe Online Store",
+      806300456.3878686,
+      1000.0,
+      806300.46
+    ],
+    [
+      "Contoso Sydney No.1 Store",
+      37929553.43050009,
+      480.0,
+      79019.9
+    ],
+    [
+      "Contoso Tehran No.2 Store",
+      37733360.95600013,
+      480.0,
+      78611.17
+    ],
+    [
+      "Contoso Sydney  No.2 Store",
+      37719118.16500007,
+      480.0,
+      78581.5
+    ],
+    [
+      "Contoso Kolkata Store",
+      37649289.012000114,
+      480.0,
+      78436.02
+    ],
+    [
+      "Contoso Taipei  Store",
+      37610056.378500134,
+      480.0,
+      78354.28
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "total_sales",
+    "SellingAreaSize",
+    "sales_per_sqft"
+  ],
+  "row_count": 10,
+  "exec_ms": 630,
+  "error": null
+}

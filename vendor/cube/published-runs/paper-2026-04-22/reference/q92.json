@@ -1,0 +1,75 @@
+{
+  "question_id": 92,
+  "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso",
+      46655702.22799453,
+      22816177.46798987,
+      48.903298800418916
+    ],
+    [
+      "Fabrikam",
+      39588159.28450006,
+      20332736.69449982,
+      51.36065192720564
+    ],
+    [
+      "Litware",
+      25655528.508000206,
+      12492043.597998813,
+      48.691429584478826
+    ],
+    [
+      "Adventure Works",
+      21139108.5355002,
+      10635377.985499827,
+      50.31138360276256
+    ],
+    [
+      "Proseware",
+      17878095.906500816,
+      8814022.416500378,
+      49.30067755870709
+    ],
+    [
+      "Wide World Importers",
+      14940398.521000061,
+      7534179.651000032,
+      50.428237509261024
+    ],
+    [
+      "The Phone Company",
+      10319758.800000787,
+      4965669.200000141,
+      48.11807423250786
+    ],
+    [
+      "A. Datum",
+      9281605.09999958,
+      4831477.620000519,
+      52.054332929987915
+    ],
+    [
+      "Southridge Video",
+      7698815.94350197,
+      3567170.8434990533,
+      46.33401901898761
+    ],
+    [
+      "Northwind Traders",
+      4996094.432999932,
+      2345100.613000121,
+      46.93867668934337
+    ]
+  ],
+  "columns": [
+    "BrandName",
+    "revenue",
+    "gross_margin_dollars",
+    "gross_margin_pct"
+  ],
+  "row_count": 10,
+  "exec_ms": 505,
+  "error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 40,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the join condition `f.CurrencyKey = e.CurrencyKey`, causing it to cross-join all EUR exchange rates to all online sales by date regardless of the sale's currency, yielding ~53.9M instead of the correct 0.0.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 358,
+  "judge_latency_ms": 15993
+}

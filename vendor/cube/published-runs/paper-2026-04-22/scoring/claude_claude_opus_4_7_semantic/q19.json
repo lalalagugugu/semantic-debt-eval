@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate divides total sales by distinct order numbers (avg per order), while the reference averages per sales row; the resulting values differ by ~7\u20138x (e.g., F: 1681 vs 213), answering a different aggregation question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 270,
+  "judge_latency_ms": 17702
+}

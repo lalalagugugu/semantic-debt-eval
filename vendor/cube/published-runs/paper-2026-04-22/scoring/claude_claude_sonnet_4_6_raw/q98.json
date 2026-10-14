@@ -1,0 +1,11 @@
+{
+  "question_id": 98,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses FactSales instead of FactOnlineSales, omits the 2009 year filter (returning all years), and returns multiple rows per category \u2014 producing different tables, wrong values, and a different fact table altogether.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 314,
+  "judge_latency_ms": 12885
+}

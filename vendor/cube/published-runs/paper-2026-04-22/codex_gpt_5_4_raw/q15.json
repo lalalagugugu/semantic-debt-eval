@@ -1,0 +1,31 @@
+{
+  "question_id": 15,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    g.RegionCountryName AS country,\n    sum(os.SalesAmount) AS total_online_sales\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimStore AS s ON os.StoreKey = s.StoreKey\nINNER JOIN retail.DimGeography AS g ON s.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY total_online_sales DESC",
+  "rows": [
+    [
+      "United States",
+      1031261452.7981778
+    ],
+    [
+      "China",
+      849584948.8377887
+    ],
+    [
+      "Germany",
+      837356228.1884221
+    ]
+  ],
+  "columns": [
+    "country",
+    "total_online_sales"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 13144,
+  "latency_ms_exec": 824,
+  "tokens_in": 16366,
+  "tokens_out": 169,
+  "claude_error": null,
+  "sql_error": null
+}

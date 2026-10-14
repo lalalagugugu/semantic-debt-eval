@@ -1,0 +1,21 @@
+{
+  "question_id": 58,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT max(SalesAmount) AS LargestSingleOnlineSaleAmount FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "LargestSingleOnlineSaleAmount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6659,
+  "latency_ms_exec": 504,
+  "tokens_in": 13796,
+  "tokens_out": 62,
+  "claude_error": null,
+  "sql_error": null
+}

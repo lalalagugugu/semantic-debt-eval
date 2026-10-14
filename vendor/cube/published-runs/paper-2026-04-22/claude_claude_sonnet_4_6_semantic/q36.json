@@ -1,0 +1,35 @@
+{
+  "question_id": 36,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH customer_recency AS (\n    SELECT\n        CustomerKey,\n        dateDiff(\n            'month',\n            MAX(DateKey),\n            toDate('2009-12-31')\n        ) AS months_since_last_purchase\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncustomer_segments AS (\n    SELECT\n        CustomerKey,\n        months_since_last_purchase,\n        CASE\n            WHEN months_since_last_purchase <= 6  THEN 'Active'\n            WHEN months_since_last_purchase <= 12 THEN 'At Risk'\n            ELSE 'Churned'\n        END AS recency_segment\n    FROM customer_recency\n)\nSELECT\n    recency_segment,\n    count(CustomerKey)          AS customer_count,\n    round(\n        count(CustomerKey) * 100.0\n        / nullif(sum(count(CustomerKey)) OVER (), 0),\n        2\n    )                           AS pct_of_total\nFROM customer_segments\nGROUP BY recency_segment\nORDER BY\n    multiIf(\n        recency_segment = 'Active',   1,\n        recency_segment = 'At Risk',  2,\n        3\n    )",
+  "rows": [
+    [
+      "Active",
+      16890,
+      89.51
+    ],
+    [
+      "At Risk",
+      1841,
+      9.76
+    ],
+    [
+      "Churned",
+      138,
+      0.73
+    ]
+  ],
+  "columns": [
+    "recency_segment",
+    "customer_count",
+    "pct_of_total"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 10560,
+  "latency_ms_exec": 515,
+  "tokens_in": 16759,
+  "tokens_out": 475,
+  "claude_error": null,
+  "sql_error": null
+}

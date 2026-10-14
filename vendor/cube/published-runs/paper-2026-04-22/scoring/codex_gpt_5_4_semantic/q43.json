@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate groups by RegionCountryName (29 country-level rows) instead of ContinentName (3 rows), but the country values aggregate to the reference continent totals (e.g., US + Canada \u2248 524.35M = North America reference), making it a valid finer-grained OLAP breakdown of the same measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 816,
+  "judge_latency_ms": 20093
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 21,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses argMax to get OnHandQuantity at the latest DateKey per store/product, semantically equivalent to the reference CTE approach, with only an extra AsOfDate column and different row ordering \u2014 both acceptable.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 588,
+  "judge_latency_ms": 18404
+}

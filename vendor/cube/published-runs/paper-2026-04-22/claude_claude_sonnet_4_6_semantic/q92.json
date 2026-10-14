@@ -1,0 +1,87 @@
+{
+  "question_id": 92,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.BrandName,\n    sum(s.SalesAmount) AS total_sales,\n    sum(s.TotalCost)   AS total_cost,\n    sum(s.SalesAmount) - sum(s.TotalCost) AS gross_margin\nFROM retail.FactOnlineSales s\nJOIN retail.DimProduct p ON s.ProductKey = p.ProductKey\nWHERE toYear(s.DateKey) = 2009\n  AND toQuarter(s.DateKey) = 4\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin DESC",
+  "rows": [
+    [
+      "Contoso",
+      46655702.227994606,
+      23839524.76002289,
+      22816177.467971716
+    ],
+    [
+      "Fabrikam",
+      39588159.28449997,
+      19255422.589999203,
+      20332736.69450077
+    ],
+    [
+      "Litware",
+      25655528.508000504,
+      13163484.909999356,
+      12492043.598001149
+    ],
+    [
+      "Adventure Works",
+      21139108.53550014,
+      10503730.54999973,
+      10635377.985500408
+    ],
+    [
+      "Proseware",
+      17878095.906500857,
+      9064073.490000479,
+      8814022.416500378
+    ],
+    [
+      "Wide World Importers",
+      14940398.520999996,
+      7406218.870000077,
+      7534179.650999919
+    ],
+    [
+      "The Phone Company",
+      10319758.800000696,
+      5354089.599999913,
+      4965669.2000007825
+    ],
+    [
+      "A. Datum",
+      9281605.09999967,
+      4450127.480000172,
+      4831477.619999498
+    ],
+    [
+      "Southridge Video",
+      7698815.943501823,
+      4131645.10000066,
+      3567170.8435011627
+    ],
+    [
+      "Northwind Traders",
+      4996094.432999932,
+      2650993.8199998983,
+      2345100.613000034
+    ],
+    [
+      "Tailspin Toys",
+      300683.5124999797,
+      162600.1999999902,
+      138083.3124999895
+    ]
+  ],
+  "columns": [
+    "BrandName",
+    "total_sales",
+    "total_cost",
+    "gross_margin"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 9086,
+  "latency_ms_exec": 521,
+  "tokens_in": 16752,
+  "tokens_out": 289,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,39 @@
+{
+  "question_id": 63,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    c.Occupation,\n    sum(f.SalesAmount) / nullIf(countDistinct(f.SalesOrderNumber), 0) AS average_order_value\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimCustomer AS c\n    ON f.CustomerKey = c.CustomerKey\nGROUP BY c.Occupation\nORDER BY average_order_value DESC",
+  "rows": [
+    [
+      "Management",
+      1848.7999003559346
+    ],
+    [
+      "Clerical",
+      1700.4820648514694
+    ],
+    [
+      "Professional",
+      1665.256059352378
+    ],
+    [
+      "Manual",
+      1534.3909634733702
+    ],
+    [
+      "Skilled Manual",
+      1405.7568213820286
+    ]
+  ],
+  "columns": [
+    "Occupation",
+    "average_order_value"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 10813,
+  "latency_ms_exec": 867,
+  "tokens_in": 18823,
+  "tokens_out": 130,
+  "claude_error": null,
+  "sql_error": null
+}

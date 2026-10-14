@@ -1,0 +1,11 @@
+{
+  "question_id": 28,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Online avg differs (1623.47 vs 215.26) because candidate averages per-order totals instead of per-row SalesAmount, and Store avg differs (3644.55 vs 3193.77) because candidate omits the channelKey = 1 filter \u2014 both measures answer a different question than the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 319,
+  "judge_latency_ms": 13970
+}

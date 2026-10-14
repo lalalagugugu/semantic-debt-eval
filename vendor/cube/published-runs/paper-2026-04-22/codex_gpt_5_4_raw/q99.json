@@ -1,0 +1,78 @@
+{
+  "question_id": 99,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH daily_category_sales AS (\n    SELECT\n        pc.ProductCategoryName AS product_category,\n        fs.DateKey AS sales_date,\n        dd.CalendarDayOfWeekLabel AS day_name,\n        sum(fs.SalesAmount) AS daily_sales\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimDate AS dd\n        ON fs.DateKey = dd.DateKey\n    INNER JOIN retail.DimProduct AS p\n        ON fs.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS ps\n        ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    GROUP BY\n        pc.ProductCategoryName,\n        fs.DateKey,\n        dd.CalendarDayOfWeekLabel\n)\nSELECT\n    product_category,\n    avgIf(daily_sales, lower(day_name) IN ('saturday', 'sunday')) AS avg_weekend_day_sales,\n    avgIf(daily_sales, lower(day_name) NOT IN ('saturday', 'sunday')) AS avg_weekday_sales,\n    avgIf(daily_sales, lower(day_name) IN ('saturday', 'sunday'))\n        - avgIf(daily_sales, lower(day_name) NOT IN ('saturday', 'sunday')) AS weekend_minus_weekday,\n    if(\n        avgIf(daily_sales, lower(day_name) NOT IN ('saturday', 'sunday')) = 0,\n        NULL,\n        (\n            avgIf(daily_sales, lower(day_name) IN ('saturday', 'sunday'))\n            / avgIf(daily_sales, lower(day_name) NOT IN ('saturday', 'sunday'))\n            - 1\n        ) * 100\n    ) AS weekend_pct_bigger_than_weekday\nFROM daily_category_sales\nGROUP BY product_category\nORDER BY product_category;",
+  "rows": [
+    [
+      "Audio",
+      140382.2774673077,
+      137519.2522207908,
+      2863.0252465168887,
+      2.0819086784446883
+    ],
+    [
+      "Cameras and camcorders",
+      2339538.3414205126,
+      2320258.17457513,
+      19280.166845382657,
+      0.8309492045605271
+    ],
+    [
+      "Cell phones",
+      811189.4620227567,
+      805178.3708506381,
+      6011.091172118555,
+      0.7465539798054976
+    ],
+    [
+      "Computers",
+      2390431.7502804496,
+      2392378.1440146677,
+      -1946.393734218087,
+      -0.08135811385368008
+    ],
+    [
+      "Games and Toys",
+      29718.432067307698,
+      29553.801311989817,
+      164.63075531788127,
+      0.5570544160459434
+    ],
+    [
+      "Home Appliances",
+      3584275.186743909,
+      3577095.5726108407,
+      7179.61413306836,
+      0.20071071592386858
+    ],
+    [
+      "Music, Movies and Audio Books",
+      149159.35709166666,
+      152126.2583781887,
+      -2966.901286522043,
+      -1.9502887392038981
+    ],
+    [
+      "TV and Video",
+      1240549.6608535254,
+      1241160.230328955,
+      -610.5694754295982,
+      -0.049193445012962744
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "avg_weekend_day_sales",
+    "avg_weekday_sales",
+    "weekend_minus_weekday",
+    "weekend_pct_bigger_than_weekday"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 25530,
+  "latency_ms_exec": 691,
+  "tokens_in": 16375,
+  "tokens_out": 796,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 63,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses AVG(SalesAmount) per row (~$231 for Management) instead of SUM/COUNT(DISTINCT SalesOrderNumber) (~$1849), measuring average line-item value rather than average order value; values and row ordering both differ.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 480,
+  "judge_latency_ms": 17043
+}

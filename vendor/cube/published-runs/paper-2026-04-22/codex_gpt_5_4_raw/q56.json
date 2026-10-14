@@ -1,0 +1,21 @@
+{
+  "question_id": 56,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT avg(YearlyIncome) AS average_yearly_income\nFROM retail.DimCustomer;",
+  "rows": [
+    [
+      260174.8900312682
+    ]
+  ],
+  "columns": [
+    "average_yearly_income"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9886,
+  "latency_ms_exec": 503,
+  "tokens_in": 16366,
+  "tokens_out": 77,
+  "claude_error": null,
+  "sql_error": null
+}

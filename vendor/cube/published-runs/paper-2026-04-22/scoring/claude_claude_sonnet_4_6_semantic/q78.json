@@ -1,0 +1,11 @@
+{
+  "question_id": 78,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits the explicit `rnk` column present in the reference, causing a strict fail, but returns the same single row with matching category, discount total (~84.16M), and 100% share \u2014 correctly answering the question analytically.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 517,
+  "judge_latency_ms": 19151
+}

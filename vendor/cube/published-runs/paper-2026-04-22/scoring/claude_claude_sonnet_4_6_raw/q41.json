@@ -1,0 +1,11 @@
+{
+  "question_id": 41,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries the wrong table (FactSales instead of FactOnlineSales) and uses a dynamic \"last quarter\" relative to today (2026), returning 0 instead of ~210.7M from Q4 2009.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 254,
+  "judge_latency_ms": 12236
+}

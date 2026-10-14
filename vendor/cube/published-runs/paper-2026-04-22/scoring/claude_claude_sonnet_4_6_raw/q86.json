@@ -1,0 +1,11 @@
+{
+  "question_id": 86,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, adds a DiscountPercent > 0 filter, and uses different observation thresholds, producing correlation values an order of magnitude larger (0.07 vs 0.008) with different subcategory rankings and row counts \u2014 a genuinely different result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 299,
+  "judge_latency_ms": 15489
+}

@@ -1,0 +1,30 @@
+{
+  "question_id": 81,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    toYear(first_purchase_date) AS first_purchase_year,\n    count() AS customer_count,\n    avg(customer_lifetime_value) AS avg_customer_lifetime_value\nFROM\n(\n    SELECT\n        CustomerKey,\n        min(DateKey) AS first_purchase_date,\n        sum(SalesAmount) AS customer_lifetime_value\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nGROUP BY first_purchase_year\nORDER BY first_purchase_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      144060.93374646633
+    ],
+    [
+      2009,
+      1,
+      60931.880000000085
+    ]
+  ],
+  "columns": [
+    "first_purchase_year",
+    "customer_count",
+    "avg_customer_lifetime_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 13025,
+  "latency_ms_exec": 1584,
+  "tokens_in": 18839,
+  "tokens_out": 180,
+  "claude_error": null,
+  "sql_error": null
+}

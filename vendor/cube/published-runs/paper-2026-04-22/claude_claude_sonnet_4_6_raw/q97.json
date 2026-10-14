@@ -1,0 +1,162 @@
+{
+  "question_id": 97,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductName,\n    sumIf(fs.SalesAmount, toMonth(fs.DateKey) <= 6) AS h1_sales,\n    sumIf(fs.SalesAmount, toMonth(fs.DateKey) > 6)  AS h2_sales,\n    h2_sales - h1_sales                              AS comeback,\n    if(h1_sales > 0, round(h2_sales / h1_sales, 2), NULL) AS h2_to_h1_ratio\nFROM retail.FactSales AS fs\nJOIN retail.DimProduct AS p ON fs.ProductKey = p.ProductKey\nWHERE toYear(fs.DateKey) = 2009\nGROUP BY p.ProductName\nHAVING h2_sales > h1_sales\nORDER BY comeback DESC\nLIMIT 20",
+  "rows": [
+    [
+      "WWI Laptop16 M0160 White",
+      477522.8,
+      3278896.0499999984,
+      2801373.2499999986,
+      6.87
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Silver",
+      2067692.8699999985,
+      4572124.233999997,
+      2504431.363999999,
+      2.21
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 White",
+      1666624.2529999993,
+      3889176.588999997,
+      2222552.3359999973,
+      2.33
+    ],
+    [
+      "Proseware Laptop15.4W M518 White",
+      1634020.6,
+      3797617.9000000027,
+      2163597.3000000026,
+      2.32
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Black",
+      2521251.305999997,
+      4318955.106999997,
+      1797703.801,
+      1.71
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      3010646.591699996,
+      4709585.282499995,
+      1698938.690799999,
+      1.56
+    ],
+    [
+      "WWI Laptop19W X0196 Blue",
+      3210478.5,
+      4898464.049999999,
+      1687985.5499999989,
+      1.53
+    ],
+    [
+      "Adventure Works Laptop12 M1201 Silver",
+      342012.64499999996,
+      1864009.1250000033,
+      1521996.4800000032,
+      5.45
+    ],
+    [
+      "Fabrikam Laptop12W M2080 Silver",
+      0.0,
+      1519032.8999999992,
+      1519032.8999999992,
+      null
+    ],
+    [
+      "Adventure Works 52\" LCD HDTV X590 Brown",
+      2172382.508999998,
+      3681827.3039999963,
+      1509444.794999998,
+      1.69
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      3221685.9321999964,
+      4684145.361999995,
+      1462459.4297999986,
+      1.45
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 White",
+      726643.2240000002,
+      2132882.238,
+      1406239.0139999997,
+      2.94
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Pink",
+      812979.2800000003,
+      2078880.0999999999,
+      1265900.8199999996,
+      2.56
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      3640116.6245999965,
+      4828144.911999996,
+      1188028.2873999993,
+      1.33
+    ],
+    [
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      3827540.038899994,
+      5005744.356999998,
+      1178204.318100004,
+      1.31
+    ],
+    [
+      "WWI Laptop19W X0196 Black",
+      3467031.000000001,
+      4580728.649999998,
+      1113697.6499999966,
+      1.32
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      481860.49999999994,
+      1581933.0500000003,
+      1100072.5500000003,
+      3.28
+    ],
+    [
+      "Fabrikam Laptop17 M7000 Black",
+      3997506.240000001,
+      5089962.150000002,
+      1092455.910000001,
+      1.27
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Black",
+      738005.104,
+      1825609.8000000003,
+      1087604.6960000002,
+      2.47
+    ],
+    [
+      "Contoso Projector 1080p X981 White",
+      2701543.949999999,
+      3773115.149999998,
+      1071571.1999999993,
+      1.4
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "h1_sales",
+    "h2_sales",
+    "comeback",
+    "h2_to_h1_ratio"
+  ],
+  "row_count": 20,
+  "latency_ms_gen": 8825,
+  "latency_ms_exec": 525,
+  "tokens_in": 13810,
+  "tokens_out": 273,
+  "claude_error": null,
+  "sql_error": null
+}

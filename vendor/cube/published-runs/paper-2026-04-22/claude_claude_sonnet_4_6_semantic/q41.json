@@ -1,0 +1,21 @@
+{
+  "question_id": 41,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    sum(SalesAmount) AS total_sales\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009\n  AND toQuarter(DateKey) = 4",
+  "rows": [
+    [
+      210717984.698202
+    ]
+  ],
+  "columns": [
+    "total_sales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7550,
+  "latency_ms_exec": 482,
+  "tokens_in": 16749,
+  "tokens_out": 136,
+  "claude_error": null,
+  "sql_error": null
+}

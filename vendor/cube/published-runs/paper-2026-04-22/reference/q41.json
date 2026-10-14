@@ -1,0 +1,15 @@
+{
+  "question_id": 41,
+  "sql": "-- Ambiguous: assuming last quarter of available data (Q4 2009)\nSELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE DateKey >= '2009-10-01' AND DateKey <= '2009-12-31'",
+  "rows": [
+    [
+      210717984.6982019
+    ]
+  ],
+  "columns": [
+    "sum(SalesAmount)"
+  ],
+  "row_count": 1,
+  "exec_ms": 494,
+  "error": null
+}

@@ -1,0 +1,80 @@
+{
+  "question_id": 77,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    toMonth(DateKey) AS month,\n    sum(SalesAmount) AS monthly_online_sales,\n    (monthly_online_sales - lagInFrame(monthly_online_sales) OVER (ORDER BY month)) / lagInFrame(monthly_online_sales) OVER (ORDER BY month) AS mom_growth_rate\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009\nGROUP BY month\nORDER BY month",
+  "rows": [
+    [
+      1,
+      57453262.781200886,
+      Infinity
+    ],
+    [
+      2,
+      59891424.711600766,
+      0.04243731012606065
+    ],
+    [
+      3,
+      60807494.09499969,
+      0.015295501614966395
+    ],
+    [
+      4,
+      69888328.73790286,
+      0.14933742588892351
+    ],
+    [
+      5,
+      82082708.7124054,
+      0.1744837828392525
+    ],
+    [
+      6,
+      81822800.06200582,
+      -0.00316642389702595
+    ],
+    [
+      7,
+      82779485.68640336,
+      0.011692164331611285
+    ],
+    [
+      8,
+      77599793.89820383,
+      -0.06257216682671779
+    ],
+    [
+      9,
+      74684747.96300392,
+      -0.0375651247092731
+    ],
+    [
+      10,
+      75213262.40720837,
+      0.007076604777005558
+    ],
+    [
+      11,
+      67175159.95190069,
+      -0.10687081238131899
+    ],
+    [
+      12,
+      68329562.33910024,
+      0.01718495926211617
+    ]
+  ],
+  "columns": [
+    "month",
+    "monthly_online_sales",
+    "mom_growth_rate"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 11316,
+  "latency_ms_exec": 494,
+  "tokens_in": 16377,
+  "tokens_out": 164,
+  "claude_error": null,
+  "sql_error": null
+}

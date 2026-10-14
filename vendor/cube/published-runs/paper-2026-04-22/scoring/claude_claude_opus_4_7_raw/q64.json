@@ -1,0 +1,11 @@
+{
+  "question_id": 64,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Same 12 monthly gross margin dollars and margin percent values within negligible float drift; month shown as date string vs integer and extra Revenue/Cost columns are minor differences that don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 364,
+  "judge_latency_ms": 15593
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 39,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n    psc.ProductSubcategoryName AS SubcategoryName,\n    p.ProductKey,\n    p.ProductName,\n    toDate(p.AvailableForSaleDate) AS AvailableForSaleDate,\n    minIf(toDate(p.AvailableForSaleDate), 1) AS FirstIntroInSubcategory,\n    CASE WHEN toDate(p.AvailableForSaleDate) = min(toDate(p.AvailableForSaleDate)) OVER (PARTITION BY psc.ProductSubcategoryKey) THEN 'First/Existing' ELSE 'New Introduction' END AS ProductStatus,\n    sumIf(fs.SalesAmount, fs.DateKey <  addMonths(toDate(p.AvailableForSaleDate), 0)) AS SalesBeforeNewIntro_Placeholder,\n    sum(fs.SalesAmount) AS TotalSalesAmount,\n    sum(fs.SalesQuantity) AS TotalSalesQuantity,\n    sumIf(fs.SalesAmount, fs.DateKey <  addMonths((min(toDate(p.AvailableForSaleDate)) OVER (PARTITION BY psc.ProductSubcategoryKey)), 6)) AS SalesFirst6MonthsOfSubcategory,\n    sumIf(fs.SalesAmount, fs.DateKey >= addMonths((min(toDate(p.AvailableForSaleDate)) OVER (PARTITION BY psc.ProductSubcategoryKey)), 6)) AS SalesAfterNewIntroWindow,\n    countDistinct(fs.DateKey) AS ActiveSalesDays\nFROM retail.DimProduct AS p\nINNER JOIN retail.DimProductSubcategory AS psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nLEFT JOIN retail.FactSales AS fs ON fs.ProductKey = p.ProductKey\nWHERE p.AvailableForSaleDate IS NOT NULL\nGROUP BY\n    psc.ProductSubcategoryKey,\n    psc.ProductSubcategoryName,\n    p.ProductKey,\n    p.ProductName,\n    p.AvailableForSaleDate\nORDER BY\n    SubcategoryName ASC,\n    AvailableForSaleDate ASC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 15138,
+  "latency_ms_exec": null,
+  "tokens_in": 19123,
+  "tokens_out": 829,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Window function min(toDate(p.AvailableForSaleDate)) OVER (PARTITION BY psc.ProductSubcategoryKey) is found inside an aggregate function in query. (ILLEGAL_AGGREGATION) (for url https://clickhouse.vanya.cc:443)"
+}

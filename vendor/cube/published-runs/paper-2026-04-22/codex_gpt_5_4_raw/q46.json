@@ -1,0 +1,23 @@
+{
+  "question_id": 46,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    coalesce(c.Occupation, 'Unknown') AS customer_segment,\n    sum(os.SalesAmount - os.ReturnAmount - os.DiscountAmount - os.TotalCost) AS total_profit\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimCustomer AS c\n    ON os.CustomerKey = c.CustomerKey\nGROUP BY customer_segment\nORDER BY total_profit DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Professional",
+      261630830.32910746
+    ]
+  ],
+  "columns": [
+    "customer_segment",
+    "total_profit"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 14177,
+  "latency_ms_exec": 654,
+  "tokens_in": 16364,
+  "tokens_out": 320,
+  "claude_error": null,
+  "sql_error": null
+}

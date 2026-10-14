@@ -1,0 +1,135 @@
+{
+  "question_id": 43,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    g.RegionCountryName AS region,\n    sum(f.SalesAmount) - sum(f.TotalCost) AS gross_margin\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimCustomer AS c\n    ON f.CustomerKey = c.CustomerKey\nINNER JOIN retail.DimGeography AS g\n    ON c.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY gross_margin DESC",
+  "rows": [
+    [
+      "United States",
+      487286320.0835653
+    ],
+    [
+      "Australia",
+      297744642.4019566
+    ],
+    [
+      "United Kingdom",
+      175314924.76777434
+    ],
+    [
+      "Germany",
+      124880482.26584943
+    ],
+    [
+      "France",
+      54227832.71235498
+    ],
+    [
+      "Canada",
+      37062717.07551303
+    ],
+    [
+      "Japan",
+      35541222.241912715
+    ],
+    [
+      "China",
+      24065082.097472027
+    ],
+    [
+      "India",
+      16618375.417955492
+    ],
+    [
+      "Russia",
+      11587937.96197428
+    ],
+    [
+      "South Korea",
+      11509890.900589496
+    ],
+    [
+      "Spain",
+      7730718.126006151
+    ],
+    [
+      "Portugal",
+      7459042.639006597
+    ],
+    [
+      "Ireland",
+      7217944.252006803
+    ],
+    [
+      "Switzerland",
+      6997879.370201707
+    ],
+    [
+      "Italy",
+      6868263.702006025
+    ],
+    [
+      "Greece",
+      6771797.824699441
+    ],
+    [
+      "Singapore",
+      6451386.382004603
+    ],
+    [
+      "the Netherlands",
+      5478107.91910008
+    ],
+    [
+      "Poland",
+      5346763.461999358
+    ],
+    [
+      "Pakistan",
+      4859592.329003094
+    ],
+    [
+      "Taiwan",
+      4688027.798098494
+    ],
+    [
+      "Syria",
+      4282090.985601699
+    ],
+    [
+      "Kyrgyzstan",
+      4129688.2099988377
+    ],
+    [
+      "Iran",
+      4124117.8259980697
+    ],
+    [
+      "Bhutan",
+      4112908.299996527
+    ],
+    [
+      "Turkmenistan",
+      4080068.3291985337
+    ],
+    [
+      "Thailand",
+      3949977.6938986043
+    ],
+    [
+      "Armenia",
+      3559919.013998839
+    ]
+  ],
+  "columns": [
+    "region",
+    "gross_margin"
+  ],
+  "row_count": 29,
+  "latency_ms_gen": 14619,
+  "latency_ms_exec": 626,
+  "tokens_in": 18817,
+  "tokens_out": 257,
+  "claude_error": null,
+  "sql_error": null
+}

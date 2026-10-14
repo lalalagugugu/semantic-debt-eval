@@ -1,0 +1,15 @@
+{
+  "question_id": 56,
+  "sql": "SELECT avg(YearlyIncome) AS avg_yearly_income FROM retail.DimCustomer",
+  "rows": [
+    [
+      260174.8900312682
+    ]
+  ],
+  "columns": [
+    "avg_yearly_income"
+  ],
+  "row_count": 1,
+  "exec_ms": 502,
+  "error": null
+}

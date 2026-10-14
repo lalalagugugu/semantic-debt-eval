@@ -1,0 +1,43 @@
+{
+  "question_id": 79,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH actual AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmount) AS actual_sales\n    FROM retail.FactOnlineSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nquota AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmountQuota) AS quota_sales\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n)\nSELECT\n    a.StoreKey,\n    st.StoreName,\n    a.actual_sales,\n    q.quota_sales,\n    a.actual_sales / nullif(q.quota_sales, 0) AS attainment_ratio\nFROM actual a\nJOIN quota q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore st ON a.StoreKey = st.StoreKey\nORDER BY attainment_ratio DESC\nLIMIT 10",
+  "rows": [
+    [
+      307,
+      "Contoso Asia Online Store",
+      301493699.668802,
+      895087322.9583007,
+      0.33683160506882487
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      248148102.50763553,
+      744867948.666797,
+      0.33314375111962297
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      308086229.167732,
+      929497154.3133113,
+      0.33145473091344557
+    ]
+  ],
+  "columns": [
+    "a.StoreKey",
+    "StoreName",
+    "actual_sales",
+    "quota_sales",
+    "attainment_ratio"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 21190,
+  "latency_ms_exec": 547,
+  "tokens_in": 16763,
+  "tokens_out": 1348,
+  "claude_error": null,
+  "sql_error": null
+}

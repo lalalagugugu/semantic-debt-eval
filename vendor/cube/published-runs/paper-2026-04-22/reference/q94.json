@@ -1,0 +1,135 @@
+{
+  "question_id": 94,
+  "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC\nLIMIT 20",
+  "rows": [
+    [
+      "Contoso Moscow  No.1 Store",
+      1292195.9249999996,
+      934605.7279999998,
+      -27.673063355311225
+    ],
+    [
+      "Contoso Ljubljana Store",
+      1354045.6820000014,
+      997670.2139999998,
+      -26.319309070401157
+    ],
+    [
+      "Contoso York Store",
+      1309968.6269999999,
+      965536.1199999995,
+      -26.293187477992966
+    ],
+    [
+      "Contoso Berlin Store",
+      1087147.895,
+      804672.7279999991,
+      -25.9831406839086
+    ],
+    [
+      "Contoso Firenze Store",
+      1436746.2390000012,
+      1091336.7159999995,
+      -24.041094636197712
+    ],
+    [
+      "Contoso Leeds Store",
+      1413943.352,
+      1076795.1920000003,
+      -23.844530937049853
+    ],
+    [
+      "Contoso Toulouse Store",
+      1425770.7920000006,
+      1086987.4280000003,
+      -23.761418448246634
+    ],
+    [
+      "Contoso Naples Store",
+      1268885.3880000005,
+      969008.2980000001,
+      -23.633110825924362
+    ],
+    [
+      "Contoso Manchester Store",
+      1369355.3100000003,
+      1049028.5539999998,
+      -23.392523011430868
+    ],
+    [
+      "Contoso Nice Store",
+      1410936.5160000008,
+      1081500.482,
+      -23.348749590374943
+    ],
+    [
+      "Contoso Munich Store",
+      1370690.995,
+      1053968.950000001,
+      -23.10674296069182
+    ],
+    [
+      "Contoso Warsaw Store",
+      1281831.9239999992,
+      989612.0979999996,
+      -22.797046986325466
+    ],
+    [
+      "Contoso West Yorkshire Store",
+      1337472.5430000005,
+      1033806.3279999999,
+      -22.70448216595655
+    ],
+    [
+      "Contoso London Store",
+      1359586.8359999994,
+      1053194.4539999994,
+      -22.535697896386527
+    ],
+    [
+      "Contoso Nantes Store",
+      1392425.4789999996,
+      1081877.6959999998,
+      -22.302650137013178
+    ],
+    [
+      "Contoso Milan Store",
+      1367721.136,
+      1065652.7880000002,
+      -22.085521679033246
+    ],
+    [
+      "Contoso Paris Store",
+      1327784.831999998,
+      1037918.5099999999,
+      -21.830820402081425
+    ],
+    [
+      "Contoso Baumholder Store",
+      1393345.217,
+      1096322.4400000002,
+      -21.317242372964618
+    ],
+    [
+      "Contoso Hofheim Store",
+      1448246.7400000002,
+      1146244.4319999998,
+      -20.852959627583928
+    ],
+    [
+      "Contoso Cheshire Store",
+      1273882.8839999998,
+      1026988.5519999997,
+      -19.381242585248536
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "q3_sales",
+    "q4_sales",
+    "qoq_pct_change"
+  ],
+  "row_count": 20,
+  "exec_ms": 525,
+  "error": null
+}

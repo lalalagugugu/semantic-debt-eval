@@ -1,0 +1,11 @@
+{
+  "question_id": 58,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query returns the identical value (3199.99) as the reference, using the same MAX aggregation on SalesAmount from FactOnlineSales \u2014 only the alias differs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 160,
+  "judge_latency_ms": 14723
+}

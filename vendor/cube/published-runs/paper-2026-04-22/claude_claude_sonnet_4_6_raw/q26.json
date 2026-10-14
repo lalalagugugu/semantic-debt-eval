@@ -1,0 +1,27 @@
+{
+  "question_id": 26,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toQuarter(first_purchase) AS quarter,\n    count() AS new_customers\nFROM (\n    SELECT\n        CustomerKey,\n        min(DateKey) AS first_purchase\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nWHERE toYear(first_purchase) = 2007\nGROUP BY quarter\nORDER BY quarter",
+  "rows": [
+    [
+      1,
+      18015
+    ],
+    [
+      2,
+      853
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "new_customers"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 13377,
+  "latency_ms_exec": 591,
+  "tokens_in": 13800,
+  "tokens_out": 213,
+  "claude_error": null,
+  "sql_error": null
+}

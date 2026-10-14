@@ -1,0 +1,11 @@
+{
+  "question_id": 21,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate's ProductName column is empty string (\"\") for all returned rows (due to ClickHouse LEFT JOIN returning '' instead of NULL on no-match), while the reference returns actual product names \u2014 the candidate fails to correctly join DimProduct and does not produce the expected result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 975,
+  "judge_latency_ms": 24816
+}

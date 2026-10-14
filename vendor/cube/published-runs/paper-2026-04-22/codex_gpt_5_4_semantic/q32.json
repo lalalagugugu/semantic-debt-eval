@@ -1,0 +1,21 @@
+{
+  "question_id": 32,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT sum(f.SalesAmount) AS total_lifetime_value\nFROM retail.FactOnlineSales AS f\nWHERE f.CustomerKey IN (\n    SELECT CustomerKey\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING countDistinct(toYear(DateKey)) = 3\n)",
+  "rows": [
+    [
+      1191133222.2768996
+    ]
+  ],
+  "columns": [
+    "total_lifetime_value"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 12062,
+  "latency_ms_exec": 557,
+  "tokens_in": 18830,
+  "tokens_out": 193,
+  "claude_error": null,
+  "sql_error": null
+}

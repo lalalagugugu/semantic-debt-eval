@@ -1,0 +1,11 @@
+{
+  "question_id": 61,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same 30 subcategories with matching sales values within negligible floating-point precision differences (well under 1%).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 173,
+  "judge_latency_ms": 10631
+}

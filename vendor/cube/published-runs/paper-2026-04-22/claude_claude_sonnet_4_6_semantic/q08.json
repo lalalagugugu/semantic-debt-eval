@@ -1,0 +1,159 @@
+{
+  "question_id": 8,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    EmployeeKey,\n    FirstName,\n    LastName,\n    Title,\n    DepartmentName,\n    EmailAddress\nFROM retail.DimEmployee\nWHERE IsSalesPerson = 'Yes'\nORDER BY LastName, FirstName",
+  "rows": [
+    [
+      281,
+      "Inbar",
+      "Gazit",
+      "Sales Store Manager",
+      "Sales",
+      "michael9@contoso.com"
+    ],
+    [
+      283,
+      "Christa",
+      "Geller",
+      "Sales Store Manager",
+      "Sales",
+      "jillian0@contoso.com"
+    ],
+    [
+      285,
+      "Tom",
+      "Getzinger",
+      "Sales Store Manager",
+      "Sales",
+      "tsvi0@contoso.com"
+    ],
+    [
+      287,
+      "Leo",
+      "Giakoumakis",
+      "Sales Store Manager",
+      "Sales",
+      "shu0@contoso.com"
+    ],
+    [
+      289,
+      "Enrique",
+      "Gil",
+      "Sales Store Manager",
+      "Sales",
+      "david8@contoso.com"
+    ],
+    [
+      291,
+      "Eric",
+      "Gilmore",
+      "Sales Store Manager",
+      "Sales",
+      "jae0@contoso.com"
+    ],
+    [
+      293,
+      "Stuart",
+      "Glasson",
+      "Sales Store Manager",
+      "Sales",
+      "tete0@contoso.com"
+    ],
+    [
+      295,
+      "Gerhard",
+      "Goeschl",
+      "Sales Store Manager",
+      "Sales",
+      "rachel0@contoso.com"
+    ],
+    [
+      296,
+      "Jossef",
+      "Goldberg",
+      "Sales Store Manager",
+      "Sales",
+      "lynn0@contoso.com"
+    ],
+    [
+      294,
+      "Daniel",
+      "Goldschmidt",
+      "Sales Store Manager",
+      "Sales",
+      "syed0@contoso.com"
+    ],
+    [
+      292,
+      "Nuria",
+      "Gonzalez",
+      "Sales Store Manager",
+      "Sales",
+      "ranjit0@contoso.com"
+    ],
+    [
+      290,
+      "Mojca",
+      "Gostincar",
+      "Sales Store Manager",
+      "Sales",
+      "amy0@contoso.com"
+    ],
+    [
+      288,
+      "Nikolay",
+      "Grachev",
+      "Sales Store Manager",
+      "Sales",
+      "jos\u00e91@contoso.com"
+    ],
+    [
+      286,
+      "Kirk",
+      "Gregersen",
+      "Sales Store Manager",
+      "Sales",
+      "pamela0@contoso.com"
+    ],
+    [
+      284,
+      "Carlos",
+      "Grilo",
+      "Sales Store Manager",
+      "Sales",
+      "garrett1@contoso.com"
+    ],
+    [
+      282,
+      "Seth",
+      "Grossman",
+      "Sales Store Manager",
+      "Sales",
+      "linda3@contoso.com"
+    ],
+    [
+      272,
+      "Dean",
+      "Halstead",
+      "Sales Store Manager",
+      "Sales",
+      "stephen0@contoso.com"
+    ]
+  ],
+  "columns": [
+    "EmployeeKey",
+    "FirstName",
+    "LastName",
+    "Title",
+    "DepartmentName",
+    "EmailAddress"
+  ],
+  "row_count": 17,
+  "latency_ms_gen": 8239,
+  "latency_ms_exec": 491,
+  "tokens_in": 16749,
+  "tokens_out": 114,
+  "claude_error": null,
+  "sql_error": null
+}

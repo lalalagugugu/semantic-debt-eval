@@ -1,0 +1,11 @@
+{
+  "question_id": 46,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate segments by Occupation (returning \"Professional\") while the reference segments by Education (returning \"Partial College\"), answering a genuinely different question with different dimensions and non-matching values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 212,
+  "judge_latency_ms": 12184
+}

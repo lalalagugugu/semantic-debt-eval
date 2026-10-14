@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same sales_2009 and sales_2008 values (within floating-point precision) and the same growth percentage (-9.537 vs -9.54 rounded), which are numerically equivalent; only rounding differs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 227,
+  "judge_latency_ms": 11596
+}

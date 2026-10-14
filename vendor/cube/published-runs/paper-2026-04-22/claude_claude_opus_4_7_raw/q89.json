@@ -1,0 +1,27 @@
+{
+  "question_id": 89,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n    segment,\n    count() AS customer_count,\n    avg(total_spend) AS avg_spend,\n    avg(distinct_products) AS avg_product_variety\nFROM\n(\n    SELECT\n        CustomerKey,\n        sum(SalesAmount) AS total_spend,\n        uniqExact(ProductKey) AS distinct_products,\n        max(DateKey) AS last_purchase,\n        multiIf(\n            dateDiff('day', max(DateKey), toDate('2026-04-23')) <= 90, 'Active',\n            dateDiff('day', max(DateKey), toDate('2026-04-23')) <= 180, 'At Risk',\n            'Churned'\n        ) AS segment\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nGROUP BY segment\nORDER BY segment;",
+  "rows": [
+    [
+      "Churned",
+      18869,
+      144056.52815773647,
+      86.3388096878478
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customer_count",
+    "avg_spend",
+    "avg_product_variety"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 10420,
+  "latency_ms_exec": 625,
+  "tokens_in": 19150,
+  "tokens_out": 356,
+  "claude_error": null,
+  "sql_error": null
+}

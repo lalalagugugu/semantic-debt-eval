@@ -1,0 +1,135 @@
+{
+  "question_id": 15,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    g.RegionCountryName AS Country,\n    sum(f.SalesAmount) AS TotalOnlineSales\nFROM retail.FactOnlineSales f\nJOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY TotalOnlineSales DESC",
+  "rows": [
+    [
+      "United States",
+      953619327.9227815
+    ],
+    [
+      "Australia",
+      597895913.4918689
+    ],
+    [
+      "United Kingdom",
+      344840923.73783135
+    ],
+    [
+      "Germany",
+      245542232.75596726
+    ],
+    [
+      "France",
+      120282308.4323521
+    ],
+    [
+      "Canada",
+      78198327.87550212
+    ],
+    [
+      "Japan",
+      65383370.29191557
+    ],
+    [
+      "China",
+      46976106.77747549
+    ],
+    [
+      "India",
+      29501320.347959302
+    ],
+    [
+      "Russia",
+      23635814.67197873
+    ],
+    [
+      "South Korea",
+      21359978.45059045
+    ],
+    [
+      "Spain",
+      13624008.936005568
+    ],
+    [
+      "Switzerland",
+      13504432.46020175
+    ],
+    [
+      "Greece",
+      13096318.104698736
+    ],
+    [
+      "Portugal",
+      13020482.359005691
+    ],
+    [
+      "Italy",
+      12933040.402004346
+    ],
+    [
+      "Ireland",
+      12886836.462006673
+    ],
+    [
+      "the Netherlands",
+      11803685.799099829
+    ],
+    [
+      "Poland",
+      11575240.71199913
+    ],
+    [
+      "Singapore",
+      11235199.702004554
+    ],
+    [
+      "Pakistan",
+      9423419.85900258
+    ],
+    [
+      "Taiwan",
+      8921717.02809796
+    ],
+    [
+      "Turkmenistan",
+      8808346.209197998
+    ],
+    [
+      "Kyrgyzstan",
+      8787155.089998577
+    ],
+    [
+      "Thailand",
+      8554068.063898332
+    ],
+    [
+      "Bhutan",
+      8522927.499996422
+    ],
+    [
+      "Syria",
+      8432194.8256016
+    ],
+    [
+      "Iran",
+      8356473.265997167
+    ],
+    [
+      "Armenia",
+      7481458.273998031
+    ]
+  ],
+  "columns": [
+    "Country",
+    "TotalOnlineSales"
+  ],
+  "row_count": 29,
+  "latency_ms_gen": 8662,
+  "latency_ms_exec": 612,
+  "tokens_in": 16751,
+  "tokens_out": 196,
+  "claude_error": null,
+  "sql_error": null
+}

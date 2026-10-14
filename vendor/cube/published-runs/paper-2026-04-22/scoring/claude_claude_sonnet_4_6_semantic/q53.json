@@ -1,0 +1,11 @@
+{
+  "question_id": 53,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, differing only in the output column alias, and produces the exact same result of 378070.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 166,
+  "judge_latency_ms": 9489
+}

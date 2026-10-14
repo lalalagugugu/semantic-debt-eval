@@ -1,0 +1,80 @@
+{
+  "question_id": 23,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    d.CalendarMonthLabel AS month,\n    sum(f.SalesAmount) AS monthly_sales,\n    sum(sum(f.SalesAmount)) OVER (ORDER BY min(d.MonthNumber)) AS cumulative_monthly_sales\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimDate AS d\n    ON f.DateKey = d.DateKey\nWHERE d.CalendarYear = 2009\nGROUP BY d.MonthNumber, d.CalendarMonthLabel\nORDER BY d.MonthNumber",
+  "rows": [
+    [
+      "January",
+      57453262.78117735,
+      57453262.78117735
+    ],
+    [
+      "February",
+      59891424.711598314,
+      117344687.49277566
+    ],
+    [
+      "March",
+      60807494.09499677,
+      178152181.58777243
+    ],
+    [
+      "April",
+      69888328.73789605,
+      248040510.32566848
+    ],
+    [
+      "May",
+      82082708.71236259,
+      330123219.0380311
+    ],
+    [
+      "June",
+      81822800.06196992,
+      411946019.10000104
+    ],
+    [
+      "July",
+      82779485.68642457,
+      494725504.7864256
+    ],
+    [
+      "August",
+      77599793.89818045,
+      572325298.6846061
+    ],
+    [
+      "September",
+      74684747.9629901,
+      647010046.6475961
+    ],
+    [
+      "October",
+      75213262.40713534,
+      722223309.0547315
+    ],
+    [
+      "November",
+      67175159.95185022,
+      789398469.0065817
+    ],
+    [
+      "December",
+      68329562.33905216,
+      857728031.3456339
+    ]
+  ],
+  "columns": [
+    "month",
+    "monthly_sales",
+    "cumulative_monthly_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 12522,
+  "latency_ms_exec": 696,
+  "tokens_in": 18819,
+  "tokens_out": 187,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 48,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a single Pearson correlation coefficient (0.054) computed at the store-day grain, while the reference returns two rows grouping stores into High/Low Downtime buckets with their average sales \u2014 entirely different measures and structures that cannot be reconciled via aggregation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 666,
+  "judge_latency_ms": 19537
+}

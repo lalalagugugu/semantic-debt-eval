@@ -1,0 +1,520 @@
+{
+  "question_id": 4,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    ProductKey,\n    ProductName,\n    BrandName\nFROM retail.DimProduct\nWHERE BrandName = 'Contoso'\nORDER BY ProductName ASC",
+  "rows": [
+    [
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      "Contoso"
+    ],
+    [
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      "Contoso"
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      "Contoso"
+    ],
+    [
+      25,
+      "Contoso 16GB Mp5 Player M1600 Black",
+      "Contoso"
+    ],
+    [
+      24,
+      "Contoso 16GB Mp5 Player M1600 Blue",
+      "Contoso"
+    ],
+    [
+      26,
+      "Contoso 16GB Mp5 Player M1600 Green",
+      "Contoso"
+    ],
+    [
+      28,
+      "Contoso 16GB Mp5 Player M1600 Red",
+      "Contoso"
+    ],
+    [
+      27,
+      "Contoso 16GB Mp5 Player M1600 White",
+      "Contoso"
+    ],
+    [
+      43,
+      "Contoso 16GB New Generation MP5 Player M1650 Black",
+      "Contoso"
+    ],
+    [
+      45,
+      "Contoso 16GB New Generation MP5 Player M1650 Pink",
+      "Contoso"
+    ],
+    [
+      41,
+      "Contoso 16GB New Generation MP5 Player M1650 Silver",
+      "Contoso"
+    ],
+    [
+      42,
+      "Contoso 16GB New Generation MP5 Player M1650 White",
+      "Contoso"
+    ],
+    [
+      44,
+      "Contoso 16GB New Generation MP5 Player M1650 blue",
+      "Contoso"
+    ],
+    [
+      3,
+      "Contoso 1G MP3 Player E100 White",
+      "Contoso"
+    ],
+    [
+      1332,
+      "Contoso 2-Line Corded Cordless Telephone M202 Black",
+      "Contoso"
+    ],
+    [
+      1398,
+      "Contoso 2-Line Corded Cordless Telephone M202 Grey",
+      "Contoso"
+    ],
+    [
+      1365,
+      "Contoso 2-Line Corded Cordless Telephone M202 White",
+      "Contoso"
+    ],
+    [
+      1339,
+      "Contoso 2-Line Speakerphone M109 Black",
+      "Contoso"
+    ],
+    [
+      1405,
+      "Contoso 2-Line Speakerphone M109 Grey",
+      "Contoso"
+    ],
+    [
+      1372,
+      "Contoso 2-Line Speakerphone M109 White",
+      "Contoso"
+    ],
+    [
+      6,
+      "Contoso 2G MP3 Player E200 Black",
+      "Contoso"
+    ],
+    [
+      7,
+      "Contoso 2G MP3 Player E200 Blue",
+      "Contoso"
+    ],
+    [
+      5,
+      "Contoso 2G MP3 Player E200 Red",
+      "Contoso"
+    ],
+    [
+      4,
+      "Contoso 2G MP3 Player E200 Silver",
+      "Contoso"
+    ],
+    [
+      1318,
+      "Contoso 3 Handset Cordless Phone System  E30 Black",
+      "Contoso"
+    ],
+    [
+      1384,
+      "Contoso 3 Handset Cordless Phone System E30 Grey",
+      "Contoso"
+    ],
+    [
+      1351,
+      "Contoso 3 Handset Cordless Phone System E30 White",
+      "Contoso"
+    ],
+    [
+      33,
+      "Contoso 32GB Video MP3 Player M3200 Black",
+      "Contoso"
+    ],
+    [
+      31,
+      "Contoso 32GB Video MP3 Player M3200 Orange",
+      "Contoso"
+    ],
+    [
+      32,
+      "Contoso 32GB Video MP3 Player M3200 Pink",
+      "Contoso"
+    ],
+    [
+      30,
+      "Contoso 32GB Video MP3 Player M3200 Red",
+      "Contoso"
+    ],
+    [
+      29,
+      "Contoso 32GB Video MP3 Player M3200 White",
+      "Contoso"
+    ],
+    [
+      1323,
+      "Contoso 4 Handset Cordless Phone System M86 Black",
+      "Contoso"
+    ],
+    [
+      1389,
+      "Contoso 4 Handset Cordless Phone System M86 Grey",
+      "Contoso"
+    ],
+    [
+      1356,
+      "Contoso 4 Handset Cordless Phone System M86 White",
+      "Contoso"
+    ],
+    [
+      1333,
+      "Contoso 4-Line Corded Cordless Telephone M203 Black",
+      "Contoso"
+    ],
+    [
+      1399,
+      "Contoso 4-Line Corded Cordless Telephone M203 Grey",
+      "Contoso"
+    ],
+    [
+      1366,
+      "Contoso 4-Line Corded Cordless Telephone M203 White",
+      "Contoso"
+    ],
+    [
+      1345,
+      "Contoso 4-Line Expandable Cordless Phone System M900 Black",
+      "Contoso"
+    ],
+    [
+      1378,
+      "Contoso 4-Line Expandable Cordless Phone System M900 White",
+      "Contoso"
+    ],
+    [
+      9,
+      "Contoso 4G MP3 Player E400 Black",
+      "Contoso"
+    ],
+    [
+      10,
+      "Contoso 4G MP3 Player E400 Green",
+      "Contoso"
+    ],
+    [
+      11,
+      "Contoso 4G MP3 Player E400 Orange",
+      "Contoso"
+    ],
+    [
+      8,
+      "Contoso 4G MP3 Player E400 Silver",
+      "Contoso"
+    ],
+    [
+      13,
+      "Contoso 4GB Flash MP3 Player E401 Black",
+      "Contoso"
+    ],
+    [
+      12,
+      "Contoso 4GB Flash MP3 Player E401 Blue",
+      "Contoso"
+    ],
+    [
+      14,
+      "Contoso 4GB Flash MP3 Player E401 Silver",
+      "Contoso"
+    ],
+    [
+      15,
+      "Contoso 4GB Flash MP3 Player E401 White",
+      "Contoso"
+    ],
+    [
+      34,
+      "Contoso 4GB Portable MP3 Player M450 Black",
+      "Contoso"
+    ],
+    [
+      35,
+      "Contoso 4GB Portable MP3 Player M450 White",
+      "Contoso"
+    ],
+    [
+      36,
+      "Contoso 4GB Portable MP3 Player M450 Yellow",
+      "Contoso"
+    ],
+    [
+      2,
+      "Contoso 512MB MP3 Player E51 Blue",
+      "Contoso"
+    ],
+    [
+      1,
+      "Contoso 512MB MP3 Player E51 Silver",
+      "Contoso"
+    ],
+    [
+      38,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Black",
+      "Contoso"
+    ],
+    [
+      40,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Blue",
+      "Contoso"
+    ],
+    [
+      39,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Green",
+      "Contoso"
+    ],
+    [
+      37,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Silver",
+      "Contoso"
+    ],
+    [
+      20,
+      "Contoso 8GB MP3 Player new model M820 Black",
+      "Contoso"
+    ],
+    [
+      21,
+      "Contoso 8GB MP3 Player new model M820 Blue",
+      "Contoso"
+    ],
+    [
+      23,
+      "Contoso 8GB MP3 Player new model M820 White",
+      "Contoso"
+    ],
+    [
+      22,
+      "Contoso 8GB MP3 Player new model M820 Yellow",
+      "Contoso"
+    ],
+    [
+      18,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Green",
+      "Contoso"
+    ],
+    [
+      19,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Pink",
+      "Contoso"
+    ],
+    [
+      17,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Red",
+      "Contoso"
+    ],
+    [
+      16,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 White",
+      "Contoso"
+    ],
+    [
+      759,
+      "Contoso 90W AC/DC Power Adapter E300 Black",
+      "Contoso"
+    ],
+    [
+      824,
+      "Contoso 90W AC/DC Power Adapter E300 Grey",
+      "Contoso"
+    ],
+    [
+      794,
+      "Contoso 90W AC/DC Power Adapter E300 White",
+      "Contoso"
+    ],
+    [
+      768,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Black",
+      "Contoso"
+    ],
+    [
+      833,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Grey",
+      "Contoso"
+    ],
+    [
+      803,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 White",
+      "Contoso"
+    ],
+    [
+      769,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Black",
+      "Contoso"
+    ],
+    [
+      834,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      "Contoso"
+    ],
+    [
+      804,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 White",
+      "Contoso"
+    ],
+    [
+      770,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 Black",
+      "Contoso"
+    ],
+    [
+      835,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 Grey",
+      "Contoso"
+    ],
+    [
+      805,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 White",
+      "Contoso"
+    ],
+    [
+      2378,
+      "Contoso Air conditioner 10000BTU M0490 Blue",
+      "Contoso"
+    ],
+    [
+      2371,
+      "Contoso Air conditioner 10000BTU M0490 Grey",
+      "Contoso"
+    ],
+    [
+      2357,
+      "Contoso Air conditioner 10000BTU M0490 Red",
+      "Contoso"
+    ],
+    [
+      2364,
+      "Contoso Air conditioner 10000BTU M0490 Silver",
+      "Contoso"
+    ],
+    [
+      2350,
+      "Contoso Air conditioner 10000BTU M0490 White",
+      "Contoso"
+    ],
+    [
+      2377,
+      "Contoso Air conditioner 12000BTU M0640 Blue",
+      "Contoso"
+    ],
+    [
+      2370,
+      "Contoso Air conditioner 12000BTU M0640 Grey",
+      "Contoso"
+    ],
+    [
+      2356,
+      "Contoso Air conditioner 12000BTU M0640 Red",
+      "Contoso"
+    ],
+    [
+      2363,
+      "Contoso Air conditioner 12000BTU M0640 Silver",
+      "Contoso"
+    ],
+    [
+      2349,
+      "Contoso Air conditioner 12000BTU M0640 White",
+      "Contoso"
+    ],
+    [
+      2376,
+      "Contoso Air conditioner 25000BTU L1672 Blue",
+      "Contoso"
+    ],
+    [
+      2369,
+      "Contoso Air conditioner 25000BTU L1672 Grey",
+      "Contoso"
+    ],
+    [
+      2355,
+      "Contoso Air conditioner 25000BTU L1672 Red",
+      "Contoso"
+    ],
+    [
+      2362,
+      "Contoso Air conditioner 25000BTU L1672 Silver",
+      "Contoso"
+    ],
+    [
+      2348,
+      "Contoso Air conditioner 25000BTU L1672 White",
+      "Contoso"
+    ],
+    [
+      2382,
+      "Contoso Air conditioner 5200BTU E0100 Blue",
+      "Contoso"
+    ],
+    [
+      2375,
+      "Contoso Air conditioner 5200BTU E0100 Grey",
+      "Contoso"
+    ],
+    [
+      2361,
+      "Contoso Air conditioner 5200BTU E0100 Red",
+      "Contoso"
+    ],
+    [
+      2368,
+      "Contoso Air conditioner 5200BTU E0100 Silver",
+      "Contoso"
+    ],
+    [
+      2354,
+      "Contoso Air conditioner 5200BTU E0100 White",
+      "Contoso"
+    ],
+    [
+      2381,
+      "Contoso Air conditioner 6000BTU E0180 Blue",
+      "Contoso"
+    ],
+    [
+      2374,
+      "Contoso Air conditioner 6000BTU E0180 Grey",
+      "Contoso"
+    ],
+    [
+      2360,
+      "Contoso Air conditioner 6000BTU E0180 Red",
+      "Contoso"
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "BrandName"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 9806,
+  "latency_ms_exec": 541,
+  "tokens_in": 18821,
+  "tokens_out": 80,
+  "claude_error": null,
+  "sql_error": null
+}

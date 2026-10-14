@@ -1,0 +1,33 @@
+{
+  "question_id": 96,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH customer_years AS (\n    SELECT\n        CustomerKey,\n        min(toYear(DateKey)) AS cohort_year,\n        max(toYear(DateKey)) AS last_purchase_year\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nSELECT\n    cohort_year,\n    count() AS cohort_customers,\n    countIf(last_purchase_year > cohort_year) AS customers_who_returned_in_later_year,\n    countIf(last_purchase_year > cohort_year) * 1.0 / nullIf(count(), 0) AS return_fraction\nFROM customer_years\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      18861,
+      0.999629001483994
+    ],
+    [
+      2009,
+      1,
+      0,
+      0.0
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "cohort_customers",
+    "customers_who_returned_in_later_year",
+    "return_fraction"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 12717,
+  "latency_ms_exec": 544,
+  "tokens_in": 18830,
+  "tokens_out": 202,
+  "claude_error": null,
+  "sql_error": null
+}

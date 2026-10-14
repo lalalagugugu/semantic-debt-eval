@@ -1,0 +1,11 @@
+{
+  "question_id": 9,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical scalar value (159.24048813255706) as the reference; the added alias and explicit NULL filter are semantically equivalent since AVG already ignores NULLs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 196,
+  "judge_latency_ms": 10797
+}

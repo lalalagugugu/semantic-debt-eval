@@ -1,0 +1,11 @@
+{
+  "question_id": 14,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns entirely different rows \u2014 \"Not Provided\" customers with totals in the tens of millions \u2014 whereas the reference returns named customers with totals in the tens of thousands; the data does not match at all.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 341,
+  "judge_latency_ms": 14107
+}

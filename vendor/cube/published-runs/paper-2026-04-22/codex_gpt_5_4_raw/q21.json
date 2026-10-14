@@ -1,0 +1,1025 @@
+{
+  "question_id": 21,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    fi.StoreKey,\n    ds.StoreName,\n    fi.ProductKey,\n    dp.ProductName,\n    fi.DateKey AS InventoryDate,\n    fi.OnHandQuantity AS CurrentInventoryLevel,\n    fi.OnOrderQuantity,\n    fi.SafetyStockQuantity\nFROM retail.FactInventory AS fi\nINNER JOIN\n(\n    SELECT\n        StoreKey,\n        ProductKey,\n        max(DateKey) AS MaxDateKey\n    FROM retail.FactInventory\n    GROUP BY\n        StoreKey,\n        ProductKey\n) AS latest\n    ON fi.StoreKey = latest.StoreKey\n   AND fi.ProductKey = latest.ProductKey\n   AND fi.DateKey = latest.MaxDateKey\nLEFT JOIN retail.DimStore AS ds\n    ON fi.StoreKey = ds.StoreKey\nLEFT JOIN retail.DimProduct AS dp\n    ON fi.ProductKey = dp.ProductKey\nORDER BY\n    ds.StoreName,\n    dp.ProductName",
+  "rows": [
+    [
+      114,
+      "Contoso Albany Store",
+      919,
+      "",
+      "2008-02-16",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      872,
+      "",
+      "2008-05-17",
+      15,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      430,
+      "",
+      "2008-07-26",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      920,
+      "",
+      "2008-07-26",
+      15,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      864,
+      "",
+      "2008-06-21",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      459,
+      "",
+      "2007-07-28",
+      12,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      896,
+      "",
+      "2008-05-17",
+      15,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      431,
+      "",
+      "2007-08-18",
+      12,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      942,
+      "",
+      "2008-09-27",
+      14,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      844,
+      "",
+      "2008-10-25",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      437,
+      "",
+      "2008-10-25",
+      32,
+      0,
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      910,
+      "",
+      "2008-10-25",
+      14,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      442,
+      "",
+      "2008-10-25",
+      12,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      453,
+      "",
+      "2008-11-22",
+      18,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      424,
+      "",
+      "2008-10-18",
+      20,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      447,
+      "",
+      "2008-10-25",
+      18,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      871,
+      "",
+      "2008-11-22",
+      18,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      859,
+      "",
+      "2008-11-15",
+      15,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      435,
+      "",
+      "2008-10-25",
+      12,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      460,
+      "",
+      "2008-12-27",
+      11,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      882,
+      "",
+      "2008-12-27",
+      15,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      418,
+      "",
+      "2009-02-28",
+      39,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      433,
+      "",
+      "2009-02-21",
+      14,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      849,
+      "",
+      "2009-02-28",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      860,
+      "",
+      "2009-02-28",
+      19,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      880,
+      "",
+      "2009-01-10",
+      25,
+      0,
+      4
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      866,
+      "",
+      "2009-06-27",
+      22,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      434,
+      "",
+      "2009-06-20",
+      15,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      417,
+      "",
+      "2009-06-27",
+      17,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      454,
+      "",
+      "2009-06-27",
+      37,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      855,
+      "",
+      "2008-04-26",
+      13,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      869,
+      "",
+      "2009-08-22",
+      3,
+      0,
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      922,
+      "",
+      "2008-08-23",
+      12,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      873,
+      "",
+      "2008-08-16",
+      12,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      895,
+      "",
+      "2008-01-26",
+      6,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      425,
+      "",
+      "2008-09-27",
+      18,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      854,
+      "",
+      "2009-10-24",
+      2,
+      0,
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      843,
+      "",
+      "2009-10-24",
+      52,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      878,
+      "",
+      "2009-10-24",
+      13,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      923,
+      "",
+      "2009-10-24",
+      52,
+      0,
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      936,
+      "",
+      "2009-10-24",
+      3,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      865,
+      "",
+      "2009-10-24",
+      26,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      448,
+      "",
+      "2009-12-19",
+      30,
+      27,
+      7
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1313,
+      "",
+      "2009-12-26",
+      24,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      904,
+      "",
+      "2009-12-26",
+      57,
+      0,
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      440,
+      "",
+      "2009-12-26",
+      31,
+      0,
+      7
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      876,
+      "",
+      "2009-12-26",
+      15,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      451,
+      "",
+      "2009-12-26",
+      28,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      421,
+      "",
+      "2009-12-26",
+      16,
+      13,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      436,
+      "",
+      "2009-12-26",
+      5,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      907,
+      "",
+      "2007-12-22",
+      6,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1302,
+      "",
+      "2008-01-26",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      935,
+      "",
+      "2007-11-24",
+      10,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      441,
+      "",
+      "2007-12-22",
+      6,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      458,
+      "",
+      "2007-11-24",
+      7,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      457,
+      "",
+      "2007-12-22",
+      6,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      927,
+      "",
+      "2008-01-19",
+      8,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      941,
+      "",
+      "2007-11-24",
+      5,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      900,
+      "",
+      "2007-04-28",
+      4,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      432,
+      "",
+      "2007-06-16",
+      10,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      921,
+      "",
+      "2008-03-15",
+      13,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      456,
+      "",
+      "2008-03-22",
+      13,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      863,
+      "",
+      "2007-06-23",
+      10,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      449,
+      "",
+      "2008-03-22",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      420,
+      "",
+      "2008-03-22",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1303,
+      "",
+      "2008-04-26",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      905,
+      "",
+      "2008-03-22",
+      13,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      445,
+      "",
+      "2008-06-28",
+      17,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      446,
+      "",
+      "2008-06-28",
+      15,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      881,
+      "",
+      "2008-06-28",
+      15,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      887,
+      "",
+      "2008-06-28",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      931,
+      "",
+      "2008-06-28",
+      11,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      908,
+      "",
+      "2008-05-24",
+      11,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      897,
+      "",
+      "2007-09-22",
+      6,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      870,
+      "",
+      "2008-07-19",
+      32,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      452,
+      "",
+      "2007-08-25",
+      8,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      932,
+      "",
+      "2008-07-19",
+      15,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1297,
+      "",
+      "2008-08-23",
+      20,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      851,
+      "",
+      "2008-08-23",
+      18,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      889,
+      "",
+      "2008-08-23",
+      12,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1306,
+      "",
+      "2009-01-24",
+      19,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      848,
+      "",
+      "2008-12-20",
+      13,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      419,
+      "",
+      "2009-01-24",
+      14,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      934,
+      "",
+      "2009-01-24",
+      21,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      943,
+      "",
+      "2007-10-27",
+      6,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      857,
+      "",
+      "2009-01-24",
+      19,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      856,
+      "",
+      "2009-01-24",
+      19,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      429,
+      "",
+      "2008-12-20",
+      19,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      928,
+      "",
+      "2009-01-17",
+      15,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      853,
+      "",
+      "2009-01-17",
+      19,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      845,
+      "",
+      "2009-01-17",
+      12,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      938,
+      "",
+      "2008-12-20",
+      19,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      930,
+      "",
+      "2009-03-28",
+      39,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      886,
+      "",
+      "2009-03-28",
+      19,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      903,
+      "",
+      "2009-04-18",
+      39,
+      0,
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1298,
+      "",
+      "2009-04-25",
+      21,
+      0,
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1304,
+      "",
+      "2009-04-25",
+      19,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      909,
+      "",
+      "2009-04-25",
+      3,
+      0,
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      901,
+      "",
+      "2009-04-18",
+      13,
+      0,
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      926,
+      "",
+      "2009-03-28",
+      32,
+      0,
+      3
+    ]
+  ],
+  "columns": [
+    "fi.StoreKey",
+    "StoreName",
+    "fi.ProductKey",
+    "ProductName",
+    "InventoryDate",
+    "CurrentInventoryLevel",
+    "OnOrderQuantity",
+    "SafetyStockQuantity"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 12552,
+  "latency_ms_exec": 8132,
+  "tokens_in": 16371,
+  "tokens_out": 240,
+  "claude_error": null,
+  "sql_error": null
+}

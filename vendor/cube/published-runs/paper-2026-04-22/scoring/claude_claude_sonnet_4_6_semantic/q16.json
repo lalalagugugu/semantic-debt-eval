@@ -1,0 +1,11 @@
+{
+  "question_id": 16,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical rows to the reference, with the same year values and matching sales totals for both 2008 and 2009; only column names differ.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 151,
+  "judge_latency_ms": 9718
+}

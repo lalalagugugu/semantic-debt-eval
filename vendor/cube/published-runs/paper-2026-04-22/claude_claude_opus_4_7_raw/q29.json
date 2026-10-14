@@ -1,0 +1,25 @@
+{
+  "question_id": 29,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT\n  sumIf(s.SalesAmount, d.IsHoliday = 'TRUE') / nullIf(countIf(DISTINCT d.DateKey, d.IsHoliday = 'TRUE'), 0) AS avg_holiday_sales,\n  sumIf(s.SalesAmount, d.IsHoliday = 'FALSE') / nullIf(countIf(DISTINCT d.DateKey, d.IsHoliday = 'FALSE'), 0) AS avg_regular_sales,\n  (avg_holiday_sales - avg_regular_sales) / nullIf(avg_regular_sales, 0) * 100 AS pct_difference\nFROM retail.FactSales s\nINNER JOIN retail.DimDate d ON s.DateKey = d.DateKey",
+  "rows": [
+    [
+      null,
+      null,
+      null
+    ]
+  ],
+  "columns": [
+    "avg_holiday_sales",
+    "avg_regular_sales",
+    "pct_difference"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8651,
+  "latency_ms_exec": 525,
+  "tokens_in": 19123,
+  "tokens_out": 275,
+  "claude_error": null,
+  "sql_error": null
+}

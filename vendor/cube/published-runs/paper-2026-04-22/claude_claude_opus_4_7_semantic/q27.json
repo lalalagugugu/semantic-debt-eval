@@ -1,0 +1,81 @@
+{
+  "question_id": 27,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT ProductName, UnitPrice, UnitCost, (UnitPrice - UnitCost) * 100.0 / nullif(UnitPrice, 0) AS ProfitMarginPct\nFROM retail.DimProduct\nWHERE UnitPrice IS NOT NULL AND UnitPrice > 0\nORDER BY ProfitMarginPct DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso DVD 60 DVD Storage Binder L20 Red",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "Contoso DVD 60 DVD Storage Binder L20 Silver",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "Contoso DVD 60 DVD Storage Binder L20 Black",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "SV DVD 60 DVD Storage Binder L20 Red",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "SV DVD 60 DVD Storage Binder L20 Silver",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "SV DVD 60 DVD Storage Binder L20 Black",
+      22.89,
+      7.58,
+      66.88510266491917
+    ],
+    [
+      "Contoso Centrex Phone System L10 Grey",
+      42.99,
+      14.24,
+      66.87601767852989
+    ],
+    [
+      "Contoso Centrex Phone System L10 White",
+      42.99,
+      14.24,
+      66.87601767852989
+    ],
+    [
+      "Contoso Centrex Phone System L10 Black",
+      42.99,
+      14.24,
+      66.87601767852989
+    ],
+    [
+      "Contoso behind Centrex X15 Grey",
+      49.99,
+      16.56,
+      66.87337467493501
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "UnitPrice",
+    "UnitCost",
+    "ProfitMarginPct"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 6764,
+  "latency_ms_exec": 597,
+  "tokens_in": 23317,
+  "tokens_out": 141,
+  "claude_error": null,
+  "sql_error": null
+}

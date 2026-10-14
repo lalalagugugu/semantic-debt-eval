@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a different fact table (FactSales via DimStore) instead of FactOnlineSales via DimCustomer, and groups by country (RegionCountryName) rather than continent (ContinentName), producing entirely different entities and values that cannot be aggregated to match the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 369,
+  "judge_latency_ms": 13828
+}

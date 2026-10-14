@@ -1,0 +1,43 @@
+{
+  "question_id": 13,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT s.StoreKey AS StoreKey, s.StoreName AS StoreName, sum(f.SalesAmount) AS TotalSales, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS AverageOrderValue, countDistinct(f.SalesOrderNumber) AS NumberOfTransactions FROM retail.FactOnlineSales f LEFT JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY TotalSales DESC",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      1031261452.7929894,
+      1504.3733237535748,
+      685509
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      849584948.836169,
+      2516.558003412843,
+      337598
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      837356228.1802413,
+      1285.826952765949,
+      651220
+    ]
+  ],
+  "columns": [
+    "StoreKey",
+    "StoreName",
+    "TotalSales",
+    "AverageOrderValue",
+    "NumberOfTransactions"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 11615,
+  "latency_ms_exec": 981,
+  "tokens_in": 23319,
+  "tokens_out": 216,
+  "claude_error": null,
+  "sql_error": null
+}
