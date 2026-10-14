@@ -1,0 +1,37 @@
+{
+  "question_id": 42,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT sum(f.SalesAmount) AS SalesAmount, sum(f.SalesQuantity) AS SalesQuantity, sum(f.ReturnQuantity) AS ReturnQuantity, sum(f.SalesAmount) - sum(f.TotalCost) AS GrossMarginAmount, (sum(f.SalesAmount) - sum(f.TotalCost)) / nullif(sum(f.SalesAmount), 0) AS GrossMarginPct, sum(f.ReturnQuantity) / nullif(sum(f.SalesQuantity), 0) AS ReturnRate, countDistinct(f.SalesOrderNumber) AS OrderCount, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS AvgOrderValue, countDistinct(f.CustomerKey) AS UniqueCustomers\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory s ON p.ProductSubcategoryKey = s.ProductSubcategoryKey\nJOIN retail.DimProductCategory c ON s.ProductCategoryKey = c.ProductCategoryKey\nWHERE c.ProductCategoryName = 'Cameras and camcorders'",
+  "rows": [
+    [
+      598334988.6826994,
+      1524778,
+      15151,
+      342934025.60269964,
+      0.5731472036387288,
+      0.009936528465127383,
+      159337,
+      3755.1540990648714,
+      18841
+    ]
+  ],
+  "columns": [
+    "SalesAmount",
+    "SalesQuantity",
+    "ReturnQuantity",
+    "GrossMarginAmount",
+    "GrossMarginPct",
+    "ReturnRate",
+    "OrderCount",
+    "AvgOrderValue",
+    "UniqueCustomers"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9869,
+  "latency_ms_exec": 613,
+  "tokens_in": 23311,
+  "tokens_out": 477,
+  "claude_error": null,
+  "sql_error": null
+}

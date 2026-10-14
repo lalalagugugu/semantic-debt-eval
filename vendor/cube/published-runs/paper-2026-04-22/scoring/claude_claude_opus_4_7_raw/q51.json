@@ -1,0 +1,11 @@
+{
+  "question_id": 51,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return 306; count() and count(*) are semantically equivalent in ClickHouse, and the numeric result is identical.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 173,
+  "judge_latency_ms": 9574
+}

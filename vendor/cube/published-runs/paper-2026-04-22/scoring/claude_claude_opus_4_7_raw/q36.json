@@ -1,0 +1,11 @@
+{
+  "question_id": 36,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses today() as the reference date and different day-based thresholds (90/180 days) instead of the dataset's max date with month-based thresholds (6/12 months), producing a single \"Churned\" row of 18869 vs. the expected three-segment breakdown (Active 16890, At Risk 1841, Churned 138).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 291,
+  "judge_latency_ms": 12611
+}

@@ -1,0 +1,722 @@
+{
+  "question_id": 34,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.ProductKey AS ProductKey, p.ProductName AS ProductName, sum(s.TotalCost) AS COGS, avg(i.OnHandQuantity * i.UnitCost) AS AvgInventoryValue, CASE WHEN avg(i.OnHandQuantity * i.UnitCost) = 0 THEN NULL ELSE sum(s.TotalCost) / avg(i.OnHandQuantity * i.UnitCost) END AS InventoryTurnoverRatio FROM retail.DimProduct AS p LEFT JOIN (SELECT ProductKey, sum(TotalCost) AS TotalCost FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey) AS s ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductKey, avg(OnHandQuantity * UnitCost) AS AvgInv FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey) AS i2 ON i2.ProductKey = p.ProductKey LEFT JOIN retail.FactInventory AS i ON i.ProductKey = p.ProductKey AND toYear(i.DateKey) = 2009 LEFT JOIN retail.FactSales AS fs ON fs.ProductKey = p.ProductKey AND toYear(fs.DateKey) = 2009 GROUP BY p.ProductKey, p.ProductName ORDER BY InventoryTurnoverRatio DESC",
+  "rows": [
+    [
+      401,
+      "WWI Laptop8.9 E0089 White",
+      7409841982946.856,
+      5130.4263074473,
+      1444293619.8480754
+    ],
+    [
+      379,
+      "Adventure Works Laptop8.9 E0890 Silver",
+      7117981669850.806,
+      5154.889320377865,
+      1380821435.2367592
+    ],
+    [
+      373,
+      "Adventure Works Laptop8.9 E0890 White",
+      7091001446180.052,
+      5369.737333321829,
+      1320549033.5955434
+    ],
+    [
+      385,
+      "Adventure Works Laptop8.9 E0890 Red",
+      6756773512538.11,
+      5126.895278515355,
+      1317907455.7759905
+    ],
+    [
+      358,
+      "Fabrikam Laptop8.9 E8002 Red",
+      6736002279913.968,
+      5318.30922992909,
+      1266568375.1532779
+    ],
+    [
+      367,
+      "Adventure Works Laptop8.9 E0890 Black",
+      6413222263689.847,
+      5086.172861035754,
+      1260913153.9394536
+    ],
+    [
+      415,
+      "Proseware Laptop8.9 E089 White",
+      6369408379962.924,
+      5165.865333325864,
+      1232979949.9171612
+    ],
+    [
+      409,
+      "Proseware Laptop8.9 E089 Black",
+      6485819793180.94,
+      5291.460743138818,
+      1225714430.857451
+    ],
+    [
+      357,
+      "Fabrikam Laptop14.1 E4101 Red",
+      6340136520263.864,
+      5268.61667574882,
+      1203377833.3973691
+    ],
+    [
+      377,
+      "Adventure Works Laptop16 M1601 Silver",
+      6361015050234.98,
+      5331.829954478379,
+      1193026616.4794238
+    ],
+    [
+      347,
+      "Fabrikam Laptop14.1 M4100 White",
+      6120613367629.616,
+      5385.833075268963,
+      1136428344.898892
+    ],
+    [
+      343,
+      "Fabrikam Laptop19 M9000 Black",
+      8025775537039.01,
+      7318.751748469535,
+      1096604422.839909
+    ],
+    [
+      348,
+      "Fabrikam Laptop15.4W M5480 White",
+      7248279842169.127,
+      7003.391700048383,
+      1034967077.7544903
+    ],
+    [
+      407,
+      "Proseware Laptop16 M610 Black",
+      5657559166676.448,
+      5508.616707250638,
+      1027038087.2987164
+    ],
+    [
+      388,
+      "Adventure Works Laptop12 M1201 Blue",
+      4099838049787.543,
+      4047.9050681259073,
+      1012829594.762626
+    ],
+    [
+      393,
+      "WWI Laptop16 M0160 Black",
+      5600551325305.227,
+      5535.307140543743,
+      1011786913.1928737
+    ],
+    [
+      371,
+      "Adventure Works Laptop16 M1601 White",
+      5614803309444.854,
+      5584.8021893132845,
+      1005371921.7108489
+    ],
+    [
+      345,
+      "Fabrikam Laptop15 M5000 White",
+      6405048692886.806,
+      6374.996738210266,
+      1004714034.5180751
+    ],
+    [
+      398,
+      "WWI Laptop12 M0120 White",
+      3957815026708.848,
+      3941.0960044316103,
+      1004242226.5934243
+    ],
+    [
+      381,
+      "Adventure Works Laptop15 M1501 Red",
+      6229599429712.514,
+      6288.051124272066,
+      990704322.626461
+    ],
+    [
+      361,
+      "Fabrikam Laptop13.3W M3080 Red",
+      3851683095470.656,
+      3951.8224465107387,
+      974659956.9197495
+    ],
+    [
+      356,
+      "Fabrikam Laptop14.1W M4180 Red",
+      3983029179463.948,
+      4089.3760320330002,
+      973994357.1498407
+    ],
+    [
+      370,
+      "Adventure Works Laptop12 M1201 White",
+      3757261821989.782,
+      3869.311448724015,
+      971041455.768265
+    ],
+    [
+      349,
+      "Fabrikam Laptop10.1 M0100 White",
+      3721437127795.921,
+      3835.7671552406314,
+      970193699.7691566
+    ],
+    [
+      384,
+      "Adventure Works Laptop15.4W M1548 Red",
+      6789094398745.086,
+      7064.860438693438,
+      960966526.8915982
+    ],
+    [
+      344,
+      "Fabrikam Laptop12 M2000 White",
+      3547629403500.0005,
+      3695.4772517109614,
+      959992218.0166285
+    ],
+    [
+      405,
+      "Proseware Laptop15 M510 Black",
+      6037616096820.0625,
+      6403.63906977875,
+      942841411.1148001
+    ],
+    [
+      369,
+      "Adventure Works Laptop15 M1501 White",
+      6066726898322.871,
+      6450.586488918213,
+      940492296.1261284
+    ],
+    [
+      397,
+      "WWI Laptop15 M0150 White",
+      6140930342174.72,
+      6617.157502745559,
+      928031460.5820935
+    ],
+    [
+      406,
+      "Proseware Laptop12 M210 Black",
+      3613236798959.8516,
+      3894.570033450997,
+      927762697.2747349
+    ],
+    [
+      359,
+      "Fabrikam Laptop12 M2002 Red",
+      3461003535572.127,
+      3732.2686601465743,
+      927318971.5759116
+    ],
+    [
+      368,
+      "Adventure Works Laptop19W X1980 White",
+      7212806316863.8955,
+      7795.155138979274,
+      925293491.696737
+    ],
+    [
+      412,
+      "Proseware Laptop12 M210 White",
+      3581319245734.7686,
+      3897.7023489923927,
+      918828305.7736789
+    ],
+    [
+      338,
+      "Fabrikam Laptop19W M9800 Black",
+      7326553699920.0,
+      7997.193430656935,
+      916140614.0101522
+    ],
+    [
+      341,
+      "Fabrikam Laptop16W M6080 Black",
+      7853859165236.882,
+      8658.664671709426,
+      907052006.633067
+    ],
+    [
+      389,
+      "Adventure Works Laptop16 M1601 Blue",
+      4861694608744.602,
+      5365.041087287883,
+      906180312.4423542
+    ],
+    [
+      400,
+      "WWI Laptop15.4W M0156 White",
+      6410531913535.525,
+      7081.973632786854,
+      905190028.3640131
+    ],
+    [
+      340,
+      "Fabrikam Laptop17 M7000 Black",
+      6926080597208.322,
+      7706.118061075949,
+      898776860.452263
+    ],
+    [
+      394,
+      "WWI Laptop15.4W M0156 Black",
+      6331248814733.979,
+      7060.492894055333,
+      896714848.3450284
+    ],
+    [
+      378,
+      "Adventure Works Laptop15.4W M1548 Silver",
+      6186924600343.211,
+      6901.571021389119,
+      896451631.2545217
+    ],
+    [
+      413,
+      "Proseware Laptop16 M610 White",
+      4937459521144.745,
+      5534.282780782922,
+      892158878.8866069
+    ],
+    [
+      342,
+      "Fabrikam Laptop16 M6000 Black",
+      4767610768251.0625,
+      5491.29895793595,
+      868211839.2700104
+    ],
+    [
+      366,
+      "Adventure Works Laptop15.4W M1548 Black",
+      5992904081321.067,
+      6917.210197281264,
+      866375881.3743312
+    ],
+    [
+      354,
+      "Fabrikam Laptop12 M2001 Silver",
+      3247090109114.599,
+      3775.1412085357615,
+      860124146.2896234
+    ],
+    [
+      346,
+      "Fabrikam Laptop15.4 M5400 White",
+      5394025061542.77,
+      6337.77398843885,
+      851091419.6975728
+    ],
+    [
+      363,
+      "Adventure Works Laptop15 M1500 Black",
+      5451918873205.208,
+      6408.290487231596,
+      850760258.772298
+    ],
+    [
+      383,
+      "Adventure Works Laptop16 M1601 Red",
+      4665757049137.009,
+      5515.628471371977,
+      845915759.8003391
+    ],
+    [
+      374,
+      "Adventure Works Laptop19W X1980 Silver",
+      6340462471529.121,
+      7509.1710897680305,
+      844362499.6330969
+    ],
+    [
+      395,
+      "WWI Laptop8.9 E0089 Black",
+      4398064980513.221,
+      5289.407923328701,
+      831485308.8028526
+    ],
+    [
+      391,
+      "WWI Laptop15 M0150 Black",
+      5384585360301.3545,
+      6627.48690330193,
+      812462618.0126678
+    ],
+    [
+      382,
+      "Adventure Works Laptop12 M1201 Red",
+      3282484994209.616,
+      4047.59580755985,
+      810971537.2465781
+    ],
+    [
+      386,
+      "Adventure Works Laptop19W X1980 Blue",
+      6154091314383.469,
+      7658.283423647561,
+      803586257.3825113
+    ],
+    [
+      387,
+      "Adventure Works Laptop15 M1501 Blue",
+      4958135918366.505,
+      6470.675669731645,
+      766247015.2165935
+    ],
+    [
+      360,
+      "Fabrikam Laptop13.3 M3000 Red",
+      2875391993039.6807,
+      3786.545841360575,
+      759370707.1050538
+    ],
+    [
+      375,
+      "Adventure Works Laptop15 M1501 Silver",
+      4760376072104.839,
+      6346.024938128645,
+      750135103.236548
+    ],
+    [
+      392,
+      "WWI Laptop12 M0120 Black",
+      2930471228970.0005,
+      3990.728982042813,
+      734319780.2096604
+    ],
+    [
+      380,
+      "Adventure Works Laptop19W X1980 Red",
+      5032940362056.491,
+      7419.055111635911,
+      678380236.6103089
+    ],
+    [
+      403,
+      "WWI Laptop15 M0150 Blue",
+      4408788340007.632,
+      6606.027473234131,
+      667388738.2198865
+    ],
+    [
+      372,
+      "Adventure Works Laptop15.4W M1548 White",
+      4477001429847.172,
+      7185.401586967679,
+      623069062.412212
+    ],
+    [
+      396,
+      "WWI Laptop19W X0196 White",
+      2308566350942.4683,
+      7302.576774169265,
+      316130377.3085068
+    ],
+    [
+      402,
+      "WWI Laptop19W X0196 Blue",
+      2338243453359.4956,
+      7619.2194321394645,
+      306887532.79585236
+    ],
+    [
+      390,
+      "WWI Laptop19W X0196 Black",
+      2319983054912.615,
+      7685.066214465142,
+      301881986.46172357
+    ],
+    [
+      414,
+      "Proseware Laptop15.4W M518 White",
+      1790577306290.1116,
+      7083.408679251478,
+      252784695.5287248
+    ],
+    [
+      399,
+      "WWI Laptop16 M0160 White",
+      807916709519.5918,
+      5501.41526087252,
+      146856158.13547164
+    ],
+    [
+      376,
+      "Adventure Works Laptop12 M1201 Silver",
+      475050746458.5729,
+      4022.8726613816348,
+      118087443.08983898
+    ],
+    [
+      2494,
+      "Reusable Phone Screen Protector E120",
+      79599576240.0,
+      705.6822033898305,
+      112798049.68530272
+    ],
+    [
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      90749668241.23076,
+      867.7971368117513,
+      104574749.5487725
+    ],
+    [
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      98616932265.32294,
+      951.1878645065342,
+      103677660.26586589
+    ],
+    [
+      560,
+      "Proseware Screen 100in M1609 White",
+      249308968373.28867,
+      2421.3800683977283,
+      102961518.36182454
+    ],
+    [
+      1454,
+      "The Phone Company Finger Touch Screen Phones M30 Gold",
+      261682728079.25406,
+      2553.1904161092757,
+      102492444.91447838
+    ],
+    [
+      2470,
+      "Litware 80mm LED Dual PCI Slot Fan E1501 Pink",
+      46209262704.257034,
+      459.0129287600462,
+      100670939.33298208
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      78602477241.55637,
+      781.1362162168576,
+      100625826.34081183
+    ],
+    [
+      2204,
+      "Adventure Works Desk Lamp E1300 White",
+      108747492504.43251,
+      1095.9847323936608,
+      99223546.90737799
+    ],
+    [
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      104890594335.54266,
+      1060.2647951451104,
+      98928677.83201939
+    ],
+    [
+      806,
+      "Contoso USB Wave Multi-media Keyboard E280 White",
+      22385557591.904503,
+      229.96454172367436,
+      97343518.37077132
+    ],
+    [
+      2427,
+      "Litware Mobile Fan External USB Cooling Fan E601 Silver",
+      47377852703.74176,
+      487.7862184870141,
+      97128313.40478526
+    ],
+    [
+      1269,
+      "Contoso Carrying Case E312 Blue",
+      65625958548.32248,
+      679.8394142264818,
+      96531559.0344102
+    ],
+    [
+      2211,
+      "Adventure Works Wall Lamp E3150 Silver",
+      145871397360.0,
+      1525.6499238964993,
+      95612627.16642456
+    ],
+    [
+      1243,
+      "Fabrikam Social Videographer 1'' 25mm E400 White",
+      247843844581.24088,
+      2637.964373295555,
+      93952688.32672468
+    ],
+    [
+      2284,
+      "Proseware Desk Lamp E0130 White",
+      97159324560.18901,
+      1035.9882489139131,
+      93784195.58527502
+    ],
+    [
+      1662,
+      "MGS Hand Games for students E400 Yellow",
+      33976608244.94856,
+      362.6460681113778,
+      93690822.07865956
+    ],
+    [
+      1686,
+      "SV Hand Games for students E40 Yellow",
+      34094436840.000004,
+      367.3258407078608,
+      92817964.4925002
+    ],
+    [
+      2439,
+      "Litware 120mm Blue LED Case Fan E901 Black",
+      12923718323.538498,
+      139.42142655372666,
+      92695352.80904824
+    ],
+    [
+      678,
+      "Proseware Laser Fax Printer E100 Grey",
+      118822963190.50566,
+      1282.9507539126785,
+      92616932.3554512
+    ],
+    [
+      610,
+      "Contoso Screen 80in E080 Silver",
+      142699429985.13693,
+      1544.0102506597182,
+      92421297.02452748
+    ],
+    [
+      2472,
+      "Litware 20'' Weather-Shield Performance Box Fan E1601 Orange",
+      37651064774.34126,
+      409.3260416667975,
+      91983067.14379598
+    ],
+    [
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      518491296960.00006,
+      5640.088461539371,
+      91929639.13521425
+    ],
+    [
+      836,
+      "Contoso USB Wave Multi-Media Keyboard E280 Grey",
+      21245617775.999996,
+      231.54270380428915,
+      91756800.91374332
+    ],
+    [
+      1106,
+      "Contoso SLR Camera M146 Orange",
+      370562849310.39056,
+      4077.420086329898,
+      90881695.15639377
+    ],
+    [
+      1127,
+      "Fabrikam SLR Camera 35\" M358 Gold",
+      366706531802.1195,
+      4050.649716840982,
+      90530299.44245744
+    ],
+    [
+      1317,
+      "Contoso Dual Handset Cordless Phone System  E20 Black",
+      17231143451.107567,
+      190.48454676279886,
+      90459534.61287688
+    ],
+    [
+      1000,
+      "A. Datum Compact Digital Camera M200 Orange",
+      134553665352.12317,
+      1498.0362905705151,
+      89820030.52868599
+    ],
+    [
+      2322,
+      "Litware Wall Lamp E2015 White",
+      142485670788.86514,
+      1588.458279883897,
+      89700606.30064496
+    ],
+    [
+      2457,
+      "Litware USB Foam Fan E1301 Black",
+      22346369680.310528,
+      249.37036312832063,
+      89611168.70496581
+    ],
+    [
+      2187,
+      "Fabrikam Coffee Maker 4C E080 Grey",
+      167833140990.97726,
+      1885.4791343296972,
+      89013523.37194826
+    ],
+    [
+      585,
+      "Contoso Screen 85in E085 Black",
+      163738870092.73376,
+      1853.554228570691,
+      88337782.39064294
+    ],
+    [
+      1259,
+      "Contoso Cyber Shot Digital Cameras Adapter E306 Black",
+      50430474854.83125,
+      571.4976203960014,
+      88242668.13199858
+    ],
+    [
+      2403,
+      "Proseware Air conditioner 5200BTU E100 Silver",
+      130861369972.06306,
+      1485.215483869836,
+      88109349.37945458
+    ],
+    [
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      292688285093.838,
+      3331.2955183940812,
+      87860198.37559603
+    ],
+    [
+      226,
+      "Litware Home Theater System 2.1 Channel E210 Brown",
+      349338523554.86224,
+      3977.35657303241,
+      87831834.32018018
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "COGS",
+    "AvgInventoryValue",
+    "InventoryTurnoverRatio"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 10007,
+  "latency_ms_exec": 20098,
+  "tokens_in": 19120,
+  "tokens_out": 547,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 27,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "First 9 rows match, but 10th differs: reference returns \"Contoso Bluetooth Active Headphones L15 White\" while candidate returns \"Contoso behind Centrex X15 Grey\" \u2014 caused by omitting ROUND() in ORDER BY, producing different tie-breaking and a genuinely different top-10 list.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1814,
+  "judge_latency_ms": 32891
+}

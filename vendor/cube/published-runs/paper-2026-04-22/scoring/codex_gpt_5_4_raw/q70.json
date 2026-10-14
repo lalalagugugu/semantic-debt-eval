@@ -1,0 +1,11 @@
+{
+  "question_id": 70,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes avg(SellingAreaSize) over all stores in DimStore per StoreType, while the reference averages only over stores present in FactSales, producing materially different avg_selling_area_size values (e.g., Online: 31767 vs 29373, Store: 607.6 vs 602.2).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 408,
+  "judge_latency_ms": 13518
+}

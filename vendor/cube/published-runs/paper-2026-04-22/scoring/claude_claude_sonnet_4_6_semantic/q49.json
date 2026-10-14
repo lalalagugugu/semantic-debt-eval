@@ -1,0 +1,11 @@
+{
+  "question_id": 49,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The reference query (FactStrategyPlan with ScenarioKey=1, AccountKey=4) returns 0 rows, while the candidate uses a completely different fact table (FactSales) and returns 100 rows with different measures; the candidate answers a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 726,
+  "judge_latency_ms": 21144
+}

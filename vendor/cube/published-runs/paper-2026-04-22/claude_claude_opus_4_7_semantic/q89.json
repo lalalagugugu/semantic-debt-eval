@@ -1,0 +1,39 @@
+{
+  "question_id": 89,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH customer_stats AS (\n  SELECT\n    CustomerKey,\n    SUM(SalesAmount) AS total_spend,\n    COUNT(DISTINCT ProductKey) AS distinct_products,\n    MAX(DateKey) AS last_purchase\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT\n    CustomerKey,\n    total_spend,\n    distinct_products,\n    CASE\n      WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n      WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n      ELSE 'Churned'\n    END AS segment\n  FROM customer_stats\n)\nSELECT\n  segment,\n  COUNT(*) AS customers,\n  AVG(total_spend) AS avg_spend,\n  AVG(distinct_products) AS avg_product_variety\nFROM segmented\nGROUP BY segment\nORDER BY segment",
+  "rows": [
+    [
+      "Active",
+      16890,
+      76861.7851426864,
+      74.97377146240379
+    ],
+    [
+      "At Risk",
+      1841,
+      344026.72974015016,
+      138.58229223248236
+    ],
+    [
+      "Churned",
+      138,
+      5700390.357222763,
+      780.3623188405797
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customers",
+    "avg_spend",
+    "avg_product_variety"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 9930,
+  "latency_ms_exec": 606,
+  "tokens_in": 23349,
+  "tokens_out": 450,
+  "claude_error": null,
+  "sql_error": null
+}

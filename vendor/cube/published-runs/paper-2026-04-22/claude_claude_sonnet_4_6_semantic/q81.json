@@ -1,0 +1,15 @@
+{
+  "question_id": 81,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    toYear(MIN(fos.DateKey)) AS cohort_year,\n    count(DISTINCT fos.CustomerKey) AS num_customers,\n    sum(fos.SalesAmount) / countDistinct(fos.CustomerKey) AS avg_customer_lifetime_value\nFROM retail.FactOnlineSales fos\nGROUP BY fos.CustomerKey\n) AS customer_stats\nGROUP BY cohort_year\nORDER BY cohort_year\n\nWait, let me write this properly with a subquery:\n\nSELECT\n    cohort_year,\n    count() AS num_customers,\n    avg(lifetime_value) AS avg_customer_lifetime_value\nFROM (\n    SELECT\n        CustomerKey,\n        toYear(MIN(DateKey)) AS cohort_year,\n        sum(SalesAmount)     AS lifetime_value\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n) AS customer_ltv\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10947,
+  "latency_ms_exec": null,
+  "tokens_in": 16772,
+  "tokens_out": 370,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 62, server response: Code: 62. DB::Exception: Syntax error: failed at position 253 ()) (line 7, col 1): ) AS customer_stats\nGROUP BY cohort_year\nORDER BY cohort_year\n\nWait, let me write this properly with a subquery:\n\nSELECT\n    cohort_year,\n    count() AS num_customers,\n ... Unmatched parentheses: ). (SYNTAX_ERROR) (for url https://clickhouse.vanya.cc:443)"
+}

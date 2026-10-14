@@ -1,0 +1,11 @@
+{
+  "question_id": 48,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 215, server response: Code: 215. DB::Exception: Column 'sla_daily.downtime' is not under aggregate function and not in GROUP BY keys. In query SELECT toYYYYMM(d.DateKey) AS month, sum(ifNull(sla.DownTime, 0)) AS total_downtime_minutes, countDistinct(sla.ITSLAkey) AS outage_events, sum(ifNull(s.SalesAmount, 0)) AS total_sales, corr(sla_daily.downtime, sales_daily.sales) OVER () AS downtime_sales_correlation FROM (SELECT DateKey, sum(ifNull(DownTime, 0)) AS downtime FROM retail.FactITSLA GROUP BY DateKey) AS sla_daily FULL OUTER JOIN (SELECT DateKey, sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY DateKey) AS sales_daily ON sla_daily.DateKey = sales_daily.DateKey LEFT JOIN retail.FactITSLA AS sla ON sla.DateKey = sla_daily.DateKey LEFT JOIN retail.FactOnlineSales AS s ON s.DateKey = sales_daily.DateKey LEFT JOIN retail.DimDate AS d ON d.DateKey = coalesce(sla_daily.DateKey, sales_daily.DateKey) GROUP BY month ORDER BY month ASC. (NOT_AN_AGGREGATE) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

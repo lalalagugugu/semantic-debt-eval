@@ -1,0 +1,114 @@
+{
+  "question_id": 90,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT\n  pc.ProductCategoryName AS ProductCategoryName,\n  sumIf(f.SalesAmount, toYear(f.DateKey) = 2007) AS Sales2007,\n  sumIf(f.SalesAmount, toYear(f.DateKey) = 2008) AS Sales2008,\n  sumIf(f.SalesAmount, toYear(f.DateKey) = 2009) AS Sales2009,\n  (sumIf(f.SalesAmount, toYear(f.DateKey) = 2007) - sumIf(f.TotalCost, toYear(f.DateKey) = 2007)) * 100.0 / nullif(sumIf(f.SalesAmount, toYear(f.DateKey) = 2007), 0) AS GrossMarginPct2007,\n  (sumIf(f.SalesAmount, toYear(f.DateKey) = 2008) - sumIf(f.TotalCost, toYear(f.DateKey) = 2008)) * 100.0 / nullif(sumIf(f.SalesAmount, toYear(f.DateKey) = 2008), 0) AS GrossMarginPct2008,\n  (sumIf(f.SalesAmount, toYear(f.DateKey) = 2009) - sumIf(f.TotalCost, toYear(f.DateKey) = 2009)) * 100.0 / nullif(sumIf(f.SalesAmount, toYear(f.DateKey) = 2009), 0) AS GrossMarginPct2009,\n  GrossMarginPct2008 - GrossMarginPct2007 AS YoYChange_2008_vs_2007_pp,\n  GrossMarginPct2009 - GrossMarginPct2008 AS YoYChange_2009_vs_2008_pp\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nWHERE toYear(f.DateKey) IN (2007, 2008, 2009)\nGROUP BY pc.ProductCategoryName\nORDER BY pc.ProductCategoryName",
+  "rows": [
+    [
+      "Audio",
+      10303173.11440942,
+      10457839.100803548,
+      16095707.246502712,
+      48.65595917621417,
+      53.271018200818325,
+      51.78180466910881,
+      4.615059024604157,
+      -1.4892135317095168
+    ],
+    [
+      "Cameras and camcorders",
+      286617112.03106195,
+      162289567.49340406,
+      149428309.15843436,
+      59.56124432041724,
+      55.75525284892684,
+      54.69937323036404,
+      -3.805991471490401,
+      -1.0558796185627983
+    ],
+    [
+      "Cell phones",
+      52723726.93365549,
+      50741026.37667505,
+      62248458.684849575,
+      51.20527078365309,
+      50.9345774654707,
+      51.12170062848013,
+      -0.2706933181823885,
+      0.18712316300942433
+    ],
+    [
+      "Computers",
+      147287637.76155925,
+      156244213.2573055,
+      179034949.1607184,
+      54.00209171005587,
+      53.57613941163285,
+      53.42853011054866,
+      -0.4259522984230202,
+      -0.147609301084195
+    ],
+    [
+      "Games and Toys",
+      1993138.7274990226,
+      1996970.1309971646,
+      2057197.8849967273,
+      54.978254267023395,
+      52.42853084000158,
+      48.96491690661505,
+      -2.549723427021817,
+      -3.463613933386526
+    ],
+    [
+      "Home Appliances",
+      235070159.35526764,
+      316630171.5440489,
+      282211447.6445479,
+      50.39604801824622,
+      50.60163588418567,
+      51.760168325390175,
+      0.20558786593944944,
+      1.1585324412045068
+    ],
+    [
+      "Music, Movies and Audio Books",
+      10918079.079605553,
+      10569776.354509335,
+      8857910.869301692,
+      57.14109372277757,
+      57.51030400860533,
+      54.92005994506188,
+      0.36921028582776216,
+      -2.5902440635434516
+    ],
+    [
+      "TV and Video",
+      210367298.43445924,
+      93408755.5886284,
+      108528145.79760057,
+      23.76419187114896,
+      50.280712051750506,
+      50.677253668548154,
+      26.516520180601546,
+      0.39654161679764854
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "Sales2007",
+    "Sales2008",
+    "Sales2009",
+    "GrossMarginPct2007",
+    "GrossMarginPct2008",
+    "GrossMarginPct2009",
+    "YoYChange_2008_vs_2007_pp",
+    "YoYChange_2009_vs_2008_pp"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 15522,
+  "latency_ms_exec": 700,
+  "tokens_in": 23348,
+  "tokens_out": 906,
+  "claude_error": null,
+  "sql_error": null
+}

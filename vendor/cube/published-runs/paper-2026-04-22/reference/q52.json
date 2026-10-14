@@ -1,0 +1,15 @@
+{
+  "question_id": 52,
+  "sql": "SELECT max(UnitPrice) AS max_unit_price FROM retail.DimProduct",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "max_unit_price"
+  ],
+  "row_count": 1,
+  "exec_ms": 492,
+  "error": null
+}

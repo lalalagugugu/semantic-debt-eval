@@ -1,0 +1,51 @@
+{
+  "question_id": 11,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sum(f.SalesAmount) AS TotalSalesAmount\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY TotalSalesAmount DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      833911778.5435302
+    ],
+    [
+      "Cameras and camcorders",
+      598334988.6825628
+    ],
+    [
+      "Computers",
+      482566800.17920625
+    ],
+    [
+      "TV and Video",
+      412304199.81969225
+    ],
+    [
+      "Cell phones",
+      165713211.99497452
+    ],
+    [
+      "Audio",
+      36856719.46172142
+    ],
+    [
+      "Music, Movies and Audio Books",
+      30345766.303420387
+    ],
+    [
+      "Games and Toys",
+      6047306.743511561
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "TotalSalesAmount"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 12510,
+  "latency_ms_exec": 576,
+  "tokens_in": 33723,
+  "tokens_out": 275,
+  "claude_error": null,
+  "sql_error": null
+}

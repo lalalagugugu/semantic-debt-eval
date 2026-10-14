@@ -1,0 +1,11 @@
+{
+  "question_id": 58,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the identical scalar value (3199.99) as the reference, differing only in the column alias name.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 156,
+  "judge_latency_ms": 10120
+}

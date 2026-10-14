@@ -1,0 +1,11 @@
+{
+  "question_id": 21,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate uses identical CTE logic and returns the same StoreName, ProductName, OnHandQuantity for all 100 rows; extra columns and different sort order are permissible under strict matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 404,
+  "judge_latency_ms": 15467
+}

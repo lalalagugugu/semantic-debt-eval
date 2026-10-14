@@ -1,0 +1,11 @@
+{
+  "question_id": 100,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses count() instead of countDistinct(SalesOrderNumber) and avg(SalesAmount) per line instead of sum/countDistinct for AOV \u2014 producing fundamentally different metrics, yielding only 3 rows with AOV ~$350 vs expected 30 rows with AOV ~$50K\u2013$70K.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 583,
+  "judge_latency_ms": 17430
+}

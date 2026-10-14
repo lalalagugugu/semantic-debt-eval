@@ -1,0 +1,11 @@
+{
+  "question_id": 72,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match the expected rows exactly \u2014 same 12 quarters, same quarterly and cumulative sales values, differing only by unrounded decimals vs. the reference's round() calls, well within 1% relative drift.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 252,
+  "judge_latency_ms": 12258
+}

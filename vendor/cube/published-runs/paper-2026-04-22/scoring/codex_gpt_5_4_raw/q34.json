@@ -1,0 +1,11 @@
+{
+  "question_id": 34,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales for COGS, producing completely different turnover ratios (e.g., ~768 vs ~137 for the top product) and a different product ranking, making it a wrong-measure answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 270,
+  "judge_latency_ms": 11319
+}

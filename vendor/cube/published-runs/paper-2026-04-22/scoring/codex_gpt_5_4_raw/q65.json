@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a different measure (FactSales + FactOnlineSales combined vs. FactSales only), returns only StoreManager IDs (not store names or sales amounts), omits NULL managers, and produces 100 rows vs. the expected 50 \u2014 answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 375,
+  "judge_latency_ms": 13809
+}

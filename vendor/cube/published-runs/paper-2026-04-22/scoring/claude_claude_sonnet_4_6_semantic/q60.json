@@ -1,0 +1,11 @@
+{
+  "question_id": 60,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same scalar value of 176, just using count() vs count(*) which are semantically equivalent in ClickHouse.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 149,
+  "judge_latency_ms": 10125
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 69,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical rows (same PromotionCategory, SalesAmount, DiscountAmount, and avg_discount_pct within negligible precision) as the reference; only column order and sort key differ, which don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 231,
+  "judge_latency_ms": 12189
+}

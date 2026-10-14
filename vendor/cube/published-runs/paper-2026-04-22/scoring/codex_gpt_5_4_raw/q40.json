@@ -1,0 +1,11 @@
+{
+  "question_id": 40,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns NaN instead of 0.0; it uses a different (cross-rate conversion) approach and produces an invalid result rather than matching the reference scalar.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 274,
+  "judge_latency_ms": 12831
+}

@@ -1,0 +1,35 @@
+{
+  "question_id": 44,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    CalendarYear,\n    total_sales,\n    round(\n        (total_sales - previous_year_sales) * 100.0 / nullIf(previous_year_sales, 0),\n        2\n    ) AS yoy_growth_pct\nFROM\n(\n    SELECT\n        d.CalendarYear AS CalendarYear,\n        sum(f.SalesAmount) AS total_sales,\n        lagInFrame(sum(f.SalesAmount), 1) OVER (ORDER BY d.CalendarYear) AS previous_year_sales\n    FROM retail.FactOnlineSales AS f\n    INNER JOIN retail.DimDate AS d\n        ON f.DateKey = d.DateKey\n    GROUP BY d.CalendarYear\n)\nORDER BY CalendarYear;",
+  "rows": [
+    [
+      2007,
+      1010803395.0379745,
+      null
+    ],
+    [
+      2008,
+      849671203.4334146,
+      -15.94
+    ],
+    [
+      2009,
+      857728031.3546346,
+      0.95
+    ]
+  ],
+  "columns": [
+    "CalendarYear",
+    "total_sales",
+    "yoy_growth_pct"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 16697,
+  "latency_ms_exec": 567,
+  "tokens_in": 19674,
+  "tokens_out": 387,
+  "claude_error": null,
+  "sql_error": null
+}

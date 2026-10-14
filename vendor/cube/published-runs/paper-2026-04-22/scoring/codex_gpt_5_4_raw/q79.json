@@ -1,0 +1,11 @@
+{
+  "question_id": 79,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the critical `ScenarioKey = 1` filter on FactSalesQuota, causing inflated quota totals and completely different stores/attainment values (~37.9% vs 100%) compared to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 255,
+  "judge_latency_ms": 11516
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 categories return 100% in both reference and candidate; the trivial numeric difference (100.00000000000001) is well within the 1% tolerance, and row ordering differences are irrelevant when all values are equal.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 226,
+  "judge_latency_ms": 11967
+}

@@ -1,0 +1,78 @@
+{
+  "question_id": 99,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH daily_sales AS (\n    SELECT\n        pc.ProductCategoryName,\n        f.DateKey,\n        d.IsWorkDay,\n        sum(f.SalesAmount) AS day_sales\n    FROM retail.FactOnlineSales f\n    JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n    JOIN retail.DimProductSubcategory ps ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    JOIN retail.DimDate d ON f.DateKey = d.DateKey\n    GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT\n    ProductCategoryName,\n    round(avgIf(day_sales, IsWorkDay = 'WeekEnd'), 2)  AS avg_weekend_day_sales,\n    round(avgIf(day_sales, IsWorkDay = 'WorkDay'), 2)  AS avg_weekday_day_sales,\n    round(\n        avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'),\n        2\n    )                                                   AS abs_diff,\n    round(\n        (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n        * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0),\n        2\n    )                                                   AS pct_bigger_than_weekday\nFROM daily_sales\nGROUP BY ProductCategoryName\nORDER BY pct_bigger_than_weekday DESC",
+  "rows": [
+    [
+      "Audio",
+      34030.71,
+      33468.29,
+      562.42,
+      1.68
+    ],
+    [
+      "Cameras and camcorders",
+      548909.82,
+      544738.68,
+      4171.14,
+      0.77
+    ],
+    [
+      "TV and Video",
+      376125.01,
+      376215.81,
+      -90.8,
+      -0.02
+    ],
+    [
+      "Home Appliances",
+      759549.91,
+      761393.12,
+      -1843.22,
+      -0.24
+    ],
+    [
+      "Computers",
+      439355.84,
+      440673.19,
+      -1317.35,
+      -0.3
+    ],
+    [
+      "Games and Toys",
+      5505.49,
+      5529.5,
+      -24.01,
+      -0.43
+    ],
+    [
+      "Cell phones",
+      150134.73,
+      151621.4,
+      -1486.67,
+      -0.98
+    ],
+    [
+      "Music, Movies and Audio Books",
+      26857.82,
+      28018.02,
+      -1160.2,
+      -4.14
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "avg_weekend_day_sales",
+    "avg_weekday_day_sales",
+    "abs_diff",
+    "pct_bigger_than_weekday"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 18867,
+  "latency_ms_exec": 1027,
+  "tokens_in": 16762,
+  "tokens_out": 1070,
+  "claude_error": null,
+  "sql_error": null
+}

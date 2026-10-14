@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate's top 10 rows match the expected rows exactly (same stores, same sales amounts, same sales-per-sqft values within rounding), with only extra columns (StoreKey, StoreType) and no LIMIT clause causing 100 rows to be returned instead of 10.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 232,
+  "judge_latency_ms": 12695
+}

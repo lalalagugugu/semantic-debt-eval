@@ -1,0 +1,63 @@
+{
+  "question_id": 92,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT p.BrandName AS BrandName, sum(f.SalesAmount) - sum(f.TotalCost) AS GrossMargin\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nWHERE toYear(f.DateKey) = 2009 AND toQuarter(f.DateKey) = 4\nGROUP BY p.BrandName\nORDER BY GrossMargin DESC",
+  "rows": [
+    [
+      "Contoso",
+      22816177.467971716
+    ],
+    [
+      "Fabrikam",
+      20332736.69450077
+    ],
+    [
+      "Litware",
+      12492043.598001149
+    ],
+    [
+      "Adventure Works",
+      10635377.985500408
+    ],
+    [
+      "Proseware",
+      8814022.416500378
+    ],
+    [
+      "Wide World Importers",
+      7534179.650999919
+    ],
+    [
+      "The Phone Company",
+      4965669.2000007825
+    ],
+    [
+      "A. Datum",
+      4831477.619999498
+    ],
+    [
+      "Southridge Video",
+      3567170.8435011627
+    ],
+    [
+      "Northwind Traders",
+      2345100.613000034
+    ],
+    [
+      "Tailspin Toys",
+      138083.3124999895
+    ]
+  ],
+  "columns": [
+    "BrandName",
+    "GrossMargin"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 7088,
+  "latency_ms_exec": 505,
+  "tokens_in": 23316,
+  "tokens_out": 168,
+  "claude_error": null,
+  "sql_error": null
+}

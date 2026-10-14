@@ -1,0 +1,924 @@
+{
+  "question_id": 20,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    p.BrandName,\n    latest.OnHandQuantity,\n    latest.SafetyStockQuantity,\n    latest.SafetyStockQuantity - latest.OnHandQuantity AS ShortfallQuantity,\n    latest.DateKey AS LatestDate\nFROM (\n    SELECT\n        ProductKey,\n        OnHandQuantity,\n        SafetyStockQuantity,\n        DateKey\n    FROM retail.FactInventory\n    WHERE (ProductKey, DateKey) IN (\n        SELECT ProductKey, max(DateKey)\n        FROM retail.FactInventory\n        GROUP BY ProductKey\n    )\n) AS latest\nJOIN retail.DimProduct AS p ON latest.ProductKey = p.ProductKey\nWHERE latest.OnHandQuantity < latest.SafetyStockQuantity\nORDER BY ShortfallQuantity DESC",
+  "rows": [
+    [
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      "Contoso",
+      84,
+      669,
+      585,
+      "2009-12-26"
+    ],
+    [
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      "Contoso",
+      24,
+      597,
+      573,
+      "2009-12-26"
+    ],
+    [
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      "Contoso",
+      188,
+      741,
+      553,
+      "2009-12-26"
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      "Contoso",
+      64,
+      615,
+      551,
+      "2009-12-26"
+    ],
+    [
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      "Contoso",
+      86,
+      597,
+      511,
+      "2009-12-26"
+    ],
+    [
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      "Contoso",
+      234,
+      669,
+      435,
+      "2009-12-26"
+    ],
+    [
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      "Contoso",
+      256,
+      666,
+      410,
+      "2009-12-26"
+    ],
+    [
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      "Contoso",
+      4,
+      378,
+      374,
+      "2009-12-26"
+    ],
+    [
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      "Contoso",
+      310,
+      681,
+      371,
+      "2009-12-26"
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      "Contoso",
+      64,
+      387,
+      323,
+      "2009-12-26"
+    ],
+    [
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      "Contoso",
+      116,
+      429,
+      313,
+      "2009-12-26"
+    ],
+    [
+      2494,
+      "Reusable Phone Screen Protector E120",
+      "Contoso",
+      104,
+      411,
+      307,
+      "2009-12-26"
+    ],
+    [
+      1698,
+      "SV Hand Games for students E40 Red",
+      "Southridge Video",
+      50,
+      342,
+      292,
+      "2009-12-26"
+    ],
+    [
+      1668,
+      "MGS Hand Games for students E400 Black",
+      "Tailspin Toys",
+      26,
+      312,
+      286,
+      "2009-12-26"
+    ],
+    [
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      "Contoso",
+      346,
+      618,
+      272,
+      "2009-12-26"
+    ],
+    [
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      "Contoso",
+      180,
+      447,
+      267,
+      "2009-12-26"
+    ],
+    [
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      "Contoso",
+      414,
+      678,
+      264,
+      "2009-12-26"
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      "Contoso",
+      242,
+      495,
+      253,
+      "2009-12-26"
+    ],
+    [
+      1662,
+      "MGS Hand Games for students E400 Yellow",
+      "Tailspin Toys",
+      94,
+      342,
+      248,
+      "2009-12-26"
+    ],
+    [
+      2494,
+      "Reusable Phone Screen Protector E120",
+      "Contoso",
+      80,
+      327,
+      247,
+      "2009-12-26"
+    ],
+    [
+      1662,
+      "MGS Hand Games for students E400 Yellow",
+      "Tailspin Toys",
+      96,
+      330,
+      234,
+      "2009-12-26"
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      "Contoso",
+      122,
+      354,
+      232,
+      "2009-12-26"
+    ],
+    [
+      1673,
+      "MGS Hand Games for kids E300 Red",
+      "Tailspin Toys",
+      104,
+      336,
+      232,
+      "2009-12-26"
+    ],
+    [
+      1677,
+      "MGS Hand Games for 12-16 boys E600 Red",
+      "Tailspin Toys",
+      118,
+      348,
+      230,
+      "2009-12-26"
+    ],
+    [
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      "Contoso",
+      136,
+      360,
+      224,
+      "2009-12-26"
+    ],
+    [
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      "Contoso",
+      394,
+      615,
+      221,
+      "2009-12-26"
+    ],
+    [
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      "Contoso",
+      116,
+      321,
+      205,
+      "2009-12-26"
+    ],
+    [
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      "Contoso",
+      10,
+      213,
+      203,
+      "2009-12-26"
+    ],
+    [
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      "Contoso",
+      12,
+      210,
+      198,
+      "2009-12-26"
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      "Contoso",
+      160,
+      351,
+      191,
+      "2009-12-26"
+    ],
+    [
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      "Contoso",
+      174,
+      360,
+      186,
+      "2009-12-26"
+    ],
+    [
+      1686,
+      "SV Hand Games for students E40 Yellow",
+      "Southridge Video",
+      50,
+      228,
+      178,
+      "2009-12-26"
+    ],
+    [
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      "Contoso",
+      432,
+      606,
+      174,
+      "2009-12-26"
+    ],
+    [
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      "Contoso",
+      316,
+      486,
+      170,
+      "2009-12-26"
+    ],
+    [
+      1668,
+      "MGS Hand Games for students E400 Black",
+      "Tailspin Toys",
+      90,
+      258,
+      168,
+      "2009-12-26"
+    ],
+    [
+      1688,
+      "SV Hand Games women M40 Yellow",
+      "Southridge Video",
+      3,
+      168,
+      165,
+      "2009-12-26"
+    ],
+    [
+      1680,
+      "MGS Hand Games for students E400 Silver",
+      "Tailspin Toys",
+      291,
+      450,
+      159,
+      "2009-12-26"
+    ],
+    [
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      "Contoso",
+      60,
+      216,
+      156,
+      "2009-12-26"
+    ],
+    [
+      1691,
+      "SV Hand Games for kids E30 Black",
+      "Southridge Video",
+      22,
+      174,
+      152,
+      "2009-12-26"
+    ],
+    [
+      1681,
+      "MGS Hand Games men M300 Silver",
+      "Tailspin Toys",
+      25,
+      174,
+      149,
+      "2009-12-26"
+    ],
+    [
+      1661,
+      "MGS Hand Games for kids E300 Yellow",
+      "Tailspin Toys",
+      94,
+      240,
+      146,
+      "2009-12-26"
+    ],
+    [
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      "Contoso",
+      54,
+      198,
+      144,
+      "2009-12-26"
+    ],
+    [
+      1695,
+      "SV Hand Games for 12-16 boys E60 Black",
+      "Southridge Video",
+      128,
+      270,
+      142,
+      "2009-12-26"
+    ],
+    [
+      1704,
+      "SV Hand Games for students E40 Silver",
+      "Southridge Video",
+      40,
+      180,
+      140,
+      "2009-12-26"
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      "Contoso",
+      544,
+      684,
+      140,
+      "2009-12-26"
+    ],
+    [
+      1671,
+      "MGS Hand Games for 12-16 boys E600 Black",
+      "Tailspin Toys",
+      194,
+      330,
+      136,
+      "2009-12-26"
+    ],
+    [
+      1661,
+      "MGS Hand Games for kids E300 Yellow",
+      "Tailspin Toys",
+      134,
+      270,
+      136,
+      "2009-12-26"
+    ],
+    [
+      1681,
+      "MGS Hand Games men M300 Silver",
+      "Tailspin Toys",
+      21,
+      156,
+      135,
+      "2009-12-26"
+    ],
+    [
+      1685,
+      "SV Hand Games for kids E30 Yellow",
+      "Southridge Video",
+      28,
+      162,
+      134,
+      "2009-12-26"
+    ],
+    [
+      1688,
+      "SV Hand Games women M40 Yellow",
+      "Southridge Video",
+      23,
+      156,
+      133,
+      "2009-12-26"
+    ],
+    [
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      "Contoso",
+      248,
+      381,
+      133,
+      "2009-12-26"
+    ],
+    [
+      1664,
+      "MGS Hand Games women M400 Yellow",
+      "Tailspin Toys",
+      29,
+      162,
+      133,
+      "2009-12-26"
+    ],
+    [
+      1676,
+      "MGS Hand Games women M400 Red",
+      "Tailspin Toys",
+      21,
+      150,
+      129,
+      "2009-12-26"
+    ],
+    [
+      1691,
+      "SV Hand Games for kids E30 Black",
+      "Southridge Video",
+      76,
+      204,
+      128,
+      "2009-12-26"
+    ],
+    [
+      1701,
+      "SV Hand Games for 12-16 boys E60 Red",
+      "Southridge Video",
+      130,
+      258,
+      128,
+      "2009-12-26"
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      "Contoso",
+      80,
+      207,
+      127,
+      "2009-12-26"
+    ],
+    [
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      "Contoso",
+      62,
+      189,
+      127,
+      "2009-12-26"
+    ],
+    [
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      "Contoso",
+      14,
+      135,
+      121,
+      "2009-12-26"
+    ],
+    [
+      1664,
+      "MGS Hand Games women M400 Yellow",
+      "Tailspin Toys",
+      41,
+      162,
+      121,
+      "2009-12-26"
+    ],
+    [
+      1699,
+      "SV Hand Games men M30 Red",
+      "Southridge Video",
+      37,
+      156,
+      119,
+      "2009-12-26"
+    ],
+    [
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      "Contoso",
+      434,
+      552,
+      118,
+      "2009-12-26"
+    ],
+    [
+      1680,
+      "MGS Hand Games for students E400 Silver",
+      "Tailspin Toys",
+      200,
+      318,
+      118,
+      "2009-12-26"
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      "Contoso",
+      152,
+      270,
+      118,
+      "2009-12-26"
+    ],
+    [
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      "Contoso",
+      512,
+      630,
+      118,
+      "2009-12-26"
+    ],
+    [
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      "Contoso",
+      84,
+      201,
+      117,
+      "2009-12-26"
+    ],
+    [
+      1607,
+      "SV DVD 12-Inch Player Portable M400 Silver",
+      "Southridge Video",
+      3,
+      120,
+      117,
+      "2009-12-26"
+    ],
+    [
+      1682,
+      "MGS Hand Games women M400 Silver",
+      "Tailspin Toys",
+      9,
+      126,
+      117,
+      "2009-12-26"
+    ],
+    [
+      1608,
+      "SV DVD 7-Inch Player Portable E200 Silver",
+      "Southridge Video",
+      3,
+      120,
+      117,
+      "2009-12-26"
+    ],
+    [
+      1647,
+      "Contoso DVD 12-Inch Player Portable M400 Black",
+      "Contoso",
+      4,
+      120,
+      116,
+      "2009-12-26"
+    ],
+    [
+      1673,
+      "MGS Hand Games for kids E300 Red",
+      "Tailspin Toys",
+      208,
+      324,
+      116,
+      "2009-12-26"
+    ],
+    [
+      1686,
+      "SV Hand Games for students E40 Yellow",
+      "Southridge Video",
+      118,
+      234,
+      116,
+      "2009-12-26"
+    ],
+    [
+      1616,
+      "Contoso DVD Player M100 Black",
+      "Contoso",
+      5,
+      120,
+      115,
+      "2009-12-26"
+    ],
+    [
+      1571,
+      "SV DVD Player M100 Black",
+      "Southridge Video",
+      5,
+      120,
+      115,
+      "2009-12-26"
+    ],
+    [
+      1617,
+      "Contoso DVD Player M110 Silver",
+      "Contoso",
+      6,
+      120,
+      114,
+      "2009-12-26"
+    ],
+    [
+      1594,
+      "SV DVD 38 DVD Storage Binder E25 Red",
+      "Southridge Video",
+      7,
+      120,
+      113,
+      "2009-12-26"
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      "Contoso",
+      468,
+      579,
+      111,
+      "2009-12-26"
+    ],
+    [
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      "Contoso",
+      88,
+      198,
+      110,
+      "2009-12-26"
+    ],
+    [
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      "Contoso",
+      60,
+      168,
+      108,
+      "2009-12-26"
+    ],
+    [
+      1622,
+      "Contoso DVD Recorder L200 Black",
+      "Contoso",
+      14,
+      120,
+      106,
+      "2009-12-26"
+    ],
+    [
+      1697,
+      "SV Hand Games for kids E30 Red",
+      "Southridge Video",
+      146,
+      252,
+      106,
+      "2009-12-26"
+    ],
+    [
+      1680,
+      "MGS Hand Games for students E400 Silver",
+      "Tailspin Toys",
+      2,
+      108,
+      106,
+      "2009-12-26"
+    ],
+    [
+      1657,
+      "Contoso DVD 12-Inch Player Portable M400 White",
+      "Contoso",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1647,
+      "Contoso DVD 12-Inch Player Portable M400 Black",
+      "Contoso",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1647,
+      "Contoso DVD 12-Inch Player Portable M400 Black",
+      "Contoso",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1646,
+      "Contoso DVD 9-Inch Player Portable M300 Black",
+      "Contoso",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1645,
+      "Contoso DVD External DVD Burner M200 Silver",
+      "Contoso",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1582,
+      "SV DVD 48 DVD Storage Binder M50 Black",
+      "Southridge Video",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1595,
+      "SV DVD 60 DVD Storage Binder L20 Red",
+      "Southridge Video",
+      16,
+      120,
+      104,
+      "2009-12-26"
+    ],
+    [
+      1675,
+      "MGS Hand Games men M300 Red",
+      "Tailspin Toys",
+      41,
+      144,
+      103,
+      "2009-12-26"
+    ],
+    [
+      1621,
+      "Contoso DVD Movies E100 Yellow",
+      "Contoso",
+      18,
+      120,
+      102,
+      "2009-12-26"
+    ],
+    [
+      1641,
+      "Contoso DVD 55DVD Storage Binder M56 Red",
+      "Contoso",
+      18,
+      120,
+      102,
+      "2009-12-26"
+    ],
+    [
+      1673,
+      "MGS Hand Games for kids E300 Red",
+      "Tailspin Toys",
+      144,
+      246,
+      102,
+      "2009-12-26"
+    ],
+    [
+      1649,
+      "Contoso DVD 14-Inch Player Portable L100 Black",
+      "Contoso",
+      18,
+      120,
+      102,
+      "2009-12-26"
+    ],
+    [
+      1658,
+      "Contoso DVD 7-Inch Player Portable E200 White",
+      "Contoso",
+      19,
+      120,
+      101,
+      "2009-12-26"
+    ],
+    [
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      "Contoso",
+      34,
+      135,
+      101,
+      "2009-12-26"
+    ],
+    [
+      1584,
+      "SV DVD 38 DVD Storage Binder E25 Black",
+      "Southridge Video",
+      19,
+      120,
+      101,
+      "2009-12-26"
+    ],
+    [
+      1694,
+      "SV Hand Games women M40 Black",
+      "Southridge Video",
+      1,
+      102,
+      101,
+      "2009-12-26"
+    ],
+    [
+      1603,
+      "SV DVD 7-Inch Player Portable E200 Black",
+      "Southridge Video",
+      19,
+      120,
+      101,
+      "2009-12-26"
+    ],
+    [
+      1662,
+      "MGS Hand Games for students E400 Yellow",
+      "Tailspin Toys",
+      1,
+      102,
+      101,
+      "2009-12-26"
+    ],
+    [
+      1674,
+      "MGS Hand Games for students E400 Red",
+      "Tailspin Toys",
+      7,
+      108,
+      101,
+      "2009-12-26"
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "BrandName",
+    "OnHandQuantity",
+    "SafetyStockQuantity",
+    "ShortfallQuantity",
+    "LatestDate"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 9161,
+  "latency_ms_exec": 1505,
+  "tokens_in": 13796,
+  "tokens_out": 291,
+  "claude_error": null,
+  "sql_error": null
+}

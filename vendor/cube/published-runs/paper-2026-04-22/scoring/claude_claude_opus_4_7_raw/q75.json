@@ -1,0 +1,11 @@
+{
+  "question_id": 75,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits the FirstName/LastName join and returns 100 rows instead of the reference's LIMIT 25, but the spending values and pct_increase figures match the reference rows precisely, correctly answering which customers increased spending by >50% from 2008 to 2009.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 439,
+  "judge_latency_ms": 16700
+}

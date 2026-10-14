@@ -1,0 +1,11 @@
+{
+  "question_id": 61,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 30 subcategories with matching sales amounts (within negligible floating-point drift); the extra ProductSubcategoryKey column does not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 207,
+  "judge_latency_ms": 11354
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 71,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 8 category/subcategory rows with matching sales values (differences are sub-1% floating point precision), just ordered alphabetically by category instead of by sales_amount DESC \u2014 which is acceptable since ordering is not a core requirement of the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 217,
+  "judge_latency_ms": 12067
+}

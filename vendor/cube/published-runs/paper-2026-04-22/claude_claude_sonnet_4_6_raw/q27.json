@@ -1,0 +1,92 @@
+{
+  "question_id": 27,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    sum(s.SalesAmount) AS total_sales,\n    sum(s.TotalCost) AS total_cost,\n    round((sum(s.SalesAmount) - sum(s.TotalCost)) / sum(s.SalesAmount) * 100, 2) AS profit_margin_pct\nFROM retail.FactSales AS s\nINNER JOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey\nWHERE s.SalesAmount > 0\nGROUP BY p.ProductKey, p.ProductName\nORDER BY profit_margin_pct DESC\nLIMIT 10",
+  "rows": [
+    [
+      628,
+      "WWI Screen 125in M1611 White",
+      1458518.4000000006,
+      483462.31999999896,
+      66.85
+    ],
+    [
+      2512,
+      "Contoso Bluetooth Active Headphones L15 Black",
+      7628441.051699993,
+      2529931.799999994,
+      66.84
+    ],
+    [
+      506,
+      "Adventure Works LCD22W M200 White",
+      5223750.700000006,
+      1732044.0299999914,
+      66.84
+    ],
+    [
+      639,
+      "WWI Screen 125in M1611 Silver",
+      1541491.8300000003,
+      511140.87999999896,
+      66.84
+    ],
+    [
+      2513,
+      "Contoso Bluetooth Active Headphones L15 Red",
+      8157691.436999994,
+      2705657.399999993,
+      66.83
+    ],
+    [
+      2514,
+      "Contoso Bluetooth Active Headphones L15 White",
+      7974490.030499992,
+      2645359.3999999915,
+      66.83
+    ],
+    [
+      971,
+      "A. Datum Full Frame Digital Camera X300 Grey",
+      4420422.929999999,
+      1466620.9199999985,
+      66.82
+    ],
+    [
+      1225,
+      "Fabrikam Trendsetter 1/2\" 3mm X300 Orange",
+      18515490.0,
+      6143004.119999994,
+      66.82
+    ],
+    [
+      557,
+      "Proseware Screen 125in X1609 White",
+      1267918.65,
+      420805.35999999923,
+      66.81
+    ],
+    [
+      1097,
+      "Contoso SLR Camera 35\" X358 Pink",
+      5147926.000000004,
+      1708388.8199999975,
+      66.81
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "total_sales",
+    "total_cost",
+    "profit_margin_pct"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 10982,
+  "latency_ms_exec": 621,
+  "tokens_in": 27820,
+  "tokens_out": 305,
+  "claude_error": null,
+  "sql_error": null
+}

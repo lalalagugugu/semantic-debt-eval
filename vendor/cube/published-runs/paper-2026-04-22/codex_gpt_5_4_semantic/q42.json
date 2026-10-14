@@ -1,0 +1,15 @@
+{
+  "question_id": 42,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName AS category,\n    sum(fos.SalesAmount) AS total_sales_amount,\n    sum(fos.SalesQuantity) AS total_sales_quantity,\n    sum(fos.SalesAmount) - sum(fos.TotalCost) AS gross_margin_amount,\n    (sum(fos.SalesAmount) - sum(fos.TotalCost)) / nullIf(sum(fos.SalesAmount), 0) AS gross_margin_pct,\n    sum(fos.ReturnQuantity) / nullIf(sum(fos.SalesQuantity), 0) AS return_rate,\n    sum(fos.SalesAmount) / nullIf(countDistinct(fos.SalesOrderNumber), 0) AS average_order_value\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimProduct AS p\n    ON fos.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory AS pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nWHERE pc.ProductCategoryName = 'Cameras'\nGROUP BY pc.ProductCategoryName",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 18307,
+  "latency_ms_exec": 513,
+  "tokens_in": 19677,
+  "tokens_out": 394,
+  "claude_error": null,
+  "sql_error": null
+}

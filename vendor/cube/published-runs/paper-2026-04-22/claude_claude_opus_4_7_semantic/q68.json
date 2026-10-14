@@ -1,0 +1,30 @@
+{
+  "question_id": 68,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT d.IsHoliday AS holiday_flag, countDistinct(f.SalesOrderNumber) AS orders, sum(f.SalesAmount) AS revenue FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey WHERE toYear(f.DateKey) = 2009 GROUP BY d.IsHoliday",
+  "rows": [
+    [
+      "Yes",
+      106571,
+      243875865.3085236
+    ],
+    [
+      "No",
+      271499,
+      613852166.0385973
+    ]
+  ],
+  "columns": [
+    "holiday_flag",
+    "orders",
+    "revenue"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 8681,
+  "latency_ms_exec": 627,
+  "tokens_in": 23332,
+  "tokens_out": 141,
+  "claude_error": null,
+  "sql_error": null
+}

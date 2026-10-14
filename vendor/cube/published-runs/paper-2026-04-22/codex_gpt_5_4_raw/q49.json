@@ -1,0 +1,15 @@
+{
+  "question_id": 49,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH RECURSIVE entity_hierarchy AS\n(\n    SELECT\n        EntityKey AS descendant_entity_key,\n        EntityKey AS ancestor_entity_key,\n        EntityName AS ancestor_entity_name,\n        ParentEntityKey\n    FROM retail.DimEntity\n    UNION ALL\n    SELECT\n        eh.descendant_entity_key,\n        p.EntityKey AS ancestor_entity_key,\n        p.EntityName AS ancestor_entity_name,\n        p.ParentEntityKey\n    FROM entity_hierarchy AS eh\n    INNER JOIN retail.DimEntity AS p\n        ON eh.ParentEntityKey = toFloat64(p.EntityKey)\n)\nSELECT\n    eh.ancestor_entity_key AS EntityKey,\n    any(eh.ancestor_entity_name) AS EntityName,\n    sum(fs.SalesAmount) AS TotalSalesAmount,\n    sum(fs.SalesQuantity) AS TotalSalesQuantity,\n    sum(fs.ReturnAmount) AS TotalReturnAmount,\n    sum(fs.DiscountAmount) AS TotalDiscountAmount\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimStore AS s\n    ON fs.StoreKey = s.StoreKey\nINNER JOIN entity_hierarchy AS eh\n    ON s.EntityKey IS NOT NULL\n   AND toInt32(s.EntityKey) = eh.descendant_entity_key\nGROUP BY eh.ancestor_entity_key\nORDER BY eh.ancestor_entity_key;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 51135,
+  "latency_ms_exec": null,
+  "tokens_in": 16364,
+  "tokens_out": 1022,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 306, server response: Code: 306. DB::Exception: Maximum recursive CTE evaluation depth (1000) exceeded, during evaluation of  entity_hierarchy AS eh. Consider raising max_recursive_cte_evaluation_depth setting: While executing RecursiveCTESource. (TOO_DEEP_RECURSION) (for url https://clickhouse.vanya.cc:443)"
+}

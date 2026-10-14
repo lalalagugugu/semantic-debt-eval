@@ -1,0 +1,11 @@
+{
+  "question_id": 26,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns identical counts (18015, 853) for the same two quarters; the only difference is using string labels (\"Q1\", \"Q2\") instead of numeric quarter numbers (1, 2), which is semantically equivalent.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 205,
+  "judge_latency_ms": 10028
+}

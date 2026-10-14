@@ -1,0 +1,81 @@
+{
+  "question_id": 8,
+  "sql": "SELECT FirstName, LastName FROM retail.DimEmployee WHERE IsSalesPerson = 'Yes'",
+  "rows": [
+    [
+      "Dean",
+      "Halstead"
+    ],
+    [
+      "Inbar",
+      "Gazit"
+    ],
+    [
+      "Seth",
+      "Grossman"
+    ],
+    [
+      "Christa",
+      "Geller"
+    ],
+    [
+      "Carlos",
+      "Grilo"
+    ],
+    [
+      "Tom",
+      "Getzinger"
+    ],
+    [
+      "Kirk",
+      "Gregersen"
+    ],
+    [
+      "Leo",
+      "Giakoumakis"
+    ],
+    [
+      "Nikolay",
+      "Grachev"
+    ],
+    [
+      "Enrique",
+      "Gil"
+    ],
+    [
+      "Mojca",
+      "Gostincar"
+    ],
+    [
+      "Eric",
+      "Gilmore"
+    ],
+    [
+      "Nuria",
+      "Gonzalez"
+    ],
+    [
+      "Stuart",
+      "Glasson"
+    ],
+    [
+      "Daniel",
+      "Goldschmidt"
+    ],
+    [
+      "Gerhard",
+      "Goeschl"
+    ],
+    [
+      "Jossef",
+      "Goldberg"
+    ]
+  ],
+  "columns": [
+    "FirstName",
+    "LastName"
+  ],
+  "row_count": 17,
+  "exec_ms": 494,
+  "error": null
+}

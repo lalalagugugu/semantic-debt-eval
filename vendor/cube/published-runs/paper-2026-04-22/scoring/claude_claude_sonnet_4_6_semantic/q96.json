@@ -1,0 +1,11 @@
+{
+  "question_id": 96,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly on cohort_year, total_customers, and repeat_customers; the retention percentage differs only by rounding (99.96 vs 99.9629), well within 1% relative drift.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 210,
+  "judge_latency_ms": 10369
+}

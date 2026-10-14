@@ -1,0 +1,11 @@
+{
+  "question_id": 36,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns individual customer rows instead of aggregated segment counts, but grouping its recency_segment would reproduce the reference summary \u2014 assuming the hardcoded '2009-12-31' matches the actual MAX(DateKey).",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 875,
+  "judge_latency_ms": 24726
+}

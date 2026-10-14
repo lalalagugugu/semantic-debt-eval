@@ -1,0 +1,15 @@
+{
+  "question_id": 2,
+  "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      2718202629.808186
+    ]
+  ],
+  "columns": [
+    "sum(SalesAmount)"
+  ],
+  "row_count": 1,
+  "exec_ms": 504,
+  "error": null
+}

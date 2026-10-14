@@ -1,0 +1,11 @@
+{
+  "question_id": 31,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses FactSales/FactSalesQuota instead of FactStrategyPlan, producing budget values ~3\u20134\u00d7 larger and divergent actuals (e.g., Computers 938M vs 1072M, Games and Toys 8.8M vs 65M), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 498,
+  "judge_latency_ms": 17711
+}

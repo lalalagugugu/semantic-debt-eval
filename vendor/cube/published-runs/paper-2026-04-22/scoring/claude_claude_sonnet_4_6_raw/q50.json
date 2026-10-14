@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical numeric values (sales_2008 \u2248 4.11B, sales_2009 \u2248 3.72B, growth_pct = -9.54) using the same same-store logic; only column ordering differs, which is irrelevant for a strict match.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 242,
+  "judge_latency_ms": 13118
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Direct report counts match, but avg tenure years are wildly wrong (~27 years vs ~10 years) because the candidate uses today() as the reference date instead of the fixed date '2009-12-31', answering a different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 271,
+  "judge_latency_ms": 16252
+}

@@ -1,0 +1,43 @@
+{
+  "question_id": 13,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    sum(fos.SalesAmount) AS total_sales,\n    sum(fos.SalesAmount) / nullIf(countDistinct(fos.SalesOrderNumber), 0) AS average_order_value,\n    countDistinct(fos.SalesOrderNumber) AS number_of_transactions\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimStore AS s\n    ON fos.StoreKey = s.StoreKey\nGROUP BY\n    s.StoreKey,\n    s.StoreName\nORDER BY total_sales DESC",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      1031261452.7926756,
+      1504.3733237531171,
+      685509
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      849584948.836169,
+      2516.558003412843,
+      337598
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      837356228.1802413,
+      1285.826952765949,
+      651220
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "total_sales",
+    "average_order_value",
+    "number_of_transactions"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 15551,
+  "latency_ms_exec": 1182,
+  "tokens_in": 19685,
+  "tokens_out": 202,
+  "claude_error": null,
+  "sql_error": null
+}

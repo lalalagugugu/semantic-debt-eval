@@ -1,0 +1,11 @@
+{
+  "question_id": 62,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same 11 brands with matching revenue and units values within negligible floating-point precision differences (far under 1%).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 179,
+  "judge_latency_ms": 9893
+}

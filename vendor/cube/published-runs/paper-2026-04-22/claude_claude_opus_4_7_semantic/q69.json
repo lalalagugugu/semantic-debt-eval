@@ -1,0 +1,27 @@
+{
+  "question_id": 69,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT p.PromotionCategory AS PromotionCategory,\n       sum(f.DiscountAmount) AS TotalDiscountAmount,\n       sum(f.SalesAmount) AS TotalSalesAmount,\n       sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount) + sum(f.DiscountAmount), 0) AS AverageDiscountPercent\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey\nWHERE f.PromotionKey != 1\nGROUP BY p.PromotionCategory\nORDER BY TotalDiscountAmount DESC",
+  "rows": [
+    [
+      "Store",
+      268904117.38993096,
+      1782429980.5593388,
+      13.108743117893663
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "TotalDiscountAmount",
+    "TotalSalesAmount",
+    "AverageDiscountPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9800,
+  "latency_ms_exec": 3037,
+  "tokens_in": 23332,
+  "tokens_out": 257,
+  "claude_error": null,
+  "sql_error": null
+}

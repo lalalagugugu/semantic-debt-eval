@@ -1,0 +1,21 @@
+{
+  "question_id": 50,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH\n    cy AS (\n        SELECT toYear(max(DateKey)) AS year\n        FROM retail.FactSales\n    ),\n    py AS (\n        SELECT year - 1 AS year\n        FROM cy\n    ),\n    same_stores AS (\n        SELECT StoreKey\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = (SELECT year FROM cy)\n        INTERSECT\n        SELECT StoreKey\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = (SELECT year FROM py)\n    )\nSELECT\n    (\n        sumIf(SalesAmount, toYear(DateKey) = (SELECT year FROM cy) AND StoreKey IN same_stores)\n        - sumIf(SalesAmount, toYear(DateKey) = (SELECT year FROM py) AND StoreKey IN same_stores)\n    ) * 100.0\n    / nullIf(sumIf(SalesAmount, toYear(DateKey) = (SELECT year FROM py) AND StoreKey IN same_stores), 0) AS same_store_sales_growth_pct\nFROM retail.FactSales",
+  "rows": [
+    [
+      -9.53661309046583
+    ]
+  ],
+  "columns": [
+    "same_store_sales_growth_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 15429,
+  "latency_ms_exec": 578,
+  "tokens_in": 18827,
+  "tokens_out": 246,
+  "claude_error": null,
+  "sql_error": null
+}

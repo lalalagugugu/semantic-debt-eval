@@ -1,0 +1,11 @@
+{
+  "question_id": 11,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing substantially different sales totals (e.g., Home Appliances ~3.9B vs ~834M) that cannot be reconciled with the reference values via aggregation \u2014 it answers from the wrong fact table.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 233,
+  "judge_latency_ms": 11709
+}

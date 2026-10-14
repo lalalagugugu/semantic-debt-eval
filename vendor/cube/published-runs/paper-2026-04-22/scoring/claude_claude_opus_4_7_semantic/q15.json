@@ -1,0 +1,11 @@
+{
+  "question_id": 15,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same 29 countries in the same order with only negligible floating-point precision differences well within the 1% threshold.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 185,
+  "judge_latency_ms": 14822
+}

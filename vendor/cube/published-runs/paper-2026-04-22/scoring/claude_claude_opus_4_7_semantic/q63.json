@@ -1,0 +1,11 @@
+{
+  "question_id": 63,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match the expected rows exactly on Occupation and avg_order_value; the only difference is the omission of the auxiliary `orders` count column, which does not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 203,
+  "judge_latency_ms": 11137
+}

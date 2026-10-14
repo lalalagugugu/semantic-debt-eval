@@ -1,0 +1,33 @@
+{
+  "question_id": 78,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.PromotionCategory,\n    sum(s.DiscountAmount) AS TotalDiscountAmount,\n    round(sum(s.DiscountAmount) / sum(sum(s.DiscountAmount)) OVER () * 100, 2) AS SharePercent,\n    rank() OVER (ORDER BY sum(s.DiscountAmount) DESC) AS Rnk\nFROM retail.FactSales s\nJOIN retail.DimPromotion p ON s.PromotionKey = p.PromotionKey\nWHERE toYear(s.DateKey) = 2009\nGROUP BY p.PromotionCategory\nORDER BY Rnk",
+  "rows": [
+    [
+      "Store",
+      62238467.63769468,
+      100.0,
+      1
+    ],
+    [
+      "No Discount",
+      0.0,
+      0.0,
+      2
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "TotalDiscountAmount",
+    "SharePercent",
+    "Rnk"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7627,
+  "latency_ms_exec": 495,
+  "tokens_in": 13810,
+  "tokens_out": 205,
+  "claude_error": null,
+  "sql_error": null
+}

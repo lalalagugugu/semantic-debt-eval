@@ -1,0 +1,17 @@
+{
+  "question_id": 46,
+  "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Education as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Education IS NOT NULL GROUP BY c.Education ORDER BY profit DESC LIMIT 1",
+  "rows": [
+    [
+      "Partial College",
+      326940024.2422992
+    ]
+  ],
+  "columns": [
+    "segment",
+    "profit"
+  ],
+  "row_count": 1,
+  "exec_ms": 612,
+  "error": null
+}

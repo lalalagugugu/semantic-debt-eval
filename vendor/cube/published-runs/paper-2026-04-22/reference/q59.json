@@ -1,0 +1,15 @@
+{
+  "question_id": 59,
+  "sql": "SELECT count(*) AS holiday_days FROM retail.DimDate WHERE IsHoliday = 'Yes'",
+  "rows": [
+    [
+      731
+    ]
+  ],
+  "columns": [
+    "holiday_days"
+  ],
+  "row_count": 1,
+  "exec_ms": 547,
+  "error": null
+}

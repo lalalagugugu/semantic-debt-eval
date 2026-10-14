@@ -1,0 +1,27 @@
+{
+  "question_id": 81,
+  "sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       round(avg(lifetime_spend), 2) AS avg_ltv,\n       round(sum(lifetime_spend), 2) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      144060.93,
+      2718141697.93
+    ],
+    [
+      2009,
+      1,
+      60931.88,
+      60931.88
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "customers_in_cohort",
+    "avg_ltv",
+    "total_ltv"
+  ],
+  "row_count": 2,
+  "exec_ms": 557,
+  "error": null
+}

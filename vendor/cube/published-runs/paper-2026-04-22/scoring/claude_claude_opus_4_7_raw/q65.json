@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate groups only by StoreManager (not StoreName), collapsing multi-store managers into one summed row and applying the >$5M filter at manager level, producing 100 rows with values that don't match the expected per-store breakdown of 50 rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 923,
+  "judge_latency_ms": 23840
+}

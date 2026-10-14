@@ -1,0 +1,70 @@
+{
+  "question_id": 7,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    ProductKey,\n    ProductName,\n    UnitPrice\nFROM retail.DimProduct\nWHERE UnitPrice IS NOT NULL\nORDER BY UnitPrice DESC, ProductKey ASC\nLIMIT 10",
+  "rows": [
+    [
+      1897,
+      "Fabrikam Refrigerator 24.7CuFt X9800 White",
+      3199.99
+    ],
+    [
+      1903,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Brown",
+      3199.99
+    ],
+    [
+      1909,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Silver",
+      3199.99
+    ],
+    [
+      1915,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Green",
+      3199.99
+    ],
+    [
+      1921,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Blue",
+      3199.99
+    ],
+    [
+      1927,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      3199.99
+    ],
+    [
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      3199.99
+    ],
+    [
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      3199.99
+    ],
+    [
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      3199.99
+    ],
+    [
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      3199.99
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "UnitPrice"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 9645,
+  "latency_ms_exec": 496,
+  "tokens_in": 16369,
+  "tokens_out": 54,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,92 @@
+{
+  "question_id": 73,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH latest AS (\n    SELECT\n        StoreKey,\n        ProductKey,\n        max(DateKey) AS max_date\n    FROM retail.FactInventory\n    GROUP BY\n        StoreKey,\n        ProductKey\n)\nSELECT\n    i.ProductKey,\n    p.ProductName,\n    sum(i.OnHandQuantity) AS current_on_hand_quantity,\n    sum(i.SafetyStockQuantity) AS current_safety_stock_quantity,\n    sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS inventory_gap\nFROM retail.FactInventory AS i\nINNER JOIN latest AS l\n    ON i.StoreKey = l.StoreKey\n   AND i.ProductKey = l.ProductKey\n   AND i.DateKey = l.max_date\nINNER JOIN retail.DimProduct AS p\n    ON i.ProductKey = p.ProductKey\nGROUP BY\n    i.ProductKey,\n    p.ProductName\nORDER BY abs(inventory_gap) DESC\nLIMIT 10",
+  "rows": [
+    [
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      71417,
+      35751,
+      35666
+    ],
+    [
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      70381,
+      35202,
+      35179
+    ],
+    [
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      73940,
+      39087,
+      34853
+    ],
+    [
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      75323,
+      40719,
+      34604
+    ],
+    [
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      72241,
+      38217,
+      34024
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      76617,
+      42609,
+      34008
+    ],
+    [
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      67477,
+      33627,
+      33850
+    ],
+    [
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      70702,
+      37104,
+      33598
+    ],
+    [
+      2494,
+      "Reusable Phone Screen Protector E120",
+      76381,
+      43401,
+      32980
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      76414,
+      44685,
+      31729
+    ]
+  ],
+  "columns": [
+    "i.ProductKey",
+    "ProductName",
+    "current_on_hand_quantity",
+    "current_safety_stock_quantity",
+    "inventory_gap"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 16112,
+  "latency_ms_exec": 1321,
+  "tokens_in": 18830,
+  "tokens_out": 442,
+  "claude_error": null,
+  "sql_error": null
+}

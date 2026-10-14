@@ -1,0 +1,15 @@
+{
+  "question_id": 48,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toYear(s.DateKey) AS Year,\n    toMonth(s.DateKey) AS Month,\n    s.StoreKey,\n    sum(s.SalesAmount) AS TotalSales,\n    sum(s.SalesQuantity) AS TotalSalesQuantity,\n    countIf(it.DownTime > 0) AS OutageEvents,\n    sum(coalesce(it.DownTime, 0)) AS TotalDowntimeHours,\n    round(\n        corr(s.SalesAmount, coalesce(it.DownTime, 0))\n        OVER (PARTITION BY s.StoreKey),\n    4) AS SalesVsDowntimeCorr\nFROM retail.FactSales s\nLEFT JOIN retail.FactITSLA it\n    ON s.StoreKey = it.StoreKey\n    AND s.DateKey = it.DateKey\nGROUP BY Year, Month, s.StoreKey\nORDER BY s.StoreKey, Year, Month;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10051,
+  "latency_ms_exec": null,
+  "tokens_in": 13797,
+  "tokens_out": 368,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 215, server response: Code: 215. DB::Exception: Column 's.SalesAmount' is not under aggregate function and not in GROUP BY keys. In query SELECT toYear(s.DateKey) AS Year, toMonth(s.DateKey) AS Month, s.StoreKey, sum(s.SalesAmount) AS TotalSales, sum(s.SalesQuantity) AS TotalSalesQuantity, countIf(it.DownTime > 0) AS OutageEvents, sum(coalesce(it.DownTime, 0)) AS TotalDowntimeHours, round(corr(s.SalesAmount, coalesce(it.DownTime, 0)) OVER (PARTITION BY s.StoreKey), 4) AS SalesVsDowntimeCorr FROM retail.FactSales AS s LEFT JOIN retail.FactITSLA AS it ON (s.StoreKey = it.StoreKey) AND (s.DateKey = it.DateKey) GROUP BY Year, Month, s.StoreKey ORDER BY s.StoreKey ASC, Year ASC, Month ASC. (NOT_AN_AGGREGATE) (for url https://clickhouse.vanya.cc:443)"
+}

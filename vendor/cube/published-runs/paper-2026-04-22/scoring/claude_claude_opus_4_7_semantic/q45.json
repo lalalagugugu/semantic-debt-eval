@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Top 10 rows match the reference exactly in store names, totals, and sales_per_sqft (sub-1% precision drift); extra StoreKey column and missing LIMIT don't affect correctness of the ranked results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 389,
+  "judge_latency_ms": 19147
+}

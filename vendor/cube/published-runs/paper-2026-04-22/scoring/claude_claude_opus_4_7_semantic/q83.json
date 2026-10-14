@@ -1,0 +1,11 @@
+{
+  "question_id": 83,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same three core numeric values (18868, 18723, 17671) as the reference; it merely omits the derived percentage columns (99.23%, 94.39%), which are trivially computable from the returned counts.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 231,
+  "judge_latency_ms": 14621
+}

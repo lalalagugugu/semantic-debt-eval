@@ -1,0 +1,11 @@
+{
+  "question_id": 47,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits the WHERE DownTime IS NOT NULL filter, but AVG inherently ignores NULLs, so all 100 rows match the reference exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 188,
+  "judge_latency_ms": 10262
+}

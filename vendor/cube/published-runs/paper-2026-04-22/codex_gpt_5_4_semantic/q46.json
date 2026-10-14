@@ -1,0 +1,25 @@
+{
+  "question_id": 46,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    c.Occupation AS customer_segment,\n    sum(f.SalesAmount) - sum(f.TotalCost) AS gross_margin,\n    (sum(f.SalesAmount) - sum(f.TotalCost)) / nullif(sum(f.SalesAmount), 0) AS gross_margin_pct\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimCustomer AS c\n    ON f.CustomerKey = c.CustomerKey\nWHERE c.Occupation IS NOT NULL\nGROUP BY c.Occupation\nORDER BY gross_margin DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Professional",
+      337818086.167151,
+      0.5028831190363167
+    ]
+  ],
+  "columns": [
+    "customer_segment",
+    "gross_margin",
+    "gross_margin_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 16875,
+  "latency_ms_exec": 614,
+  "tokens_in": 18819,
+  "tokens_out": 461,
+  "claude_error": null,
+  "sql_error": null
+}

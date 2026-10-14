@@ -1,0 +1,70 @@
+{
+  "question_id": 67,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ColorName,\n    sum(os.SalesQuantity) AS total_units_sold,\n    sum(os.SalesAmount) / sum(os.SalesQuantity) AS avg_realized_online_unit_price\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimProduct AS p\n    ON os.ProductKey = p.ProductKey\nWHERE p.ColorName IS NOT NULL\nGROUP BY p.ColorName\nHAVING sum(os.SalesQuantity) >= 1000\nORDER BY avg_realized_online_unit_price DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Green",
+      232982,
+      523.4705784231859
+    ],
+    [
+      "Brown",
+      215131,
+      436.5818774482564
+    ],
+    [
+      "Silver Grey",
+      55341,
+      386.3856684917171
+    ],
+    [
+      "Blue",
+      558656,
+      378.8072206341982
+    ],
+    [
+      "Orange",
+      198309,
+      354.1234504746737
+    ],
+    [
+      "Grey",
+      1064160,
+      278.8296201710859
+    ],
+    [
+      "Gold",
+      148157,
+      267.7956176326171
+    ],
+    [
+      "Silver",
+      2206075,
+      258.66343965564994
+    ],
+    [
+      "White",
+      2031660,
+      230.50474883632094
+    ],
+    [
+      "Black",
+      2731014,
+      186.2774606502964
+    ]
+  ],
+  "columns": [
+    "ColorName",
+    "total_units_sold",
+    "avg_realized_online_unit_price"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 13423,
+  "latency_ms_exec": 614,
+  "tokens_in": 16380,
+  "tokens_out": 287,
+  "claude_error": null,
+  "sql_error": null
+}

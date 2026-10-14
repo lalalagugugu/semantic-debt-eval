@@ -1,0 +1,23 @@
+{
+  "question_id": 25,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT d.NorthAmericaSeason AS Season, avg(daily_sales) AS AvgDailySales FROM (SELECT DateKey, sum(SalesAmount) AS daily_sales FROM retail.FactSales GROUP BY DateKey) s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY AvgDailySales DESC LIMIT 1",
+  "rows": [
+    [
+      "Holiday",
+      12646782.816980347
+    ]
+  ],
+  "columns": [
+    "Season",
+    "AvgDailySales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7138,
+  "latency_ms_exec": 534,
+  "tokens_in": 19117,
+  "tokens_out": 163,
+  "claude_error": null,
+  "sql_error": null
+}

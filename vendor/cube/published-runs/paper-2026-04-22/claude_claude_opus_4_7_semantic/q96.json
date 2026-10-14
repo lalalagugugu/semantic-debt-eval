@@ -1,0 +1,33 @@
+{
+  "question_id": 96,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT\n  cohort_year,\n  count(*) AS cohort_size,\n  sumIf(1, last_year > cohort_year) AS returned_customers,\n  sumIf(1, last_year > cohort_year) * 1.0 / count(*) AS retention_fraction\nFROM (\n  SELECT\n    CustomerKey,\n    toYear(min(DateKey)) AS cohort_year,\n    toYear(max(DateKey)) AS last_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      18861,
+      0.999629001483994
+    ],
+    [
+      2009,
+      1,
+      0,
+      0.0
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "cohort_size",
+    "returned_customers",
+    "retention_fraction"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 11070,
+  "latency_ms_exec": 521,
+  "tokens_in": 23328,
+  "tokens_out": 393,
+  "claude_error": null,
+  "sql_error": null
+}

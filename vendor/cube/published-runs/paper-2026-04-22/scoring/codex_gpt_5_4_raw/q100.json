@@ -1,0 +1,11 @@
+{
+  "question_id": 100,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Using quantileExact vs quantile produces different p90 thresholds, qualifying 100 vs 30 customers, with extra rows (e.g., order_count=4687) absent from expected results and missing the LIMIT/lifetime_value ordering \u2014 a different result set.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 926,
+  "judge_latency_ms": 23114
+}

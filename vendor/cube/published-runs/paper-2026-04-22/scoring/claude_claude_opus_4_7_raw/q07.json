@@ -1,0 +1,11 @@
+{
+  "question_id": 7,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows are identical to the expected rows; adding NULLS LAST is semantically equivalent here and produces the same result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 119,
+  "judge_latency_ms": 9883
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 91,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a grouped breakdown by income bracket with counts and sales totals but never computes a correlation coefficient; the reference's key scalar (corr \u2248 0.735) is entirely absent and cannot be recovered by aggregating the candidate's columns.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 500,
+  "judge_latency_ms": 17498
+}

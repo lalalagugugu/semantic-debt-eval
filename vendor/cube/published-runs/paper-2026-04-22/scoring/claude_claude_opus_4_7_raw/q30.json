@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical rows to the reference; the only difference is using toDate() wrappers in the WHERE clause, which is semantically equivalent in ClickHouse.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 174,
+  "judge_latency_ms": 11731
+}

@@ -1,0 +1,69 @@
+{
+  "question_id": 99,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH daily_category_sales AS (\n    SELECT\n        pc.ProductCategoryName AS product_category,\n        fos.DateKey,\n        dd.IsWorkDay,\n        sum(fos.SalesAmount) AS day_sales\n    FROM retail.FactOnlineSales AS fos\n    INNER JOIN retail.DimDate AS dd\n        ON fos.DateKey = dd.DateKey\n    INNER JOIN retail.DimProduct AS p\n        ON fos.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS ps\n        ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    GROUP BY\n        pc.ProductCategoryName,\n        fos.DateKey,\n        dd.IsWorkDay\n)\nSELECT\n    product_category,\n    avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n    avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_sales,\n    (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay')) * 100.0\n        / nullIf(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_vs_weekday_pct_bigger\nFROM daily_category_sales\nGROUP BY product_category\nORDER BY weekend_vs_weekday_pct_bigger DESC",
+  "rows": [
+    [
+      "Audio",
+      33468.288216836714,
+      34030.70993493589,
+      1.680461559477792
+    ],
+    [
+      "Cameras and camcorders",
+      544738.6785040827,
+      548909.8228701934,
+      0.765714741895166
+    ],
+    [
+      "TV and Video",
+      376215.8109492335,
+      376125.0129336527,
+      -0.02413455600170294
+    ],
+    [
+      "Home Appliances",
+      761393.1219924752,
+      759549.9067346156,
+      -0.24208456901162928
+    ],
+    [
+      "Computers",
+      440673.18693176034,
+      439355.8385432695,
+      -0.29893999171200875
+    ],
+    [
+      "Games and Toys",
+      5529.4950274584735,
+      5505.487618589735,
+      -0.43417000557053337
+    ],
+    [
+      "Cell phones",
+      151621.3995202802,
+      150134.72683237138,
+      -0.9805163998040782
+    ],
+    [
+      "Music, Movies and Audio Books",
+      28018.019853316342,
+      26857.81646923078,
+      -4.140918559411453
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "avg_weekday_sales",
+    "avg_weekend_sales",
+    "weekend_vs_weekday_pct_bigger"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 19550,
+  "latency_ms_exec": 1041,
+  "tokens_in": 18830,
+  "tokens_out": 622,
+  "claude_error": null,
+  "sql_error": null
+}

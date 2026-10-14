@@ -1,0 +1,165 @@
+{
+  "question_id": 90,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH category_year_margin AS (\n    SELECT\n        d.CalendarYear AS calendar_year,\n        pc.ProductCategoryName AS product_category,\n        (sum(os.SalesAmount) - sum(os.TotalCost)) * 100.0 / nullif(sum(os.SalesAmount), 0) AS gross_margin_pct\n    FROM retail.FactOnlineSales AS os\n    INNER JOIN retail.DimDate AS d\n        ON os.DateKey = d.DateKey\n    INNER JOIN retail.DimProduct AS p\n        ON os.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS ps\n        ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    WHERE d.CalendarYear IN (2007, 2008, 2009)\n    GROUP BY\n        d.CalendarYear,\n        pc.ProductCategoryName\n)\nSELECT\n    product_category,\n    calendar_year,\n    gross_margin_pct,\n    gross_margin_pct - lagInFrame(gross_margin_pct) OVER (\n        PARTITION BY product_category\n        ORDER BY calendar_year\n        ROWS BETWEEN 1 PRECEDING AND CURRENT ROW\n    ) AS yoy_change_pct_points\nFROM category_year_margin\nORDER BY\n    product_category,\n    calendar_year",
+  "rows": [
+    [
+      "Audio",
+      2007,
+      48.655959176175195,
+      null
+    ],
+    [
+      "Audio",
+      2008,
+      53.27101820082131,
+      4.615059024646115
+    ],
+    [
+      "Audio",
+      2009,
+      51.78180466912749,
+      -1.4892135316938209
+    ],
+    [
+      "Cameras and camcorders",
+      2007,
+      59.56124432044062,
+      null
+    ],
+    [
+      "Cameras and camcorders",
+      2008,
+      55.75525284888884,
+      -3.805991471551785
+    ],
+    [
+      "Cameras and camcorders",
+      2009,
+      54.699373230375855,
+      -1.0558796185129822
+    ],
+    [
+      "Cell phones",
+      2007,
+      51.205270783665206,
+      null
+    ],
+    [
+      "Cell phones",
+      2008,
+      50.93457746553094,
+      -0.27069331813426345
+    ],
+    [
+      "Cell phones",
+      2009,
+      51.121700628640745,
+      0.1871231631098027
+    ],
+    [
+      "Computers",
+      2007,
+      54.00209171009553,
+      null
+    ],
+    [
+      "Computers",
+      2008,
+      53.57613941172404,
+      -0.4259522983714845
+    ],
+    [
+      "Computers",
+      2009,
+      53.42853011064144,
+      -0.1476093010826034
+    ],
+    [
+      "Games and Toys",
+      2007,
+      54.978254267052094,
+      null
+    ],
+    [
+      "Games and Toys",
+      2008,
+      52.42853084012099,
+      -2.549723426931102
+    ],
+    [
+      "Games and Toys",
+      2009,
+      48.96491690681646,
+      -3.4636139333045293
+    ],
+    [
+      "Home Appliances",
+      2007,
+      50.39604801814879,
+      null
+    ],
+    [
+      "Home Appliances",
+      2008,
+      50.60163588418879,
+      0.20558786603999835
+    ],
+    [
+      "Home Appliances",
+      2009,
+      51.760168325365825,
+      1.1585324411770372
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      57.14109372275412,
+      null
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2008,
+      57.510304008566266,
+      0.36921028581214443
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2009,
+      54.92005994504693,
+      -2.590244063519336
+    ],
+    [
+      "TV and Video",
+      2007,
+      23.764191870976237,
+      null
+    ],
+    [
+      "TV and Video",
+      2008,
+      50.280712051667905,
+      26.516520180691668
+    ],
+    [
+      "TV and Video",
+      2009,
+      50.677253668503425,
+      0.39654161683552047
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "calendar_year",
+    "gross_margin_pct",
+    "yoy_change_pct_points"
+  ],
+  "row_count": 24,
+  "latency_ms_gen": 16202,
+  "latency_ms_exec": 862,
+  "tokens_in": 18846,
+  "tokens_out": 415,
+  "claude_error": null,
+  "sql_error": null
+}

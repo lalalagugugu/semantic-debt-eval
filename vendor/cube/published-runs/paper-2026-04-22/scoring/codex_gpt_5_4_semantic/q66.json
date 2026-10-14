@@ -1,0 +1,11 @@
+{
+  "question_id": 66,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same four quarterly discount amounts (matching within <0.001% relative drift), using \"Q1/Q2/Q3/Q4\" labels instead of numeric 1/2/3/4 \u2014 a semantically equivalent quarter representation \u2014 and correctly omits the unrequested order-count column.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 524,
+  "judge_latency_ms": 17145
+}

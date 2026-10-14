@@ -1,0 +1,27 @@
+{
+  "question_id": 28,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    channel,\n    round(avg_transaction_value, 2) AS avg_transaction_value\nFROM (\n    SELECT\n        'Online' AS channel,\n        avg(order_total) AS avg_transaction_value\n    FROM (\n        SELECT\n            SalesOrderNumber,\n            sum(SalesAmount) AS order_total\n        FROM retail.FactOnlineSales\n        GROUP BY SalesOrderNumber\n    )\n\n    UNION ALL\n\n    SELECT\n        'Store' AS channel,\n        avg(SalesAmount) AS avg_transaction_value\n    FROM retail.FactSales\n)\nORDER BY channel",
+  "rows": [
+    [
+      "Online",
+      1623.47
+    ],
+    [
+      "Store",
+      3644.55
+    ]
+  ],
+  "columns": [
+    "channel",
+    "avg_transaction_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 15864,
+  "latency_ms_exec": 732,
+  "tokens_in": 13794,
+  "tokens_out": 585,
+  "claude_error": null,
+  "sql_error": null
+}

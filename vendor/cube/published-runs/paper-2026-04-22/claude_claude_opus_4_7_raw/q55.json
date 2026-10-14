@@ -1,0 +1,21 @@
+{
+  "question_id": 55,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT count() FROM retail.DimCustomer WHERE Gender = 'F'",
+  "rows": [
+    [
+      9344
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5705,
+  "latency_ms_exec": 643,
+  "tokens_in": 19111,
+  "tokens_out": 34,
+  "claude_error": null,
+  "sql_error": null
+}

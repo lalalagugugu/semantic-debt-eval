@@ -1,0 +1,35 @@
+{
+  "question_id": 66,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toQuarter(DateKey) AS Quarter, sum(DiscountAmount) AS TotalDiscountAmount\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009 AND PromotionKey != 1\nGROUP BY Quarter\nORDER BY Quarter",
+  "rows": [
+    [
+      1,
+      23354773.010999463
+    ],
+    [
+      2,
+      12629896.617199931
+    ],
+    [
+      3,
+      13650342.693199918
+    ],
+    [
+      4,
+      34529879.54879887
+    ]
+  ],
+  "columns": [
+    "Quarter",
+    "TotalDiscountAmount"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 7081,
+  "latency_ms_exec": 1715,
+  "tokens_in": 23332,
+  "tokens_out": 116,
+  "claude_error": null,
+  "sql_error": null
+}

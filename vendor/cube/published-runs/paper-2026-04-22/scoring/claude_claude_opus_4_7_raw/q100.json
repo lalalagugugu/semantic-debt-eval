@@ -1,0 +1,11 @@
+{
+  "question_id": 100,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate misuses quantileExact as a window function over in-flight aggregates, yielding wrong P90 thresholds; it returns 100 rows with entirely different customers (e.g., OrderCount=4687) vs. the reference's 30 rows (max 360 orders), answering a different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 846,
+  "judge_latency_ms": 27319
+}

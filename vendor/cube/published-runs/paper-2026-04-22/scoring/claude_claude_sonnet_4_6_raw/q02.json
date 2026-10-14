@@ -1,0 +1,11 @@
+{
+  "question_id": 2,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same total sales amount (2718202629.808...) as the reference, differing only by a negligible floating-point rounding difference and an extra alias column name.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 175,
+  "judge_latency_ms": 10234
+}

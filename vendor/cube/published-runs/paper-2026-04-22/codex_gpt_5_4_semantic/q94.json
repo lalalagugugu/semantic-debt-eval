@@ -1,0 +1,39 @@
+{
+  "question_id": 94,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    sumIf(fos.SalesAmount, toYear(fos.DateKey) = 2009 AND toQuarter(fos.DateKey) = 3) AS q3_2009_sales,\n    sumIf(fos.SalesAmount, toYear(fos.DateKey) = 2009 AND toQuarter(fos.DateKey) = 4) AS q4_2009_sales,\n    q4_2009_sales - q3_2009_sales AS sales_change,\n    (q4_2009_sales - q3_2009_sales) * 100.0 / nullIf(q3_2009_sales, 0) AS pct_change_q3_to_q4\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimStore AS s\n    ON fos.StoreKey = s.StoreKey\nWHERE toYear(fos.DateKey) = 2009\n  AND toQuarter(fos.DateKey) IN (3, 4)\nGROUP BY\n    s.StoreKey,\n    s.StoreName\nHAVING q4_2009_sales < q3_2009_sales\nORDER BY pct_change_q3_to_q4 ASC, sales_change ASC, s.StoreKey ASC",
+  "rows": [
+    [
+      306,
+      "Contoso Europe Online Store",
+      68987563.18266153,
+      49851406.35517047,
+      -19136156.82749106,
+      -27.73856032111669
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      87101484.06392705,
+      81786134.28053032,
+      -5315349.783396736,
+      -6.102479011144748
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "q3_2009_sales",
+    "q4_2009_sales",
+    "sales_change",
+    "pct_change_q3_to_q4"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 19159,
+  "latency_ms_exec": 564,
+  "tokens_in": 18838,
+  "tokens_out": 470,
+  "claude_error": null,
+  "sql_error": null
+}

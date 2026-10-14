@@ -1,0 +1,15 @@
+{
+  "question_id": 77,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toMonth(DateKey) AS month,\n    sum(SalesAmount) AS monthly_sales,\n    neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey)) AS prev_month_sales,\n    round(\n        (sum(SalesAmount) - neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey)))\n        / nullIf(neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey)), 0) * 100,\n        2\n    ) AS mom_growth_rate_pct\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009\nGROUP BY month\nORDER BY month",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 13024,
+  "latency_ms_exec": null,
+  "tokens_in": 13807,
+  "tokens_out": 267,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 63, server response: Code: 63. DB::Exception: Aggregate function with name 'neighbor' does not exist. In scope SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS monthly_sales, neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC) AS prev_month_sales, round(((sum(SalesAmount) - neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC)) / nullIf(neighbor(sum(SalesAmount), -1) OVER (ORDER BY toMonth(DateKey) ASC), 0)) * 100, 2) AS mom_growth_rate_pct FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month ASC. (UNKNOWN_AGGREGATE_FUNCTION) (for url https://clickhouse.vanya.cc:443)"
+}

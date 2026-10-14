@@ -1,0 +1,30 @@
+{
+  "question_id": 17,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT d.IsWorkDay AS day_type, sum(f.SalesAmount) AS total_sales, sum(f.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales) AS percentage FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey GROUP BY d.IsWorkDay",
+  "rows": [
+    [
+      "WorkDay",
+      1944262271.8379936,
+      71.52749579876586
+    ],
+    [
+      "WeekEnd",
+      773940357.995452,
+      28.472504202163407
+    ]
+  ],
+  "columns": [
+    "day_type",
+    "total_sales",
+    "percentage"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7658,
+  "latency_ms_exec": 603,
+  "tokens_in": 23320,
+  "tokens_out": 153,
+  "claude_error": null,
+  "sql_error": null
+}

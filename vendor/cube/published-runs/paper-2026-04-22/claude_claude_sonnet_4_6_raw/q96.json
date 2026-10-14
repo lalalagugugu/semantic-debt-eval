@@ -1,0 +1,15 @@
+{
+  "question_id": 96,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    cohort_year,\n    total_customers,\n    returning_customers,\n    round(returning_customers / total_customers, 4) AS retention_rate\nFROM (\n    SELECT\n        cohort_year,\n        count(DISTINCT CustomerKey) AS total_customers,\n        countDistinctIf(CustomerKey, has_return = 1) AS returning_customers\n    FROM (\n        SELECT\n            s.CustomerKey,\n            toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey) AS cohort_year,\n            max(if(toYear(s.DateKey) > toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey), 1, 0)) OVER (PARTITION BY s.CustomerKey) AS has_return\n        FROM retail.FactOnlineSales s\n    )\n    GROUP BY cohort_year\n)\nORDER BY cohort_year",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 14046,
+  "latency_ms_exec": null,
+  "tokens_in": 13805,
+  "tokens_out": 604,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 63, server response: Code: 63. DB::Exception: Aggregate function with name 'toYear' does not exist. In scope SELECT s.CustomerKey, toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey) AS cohort_year, max(if(toYear(s.DateKey) > toYear(min(s.DateKey)) OVER (PARTITION BY s.CustomerKey), 1, 0)) OVER (PARTITION BY s.CustomerKey) AS has_return FROM retail.FactOnlineSales AS s. (UNKNOWN_AGGREGATE_FUNCTION) (for url https://clickhouse.vanya.cc:443)"
+}

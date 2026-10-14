@@ -1,0 +1,165 @@
+{
+  "question_id": 90,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH yearly_margin AS (\n    SELECT\n        pc.ProductCategoryName AS product_category,\n        toYear(fs.DateKey) AS year,\n        100.0 * (sum(fs.SalesAmount) - sum(fs.TotalCost)) / nullIf(sum(fs.SalesAmount), 0) AS gross_margin_pct\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimProduct AS p\n        ON fs.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS ps\n        ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    WHERE toYear(fs.DateKey) IN (2007, 2008, 2009)\n    GROUP BY\n        pc.ProductCategoryName,\n        toYear(fs.DateKey)\n)\nSELECT\n    product_category,\n    year,\n    round(gross_margin_pct, 2) AS gross_margin_pct,\n    round(gross_margin_pct - lagInFrame(gross_margin_pct, 1) OVER (\n        PARTITION BY product_category\n        ORDER BY year\n        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING\n    ), 2) AS yoy_change_pct_points\nFROM yearly_margin\nORDER BY\n    product_category,\n    year",
+  "rows": [
+    [
+      "Audio",
+      2007,
+      58.31,
+      null
+    ],
+    [
+      "Audio",
+      2008,
+      58.01,
+      -0.3
+    ],
+    [
+      "Audio",
+      2009,
+      56.12,
+      -1.89
+    ],
+    [
+      "Cameras and camcorders",
+      2007,
+      60.51,
+      null
+    ],
+    [
+      "Cameras and camcorders",
+      2008,
+      60.21,
+      -0.3
+    ],
+    [
+      "Cameras and camcorders",
+      2009,
+      58.93,
+      -1.28
+    ],
+    [
+      "Cell phones",
+      2007,
+      55.92,
+      null
+    ],
+    [
+      "Cell phones",
+      2008,
+      55.69,
+      -0.23
+    ],
+    [
+      "Cell phones",
+      2009,
+      55.49,
+      -0.2
+    ],
+    [
+      "Computers",
+      2007,
+      58.68,
+      null
+    ],
+    [
+      "Computers",
+      2008,
+      58.29,
+      -0.39
+    ],
+    [
+      "Computers",
+      2009,
+      57.26,
+      -1.03
+    ],
+    [
+      "Games and Toys",
+      2007,
+      59.26,
+      null
+    ],
+    [
+      "Games and Toys",
+      2008,
+      56.53,
+      -2.73
+    ],
+    [
+      "Games and Toys",
+      2009,
+      53.5,
+      -3.03
+    ],
+    [
+      "Home Appliances",
+      2007,
+      55.25,
+      null
+    ],
+    [
+      "Home Appliances",
+      2008,
+      55.5,
+      0.25
+    ],
+    [
+      "Home Appliances",
+      2009,
+      56.01,
+      0.51
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      61.34,
+      null
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2008,
+      61.51,
+      0.17
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2009,
+      58.88,
+      -2.63
+    ],
+    [
+      "TV and Video",
+      2007,
+      53.12,
+      null
+    ],
+    [
+      "TV and Video",
+      2008,
+      55.19,
+      2.07
+    ],
+    [
+      "TV and Video",
+      2009,
+      55.33,
+      0.14
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "year",
+    "gross_margin_pct",
+    "yoy_change_pct_points"
+  ],
+  "row_count": 24,
+  "latency_ms_gen": 20986,
+  "latency_ms_exec": 591,
+  "tokens_in": 17250,
+  "tokens_out": 472,
+  "claude_error": null,
+  "sql_error": null
+}

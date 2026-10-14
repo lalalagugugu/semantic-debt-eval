@@ -1,0 +1,11 @@
+{
+  "question_id": 93,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate returns per-promotion breakdowns with meaningless within-group correlations (NaN/0) from FactSales, while reference computes a single cross-promotion Pearson correlation from FactOnlineSales \u2014 wrong table, wrong measure, different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 550,
+  "judge_latency_ms": 23308
+}

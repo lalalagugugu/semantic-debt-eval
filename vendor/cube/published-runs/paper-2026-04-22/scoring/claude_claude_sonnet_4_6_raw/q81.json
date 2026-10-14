@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same cohort_year, customer counts, and avg_lifetime_value as the reference (minor floating-point difference well under 1%); the only difference is the candidate omits total_ltv, which was not requested in the question and is considered an extra column in the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 658,
+  "judge_latency_ms": 18729
+}

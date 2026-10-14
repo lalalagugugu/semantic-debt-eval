@@ -1,0 +1,70 @@
+{
+  "question_id": 7,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    ProductKey,\n    ProductName,\n    UnitPrice\nFROM retail.DimProduct\nWHERE UnitPrice IS NOT NULL\nORDER BY UnitPrice DESC\nLIMIT 10",
+  "rows": [
+    [
+      1975,
+      "Litware Refrigerator L1200 Orange",
+      3199.99
+    ],
+    [
+      1969,
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      3199.99
+    ],
+    [
+      1963,
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      3199.99
+    ],
+    [
+      1957,
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      3199.99
+    ],
+    [
+      1951,
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      3199.99
+    ],
+    [
+      1945,
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      3199.99
+    ],
+    [
+      1939,
+      "Litware Refrigerator 24.7CuFt X980 White",
+      3199.99
+    ],
+    [
+      1933,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Orange",
+      3199.99
+    ],
+    [
+      1927,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      3199.99
+    ],
+    [
+      1921,
+      "Fabrikam Refrigerator 24.7CuFt X9800 Blue",
+      3199.99
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "UnitPrice"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 6650,
+  "latency_ms_exec": 484,
+  "tokens_in": 16756,
+  "tokens_out": 111,
+  "claude_error": null,
+  "sql_error": null
+}

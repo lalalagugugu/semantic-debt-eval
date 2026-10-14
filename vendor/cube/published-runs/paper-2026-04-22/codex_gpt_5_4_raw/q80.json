@@ -1,0 +1,15 @@
+{
+  "question_id": 80,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    g.RegionCountryName AS country,\n    avg(customer_purchase_span_days) AS avg_days_between_first_and_most_recent_purchase\nFROM\n(\n    SELECT\n        c.CustomerKey,\n        g.RegionCountryName,\n        dateDiff('day', min(os.DateKey), max(os.DateKey)) AS customer_purchase_span_days\n    FROM retail.FactOnlineSales AS os\n    INNER JOIN retail.DimCustomer AS c\n        ON os.CustomerKey = c.CustomerKey\n    INNER JOIN retail.DimGeography AS g\n        ON c.GeographyKey = g.GeographyKey\n    GROUP BY\n        c.CustomerKey,\n        g.RegionCountryName\n) AS customer_spans\nGROUP BY country\nORDER BY country",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 13354,
+  "latency_ms_exec": null,
+  "tokens_in": 16375,
+  "tokens_out": 260,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `g.RegionCountryName` in scope SELECT g.RegionCountryName AS country, avg(customer_purchase_span_days) AS avg_days_between_first_and_most_recent_purchase FROM (SELECT c.CustomerKey, g.RegionCountryName, dateDiff('day', min(os.DateKey), max(os.DateKey)) AS customer_purchase_span_days FROM retail.FactOnlineSales AS os INNER JOIN retail.DimCustomer AS c ON os.CustomerKey = c.CustomerKey INNER JOIN retail.DimGeography AS g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, g.RegionCountryName) AS customer_spans GROUP BY country ORDER BY country ASC. Maybe you meant: ['RegionCountryName.size']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

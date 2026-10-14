@@ -1,0 +1,11 @@
+{
+  "question_id": 87,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly in ordering and values; the only difference is the candidate omits rounding (more decimal places), which is within acceptable precision tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 177,
+  "judge_latency_ms": 10073
+}

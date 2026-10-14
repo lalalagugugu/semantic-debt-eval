@@ -1,0 +1,39 @@
+{
+  "question_id": 37,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    sum(f.SalesAmount) AS TotalSales,\n    round(\n        percent_rank() OVER (ORDER BY sum(f.SalesAmount)) * 100,\n        2\n    ) AS PercentileRank\nFROM retail.FactOnlineSales f\nJOIN retail.DimStore s ON f.StoreKey = s.StoreKey\nGROUP BY s.StoreKey, s.StoreName\nORDER BY TotalSales DESC",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      1031261452.7927067,
+      100.0
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      849584948.836169,
+      50.0
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      837356228.1802413,
+      0.0
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "TotalSales",
+    "PercentileRank"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 8049,
+  "latency_ms_exec": 686,
+  "tokens_in": 16753,
+  "tokens_out": 217,
+  "claude_error": null,
+  "sql_error": null
+}

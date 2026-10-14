@@ -1,0 +1,11 @@
+{
+  "question_id": 8,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters IsSalesPerson = 'True' instead of 'Yes', returning 0 rows instead of the expected 17 salesperson records.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 200,
+  "judge_latency_ms": 10173
+}

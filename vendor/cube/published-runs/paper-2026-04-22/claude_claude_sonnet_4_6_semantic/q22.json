@@ -1,0 +1,15 @@
+{
+  "question_id": 22,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH customer_spend AS (\n    SELECT\n        g.RegionCountryName,\n        c.CustomerKey,\n        c.FirstName || ' ' || c.LastName AS CustomerName,\n        sum(s.SalesAmount) AS TotalSpend\n    FROM retail.FactOnlineSales s\n    JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey\n    JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\n    GROUP BY g.RegionCountryName, c.CustomerKey, CustomerName\n),\nranked AS (\n    SELECT\n        RegionCountryName,\n        CustomerKey,\n        CustomerName,\n        TotalSpend,\n        row_number() OVER (PARTITION BY RegionCountryName ORDER BY TotalSpend DESC) AS rn\n    FROM customer_spend\n)\nSELECT\n    RegionCountryName,\n    rn AS Rank,\n    CustomerKey,\n    CustomerName,\n    TotalSpend\nFROM ranked\nWHERE rn <= 5\nORDER BY RegionCountryName, rn",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 11217,
+  "latency_ms_exec": null,
+  "tokens_in": 16756,
+  "tokens_out": 401,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `CustomerKey` in scope  ranked. Maybe you meant: ['CustomerName']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

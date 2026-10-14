@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same cohort years, customer counts, and average LTV values as the reference (within negligible floating-point precision); the only omission is the unrequested total_ltv column.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 211,
+  "judge_latency_ms": 11432
+}

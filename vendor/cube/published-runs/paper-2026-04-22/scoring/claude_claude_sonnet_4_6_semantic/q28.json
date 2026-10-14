@@ -1,0 +1,11 @@
+{
+  "question_id": 28,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales for both channels (joining DimChannel), but the reference uses FactOnlineSales for the Online channel, producing Online avg \u2248 215.26 vs candidate's 4255.41 \u2014 a fundamentally different measure from a different table.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 361,
+  "judge_latency_ms": 12468
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 81,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate deducts ReturnAmount and DiscountAmount from SalesAmount to compute LTV, while the reference uses raw SalesAmount; this yields substantially different avg LTV values (~11% and ~27% off), making it a different measure rather than an equivalent calculation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 331,
+  "judge_latency_ms": 14660
+}

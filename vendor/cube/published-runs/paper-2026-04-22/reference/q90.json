@@ -1,0 +1,81 @@
+{
+  "question_id": 90,
+  "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimProduct p ON p.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
+  "rows": [
+    [
+      "Music, Movies and Audio Books",
+      57.14,
+      57.51,
+      54.92,
+      0.37,
+      -2.59
+    ],
+    [
+      "Cameras and camcorders",
+      59.56,
+      55.76,
+      54.7,
+      -3.81,
+      -1.06
+    ],
+    [
+      "Computers",
+      54.0,
+      53.58,
+      53.43,
+      -0.43,
+      -0.15
+    ],
+    [
+      "Audio",
+      48.66,
+      53.27,
+      51.78,
+      4.62,
+      -1.49
+    ],
+    [
+      "Home Appliances",
+      50.4,
+      50.6,
+      51.76,
+      0.21,
+      1.16
+    ],
+    [
+      "Cell phones",
+      51.21,
+      50.93,
+      51.12,
+      -0.27,
+      0.19
+    ],
+    [
+      "TV and Video",
+      23.76,
+      50.28,
+      50.68,
+      26.52,
+      0.4
+    ],
+    [
+      "Games and Toys",
+      54.98,
+      52.43,
+      48.96,
+      -2.55,
+      -3.46
+    ]
+  ],
+  "columns": [
+    "category",
+    "margin_2007_pct",
+    "margin_2008_pct",
+    "margin_2009_pct",
+    "delta_08_07_pp",
+    "delta_09_08_pp"
+  ],
+  "row_count": 8,
+  "exec_ms": 654,
+  "error": null
+}

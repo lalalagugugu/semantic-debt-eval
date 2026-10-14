@@ -1,0 +1,11 @@
+{
+  "question_id": 57,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return 11; the explicit NULL filter in the candidate is redundant since countDistinct already ignores NULLs, yielding identical results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 174,
+  "judge_latency_ms": 21167
+}

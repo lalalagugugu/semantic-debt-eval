@@ -1,0 +1,11 @@
+{
+  "question_id": 97,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate ranks by absolute comeback delta (h2-h1) while the reference ranks by percentage growth ((h2-h1)/h1 * 100), producing entirely different top products; the question asks for \"dramatically exceeded\" which implies relative/percentage comparison, not absolute difference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 329,
+  "judge_latency_ms": 13089
+}

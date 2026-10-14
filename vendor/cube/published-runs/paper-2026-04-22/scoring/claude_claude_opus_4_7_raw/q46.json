@@ -1,0 +1,11 @@
+{
+  "question_id": 46,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses a different profit formula (subtracts ReturnAmount and DiscountAmount too), yielding values that don't aggregate to the reference ~326.9M, and groups by five dimensions instead of Education alone.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 706,
+  "judge_latency_ms": 22280
+}

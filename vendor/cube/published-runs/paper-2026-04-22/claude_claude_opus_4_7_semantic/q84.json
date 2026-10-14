@@ -1,0 +1,31 @@
+{
+  "question_id": 84,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH ranked AS (\n  SELECT\n    ProductKey,\n    sum(SalesAmount) AS revenue\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY ProductKey\n),\nwith_cum AS (\n  SELECT\n    ProductKey,\n    revenue,\n    sum(revenue) OVER (ORDER BY revenue DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum_rev,\n    sum(revenue) OVER () AS total_rev\n  FROM ranked\n),\nclassified AS (\n  SELECT\n    ProductKey,\n    CASE\n      WHEN (cum_rev - revenue) / nullif(total_rev, 0) < 0.80 THEN 'A'\n      WHEN (cum_rev - revenue) / nullif(total_rev, 0) < 0.95 THEN 'B'\n      ELSE 'C'\n    END AS abc_class\n  FROM with_cum\n)\nSELECT\n  abc_class,\n  count(*) AS product_count\nFROM classified\nGROUP BY abc_class\nORDER BY abc_class;",
+  "rows": [
+    [
+      "A",
+      1132
+    ],
+    [
+      "B",
+      666
+    ],
+    [
+      "C",
+      706
+    ]
+  ],
+  "columns": [
+    "abc_class",
+    "product_count"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 10382,
+  "latency_ms_exec": 508,
+  "tokens_in": 23368,
+  "tokens_out": 495,
+  "claude_error": null,
+  "sql_error": null
+}

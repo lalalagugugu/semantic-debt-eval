@@ -1,0 +1,105 @@
+{
+  "question_id": 67,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.ColorName,\n    sum(f.SalesAmount) / sum(f.SalesQuantity) AS avg_realized_unit_price,\n    sum(f.SalesQuantity) AS total_units_sold\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nWHERE p.ColorName IS NOT NULL\nGROUP BY p.ColorName\nHAVING sum(f.SalesQuantity) >= 1000\nORDER BY avg_realized_unit_price DESC",
+  "rows": [
+    [
+      "Green",
+      523.4705784231572,
+      232982
+    ],
+    [
+      "Brown",
+      436.5818774482564,
+      215131
+    ],
+    [
+      "Silver Grey",
+      386.38566849171474,
+      55341
+    ],
+    [
+      "Blue",
+      378.80722063415806,
+      558656
+    ],
+    [
+      "Orange",
+      354.12345047467943,
+      198309
+    ],
+    [
+      "Grey",
+      278.8296201710859,
+      1064160
+    ],
+    [
+      "Gold",
+      267.79561763262404,
+      148157
+    ],
+    [
+      "Silver",
+      258.66343965546474,
+      2206075
+    ],
+    [
+      "White",
+      230.50474883655562,
+      2031660
+    ],
+    [
+      "Black",
+      186.27746065042933,
+      2731014
+    ],
+    [
+      "Azure",
+      185.65512043142596,
+      50809
+    ],
+    [
+      "Pink",
+      172.63147462937945,
+      313218
+    ],
+    [
+      "Red",
+      138.13012107048402,
+      664696
+    ],
+    [
+      "Purple",
+      49.58271642601381,
+      9211
+    ],
+    [
+      "blue",
+      36.82392212319295,
+      5049
+    ],
+    [
+      "Yellow",
+      26.995736643463736,
+      248380
+    ],
+    [
+      "Transparent",
+      2.6750347826084675,
+      90160
+    ]
+  ],
+  "columns": [
+    "ColorName",
+    "avg_realized_unit_price",
+    "total_units_sold"
+  ],
+  "row_count": 17,
+  "latency_ms_gen": 8018,
+  "latency_ms_exec": 603,
+  "tokens_in": 16766,
+  "tokens_out": 246,
+  "claude_error": null,
+  "sql_error": null
+}

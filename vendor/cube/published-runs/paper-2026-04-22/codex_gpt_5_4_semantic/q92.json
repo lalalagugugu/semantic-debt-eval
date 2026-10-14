@@ -1,0 +1,75 @@
+{
+  "question_id": 92,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.BrandName AS brand_name,\n    sum(f.SalesAmount) - sum(f.TotalCost) AS gross_margin_amount,\n    (sum(f.SalesAmount) - sum(f.TotalCost)) / nullif(sum(f.SalesAmount), 0) AS gross_margin_pct\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimProduct AS p\n    ON f.ProductKey = p.ProductKey\nWHERE f.DateKey >= toDate('2009-10-01')\n  AND f.DateKey <= toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\n  AND p.BrandName != ''\nGROUP BY p.BrandName\nORDER BY gross_margin_amount DESC, brand_name ASC",
+  "rows": [
+    [
+      "Contoso",
+      22816177.467968967,
+      0.4890329880037698
+    ],
+    [
+      "Fabrikam",
+      20332736.69450189,
+      0.5136065192720998
+    ],
+    [
+      "Litware",
+      12492043.598001081,
+      0.48691429584487284
+    ],
+    [
+      "Adventure Works",
+      10635377.985500056,
+      0.5031138360276469
+    ],
+    [
+      "Proseware",
+      8814022.416500602,
+      0.4930067755870763
+    ],
+    [
+      "Wide World Importers",
+      7534179.650999691,
+      0.5042823750925969
+    ],
+    [
+      "The Phone Company",
+      4965669.200000851,
+      0.4811807423251495
+    ],
+    [
+      "A. Datum",
+      4831477.619999499,
+      0.5205433292997655
+    ],
+    [
+      "Southridge Video",
+      3567170.843501155,
+      0.4633401901901519
+    ],
+    [
+      "Northwind Traders",
+      2345100.612999997,
+      0.4693867668934106
+    ],
+    [
+      "Tailspin Toys",
+      138083.3124999805,
+      0.4592314069764354
+    ]
+  ],
+  "columns": [
+    "brand_name",
+    "gross_margin_amount",
+    "gross_margin_pct"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 15039,
+  "latency_ms_exec": 540,
+  "tokens_in": 18822,
+  "tokens_out": 298,
+  "claude_error": null,
+  "sql_error": null
+}

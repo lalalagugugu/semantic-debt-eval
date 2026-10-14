@@ -1,0 +1,29 @@
+{
+  "question_id": 42,
+  "sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(sum(s.SalesAmount)) OVER (ORDER BY toYear(s.DateKey)) as yoy_change FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
+  "rows": [
+    [
+      2007,
+      286617112.03106195,
+      286617112.03106195
+    ],
+    [
+      2008,
+      162289567.49334997,
+      -124327544.53771198
+    ],
+    [
+      2009,
+      149428309.15846014,
+      -12861258.33488983
+    ]
+  ],
+  "columns": [
+    "year",
+    "sales",
+    "yoy_change"
+  ],
+  "row_count": 3,
+  "exec_ms": 523,
+  "error": null
+}

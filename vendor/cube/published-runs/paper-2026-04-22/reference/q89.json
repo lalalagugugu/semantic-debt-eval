@@ -1,0 +1,33 @@
+{
+  "question_id": 89,
+  "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n           ELSE 'Churned'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       round(avg(total_spend), 2) AS avg_spend,\n       round(avg(distinct_products), 1) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN 'Active' THEN 1 WHEN 'At Risk' THEN 2 ELSE 3 END",
+  "rows": [
+    [
+      "Active",
+      16890,
+      76861.79,
+      75.0
+    ],
+    [
+      "At Risk",
+      1841,
+      344026.73,
+      138.6
+    ],
+    [
+      "Churned",
+      138,
+      5700390.36,
+      780.4
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customers",
+    "avg_spend",
+    "avg_distinct_products"
+  ],
+  "row_count": 3,
+  "exec_ms": 614,
+  "error": null
+}

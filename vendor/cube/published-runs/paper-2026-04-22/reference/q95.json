@@ -1,0 +1,72 @@
+{
+  "question_id": 95,
+  "sql": "SELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nJOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC",
+  "rows": [
+    [
+      "Games and Toys",
+      4050585.4434982156,
+      1996721.2999986517,
+      2.0286183372216,
+      616047.8557997157
+    ],
+    [
+      "TV and Video",
+      274775186.64876574,
+      137529013.16988975,
+      1.997943418014173,
+      39972357.092653036
+    ],
+    [
+      "Cameras and camcorders",
+      397299705.27279603,
+      201035283.40998492,
+      1.9762685362178725,
+      59235341.27066711
+    ],
+    [
+      "Music, Movies and Audio Books",
+      19896830.903397035,
+      10448935.400006056,
+      1.9041969484647692,
+      3043383.589899385
+    ],
+    [
+      "Computers",
+      316131740.37960804,
+      166435059.80005372,
+      1.8994299684176639,
+      48471951.99804142
+    ],
+    [
+      "Cell phones",
+      107974717.04534048,
+      57738494.94979353,
+      1.8700646274072406,
+      16544005.575537628
+    ],
+    [
+      "Audio",
+      23801094.08169908,
+      13055625.380005822,
+      1.823052775254223,
+      3642558.303099826
+    ],
+    [
+      "Home Appliances",
+      537421310.2828721,
+      296490468.260131,
+      1.8126090644214445,
+      82304322.14606023
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "promo_revenue",
+    "full_price_revenue",
+    "promo_to_fullprice_ratio",
+    "total_discount_given"
+  ],
+  "row_count": 8,
+  "exec_ms": 616,
+  "error": null
+}

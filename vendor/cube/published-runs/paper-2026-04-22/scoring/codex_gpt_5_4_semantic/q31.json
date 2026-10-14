@@ -1,0 +1,11 @@
+{
+  "question_id": 31,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate hardcoded AccountKey = 50 instead of joining DimAccount and filtering by AccountName = 'Sale Revenue', resulting in 0 rows returned versus the expected 8 rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 213,
+  "judge_latency_ms": 10554
+}

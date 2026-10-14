@@ -1,0 +1,11 @@
+{
+  "question_id": 48,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 215, server response: Code: 215. DB::Exception: Column 's.SalesAmount' is not under aggregate function and not in GROUP BY keys. In query SELECT toYear(s.DateKey) AS Year, toMonth(s.DateKey) AS Month, s.StoreKey, sum(s.SalesAmount) AS TotalSales, sum(s.SalesQuantity) AS TotalSalesQuantity, countIf(it.DownTime > 0) AS OutageEvents, sum(coalesce(it.DownTime, 0)) AS TotalDowntimeHours, round(corr(s.SalesAmount, coalesce(it.DownTime, 0)) OVER (PARTITION BY s.StoreKey), 4) AS SalesVsDowntimeCorr FROM retail.FactSales AS s LEFT JOIN retail.FactITSLA AS it ON (s.StoreKey = it.StoreKey) AND (s.DateKey = it.DateKey) GROUP BY Year, Month, s.StoreKey ORDER BY s.StoreKey ASC, Year ASC, Month ASC. (NOT_AN_AGGREGATE) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

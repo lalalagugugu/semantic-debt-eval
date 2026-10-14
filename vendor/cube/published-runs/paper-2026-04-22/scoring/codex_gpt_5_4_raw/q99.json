@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing entirely different sales figures and lift percentages (e.g., Audio weekend lift 2.08% vs expected 1.68%; Cell phones lift 0.75% vs -0.98%), and the ranking order also differs, indicating a wrong data source was used.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 296,
+  "judge_latency_ms": 14044
+}

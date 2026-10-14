@@ -1,0 +1,15 @@
+{
+  "question_id": 60,
+  "sql": "SELECT count(*) AS production_employees FROM retail.DimEmployee WHERE DepartmentName = 'Production'",
+  "rows": [
+    [
+      176
+    ]
+  ],
+  "columns": [
+    "production_employees"
+  ],
+  "row_count": 1,
+  "exec_ms": 502,
+  "error": null
+}

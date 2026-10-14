@@ -1,0 +1,11 @@
+{
+  "question_id": 62,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 11 brands in the same order with values that differ only by negligible floating-point precision (well under 1%), making it semantically identical to the reference query.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 183,
+  "judge_latency_ms": 11491
+}

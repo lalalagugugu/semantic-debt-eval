@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate aggregates inventory across all stores per product using per-(store,product) max dates, producing large summed quantities (e.g., 960), while the reference uses a single global max date returning individual store-level rows with small quantities (e.g., 30, 5); values don't match.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 568,
+  "judge_latency_ms": 17134
+}

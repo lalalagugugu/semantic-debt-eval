@@ -1,0 +1,11 @@
+{
+  "question_id": 87,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales for avg daily sales and uses a single global max(DateKey) for inventory rather than per-product/store latest date, producing entirely different products and wildly different (sub-4-day) coverage values versus expected 228\u2013314-day coverages.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 250,
+  "judge_latency_ms": 13073
+}

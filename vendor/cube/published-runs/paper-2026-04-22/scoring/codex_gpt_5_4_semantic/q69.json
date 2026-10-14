@@ -1,0 +1,11 @@
+{
+  "question_id": 69,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate omits total_discount column but produces identical PromotionCategory, revenue, and avg_discount_pct values; the extra DiscountAmount > 0 filter has no effect since zero-discount rows don't change the result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 431,
+  "judge_latency_ms": 14374
+}

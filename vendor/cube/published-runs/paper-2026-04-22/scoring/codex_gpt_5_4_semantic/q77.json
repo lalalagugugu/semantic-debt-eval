@@ -1,0 +1,11 @@
+{
+  "question_id": 77,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same monthly sales amounts and MoM growth rates (within minor floating-point precision) for all 12 months of 2009; the month column uses a full date instead of a month number, and the prev_month_sales column is absent, but the core measures match exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 571,
+  "judge_latency_ms": 19048
+}

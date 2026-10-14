@@ -1,0 +1,25 @@
+{
+  "question_id": 69,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.PromotionCategory AS PromotionCategory, SUM(f.SalesAmount) AS DiscountedOnlineRevenue, AVG(p.DiscountPercent) AS AvgDiscountPercent FROM retail.FactOnlineSales AS f INNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey WHERE f.DiscountAmount > 0 GROUP BY p.PromotionCategory ORDER BY DiscountedOnlineRevenue DESC",
+  "rows": [
+    [
+      "Store",
+      1782429980.5593388,
+      0.12996414067433965
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "DiscountedOnlineRevenue",
+    "AvgDiscountPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7763,
+  "latency_ms_exec": 613,
+  "tokens_in": 19133,
+  "tokens_out": 191,
+  "claude_error": null,
+  "sql_error": null
+}

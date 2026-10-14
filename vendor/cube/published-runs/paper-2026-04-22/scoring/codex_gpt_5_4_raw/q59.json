@@ -1,0 +1,11 @@
+{
+  "question_id": 59,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 731, exactly matching the reference result, using a broader but semantically equivalent filter that still yields the correct count.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 152,
+  "judge_latency_ms": 9292
+}

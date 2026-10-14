@@ -1,0 +1,11 @@
+{
+  "question_id": 3,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses ClickHouse's uniqExact() which is semantically equivalent to COUNT(DISTINCT) and returns the same value of 18869.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 155,
+  "judge_latency_ms": 10558
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 8,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    EmployeeKey,\n    FirstName,\n    LastName,\n    Title,\n    DepartmentName,\n    EmailAddress,\n    Phone,\n    Status\nFROM retail.DimEmployee\nWHERE IsSalesPerson = 'True'",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 6559,
+  "latency_ms_exec": 507,
+  "tokens_in": 13792,
+  "tokens_out": 110,
+  "claude_error": null,
+  "sql_error": null
+}

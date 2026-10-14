@@ -1,0 +1,29 @@
+{
+  "question_id": 44,
+  "sql": "-- Interpreting as year-over-year growth\nSELECT toYear(DateKey) as year, sum(SalesAmount) as sales, round((sum(SalesAmount) - lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey))) * 100.0 / lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey)), 2) as growth_pct FROM retail.FactOnlineSales GROUP BY year ORDER BY year",
+  "rows": [
+    [
+      2007,
+      1010803395.0379745,
+      Infinity
+    ],
+    [
+      2008,
+      849671203.4326926,
+      -15.94
+    ],
+    [
+      2009,
+      857728031.3559258,
+      0.95
+    ]
+  ],
+  "columns": [
+    "year",
+    "sales",
+    "growth_pct"
+  ],
+  "row_count": 3,
+  "exec_ms": 523,
+  "error": null
+}

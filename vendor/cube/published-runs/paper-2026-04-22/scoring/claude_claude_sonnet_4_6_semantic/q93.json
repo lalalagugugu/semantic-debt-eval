@@ -1,0 +1,11 @@
+{
+  "question_id": 93,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a per-promotion breakdown (9 rows of raw metrics) rather than computing the correlation coefficients that directly answer the elasticity question; the per-promotion rows cannot be aggregated into the reference's scalar correlation values (-0.004, -0.229, 27).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 649,
+  "judge_latency_ms": 20932
+}

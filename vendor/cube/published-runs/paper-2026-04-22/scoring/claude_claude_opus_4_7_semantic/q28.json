@@ -1,0 +1,11 @@
+{
+  "question_id": 28,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses FactSales for both channels, but the reference correctly pulls Online avg from FactOnlineSales (~215.26); the candidate's Online value (~4255.41) is wildly wrong, answering a different question for that channel.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 377,
+  "judge_latency_ms": 18442
+}

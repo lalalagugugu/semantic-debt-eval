@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the reference rows exactly (within rounding precision <1%) for all 8 categories in the correct order; extra columns (abs_diff) are ignored under strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 190,
+  "judge_latency_ms": 11066
+}

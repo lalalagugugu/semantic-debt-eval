@@ -1,0 +1,24 @@
+{
+  "question_id": 48,
+  "sql": "-- Complex: comparing stores with high outages vs low outages\nWITH store_outages AS (SELECT StoreKey, count() as outage_count, sum(DownTime) as total_downtime FROM retail.FactITSLA GROUP BY StoreKey), store_sales AS (SELECT StoreKey, sum(SalesAmount) as total_sales FROM retail.FactSales GROUP BY StoreKey) SELECT CASE WHEN so.total_downtime > 1000 THEN 'High Downtime' ELSE 'Low Downtime' END as downtime_group, avg(ss.total_sales) as avg_sales, count() as store_count FROM store_outages so JOIN store_sales ss ON so.StoreKey = ss.StoreKey GROUP BY downtime_group",
+  "rows": [
+    [
+      "Low Downtime",
+      23442799.724367987,
+      187
+    ],
+    [
+      "High Downtime",
+      56203048.913654186,
+      112
+    ]
+  ],
+  "columns": [
+    "downtime_group",
+    "avg_sales",
+    "store_count"
+  ],
+  "row_count": 2,
+  "exec_ms": 513,
+  "error": null
+}

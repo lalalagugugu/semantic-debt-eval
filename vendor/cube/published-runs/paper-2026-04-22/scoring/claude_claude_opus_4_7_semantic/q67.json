@@ -1,0 +1,11 @@
+{
+  "question_id": 67,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query produces identical rows to the reference \u2014 same color names, avg realized prices, and unit totals \u2014 using semantically equivalent SQL with no LIMIT clause (but still returns the same 17 rows).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 168,
+  "judge_latency_ms": 15021
+}

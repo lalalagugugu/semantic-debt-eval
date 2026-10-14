@@ -1,0 +1,11 @@
+{
+  "question_id": 10,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both the reference and candidate queries return 294; despite using different filtering logic (Status='On'/NULL CloseDate vs. date-range approach), the numeric result matches exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 169,
+  "judge_latency_ms": 9967
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 75,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 100 rows (all qualifying customers) vs the reference's LIMIT 25, and includes an extra CustomerKey column, but the numeric values match within floating-point precision and the candidate correctly answers the question with a superset of the reference rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 530,
+  "judge_latency_ms": 18217
+}

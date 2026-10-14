@@ -1,0 +1,21 @@
+{
+  "question_id": 3,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT count(DISTINCT CustomerKey) AS unique_customers_with_online_purchases\nFROM retail.FactOnlineSales\nWHERE SalesQuantity > 0",
+  "rows": [
+    [
+      18869
+    ]
+  ],
+  "columns": [
+    "unique_customers_with_online_purchases"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9760,
+  "latency_ms_exec": 515,
+  "tokens_in": 16367,
+  "tokens_out": 66,
+  "claude_error": null,
+  "sql_error": null
+}

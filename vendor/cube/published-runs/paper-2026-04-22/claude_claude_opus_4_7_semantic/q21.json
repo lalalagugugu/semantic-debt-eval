@@ -1,0 +1,722 @@
+{
+  "question_id": 21,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT i.StoreKey AS StoreKey, s.StoreName AS StoreName, i.ProductKey AS ProductKey, p.ProductName AS ProductName, i.OnHandQuantity AS OnHandQuantity\nFROM retail.FactInventory i\nINNER JOIN (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n) latest ON i.StoreKey = latest.StoreKey AND i.ProductKey = latest.ProductKey AND i.DateKey = latest.max_date\nLEFT JOIN retail.DimStore s ON i.StoreKey = s.StoreKey\nLEFT JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey\nORDER BY StoreName, ProductName",
+  "rows": [
+    [
+      114,
+      "Contoso Albany Store",
+      1302,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      458,
+      "",
+      7
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      863,
+      "",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      900,
+      "",
+      4
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      420,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      921,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      449,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      941,
+      "",
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      456,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      935,
+      "",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      905,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      931,
+      "",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      864,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      445,
+      "",
+      17
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      920,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      446,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      908,
+      "",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      430,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      881,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      870,
+      "",
+      32
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      932,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      887,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      896,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      872,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      424,
+      "",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      427,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      433,
+      "",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      453,
+      "",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      898,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      859,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      855,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      943,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      895,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      871,
+      "",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      426,
+      "",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      418,
+      "",
+      39
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      925,
+      "",
+      17
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      926,
+      "",
+      32
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      849,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      930,
+      "",
+      39
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      860,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      890,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      886,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1301,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      899,
+      "",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      843,
+      "",
+      52
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      434,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      936,
+      "",
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      869,
+      "",
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      923,
+      "",
+      52
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      443,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      906,
+      "",
+      28
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      878,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      933,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      865,
+      "",
+      26
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      854,
+      "",
+      2
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      879,
+      "",
+      16
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      847,
+      "",
+      4
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      846,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      2497,
+      "",
+      324
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      888,
+      "",
+      26
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      919,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1303,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      441,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      457,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      432,
+      "",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      907,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      927,
+      "",
+      8
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      452,
+      "",
+      8
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      459,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      897,
+      "",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      851,
+      "",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      889,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      431,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1297,
+      "",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      460,
+      "",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      942,
+      "",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      435,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      437,
+      "",
+      32
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      447,
+      "",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      442,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      938,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      882,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      910,
+      "",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      844,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      429,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      848,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1306,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      903,
+      "",
+      39
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      934,
+      "",
+      21
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      928,
+      "",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      419,
+      "",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      853,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      852,
+      "",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      901,
+      "",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1298,
+      "",
+      21
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      845,
+      "",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      909,
+      "",
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      439,
+      "",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      902,
+      "",
+      11
+    ]
+  ],
+  "columns": [
+    "StoreKey",
+    "StoreName",
+    "ProductKey",
+    "ProductName",
+    "OnHandQuantity"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 8636,
+  "latency_ms_exec": 6071,
+  "tokens_in": 23315,
+  "tokens_out": 310,
+  "claude_error": null,
+  "sql_error": null
+}

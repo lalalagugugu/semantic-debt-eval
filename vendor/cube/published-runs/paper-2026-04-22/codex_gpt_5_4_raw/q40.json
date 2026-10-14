@@ -1,0 +1,21 @@
+{
+  "question_id": 40,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH\n    (SELECT CurrencyKey FROM retail.DimCurrency WHERE CurrencyName = 'EUR' LIMIT 1) AS eur_currency_key\nSELECT\n    sum(\n        if(\n            fos.CurrencyKey = eur_currency_key,\n            fos.SalesAmount,\n            fos.SalesAmount * src.EndOfDayRate / eur.EndOfDayRate\n        )\n    ) AS online_sales_eur\nFROM retail.FactOnlineSales AS fos\nLEFT JOIN retail.FactExchangeRate AS src\n    ON fos.DateKey = src.DateKey\n   AND fos.CurrencyKey = src.CurrencyKey\nLEFT JOIN retail.FactExchangeRate AS eur\n    ON fos.DateKey = eur.DateKey\n   AND eur.CurrencyKey = eur_currency_key;",
+  "rows": [
+    [
+      NaN
+    ]
+  ],
+  "columns": [
+    "online_sales_eur"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 21846,
+  "latency_ms_exec": 633,
+  "tokens_in": 17229,
+  "tokens_out": 670,
+  "claude_error": null,
+  "sql_error": null
+}

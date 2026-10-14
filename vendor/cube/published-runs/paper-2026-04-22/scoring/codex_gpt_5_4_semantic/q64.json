@@ -1,0 +1,11 @@
+{
+  "question_id": 64,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Gross margin dollars match within floating-point precision; margin percent is returned as a decimal (e.g., 0.4909) instead of a percentage (49.09), which is the same ratio in different units \u2014 an analytical pass per the decimal/percentage equivalence rule.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 266,
+  "judge_latency_ms": 11584
+}

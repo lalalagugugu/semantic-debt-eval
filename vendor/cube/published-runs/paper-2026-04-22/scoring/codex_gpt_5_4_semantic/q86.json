@@ -1,0 +1,11 @@
+{
+  "question_id": 86,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate adds `PromotionKey != 1` filter absent in reference, producing materially different correlation values (e.g., Camcorders: +0.002 vs -0.002) and omits the HAVING observations > 100 guard, yielding a different subcategory set and ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 569,
+  "judge_latency_ms": 18489
+}

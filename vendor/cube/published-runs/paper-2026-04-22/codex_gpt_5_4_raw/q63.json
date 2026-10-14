@@ -1,0 +1,39 @@
+{
+  "question_id": 63,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    occupation,\n    avg(order_value) AS avg_online_order_value\nFROM\n(\n    SELECT\n        c.Occupation AS occupation,\n        f.CustomerKey,\n        f.SalesOrderNumber,\n        sum(f.SalesAmount) AS order_value\n    FROM retail.FactOnlineSales AS f\n    INNER JOIN retail.DimCustomer AS c\n        ON f.CustomerKey = c.CustomerKey\n    GROUP BY\n        c.Occupation,\n        f.CustomerKey,\n        f.SalesOrderNumber\n)\nGROUP BY occupation\nORDER BY avg_online_order_value DESC NULLS LAST",
+  "rows": [
+    [
+      "Management",
+      1848.7999003559744
+    ],
+    [
+      "Clerical",
+      1698.9582877184173
+    ],
+    [
+      "Professional",
+      1665.2560593519047
+    ],
+    [
+      "Manual",
+      1534.390963473014
+    ],
+    [
+      "Skilled Manual",
+      1405.7568213792333
+    ]
+  ],
+  "columns": [
+    "occupation",
+    "avg_online_order_value"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 12138,
+  "latency_ms_exec": 992,
+  "tokens_in": 16368,
+  "tokens_out": 192,
+  "claude_error": null,
+  "sql_error": null
+}

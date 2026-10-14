@@ -1,0 +1,11 @@
+{
+  "question_id": 86,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate excludes PromotionKey=1 (\"No Discount\") rows, producing materially different observation counts (e.g., 218,544 vs 313,184 for Boxed Games) and different correlation values/rankings, so it answers a different filtered question than the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 408,
+  "judge_latency_ms": 13077
+}

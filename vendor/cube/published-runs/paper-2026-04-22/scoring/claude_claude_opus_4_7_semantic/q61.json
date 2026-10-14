@@ -1,0 +1,11 @@
+{
+  "question_id": 61,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same 30 subcategories with sales amounts that differ only by negligible floating-point precision (well under 1%).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 205,
+  "judge_latency_ms": 18044
+}

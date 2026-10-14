@@ -1,0 +1,11 @@
+{
+  "question_id": 36,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses different thresholds (90/180 days vs 6/12 months) and returns individual customer rows instead of aggregated segment counts; aggregating the candidate's rows would produce different segment counts than the reference due to the mismatched classification cutoffs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 543,
+  "judge_latency_ms": 15793
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 57,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return 11 distinct brand names; the candidate's explicit NULL filter is semantically equivalent since countDistinct also ignores NULLs.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 184,
+  "judge_latency_ms": 11312
+}

@@ -1,0 +1,93 @@
+{
+  "question_id": 23,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    toMonth(DateKey) AS month_number,\n    any(d.CalendarMonthLabel) AS month_label,\n    sum(SalesAmount) AS monthly_sales,\n    sum(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_sales\nFROM retail.FactOnlineSales f\nJOIN retail.DimDate d ON d.DateKey = f.DateKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY month_number\nORDER BY month_number",
+  "rows": [
+    [
+      1,
+      "January",
+      57453262.78120028,
+      57453262.78120028
+    ],
+    [
+      2,
+      "February",
+      59891424.71160126,
+      117344687.49280155
+    ],
+    [
+      3,
+      "March",
+      60807494.09500095,
+      178152181.5878025
+    ],
+    [
+      4,
+      "April",
+      69888328.7378999,
+      248040510.3257024
+    ],
+    [
+      5,
+      "May",
+      82082708.71239774,
+      330123219.0381001
+    ],
+    [
+      6,
+      "June",
+      81822800.06199753,
+      411946019.10009766
+    ],
+    [
+      7,
+      "July",
+      82779485.68639699,
+      494725504.7864946
+    ],
+    [
+      8,
+      "August",
+      77599793.89819783,
+      572325298.6846924
+    ],
+    [
+      9,
+      "September",
+      74684747.96299854,
+      647010046.6476909
+    ],
+    [
+      10,
+      "October",
+      75213262.40719867,
+      722223309.0548896
+    ],
+    [
+      11,
+      "November",
+      67175159.95190069,
+      789398469.0067903
+    ],
+    [
+      12,
+      "December",
+      68329562.33909996,
+      857728031.3458903
+    ]
+  ],
+  "columns": [
+    "month_number",
+    "month_label",
+    "monthly_sales",
+    "cumulative_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 8720,
+  "latency_ms_exec": 516,
+  "tokens_in": 16751,
+  "tokens_out": 204,
+  "claude_error": null,
+  "sql_error": null
+}

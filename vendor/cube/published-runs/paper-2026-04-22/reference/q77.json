@@ -1,0 +1,87 @@
+{
+  "question_id": 77,
+  "sql": "WITH monthly AS (\n  SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS sales\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY month\n)\nSELECT month,\n       round(sales, 2) AS sales,\n       round(lagInFrame(sales) OVER (ORDER BY month), 2) AS prev_month_sales,\n       round((sales - lagInFrame(sales) OVER (ORDER BY month)) * 100.0 / nullif(lagInFrame(sales) OVER (ORDER BY month), 0), 2) AS mom_growth_pct\nFROM monthly\nORDER BY month",
+  "rows": [
+    [
+      1,
+      57453262.78,
+      0.0,
+      null
+    ],
+    [
+      2,
+      59891424.71,
+      57453262.78,
+      4.24
+    ],
+    [
+      3,
+      60807494.09,
+      59891424.71,
+      1.53
+    ],
+    [
+      4,
+      69888328.74,
+      60807494.09,
+      14.93
+    ],
+    [
+      5,
+      82082708.71,
+      69888328.74,
+      17.45
+    ],
+    [
+      6,
+      81822800.06,
+      82082708.71,
+      -0.32
+    ],
+    [
+      7,
+      82779485.69,
+      81822800.06,
+      1.17
+    ],
+    [
+      8,
+      77599793.9,
+      82779485.69,
+      -6.26
+    ],
+    [
+      9,
+      74684747.96,
+      77599793.9,
+      -3.76
+    ],
+    [
+      10,
+      75213262.41,
+      74684747.96,
+      0.71
+    ],
+    [
+      11,
+      67175159.95,
+      75213262.41,
+      -10.69
+    ],
+    [
+      12,
+      68329562.34,
+      67175159.95,
+      1.72
+    ]
+  ],
+  "columns": [
+    "month",
+    "sales",
+    "prev_month_sales",
+    "mom_growth_pct"
+  ],
+  "row_count": 12,
+  "exec_ms": 503,
+  "error": null
+}

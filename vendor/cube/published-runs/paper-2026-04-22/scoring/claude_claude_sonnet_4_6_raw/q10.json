@@ -1,0 +1,11 @@
+{
+  "question_id": 10,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both the reference and candidate queries return 294, indicating that all open stores have Status = 'On' and the additional OR CloseDate IS NULL condition adds no extra rows in this dataset.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 187,
+  "judge_latency_ms": 12389
+}

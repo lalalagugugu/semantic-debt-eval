@@ -1,0 +1,11 @@
+{
+  "question_id": 91,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a grouped breakdown of spending metrics by income bracket, not the Pearson correlation coefficient (0.7349) and customer count (18869) that the reference produces; the correlation statistic cannot be derived from the candidate's output.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 330,
+  "judge_latency_ms": 13348
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing entirely different revenue totals (~3.74B vs ~857M) and different product counts per class, so it answers a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 248,
+  "judge_latency_ms": 11303
+}

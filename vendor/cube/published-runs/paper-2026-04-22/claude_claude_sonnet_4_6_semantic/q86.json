@@ -1,0 +1,294 @@
+{
+  "question_id": 86,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    psc.ProductSubcategoryName,\n    corr(p.DiscountPercent, f.SalesQuantity)                                   AS discount_sales_corr,\n    count()                                                                     AS num_line_items,\n    round(avg(p.DiscountPercent), 2)                                            AS avg_discount_pct,\n    sum(f.SalesQuantity)                                                        AS total_sales_qty,\n    sum(f.SalesAmount)                                                          AS total_sales_amount,\n    countDistinct(f.PromotionKey)                                               AS distinct_promotions\nFROM retail.FactOnlineSales       f\nJOIN retail.DimPromotion          p   ON f.PromotionKey          = p.PromotionKey\nJOIN retail.DimProduct            dp  ON f.ProductKey            = dp.ProductKey\nJOIN retail.DimProductSubcategory psc ON dp.ProductSubcategoryKey = psc.ProductSubcategoryKey\nWHERE toYear(f.DateKey) = 2009\n  AND f.PromotionKey <> 1          -- exclude \"No Discount\" rows; need actual discount depth\n  AND p.DiscountPercent IS NOT NULL\nGROUP BY psc.ProductSubcategoryName\nHAVING num_line_items >= 30        -- require enough data points for a meaningful correlation\nORDER BY discount_sales_corr DESC",
+  "rows": [
+    [
+      "Boxed Games",
+      0.0031087482829171044,
+      218544,
+      0.13,
+      218145,
+      1356166.8849985497,
+      11
+    ],
+    [
+      "Laptops",
+      0.0030539411097664517,
+      88742,
+      0.13,
+      87763,
+      44108492.46850272,
+      9
+    ],
+    [
+      "Bluetooth Headphones",
+      0.0029332013889424176,
+      50446,
+      0.13,
+      50019,
+      3519137.2111986857,
+      11
+    ],
+    [
+      "Coffee Machines",
+      0.0023663426027260336,
+      79809,
+      0.13,
+      79160,
+      24859025.032395553,
+      11
+    ],
+    [
+      "Cell phones Accessories",
+      0.0007337476074486004,
+      666275,
+      0.13,
+      666060,
+      9012486.071982209,
+      11
+    ],
+    [
+      "Water Heaters",
+      0.0003032972201094251,
+      26725,
+      0.13,
+      26462,
+      14829494.700000213,
+      11
+    ],
+    [
+      "Car Video",
+      0.00025030276545530183,
+      44100,
+      0.13,
+      43730,
+      13518842.629996981,
+      11
+    ],
+    [
+      "Computers Accessories",
+      -7.927071966862345e-05,
+      113304,
+      0.13,
+      112459,
+      1958350.6025002492,
+      11
+    ],
+    [
+      "Air Conditioners",
+      -0.0005977871307851936,
+      56627,
+      0.13,
+      56084,
+      15006796.804203723,
+      11
+    ],
+    [
+      "Home & Office Phones",
+      -0.0006280663975471827,
+      75322,
+      0.13,
+      74601,
+      1749621.713100034,
+      11
+    ],
+    [
+      "Televisions",
+      -0.0008377787346959798,
+      45985,
+      0.13,
+      45574,
+      19817577.313496243,
+      11
+    ],
+    [
+      "Digital Cameras",
+      -0.0009020690041958554,
+      87799,
+      0.13,
+      86896,
+      14512585.600001564,
+      11
+    ],
+    [
+      "Projectors & Screens",
+      -0.0012291830574861378,
+      88377,
+      0.13,
+      87538,
+      41583912.94000836,
+      11
+    ],
+    [
+      "Movie DVD",
+      -0.0015150589712992848,
+      71184,
+      0.13,
+      70361,
+      5551872.489298437,
+      11
+    ],
+    [
+      "Camcorders",
+      -0.0016754911484462415,
+      87673,
+      0.13,
+      86779,
+      46657031.82999679,
+      11
+    ],
+    [
+      "Fans",
+      -0.002104071777219619,
+      100865,
+      0.13,
+      100182,
+      4302249.531397614,
+      11
+    ],
+    [
+      "Printers, Scanners & Fax",
+      -0.0021658800092355184,
+      86265,
+      0.13,
+      85402,
+      10626180.55000005,
+      11
+    ],
+    [
+      "Microwaves",
+      -0.0021949580114945704,
+      100516,
+      0.13,
+      99608,
+      15443041.729609007,
+      11
+    ],
+    [
+      "Home Theater System",
+      -0.0026510173039039878,
+      86143,
+      0.13,
+      85297,
+      34269609.414004795,
+      11
+    ],
+    [
+      "MP4&MP3",
+      -0.0029683377122812315,
+      41170,
+      0.13,
+      40823,
+      3864026.750299945,
+      11
+    ],
+    [
+      "Touch Screen Phones",
+      -0.00300457965290214,
+      56489,
+      0.13,
+      55915,
+      12990352.739999194,
+      11
+    ],
+    [
+      "Lamps",
+      -0.0034290503204414003,
+      174395,
+      0.13,
+      172953,
+      25394834.096403595,
+      11
+    ],
+    [
+      "Washers & Dryers",
+      -0.003566447071404588,
+      29696,
+      0.13,
+      29148,
+      41015876.262008905,
+      11
+    ],
+    [
+      "Refrigerators",
+      -0.004200048684698362,
+      69971,
+      0.13,
+      69225,
+      36820969.847990215,
+      11
+    ],
+    [
+      "Digital SLR Cameras",
+      -0.004651703417532088,
+      88739,
+      0.13,
+      87927,
+      31821175.828998283,
+      11
+    ],
+    [
+      "Monitors",
+      -0.005133832673387927,
+      80748,
+      0.13,
+      80099,
+      16044855.499991639,
+      11
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      -0.005215384250522368,
+      71199,
+      0.13,
+      70742,
+      3186593.7594005917,
+      11
+    ],
+    [
+      "Smart phones & PDAs",
+      -0.006521738346849209,
+      67777,
+      0.13,
+      66976,
+      15393985.879996983,
+      11
+    ],
+    [
+      "Recording Pen",
+      -0.009843925329071215,
+      18516,
+      0.13,
+      18345,
+      2898799.4850000176,
+      11
+    ],
+    [
+      "VCD & DVD",
+      -0.011255698811441941,
+      25647,
+      0.13,
+      25446,
+      2109347.6199997244,
+      11
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "discount_sales_corr",
+    "num_line_items",
+    "avg_discount_pct",
+    "total_sales_qty",
+    "total_sales_amount",
+    "distinct_promotions"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 25202,
+  "latency_ms_exec": 803,
+  "tokens_in": 16775,
+  "tokens_out": 1293,
+  "claude_error": null,
+  "sql_error": null
+}

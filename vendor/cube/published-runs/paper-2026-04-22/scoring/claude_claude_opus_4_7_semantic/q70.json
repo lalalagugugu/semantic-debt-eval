@@ -1,0 +1,11 @@
+{
+  "question_id": 70,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly on all requested measures (StoreType, TotalSales, AvgSellingAreaSize); the only omission is the extra `stores` (countDistinct) column from the reference, which was not asked for in the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 224,
+  "judge_latency_ms": 12959
+}

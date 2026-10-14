@@ -1,0 +1,11 @@
+{
+  "question_id": 89,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate correctly computes avg_spend and avg_product_variety per segment with matching values, but omits the customer count column present in the reference; analytically it fully answers the question asked (average spend and product variety by segment).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 620,
+  "judge_latency_ms": 20275
+}

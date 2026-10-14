@@ -1,0 +1,621 @@
+{
+  "question_id": 20,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH latest AS (\n    SELECT\n        StoreKey,\n        ProductKey,\n        max(DateKey) AS max_date\n    FROM retail.FactInventory\n    GROUP BY StoreKey, ProductKey\n)\nSELECT\n    i.ProductKey,\n    p.ProductName,\n    sum(i.OnHandQuantity) AS current_on_hand_quantity,\n    sum(i.SafetyStockQuantity) AS current_safety_stock_quantity\nFROM retail.FactInventory AS i\nINNER JOIN latest AS l\n    ON i.StoreKey = l.StoreKey\n   AND i.ProductKey = l.ProductKey\n   AND i.DateKey = l.max_date\nINNER JOIN retail.DimProduct AS p\n    ON i.ProductKey = p.ProductKey\nGROUP BY\n    i.ProductKey,\n    p.ProductName\nHAVING sum(i.OnHandQuantity) < sum(i.SafetyStockQuantity)\nORDER BY\n    current_on_hand_quantity ASC,\n    current_safety_stock_quantity DESC,\n    i.ProductKey ASC",
+  "rows": [
+    [
+      1543,
+      "The Phone Company PDA Phone 4.7 inches L360 Silver",
+      960,
+      1182
+    ],
+    [
+      1566,
+      "The Phone Company PDA Handheld 3.7 inch M630 White",
+      1030,
+      1104
+    ],
+    [
+      1556,
+      "The Phone Company PDA Wifi 3.5-inch M200 White",
+      1230,
+      1329
+    ],
+    [
+      1506,
+      "The Phone Company Smart phones 320 x 320 M86 Pink",
+      1294,
+      1464
+    ],
+    [
+      1560,
+      "The Phone Company PDA Phone 3.7 inches M340 White",
+      1302,
+      1596
+    ],
+    [
+      1511,
+      "The Phone Company Microsoft Windows Mobile M200 Gold",
+      1352,
+      1608
+    ],
+    [
+      1481,
+      "The Phone Company Microsoft Windows Mobile M200 Grey",
+      1382,
+      1644
+    ],
+    [
+      1570,
+      "The Phone Company PDA Palm 4.7 inch L850 White",
+      1414,
+      1539
+    ],
+    [
+      1516,
+      "The Phone Company Smart phones 320 x 320 M86 Gold",
+      1483,
+      1608
+    ],
+    [
+      1540,
+      "The Phone Company PDA Wifi 4.7-inch L290 Silver",
+      1499,
+      1851
+    ],
+    [
+      1366,
+      "Contoso 4-Line Corded Cordless Telephone M203 White",
+      1513,
+      1740
+    ],
+    [
+      1536,
+      "The Phone Company PDA GPS Phone 3.7 inch M930 Black",
+      1514,
+      1710
+    ],
+    [
+      1399,
+      "Contoso 4-Line Corded Cordless Telephone M203 Grey",
+      1529,
+      1704
+    ],
+    [
+      1404,
+      "Contoso Digital Cordless Expansion Handset Phone M900 Grey",
+      1545,
+      1776
+    ],
+    [
+      1496,
+      "The Phone Company Smart phones 320 x 320 M86 White",
+      1576,
+      1860
+    ],
+    [
+      1569,
+      "The Phone Company PDA Palm 3.7 inch M830 White",
+      1582,
+      1770
+    ],
+    [
+      1471,
+      "The Phone Company Microsoft Windows Mobile M200 Black",
+      1667,
+      1881
+    ],
+    [
+      1575,
+      "SV DVD Player M140 Gold",
+      1727,
+      5740
+    ],
+    [
+      1573,
+      "SV DVD Player M120 White",
+      1732,
+      5900
+    ],
+    [
+      1491,
+      "The Phone Company Microsoft Windows Mobile M200 White",
+      1769,
+      2097
+    ],
+    [
+      1617,
+      "Contoso DVD Player M110 Silver",
+      1799,
+      7340
+    ],
+    [
+      1616,
+      "Contoso DVD Player M100 Black",
+      1805,
+      6990
+    ],
+    [
+      1574,
+      "SV DVD Player M130 Grey",
+      1828,
+      6650
+    ],
+    [
+      1618,
+      "Contoso DVD Player M120 White",
+      1857,
+      7170
+    ],
+    [
+      1544,
+      "The Phone Company PDA Phone Unlocked 3.7 inches M510 Silver",
+      1903,
+      2217
+    ],
+    [
+      1501,
+      "The Phone Company Microsoft Windows Mobile M200 Pink",
+      1906,
+      2196
+    ],
+    [
+      1620,
+      "Contoso DVD Player M140 Gold",
+      1911,
+      6740
+    ],
+    [
+      1472,
+      "The Phone Company Smart phones 4 GB of Memory M300 Black",
+      1935,
+      2199
+    ],
+    [
+      1371,
+      "Contoso Digital Cordless Expansion Handset Phone M900 White",
+      1946,
+      2193
+    ],
+    [
+      1619,
+      "Contoso DVD Player M130 Grey",
+      1962,
+      7270
+    ],
+    [
+      1572,
+      "SV DVD Player M110 Silver",
+      1966,
+      7720
+    ],
+    [
+      1414,
+      "The Phone Company Touch Screen Phones 5-Wire/Built-in M500 Black",
+      1980,
+      2118
+    ],
+    [
+      1555,
+      "The Phone Company PDA GPS Phone 4.7 inch L950 Silver",
+      1983,
+      2511
+    ],
+    [
+      1448,
+      "The Phone Company Touch Screen Phones 5-Wire/Built-in M500 Gold",
+      1987,
+      2178
+    ],
+    [
+      1571,
+      "SV DVD Player M100 Black",
+      1989,
+      6820
+    ],
+    [
+      1482,
+      "The Phone Company Smart phones 4 GB of Memory M300 Grey",
+      2014,
+      2268
+    ],
+    [
+      1502,
+      "The Phone Company Smart phones 4 GB of Memory M300 Pink",
+      2020,
+      2205
+    ],
+    [
+      1431,
+      "The Phone Company Touch Screen Phones 5-Wire/Built-in M500 Grey",
+      2042,
+      2055
+    ],
+    [
+      1338,
+      "Contoso Digital Cordless Expansion Handset Phone M900 Black",
+      2097,
+      2550
+    ],
+    [
+      1512,
+      "The Phone Company Smart phones 4 GB of Memory M300 Gold",
+      2163,
+      2385
+    ],
+    [
+      1565,
+      "The Phone Company PDA Handheld 3.5 inch M610 White",
+      2179,
+      2583
+    ],
+    [
+      1459,
+      "Contoso Touch Screen Phones 5-Wire/Built-in M500 Black",
+      2185,
+      2496
+    ],
+    [
+      1492,
+      "The Phone Company Smart phones 4 GB of Memory M300 White",
+      2195,
+      2376
+    ],
+    [
+      1462,
+      "Contoso Touch Screen Phones 4-Wire/ Built-in M205 Black",
+      2211,
+      2436
+    ],
+    [
+      1417,
+      "The Phone Company Touch Screen Phones 4-Wire/ Built-in M205 Black",
+      2250,
+      2427
+    ],
+    [
+      1401,
+      "Contoso Expandable 2-Handset Cordless Phone System M205 Grey",
+      2297,
+      2832
+    ],
+    [
+      1451,
+      "The Phone Company Touch Screen Phones 4-Wire/ Built-in M205 Gold",
+      2392,
+      2736
+    ],
+    [
+      1335,
+      "Contoso Expandable 2-Handset Cordless Phone System M205 Black",
+      2423,
+      2844
+    ],
+    [
+      1434,
+      "The Phone Company Touch Screen Phones 4-Wire/ Built-in M205 Grey",
+      2444,
+      2826
+    ],
+    [
+      1368,
+      "Contoso Expandable 2-Handset Cordless Phone System M205 White",
+      2464,
+      2817
+    ],
+    [
+      1539,
+      "The Phone Company PDA Wifi 3.7-inch M250 Silver",
+      2521,
+      2895
+    ],
+    [
+      1408,
+      "The Phone Company Touch Screen Phone 1600 TFT-2.2\" L200 Black",
+      2666,
+      3372
+    ],
+    [
+      1425,
+      "The Phone Company Touch Screen Phone 1600 TFT-2.2\" L200 Grey",
+      2721,
+      3237
+    ],
+    [
+      1442,
+      "The Phone Company Touch Screen Phone 1600 TFT-2.2\" L200 Gold",
+      2768,
+      3333
+    ],
+    [
+      1598,
+      "SV DVD External DVD Burner M200 Grey",
+      2976,
+      11840
+    ],
+    [
+      1644,
+      "Contoso DVD External DVD Burner M200 Blue",
+      2996,
+      11890
+    ],
+    [
+      1563,
+      "The Phone Company PDA Phone Unlocked 3.5 inches M530 White",
+      2997,
+      3495
+    ],
+    [
+      1600,
+      "SV DVD External DVD Burner M200 Silver",
+      3052,
+      11310
+    ],
+    [
+      1645,
+      "Contoso DVD External DVD Burner M200 Silver",
+      3055,
+      12450
+    ],
+    [
+      1642,
+      "Contoso DVD External DVD Burner M200 Black",
+      3187,
+      11540
+    ],
+    [
+      1538,
+      "The Phone Company PDA Wifi 3.5-inch M200 Silver",
+      3218,
+      3405
+    ],
+    [
+      1643,
+      "Contoso DVD External DVD Burner M200 Grey",
+      3237,
+      12170
+    ],
+    [
+      1599,
+      "SV DVD External DVD Burner M200 Blue",
+      3246,
+      12690
+    ],
+    [
+      1337,
+      "Contoso Expandable1-Handset Cordless Phone System M207 Black",
+      3273,
+      3915
+    ],
+    [
+      1597,
+      "SV DVD External DVD Burner M200 Black",
+      3353,
+      12270
+    ],
+    [
+      1447,
+      "The Phone Company Touch Screen Phones SAW/Built-in M801 Gold",
+      3391,
+      4014
+    ],
+    [
+      1526,
+      "The Phone Company PDA Phone Unlocked 3.7 inches M510 Black",
+      3435,
+      4146
+    ],
+    [
+      1624,
+      "Contoso DVD Recorder L220 White",
+      3463,
+      14120
+    ],
+    [
+      1581,
+      "SV DVD Recorder L240 Gold",
+      3477,
+      14980
+    ],
+    [
+      1413,
+      "The Phone Company Touch Screen Phones SAW/Built-in M801 Black",
+      3499,
+      3987
+    ],
+    [
+      1623,
+      "Contoso DVD Recorder L210 Silver",
+      3515,
+      13790
+    ],
+    [
+      1533,
+      "The Phone Company PDA Palm 3.7 inch M830 Black",
+      3529,
+      4155
+    ],
+    [
+      1403,
+      "Contoso Expandable1-Handset Cordless Phone System M207 Grey",
+      3541,
+      3897
+    ],
+    [
+      1579,
+      "SV DVD Recorder L220 White",
+      3564,
+      14970
+    ],
+    [
+      1370,
+      "Contoso Expandable1-Handset Cordless Phone System M207 White",
+      3598,
+      3960
+    ],
+    [
+      1578,
+      "SV DVD Recorder L210 Silver",
+      3613,
+      16120
+    ],
+    [
+      1622,
+      "Contoso DVD Recorder L200 Black",
+      3614,
+      15150
+    ],
+    [
+      1355,
+      "Contoso Private Branch Exchange M88 White",
+      3617,
+      4248
+    ],
+    [
+      1430,
+      "The Phone Company Touch Screen Phones SAW/Built-in M801 Grey",
+      3664,
+      4251
+    ],
+    [
+      1397,
+      "Contoso Phone System Accessory Handset with Charger M308 Grey",
+      3677,
+      4299
+    ],
+    [
+      1625,
+      "Contoso DVD Recorder L230 Grey",
+      3678,
+      15070
+    ],
+    [
+      1577,
+      "SV DVD Recorder L200 Black",
+      3684,
+      15230
+    ],
+    [
+      1626,
+      "Contoso DVD Recorder L240 Gold",
+      3715,
+      14940
+    ],
+    [
+      1331,
+      "Contoso Phone System Accessory Handset with Charger M308 Black",
+      3732,
+      4230
+    ],
+    [
+      1580,
+      "SV DVD Recorder L230 Grey",
+      3796,
+      15730
+    ],
+    [
+      1409,
+      "The Phone Company Touch Screen Phone 1600 TFT-1.4\" L250 Black",
+      3808,
+      4857
+    ],
+    [
+      1659,
+      "Contoso DVD 14-Inch Player Portable L100 White",
+      3863,
+      16240
+    ],
+    [
+      1443,
+      "The Phone Company Touch Screen Phone 1600 TFT-1.4\" L250 Gold",
+      3867,
+      4722
+    ],
+    [
+      1546,
+      "The Phone Company PDA Phone Unlocked 4.7 inches L550 Silver",
+      3908,
+      4710
+    ],
+    [
+      1364,
+      "Contoso Phone System Accessory Handset with Charger M308 White",
+      3917,
+      4221
+    ],
+    [
+      1531,
+      "The Phone Company PDA Handheld 4.7 inch L650 Black",
+      3934,
+      4899
+    ],
+    [
+      1326,
+      "Contoso Centrex Phone System L10 Black",
+      3944,
+      4653
+    ],
+    [
+      1551,
+      "The Phone Company PDA Palm 3.7 inch M830 Silver",
+      3945,
+      4569
+    ],
+    [
+      1660,
+      "Contoso DVD 15-Inch Player Portable L200 White",
+      3955,
+      16650
+    ],
+    [
+      1557,
+      "The Phone Company PDA Wifi 3.7-inch M250 White",
+      3960,
+      4968
+    ],
+    [
+      1359,
+      "Contoso Centrex Phone System L10 White",
+      3975,
+      5196
+    ],
+    [
+      1567,
+      "The Phone Company PDA Handheld 4.7 inch L650 White",
+      3985,
+      4827
+    ],
+    [
+      1342,
+      "Contoso Integrated Business Phone With card L10 Black",
+      3996,
+      4797
+    ],
+    [
+      1376,
+      "Contoso Integrated Business Phone L08 White",
+      4004,
+      4740
+    ],
+    [
+      1649,
+      "Contoso DVD 14-Inch Player Portable L100 Black",
+      4021,
+      15210
+    ]
+  ],
+  "columns": [
+    "i.ProductKey",
+    "ProductName",
+    "current_on_hand_quantity",
+    "current_safety_stock_quantity"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 20021,
+  "latency_ms_exec": 2159,
+  "tokens_in": 19681,
+  "tokens_out": 379,
+  "claude_error": null,
+  "sql_error": null
+}

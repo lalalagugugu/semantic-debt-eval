@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a pre-cumulative threshold (`cum_rev - revenue`) instead of post-cumulative (`cum_rev`), shifting one product from class C to A (1132 vs 1131 for A, 706 vs 707 for C), yielding different product counts that don't match the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 515,
+  "judge_latency_ms": 17885
+}

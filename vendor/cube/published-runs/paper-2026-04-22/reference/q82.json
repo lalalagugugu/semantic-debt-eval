@@ -1,0 +1,81 @@
+{
+  "question_id": 82,
+  "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('year', toDate(HireDate), toDate('2009-12-31'))) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name\nLIMIT 25",
+  "rows": [
+    [
+      "Terry Adams",
+      "Sales State Manager",
+      89,
+      10.0
+    ],
+    [
+      "Yoichiro Okada",
+      "Sales State Manager",
+      65,
+      9.1
+    ],
+    [
+      "David Probst",
+      "Sales State Manager",
+      44,
+      9.6
+    ],
+    [
+      "Aaron Painter",
+      "Sales State Manager",
+      33,
+      10.0
+    ],
+    [
+      "Pilar Ackerman",
+      "Sales State Manager",
+      33,
+      8.8
+    ],
+    [
+      "Kim Abercrombie",
+      "Sales Region Manager",
+      7,
+      10.7
+    ],
+    [
+      "Sagiv Hadaya",
+      "Sales Region Manager",
+      6,
+      10.5
+    ],
+    [
+      "Luka Abrus",
+      "Sales Region Manager",
+      5,
+      10.4
+    ],
+    [
+      "Pieter Uittenbogaard",
+      "Sales Group Manager",
+      5,
+      11.8
+    ],
+    [
+      "Humberto Acevedo",
+      "Sales Region Manager",
+      3,
+      10.7
+    ],
+    [
+      "Kirk Nason",
+      "Sales Region Manager",
+      3,
+      10.7
+    ]
+  ],
+  "columns": [
+    "manager_name",
+    "Title",
+    "direct_reports",
+    "avg_team_tenure_years"
+  ],
+  "row_count": 11,
+  "exec_ms": 496,
+  "error": null
+}

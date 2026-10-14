@@ -1,0 +1,25 @@
+{
+  "question_id": 69,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.PromotionCategory,\n    sum(os.SalesAmount) AS discounted_online_revenue,\n    avg(p.DiscountPercent) AS average_discount_percent\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimPromotion AS p\n    ON os.PromotionKey = p.PromotionKey\nWHERE os.DiscountAmount > 0\n    AND p.PromotionCategory IS NOT NULL\nGROUP BY p.PromotionCategory\nORDER BY discounted_online_revenue DESC, p.PromotionCategory ASC",
+  "rows": [
+    [
+      "Store",
+      1782429980.56433,
+      0.1299641406737224
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "discounted_online_revenue",
+    "average_discount_percent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13834,
+  "latency_ms_exec": 613,
+  "tokens_in": 16375,
+  "tokens_out": 294,
+  "claude_error": null,
+  "sql_error": null
+}

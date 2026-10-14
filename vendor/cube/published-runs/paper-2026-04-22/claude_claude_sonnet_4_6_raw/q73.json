@@ -1,0 +1,92 @@
+{
+  "question_id": 73,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    sum(fi.OnHandQuantity) AS TotalOnHand,\n    sum(fi.SafetyStockQuantity) AS TotalSafetyStock,\n    sum(fi.OnHandQuantity) - sum(fi.SafetyStockQuantity) AS InventoryGap\nFROM retail.FactInventory fi\nJOIN retail.DimProduct p ON fi.ProductKey = p.ProductKey\nGROUP BY p.ProductKey, p.ProductName\nORDER BY InventoryGap DESC\nLIMIT 10",
+  "rows": [
+    [
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      706742,
+      343416,
+      363326
+    ],
+    [
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      705371,
+      354132,
+      351239
+    ],
+    [
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      715377,
+      370074,
+      345303
+    ],
+    [
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      729170,
+      384234,
+      344936
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      719120,
+      375522,
+      343598
+    ],
+    [
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      710722,
+      370596,
+      340126
+    ],
+    [
+      2494,
+      "Reusable Phone Screen Protector E120",
+      695674,
+      361089,
+      334585
+    ],
+    [
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      670569,
+      336777,
+      333792
+    ],
+    [
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      687000,
+      353370,
+      333630
+    ],
+    [
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      669924,
+      336612,
+      333312
+    ]
+  ],
+  "columns": [
+    "p.ProductKey",
+    "ProductName",
+    "TotalOnHand",
+    "TotalSafetyStock",
+    "InventoryGap"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 7528,
+  "latency_ms_exec": 811,
+  "tokens_in": 13806,
+  "tokens_out": 225,
+  "claude_error": null,
+  "sql_error": null
+}

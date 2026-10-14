@@ -1,0 +1,11 @@
+{
+  "question_id": 26,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows [[1, 18015], [2, 853]] exactly match the expected rows; the SQL is semantically equivalent to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 148,
+  "judge_latency_ms": 12277
+}

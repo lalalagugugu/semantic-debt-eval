@@ -1,0 +1,69 @@
+{
+  "question_id": 24,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sum(f.ReturnQuantity) AS total_return_qty,\n    sum(f.SalesQuantity) AS total_sales_qty,\n    sum(f.ReturnQuantity) * 100.0 / nullif(sum(f.SalesQuantity), 0) AS return_rate_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY return_rate_pct DESC",
+  "rows": [
+    [
+      "Music, Movies and Audio Books",
+      3704,
+      304294,
+      1.2172438496979894
+    ],
+    [
+      "Home Appliances",
+      26893,
+      2238745,
+      1.2012533808004038
+    ],
+    [
+      "Computers",
+      18381,
+      1587404,
+      1.157928290466699
+    ],
+    [
+      "Cameras and camcorders",
+      15151,
+      1524778,
+      0.9936528465127382
+    ],
+    [
+      "Audio",
+      3449,
+      447431,
+      0.7708451135482343
+    ],
+    [
+      "TV and Video",
+      8382,
+      1259896,
+      0.6652930083117972
+    ],
+    [
+      "Cell phones",
+      11309,
+      2678400,
+      0.4222296893667861
+    ],
+    [
+      "Games and Toys",
+      1951,
+      782060,
+      0.24946935017773572
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "total_return_qty",
+    "total_sales_qty",
+    "return_rate_pct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 8610,
+  "latency_ms_exec": 579,
+  "tokens_in": 16751,
+  "tokens_out": 281,
+  "claude_error": null,
+  "sql_error": null
+}

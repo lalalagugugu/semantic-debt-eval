@@ -1,0 +1,51 @@
+{
+  "question_id": 5,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    count() AS product_count\nFROM retail.DimProduct p\nINNER JOIN retail.DimProductSubcategory ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY product_count DESC, pc.ProductCategoryName ASC",
+  "rows": [
+    [
+      "Home Appliances",
+      661
+    ],
+    [
+      "Computers",
+      459
+    ],
+    [
+      "Cameras and camcorders",
+      358
+    ],
+    [
+      "Cell phones",
+      282
+    ],
+    [
+      "TV and Video",
+      222
+    ],
+    [
+      "Audio",
+      115
+    ],
+    [
+      "Music, Movies and Audio Books",
+      90
+    ],
+    [
+      "Games and Toys",
+      46
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "product_count"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 13220,
+  "latency_ms_exec": 498,
+  "tokens_in": 19680,
+  "tokens_out": 157,
+  "claude_error": null,
+  "sql_error": null
+}

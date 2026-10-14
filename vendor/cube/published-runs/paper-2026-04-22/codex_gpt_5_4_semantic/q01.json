@@ -1,0 +1,21 @@
+{
+  "question_id": 1,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT count() AS product_count\nFROM retail.DimProduct",
+  "rows": [
+    [
+      2233
+    ]
+  ],
+  "columns": [
+    "product_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9123,
+  "latency_ms_exec": 500,
+  "tokens_in": 18821,
+  "tokens_out": 39,
+  "claude_error": null,
+  "sql_error": null
+}

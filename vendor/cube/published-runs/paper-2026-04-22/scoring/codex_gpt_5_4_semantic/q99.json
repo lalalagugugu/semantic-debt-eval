@@ -1,0 +1,11 @@
+{
+  "question_id": 99,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical rows to the reference \u2014 same categories, same avg weekend/weekday sales values, and same weekend_lift_pct \u2014 just with the two average columns swapped in position, which is irrelevant to row-level matching.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 217,
+  "judge_latency_ms": 11163
+}

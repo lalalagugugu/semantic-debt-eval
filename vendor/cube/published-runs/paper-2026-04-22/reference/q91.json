@@ -1,0 +1,17 @@
+{
+  "question_id": 91,
+  "sql": "SELECT corr(c.YearlyIncome, cust_spend.total_spend) AS income_spend_correlation,\n       count() AS customers_analyzed\nFROM (\n  SELECT CustomerKey, sum(SalesAmount) AS total_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n) cust_spend\nJOIN retail.DimCustomer c ON c.CustomerKey = cust_spend.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
+  "rows": [
+    [
+      0.734925761951525,
+      18869
+    ]
+  ],
+  "columns": [
+    "income_spend_correlation",
+    "customers_analyzed"
+  ],
+  "row_count": 1,
+  "exec_ms": 546,
+  "error": null
+}

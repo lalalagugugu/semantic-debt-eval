@@ -1,0 +1,11 @@
+{
+  "question_id": 46,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate segments by Occupation (returning \"Professional\" as top with ~337.8M profit) while the reference segments by Education (returning \"Partial College\" with ~326.9M profit) \u2014 these are different dimensions answering genuinely different questions.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 278,
+  "judge_latency_ms": 12751
+}

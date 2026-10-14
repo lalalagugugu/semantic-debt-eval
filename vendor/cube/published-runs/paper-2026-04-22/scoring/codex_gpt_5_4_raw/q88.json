@@ -1,0 +1,11 @@
+{
+  "question_id": 88,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same customers with matching spend values (within floating-point precision), using an equivalent HAVING countDistinct approach instead of a CTE; extra columns (CustomerKey, split name) and minor row-order ties among equal-spend customers don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 231,
+  "judge_latency_ms": 12120
+}

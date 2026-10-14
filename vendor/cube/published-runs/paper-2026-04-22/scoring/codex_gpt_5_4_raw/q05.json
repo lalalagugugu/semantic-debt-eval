@@ -1,0 +1,11 @@
+{
+  "question_id": 5,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 category/count pairs match exactly; the candidate merely adds an ORDER BY clause producing alphabetical ordering, which is acceptable since the question doesn't require a specific order.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 181,
+  "judge_latency_ms": 10037
+}

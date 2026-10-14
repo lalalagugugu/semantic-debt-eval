@@ -1,0 +1,11 @@
+{
+  "question_id": 13,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Queries are semantically equivalent (sum/count* = avg for non-null Float64); differing top-10 rows are due to candidate's ORDER BY DESC vs. reference's arbitrary order. Both return the same 100 stores with matching values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1398,
+  "judge_latency_ms": 32068
+}

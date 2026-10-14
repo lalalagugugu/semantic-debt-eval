@@ -1,0 +1,33 @@
+{
+  "question_id": 78,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.PromotionCategory AS PromotionCategory,\n       sum(s.DiscountAmount) AS TotalDiscountAmount,\n       sum(s.DiscountAmount) / sum(sum(s.DiscountAmount)) OVER () AS ShareOfAllDiscounts,\n       rank() OVER (ORDER BY sum(s.DiscountAmount) DESC) AS Rank\nFROM retail.FactSales AS s\nINNER JOIN retail.DimPromotion AS p ON s.PromotionKey = p.PromotionKey\nWHERE toYear(s.DateKey) = 2009\nGROUP BY p.PromotionCategory\nORDER BY TotalDiscountAmount DESC",
+  "rows": [
+    [
+      "Store",
+      62238467.63769468,
+      1.0,
+      1
+    ],
+    [
+      "No Discount",
+      0.0,
+      0.0,
+      2
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "TotalDiscountAmount",
+    "ShareOfAllDiscounts",
+    "Rank"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 8966,
+  "latency_ms_exec": 527,
+  "tokens_in": 19133,
+  "tokens_out": 253,
+  "claude_error": null,
+  "sql_error": null
+}

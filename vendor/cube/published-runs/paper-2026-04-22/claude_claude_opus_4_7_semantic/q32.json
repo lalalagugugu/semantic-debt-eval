@@ -1,0 +1,21 @@
+{
+  "question_id": 32,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT sum(SalesAmount) AS TotalLifetimeValue\nFROM retail.FactOnlineSales\nWHERE CustomerKey IN (\n  SELECT CustomerKey\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n  HAVING count(DISTINCT toYear(DateKey)) = 3\n)",
+  "rows": [
+    [
+      1191133222.2768998
+    ]
+  ],
+  "columns": [
+    "TotalLifetimeValue"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8862,
+  "latency_ms_exec": 647,
+  "tokens_in": 23324,
+  "tokens_out": 219,
+  "claude_error": null,
+  "sql_error": null
+}

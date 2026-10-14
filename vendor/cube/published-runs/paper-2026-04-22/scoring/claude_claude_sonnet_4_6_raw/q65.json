@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate unions FactSales with FactOnlineSales, inflating totals for online-type stores (e.g., Contoso North America Online Store: 2.02B vs expected 984M), producing wrong values and a different row count (100 vs 50); the reference uses only FactSales.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 467,
+  "judge_latency_ms": 16631
+}

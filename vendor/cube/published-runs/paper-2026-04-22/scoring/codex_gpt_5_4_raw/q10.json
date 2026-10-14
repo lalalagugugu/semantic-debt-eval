@@ -1,0 +1,11 @@
+{
+  "question_id": 10,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns 0 stores while the expected answer is 294; the candidate's filter logic (excluding 'closed'/'close' statuses and requiring CloseDate IS NULL or empty string) is incorrect compared to the reference's Status = 'On' OR CloseDate IS NULL condition.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 243,
+  "judge_latency_ms": 11190
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 34,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    p.ProductKey,\n    p.ProductName,\n    sum(s.TotalCost) AS total_cogs,\n    avg(i.OnHandQuantity * i.UnitCost) AS avg_inventory_value,\n    if(avg_inventory_value > 0, total_cogs / avg_inventory_value, NULL) AS inventory_turnover_ratio\nFROM retail.FactSales AS s\nJOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey\nJOIN (\n    SELECT\n        ProductKey,\n        OnHandQuantity,\n        UnitCost\n    FROM retail.FactInventory\n    WHERE toYear(DateKey) = 2009\n) AS i ON s.ProductKey = i.ProductKey\nWHERE toYear(s.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nORDER BY inventory_turnover_ratio DESC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 9931,
+  "latency_ms_exec": null,
+  "tokens_in": 13796,
+  "tokens_out": 348,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 159, server response: Code: 159. DB::Exception: Timeout exceeded: elapsed 30002.066626 ms, maximum: 30000 ms. (TIMEOUT_EXCEEDED) (for url https://clickhouse.vanya.cc:443)"
+}

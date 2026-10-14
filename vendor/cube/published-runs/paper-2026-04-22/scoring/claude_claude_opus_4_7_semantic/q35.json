@@ -1,0 +1,11 @@
+{
+  "question_id": 35,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same employee and manager name rows as the reference; it omits the Title column (not required by the question) and adds EmployeeKey (an extra column), but the core data matches exactly across all 100 rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 570,
+  "judge_latency_ms": 18642
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": 10,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT count() AS currently_open_store_count\nFROM retail.DimStore\nWHERE (OpenDate IS NULL OR parseDateTimeBestEffortOrNull(OpenDate) <= toDateTime('2009-12-31 23:59:59'))\n  AND (CloseDate IS NULL OR parseDateTimeBestEffortOrNull(CloseDate) > toDateTime('2009-12-31 23:59:59'));",
+  "rows": [
+    [
+      294
+    ]
+  ],
+  "columns": [
+    "currently_open_store_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 16535,
+  "latency_ms_exec": 496,
+  "tokens_in": 19678,
+  "tokens_out": 277,
+  "claude_error": null,
+  "sql_error": null
+}

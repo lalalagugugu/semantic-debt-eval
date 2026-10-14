@@ -1,0 +1,11 @@
+{
+  "question_id": 57,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Both queries return the same scalar value of 11 distinct product brands; the candidate's extra NULL/empty-string filters don't change the result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 161,
+  "judge_latency_ms": 9781
+}

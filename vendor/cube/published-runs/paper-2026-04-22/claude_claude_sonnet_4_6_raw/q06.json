@@ -1,0 +1,21 @@
+{
+  "question_id": 6,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT sum(SalesAmount) AS TotalOnlineSales\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      857728031.345896
+    ]
+  ],
+  "columns": [
+    "TotalOnlineSales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6866,
+  "latency_ms_exec": 496,
+  "tokens_in": 13796,
+  "tokens_out": 73,
+  "claude_error": null,
+  "sql_error": null
+}

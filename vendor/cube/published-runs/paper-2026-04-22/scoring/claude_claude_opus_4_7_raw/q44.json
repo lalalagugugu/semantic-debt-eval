@@ -1,0 +1,11 @@
+{
+  "question_id": 44,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns monthly raw sales/quantity/order counts without any growth calculation, answering \"what are monthly online sales?\" rather than the question about year-over-year growth; the key growth_pct measure is entirely absent.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 708,
+  "judge_latency_ms": 24993
+}

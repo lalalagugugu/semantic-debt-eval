@@ -1,0 +1,21 @@
+{
+  "question_id": 50,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH same_stores AS (\n  SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009\n  INTERSECT\n  SELECT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008\n)\nSELECT (\n  sumIf(SalesAmount, toYear(DateKey) = 2009 AND StoreKey IN same_stores)\n  - sumIf(SalesAmount, toYear(DateKey) = 2008 AND StoreKey IN same_stores)\n) * 100.0 / nullif(sumIf(SalesAmount, toYear(DateKey) = 2008 AND StoreKey IN same_stores), 0) AS same_store_sales_growth_pct\nFROM retail.FactSales",
+  "rows": [
+    [
+      -9.536613090465794
+    ]
+  ],
+  "columns": [
+    "same_store_sales_growth_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9547,
+  "latency_ms_exec": 644,
+  "tokens_in": 23322,
+  "tokens_out": 358,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 95,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing entirely different (much larger) revenue values that cannot be reconciled with the reference results, and it also omits the promo-to-full-price ratio metric.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 314,
+  "judge_latency_ms": 13542
+}

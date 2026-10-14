@@ -1,0 +1,11 @@
+{
+  "question_id": 92,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses a dynamic quarter (not Q4 2009), unions both fact tables instead of only FactOnlineSales, and computes net profit (minus returns/discounts) rather than gross margin, yielding values ~5\u20136\u00d7 larger that don't aggregate to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 690,
+  "judge_latency_ms": 22069
+}

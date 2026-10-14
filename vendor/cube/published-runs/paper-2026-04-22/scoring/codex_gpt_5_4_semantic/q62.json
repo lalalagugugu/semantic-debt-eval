@@ -1,0 +1,11 @@
+{
+  "question_id": 62,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same 11 brands in the same order with only negligible floating-point precision differences (well under 1% relative drift).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 188,
+  "judge_latency_ms": 9506
+}

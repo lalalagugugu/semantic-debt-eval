@@ -1,0 +1,11 @@
+{
+  "question_id": 25,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate incorrectly filters sales to only North American customers (via DimGeography join), producing \"No Season\" (~1M) instead of the expected \"Back to School\" (~2.6M); it answers a different question with wrong values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 233,
+  "judge_latency_ms": 11763
+}

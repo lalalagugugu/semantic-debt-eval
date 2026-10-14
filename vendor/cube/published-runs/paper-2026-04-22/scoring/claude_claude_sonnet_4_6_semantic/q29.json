@@ -1,0 +1,11 @@
+{
+  "question_id": 29,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate computes the same % difference (~0.0263 vs 0.03) but skips ROUND(...,2); the gap is purely a rounding artefact (~12% relative), not a calculation error. Extra columns are acceptable supplements. Analytically equivalent.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1000,
+  "judge_latency_ms": 23685
+}

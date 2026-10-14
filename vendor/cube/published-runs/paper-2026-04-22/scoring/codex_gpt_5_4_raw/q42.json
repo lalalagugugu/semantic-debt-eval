@@ -1,0 +1,11 @@
+{
+  "question_id": 42,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate filters on ProductCategoryName = 'Cameras' (which matches nothing) instead of the correct 'Cameras and camcorders', returning 0 rows versus the expected 3 rows of yearly sales data.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 214,
+  "judge_latency_ms": 10782
+}

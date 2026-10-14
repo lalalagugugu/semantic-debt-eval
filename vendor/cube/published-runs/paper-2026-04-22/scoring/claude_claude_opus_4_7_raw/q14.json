@@ -1,0 +1,11 @@
+{
+  "question_id": 14,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate returns \"Not Provided\" customers with $17M\u2013$19M totals while reference returns named customers with $20k\u2013$57k totals; values are wildly different and cannot be reconciled via aggregation despite identical SQL logic.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1001,
+  "judge_latency_ms": 29705
+}

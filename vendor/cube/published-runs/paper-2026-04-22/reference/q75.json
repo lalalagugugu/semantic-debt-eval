@@ -1,0 +1,191 @@
+{
+  "question_id": 75,
+  "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY pct_growth DESC\nLIMIT 25",
+  "rows": [
+    [
+      "Not Provided",
+      "Not Provided",
+      27319.85,
+      8758594.79,
+      31959.45
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      49400.0,
+      2263563.15,
+      4482.11
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      61466.4,
+      2631877.31,
+      4181.81
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      60099.2,
+      2536645.21,
+      4120.76
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      287457.6,
+      11690625.24,
+      3966.9
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      57609.6,
+      2264671.91,
+      3831.07
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      55854.4,
+      2165486.17,
+      3777.02
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      241349.85,
+      9267611.83,
+      3739.91
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      59491.2,
+      2265031.14,
+      3707.34
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      59769.6,
+      2242271.85,
+      3651.53
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      54920.0,
+      2012835.59,
+      3565.03
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      57313.6,
+      2022562.45,
+      3428.94
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      238262.65,
+      8314991.51,
+      3389.84
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      767288.8,
+      12735447.91,
+      1559.8
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      795345.0,
+      8012522.44,
+      907.43
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      244850.8,
+      2108773.33,
+      761.25
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      275003.2,
+      2272515.52,
+      726.36
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      256425.6,
+      2093478.65,
+      716.41
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      254558.8,
+      2028446.12,
+      696.85
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      272946.0,
+      2154309.6,
+      689.28
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      898324.65,
+      7073535.75,
+      687.41
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      261499.2,
+      1987886.74,
+      660.19
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      252332.8,
+      1886893.92,
+      647.78
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      265602.7,
+      1960275.86,
+      638.05
+    ],
+    [
+      "Not Provided",
+      "Not Provided",
+      1724256.9,
+      11370388.06,
+      559.44
+    ]
+  ],
+  "columns": [
+    "FirstName",
+    "LastName",
+    "spend_2008",
+    "spend_2009",
+    "pct_growth"
+  ],
+  "row_count": 25,
+  "exec_ms": 555,
+  "error": null
+}

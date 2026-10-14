@@ -1,0 +1,21 @@
+{
+  "question_id": 59,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT count() FROM retail.DimDate WHERE IsHoliday = 'Yes'",
+  "rows": [
+    [
+      731
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6552,
+  "latency_ms_exec": 484,
+  "tokens_in": 13793,
+  "tokens_out": 60,
+  "claude_error": null,
+  "sql_error": null
+}

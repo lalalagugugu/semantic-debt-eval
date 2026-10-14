@@ -1,0 +1,39 @@
+{
+  "question_id": 63,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    c.Occupation,\n    sum(f.SalesAmount) / countDistinct(f.SalesOrderNumber) AS AvgOrderValue\nFROM retail.FactOnlineSales f\nJOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nWHERE c.Occupation IS NOT NULL\nGROUP BY c.Occupation\nORDER BY AvgOrderValue DESC",
+  "rows": [
+    [
+      "Management",
+      1848.7999003559346
+    ],
+    [
+      "Clerical",
+      1700.4820648514694
+    ],
+    [
+      "Professional",
+      1665.256059352378
+    ],
+    [
+      "Manual",
+      1534.3909634733702
+    ],
+    [
+      "Skilled Manual",
+      1405.7568213820286
+    ]
+  ],
+  "columns": [
+    "Occupation",
+    "AvgOrderValue"
+  ],
+  "row_count": 5,
+  "latency_ms_gen": 7068,
+  "latency_ms_exec": 883,
+  "tokens_in": 16753,
+  "tokens_out": 165,
+  "claude_error": null,
+  "sql_error": null
+}

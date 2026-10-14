@@ -1,0 +1,87 @@
+{
+  "question_id": 82,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    m.EmployeeKey AS manager_key,\n    concat(m.FirstName, ' ', m.LastName) AS manager_name,\n    count() AS direct_report_count,\n    avg(\n        dateDiff(\n            'day',\n            toDate(parseDateTimeBestEffortOrNull(r.HireDate)),\n            toDate('2009-12-31')\n        ) / 365.25\n    ) AS avg_team_hire_tenure_years\nFROM retail.DimEmployee AS r\nINNER JOIN retail.DimEmployee AS m\n    ON r.ParentEmployeeKey = m.EmployeeKey\nWHERE r.ParentEmployeeKey IS NOT NULL\nGROUP BY\n    m.EmployeeKey,\n    manager_name\nORDER BY direct_report_count DESC, manager_name ASC",
+  "rows": [
+    [
+      9,
+      "Terry Adams",
+      89,
+      10.832106683893592
+    ],
+    [
+      6,
+      "Yoichiro Okada",
+      65,
+      9.989364502711526
+    ],
+    [
+      10,
+      "David Probst",
+      44,
+      10.439673946860806
+    ],
+    [
+      8,
+      "Aaron Painter",
+      33,
+      10.928172899425466
+    ],
+    [
+      7,
+      "Pilar Ackerman",
+      33,
+      9.527388878518241
+    ],
+    [
+      1,
+      "Kim Abercrombie",
+      7,
+      11.583455558814903
+    ],
+    [
+      2,
+      "Sagiv Hadaya",
+      6,
+      11.430527036276523
+    ],
+    [
+      3,
+      "Luka Abrus",
+      5,
+      11.351676933607118
+    ],
+    [
+      18,
+      "Pieter Uittenbogaard",
+      5,
+      12.457221081451062
+    ],
+    [
+      5,
+      "Humberto Acevedo",
+      3,
+      11.530002281542322
+    ],
+    [
+      4,
+      "Kirk Nason",
+      3,
+      11.546429386265114
+    ]
+  ],
+  "columns": [
+    "manager_key",
+    "manager_name",
+    "direct_report_count",
+    "avg_team_hire_tenure_years"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 14208,
+  "latency_ms_exec": 509,
+  "tokens_in": 18835,
+  "tokens_out": 332,
+  "claude_error": null,
+  "sql_error": null
+}

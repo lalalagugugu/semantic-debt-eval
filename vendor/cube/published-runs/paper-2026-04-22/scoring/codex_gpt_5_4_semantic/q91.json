@@ -1,0 +1,11 @@
+{
+  "question_id": 91,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, returning the same correlation (~0.7349) and the same customer count (18869), with only negligible floating-point precision difference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 177,
+  "judge_latency_ms": 10262
+}

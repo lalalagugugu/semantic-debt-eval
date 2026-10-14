@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate's top 10 rows match the expected rows with only negligible floating-point drift, but the candidate returns 20 rows (LIMIT 20) instead of 10, making it a superset; analytically it answers the same question with the same correct rankings.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 496,
+  "judge_latency_ms": 18493
+}

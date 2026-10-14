@@ -1,0 +1,195 @@
+{
+  "question_id": 8,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    EmployeeKey,\n    FirstName,\n    LastName,\n    Title,\n    DepartmentName,\n    EmailAddress,\n    Phone,\n    Status\nFROM retail.DimEmployee\nWHERE IsSalesPerson = 'Yes'\nORDER BY LastName, FirstName, EmployeeKey",
+  "rows": [
+    [
+      281,
+      "Inbar",
+      "Gazit",
+      "Sales Store Manager",
+      "Sales",
+      "michael9@contoso.com",
+      "257-555-0154",
+      "Current"
+    ],
+    [
+      283,
+      "Christa",
+      "Geller",
+      "Sales Store Manager",
+      "Sales",
+      "jillian0@contoso.com",
+      "517-555-0117",
+      "Current"
+    ],
+    [
+      285,
+      "Tom",
+      "Getzinger",
+      "Sales Store Manager",
+      "Sales",
+      "tsvi0@contoso.com",
+      "664-555-0112",
+      "Current"
+    ],
+    [
+      287,
+      "Leo",
+      "Giakoumakis",
+      "Sales Store Manager",
+      "Sales",
+      "shu0@contoso.com",
+      "330-555-0120",
+      "Current"
+    ],
+    [
+      289,
+      "Enrique",
+      "Gil",
+      "Sales Store Manager",
+      "Sales",
+      "david8@contoso.com",
+      "740-555-0182",
+      "Current"
+    ],
+    [
+      291,
+      "Eric",
+      "Gilmore",
+      "Sales Store Manager",
+      "Sales",
+      "jae0@contoso.com",
+      "1 (11) 500 555-0145",
+      "Current"
+    ],
+    [
+      293,
+      "Stuart",
+      "Glasson",
+      "Sales Store Manager",
+      "Sales",
+      "tete0@contoso.com",
+      "615-555-0153",
+      "Current"
+    ],
+    [
+      295,
+      "Gerhard",
+      "Goeschl",
+      "Sales Store Manager",
+      "Sales",
+      "rachel0@contoso.com",
+      "1 (11) 500 555-0140",
+      "Current"
+    ],
+    [
+      296,
+      "Jossef",
+      "Goldberg",
+      "Sales Store Manager",
+      "Sales",
+      "lynn0@contoso.com",
+      "1 (11) 500 555-0190",
+      "Current"
+    ],
+    [
+      294,
+      "Daniel",
+      "Goldschmidt",
+      "Sales Store Manager",
+      "Sales",
+      "syed0@contoso.com",
+      "926-555-0182",
+      "Current"
+    ],
+    [
+      292,
+      "Nuria",
+      "Gonzalez",
+      "Sales Store Manager",
+      "Sales",
+      "ranjit0@contoso.com",
+      "1 (11) 500 555-0117",
+      "Current"
+    ],
+    [
+      290,
+      "Mojca",
+      "Gostincar",
+      "Sales Store Manager",
+      "Sales",
+      "amy0@contoso.com",
+      "775-555-0164",
+      "Current"
+    ],
+    [
+      288,
+      "Nikolay",
+      "Grachev",
+      "Sales Store Manager",
+      "Sales",
+      "jos\u00e91@contoso.com",
+      "185-555-0169",
+      "Current"
+    ],
+    [
+      286,
+      "Kirk",
+      "Gregersen",
+      "Sales Store Manager",
+      "Sales",
+      "pamela0@contoso.com",
+      "340-555-0193",
+      "Current"
+    ],
+    [
+      284,
+      "Carlos",
+      "Grilo",
+      "Sales Store Manager",
+      "Sales",
+      "garrett1@contoso.com",
+      "922-555-0165",
+      "Current"
+    ],
+    [
+      282,
+      "Seth",
+      "Grossman",
+      "Sales Store Manager",
+      "Sales",
+      "linda3@contoso.com",
+      "883-555-0116",
+      "Current"
+    ],
+    [
+      272,
+      "Dean",
+      "Halstead",
+      "Sales Store Manager",
+      "Sales",
+      "stephen0@contoso.com",
+      "238-555-0197",
+      "Current"
+    ]
+  ],
+  "columns": [
+    "EmployeeKey",
+    "FirstName",
+    "LastName",
+    "Title",
+    "DepartmentName",
+    "EmailAddress",
+    "Phone",
+    "Status"
+  ],
+  "row_count": 17,
+  "latency_ms_gen": 10996,
+  "latency_ms_exec": 497,
+  "tokens_in": 18818,
+  "tokens_out": 148,
+  "claude_error": null,
+  "sql_error": null
+}

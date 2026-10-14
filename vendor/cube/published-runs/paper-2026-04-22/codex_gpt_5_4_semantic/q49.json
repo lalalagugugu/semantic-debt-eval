@@ -1,0 +1,15 @@
+{
+  "question_id": 49,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH RECURSIVE entity_levels AS (\n    SELECT\n        EntityKey,\n        CAST(NULL AS Nullable(Int32)) AS ParentEntityKey,\n        EntityName,\n        0 AS hierarchy_level\n    FROM retail.DimEntity\n    WHERE ParentEntityKey IS NULL\n\n    UNION ALL\n\n    SELECT\n        e.EntityKey,\n        toInt32OrNull(e.ParentEntityKey) AS ParentEntityKey,\n        e.EntityName,\n        el.hierarchy_level + 1 AS hierarchy_level\n    FROM retail.DimEntity AS e\n    INNER JOIN entity_levels AS el\n        ON toInt32OrNull(e.ParentEntityKey) = el.EntityKey\n),\nancestor_map AS (\n    SELECT\n        EntityKey AS descendant_entity_key,\n        EntityKey AS ancestor_entity_key\n    FROM retail.DimEntity\n\n    UNION ALL\n\n    SELECT\n        am.descendant_entity_key,\n        toInt32(e.ParentEntityKey) AS ancestor_entity_key\n    FROM ancestor_map AS am\n    INNER JOIN retail.DimEntity AS e\n        ON am.ancestor_entity_key = e.EntityKey\n    WHERE e.ParentEntityKey IS NOT NULL\n)\nSELECT\n    el.hierarchy_level,\n    el.EntityKey,\n    el.EntityName,\n    sum(fos.SalesAmount) AS total_sales\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimStore AS s\n    ON fos.StoreKey = s.StoreKey\nINNER JOIN ancestor_map AS am\n    ON toInt32(s.EntityKey) = am.descendant_entity_key\nINNER JOIN entity_levels AS el\n    ON am.ancestor_entity_key = el.EntityKey\nGROUP BY\n    el.hierarchy_level,\n    el.EntityKey,\n    el.EntityName\nORDER BY\n    el.hierarchy_level,\n    total_sales DESC,\n    el.EntityKey;",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 31334,
+  "latency_ms_exec": null,
+  "tokens_in": 18820,
+  "tokens_out": 1275,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 43, server response: Code: 43. DB::Exception: Illegal type Float64 of first argument of function toInt32OrNull. Conversion functions with postfix 'OrZero' or 'OrNull' should take String argument: In scope SELECT e.EntityKey, toInt32OrNull(e.ParentEntityKey) AS ParentEntityKey, e.EntityName, el.hierarchy_level + 1 AS hierarchy_level FROM retail.DimEntity AS e INNER JOIN entity_levels AS el ON toInt32OrNull(e.ParentEntityKey) = el.EntityKey. (ILLEGAL_TYPE_OF_ARGUMENT) (for url https://clickhouse.vanya.cc:443)"
+}

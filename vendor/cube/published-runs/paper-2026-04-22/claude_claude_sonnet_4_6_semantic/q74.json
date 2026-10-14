@@ -1,0 +1,15 @@
+{
+  "question_id": 74,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH store_product_sales AS (\n    SELECT\n        s.StoreKey,\n        st.StoreName,\n        s.ProductKey,\n        p.ProductName,\n        sum(s.SalesAmount) AS product_sales\n    FROM retail.FactOnlineSales s\n    JOIN retail.DimStore st ON s.StoreKey = st.StoreKey\n    JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey\n    WHERE toYear(s.DateKey) = 2009\n    GROUP BY s.StoreKey, st.StoreName, s.ProductKey, p.ProductName\n),\nranked AS (\n    SELECT\n        StoreKey,\n        StoreName,\n        ProductKey,\n        ProductName,\n        product_sales,\n        sum(product_sales) OVER (PARTITION BY StoreKey) AS store_total_sales,\n        row_number() OVER (PARTITION BY StoreKey ORDER BY product_sales DESC) AS product_rank\n    FROM store_product_sales\n)\nSELECT\n    StoreKey,\n    StoreName,\n    product_rank,\n    ProductKey,\n    ProductName,\n    round(product_sales, 2) AS product_sales,\n    round(store_total_sales, 2) AS store_total_sales,\n    round(product_sales * 100.0 / nullIf(store_total_sales, 0), 2) AS pct_of_store_sales\nFROM ranked\nWHERE product_rank <= 3\nORDER BY StoreKey, product_rank",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 12402,
+  "latency_ms_exec": null,
+  "tokens_in": 16772,
+  "tokens_out": 505,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope  ranked. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

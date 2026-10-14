@@ -1,0 +1,15 @@
+{
+  "question_id": 53,
+  "sql": "SELECT countDistinct(SalesOrderNumber) AS total_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+  "rows": [
+    [
+      378070
+    ]
+  ],
+  "columns": [
+    "total_orders"
+  ],
+  "row_count": 1,
+  "exec_ms": 557,
+  "error": null
+}

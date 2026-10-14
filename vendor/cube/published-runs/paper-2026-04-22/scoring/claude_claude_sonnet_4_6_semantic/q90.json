@@ -1,0 +1,11 @@
+{
+  "question_id": 90,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 rows with identical values match the reference; the only difference is sort order (alphabetical vs. descending margin), which is acceptable since the question does not require a specific ranking.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 219,
+  "judge_latency_ms": 12520
+}

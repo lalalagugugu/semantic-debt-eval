@@ -1,0 +1,51 @@
+{
+  "question_id": 24,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sum(fos.ReturnQuantity) / nullif(sum(fos.SalesQuantity), 0) AS return_rate\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimProduct AS p\n    ON fos.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nINNER JOIN retail.DimProductCategory AS pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY return_rate DESC",
+  "rows": [
+    [
+      "Music, Movies and Audio Books",
+      0.012172438496979894
+    ],
+    [
+      "Home Appliances",
+      0.012012533808004038
+    ],
+    [
+      "Computers",
+      0.01157928290466699
+    ],
+    [
+      "Cameras and camcorders",
+      0.009936528465127383
+    ],
+    [
+      "Audio",
+      0.007708451135482342
+    ],
+    [
+      "TV and Video",
+      0.006652930083117971
+    ],
+    [
+      "Cell phones",
+      0.0042222968936678614
+    ],
+    [
+      "Games and Toys",
+      0.002494693501777357
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "return_rate"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 11491,
+  "latency_ms_exec": 888,
+  "tokens_in": 18821,
+  "tokens_out": 165,
+  "claude_error": null,
+  "sql_error": null
+}

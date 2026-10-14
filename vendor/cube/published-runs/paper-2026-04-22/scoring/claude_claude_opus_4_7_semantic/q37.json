@@ -1,0 +1,11 @@
+{
+  "question_id": 37,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries `FactOnlineSales` instead of `FactSales`, returning only 3 rows with different sales totals and no percentile scaling to 100, versus the expected 100 stores \u2014 a fundamentally different dataset and wrong measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 209,
+  "judge_latency_ms": 12357
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 93,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH promotion_performance AS (\n    SELECT\n        p.PromotionKey,\n        p.PromotionName,\n        p.DiscountPercent,\n        sum(f.SalesQuantity) AS units_sold\n    FROM retail.FactOnlineSales AS f\n    INNER JOIN retail.DimPromotion AS p\n        ON f.PromotionKey = p.PromotionKey\n    WHERE f.PromotionKey != 1\n      AND p.DiscountPercent IS NOT NULL\n    GROUP BY\n        p.PromotionKey,\n        p.PromotionName,\n        p.DiscountPercent\n)\nSELECT\n    count() AS promotion_count,\n    corrStable(DiscountPercent, units_sold) AS discount_pct_vs_units_correlation,\n    regrSlope(units_sold, DiscountPercent) AS units_sold_per_1pct_discount,\n    min(DiscountPercent) AS min_discount_pct,\n    max(DiscountPercent) AS max_discount_pct,\n    avg(units_sold) AS avg_units_per_promotion\nFROM promotion_performance",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 21580,
+  "latency_ms_exec": null,
+  "tokens_in": 18831,
+  "tokens_out": 726,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 46, server response: Code: 46. DB::Exception: Function with name `regrSlope` does not exist. In scope WITH promotion_performance AS (SELECT p.PromotionKey, p.PromotionName, p.DiscountPercent, sum(f.SalesQuantity) AS units_sold FROM retail.FactOnlineSales AS f INNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey WHERE (f.PromotionKey != 1) AND (p.DiscountPercent IS NOT NULL) GROUP BY p.PromotionKey, p.PromotionName, p.DiscountPercent) SELECT count() AS promotion_count, corrStable(DiscountPercent, units_sold) AS discount_pct_vs_units_correlation, regrSlope(units_sold, DiscountPercent) AS units_sold_per_1pct_discount, min(DiscountPercent) AS min_discount_pct, max(DiscountPercent) AS max_discount_pct, avg(units_sold) AS avg_units_per_promotion FROM promotion_performance. (UNKNOWN_FUNCTION) (for url https://clickhouse.vanya.cc:443)"
+}

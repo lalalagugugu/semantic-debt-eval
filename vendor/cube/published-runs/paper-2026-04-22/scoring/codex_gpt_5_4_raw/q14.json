@@ -1,0 +1,11 @@
+{
+  "question_id": 14,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns completely different rows \u2014 customers named \"Not Provided\" with total_spent in the tens of millions \u2014 versus the reference's real named customers spending $20k\u2013$57k; the data values are wildly incompatible and cannot be reconciled by aggregation or reordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 864,
+  "judge_latency_ms": 23019
+}

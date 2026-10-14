@@ -1,0 +1,43 @@
+{
+  "question_id": 44,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    year,\n    online_sales_amount,\n    orders_count,\n    online_sales_amount - lagInFrame(online_sales_amount) OVER (ORDER BY year) AS yoy_sales_change,\n    round(\n        100.0 * (online_sales_amount - lagInFrame(online_sales_amount) OVER (ORDER BY year))\n        / nullIf(lagInFrame(online_sales_amount) OVER (ORDER BY year), 0),\n        2\n    ) AS yoy_sales_growth_pct\nFROM\n(\n    SELECT\n        toYear(DateKey) AS year,\n        sum(SalesAmount) AS online_sales_amount,\n        countDistinct(SalesOrderNumber) AS orders_count\n    FROM retail.FactOnlineSales\n    GROUP BY year\n)\nORDER BY year;",
+  "rows": [
+    [
+      2007,
+      1010803395.0379745,
+      809301,
+      1010803395.0379745,
+      null
+    ],
+    [
+      2008,
+      849671203.4333504,
+      486949,
+      -161132191.60462403,
+      -15.94
+    ],
+    [
+      2009,
+      857728031.3559258,
+      378070,
+      8056827.922575355,
+      0.95
+    ]
+  ],
+  "columns": [
+    "year",
+    "online_sales_amount",
+    "orders_count",
+    "yoy_sales_change",
+    "yoy_sales_growth_pct"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 14971,
+  "latency_ms_exec": 770,
+  "tokens_in": 16363,
+  "tokens_out": 288,
+  "claude_error": null,
+  "sql_error": null
+}

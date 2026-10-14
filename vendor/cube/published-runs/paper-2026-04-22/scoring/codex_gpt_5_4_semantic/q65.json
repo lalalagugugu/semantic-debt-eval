@@ -1,0 +1,11 @@
+{
+  "question_id": 65,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 100 rows (all stores exceeding $5M) vs. the reference's 50 rows (artificially capped by LIMIT 50); the first 50 rows match exactly, and since the question imposes no explicit top-N requirement, the additional rows are a valid superset that fully answers the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 471,
+  "judge_latency_ms": 15521
+}

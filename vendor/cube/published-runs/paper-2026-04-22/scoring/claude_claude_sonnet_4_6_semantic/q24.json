@@ -1,0 +1,11 @@
+{
+  "question_id": 24,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 8 rows with identical counts; the only differences are unrounded vs. rounded return_rate_pct (well within 1% relative drift) and a different row ordering, neither of which affects correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 273,
+  "judge_latency_ms": 13624
+}

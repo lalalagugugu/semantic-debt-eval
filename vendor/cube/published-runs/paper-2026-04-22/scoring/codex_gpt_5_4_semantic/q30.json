@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical rows to the reference for all 31 December 2009 dates; the only difference is the intermediate column alias (daily_online_sales vs daily_sales), which does not affect the result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 185,
+  "judge_latency_ms": 10078
+}

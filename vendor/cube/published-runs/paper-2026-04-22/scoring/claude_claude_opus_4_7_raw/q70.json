@@ -1,0 +1,11 @@
+{
+  "question_id": 70,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same StoreType groups with matching TotalSales and AvgSellingAreaSize values (within negligible floating-point drift); the only difference is the omission of the countDistinct stores column, which is ignored under strict row-matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 232,
+  "judge_latency_ms": 11678
+}

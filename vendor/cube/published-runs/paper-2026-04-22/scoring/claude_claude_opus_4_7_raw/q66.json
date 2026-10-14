@@ -1,0 +1,11 @@
+{
+  "question_id": 66,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing materially different discount totals across all four quarters (e.g., Q1: 16.8M vs 23.4M expected), answering a different question about a different sales table.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 200,
+  "judge_latency_ms": 10570
+}

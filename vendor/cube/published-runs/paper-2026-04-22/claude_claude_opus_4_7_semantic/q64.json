@@ -1,0 +1,80 @@
+{
+  "question_id": 64,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toMonth(DateKey) AS Month,\n       sum(SalesAmount) - sum(TotalCost) AS GrossMarginDollars,\n       (sum(SalesAmount) - sum(TotalCost)) * 100.0 / nullif(sum(SalesAmount), 0) AS GrossMarginPercent\nFROM retail.FactOnlineSales\nWHERE toYear(DateKey) = 2009\nGROUP BY Month\nORDER BY Month",
+  "rows": [
+    [
+      1,
+      28206957.48120083,
+      49.095484078286894
+    ],
+    [
+      2,
+      30544338.52160158,
+      50.99951899405221
+    ],
+    [
+      3,
+      31120046.545001656,
+      51.17797897802156
+    ],
+    [
+      4,
+      36688677.44790013,
+      52.49614364866656
+    ],
+    [
+      5,
+      45285640.81239971,
+      55.17074365938743
+    ],
+    [
+      6,
+      45351636.232000776,
+      55.42664904847553
+    ],
+    [
+      7,
+      45300954.78639726,
+      54.724856539959625
+    ],
+    [
+      8,
+      41652536.3881979,
+      53.67609151493536
+    ],
+    [
+      9,
+      40088287.28299997,
+      53.67667211364273
+    ],
+    [
+      10,
+      41266728.75719965,
+      54.86629277398504
+    ],
+    [
+      11,
+      31166470.441900596,
+      46.395826171782744
+    ],
+    [
+      12,
+      31611047.899100848,
+      46.26262311212272
+    ]
+  ],
+  "columns": [
+    "Month",
+    "GrossMarginDollars",
+    "GrossMarginPercent"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 6741,
+  "latency_ms_exec": 527,
+  "tokens_in": 23323,
+  "tokens_out": 167,
+  "claude_error": null,
+  "sql_error": null
+}

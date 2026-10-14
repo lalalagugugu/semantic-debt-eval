@@ -1,0 +1,75 @@
+{
+  "question_id": 79,
+  "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 1\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       round(a.actual_sales, 2) AS actual_sales,\n       round(q.quota, 2) AS quota,\n       round(a.actual_sales * 100.0 / nullif(q.quota, 0), 2) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso Miami No.2 Store",
+      5719293.9,
+      5719293.9,
+      100.0
+    ],
+    [
+      "Contoso North America Reseller",
+      193960348.98,
+      193960348.98,
+      100.0
+    ],
+    [
+      "Contoso Liverpool Store",
+      4657429.32,
+      4657429.32,
+      100.0
+    ],
+    [
+      "Contoso Thimphu No.1 Store",
+      6622523.1,
+      6622523.1,
+      100.0
+    ],
+    [
+      "Contoso Milan Store",
+      5004922.37,
+      5004922.37,
+      100.0
+    ],
+    [
+      "Contoso La Porte Store",
+      5834332.14,
+      5834332.14,
+      100.0
+    ],
+    [
+      "Contoso Madison Store",
+      5525206.5,
+      5525206.5,
+      100.0
+    ],
+    [
+      "Contoso Montclair Store",
+      5766156.49,
+      5766156.49,
+      100.0
+    ],
+    [
+      "Contoso Alexandria Store",
+      5793820.68,
+      5793820.68,
+      100.0
+    ],
+    [
+      "Contoso Wapato Store",
+      5911069.28,
+      5911069.28,
+      100.0
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "actual_sales",
+    "quota",
+    "attainment_pct"
+  ],
+  "row_count": 10,
+  "exec_ms": 508,
+  "error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 89,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses day-based thresholds (\u226490/\u2264180 days) instead of month-based (\u22646/\u226412 months), a different snapshot date (max DateKey vs 2009-12-31), and subtracts returns/discounts from spend, producing completely different segment sizes and values from the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 219,
+  "judge_latency_ms": 10927
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 92,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Same 10 brands in same ranked order with matching gross_margin values; pct is decimal vs percentage (0.489 vs 48.9%), a units difference only; missing revenue column and extra 11th row don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 866,
+  "judge_latency_ms": 28341
+}

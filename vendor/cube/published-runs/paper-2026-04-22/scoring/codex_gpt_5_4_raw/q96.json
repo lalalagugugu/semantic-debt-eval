@@ -1,0 +1,11 @@
+{
+  "question_id": 96,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the retention metric as a decimal fraction (0.9996) while the reference returns it as a percentage (99.96); all cohort sizes and returning-customer counts are identical, so this is a unit difference only \u2014 analytical pass per the percentage-vs-decimal rule.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 304,
+  "judge_latency_ms": 13015
+}

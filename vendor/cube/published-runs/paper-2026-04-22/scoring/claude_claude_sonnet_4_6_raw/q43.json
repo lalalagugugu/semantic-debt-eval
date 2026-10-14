@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses FactSales via store territory (78 state-level rows) instead of FactOnlineSales via customer geography (3 continent rows); wrong source table, wrong join path, wrong grouping granularity, and incompatible values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 547,
+  "judge_latency_ms": 16472
+}

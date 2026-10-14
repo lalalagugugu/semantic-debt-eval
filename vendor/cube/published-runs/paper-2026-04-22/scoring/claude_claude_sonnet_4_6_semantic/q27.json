@@ -1,0 +1,11 @@
+{
+  "question_id": 27,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits ROUND(), causing different tie-breaking at the margin boundary; the 10th row differs (\"Contoso behind Centrex X15 Grey\" vs \"Contoso Bluetooth Active Headphones L15 White\"), making the result set genuinely different.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 363,
+  "judge_latency_ms": 14037
+}

@@ -1,0 +1,63 @@
+{
+  "question_id": 24,
+  "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+  "rows": [
+    [
+      "Audio",
+      3449,
+      447431,
+      0.77
+    ],
+    [
+      "Computers",
+      18381,
+      1587404,
+      1.16
+    ],
+    [
+      "Home Appliances",
+      26893,
+      2238745,
+      1.2
+    ],
+    [
+      "TV and Video",
+      8382,
+      1259896,
+      0.67
+    ],
+    [
+      "Cell phones",
+      11309,
+      2678400,
+      0.42
+    ],
+    [
+      "Games and Toys",
+      1951,
+      782060,
+      0.25
+    ],
+    [
+      "Cameras and camcorders",
+      15151,
+      1524778,
+      0.99
+    ],
+    [
+      "Music, Movies and Audio Books",
+      3704,
+      304294,
+      1.22
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "total_returns",
+    "total_sales",
+    "return_rate_pct"
+  ],
+  "row_count": 8,
+  "exec_ms": 596,
+  "error": null
+}

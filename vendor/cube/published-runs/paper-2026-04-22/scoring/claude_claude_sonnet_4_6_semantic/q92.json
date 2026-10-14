@@ -1,0 +1,11 @@
+{
+  "question_id": 92,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Top 10 brands match in the correct profit-descending order with gross_margin values within floating-point noise; candidate adds extra columns and an 11th row beyond the reference LIMIT 10, but the core answer is identical.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 951,
+  "judge_latency_ms": 25821
+}

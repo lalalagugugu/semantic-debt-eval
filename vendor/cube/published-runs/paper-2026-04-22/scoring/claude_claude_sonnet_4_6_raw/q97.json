@@ -1,0 +1,11 @@
+{
+  "question_id": 97,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, omits the h1_sales >= 1000 filter, and ranks by absolute comeback difference rather than percentage growth, producing entirely different products and values from the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 247,
+  "judge_latency_ms": 11964
+}

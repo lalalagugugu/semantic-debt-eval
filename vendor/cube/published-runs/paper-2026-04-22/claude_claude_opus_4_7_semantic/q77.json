@@ -1,0 +1,15 @@
+{
+  "question_id": 77,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toMonth(DateKey) AS Month, sum(SalesAmount) AS SalesAmount, any(prev) AS PrevMonthSales, (sum(SalesAmount) - any(prev)) * 100.0 / nullif(any(prev), 0) AS MoMGrowthPct FROM (SELECT toMonth(DateKey) AS DateKey_m, sum(SalesAmount) OVER (ORDER BY toMonth(DateKey)) AS dummy FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009) SETTINGS enable_unaligned_array_join = 1;\n\nWait, let me redo this properly.\n\nSELECT m AS Month, monthly_sales AS SalesAmount, prev_sales AS PrevMonthSales, (monthly_sales - prev_sales) * 100.0 / nullif(prev_sales, 0) AS MoMGrowthPct FROM (SELECT toMonth(DateKey) AS m, sum(SalesAmount) AS monthly_sales, lagInFrame(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey)) AS prev_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY m) ORDER BY Month",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10460,
+  "latency_ms_exec": null,
+  "tokens_in": 23325,
+  "tokens_out": 457,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 62, server response: Code: 62. DB::Exception: Syntax error (Multi-statements are not allowed): failed at position 376 (end of query) (line 1, col 376): ;\n\nWait, let me redo this properly.\n\nSELECT m AS Month, monthly_sales AS SalesAmount, prev_sales AS PrevMonthSales, (monthly_sales - prev_sales) * 100.0 / nullif(pr... . (SYNTAX_ERROR) (for url https://clickhouse.vanya.cc:443)"
+}

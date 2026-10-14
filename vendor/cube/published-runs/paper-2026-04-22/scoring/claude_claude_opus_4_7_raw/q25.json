@@ -1,0 +1,11 @@
+{
+  "question_id": 25,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing a different season (\"Holiday\") and a wildly different average daily sales value (~12.6M vs ~2.6M), answering a different question entirely.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 203,
+  "judge_latency_ms": 12257
+}

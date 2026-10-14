@@ -1,0 +1,92 @@
+{
+  "question_id": 97,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       h2_sales - h1_sales AS absolute_gain,\n       (h2_sales - h1_sales) * 100.0 / nullif(h1_sales, 0) AS pct_gain\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductName\nHAVING h1_sales > 0 AND h2_sales > h1_sales\nORDER BY pct_gain DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso Macro Zoom Lens X300 White",
+      18913.980000000003,
+      176750.41000000024,
+      157836.43000000023,
+      834.4961240310088
+    ],
+    [
+      "Contoso Conversion Lens M550 Silver",
+      12628.0,
+      103535.25,
+      90907.25,
+      719.8863636363636
+    ],
+    [
+      "Adventure Works Laptop12 M1201 Silver",
+      35078.21999999999,
+      254776.6349999986,
+      219698.41499999864,
+      626.3100436681187
+    ],
+    [
+      "Litware Home Theater System 7.1 Channel X711 Silver",
+      72528.59999999999,
+      522560.8000000023,
+      450032.20000000234,
+      620.4892966360889
+    ],
+    [
+      "The Phone Company PDA Wifi 3.5-inch M200 White",
+      22848.0,
+      136416.0,
+      113568.0,
+      497.05882352941177
+    ],
+    [
+      "The Phone Company Smart phones -320 x 320 M86 Black",
+      34790.39999999998,
+      177033.59999999808,
+      142243.1999999981,
+      408.8576158940345
+    ],
+    [
+      "WWI Laptop16 M0160 White",
+      103267.60000000021,
+      502890.4500000073,
+      399622.8500000071,
+      386.977958236665
+    ],
+    [
+      "Contoso Digital Camera Accessory kit M200 Blue",
+      3211.204000000006,
+      13669.60500000012,
+      10458.401000000114,
+      325.6847275975022
+    ],
+    [
+      "The Phone Company PDA Phone 4.7 inches L360 Silver",
+      40843.200000000004,
+      166347.6000000007,
+      125504.40000000069,
+      307.2834645669308
+    ],
+    [
+      "Litware 180 CFM Vertical Discharge Fan X450 Red",
+      31566.768000000025,
+      127625.47799999992,
+      96058.70999999989,
+      304.303278688524
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "h1_sales",
+    "h2_sales",
+    "absolute_gain",
+    "pct_gain"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 9769,
+  "latency_ms_exec": 552,
+  "tokens_in": 23339,
+  "tokens_out": 367,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 44,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same years, sales amounts, and YoY growth percentages (-15.94, 0.95); the first-year growth shows null instead of Infinity (both semantically represent \"no prior year\"), and the extra YoY_Change column is immaterial.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 421,
+  "judge_latency_ms": 17867
+}

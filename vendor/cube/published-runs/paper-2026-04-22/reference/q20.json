@@ -1,0 +1,514 @@
+{
+  "question_id": 20,
+  "sql": "WITH latest AS (SELECT MAX(DateKey) as max_date FROM retail.FactInventory) SELECT p.ProductName, i.OnHandQuantity, i.SafetyStockQuantity FROM retail.FactInventory i JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey JOIN latest ON i.DateKey = latest.max_date WHERE i.OnHandQuantity < i.SafetyStockQuantity",
+  "rows": [
+    [
+      "SV DVD 58 DVD Storage Binder M55 Silver",
+      30,
+      90
+    ],
+    [
+      "Fabrikam SLR Camera 35\" M358 Black",
+      5,
+      8
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1500 Silver",
+      4,
+      9
+    ],
+    [
+      "Contoso 4-Line Corded Cordless Telephone M203 White",
+      28,
+      36
+    ],
+    [
+      "Contoso DVD 12-Inch Player Portable M400 Silver",
+      6,
+      50
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      116,
+      321
+    ],
+    [
+      "SV DVD 9-Inch Player Portable M300 Silver",
+      28,
+      120
+    ],
+    [
+      "Contoso DVD 14-Inch Player Portable L100 Black",
+      18,
+      30
+    ],
+    [
+      "Adventure Works Laptop15.4W M1548 White",
+      4,
+      5
+    ],
+    [
+      "Fabrikam Social Videographer 1/3\" 8.5mm E200 Blue",
+      1,
+      9
+    ],
+    [
+      "Contoso Electronic Private Automatic Branch Exchange M90 White",
+      4,
+      27
+    ],
+    [
+      "SV DVD External DVD Burner M200 Silver",
+      3,
+      60
+    ],
+    [
+      "Contoso DVD External DVD Burner M200 Grey",
+      4,
+      60
+    ],
+    [
+      "SV DVD 55DVD Storage Binder M56 Black",
+      16,
+      90
+    ],
+    [
+      "SV Hand Games women M40 Yellow",
+      73,
+      90
+    ],
+    [
+      "The Phone Company Finger Touch Screen Phones M30 Gold",
+      5,
+      15
+    ],
+    [
+      "SV DVD 7-Inch Player Portable E200 White",
+      15,
+      100
+    ],
+    [
+      "Litware Mobile Fan External USB Cooling Fan E601 Silver",
+      7,
+      11
+    ],
+    [
+      "Contoso 2G MP3 Player E200 Black",
+      15,
+      24
+    ],
+    [
+      "Contoso Notebook Peripheral Kit M69 Black",
+      3,
+      12
+    ],
+    [
+      "The Phone Company Smart phones Expert M400 Grey",
+      30,
+      36
+    ],
+    [
+      "Contoso DVD Movies E100 Yellow",
+      53,
+      80
+    ],
+    [
+      "Contoso Coffee Maker Auto 10C M1000 Grey",
+      3,
+      6
+    ],
+    [
+      "A. Datum SLR-like Digital Camera M400 Black",
+      3,
+      6
+    ],
+    [
+      "The Phone Company Smart phones Unlocked M300 Grey",
+      6,
+      9
+    ],
+    [
+      "Litware Home Theater System 2.1 Channel E212 Black",
+      3,
+      10
+    ],
+    [
+      "Contoso DVD 58 DVD Storage Binder M55 Silver",
+      30,
+      60
+    ],
+    [
+      "Contoso DVD 15-Inch Player Portable L200 Silver",
+      13,
+      30
+    ],
+    [
+      "Contoso DVD External DVD Burner M200 Silver",
+      24,
+      90
+    ],
+    [
+      "Contoso DVD 9-Inch Player Portable M300 Black",
+      3,
+      50
+    ],
+    [
+      "The Phone Company Touch Screen Phones SAW/On-wall M806 Gold",
+      6,
+      18
+    ],
+    [
+      "Contoso DVD 7-Inch Player Portable E200 Silver",
+      37,
+      50
+    ],
+    [
+      "MGS Hand Games men M300 Red",
+      53,
+      132
+    ],
+    [
+      "WWI 1GB Digital Voice Recorder Pen E100 Pink",
+      9,
+      14
+    ],
+    [
+      "Adventure Works Laptop15 M1501 Silver",
+      3,
+      9
+    ],
+    [
+      "Litware 120mm Blue LED Case Fan E901 Black",
+      7,
+      12
+    ],
+    [
+      "Contoso Power Inverter - DC to AC power inverter E900 White",
+      3,
+      9
+    ],
+    [
+      "Contoso Touch Screen Phones Infrared M901 Black",
+      21,
+      27
+    ],
+    [
+      "Litware Chandelier M6015 Grey",
+      3,
+      9
+    ],
+    [
+      "WWI Laptop8.9 E0089 Black",
+      7,
+      9
+    ],
+    [
+      "The Phone Company Smart phones without camera E100 Gold",
+      7,
+      15
+    ],
+    [
+      "Litware Refrigerator 9.7CuFt M560 Blue",
+      4,
+      5
+    ],
+    [
+      "NT Wireless Bluetooth Stereo Headphones M402 Green",
+      4,
+      6
+    ],
+    [
+      "SV Car Video TFT7 M7000 Brown",
+      3,
+      6
+    ],
+    [
+      "Fabrikam Laptop12 M2001 Silver",
+      6,
+      12
+    ],
+    [
+      "Adventure Works Laptop15 M1500 Black",
+      5,
+      6
+    ],
+    [
+      "Proseware Photo Inkjet Printer E290 Black",
+      9,
+      10
+    ],
+    [
+      "A. Datum Full Frame Digital Camera X300 Silver",
+      4,
+      12
+    ],
+    [
+      "A. Datum SLR Camera M136 Silver",
+      3,
+      6
+    ],
+    [
+      "Contoso Integrated Business Phone With card L10 White",
+      16,
+      18
+    ],
+    [
+      "Litware Wall Lamp E3015 Blue",
+      7,
+      10
+    ],
+    [
+      "Contoso DVD 38 DVD Storage Binder E25 Silver",
+      19,
+      100
+    ],
+    [
+      "Fabrikam SLR Camera X150 Orange",
+      5,
+      12
+    ],
+    [
+      "Fabrikam Social Videographer 2/3'' 17mm E100 Grey",
+      5,
+      6
+    ],
+    [
+      "Adventure Works Laptop16 M1601 White",
+      5,
+      6
+    ],
+    [
+      "Contoso Projector 720p M621 White",
+      3,
+      12
+    ],
+    [
+      "Litware Wall Lamp E2015 White",
+      5,
+      7
+    ],
+    [
+      "The Phone Company PDA Wifi 3.5-inch M200 Silver",
+      6,
+      9
+    ],
+    [
+      "The Phone Company PDA Phone 3.7 inches M340 Silver",
+      13,
+      18
+    ],
+    [
+      "WWI 2GB Pulse Smart pen M100 White",
+      6,
+      12
+    ],
+    [
+      "NT Bluetooth Stereo Headphones E52 Yellow",
+      11,
+      18
+    ],
+    [
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      1,
+      3
+    ],
+    [
+      "SV DVD 9-Inch Player Portable M300 Black",
+      22,
+      90
+    ],
+    [
+      "Contoso DVD Player M100 Black",
+      33,
+      90
+    ],
+    [
+      "Contoso Screen 113in M251 White",
+      6,
+      9
+    ],
+    [
+      "SV DVD Recorder L230 Grey",
+      13,
+      30
+    ],
+    [
+      "The Phone Company Smart phones Expert M400 Grey",
+      22,
+      27
+    ],
+    [
+      "The Phone Company PDA Handheld 4.7 inch L650 Black",
+      18,
+      27
+    ],
+    [
+      "SV DVD 48 DVD Storage Binder M50 Silver",
+      28,
+      90
+    ],
+    [
+      "SV DVD External DVD Burner M200 Grey",
+      16,
+      60
+    ],
+    [
+      "Litware Microwave 0.9CuFt E090 Red",
+      5,
+      6
+    ],
+    [
+      "Contoso Lens cap E80 White",
+      1,
+      5
+    ],
+    [
+      "Contoso Expandable 2-Handset Cordless Phone System M205 Grey",
+      3,
+      15
+    ],
+    [
+      "WWI Laptop16 M0160 White",
+      6,
+      9
+    ],
+    [
+      "MGS Hand Games for students E400 Silver",
+      106,
+      174
+    ],
+    [
+      "Contoso KSU-less key system M38 White",
+      23,
+      36
+    ],
+    [
+      "The Phone Company PDA Palm 4.7 inch L850 White",
+      13,
+      18
+    ],
+    [
+      "NT Wireless Bluetooth Stereo Headphones E102 Blue",
+      17,
+      18
+    ],
+    [
+      "SV Hand Games for 12-16 boys E60 Red",
+      130,
+      258
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      204,
+      303
+    ],
+    [
+      "The Phone Company Touch Screen Phones SAW/Built-in M801 Black",
+      3,
+      27
+    ],
+    [
+      "WWI Desk Lamp E120 Black",
+      3,
+      10
+    ],
+    [
+      "SV DVD 15-Inch Player Portable L200 White",
+      15,
+      90
+    ],
+    [
+      "Adventure Works Wall Lamp E3150 Black",
+      11,
+      12
+    ],
+    [
+      "Litware Microwave 1.0CuFt E110 Black",
+      3,
+      9
+    ],
+    [
+      "NT Bluetooth Stereo Headphones E52 Black",
+      7,
+      22
+    ],
+    [
+      "Contoso Laptop Starter Bundle M200 White",
+      5,
+      6
+    ],
+    [
+      "SV DVD 14-Inch Player Portable L100 Black",
+      13,
+      60
+    ],
+    [
+      "Contoso DVD Recorder L200 Black",
+      9,
+      30
+    ],
+    [
+      "SV DVD 48 DVD Storage Binder M50 Red",
+      4,
+      90
+    ],
+    [
+      "Contoso DVD 15-Inch Player Portable L200 Silver",
+      13,
+      30
+    ],
+    [
+      "Contoso DVD 7-Inch Player Portable E200 White",
+      33,
+      120
+    ],
+    [
+      "Proseware Chandelier M0615 Silver",
+      4,
+      6
+    ],
+    [
+      "A. Datum Bridge Digital Camera M300 Silver",
+      3,
+      5
+    ],
+    [
+      "Adventure Works 19\" Color Digital TV E35 Brown",
+      7,
+      11
+    ],
+    [
+      "Contoso Touch Screen Phones 5-Wire/Built-in M500 Black",
+      5,
+      15
+    ],
+    [
+      "Adventure Works LCD17W E203 Black",
+      3,
+      11
+    ],
+    [
+      "Contoso DVD 38 DVD Storage Binder E25 Silver",
+      31,
+      110
+    ],
+    [
+      "Litware 17'' Oscillating Pedestal Fan M125 Blue",
+      4,
+      6
+    ],
+    [
+      "Fabrikam Laptop14.1 E4101 Red",
+      3,
+      7
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "OnHandQuantity",
+    "SafetyStockQuantity"
+  ],
+  "row_count": 100,
+  "exec_ms": 623,
+  "error": null
+}

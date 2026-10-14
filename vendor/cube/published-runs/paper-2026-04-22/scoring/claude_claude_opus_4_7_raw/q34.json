@@ -1,0 +1,11 @@
+{
+  "question_id": 34,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses FactSales instead of FactOnlineSales for COGS and has a broken join structure causing cartesian-product inflation, producing turnover ratios in the billions instead of ~100\u2013137, making the results completely wrong.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 246,
+  "judge_latency_ms": 13421
+}

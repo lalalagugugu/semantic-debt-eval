@@ -1,0 +1,25 @@
+{
+  "question_id": 29,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    round(holiday_avg_daily_sales, 2) AS holiday_avg_daily_sales,\n    round(regular_avg_daily_sales, 2) AS regular_avg_daily_sales,\n    round(((holiday_avg_daily_sales - regular_avg_daily_sales) / regular_avg_daily_sales) * 100, 2) AS holiday_vs_regular_pct\nFROM\n(\n    SELECT\n        avgIf(daily_sales, is_holiday = 1) AS holiday_avg_daily_sales,\n        avgIf(daily_sales, is_holiday = 0) AS regular_avg_daily_sales\n    FROM\n    (\n        SELECT\n            d.DateKey,\n            if(d.IsHoliday = 'Yes', 1, 0) AS is_holiday,\n            sum(sales_amount) AS daily_sales\n        FROM retail.DimDate AS d\n        LEFT JOIN\n        (\n            SELECT DateKey, SalesAmount AS sales_amount\n            FROM retail.FactSales\n            UNION ALL\n            SELECT DateKey, SalesAmount AS sales_amount\n            FROM retail.FactOnlineSales\n        ) AS s\n            ON d.DateKey = s.DateKey\n        GROUP BY\n            d.DateKey,\n            is_holiday\n    )\n)",
+  "rows": [
+    [
+      5898769.85,
+      5928690.12,
+      -0.5
+    ]
+  ],
+  "columns": [
+    "holiday_avg_daily_sales",
+    "regular_avg_daily_sales",
+    "holiday_vs_regular_pct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 20127,
+  "latency_ms_exec": 1145,
+  "tokens_in": 17229,
+  "tokens_out": 503,
+  "claude_error": null,
+  "sql_error": null
+}

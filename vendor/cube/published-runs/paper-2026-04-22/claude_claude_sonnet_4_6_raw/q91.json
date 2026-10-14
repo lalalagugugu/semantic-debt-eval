@@ -1,0 +1,159 @@
+{
+  "question_id": 91,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    dc.YearlyIncome,\n    count(DISTINCT fos.CustomerKey) AS CustomerCount,\n    round(sum(fos.SalesAmount), 2) AS TotalSalesAmount,\n    round(avg(fos.SalesAmount), 2) AS AvgSalesPerTransaction,\n    round(sum(fos.SalesAmount) / count(DISTINCT fos.CustomerKey), 2) AS AvgSalesPerCustomer,\n    round(sum(fos.SalesQuantity), 0) AS TotalUnitsPurchased\nFROM retail.FactOnlineSales AS fos\nJOIN retail.DimCustomer AS dc ON fos.CustomerKey = dc.CustomerKey\nWHERE dc.YearlyIncome IS NOT NULL\nGROUP BY dc.YearlyIncome\nORDER BY dc.YearlyIncome ASC",
+  "rows": [
+    [
+      10000.0,
+      1155,
+      31661855.76,
+      142.67,
+      27412.86,
+      220469
+    ],
+    [
+      20000.0,
+      1767,
+      51556420.26,
+      145.92,
+      29177.37,
+      351004
+    ],
+    [
+      30000.0,
+      2287,
+      77283565.88,
+      152.41,
+      33792.55,
+      503569
+    ],
+    [
+      40000.0,
+      2747,
+      110156864.46,
+      283.02,
+      40100.79,
+      387244
+    ],
+    [
+      50000.0,
+      670,
+      22945183.01,
+      308.48,
+      34246.54,
+      73942
+    ],
+    [
+      60000.0,
+      3127,
+      104710083.1,
+      311.11,
+      33485.8,
+      334756
+    ],
+    [
+      70000.0,
+      2349,
+      79055777.04,
+      306.0,
+      33655.08,
+      256996
+    ],
+    [
+      80000.0,
+      1342,
+      48477081.37,
+      292.64,
+      36123.01,
+      164803
+    ],
+    [
+      90000.0,
+      842,
+      31532759.58,
+      284.91,
+      37449.83,
+      110107
+    ],
+    [
+      100000.0,
+      571,
+      21853821.61,
+      282.29,
+      38272.89,
+      77044
+    ],
+    [
+      110000.0,
+      474,
+      30183015.97,
+      306.03,
+      63677.25,
+      98239
+    ],
+    [
+      120000.0,
+      332,
+      21528827.36,
+      312.85,
+      64845.87,
+      68510
+    ],
+    [
+      130000.0,
+      512,
+      34259578.26,
+      320.76,
+      66913.24,
+      106341
+    ],
+    [
+      150000.0,
+      103,
+      6861458.98,
+      324.42,
+      66616.11,
+      21048
+    ],
+    [
+      160000.0,
+      94,
+      6147790.97,
+      320.75,
+      65402.03,
+      19072
+    ],
+    [
+      170000.0,
+      112,
+      7539598.45,
+      327.62,
+      67317.84,
+      22910
+    ],
+    [
+      10000000.0,
+      385,
+      2032448947.8,
+      207.49,
+      5279088.18,
+      9711388
+    ]
+  ],
+  "columns": [
+    "YearlyIncome",
+    "CustomerCount",
+    "TotalSalesAmount",
+    "AvgSalesPerTransaction",
+    "AvgSalesPerCustomer",
+    "TotalUnitsPurchased"
+  ],
+  "row_count": 17,
+  "latency_ms_gen": 8004,
+  "latency_ms_exec": 636,
+  "tokens_in": 13802,
+  "tokens_out": 264,
+  "claude_error": null,
+  "sql_error": null
+}

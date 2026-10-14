@@ -1,0 +1,35 @@
+{
+  "question_id": 66,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    d.CalendarQuarterLabel AS quarter,\n    sum(f.DiscountAmount) AS total_discount_amount\nFROM retail.FactOnlineSales AS f\nINNER JOIN retail.DimDate AS d\n    ON f.DateKey = d.DateKey\nWHERE d.CalendarYear = 2009\n  AND f.PromotionKey != 1\nGROUP BY d.CalendarQuarterLabel, d.CalendarQuarterLabel\nORDER BY d.CalendarQuarterLabel",
+  "rows": [
+    [
+      "Q1",
+      23354773.011001505
+    ],
+    [
+      "Q2",
+      12629896.617198512
+    ],
+    [
+      "Q3",
+      13650342.693201367
+    ],
+    [
+      "Q4",
+      34529879.54880831
+    ]
+  ],
+  "columns": [
+    "quarter",
+    "total_discount_amount"
+  ],
+  "row_count": 4,
+  "latency_ms_gen": 13288,
+  "latency_ms_exec": 554,
+  "tokens_in": 19690,
+  "tokens_out": 139,
+  "claude_error": null,
+  "sql_error": null
+}

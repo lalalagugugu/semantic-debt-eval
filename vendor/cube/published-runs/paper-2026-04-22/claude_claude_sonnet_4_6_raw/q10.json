@@ -1,0 +1,21 @@
+{
+  "question_id": 10,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT count() AS open_store_count\nFROM retail.DimStore\nWHERE Status = 'On'",
+  "rows": [
+    [
+      294
+    ]
+  ],
+  "columns": [
+    "open_store_count"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 7766,
+  "latency_ms_exec": 591,
+  "tokens_in": 13792,
+  "tokens_out": 134,
+  "claude_error": null,
+  "sql_error": null
+}

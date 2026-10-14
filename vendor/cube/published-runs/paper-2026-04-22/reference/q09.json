@@ -1,0 +1,15 @@
+{
+  "question_id": 9,
+  "sql": "SELECT avg(UnitCost) FROM retail.DimProduct",
+  "rows": [
+    [
+      159.24048813255706
+    ]
+  ],
+  "columns": [
+    "avg(UnitCost)"
+  ],
+  "row_count": 1,
+  "exec_ms": 508,
+  "error": null
+}

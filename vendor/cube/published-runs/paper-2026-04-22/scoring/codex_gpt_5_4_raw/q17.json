@@ -1,0 +1,11 @@
+{
+  "question_id": 17,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses FactSales instead of FactOnlineSales and omits the absolute sales amount column, but the reported percentages (71.5% / 28.5%) match the reference (71.53% / 28.47%) within ~0.05% relative drift, directly answering the question asked.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 782,
+  "judge_latency_ms": 20542
+}

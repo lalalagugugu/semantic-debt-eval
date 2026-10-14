@@ -1,0 +1,15 @@
+{
+  "question_id": 33,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    p1.ProductName AS Product1,\n    p2.ProductName AS Product2,\n    count() AS TimesPurchasedTogether\nFROM retail.FactOnlineSales a\nJOIN retail.FactOnlineSales b\n    ON a.SalesOrderNumber = b.SalesOrderNumber\n    AND a.ProductKey < b.ProductKey\nJOIN retail.DimProduct p1 ON a.ProductKey = p1.ProductKey\nJOIN retail.DimProduct p2 ON b.ProductKey = p2.ProductKey\nGROUP BY\n    p1.ProductName,\n    p2.ProductName\nORDER BY TimesPurchasedTogether DESC\nLIMIT 20",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10801,
+  "latency_ms_exec": null,
+  "tokens_in": 16754,
+  "tokens_out": 465,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 159, server response: Code: 159. DB::Exception: Timeout exceeded: elapsed 30000.134739 ms, maximum: 30000 ms. (TIMEOUT_EXCEEDED) (for url https://clickhouse.vanya.cc:443)"
+}

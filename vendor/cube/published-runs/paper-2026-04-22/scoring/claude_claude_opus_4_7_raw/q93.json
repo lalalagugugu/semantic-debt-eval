@@ -1,0 +1,11 @@
+{
+  "question_id": 93,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns a per-promotion breakdown from FactSales (a different table than FactOnlineSales used by the reference) with no correlation coefficients, so it answers a fundamentally different question and cannot be aggregated to reproduce the expected scalar correlation values.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 333,
+  "judge_latency_ms": 15653
+}

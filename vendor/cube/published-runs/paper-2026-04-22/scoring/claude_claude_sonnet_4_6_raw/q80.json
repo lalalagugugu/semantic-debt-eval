@@ -1,0 +1,11 @@
+{
+  "question_id": 80,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits the WHERE first\u2260last filter (including 0-day single-purchase customers) and returns 29 rows without LIMIT 20, but the numeric values for all shown rows match the reference within rounding, and it correctly answers the per-country average active-days question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 1028,
+  "judge_latency_ms": 26410
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 84,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries `FactSales` instead of `FactOnlineSales`, producing different revenue figures and different product counts per class (A: 1119 vs 1131, B: 672 vs 666, C: 713 vs 707), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 262,
+  "judge_latency_ms": 10615
+}

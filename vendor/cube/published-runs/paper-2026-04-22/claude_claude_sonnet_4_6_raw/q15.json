@@ -1,0 +1,31 @@
+{
+  "question_id": 15,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    g.RegionCountryName AS Country,\n    sum(f.SalesAmount) AS TotalOnlineSales\nFROM retail.FactOnlineSales f\nJOIN retail.DimStore s ON f.StoreKey = s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY TotalOnlineSales DESC",
+  "rows": [
+    [
+      "United States",
+      1031261452.797786
+    ],
+    [
+      "China",
+      849584948.8374648
+    ],
+    [
+      "Germany",
+      837356228.1883471
+    ]
+  ],
+  "columns": [
+    "Country",
+    "TotalOnlineSales"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 7353,
+  "latency_ms_exec": 899,
+  "tokens_in": 13794,
+  "tokens_out": 155,
+  "claude_error": null,
+  "sql_error": null
+}

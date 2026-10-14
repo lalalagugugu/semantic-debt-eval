@@ -1,0 +1,21 @@
+{
+  "question_id": 54,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT sum(ReturnAmount) AS total_return_amount\nFROM retail.FactOnlineSales;",
+  "rows": [
+    [
+      29244318.204799972
+    ]
+  ],
+  "columns": [
+    "total_return_amount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9017,
+  "latency_ms_exec": 510,
+  "tokens_in": 16366,
+  "tokens_out": 32,
+  "claude_error": null,
+  "sql_error": null
+}

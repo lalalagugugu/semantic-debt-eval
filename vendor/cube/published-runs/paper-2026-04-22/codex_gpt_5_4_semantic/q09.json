@@ -1,0 +1,21 @@
+{
+  "question_id": 9,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT avg(UnitCost) AS average_unit_cost\nFROM retail.DimProduct\nWHERE UnitCost IS NOT NULL",
+  "rows": [
+    [
+      159.24048813255706
+    ]
+  ],
+  "columns": [
+    "average_unit_cost"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9995,
+  "latency_ms_exec": 501,
+  "tokens_in": 18821,
+  "tokens_out": 90,
+  "claude_error": null,
+  "sql_error": null
+}

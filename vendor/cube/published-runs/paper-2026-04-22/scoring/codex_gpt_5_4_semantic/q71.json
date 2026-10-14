@@ -1,0 +1,11 @@
+{
+  "question_id": 71,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 rows match in category, subcategory, and sales amount (differences are sub-0.01% floating-point precision); only the output ordering differs (alphabetical vs. by sales amount), which is irrelevant since the question doesn't require a specific order.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 228,
+  "judge_latency_ms": 11714
+}

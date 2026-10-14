@@ -1,0 +1,11 @@
+{
+  "question_id": 97,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns only 10 rows (LIMIT 10) instead of the expected 15, so 5 products with valid H2 comebacks are omitted; while the top-10 values match closely, the truncated result set does not fully answer the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 567,
+  "judge_latency_ms": 17826
+}

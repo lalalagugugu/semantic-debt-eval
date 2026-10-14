@@ -1,0 +1,31 @@
+{
+  "question_id": 93,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    count() AS promotion_count,\n    round(avg(discount_percent), 2) AS avg_discount_percent,\n    round(avg(total_units), 2) AS avg_units_per_promotion,\n    round(corrStable(discount_percent, total_units), 4) AS corr_discount_vs_total_units,\n    round(corrStable(discount_percent, avg_units_per_order), 4) AS corr_discount_vs_avg_units_per_order,\n    if(\n        corrStable(discount_percent, total_units) >= 0.2 OR corrStable(discount_percent, avg_units_per_order) >= 0.2,\n        'Yes',\n        if(\n            corrStable(discount_percent, total_units) <= -0.2 AND corrStable(discount_percent, avg_units_per_order) <= -0.2,\n            'No',\n            'Weak/Mixed'\n        )\n    ) AS evidence_of_price_elasticity\nFROM\n(\n    SELECT\n        p.PromotionKey,\n        any(p.PromotionName) AS promotion_name,\n        any(p.DiscountPercent) AS discount_percent,\n        sum(s.sales_qty) AS total_units,\n        countDistinct(s.order_id) AS order_count,\n        sum(s.sales_qty) / nullIf(countDistinct(s.order_id), 0) AS avg_units_per_order\n    FROM retail.DimPromotion AS p\n    INNER JOIN\n    (\n        SELECT\n            PromotionKey,\n            SalesQuantity AS sales_qty,\n            concat('store-', toString(SalesKey)) AS order_id\n        FROM retail.FactSales\n        UNION ALL\n        SELECT\n            PromotionKey,\n            SalesQuantity AS sales_qty,\n            concat('online-', SalesOrderNumber, '-', toString(SalesOrderLineNumber)) AS order_id\n        FROM retail.FactOnlineSales\n    ) AS s\n        ON s.PromotionKey = p.PromotionKey\n    WHERE p.DiscountPercent IS NOT NULL\n      AND p.DiscountPercent > 0\n    GROUP BY p.PromotionKey\n) AS promo;",
+  "rows": [
+    [
+      27,
+      0.13,
+      1655812.56,
+      -0.1262,
+      -0.0706,
+      "Weak/Mixed"
+    ]
+  ],
+  "columns": [
+    "promotion_count",
+    "avg_discount_percent",
+    "avg_units_per_promotion",
+    "corr_discount_vs_total_units",
+    "corr_discount_vs_avg_units_per_order",
+    "evidence_of_price_elasticity"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 29865,
+  "latency_ms_exec": 2374,
+  "tokens_in": 17235,
+  "tokens_out": 1097,
+  "claude_error": null,
+  "sql_error": null
+}

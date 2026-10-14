@@ -1,0 +1,21 @@
+{
+  "question_id": 10,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT count(*) FROM retail.DimStore WHERE Status = 'Open'",
+  "rows": [
+    [
+      0
+    ]
+  ],
+  "columns": [
+    "count()"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6171,
+  "latency_ms_exec": 500,
+  "tokens_in": 23309,
+  "tokens_out": 34,
+  "claude_error": null,
+  "sql_error": null
+}

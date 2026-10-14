@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 11 managers with identical direct-report counts and tenure values (unrounded vs rounded \u22641% drift); minor differences in secondary sort order for tied rows and an extra ManagerKey column do not affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 269,
+  "judge_latency_ms": 13448
+}

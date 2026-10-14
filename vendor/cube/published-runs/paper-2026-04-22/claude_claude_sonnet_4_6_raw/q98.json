@@ -1,0 +1,215 @@
+{
+  "question_id": 98,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    year,\n    best_quarter,\n    round(max_quarter_sales / annual_sales * 100, 2) AS pct_from_best_quarter,\n    round(annual_sales, 2) AS annual_sales,\n    round(max_quarter_sales, 2) AS max_quarter_sales\nFROM (\n    SELECT\n        ProductCategoryKey,\n        year,\n        argMax(quarter, quarter_sales) AS best_quarter,\n        max(quarter_sales)             AS max_quarter_sales,\n        sum(quarter_sales)             AS annual_sales\n    FROM (\n        SELECT\n            ps.ProductCategoryKey,\n            toYear(fs.DateKey)    AS year,\n            toQuarter(fs.DateKey) AS quarter,\n            sum(fs.SalesAmount)   AS quarter_sales\n        FROM retail.FactSales AS fs\n        INNER JOIN retail.DimProduct            AS p  ON fs.ProductKey            = p.ProductKey\n        INNER JOIN retail.DimProductSubcategory AS ps ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n        GROUP BY ps.ProductCategoryKey, year, quarter\n    )\n    GROUP BY ProductCategoryKey, year\n) AS q\nINNER JOIN retail.DimProductCategory AS pc ON q.ProductCategoryKey = pc.ProductCategoryKey\nORDER BY pct_from_best_quarter DESC",
+  "rows": [
+    [
+      "Audio",
+      2008,
+      4,
+      33.83,
+      52932396.05,
+      17906529.79
+    ],
+    [
+      "Cameras and camcorders",
+      2007,
+      4,
+      30.85,
+      1098555433.38,
+      338883802.54
+    ],
+    [
+      "Games and Toys",
+      2009,
+      4,
+      30.55,
+      8873229.89,
+      2710782.21
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      4,
+      30.12,
+      74975760.83,
+      22580677.95
+    ],
+    [
+      "TV and Video",
+      2007,
+      4,
+      30.04,
+      426671354.26,
+      128186748.69
+    ],
+    [
+      "Home Appliances",
+      2007,
+      4,
+      28.89,
+      1375117996.81,
+      397327040.88
+    ],
+    [
+      "Audio",
+      2007,
+      2,
+      28.71,
+      29734671.91,
+      8535607.49
+    ],
+    [
+      "Computers",
+      2008,
+      4,
+      28.15,
+      788289774.73,
+      221898247.23
+    ],
+    [
+      "Computers",
+      2009,
+      2,
+      27.93,
+      938926781.73,
+      262217249.37
+    ],
+    [
+      "TV and Video",
+      2008,
+      3,
+      27.93,
+      473265849.61,
+      132200776.7
+    ],
+    [
+      "Computers",
+      2007,
+      2,
+      27.72,
+      894222614.54,
+      247859932.49
+    ],
+    [
+      "Audio",
+      2009,
+      4,
+      27.49,
+      68947296.35,
+      18955899.8
+    ],
+    [
+      "TV and Video",
+      2009,
+      3,
+      27.48,
+      460183910.9,
+      126474203.87
+    ],
+    [
+      "Cell phones",
+      2007,
+      2,
+      27.46,
+      363847591.08,
+      99907473.71
+    ],
+    [
+      "Cell phones",
+      2008,
+      4,
+      27.02,
+      252398585.58,
+      68205064.2
+    ],
+    [
+      "Home Appliances",
+      2008,
+      3,
+      26.84,
+      1426891288.45,
+      383035318.27
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2008,
+      3,
+      26.83,
+      53303972.44,
+      14301123.39
+    ],
+    [
+      "Games and Toys",
+      2007,
+      2,
+      26.74,
+      13733702.64,
+      3672333.27
+    ],
+    [
+      "Cell phones",
+      2009,
+      3,
+      26.65,
+      268104778.23,
+      71452401.92
+    ],
+    [
+      "Games and Toys",
+      2008,
+      4,
+      26.56,
+      9835398.51,
+      2612093.57
+    ],
+    [
+      "Cameras and camcorders",
+      2009,
+      3,
+      26.29,
+      636574743.4,
+      167385311.84
+    ],
+    [
+      "Home Appliances",
+      2009,
+      2,
+      26.07,
+      1120727501.92,
+      292162568.99
+    ],
+    [
+      "Cameras and camcorders",
+      2008,
+      3,
+      25.94,
+      813888194.61,
+      211128381.26
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2009,
+      2,
+      25.88,
+      37524972.71,
+      9709643.06
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "year",
+    "best_quarter",
+    "pct_from_best_quarter",
+    "annual_sales",
+    "max_quarter_sales"
+  ],
+  "row_count": 24,
+  "latency_ms_gen": 12427,
+  "latency_ms_exec": 518,
+  "tokens_in": 13800,
+  "tokens_out": 514,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,63 @@
+{
+  "question_id": 99,
+  "sql": "WITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC",
+  "rows": [
+    [
+      "Audio",
+      34030.70993493589,
+      33468.28821683671,
+      1.680461559477814
+    ],
+    [
+      "Cameras and camcorders",
+      548909.8228701933,
+      544738.6785040826,
+      0.7657147418951662
+    ],
+    [
+      "TV and Video",
+      376125.01293365256,
+      376215.8109492334,
+      -0.02413455600171842
+    ],
+    [
+      "Home Appliances",
+      759549.9067346158,
+      761393.1219924749,
+      -0.24208456901155295
+    ],
+    [
+      "Computers",
+      439355.8385432695,
+      440673.1869317604,
+      -0.2989399917120219
+    ],
+    [
+      "Games and Toys",
+      5505.487618589735,
+      5529.495027458476,
+      -0.4341700055705825
+    ],
+    [
+      "Cell phones",
+      150134.72683237132,
+      151621.3995202802,
+      -0.9805163998041165
+    ],
+    [
+      "Music, Movies and Audio Books",
+      26857.816469230784,
+      28018.019853316346,
+      -4.140918559411452
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "avg_weekend_day_sales",
+    "avg_weekday_sales",
+    "weekend_lift_pct"
+  ],
+  "row_count": 8,
+  "exec_ms": 1057,
+  "error": null
+}

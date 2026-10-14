@@ -1,0 +1,11 @@
+{
+  "question_id": 69,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Revenue matches, but candidate uses avg(DimPromotion.DiscountPercent)\u224812.996% instead of the reference's effective rate sum(DiscountAmount)/sum(SalesAmount+DiscountAmount)\u224813.109%, yielding a different, non-equivalent discount metric.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1018,
+  "judge_latency_ms": 29573
+}

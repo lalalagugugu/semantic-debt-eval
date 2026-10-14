@@ -1,0 +1,11 @@
+{
+  "question_id": 41,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses equivalent date filtering (toYear=2009, toQuarter=4) yielding 210717984.698202, which matches the reference value of 210717984.6982019 within negligible floating-point precision.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 197,
+  "judge_latency_ms": 10037
+}

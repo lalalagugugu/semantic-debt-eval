@@ -1,0 +1,11 @@
+{
+  "question_id": 24,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate omits the total_returns and total_sales columns present in the reference, causing a strict fail, but it returns the same 8 categories with matching return-rate percentages (unrounded vs. rounded) and correctly answers the question analytically.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 739,
+  "judge_latency_ms": 25574
+}

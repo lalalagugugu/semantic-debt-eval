@@ -1,0 +1,11 @@
+{
+  "question_id": 78,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales and omits the PromotionKey != 1 filter, producing a different discount total (62.2M vs 84.2M) and an extra \"No Discount\" row, so the values do not match the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 290,
+  "judge_latency_ms": 12428
+}

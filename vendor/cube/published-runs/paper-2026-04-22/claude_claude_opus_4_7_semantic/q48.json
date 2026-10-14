@@ -1,0 +1,15 @@
+{
+  "question_id": 48,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toYYYYMM(d.DateKey) AS month, sum(ifNull(sla.DownTime, 0)) AS total_downtime_minutes, countDistinct(sla.ITSLAkey) AS outage_events, sum(ifNull(s.SalesAmount, 0)) AS total_sales, corr(sla_daily.downtime, sales_daily.sales) OVER () AS downtime_sales_correlation\nFROM (SELECT DateKey, sum(ifNull(DownTime, 0)) AS downtime FROM retail.FactITSLA GROUP BY DateKey) sla_daily\nFULL OUTER JOIN (SELECT DateKey, sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY DateKey) sales_daily ON sla_daily.DateKey = sales_daily.DateKey\nLEFT JOIN retail.FactITSLA sla ON sla.DateKey = sla_daily.DateKey\nLEFT JOIN retail.FactOnlineSales s ON s.DateKey = sales_daily.DateKey\nLEFT JOIN retail.DimDate d ON d.DateKey = coalesce(sla_daily.DateKey, sales_daily.DateKey)\nGROUP BY month\nORDER BY month",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10497,
+  "latency_ms_exec": null,
+  "tokens_in": 23318,
+  "tokens_out": 451,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 215, server response: Code: 215. DB::Exception: Column 'sla_daily.downtime' is not under aggregate function and not in GROUP BY keys. In query SELECT toYYYYMM(d.DateKey) AS month, sum(ifNull(sla.DownTime, 0)) AS total_downtime_minutes, countDistinct(sla.ITSLAkey) AS outage_events, sum(ifNull(s.SalesAmount, 0)) AS total_sales, corr(sla_daily.downtime, sales_daily.sales) OVER () AS downtime_sales_correlation FROM (SELECT DateKey, sum(ifNull(DownTime, 0)) AS downtime FROM retail.FactITSLA GROUP BY DateKey) AS sla_daily FULL OUTER JOIN (SELECT DateKey, sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY DateKey) AS sales_daily ON sla_daily.DateKey = sales_daily.DateKey LEFT JOIN retail.FactITSLA AS sla ON sla.DateKey = sla_daily.DateKey LEFT JOIN retail.FactOnlineSales AS s ON s.DateKey = sales_daily.DateKey LEFT JOIN retail.DimDate AS d ON d.DateKey = coalesce(sla_daily.DateKey, sales_daily.DateKey) GROUP BY month ORDER BY month ASC. (NOT_AN_AGGREGATE) (for url https://clickhouse.vanya.cc:443)"
+}

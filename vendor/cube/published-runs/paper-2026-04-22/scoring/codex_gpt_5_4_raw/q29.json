@@ -1,0 +1,11 @@
+{
+  "question_id": 29,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate combines FactSales and FactOnlineSales (UNION ALL) instead of using only FactOnlineSales, producing -0.5% vs the expected 0.03%, a meaningfully different result from a wrong data source.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 291,
+  "judge_latency_ms": 11750
+}

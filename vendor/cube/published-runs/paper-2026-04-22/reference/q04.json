@@ -1,0 +1,312 @@
+{
+  "question_id": 4,
+  "sql": "SELECT ProductName FROM retail.DimProduct WHERE BrandName = 'Contoso'",
+  "rows": [
+    [
+      "Contoso 512MB MP3 Player E51 Silver"
+    ],
+    [
+      "Contoso 512MB MP3 Player E51 Blue"
+    ],
+    [
+      "Contoso 1G MP3 Player E100 White"
+    ],
+    [
+      "Contoso 2G MP3 Player E200 Silver"
+    ],
+    [
+      "Contoso 2G MP3 Player E200 Red"
+    ],
+    [
+      "Contoso 2G MP3 Player E200 Black"
+    ],
+    [
+      "Contoso 2G MP3 Player E200 Blue"
+    ],
+    [
+      "Contoso 4G MP3 Player E400 Silver"
+    ],
+    [
+      "Contoso 4G MP3 Player E400 Black"
+    ],
+    [
+      "Contoso 4G MP3 Player E400 Green"
+    ],
+    [
+      "Contoso 4G MP3 Player E400 Orange"
+    ],
+    [
+      "Contoso 4GB Flash MP3 Player E401 Blue"
+    ],
+    [
+      "Contoso 4GB Flash MP3 Player E401 Black"
+    ],
+    [
+      "Contoso 4GB Flash MP3 Player E401 Silver"
+    ],
+    [
+      "Contoso 4GB Flash MP3 Player E401 White"
+    ],
+    [
+      "Contoso 8GB Super-Slim MP3/Video Player M800 White"
+    ],
+    [
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Red"
+    ],
+    [
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Green"
+    ],
+    [
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Pink"
+    ],
+    [
+      "Contoso 8GB MP3 Player new model M820 Black"
+    ],
+    [
+      "Contoso 8GB MP3 Player new model M820 Blue"
+    ],
+    [
+      "Contoso 8GB MP3 Player new model M820 Yellow"
+    ],
+    [
+      "Contoso 8GB MP3 Player new model M820 White"
+    ],
+    [
+      "Contoso 16GB Mp5 Player M1600 Blue"
+    ],
+    [
+      "Contoso 16GB Mp5 Player M1600 Black"
+    ],
+    [
+      "Contoso 16GB Mp5 Player M1600 Green"
+    ],
+    [
+      "Contoso 16GB Mp5 Player M1600 White"
+    ],
+    [
+      "Contoso 16GB Mp5 Player M1600 Red"
+    ],
+    [
+      "Contoso 32GB Video MP3 Player M3200 White"
+    ],
+    [
+      "Contoso 32GB Video MP3 Player M3200 Red"
+    ],
+    [
+      "Contoso 32GB Video MP3 Player M3200 Orange"
+    ],
+    [
+      "Contoso 32GB Video MP3 Player M3200 Pink"
+    ],
+    [
+      "Contoso 32GB Video MP3 Player M3200 Black"
+    ],
+    [
+      "Contoso 4GB Portable MP3 Player M450 Black"
+    ],
+    [
+      "Contoso 4GB Portable MP3 Player M450 White"
+    ],
+    [
+      "Contoso 4GB Portable MP3 Player M450 Yellow"
+    ],
+    [
+      "Contoso 8GB Clock & Radio MP3 Player X850 Silver"
+    ],
+    [
+      "Contoso 8GB Clock & Radio MP3 Player X850 Black"
+    ],
+    [
+      "Contoso 8GB Clock & Radio MP3 Player X850 Green"
+    ],
+    [
+      "Contoso 8GB Clock & Radio MP3 Player X850 Blue"
+    ],
+    [
+      "Contoso 16GB New Generation MP5 Player M1650 Silver"
+    ],
+    [
+      "Contoso 16GB New Generation MP5 Player M1650 White"
+    ],
+    [
+      "Contoso 16GB New Generation MP5 Player M1650 Black"
+    ],
+    [
+      "Contoso 16GB New Generation MP5 Player M1650 blue"
+    ],
+    [
+      "Contoso 16GB New Generation MP5 Player M1650 Pink"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1200 Black"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1210 Black"
+    ],
+    [
+      "Contoso Home Theater System 7.1 Channel M1700 Black"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1400 Black"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1500 Black"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1510 Black"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1410 Black"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1520 Black"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1530 Black"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1220 Black"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1540 Black"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1420 Black"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1230 Black"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1200 Silver"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1210 Silver"
+    ],
+    [
+      "Contoso Home Theater System 7.1 Channel M1700 Silver"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1400 Silver"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1500 Silver"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1510 Silver"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1410 Silver"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1520 Silver"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1530 Silver"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1220 Silver"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1540 Silver"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1420 Silver"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1230 Silver"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1200 White"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1210 White"
+    ],
+    [
+      "Contoso Home Theater System 7.1 Channel M1700 White"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1400 White"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1500 White"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1510 White"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1410 White"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1520 White"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1530 White"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1220 White"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1540 White"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1420 White"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1230 White"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1200 Brown"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1210 Brown"
+    ],
+    [
+      "Contoso Home Theater System 7.1 Channel M1700 Brown"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1400 Brown"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1500 Brown"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1510 Brown"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1410 Brown"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1520 Brown"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1530 Brown"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel E1220 Brown"
+    ],
+    [
+      "Contoso Home Theater System 5.1 Channel M1540 Brown"
+    ],
+    [
+      "Contoso Home Theater System 4.1 Channel M1420 Brown"
+    ],
+    [
+      "Contoso Home Theater System 2.1 Channel M1230 Brown"
+    ],
+    [
+      "Contoso Projector 1080p X980 Black"
+    ],
+    [
+      "Contoso Projector 1080p X981 Black"
+    ],
+    [
+      "Contoso Projector 720p M620 Black"
+    ]
+  ],
+  "columns": [
+    "ProductName"
+  ],
+  "row_count": 100,
+  "exec_ms": 513,
+  "error": null
+}

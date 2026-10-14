@@ -1,0 +1,11 @@
+{
+  "question_id": 73,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate finds the max date per ProductKey only (not per StoreKey+ProductKey as the reference does), causing different inventory row filtering, yielding different products and far smaller values that don't reconcile with the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 432,
+  "judge_latency_ms": 20977
+}

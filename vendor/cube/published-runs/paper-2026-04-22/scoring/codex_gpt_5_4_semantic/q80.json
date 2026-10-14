@@ -1,0 +1,11 @@
+{
+  "question_id": 80,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate omits the first_d!=last_d filter and LIMIT 20, returning 29 rows with tiny numeric drift (e.g., 1077.977 vs 1078.0); analytically the values are within 1% and returning all countries is a valid superset answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1249,
+  "judge_latency_ms": 30524
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 32,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns only the total LTV (~1,191,133,222.28), which matches the reference's total_ltv value within negligible precision drift; it omits the customer_count column (17,671) present in the reference, causing a strict fail, but it correctly answers the question asked.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 486,
+  "judge_latency_ms": 15342
+}

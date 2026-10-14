@@ -1,0 +1,11 @@
+{
+  "question_id": 76,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 categories return 100% (within floating-point noise < 1e-10 relative drift); row ordering differs only in tie-breaking among equal values, which is not semantically meaningful.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 234,
+  "judge_latency_ms": 11055
+}

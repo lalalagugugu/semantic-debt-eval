@@ -1,0 +1,81 @@
+{
+  "question_id": 73,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.ProductName, sum(i.OnHandQuantity) AS OnHand, sum(i.SafetyStockQuantity) AS SafetyStock, sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS Gap\nFROM retail.FactInventory AS i\nINNER JOIN retail.DimProduct AS p ON p.ProductKey = i.ProductKey\nINNER JOIN (SELECT ProductKey, max(DateKey) AS MaxDate FROM retail.FactInventory GROUP BY ProductKey) AS l ON l.ProductKey = i.ProductKey AND l.MaxDate = i.DateKey\nGROUP BY p.ProductName\nORDER BY Gap DESC\nLIMIT 10",
+  "rows": [
+    [
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      9263,
+      2658,
+      6605
+    ],
+    [
+      "Contoso In-Line Coupler E180 White",
+      8346,
+      2760,
+      5586
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      11788,
+      6882,
+      4906
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 Red",
+      7690,
+      3579,
+      4111
+    ],
+    [
+      "Contoso In-Line Coupler E180 Silver",
+      6641,
+      2610,
+      4031
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      6001,
+      2568,
+      3433
+    ],
+    [
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      5992,
+      2715,
+      3277
+    ],
+    [
+      "Contoso Touch Stylus Pen E150 White",
+      6502,
+      3507,
+      2995
+    ],
+    [
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      5694,
+      2700,
+      2994
+    ],
+    [
+      "Contoso Phone Tough Skin Case E140 Black",
+      6775,
+      3819,
+      2956
+    ]
+  ],
+  "columns": [
+    "ProductName",
+    "OnHand",
+    "SafetyStock",
+    "Gap"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 8385,
+  "latency_ms_exec": 931,
+  "tokens_in": 19130,
+  "tokens_out": 274,
+  "claude_error": null,
+  "sql_error": null
+}

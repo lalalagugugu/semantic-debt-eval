@@ -1,0 +1,87 @@
+{
+  "question_id": 82,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    m.EmployeeKey                                          AS ManagerKey,\n    concat(m.FirstName, ' ', m.LastName)                  AS ManagerName,\n    count(e.EmployeeKey)                                   AS DirectReportCount,\n    avg(\n        dateDiff('year',\n                 toDate(e.HireDate),\n                 toDate('2009-12-31'))\n    )                                                      AS AvgTenureYears\nFROM retail.DimEmployee e\nJOIN retail.DimEmployee m\n    ON toInt32(e.ParentEmployeeKey) = m.EmployeeKey\nWHERE e.ParentEmployeeKey IS NOT NULL\n  AND e.HireDate IS NOT NULL\nGROUP BY\n    m.EmployeeKey,\n    m.FirstName,\n    m.LastName\nORDER BY DirectReportCount DESC",
+  "rows": [
+    [
+      9,
+      "Terry Adams",
+      89,
+      10.01123595505618
+    ],
+    [
+      6,
+      "Yoichiro Okada",
+      65,
+      9.123076923076923
+    ],
+    [
+      10,
+      "David Probst",
+      44,
+      9.613636363636363
+    ],
+    [
+      7,
+      "Pilar Ackerman",
+      33,
+      8.787878787878787
+    ],
+    [
+      8,
+      "Aaron Painter",
+      33,
+      10.030303030303031
+    ],
+    [
+      1,
+      "Kim Abercrombie",
+      7,
+      10.714285714285714
+    ],
+    [
+      2,
+      "Sagiv Hadaya",
+      6,
+      10.5
+    ],
+    [
+      3,
+      "Luka Abrus",
+      5,
+      10.4
+    ],
+    [
+      18,
+      "Pieter Uittenbogaard",
+      5,
+      11.8
+    ],
+    [
+      5,
+      "Humberto Acevedo",
+      3,
+      10.666666666666666
+    ],
+    [
+      4,
+      "Kirk Nason",
+      3,
+      10.666666666666666
+    ]
+  ],
+  "columns": [
+    "ManagerKey",
+    "ManagerName",
+    "DirectReportCount",
+    "AvgTenureYears"
+  ],
+  "row_count": 11,
+  "latency_ms_gen": 19550,
+  "latency_ms_exec": 505,
+  "tokens_in": 16766,
+  "tokens_out": 1041,
+  "claude_error": null,
+  "sql_error": null
+}

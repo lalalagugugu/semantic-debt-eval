@@ -1,0 +1,15 @@
+{
+  "question_id": 51,
+  "sql": "SELECT count(*) AS total_stores FROM retail.DimStore",
+  "rows": [
+    [
+      306
+    ]
+  ],
+  "columns": [
+    "total_stores"
+  ],
+  "row_count": 1,
+  "exec_ms": 502,
+  "error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 83,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Off-by-one in 2008 and 2009 counts (18724 vs 18723, 17672 vs 17671), and the final retention % uses a different denominator (2008 returnees instead of the 2007 cohort), yielding 94.38% vs expected 94.39%\u2014genuinely different values and measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 849,
+  "judge_latency_ms": 22126
+}

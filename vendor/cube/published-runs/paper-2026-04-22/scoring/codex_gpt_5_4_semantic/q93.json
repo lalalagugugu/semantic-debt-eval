@@ -1,0 +1,11 @@
+{
+  "question_id": 93,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 46, server response: Code: 46. DB::Exception: Function with name `regrSlope` does not exist. In scope WITH promotion_performance AS (SELECT p.PromotionKey, p.PromotionName, p.DiscountPercent, sum(f.SalesQuantity) AS units_sold FROM retail.FactOnlineSales AS f INNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey WHERE (f.PromotionKey != 1) AND (p.DiscountPercent IS NOT NULL) GROUP BY p.PromotionKey, p.PromotionName, p.DiscountPercent) SELECT count() AS promotion_count, corrStable(DiscountPercent, units_sold) AS discount_pct_vs_units_correlation, regrSlope(units_sold, DiscountPercent) AS units_sold_per_1pct_discount, min(DiscountPercent) AS min_discount_pct, max(DiscountPercent) AS max_discount_pct, avg(units_sold) AS avg_units_per_promotion FROM promotion_performance. (UNKNOWN_FUNCTION) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

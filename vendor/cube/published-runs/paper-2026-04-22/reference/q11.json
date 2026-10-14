@@ -1,0 +1,45 @@
+{
+  "question_id": 11,
+  "sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      833911778.5435302
+    ],
+    [
+      "Cameras and camcorders",
+      598334988.6825628
+    ],
+    [
+      "Computers",
+      482566800.1789049
+    ],
+    [
+      "TV and Video",
+      412304199.8197775
+    ],
+    [
+      "Cell phones",
+      165713211.9949389
+    ],
+    [
+      "Audio",
+      36856719.46172009
+    ],
+    [
+      "Music, Movies and Audio Books",
+      30345766.303411912
+    ],
+    [
+      "Games and Toys",
+      6047306.743511561
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "total_sales"
+  ],
+  "row_count": 8,
+  "exec_ms": 593,
+  "error": null
+}

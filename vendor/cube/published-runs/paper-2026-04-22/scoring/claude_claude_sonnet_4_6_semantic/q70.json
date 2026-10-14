@@ -1,0 +1,11 @@
+{
+  "question_id": 70,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same StoreType groups with matching TotalSales and AvgSellingAreaSize values (within <1% drift); it simply omits the extra `stores` count column from the reference, which was not requested in the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 223,
+  "judge_latency_ms": 12286
+}

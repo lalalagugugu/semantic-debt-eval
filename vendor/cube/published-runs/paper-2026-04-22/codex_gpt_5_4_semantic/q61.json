@@ -1,0 +1,170 @@
+{
+  "question_id": 61,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    ps.ProductSubcategoryKey,\n    ps.ProductSubcategoryName,\n    sum(fos.SalesAmount) AS total_online_sales\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimDate AS d\n    ON fos.DateKey = d.DateKey\nINNER JOIN retail.DimProduct AS p\n    ON fos.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nWHERE d.CalendarYear = 2009\nGROUP BY\n    ps.ProductSubcategoryKey,\n    ps.ProductSubcategoryName\nHAVING sum(fos.SalesAmount) > 1000000\nORDER BY total_online_sales DESC",
+  "rows": [
+    [
+      27,
+      "Camcorders",
+      73068729.82999158
+    ],
+    [
+      19,
+      "Projectors & Screens",
+      67523354.93999207
+    ],
+    [
+      15,
+      "Laptops",
+      66922899.66849446
+    ],
+    [
+      41,
+      "Washers & Dryers",
+      64400719.6619987
+    ],
+    [
+      42,
+      "Refrigerators",
+      62920032.847984195
+    ],
+    [
+      11,
+      "Home Theater System",
+      52866813.41397716
+    ],
+    [
+      24,
+      "Digital SLR Cameras",
+      48962745.82899107
+    ],
+    [
+      45,
+      "Coffee Machines",
+      39700534.95239651
+    ],
+    [
+      46,
+      "Lamps",
+      39060917.81641917
+    ],
+    [
+      9,
+      "Televisions",
+      31463974.33350818
+    ],
+    [
+      18,
+      "Monitors",
+      25316411.49998659
+    ],
+    [
+      32,
+      "Smart phones & PDAs",
+      24839157.87999844
+    ],
+    [
+      43,
+      "Microwaves",
+      23792157.78962238
+    ],
+    [
+      47,
+      "Air Conditioners",
+      22763070.66421078
+    ],
+    [
+      44,
+      "Water Heaters",
+      22505275.700001504
+    ],
+    [
+      23,
+      "Digital Cameras",
+      21999626.000006154
+    ],
+    [
+      13,
+      "Car Video",
+      20935974.62999481
+    ],
+    [
+      31,
+      "Touch Screen Phones",
+      19684686.740002267
+    ],
+    [
+      20,
+      "Printers, Scanners & Fax",
+      16265530.550000729
+    ],
+    [
+      33,
+      "Cell phones Accessories",
+      15003897.672002427
+    ],
+    [
+      35,
+      "Movie DVD",
+      8857910.869301746
+    ],
+    [
+      48,
+      "Fans",
+      7068738.211400886
+    ],
+    [
+      1,
+      "MP4&MP3",
+      6199726.490300003
+    ],
+    [
+      6,
+      "Bluetooth Headphones",
+      5476681.371199356
+    ],
+    [
+      28,
+      "Cameras & Camcorders Accessories",
+      5397207.499399932
+    ],
+    [
+      4,
+      "Recording Pen",
+      4419299.384999858
+    ],
+    [
+      10,
+      "VCD & DVD",
+      3261383.4199997084
+    ],
+    [
+      22,
+      "Computers Accessories",
+      3006752.5025000963
+    ],
+    [
+      29,
+      "Home & Office Phones",
+      2720716.3930996433
+    ],
+    [
+      38,
+      "Boxed Games",
+      2057197.884998993
+    ]
+  ],
+  "columns": [
+    "ps.ProductSubcategoryKey",
+    "ProductSubcategoryName",
+    "total_online_sales"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 14731,
+  "latency_ms_exec": 615,
+  "tokens_in": 18830,
+  "tokens_out": 205,
+  "claude_error": null,
+  "sql_error": null
+}

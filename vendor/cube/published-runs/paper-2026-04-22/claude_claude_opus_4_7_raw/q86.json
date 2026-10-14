@@ -1,0 +1,201 @@
+{
+  "question_id": 86,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT psc.ProductSubcategoryName, corr(pr.DiscountPercent, s.SalesQuantity) AS discount_quantity_corr, count() AS sales_lines, sum(s.SalesQuantity) AS total_quantity FROM retail.FactSales AS s INNER JOIN retail.DimPromotion AS pr ON s.PromotionKey = pr.PromotionKey INNER JOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(s.DateKey) = 2009 AND pr.DiscountPercent IS NOT NULL GROUP BY psc.ProductSubcategoryName ORDER BY discount_quantity_corr DESC",
+  "rows": [
+    [
+      "Boxed Games",
+      0.09675335302359342,
+      15672,
+      1233909
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      0.06738536478458662,
+      18192,
+      410869
+    ],
+    [
+      "Cell phones Accessories",
+      0.06288256670112245,
+      8940,
+      4072820
+    ],
+    [
+      "VCD & DVD",
+      0.061397433571652324,
+      8554,
+      146053
+    ],
+    [
+      "Fans",
+      0.05383128621663396,
+      26466,
+      582330
+    ],
+    [
+      "Home Theater System",
+      0.053259647098720934,
+      34095,
+      489196
+    ],
+    [
+      "Laptops",
+      0.05237935361340447,
+      59146,
+      804980
+    ],
+    [
+      "Computers Accessories",
+      0.05031528805186769,
+      33402,
+      660875
+    ],
+    [
+      "Touch Screen Phones",
+      0.04770862754113668,
+      21449,
+      309087
+    ],
+    [
+      "Televisions",
+      0.04678398296203082,
+      16832,
+      257746
+    ],
+    [
+      "Bluetooth Headphones",
+      0.046229093424216355,
+      16694,
+      293984
+    ],
+    [
+      "MP4&MP3",
+      0.04377494883507889,
+      14539,
+      236217
+    ],
+    [
+      "Coffee Machines",
+      0.042490973134110675,
+      25529,
+      458753
+    ],
+    [
+      "Lamps",
+      0.041753074815061485,
+      54405,
+      980226
+    ],
+    [
+      "Air Conditioners",
+      0.040693906840768894,
+      21412,
+      325925
+    ],
+    [
+      "Digital SLR Cameras",
+      0.037366944687499015,
+      34352,
+      511054
+    ],
+    [
+      "Digital Cameras",
+      0.03389882838673143,
+      34068,
+      487078
+    ],
+    [
+      "Refrigerators",
+      0.031947620178734495,
+      29366,
+      406810
+    ],
+    [
+      "Home & Office Phones",
+      0.03183779214746549,
+      31334,
+      441818
+    ],
+    [
+      "Recording Pen",
+      0.028814702981032253,
+      6618,
+      106186
+    ],
+    [
+      "Printers, Scanners & Fax",
+      0.02831548344664858,
+      34799,
+      489931
+    ],
+    [
+      "Car Video",
+      0.025704160746084035,
+      15575,
+      249169
+    ],
+    [
+      "Camcorders",
+      0.025535413965305818,
+      35659,
+      503034
+    ],
+    [
+      "Washers & Dryers",
+      0.02509016608842412,
+      23950,
+      122744
+    ],
+    [
+      "Water Heaters",
+      0.02492616056020794,
+      10656,
+      149575
+    ],
+    [
+      "Projectors & Screens",
+      0.024523814357949585,
+      35334,
+      511681
+    ],
+    [
+      "Microwaves",
+      0.024459726777895943,
+      35490,
+      562293
+    ],
+    [
+      "Monitors",
+      0.023600095457126477,
+      26182,
+      462552
+    ],
+    [
+      "Movie DVD",
+      0.014012942954369357,
+      30886,
+      409504
+    ],
+    [
+      "Smart phones & PDAs",
+      -0.0003983956992294765,
+      33430,
+      403607
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "discount_quantity_corr",
+    "sales_lines",
+    "total_quantity"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 7922,
+  "latency_ms_exec": 586,
+  "tokens_in": 19152,
+  "tokens_out": 306,
+  "claude_error": null,
+  "sql_error": null
+}

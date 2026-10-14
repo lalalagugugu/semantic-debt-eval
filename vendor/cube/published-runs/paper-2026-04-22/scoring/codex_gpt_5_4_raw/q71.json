@@ -1,0 +1,11 @@
+{
+  "question_id": 71,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 8 category/subcategory pairs with matching sales amounts (differences are sub-1% floating point precision), just ordered alphabetically by category instead of by sales amount descending, which is acceptable since the question doesn't require a specific ordering.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 219,
+  "judge_latency_ms": 12316
+}

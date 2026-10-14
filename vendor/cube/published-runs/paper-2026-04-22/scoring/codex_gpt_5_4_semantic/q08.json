@@ -1,0 +1,11 @@
+{
+  "question_id": 8,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 17 salesperson rows as the reference (same FirstName/LastName values), just with additional columns and a different sort order, both of which are acceptable under the strict matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 220,
+  "judge_latency_ms": 10251
+}

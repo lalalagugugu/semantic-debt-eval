@@ -1,0 +1,33 @@
+{
+  "question_id": 96,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH customer_cohort AS (\n    SELECT\n        CustomerKey,\n        toYear(MIN(DateKey)) AS cohort_year\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncustomer_repeat AS (\n    SELECT\n        f.CustomerKey,\n        c.cohort_year,\n        toUInt8(max(toYear(f.DateKey)) > c.cohort_year) AS came_back\n    FROM retail.FactOnlineSales f\n    JOIN customer_cohort c ON f.CustomerKey = c.CustomerKey\n    GROUP BY f.CustomerKey, c.cohort_year\n)\nSELECT\n    cohort_year,\n    count()                                          AS total_customers,\n    sum(came_back)                                   AS repeat_customers,\n    round(sum(came_back) * 100.0 / count(), 2)       AS repeat_pct\nFROM customer_repeat\nGROUP BY cohort_year\nORDER BY cohort_year",
+  "rows": [
+    [
+      2007,
+      18868,
+      18861,
+      99.96
+    ],
+    [
+      2009,
+      1,
+      0,
+      0.0
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "total_customers",
+    "repeat_customers",
+    "repeat_pct"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 16130,
+  "latency_ms_exec": 655,
+  "tokens_in": 16762,
+  "tokens_out": 973,
+  "claude_error": null,
+  "sql_error": null
+}

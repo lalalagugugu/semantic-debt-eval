@@ -1,0 +1,11 @@
+{
+  "question_id": 36,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate returns per-customer rows instead of aggregated segment counts, and uses a hardcoded date ('2009-12-31') rather than the dynamic max date, making both the output structure and potentially the values wrong.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1104,
+  "judge_latency_ms": 29626
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 29,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate returns all NULLs due to using wrong IsHoliday filter values ('TRUE'/'FALSE' instead of 'Yes'/'No') and querying FactSales instead of FactOnlineSales, producing no valid result versus the expected 0.03.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 252,
+  "judge_latency_ms": 12612
+}

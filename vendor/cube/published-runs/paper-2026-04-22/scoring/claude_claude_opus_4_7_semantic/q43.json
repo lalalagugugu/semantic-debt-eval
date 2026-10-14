@@ -1,0 +1,11 @@
+{
+  "question_id": 43,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The candidate groups by country (29 rows) instead of continent (3 rows), but the country-level gross margins are a valid breakdown that aggregate to the reference continental totals (e.g., US + Canada \u2248 524.3M matches North America exactly), making it an analytically correct superset answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 778,
+  "judge_latency_ms": 23382
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 42,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    toYear(f.DateKey)                                                          AS Year,\n    sum(f.SalesAmount)                                                         AS TotalSales,\n    sum(f.SalesQuantity)                                                       AS UnitsSold,\n    sum(f.TotalCost)                                                           AS TotalCost,\n    sum(f.SalesAmount) - sum(f.TotalCost)                                      AS GrossMargin,\n    round((sum(f.SalesAmount) - sum(f.TotalCost)) * 100.0\n          / nullif(sum(f.SalesAmount), 0), 2)                                  AS GrossMarginPct,\n    sum(f.ReturnQuantity)                                                      AS UnitsReturned,\n    round(sum(f.ReturnQuantity) * 100.0\n          / nullif(sum(f.SalesQuantity), 0), 2)                                AS ReturnRatePct,\n    countDistinct(f.SalesOrderNumber)                                          AS NumOrders,\n    round(sum(f.SalesAmount)\n          / nullif(countDistinct(f.SalesOrderNumber), 0), 2)                   AS AvgOrderValue,\n    sum(f.DiscountAmount)                                                      AS TotalDiscounts\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p\n    ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory sc\n    ON p.ProductSubcategoryKey = sc.ProductSubcategoryKey\nJOIN retail.DimProductCategory cat\n    ON sc.ProductCategoryKey = cat.ProductCategoryKey\nWHERE cat.ProductCategoryName = 'Cameras'\nGROUP BY Year\nORDER BY Year",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 14289,
+  "latency_ms_exec": 2985,
+  "tokens_in": 16750,
+  "tokens_out": 678,
+  "claude_error": null,
+  "sql_error": null
+}

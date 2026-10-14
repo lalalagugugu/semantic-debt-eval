@@ -1,0 +1,80 @@
+{
+  "question_id": 23,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT month, monthly_sales, sum(monthly_sales) OVER (ORDER BY month) AS cumulative_sales\nFROM (\n  SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS monthly_sales\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY month\n)\nORDER BY month",
+  "rows": [
+    [
+      1,
+      57453262.781200886,
+      57453262.781200886
+    ],
+    [
+      2,
+      59891424.711600766,
+      117344687.49280165
+    ],
+    [
+      3,
+      60807494.09499969,
+      178152181.58780134
+    ],
+    [
+      4,
+      69888328.73790286,
+      248040510.32570422
+    ],
+    [
+      5,
+      82082708.7124054,
+      330123219.0381096
+    ],
+    [
+      6,
+      81822800.0620058,
+      411946019.1001154
+    ],
+    [
+      7,
+      82779485.6864034,
+      494725504.7865188
+    ],
+    [
+      8,
+      77599793.89820383,
+      572325298.6847227
+    ],
+    [
+      9,
+      74684747.96300392,
+      647010046.6477265
+    ],
+    [
+      10,
+      75213262.40720837,
+      722223309.0549349
+    ],
+    [
+      11,
+      67175159.95190069,
+      789398469.0068356
+    ],
+    [
+      12,
+      68329562.33910024,
+      857728031.3459358
+    ]
+  ],
+  "columns": [
+    "month",
+    "monthly_sales",
+    "cumulative_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 6885,
+  "latency_ms_exec": 517,
+  "tokens_in": 23315,
+  "tokens_out": 145,
+  "claude_error": null,
+  "sql_error": null
+}

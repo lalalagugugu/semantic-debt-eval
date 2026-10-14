@@ -1,0 +1,69 @@
+{
+  "question_id": 99,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH daily AS (\n    SELECT\n        fs.DateKey,\n        ps.ProductCategoryKey,\n        sum(fs.SalesAmount) AS daily_sales,\n        d.CalendarDayOfWeekLabel IN ('Saturday', 'Sunday') AS is_weekend\n    FROM retail.FactSales fs\n    JOIN retail.DimProduct p ON fs.ProductKey = p.ProductKey\n    JOIN retail.DimProductSubcategory ps ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    JOIN retail.DimDate d ON fs.DateKey = d.DateKey\n    GROUP BY fs.DateKey, ps.ProductCategoryKey, is_weekend\n)\nSELECT\n    pc.ProductCategoryName,\n    avgIf(daily_sales, is_weekend)     AS avg_weekend_day_sales,\n    avgIf(daily_sales, NOT is_weekend) AS avg_weekday_sales,\n    avgIf(daily_sales, is_weekend) / avgIf(daily_sales, NOT is_weekend) AS weekend_to_weekday_ratio\nFROM daily\nJOIN retail.DimProductCategory pc ON daily.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY weekend_to_weekday_ratio DESC",
+  "rows": [
+    [
+      "Audio",
+      140382.2774673077,
+      137519.25222079072,
+      1.0208190867844475
+    ],
+    [
+      "Cameras and camcorders",
+      2339538.3414205126,
+      2320258.174575128,
+      1.0083094920456062
+    ],
+    [
+      "Cell phones",
+      811189.4620227562,
+      805178.3708506385,
+      1.007465539798054
+    ],
+    [
+      "Games and Toys",
+      29718.43206730769,
+      29553.801311989806,
+      1.0055705441604594
+    ],
+    [
+      "Home Appliances",
+      3584275.186743909,
+      3577095.5726108393,
+      1.0020071071592391
+    ],
+    [
+      "TV and Video",
+      1240549.6608535254,
+      1241160.2303289545,
+      0.9995080655498708
+    ],
+    [
+      "Computers",
+      2390431.7502804482,
+      2392378.1440146673,
+      0.9991864188614628
+    ],
+    [
+      "Music, Movies and Audio Books",
+      149159.35709166666,
+      152126.25837818868,
+      0.9804971126079612
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "avg_weekend_day_sales",
+    "avg_weekday_sales",
+    "weekend_to_weekday_ratio"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 29817,
+  "latency_ms_exec": 600,
+  "tokens_in": 13805,
+  "tokens_out": 1927,
+  "claude_error": null,
+  "sql_error": null
+}

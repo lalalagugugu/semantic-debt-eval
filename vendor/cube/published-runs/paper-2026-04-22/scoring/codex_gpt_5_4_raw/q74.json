@@ -1,0 +1,11 @@
+{
+  "question_id": 74,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, producing entirely different stores, products, and sales figures (100 rows from physical stores) versus the expected 9 rows from online stores only.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 283,
+  "judge_latency_ms": 12338
+}

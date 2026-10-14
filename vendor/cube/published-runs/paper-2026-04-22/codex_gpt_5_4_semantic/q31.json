@@ -1,0 +1,15 @@
+{
+  "question_id": 31,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    pc.ProductCategoryName,\n    sumIf(sp.Amount, sp.ScenarioKey = 1) AS actual_sales_revenue,\n    sumIf(sp.Amount, sp.ScenarioKey = 2) AS budget_sales_revenue,\n    sumIf(sp.Amount, sp.ScenarioKey = 1) - sumIf(sp.Amount, sp.ScenarioKey = 2) AS variance_amount,\n    (sumIf(sp.Amount, sp.ScenarioKey = 1) - sumIf(sp.Amount, sp.ScenarioKey = 2)) * 100.0\n        / nullIf(sumIf(sp.Amount, sp.ScenarioKey = 2), 0) AS variance_pct\nFROM retail.FactStrategyPlan AS sp\nINNER JOIN retail.DimProductCategory AS pc\n    ON sp.ProductCategoryKey = pc.ProductCategoryKey\nWHERE sp.AccountKey = 50\n  AND toYear(sp.DateKey) = 2009\n  AND sp.ScenarioKey IN (1, 2)\nGROUP BY pc.ProductCategoryName\nORDER BY pc.ProductCategoryName",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 15326,
+  "latency_ms_exec": 497,
+  "tokens_in": 19684,
+  "tokens_out": 323,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 30,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical rows to the reference for all 31 December 2009 dates, using a semantically equivalent SQL approach (inline window function on aggregated sum vs subquery).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 132,
+  "judge_latency_ms": 11409
+}

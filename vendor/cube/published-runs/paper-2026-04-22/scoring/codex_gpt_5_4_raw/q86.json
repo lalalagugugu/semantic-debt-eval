@@ -1,0 +1,11 @@
+{
+  "question_id": 86,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, replaces NULL DiscountPercent with 0 instead of filtering them out, omits the HAVING observations>100 filter, and returns no observation counts \u2014 resulting in entirely different correlation values and a different set of subcategories.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 259,
+  "judge_latency_ms": 13318
+}

@@ -1,0 +1,19 @@
+{
+  "question_id": 93,
+  "sql": "WITH promo_stats AS (\n  SELECT f.PromotionKey,\n         dp.DiscountPercent,\n         sum(f.SalesQuantity) AS units_sold,\n         sum(f.SalesAmount) AS revenue\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion dp ON dp.PromotionKey = f.PromotionKey\n  WHERE f.PromotionKey <> 1 AND dp.DiscountPercent IS NOT NULL\n  GROUP BY f.PromotionKey, dp.DiscountPercent\n)\nSELECT corr(DiscountPercent, units_sold) AS discount_qty_correlation,\n       corr(DiscountPercent, revenue) AS discount_revenue_correlation,\n       count() AS promos_analyzed\nFROM promo_stats",
+  "rows": [
+    [
+      -0.004145495985194241,
+      -0.22859850665984702,
+      27
+    ]
+  ],
+  "columns": [
+    "discount_qty_correlation",
+    "discount_revenue_correlation",
+    "promos_analyzed"
+  ],
+  "row_count": 1,
+  "exec_ms": 608,
+  "error": null
+}

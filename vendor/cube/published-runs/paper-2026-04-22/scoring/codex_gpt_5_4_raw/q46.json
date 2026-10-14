@@ -1,0 +1,11 @@
+{
+  "question_id": 46,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate segments by Occupation (returning \"Professional\") instead of Education (expected \"Partial College\"), uses a different profit formula, and produces a different value (~261M vs ~327M), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 204,
+  "judge_latency_ms": 11159
+}

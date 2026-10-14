@@ -1,0 +1,11 @@
+{
+  "question_id": 23,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries `FactSales` instead of `FactOnlineSales`, producing wildly different values (e.g., Jan cumulative ~270M vs expected ~57M), so it answers a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 212,
+  "judge_latency_ms": 11189
+}

@@ -1,0 +1,15 @@
+{
+  "question_id": 85,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH actual AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmount) AS actual_sales\n    FROM retail.FactSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nquota AS (\n    SELECT\n        StoreKey,\n        sum(SalesAmountQuota) AS quota_amount\n    FROM retail.FactSalesQuota\n    WHERE toYear(DateKey) = 2009\n    GROUP BY StoreKey\n),\nattainment AS (\n    SELECT\n        a.StoreKey,\n        st.StoreName,\n        a.actual_sales,\n        q.quota_amount,\n        a.actual_sales / nullif(q.quota_amount, 0) AS quota_attainment\n    FROM actual a\n    JOIN quota q ON a.StoreKey = q.StoreKey\n    JOIN retail.DimStore st ON a.StoreKey = st.StoreKey\n)\nSELECT StoreKey, StoreName, actual_sales, quota_amount, quota_attainment, 'Top 5' AS segment\nFROM attainment\nORDER BY quota_attainment DESC\nLIMIT 5\nUNION ALL\nSELECT StoreKey, StoreName, actual_sales, quota_amount, quota_attainment, 'Bottom 5' AS segment\nFROM attainment\nORDER BY quota_attainment ASC\nLIMIT 5",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 22280,
+  "latency_ms_exec": null,
+  "tokens_in": 16774,
+  "tokens_out": 1592,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope WITH actual AS (SELECT StoreKey, sum(SalesAmount) AS actual_sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY StoreKey), quota AS (SELECT StoreKey, sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 GROUP BY StoreKey), attainment AS (SELECT a.StoreKey, st.StoreName, a.actual_sales, q.quota_amount, a.actual_sales / nullif(q.quota_amount, 0) AS quota_attainment FROM actual AS a INNER JOIN quota AS q ON a.StoreKey = q.StoreKey INNER JOIN retail.DimStore AS st ON a.StoreKey = st.StoreKey) SELECT StoreKey, StoreName, actual_sales, quota_amount, quota_attainment, 'Top 5' AS segment FROM attainment ORDER BY quota_attainment DESC LIMIT 5. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

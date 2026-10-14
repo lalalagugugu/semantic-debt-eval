@@ -1,0 +1,722 @@
+{
+  "question_id": 100,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH customer_metrics AS (\n    SELECT\n        CustomerKey,\n        countDistinct(SalesOrderNumber)                                      AS order_count,\n        sum(SalesAmount) / countDistinct(SalesOrderNumber)                   AS avg_order_size\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\nthresholds AS (\n    SELECT\n        quantile(0.9)(order_count)     AS order_count_p90,\n        quantile(0.9)(avg_order_size)  AS avg_order_size_p90\n    FROM customer_metrics\n)\nSELECT\n    cm.CustomerKey,\n    dc.FirstName,\n    dc.LastName,\n    cm.order_count,\n    round(cm.avg_order_size, 2) AS avg_order_size\nFROM customer_metrics cm\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer dc ON cm.CustomerKey = dc.CustomerKey\nWHERE cm.order_count    >= t.order_count_p90\n  AND cm.avg_order_size >= t.avg_order_size_p90\nORDER BY cm.order_count DESC, cm.avg_order_size DESC",
+  "rows": [
+    [
+      18800,
+      "Not Provided",
+      "Not Provided",
+      4687,
+      1273.55
+    ],
+    [
+      19036,
+      "Not Provided",
+      "Not Provided",
+      842,
+      6049.16
+    ],
+    [
+      19037,
+      "Not Provided",
+      "Not Provided",
+      443,
+      36743.26
+    ],
+    [
+      19038,
+      "Not Provided",
+      "Not Provided",
+      364,
+      45414.88
+    ],
+    [
+      19040,
+      "Not Provided",
+      "Not Provided",
+      360,
+      51664.93
+    ],
+    [
+      19042,
+      "Not Provided",
+      "Not Provided",
+      356,
+      50861.01
+    ],
+    [
+      19041,
+      "Not Provided",
+      "Not Provided",
+      355,
+      51796.8
+    ],
+    [
+      19039,
+      "Not Provided",
+      "Not Provided",
+      355,
+      49789.2
+    ],
+    [
+      19044,
+      "Not Provided",
+      "Not Provided",
+      354,
+      44696.41
+    ],
+    [
+      19046,
+      "Not Provided",
+      "Not Provided",
+      354,
+      41339.64
+    ],
+    [
+      19043,
+      "Not Provided",
+      "Not Provided",
+      343,
+      53049.34
+    ],
+    [
+      19045,
+      "Not Provided",
+      "Not Provided",
+      343,
+      47375.58
+    ],
+    [
+      19080,
+      "Not Provided",
+      "Not Provided",
+      341,
+      32524.31
+    ],
+    [
+      19081,
+      "Not Provided",
+      "Not Provided",
+      336,
+      32866.75
+    ],
+    [
+      19079,
+      "Not Provided",
+      "Not Provided",
+      325,
+      37258.69
+    ],
+    [
+      19047,
+      "Not Provided",
+      "Not Provided",
+      320,
+      43842.53
+    ],
+    [
+      19088,
+      "Not Provided",
+      "Not Provided",
+      307,
+      48539.53
+    ],
+    [
+      19087,
+      "Not Provided",
+      "Not Provided",
+      305,
+      48077.17
+    ],
+    [
+      19082,
+      "Not Provided",
+      "Not Provided",
+      304,
+      40900.38
+    ],
+    [
+      19060,
+      "Not Provided",
+      "Not Provided",
+      294,
+      47307.26
+    ],
+    [
+      19058,
+      "Not Provided",
+      "Not Provided",
+      293,
+      51369.88
+    ],
+    [
+      19059,
+      "Not Provided",
+      "Not Provided",
+      286,
+      52184.56
+    ],
+    [
+      19051,
+      "Not Provided",
+      "Not Provided",
+      285,
+      64101.72
+    ],
+    [
+      19086,
+      "Not Provided",
+      "Not Provided",
+      283,
+      50854.07
+    ],
+    [
+      19061,
+      "Not Provided",
+      "Not Provided",
+      283,
+      41709.14
+    ],
+    [
+      19057,
+      "Not Provided",
+      "Not Provided",
+      281,
+      55806.5
+    ],
+    [
+      19049,
+      "Not Provided",
+      "Not Provided",
+      275,
+      60259.59
+    ],
+    [
+      19055,
+      "Not Provided",
+      "Not Provided",
+      274,
+      64763.41
+    ],
+    [
+      19053,
+      "Not Provided",
+      "Not Provided",
+      272,
+      70332.55
+    ],
+    [
+      19089,
+      "Not Provided",
+      "Not Provided",
+      271,
+      49339.23
+    ],
+    [
+      19048,
+      "Not Provided",
+      "Not Provided",
+      269,
+      65910.63
+    ],
+    [
+      19056,
+      "Not Provided",
+      "Not Provided",
+      269,
+      59810.59
+    ],
+    [
+      19052,
+      "Not Provided",
+      "Not Provided",
+      265,
+      67781.74
+    ],
+    [
+      19085,
+      "Not Provided",
+      "Not Provided",
+      265,
+      52705.38
+    ],
+    [
+      19050,
+      "Not Provided",
+      "Not Provided",
+      262,
+      68538.7
+    ],
+    [
+      19083,
+      "Not Provided",
+      "Not Provided",
+      262,
+      49034.95
+    ],
+    [
+      19084,
+      "Not Provided",
+      "Not Provided",
+      255,
+      48721.57
+    ],
+    [
+      19090,
+      "Not Provided",
+      "Not Provided",
+      254,
+      51862.0
+    ],
+    [
+      19091,
+      "Not Provided",
+      "Not Provided",
+      254,
+      49248.25
+    ],
+    [
+      19095,
+      "Not Provided",
+      "Not Provided",
+      251,
+      45023.38
+    ],
+    [
+      19054,
+      "Not Provided",
+      "Not Provided",
+      248,
+      71025.83
+    ],
+    [
+      19094,
+      "Not Provided",
+      "Not Provided",
+      248,
+      48269.07
+    ],
+    [
+      19104,
+      "Not Provided",
+      "Not Provided",
+      240,
+      53692.43
+    ],
+    [
+      19063,
+      "Not Provided",
+      "Not Provided",
+      238,
+      56741.31
+    ],
+    [
+      19064,
+      "Not Provided",
+      "Not Provided",
+      230,
+      52088.37
+    ],
+    [
+      19103,
+      "Not Provided",
+      "Not Provided",
+      228,
+      57356.04
+    ],
+    [
+      19105,
+      "Not Provided",
+      "Not Provided",
+      226,
+      58916.55
+    ],
+    [
+      19062,
+      "Not Provided",
+      "Not Provided",
+      226,
+      57948.31
+    ],
+    [
+      19092,
+      "Not Provided",
+      "Not Provided",
+      221,
+      51857.33
+    ],
+    [
+      19093,
+      "Not Provided",
+      "Not Provided",
+      219,
+      52759.91
+    ],
+    [
+      19107,
+      "Not Provided",
+      "Not Provided",
+      218,
+      60959.82
+    ],
+    [
+      19106,
+      "Not Provided",
+      "Not Provided",
+      217,
+      62612.73
+    ],
+    [
+      19097,
+      "Not Provided",
+      "Not Provided",
+      210,
+      56109.08
+    ],
+    [
+      19100,
+      "Not Provided",
+      "Not Provided",
+      205,
+      56821.51
+    ],
+    [
+      19069,
+      "Not Provided",
+      "Not Provided",
+      204,
+      73176.39
+    ],
+    [
+      19072,
+      "Not Provided",
+      "Not Provided",
+      204,
+      65150.61
+    ],
+    [
+      19066,
+      "Not Provided",
+      "Not Provided",
+      204,
+      64175.71
+    ],
+    [
+      19102,
+      "Not Provided",
+      "Not Provided",
+      204,
+      62771.56
+    ],
+    [
+      19096,
+      "Not Provided",
+      "Not Provided",
+      204,
+      52900.49
+    ],
+    [
+      19076,
+      "Not Provided",
+      "Not Provided",
+      203,
+      57254.77
+    ],
+    [
+      19075,
+      "Not Provided",
+      "Not Provided",
+      202,
+      56564.97
+    ],
+    [
+      19073,
+      "Not Provided",
+      "Not Provided",
+      201,
+      64343.48
+    ],
+    [
+      19065,
+      "Not Provided",
+      "Not Provided",
+      201,
+      57503.87
+    ],
+    [
+      19067,
+      "Not Provided",
+      "Not Provided",
+      200,
+      64434.18
+    ],
+    [
+      19101,
+      "Not Provided",
+      "Not Provided",
+      199,
+      60392.28
+    ],
+    [
+      19099,
+      "Not Provided",
+      "Not Provided",
+      198,
+      61804.27
+    ],
+    [
+      19074,
+      "Not Provided",
+      "Not Provided",
+      198,
+      61260.11
+    ],
+    [
+      19068,
+      "Not Provided",
+      "Not Provided",
+      196,
+      70553.98
+    ],
+    [
+      19108,
+      "Not Provided",
+      "Not Provided",
+      195,
+      63223.72
+    ],
+    [
+      19071,
+      "Not Provided",
+      "Not Provided",
+      194,
+      70226.85
+    ],
+    [
+      19070,
+      "Not Provided",
+      "Not Provided",
+      192,
+      67815.01
+    ],
+    [
+      19110,
+      "Not Provided",
+      "Not Provided",
+      192,
+      64980.33
+    ],
+    [
+      19111,
+      "Not Provided",
+      "Not Provided",
+      189,
+      65291.66
+    ],
+    [
+      19077,
+      "Not Provided",
+      "Not Provided",
+      186,
+      61861.89
+    ],
+    [
+      19120,
+      "Not Provided",
+      "Not Provided",
+      185,
+      51409.32
+    ],
+    [
+      19112,
+      "Not Provided",
+      "Not Provided",
+      183,
+      53433.25
+    ],
+    [
+      19098,
+      "Not Provided",
+      "Not Provided",
+      181,
+      58266.05
+    ],
+    [
+      19118,
+      "Not Provided",
+      "Not Provided",
+      181,
+      48664.9
+    ],
+    [
+      19117,
+      "Not Provided",
+      "Not Provided",
+      178,
+      44792.95
+    ],
+    [
+      19109,
+      "Not Provided",
+      "Not Provided",
+      176,
+      67087.54
+    ],
+    [
+      19116,
+      "Not Provided",
+      "Not Provided",
+      172,
+      49966.95
+    ],
+    [
+      19119,
+      "Not Provided",
+      "Not Provided",
+      172,
+      49732.95
+    ],
+    [
+      19078,
+      "Not Provided",
+      "Not Provided",
+      170,
+      68089.65
+    ],
+    [
+      18761,
+      "Not Provided",
+      "Not Provided",
+      169,
+      17905.36
+    ],
+    [
+      19121,
+      "Not Provided",
+      "Not Provided",
+      168,
+      52304.49
+    ],
+    [
+      19113,
+      "Not Provided",
+      "Not Provided",
+      163,
+      51289.15
+    ],
+    [
+      19136,
+      "Not Provided",
+      "Not Provided",
+      160,
+      72240.29
+    ],
+    [
+      19137,
+      "Not Provided",
+      "Not Provided",
+      160,
+      69456.46
+    ],
+    [
+      19115,
+      "Not Provided",
+      "Not Provided",
+      160,
+      50800.57
+    ],
+    [
+      19122,
+      "Not Provided",
+      "Not Provided",
+      152,
+      64483.76
+    ],
+    [
+      19123,
+      "Not Provided",
+      "Not Provided",
+      149,
+      58557.04
+    ],
+    [
+      19135,
+      "Not Provided",
+      "Not Provided",
+      148,
+      72653.61
+    ],
+    [
+      19134,
+      "Not Provided",
+      "Not Provided",
+      147,
+      71135.27
+    ],
+    [
+      19114,
+      "Not Provided",
+      "Not Provided",
+      147,
+      54673.08
+    ],
+    [
+      19133,
+      "Not Provided",
+      "Not Provided",
+      146,
+      74883.71
+    ],
+    [
+      19127,
+      "Not Provided",
+      "Not Provided",
+      146,
+      64543.97
+    ],
+    [
+      19126,
+      "Not Provided",
+      "Not Provided",
+      145,
+      61753.45
+    ],
+    [
+      19125,
+      "Not Provided",
+      "Not Provided",
+      145,
+      61085.5
+    ],
+    [
+      19131,
+      "Not Provided",
+      "Not Provided",
+      144,
+      64214.75
+    ],
+    [
+      19124,
+      "Not Provided",
+      "Not Provided",
+      144,
+      58556.91
+    ]
+  ],
+  "columns": [
+    "cm.CustomerKey",
+    "FirstName",
+    "LastName",
+    "order_count",
+    "avg_order_size"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 13768,
+  "latency_ms_exec": 1033,
+  "tokens_in": 16772,
+  "tokens_out": 729,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,514 @@
+{
+  "question_id": 21,
+  "sql": "WITH latest AS (SELECT StoreKey, ProductKey, MAX(DateKey) as max_date FROM retail.FactInventory GROUP BY StoreKey, ProductKey) SELECT s.StoreName, p.ProductName, i.OnHandQuantity FROM retail.FactInventory i JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date JOIN retail.DimStore s ON i.StoreKey = s.StoreKey JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey",
+  "rows": [
+    [
+      "Contoso Granger Store",
+      "WWI Wall Lamp E215 Silver",
+      15
+    ],
+    [
+      "Contoso Ramstein Store",
+      "A. Datum All in One Digital Camera M200 Silver",
+      11
+    ],
+    [
+      "Contoso Glasgow Store",
+      "Contoso Coffee Maker 12C M1000 White",
+      13
+    ],
+    [
+      "Contoso Littleton Store",
+      "Contoso USB Optical Mouse E200 Gold",
+      59
+    ],
+    [
+      "Contoso Nagoya Store",
+      "Contoso Washer & Dryer 25.5in M255 Green",
+      6
+    ],
+    [
+      "Contoso Litchfield County Store",
+      "Adventure Works Coffee Maker 4C E080 Silver",
+      7
+    ],
+    [
+      "Contoso Boston Store",
+      "A. Datum Ultra Compact Digital Camera M190 Orange",
+      10
+    ],
+    [
+      "Contoso Montreal No.2 Store",
+      "Proseware Air conditioner 7000BTU E260 Grey",
+      26
+    ],
+    [
+      "Contoso Elmira Store",
+      "Proseware Floor Lamp M0215 Blue",
+      19
+    ],
+    [
+      "Contoso Hackensack Store",
+      "Adventure Works Desk Lamp E1200 Black",
+      13
+    ],
+    [
+      "Contoso Westminster Store",
+      "The Phone Company PDA Handheld 3.5 inch M610 Silver",
+      21
+    ],
+    [
+      "Contoso Toronto No.3 Store",
+      "Litware USB Foam Fan E1301 Red",
+      15
+    ],
+    [
+      "Contoso Toulouse Store",
+      "MGS Hand Games for 12-16 boys E600 Silver",
+      20
+    ],
+    [
+      "Contoso Knotty Ash Store",
+      "Contoso Mouse Lock Bundle E200 Grey",
+      5
+    ],
+    [
+      "Contoso Falmouth Store",
+      "SV Hand Games for Office worker L28 Red",
+      38
+    ],
+    [
+      "Contoso Port Washington Store",
+      "Contoso Water Heater 1.5GPM E0800 Silver",
+      19
+    ],
+    [
+      "Contoso Hartford Store",
+      "Contoso Connectivity Starter Kit Smart Buy M680 White",
+      16
+    ],
+    [
+      "Contoso Nizhny Novgorod Store",
+      "Litware Refrigerator 3.2CuFt E160 Green",
+      16
+    ],
+    [
+      "Contoso Greeley  No.1 Store",
+      "A. Datum All in One Digital Camera M200 Black",
+      14
+    ],
+    [
+      "Contoso Bucharest Store",
+      "Adventure Works Chandelier M8150 Silver",
+      20
+    ],
+    [
+      "Contoso Tampa Store",
+      "SV DVD External DVD Burner M200 Grey",
+      15
+    ],
+    [
+      "Contoso Fort Atkinson Store",
+      "Contoso Microwave 1.5CuFt X0110 Silver",
+      13
+    ],
+    [
+      "Contoso Miami No.1 Store",
+      "Contoso Projector 480p M481 White",
+      24
+    ],
+    [
+      "Contoso Bayonne Store",
+      "Contoso Air conditioner 8000BTU M0320 Grey",
+      17
+    ],
+    [
+      "Contoso Cheney Store",
+      "Fabrikam Microwave 1.0CuFt E1100 Black",
+      30
+    ],
+    [
+      "Contoso Lewiston Store",
+      "Proseware Ink Jet Wireless All-In-One Printer M400 White",
+      17
+    ],
+    [
+      "Contoso Bangor Store",
+      "Fabrikam Refrigerator 9.7CuFt M5600 Silver",
+      2
+    ],
+    [
+      "Contoso West Yorkshire Store",
+      "Contoso Lens cap E80 Black",
+      8
+    ],
+    [
+      "Contoso Castle Rock Store",
+      "WWI Projector 720p LCD56 Black",
+      14
+    ],
+    [
+      "Contoso North America Reseller",
+      "Contoso DVD 9-Inch Player Portable M300 White",
+      45
+    ],
+    [
+      "Contoso Amsterdam Store",
+      "Litware 3-Speed Oscillating Blower Fan M115 Black",
+      12
+    ],
+    [
+      "Contoso obamberg Store",
+      "WWI CRT17 E106 Black",
+      16
+    ],
+    [
+      "Contoso Leominster Store",
+      "Fabrikam Refrigerator 3.2CuFt E1600 Blue",
+      18
+    ],
+    [
+      "Contoso Seattle No.2 Store",
+      "Litware Wall Lamp E3015 Silver",
+      5
+    ],
+    [
+      "Contoso Manchester Store",
+      "Litware 14\" High Velocity Floor Fan E801 Silver",
+      20
+    ],
+    [
+      "Contoso Denver No.1 Store",
+      "Proseware High-Performance Business-Class Laser Fax X200 Black",
+      13
+    ],
+    [
+      "Contoso Anchorage Store",
+      "Litware 18'' Oscillating Pedestal Fan M145 Blue",
+      18
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      "Contoso USB 2.0 Dock Station docking station M800 Grey",
+      7
+    ],
+    [
+      "Contoso Georgetown Store",
+      "Proseware Laser Jet Color Printer X300 Grey",
+      19
+    ],
+    [
+      "Contoso Oshkosh Store",
+      "Litware Washer & Dryer 27in L420 Silver",
+      6
+    ],
+    [
+      "Contoso Hong Kong No.2 Store",
+      "WWI Chandelier M615 Black",
+      7
+    ],
+    [
+      "Contoso Torino Store",
+      "Litware Refrigerator 1.7CuFt E120 Blue",
+      12
+    ],
+    [
+      "Contoso Ithaca Store",
+      "Contoso Air conditioner 10000BTU M0490 White",
+      15
+    ],
+    [
+      "Contoso Lowell Store",
+      "Proseware Screen 113in X1609 Silver",
+      26
+    ],
+    [
+      "Contoso Hartford Store",
+      "Fabrikam Social Videographer 1/2\" 3mm E300 Blue",
+      15
+    ],
+    [
+      "Contoso Tampa Store",
+      "Adventure Works LCD17W E203 Black",
+      8
+    ],
+    [
+      "Contoso Greeley  No.1 Store",
+      "Fabrikam Home and Vacation Moviemaker 1\" 25mm M400 Blue",
+      18
+    ],
+    [
+      "Contoso Knotty Ash Store",
+      "Contoso Rechargeable Li-Ion Battery Pack E300 Black",
+      14
+    ],
+    [
+      "Contoso Bacliff Store",
+      "Contoso Home Theater System 4.1 Channel M1400 Silver",
+      13
+    ],
+    [
+      "Contoso Littleton Store",
+      "Fabrikam Business Videographer 1/3'' 8.5mm M380 Black",
+      17
+    ],
+    [
+      "Contoso Nagoya Store",
+      "Adventure Works 40\" LCD HDTV M690 White",
+      7
+    ],
+    [
+      "Contoso Somerville Store",
+      "Proseware Laptop15.4W M518 Black",
+      17
+    ],
+    [
+      "Contoso Ramstein Store",
+      "A. Datum Point Shoot Digital Camera M500 Silver Grey",
+      11
+    ],
+    [
+      "Contoso Boston Store",
+      "A. Datum SLR Camera 35\" M358 Gold",
+      13
+    ],
+    [
+      "Contoso Mumbai Store",
+      "Contoso KSU-less key system M38 Black",
+      10
+    ],
+    [
+      "Contoso Grand Prairie Store",
+      "Fabrikam Social Videographer 2/3'' 17mm E100 Grey",
+      3
+    ],
+    [
+      "Contoso Humble Store",
+      "Litware Home Theater System 5.1 Channel M511 Silver",
+      18
+    ],
+    [
+      "Contoso Denver No.1 Store",
+      "Contoso Digital Cordless Expansion Handset Phone M900 White",
+      14
+    ],
+    [
+      "Contoso obamberg Store",
+      "The Phone Company Smart phones 6-LINE SCREEN M21 Black",
+      20
+    ],
+    [
+      "Contoso Leominster Store",
+      "NT Wireless Bluetooth Stereo Headphones E102 White",
+      15
+    ],
+    [
+      "Contoso Torino Store",
+      "Adventure Works 19\" Portable LCD HDTV M110 White",
+      20
+    ],
+    [
+      "Contoso Georgetown Store",
+      "Contoso Private Automatic Branch Exchange M65 Grey",
+      19
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      "Contoso Lens Cap Keeper E314 Silver",
+      8
+    ],
+    [
+      "Contoso Lewiston Store",
+      "Contoso Mini Battery Charger Kit E320 Black",
+      10
+    ],
+    [
+      "Contoso Miami No.1 Store",
+      "The Phone Company Touch Screen Phones 5-Wire/On-wall M508 Grey",
+      10
+    ],
+    [
+      "Contoso Castle Rock Store",
+      "The Phone Company Touch Screen Phones Infrared M901 Gold",
+      26
+    ],
+    [
+      "Contoso West Yorkshire Store",
+      "Contoso Phone with 13-Number Memory (210) M301 Black",
+      8
+    ],
+    [
+      "Contoso Bangor Store",
+      "SV 22xDVD M600 Silver",
+      15
+    ],
+    [
+      "Contoso Baytown Store",
+      "Contoso DVD 14-Inch Player Portable L100 White",
+      12
+    ],
+    [
+      "Contoso Knotty Ash Store",
+      "Proseware Desk Lamp E0120 Black",
+      6
+    ],
+    [
+      "Contoso Port Washington Store",
+      "A. Datum Advanced Digital Camera M300 Orange",
+      15
+    ],
+    [
+      "Contoso Greeley  No.1 Store",
+      "Fabrikam Coffee Maker Auto 5C E090 Silver",
+      13
+    ],
+    [
+      "Contoso Richardson Store",
+      "Contoso Coffee Maker 5C E0900 Black",
+      6
+    ],
+    [
+      "Contoso Toronto No.3 Store",
+      "Contoso Screen 106in M060 White",
+      15
+    ],
+    [
+      "Contoso Waukesha No.2 Store",
+      "SV DVD 14-Inch Player Portable L100 White",
+      13
+    ],
+    [
+      "Contoso Mumbai Store",
+      "Contoso Air conditioner 12000BTU M0640 White",
+      6
+    ],
+    [
+      "Contoso Grand Prairie Store",
+      "WWI Wall Lamp E215 Black",
+      19
+    ],
+    [
+      "Contoso Fort Atkinson Store",
+      "A. Datum Super-zoom Digital Camera X300 Grey",
+      19
+    ],
+    [
+      "Contoso Boston Store",
+      "Contoso Microwave 1.0CuFt E0110 Black",
+      22
+    ],
+    [
+      "Contoso Elmira Store",
+      "Contoso Enhanced Capacity Battery M800 Grey",
+      3
+    ],
+    [
+      "Contoso Montreal No.2 Store",
+      "Proseware Laser Jet Printer E100 Grey",
+      15
+    ],
+    [
+      "Contoso Hartford Store",
+      "WWI Chandelier M815 Grey",
+      15
+    ],
+    [
+      "Contoso Granger Store",
+      "Contoso USB Wave Multi-media Keyboard E280 Black",
+      39
+    ],
+    [
+      "Contoso Ramstein Store",
+      "Contoso Microwave 0.9CuFt E0090 Grey",
+      16
+    ],
+    [
+      "Contoso Cape Canaveral Store",
+      "MGS Hand Games for kids E300 Red",
+      22
+    ],
+    [
+      "Contoso Greenville Store",
+      "The Phone Company PDA GPS Phone 3.5 inch M910 Silver",
+      15
+    ],
+    [
+      "Contoso Howard Store",
+      "Litware Microwave 1.5CuFt X110 Red",
+      12
+    ],
+    [
+      "Contoso Georgetown Store",
+      "Litware 3-Speed Oscillating High-Performance Fan E201 White",
+      52
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      "Proseware Desk Lamp E0130 Grey",
+      7
+    ],
+    [
+      "Contoso Snoqualmie Store",
+      "Fabrikam Refrigerator 3.2CuFt E1600 White",
+      11
+    ],
+    [
+      "Contoso Rochester No.1 Store",
+      "Contoso Washer & Dryer 21in E210 Blue",
+      6
+    ],
+    [
+      "Contoso Seattle No.2 Store",
+      "Proseware Professional Quality Plain-Paper Fax and Copier X100 White",
+      11
+    ],
+    [
+      "Contoso obamberg Store",
+      "Contoso Touch Stylus Pen E150 Black",
+      190
+    ],
+    [
+      "Contoso Manchester Store",
+      "Contoso Screen 80in E080 Black",
+      31
+    ],
+    [
+      "Contoso Denver No.1 Store",
+      "Proseware Air conditioner 12000BTU M640 Silver",
+      30
+    ],
+    [
+      "Contoso Alexandria Store",
+      "Fabrikam Microwave 2.2CuFt M1250 White",
+      15
+    ],
+    [
+      "Contoso Bishkek Store",
+      "SV DVD External DVD Burner M200 Black",
+      8
+    ],
+    [
+      "Contoso Madison Store",
+      "Proseware Projector 480p DLP12 Black",
+      15
+    ],
+    [
+      "Contoso Marshall Store",
+      "Litware Refrigerator 1.7CuFt E120 Green",
+      8
+    ],
+    [
+      "Contoso Amsterdam Store",
+      "Proseware Office Jet Wireless All-in-One Inkjet Printer M600 Grey",
+      11
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "ProductName",
+    "OnHandQuantity"
+  ],
+  "row_count": 100,
+  "exec_ms": 13851,
+  "error": null
+}

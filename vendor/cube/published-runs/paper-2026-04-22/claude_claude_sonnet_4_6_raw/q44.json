@@ -1,0 +1,39 @@
+{
+  "question_id": 44,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toYear(DateKey) AS Year,\n    sum(SalesAmount) AS TotalSalesAmount,\n    sum(SalesQuantity) AS TotalSalesQuantity,\n    round(\n        (sum(SalesAmount) - lagInFrame(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey))) /\n        lagInFrame(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey)) * 100,\n        2\n    ) AS YoY_Growth_Pct\nFROM retail.FactOnlineSales\nGROUP BY Year\nORDER BY Year",
+  "rows": [
+    [
+      2007,
+      1010803395.0379745,
+      3965130,
+      Infinity
+    ],
+    [
+      2008,
+      849671203.4333403,
+      3593302,
+      -15.94
+    ],
+    [
+      2009,
+      857728031.3559369,
+      4969010,
+      0.95
+    ]
+  ],
+  "columns": [
+    "Year",
+    "TotalSalesAmount",
+    "TotalSalesQuantity",
+    "YoY_Growth_Pct"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 8018,
+  "latency_ms_exec": 528,
+  "tokens_in": 13790,
+  "tokens_out": 193,
+  "claude_error": null,
+  "sql_error": null
+}

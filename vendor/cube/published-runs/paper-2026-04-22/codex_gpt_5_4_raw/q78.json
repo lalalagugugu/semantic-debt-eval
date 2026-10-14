@@ -1,0 +1,33 @@
+{
+  "question_id": 78,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    promotion_category,\n    total_discount_amount,\n    total_discount_amount / sum(total_discount_amount) OVER () AS discount_share,\n    rank() OVER (ORDER BY total_discount_amount DESC) AS promotion_category_rank\nFROM\n(\n    SELECT\n        ifNull(dp.PromotionCategory, 'Unknown') AS promotion_category,\n        sum(discount_amount) AS total_discount_amount\n    FROM\n    (\n        SELECT\n            PromotionKey,\n            DiscountAmount AS discount_amount\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = 2009\n\n        UNION ALL\n\n        SELECT\n            PromotionKey,\n            DiscountAmount AS discount_amount\n        FROM retail.FactOnlineSales\n        WHERE toYear(DateKey) = 2009\n    ) AS s\n    LEFT JOIN retail.DimPromotion AS dp\n        ON s.PromotionKey = dp.PromotionKey\n    GROUP BY promotion_category\n)\nORDER BY total_discount_amount DESC, promotion_category ASC",
+  "rows": [
+    [
+      "Store",
+      146403359.50825074,
+      1.0,
+      1
+    ],
+    [
+      "No Discount",
+      0.0,
+      0.0,
+      2
+    ]
+  ],
+  "columns": [
+    "promotion_category",
+    "total_discount_amount",
+    "discount_share",
+    "promotion_category_rank"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 14856,
+  "latency_ms_exec": 1783,
+  "tokens_in": 16379,
+  "tokens_out": 374,
+  "claude_error": null,
+  "sql_error": null
+}

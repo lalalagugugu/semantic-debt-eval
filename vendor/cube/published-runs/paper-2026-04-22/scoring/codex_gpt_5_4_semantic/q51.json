@@ -1,0 +1,11 @@
+{
+  "question_id": 51,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 306, identical to the expected result; count() and count(*) are semantically equivalent in ClickHouse.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 162,
+  "judge_latency_ms": 12774
+}

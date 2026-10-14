@@ -1,0 +1,21 @@
+{
+  "question_id": 29,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    round(\n        (avg(CASE WHEN d.IsHoliday = 'true' THEN fs.SalesAmount END) -\n         avg(CASE WHEN d.IsHoliday = 'false' THEN fs.SalesAmount END)) /\n         avg(CASE WHEN d.IsHoliday = 'false' THEN fs.SalesAmount END) * 100,\n        2\n    ) AS holiday_vs_regular_pct_diff\nFROM retail.FactSales fs\nJOIN retail.DimDate d ON fs.DateKey = d.DateKey",
+  "rows": [
+    [
+      null
+    ]
+  ],
+  "columns": [
+    "holiday_vs_regular_pct_diff"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8018,
+  "latency_ms_exec": 526,
+  "tokens_in": 13800,
+  "tokens_out": 203,
+  "claude_error": null,
+  "sql_error": null
+}

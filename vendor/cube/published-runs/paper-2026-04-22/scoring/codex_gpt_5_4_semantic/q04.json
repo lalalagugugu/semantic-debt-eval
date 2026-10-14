@@ -1,0 +1,11 @@
+{
+  "question_id": 4,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 100 Contoso products as the reference (identical WHERE clause), with only extra columns (ProductKey, BrandName) and a different sort order \u2014 both of which are permissible under the strict verdict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 235,
+  "judge_latency_ms": 11528
+}

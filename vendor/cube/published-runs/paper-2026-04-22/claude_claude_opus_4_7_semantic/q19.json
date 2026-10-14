@@ -1,0 +1,27 @@
+{
+  "question_id": 19,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT c.Gender AS Gender, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS AverageOrderValue\nFROM retail.FactOnlineSales f\nINNER JOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey\nGROUP BY c.Gender\nORDER BY c.Gender",
+  "rows": [
+    [
+      "F",
+      1681.5959412358477
+    ],
+    [
+      "M",
+      1565.3092513158424
+    ]
+  ],
+  "columns": [
+    "Gender",
+    "AverageOrderValue"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 6816,
+  "latency_ms_exec": 846,
+  "tokens_in": 23312,
+  "tokens_out": 144,
+  "claude_error": null,
+  "sql_error": null
+}

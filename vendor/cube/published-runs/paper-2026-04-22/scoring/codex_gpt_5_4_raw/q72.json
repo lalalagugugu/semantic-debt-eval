@@ -1,0 +1,11 @@
+{
+  "question_id": 72,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match the expected rows exactly (same year/quarter, same quarterly and cumulative sales values) \u2014 the only difference is the candidate returns unrounded floats vs. the reference's rounded values, which is within the allowed <1% numeric precision tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 207,
+  "judge_latency_ms": 14128
+}

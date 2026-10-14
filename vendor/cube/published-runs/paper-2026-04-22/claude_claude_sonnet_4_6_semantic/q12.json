@@ -1,0 +1,80 @@
+{
+  "question_id": 12,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    toMonth(DateKey) AS MonthNumber,\n    any(dd.CalendarMonthLabel) AS MonthName,\n    sum(SalesAmount) AS MonthlySalesAmount\nFROM retail.FactOnlineSales fos\nJOIN retail.DimDate dd ON fos.DateKey = dd.DateKey\nWHERE toYear(fos.DateKey) = 2008\nGROUP BY MonthNumber\nORDER BY MonthNumber",
+  "rows": [
+    [
+      1,
+      "January",
+      56738060.40720035
+    ],
+    [
+      2,
+      "February",
+      60673391.76630042
+    ],
+    [
+      3,
+      "March",
+      60559498.89930047
+    ],
+    [
+      4,
+      "April",
+      75567228.14839916
+    ],
+    [
+      5,
+      "May",
+      77899819.79759835
+    ],
+    [
+      6,
+      "June",
+      76515782.9791994
+    ],
+    [
+      7,
+      "July",
+      84399362.09039895
+    ],
+    [
+      8,
+      "August",
+      74672334.95439893
+    ],
+    [
+      9,
+      "September",
+      72022788.04579884
+    ],
+    [
+      10,
+      "October",
+      69434585.45279892
+    ],
+    [
+      11,
+      "November",
+      69174095.22249916
+    ],
+    [
+      12,
+      "December",
+      72014255.66009958
+    ]
+  ],
+  "columns": [
+    "MonthNumber",
+    "MonthName",
+    "MonthlySalesAmount"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 7223,
+  "latency_ms_exec": 515,
+  "tokens_in": 16753,
+  "tokens_out": 141,
+  "claude_error": null,
+  "sql_error": null
+}

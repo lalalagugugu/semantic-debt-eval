@@ -1,0 +1,17 @@
+{
+  "question_id": 32,
+  "sql": "SELECT count() as customer_count, sum(total_ltv) as total_ltv FROM (SELECT CustomerKey, sum(SalesAmount) as total_ltv FROM retail.FactOnlineSales GROUP BY CustomerKey HAVING count(DISTINCT toYear(DateKey)) = 3)",
+  "rows": [
+    [
+      17671,
+      1191133222.2769022
+    ]
+  ],
+  "columns": [
+    "customer_count",
+    "total_ltv"
+  ],
+  "row_count": 1,
+  "exec_ms": 543,
+  "error": null
+}

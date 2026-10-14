@@ -1,0 +1,93 @@
+{
+  "question_id": 72,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT toYear(DateKey) AS Year, toQuarter(DateKey) AS Quarter, sum(SalesAmount) AS QuarterlySales, sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS CumulativeSales FROM retail.FactOnlineSales WHERE toYear(DateKey) BETWEEN 2007 AND 2009 GROUP BY Year, Quarter ORDER BY Year, Quarter",
+  "rows": [
+    [
+      2007,
+      1,
+      245958338.86436743,
+      245958338.86436743
+    ],
+    [
+      2007,
+      2,
+      273913970.8968512,
+      519872309.7612186
+    ],
+    [
+      2007,
+      3,
+      260994081.97646603,
+      780866391.7376846
+    ],
+    [
+      2007,
+      4,
+      229937003.30089334,
+      1010803395.0385779
+    ],
+    [
+      2008,
+      1,
+      177970951.07291847,
+      1188774346.1114964
+    ],
+    [
+      2008,
+      2,
+      229982830.92524663,
+      1418757177.0367432
+    ],
+    [
+      2008,
+      3,
+      231094485.09008986,
+      1649851662.126833
+    ],
+    [
+      2008,
+      4,
+      210622936.33615494,
+      1860474598.462988
+    ],
+    [
+      2009,
+      1,
+      178152181.58828196,
+      2038626780.0512698
+    ],
+    [
+      2009,
+      2,
+      233793837.51235494,
+      2272420617.563625
+    ],
+    [
+      2009,
+      3,
+      235064027.54698578,
+      2507484645.1106105
+    ],
+    [
+      2009,
+      4,
+      210717984.699468,
+      2718202629.8100786
+    ]
+  ],
+  "columns": [
+    "Year",
+    "Quarter",
+    "QuarterlySales",
+    "CumulativeSales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 8258,
+  "latency_ms_exec": 534,
+  "tokens_in": 23325,
+  "tokens_out": 283,
+  "claude_error": null,
+  "sql_error": null
+}

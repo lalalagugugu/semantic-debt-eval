@@ -1,0 +1,11 @@
+{
+  "question_id": 60,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns 176, identical to the expected result; count() vs count(*) is semantically equivalent in this context.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 145,
+  "judge_latency_ms": 9737
+}

@@ -1,0 +1,23 @@
+{
+  "question_id": 17,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    sumIf(fos.SalesAmount, dd.IsWorkDay = 'WeekEnd') * 100.0 / nullIf(sum(fos.SalesAmount), 0) AS weekend_sales_percentage,\n    sumIf(fos.SalesAmount, dd.IsWorkDay = 'WorkDay') * 100.0 / nullIf(sum(fos.SalesAmount), 0) AS weekday_sales_percentage\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimDate AS dd\n    ON fos.DateKey = dd.DateKey",
+  "rows": [
+    [
+      28.47250420217254,
+      71.52749579782778
+    ]
+  ],
+  "columns": [
+    "weekend_sales_percentage",
+    "weekday_sales_percentage"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 12750,
+  "latency_ms_exec": 573,
+  "tokens_in": 18820,
+  "tokens_out": 187,
+  "claude_error": null,
+  "sql_error": null
+}

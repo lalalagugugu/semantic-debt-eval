@@ -1,0 +1,11 @@
+{
+  "question_id": 79,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the ScenarioKey = 1 filter on FactSalesQuota, inflating quota values and producing ~37.9% attainment for all stores instead of the expected 100% attainment for the top 10 stores, resulting in completely different rows.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 240,
+  "judge_latency_ms": 14193
+}

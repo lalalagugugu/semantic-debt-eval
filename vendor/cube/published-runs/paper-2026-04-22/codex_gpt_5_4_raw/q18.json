@@ -1,0 +1,27 @@
+{
+  "question_id": 18,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p.PromotionType,\n    sum(x.DiscountAmount) AS TotalDiscountAmount\nFROM\n(\n    SELECT PromotionKey, DiscountAmount\n    FROM retail.FactSales\n    UNION ALL\n    SELECT PromotionKey, DiscountAmount\n    FROM retail.FactOnlineSales\n) AS x\nINNER JOIN retail.DimPromotion AS p\n    ON x.PromotionKey = p.PromotionKey\nGROUP BY p.PromotionType\nORDER BY TotalDiscountAmount DESC",
+  "rows": [
+    [
+      "Seasonal Discount",
+      473061221.4742885
+    ],
+    [
+      "No Discount",
+      0.0
+    ]
+  ],
+  "columns": [
+    "PromotionType",
+    "TotalDiscountAmount"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 11634,
+  "latency_ms_exec": 616,
+  "tokens_in": 16367,
+  "tokens_out": 194,
+  "claude_error": null,
+  "sql_error": null
+}

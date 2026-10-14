@@ -1,0 +1,15 @@
+{
+  "question_id": 33,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    p1.ProductName AS product_1,\n    p2.ProductName AS product_2,\n    count() AS orders_together\nFROM\n(\n    SELECT\n        SalesOrderNumber,\n        arraySort(groupUniqArray(ProductKey)) AS products\n    FROM retail.FactOnlineSales\n    GROUP BY SalesOrderNumber\n    HAVING length(products) > 1\n) AS o\nARRAY JOIN\n    arrayEnumerate(o.products) AS i,\n    arrayEnumerate(o.products) AS j\nINNER JOIN retail.DimProduct AS p1\n    ON p1.ProductKey = o.products[i]\nINNER JOIN retail.DimProduct AS p2\n    ON p2.ProductKey = o.products[j]\nWHERE i < j\nGROUP BY\n    p1.ProductName,\n    p2.ProductName\nORDER BY orders_together DESC, product_1, product_2",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "latency_ms_gen": 13711,
+  "latency_ms_exec": 900,
+  "tokens_in": 16368,
+  "tokens_out": 284,
+  "claude_error": null,
+  "sql_error": null
+}

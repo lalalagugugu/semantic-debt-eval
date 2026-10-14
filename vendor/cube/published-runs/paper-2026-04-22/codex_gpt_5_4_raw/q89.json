@@ -1,0 +1,39 @@
+{
+  "question_id": 89,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH\n    (SELECT max(DateKey) FROM retail.FactOnlineSales) AS snapshot_date,\n    customer_metrics AS\n    (\n        SELECT\n            CustomerKey,\n            max(DateKey) AS last_purchase_date,\n            dateDiff('day', max(DateKey), snapshot_date) AS recency_days,\n            sum(SalesAmount - ReturnAmount - DiscountAmount) AS total_spend,\n            countDistinct(ProductKey) AS product_variety\n        FROM retail.FactOnlineSales\n        GROUP BY CustomerKey\n    )\nSELECT\n    segment,\n    count() AS customer_count,\n    avg(total_spend) AS avg_spend,\n    avg(product_variety) AS avg_product_variety\nFROM\n(\n    SELECT\n        CustomerKey,\n        total_spend,\n        product_variety,\n        multiIf(\n            recency_days <= 90, 'Active',\n            recency_days <= 180, 'At Risk',\n            'Churned'\n        ) AS segment\n    FROM customer_metrics\n)\nGROUP BY segment\nORDER BY\n    multiIf(segment = 'Active', 1, segment = 'At Risk', 2, 3)",
+  "rows": [
+    [
+      "Active",
+      16815,
+      48975.10568689848,
+      72.0442462087422
+    ],
+    [
+      "At Risk",
+      58,
+      4451759.878483683,
+      695.948275862069
+    ],
+    [
+      "Churned",
+      1996,
+      670508.8773222851,
+      189.04709418837675
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customer_count",
+    "avg_spend",
+    "avg_product_variety"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 18411,
+  "latency_ms_exec": 655,
+  "tokens_in": 17250,
+  "tokens_out": 410,
+  "claude_error": null,
+  "sql_error": null
+}

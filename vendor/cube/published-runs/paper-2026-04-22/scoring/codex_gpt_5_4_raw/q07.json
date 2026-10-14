@@ -1,0 +1,11 @@
+{
+  "question_id": 7,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Both return 10 products all tied at UnitPrice=3199.99 (the max price), but different specific products appear due to different tie-breaking; since all rows share the same price, an analyst would accept either set as a valid \"top 10 most expensive\" answer.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 549,
+  "judge_latency_ms": 16889
+}

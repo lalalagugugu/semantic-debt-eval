@@ -1,0 +1,11 @@
+{
+  "question_id": 54,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate SQL is identical to the reference SQL and produces the exact same result (29244318.2048).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 146,
+  "judge_latency_ms": 9573
+}

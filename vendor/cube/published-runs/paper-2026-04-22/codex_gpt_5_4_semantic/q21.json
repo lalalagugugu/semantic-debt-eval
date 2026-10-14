@@ -1,0 +1,823 @@
+{
+  "question_id": 21,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH latest AS (\n    SELECT\n        StoreKey,\n        ProductKey,\n        max(DateKey) AS max_date\n    FROM retail.FactInventory\n    GROUP BY\n        StoreKey,\n        ProductKey\n)\nSELECT\n    i.StoreKey,\n    s.StoreName,\n    i.ProductKey,\n    p.ProductName,\n    i.DateKey AS InventoryDate,\n    i.OnHandQuantity AS CurrentInventoryLevel\nFROM retail.FactInventory AS i\nINNER JOIN latest AS l\n    ON i.StoreKey = l.StoreKey\n   AND i.ProductKey = l.ProductKey\n   AND i.DateKey = l.max_date\nINNER JOIN retail.DimStore AS s\n    ON i.StoreKey = s.StoreKey\nINNER JOIN retail.DimProduct AS p\n    ON i.ProductKey = p.ProductKey\nORDER BY\n    s.StoreName,\n    p.ProductName;",
+  "rows": [
+    [
+      114,
+      "Contoso Albany Store",
+      1037,
+      "A. Datum Advanced Digital Camera M300 Azure",
+      "2009-02-28",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      953,
+      "A. Datum Advanced Digital Camera M300 Black",
+      "2007-10-27",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1023,
+      "A. Datum Advanced Digital Camera M300 Green",
+      "2008-03-22",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      967,
+      "A. Datum Advanced Digital Camera M300 Grey",
+      "2008-01-19",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1009,
+      "A. Datum Advanced Digital Camera M300 Orange",
+      "2009-08-15",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      981,
+      "A. Datum Advanced Digital Camera M300 Pink",
+      "2009-11-28",
+      28
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      995,
+      "A. Datum Advanced Digital Camera M300 Silver",
+      "2007-04-28",
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      948,
+      "A. Datum All in One Digital Camera M200 Black",
+      "2008-07-19",
+      17
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1018,
+      "A. Datum All in One Digital Camera M200 Green",
+      "2009-01-17",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      962,
+      "A. Datum All in One Digital Camera M200 Grey",
+      "2009-08-22",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1004,
+      "A. Datum All in One Digital Camera M200 Orange",
+      "2009-01-24",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      976,
+      "A. Datum All in One Digital Camera M200 Pink",
+      "2007-08-18",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1038,
+      "A. Datum Bridge Digital Camera M300 Azure",
+      "2009-03-28",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      954,
+      "A. Datum Bridge Digital Camera M300 Black",
+      "2009-04-25",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1024,
+      "A. Datum Bridge Digital Camera M300 Green",
+      "2008-03-22",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      968,
+      "A. Datum Bridge Digital Camera M300 Grey",
+      "2008-12-27",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1010,
+      "A. Datum Bridge Digital Camera M300 Orange",
+      "2009-03-28",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      982,
+      "A. Datum Bridge Digital Camera M300 Pink",
+      "2009-12-26",
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1028,
+      "A. Datum Compact Digital Camera M200 Azure",
+      "2008-03-22",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1014,
+      "A. Datum Compact Digital Camera M200 Green",
+      "2009-06-20",
+      44
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      958,
+      "A. Datum Compact Digital Camera M200 Grey",
+      "2007-11-17",
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1000,
+      "A. Datum Compact Digital Camera M200 Orange",
+      "2009-01-24",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      972,
+      "A. Datum Compact Digital Camera M200 Pink",
+      "2009-09-26",
+      26
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      986,
+      "A. Datum Compact Digital Camera M200 Silver",
+      "2007-11-24",
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1035,
+      "A. Datum Consumer Digital Camera E100 Azure",
+      "2009-03-21",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      951,
+      "A. Datum Consumer Digital Camera E100 Black",
+      "2009-12-26",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1021,
+      "A. Datum Consumer Digital Camera E100 Green",
+      "2009-05-23",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      965,
+      "A. Datum Consumer Digital Camera E100 Grey",
+      "2009-01-24",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1007,
+      "A. Datum Consumer Digital Camera E100 Orange",
+      "2007-11-24",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      993,
+      "A. Datum Consumer Digital Camera E100 Silver",
+      "2008-04-26",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1036,
+      "A. Datum Consumer Digital Camera M300 Azure",
+      "2009-09-26",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      952,
+      "A. Datum Consumer Digital Camera M300 Black",
+      "2008-01-26",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1022,
+      "A. Datum Consumer Digital Camera M300 Green",
+      "2008-06-28",
+      26
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      966,
+      "A. Datum Consumer Digital Camera M300 Grey",
+      "2009-12-05",
+      16
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1008,
+      "A. Datum Consumer Digital Camera M300 Orange",
+      "2007-02-24",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      980,
+      "A. Datum Consumer Digital Camera M300 Pink",
+      "2009-12-19",
+      30
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1041,
+      "A. Datum Full Frame Digital Camera X300 Azure",
+      "2009-12-26",
+      30
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      957,
+      "A. Datum Full Frame Digital Camera X300 Black",
+      "2008-07-26",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1027,
+      "A. Datum Full Frame Digital Camera X300 Green",
+      "2009-11-28",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      971,
+      "A. Datum Full Frame Digital Camera X300 Grey",
+      "2009-12-26",
+      24
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1013,
+      "A. Datum Full Frame Digital Camera X300 Orange",
+      "2009-04-18",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      985,
+      "A. Datum Full Frame Digital Camera X300 Pink",
+      "2008-09-27",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1043,
+      "A. Datum Full Frame Digital Camera X300 Silver Grey",
+      "2009-08-22",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1033,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Azure",
+      "2008-07-26",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      949,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Black",
+      "2009-05-16",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1019,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Green",
+      "2009-05-23",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1005,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Orange",
+      "2009-03-28",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      977,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Pink",
+      "2007-07-28",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      991,
+      "A. Datum Interchangeable lens Non-SLR Digital Camera X250 Silver",
+      "2007-11-24",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      956,
+      "A. Datum Point Shoot Digital Camera M500 Black",
+      "2009-08-22",
+      26
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1026,
+      "A. Datum Point Shoot Digital Camera M500 Green",
+      "2008-11-22",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1012,
+      "A. Datum Point Shoot Digital Camera M500 Orange",
+      "2007-11-24",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      984,
+      "A. Datum Point Shoot Digital Camera M500 Pink",
+      "2008-09-27",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      998,
+      "A. Datum Point Shoot Digital Camera M500 Silver",
+      "2009-08-22",
+      3
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1042,
+      "A. Datum Point Shoot Digital Camera M500 Silver Grey",
+      "2008-03-22",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1040,
+      "A. Datum Point n' Shoot Digital Camera M500 Azure",
+      "2008-07-26",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      970,
+      "A. Datum Point n' Shoot Digital Camera M500 Grey",
+      "2009-11-28",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      945,
+      "A. Datum Rangefinder Digital Camera X200 Black",
+      "2009-05-23",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1015,
+      "A. Datum Rangefinder Digital Camera X200 Green",
+      "2008-12-27",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      959,
+      "A. Datum Rangefinder Digital Camera X200 Grey",
+      "2008-12-27",
+      21
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1001,
+      "A. Datum Rangefinder Digital Camera X200 Orange",
+      "2008-06-28",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      973,
+      "A. Datum Rangefinder Digital Camera X200 Pink",
+      "2008-01-26",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      987,
+      "A. Datum Rangefinder Digital Camera X200 Silver",
+      "2007-05-26",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1047,
+      "A. Datum SLR Camera 35\" M358 Black",
+      "2007-05-26",
+      10
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1071,
+      "A. Datum SLR Camera 35\" M358 Blue",
+      "2008-11-22",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1063,
+      "A. Datum SLR Camera 35\" M358 Gold",
+      "2008-12-27",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1055,
+      "A. Datum SLR Camera 35\" M358 Grey",
+      "2009-01-24",
+      14
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1075,
+      "A. Datum SLR Camera 35\" M358 Orange",
+      "2008-11-22",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1067,
+      "A. Datum SLR Camera 35\" M358 Pink",
+      "2009-08-22",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1051,
+      "A. Datum SLR Camera 35\" M358 Silver",
+      "2008-02-23",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1059,
+      "A. Datum SLR Camera 35\" M358 Silver Grey",
+      "2008-10-18",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1045,
+      "A. Datum SLR Camera 35\" X358 Black",
+      "2007-12-15",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1069,
+      "A. Datum SLR Camera 35\" X358 Blue",
+      "2008-10-25",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1061,
+      "A. Datum SLR Camera 35\" X358 Gold",
+      "2008-01-26",
+      9
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1053,
+      "A. Datum SLR Camera 35\" X358 Grey",
+      "2008-01-26",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1073,
+      "A. Datum SLR Camera 35\" X358 Orange",
+      "2008-01-26",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1049,
+      "A. Datum SLR Camera 35\" X358 Silver",
+      "2009-11-21",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1057,
+      "A. Datum SLR Camera 35\" X358 Silver Grey",
+      "2007-09-22",
+      12
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1046,
+      "A. Datum SLR Camera M135 Black",
+      "2009-12-26",
+      31
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1050,
+      "A. Datum SLR Camera M136 Silver",
+      "2007-11-24",
+      5
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1054,
+      "A. Datum SLR Camera M137 Grey",
+      "2009-06-27",
+      2
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1058,
+      "A. Datum SLR Camera M138 Silver Grey",
+      "2008-11-22",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1066,
+      "A. Datum SLR Camera M140 Pink",
+      "2008-01-26",
+      6
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1070,
+      "A. Datum SLR Camera M141 Blue",
+      "2009-01-17",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1074,
+      "A. Datum SLR Camera M142 Orange",
+      "2009-12-19",
+      33
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1044,
+      "A. Datum SLR Camera X135 Black",
+      "2008-11-22",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1048,
+      "A. Datum SLR Camera X136 Silver",
+      "2008-07-19",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1052,
+      "A. Datum SLR Camera X137 Grey",
+      "2008-12-27",
+      19
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1056,
+      "A. Datum SLR Camera X138 Silver Grey",
+      "2007-11-17",
+      24
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1064,
+      "A. Datum SLR Camera X140 Pink",
+      "2009-06-27",
+      18
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1072,
+      "A. Datum SLR Camera X142 Orange",
+      "2009-12-12",
+      29
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1039,
+      "A. Datum SLR-like Digital Camera M400 Azure",
+      "2008-10-25",
+      30
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      955,
+      "A. Datum SLR-like Digital Camera M400 Black",
+      "2008-11-22",
+      15
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1025,
+      "A. Datum SLR-like Digital Camera M400 Green",
+      "2008-07-26",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      969,
+      "A. Datum SLR-like Digital Camera M400 Grey",
+      "2009-07-25",
+      22
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1011,
+      "A. Datum SLR-like Digital Camera M400 Orange",
+      "2008-04-26",
+      13
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      983,
+      "A. Datum SLR-like Digital Camera M400 Pink",
+      "2008-07-26",
+      11
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      997,
+      "A. Datum SLR-like Digital Camera M400 Silver",
+      "2009-12-19",
+      24
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      1030,
+      "A. Datum Slim Digital Camera M180 Azure",
+      "2009-09-26",
+      20
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      946,
+      "A. Datum Slim Digital Camera M180 Black",
+      "2007-06-23",
+      5
+    ]
+  ],
+  "columns": [
+    "i.StoreKey",
+    "StoreName",
+    "i.ProductKey",
+    "ProductName",
+    "InventoryDate",
+    "CurrentInventoryLevel"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 12909,
+  "latency_ms_exec": 15541,
+  "tokens_in": 18824,
+  "tokens_out": 254,
+  "claude_error": null,
+  "sql_error": null
+}

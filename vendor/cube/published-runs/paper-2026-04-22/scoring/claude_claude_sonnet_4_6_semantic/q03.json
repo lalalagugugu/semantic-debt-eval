@@ -1,0 +1,11 @@
+{
+  "question_id": 3,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses ClickHouse's native countDistinct() which is semantically equivalent to COUNT(DISTINCT ...), and both return the same scalar value of 18869.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 185,
+  "judge_latency_ms": 9751
+}

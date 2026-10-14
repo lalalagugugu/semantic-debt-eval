@@ -1,0 +1,87 @@
+{
+  "question_id": 98,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "WITH quarterly_sales AS (\n    SELECT\n        pc.ProductCategoryName AS product_category,\n        toYear(fs.DateKey) AS sales_year,\n        toQuarter(fs.DateKey) AS sales_quarter,\n        sum(fs.SalesAmount) AS quarter_sales\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimProduct AS p\n        ON fs.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS psc\n        ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON psc.ProductCategoryKey = pc.ProductCategoryKey\n    GROUP BY\n        pc.ProductCategoryName,\n        toYear(fs.DateKey),\n        toQuarter(fs.DateKey)\n),\ncategory_quarter_share AS (\n    SELECT\n        product_category,\n        sales_year,\n        sales_quarter,\n        quarter_sales,\n        sum(quarter_sales) OVER (PARTITION BY product_category, sales_year) AS annual_sales,\n        quarter_sales / sum(quarter_sales) OVER (PARTITION BY product_category, sales_year) AS quarter_share_of_annual_sales\n    FROM quarterly_sales\n)\nSELECT\n    product_category,\n    sales_year,\n    sales_quarter,\n    quarter_sales,\n    annual_sales,\n    quarter_share_of_annual_sales\nFROM category_quarter_share\nQUALIFY row_number() OVER (PARTITION BY product_category ORDER BY quarter_share_of_annual_sales DESC, sales_year, sales_quarter) = 1\nORDER BY quarter_share_of_annual_sales DESC, product_category;",
+  "rows": [
+    [
+      "Audio",
+      2008,
+      4,
+      17906529.79399997,
+      52932396.05240049,
+      0.3382905579462788
+    ],
+    [
+      "Cameras and camcorders",
+      2007,
+      4,
+      338883802.5359947,
+      1098555433.3783684,
+      0.3084812948344639
+    ],
+    [
+      "Games and Toys",
+      2009,
+      4,
+      2710782.2135000355,
+      8873229.886900058,
+      0.30550118142459975
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      4,
+      22580677.946000256,
+      74975760.8291001,
+      0.30117304174439385
+    ],
+    [
+      "TV and Video",
+      2007,
+      4,
+      128186748.69300039,
+      426671354.2612068,
+      0.3004343915118447
+    ],
+    [
+      "Home Appliances",
+      2007,
+      4,
+      397327040.8800209,
+      1375117996.8143106,
+      0.28894032497610755
+    ],
+    [
+      "Computers",
+      2008,
+      4,
+      221898247.2299973,
+      788289774.7309954,
+      0.2814932456858524
+    ],
+    [
+      "Cell phones",
+      2007,
+      2,
+      99907473.71291418,
+      363847591.0821096,
+      0.2745860524066739
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "sales_year",
+    "sales_quarter",
+    "quarter_sales",
+    "annual_sales",
+    "quarter_share_of_annual_sales"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 20549,
+  "latency_ms_exec": 552,
+  "tokens_in": 16371,
+  "tokens_out": 674,
+  "claude_error": null,
+  "sql_error": null
+}

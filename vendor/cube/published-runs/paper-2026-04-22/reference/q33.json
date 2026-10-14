@@ -1,0 +1,9 @@
+{
+  "question_id": 33,
+  "sql": "SELECT p1.ProductName as product1, p2.ProductName as product2, count() as times_together FROM retail.FactOnlineSales s1 JOIN retail.FactOnlineSales s2 ON s1.SalesOrderNumber = s2.SalesOrderNumber AND s1.ProductKey < s2.ProductKey JOIN retail.DimProduct p1 ON s1.ProductKey = p1.ProductKey JOIN retail.DimProduct p2 ON s2.ProductKey = p2.ProductKey GROUP BY p1.ProductName, p2.ProductName ORDER BY times_together DESC LIMIT 20",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "exec_ms": null,
+  "error": "Received ClickHouse exception, code: 159, server response: Code: 159. DB::Exception: Timeout exceeded: elapsed 30000.191027 ms, maximum: 30000 ms. (TIMEOUT_EXCEEDED) (for url https://clickhouse.vanya.cc:443)"
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 12,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query produces identical monthly online sales figures for 2008, with only negligible floating-point differences (e.g., row 10: 69434585.45280734 vs 69434585.45280735) well within the 1% tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 181,
+  "judge_latency_ms": 11786
+}

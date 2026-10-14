@@ -1,0 +1,11 @@
+{
+  "question_id": 73,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate omits the latest-date filter (joining only the most recent snapshot per StoreKey/ProductKey), so it sums inventory across all historical dates, producing inflated totals and a completely different top-10 product ranking compared to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 258,
+  "judge_latency_ms": 13520
+}

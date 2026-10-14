@@ -1,0 +1,11 @@
+{
+  "question_id": 70,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Sales totals match within 1%, but avg selling area differs materially (Online: 29373 vs 31767, ~8%) because the reference uses a sales-weighted avg over all FactSales rows while the candidate uses an unweighted per-store avg\u2014a genuinely different measure.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1027,
+  "judge_latency_ms": 27233
+}

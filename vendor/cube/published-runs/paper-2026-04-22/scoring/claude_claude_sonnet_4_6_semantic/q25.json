@@ -1,0 +1,11 @@
+{
+  "question_id": 25,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same season (\"Back to School\") with a numerically equivalent average daily sales value (difference < 0.000001% relative drift), satisfying both strict and analytical criteria.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 207,
+  "judge_latency_ms": 10886
+}

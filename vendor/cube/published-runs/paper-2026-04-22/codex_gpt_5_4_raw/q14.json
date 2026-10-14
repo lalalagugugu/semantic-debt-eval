@@ -1,0 +1,621 @@
+{
+  "question_id": 14,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    c.CustomerKey,\n    c.FirstName,\n    c.LastName,\n    sum(os.SalesAmount) AS total_spent\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimCustomer AS c\n    ON os.CustomerKey = c.CustomerKey\nGROUP BY\n    c.CustomerKey,\n    c.FirstName,\n    c.LastName\nHAVING sum(os.SalesAmount) > 10000\nORDER BY total_spent DESC",
+  "rows": [
+    [
+      19053,
+      "Not Provided",
+      "Not Provided",
+      19130453.276498802
+    ],
+    [
+      19040,
+      "Not Provided",
+      "Not Provided",
+      18599373.17049989
+    ],
+    [
+      19041,
+      "Not Provided",
+      "Not Provided",
+      18387863.327301703
+    ],
+    [
+      19051,
+      "Not Provided",
+      "Not Provided",
+      18268990.107999627
+    ],
+    [
+      19043,
+      "Not Provided",
+      "Not Provided",
+      18195922.76550216
+    ],
+    [
+      19042,
+      "Not Provided",
+      "Not Provided",
+      18106519.630402412
+    ],
+    [
+      19052,
+      "Not Provided",
+      "Not Provided",
+      17962159.95700307
+    ],
+    [
+      19050,
+      "Not Provided",
+      "Not Provided",
+      17957139.49759919
+    ],
+    [
+      19055,
+      "Not Provided",
+      "Not Provided",
+      17745174.91140355
+    ],
+    [
+      19048,
+      "Not Provided",
+      "Not Provided",
+      17729960.247802537
+    ],
+    [
+      19039,
+      "Not Provided",
+      "Not Provided",
+      17675165.36630162
+    ],
+    [
+      19054,
+      "Not Provided",
+      "Not Provided",
+      17614406.71350286
+    ],
+    [
+      19049,
+      "Not Provided",
+      "Not Provided",
+      16571387.41200221
+    ],
+    [
+      19038,
+      "Not Provided",
+      "Not Provided",
+      16531015.963801976
+    ],
+    [
+      19037,
+      "Not Provided",
+      "Not Provided",
+      16277265.13080255
+    ],
+    [
+      19045,
+      "Not Provided",
+      "Not Provided",
+      16249825.000800846
+    ],
+    [
+      19056,
+      "Not Provided",
+      "Not Provided",
+      16089048.93780177
+    ],
+    [
+      19044,
+      "Not Provided",
+      "Not Provided",
+      15822528.044700978
+    ],
+    [
+      19057,
+      "Not Provided",
+      "Not Provided",
+      15681626.498902326
+    ],
+    [
+      19058,
+      "Not Provided",
+      "Not Provided",
+      15051374.33900098
+    ],
+    [
+      19069,
+      "Not Provided",
+      "Not Provided",
+      14927983.826007096
+    ],
+    [
+      19059,
+      "Not Provided",
+      "Not Provided",
+      14924784.648901783
+    ],
+    [
+      19088,
+      "Not Provided",
+      "Not Provided",
+      14901636.074503442
+    ],
+    [
+      19087,
+      "Not Provided",
+      "Not Provided",
+      14663536.71050389
+    ],
+    [
+      19046,
+      "Not Provided",
+      "Not Provided",
+      14634231.3700004
+    ],
+    [
+      19086,
+      "Not Provided",
+      "Not Provided",
+      14391701.943004092
+    ],
+    [
+      19047,
+      "Not Provided",
+      "Not Provided",
+      14029609.67729971
+    ],
+    [
+      19085,
+      "Not Provided",
+      "Not Provided",
+      13966925.147003427
+    ],
+    [
+      19060,
+      "Not Provided",
+      "Not Provided",
+      13908333.36560138
+    ],
+    [
+      19068,
+      "Not Provided",
+      "Not Provided",
+      13828580.98200454
+    ],
+    [
+      19071,
+      "Not Provided",
+      "Not Provided",
+      13624008.936005568
+    ],
+    [
+      19106,
+      "Not Provided",
+      "Not Provided",
+      13586963.356004007
+    ],
+    [
+      19063,
+      "Not Provided",
+      "Not Provided",
+      13504432.46020173
+    ],
+    [
+      19089,
+      "Not Provided",
+      "Not Provided",
+      13370932.64899806
+    ],
+    [
+      19105,
+      "Not Provided",
+      "Not Provided",
+      13315140.47000399
+    ],
+    [
+      19072,
+      "Not Provided",
+      "Not Provided",
+      13290724.599004578
+    ],
+    [
+      19107,
+      "Not Provided",
+      "Not Provided",
+      13289240.325004064
+    ],
+    [
+      19090,
+      "Not Provided",
+      "Not Provided",
+      13172947.882496485
+    ],
+    [
+      19062,
+      "Not Provided",
+      "Not Provided",
+      13096318.10469924
+    ],
+    [
+      19066,
+      "Not Provided",
+      "Not Provided",
+      13091845.242301783
+    ],
+    [
+      19103,
+      "Not Provided",
+      "Not Provided",
+      13077176.261503495
+    ],
+    [
+      19070,
+      "Not Provided",
+      "Not Provided",
+      13020482.359005691
+    ],
+    [
+      19073,
+      "Not Provided",
+      "Not Provided",
+      12933040.402004346
+    ],
+    [
+      19067,
+      "Not Provided",
+      "Not Provided",
+      12886836.462006673
+    ],
+    [
+      19104,
+      "Not Provided",
+      "Not Provided",
+      12886183.503503878
+    ],
+    [
+      19083,
+      "Not Provided",
+      "Not Provided",
+      12847156.586001216
+    ],
+    [
+      19102,
+      "Not Provided",
+      "Not Provided",
+      12805399.144503538
+    ],
+    [
+      19091,
+      "Not Provided",
+      "Not Provided",
+      12509055.15849678
+    ],
+    [
+      19110,
+      "Not Provided",
+      "Not Provided",
+      12476223.64449787
+    ],
+    [
+      19082,
+      "Not Provided",
+      "Not Provided",
+      12433714.571000371
+    ],
+    [
+      19084,
+      "Not Provided",
+      "Not Provided",
+      12423999.297002831
+    ],
+    [
+      19111,
+      "Not Provided",
+      "Not Provided",
+      12340123.721495278
+    ],
+    [
+      19108,
+      "Not Provided",
+      "Not Provided",
+      12328626.196496714
+    ],
+    [
+      19099,
+      "Not Provided",
+      "Not Provided",
+      12237245.42250211
+    ],
+    [
+      19074,
+      "Not Provided",
+      "Not Provided",
+      12129502.272000767
+    ],
+    [
+      19079,
+      "Not Provided",
+      "Not Provided",
+      12109075.555998074
+    ],
+    [
+      19101,
+      "Not Provided",
+      "Not Provided",
+      12018062.923003314
+    ],
+    [
+      19064,
+      "Not Provided",
+      "Not Provided",
+      11980324.635000164
+    ],
+    [
+      19094,
+      "Not Provided",
+      "Not Provided",
+      11970730.18499961
+    ],
+    [
+      19109,
+      "Not Provided",
+      "Not Provided",
+      11807407.531995066
+    ],
+    [
+      19061,
+      "Not Provided",
+      "Not Provided",
+      11803685.799099829
+    ],
+    [
+      19097,
+      "Not Provided",
+      "Not Provided",
+      11782906.087999707
+    ],
+    [
+      19100,
+      "Not Provided",
+      "Not Provided",
+      11648408.687502747
+    ],
+    [
+      19076,
+      "Not Provided",
+      "Not Provided",
+      11622717.680000298
+    ],
+    [
+      19078,
+      "Not Provided",
+      "Not Provided",
+      11575240.71199913
+    ],
+    [
+      19136,
+      "Not Provided",
+      "Not Provided",
+      11558446.593503108
+    ],
+    [
+      19065,
+      "Not Provided",
+      "Not Provided",
+      11558278.511099152
+    ],
+    [
+      19093,
+      "Not Provided",
+      "Not Provided",
+      11554420.301497936
+    ],
+    [
+      19077,
+      "Not Provided",
+      "Not Provided",
+      11506312.399999259
+    ],
+    [
+      19092,
+      "Not Provided",
+      "Not Provided",
+      11460470.602497326
+    ],
+    [
+      19075,
+      "Not Provided",
+      "Not Provided",
+      11426123.06799998
+    ],
+    [
+      19095,
+      "Not Provided",
+      "Not Provided",
+      11300868.229000527
+    ],
+    [
+      19138,
+      "Not Provided",
+      "Not Provided",
+      11235199.702004554
+    ],
+    [
+      19137,
+      "Not Provided",
+      "Not Provided",
+      11113033.272004059
+    ],
+    [
+      19080,
+      "Not Provided",
+      "Not Provided",
+      11090788.029499935
+    ],
+    [
+      19081,
+      "Not Provided",
+      "Not Provided",
+      11043227.226999715
+    ],
+    [
+      19133,
+      "Not Provided",
+      "Not Provided",
+      10933021.15500439
+    ],
+    [
+      19096,
+      "Not Provided",
+      "Not Provided",
+      10791700.122500913
+    ],
+    [
+      19135,
+      "Not Provided",
+      "Not Provided",
+      10752734.975504093
+    ],
+    [
+      19098,
+      "Not Provided",
+      "Not Provided",
+      10546154.262001513
+    ],
+    [
+      19134,
+      "Not Provided",
+      "Not Provided",
+      10456884.023004482
+    ],
+    [
+      19132,
+      "Not Provided",
+      "Not Provided",
+      10169541.871505378
+    ],
+    [
+      19130,
+      "Not Provided",
+      "Not Provided",
+      9865556.668003744
+    ],
+    [
+      19122,
+      "Not Provided",
+      "Not Provided",
+      9801531.857101211
+    ],
+    [
+      19112,
+      "Not Provided",
+      "Not Provided",
+      9778284.980996342
+    ],
+    [
+      19120,
+      "Not Provided",
+      "Not Provided",
+      9510723.960498799
+    ],
+    [
+      19127,
+      "Not Provided",
+      "Not Provided",
+      9423419.85900258
+    ],
+    [
+      19128,
+      "Not Provided",
+      "Not Provided",
+      9321375.309504451
+    ],
+    [
+      19131,
+      "Not Provided",
+      "Not Provided",
+      9246923.883504307
+    ],
+    [
+      19129,
+      "Not Provided",
+      "Not Provided",
+      9113799.8395046
+    ],
+    [
+      19126,
+      "Not Provided",
+      "Not Provided",
+      8954249.653502095
+    ],
+    [
+      19139,
+      "Not Provided",
+      "Not Provided",
+      8921717.02809796
+    ],
+    [
+      19125,
+      "Not Provided",
+      "Not Provided",
+      8857397.704004182
+    ],
+    [
+      19118,
+      "Not Provided",
+      "Not Provided",
+      8808346.209197948
+    ],
+    [
+      19121,
+      "Not Provided",
+      "Not Provided",
+      8787155.089998577
+    ],
+    [
+      19123,
+      "Not Provided",
+      "Not Provided",
+      8724998.82370182
+    ],
+    [
+      19116,
+      "Not Provided",
+      "Not Provided",
+      8594314.916099712
+    ],
+    [
+      19119,
+      "Not Provided",
+      "Not Provided",
+      8554068.063898236
+    ],
+    [
+      19143,
+      "Not Provided",
+      "Not Provided",
+      8540702.187495716
+    ],
+    [
+      19141,
+      "Not Provided",
+      "Not Provided",
+      8522927.499996422
+    ]
+  ],
+  "columns": [
+    "c.CustomerKey",
+    "FirstName",
+    "LastName",
+    "total_spent"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 11616,
+  "latency_ms_exec": 2727,
+  "tokens_in": 16368,
+  "tokens_out": 170,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,25 @@
+{
+  "question_id": 78,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    p.PromotionCategory,\n    sum(f.DiscountAmount) AS total_discount_amount,\n    sum(f.DiscountAmount) * 100.0 / nullif(sum(sum(f.DiscountAmount)) OVER (), 0) AS pct_of_all_discounts\nFROM retail.FactOnlineSales f\nJOIN retail.DimPromotion p ON f.PromotionKey = p.PromotionKey\nWHERE toYear(f.DateKey) = 2009\n  AND f.PromotionKey != 1\nGROUP BY p.PromotionCategory\nORDER BY total_discount_amount DESC",
+  "rows": [
+    [
+      "Store",
+      84164891.87055236,
+      100.0
+    ]
+  ],
+  "columns": [
+    "PromotionCategory",
+    "total_discount_amount",
+    "pct_of_all_discounts"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9193,
+  "latency_ms_exec": 536,
+  "tokens_in": 16767,
+  "tokens_out": 282,
+  "claude_error": null,
+  "sql_error": null
+}

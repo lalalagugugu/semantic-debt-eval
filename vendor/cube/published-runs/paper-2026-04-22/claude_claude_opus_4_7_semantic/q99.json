@@ -1,0 +1,15 @@
+{
+  "question_id": 99,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT pc.ProductCategoryName,\n       avgIf(day_total, IsWorkDay = 'WeekEnd') AS avg_weekend_day,\n       avgIf(day_total, IsWorkDay = 'WorkDay') AS avg_weekday,\n       avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay') AS abs_difference,\n       (avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_total, IsWorkDay = 'WorkDay'), 0) AS pct_bigger\nFROM (\n    SELECT f.DateKey AS DateKey,\n           pc.ProductCategoryKey AS ProductCategoryKey,\n           pc.ProductCategoryName AS ProductCategoryName,\n           d.IsWorkDay AS IsWorkDay,\n           sum(f.SalesAmount) AS day_total\n    FROM retail.FactOnlineSales f\n    JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n    JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\n    JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    JOIN retail.DimDate d ON f.DateKey = d.DateKey\n    GROUP BY f.DateKey, pc.ProductCategoryKey, pc.ProductCategoryName, d.IsWorkDay\n) t\nGROUP BY ProductCategoryName\nORDER BY pct_bigger DESC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 13704,
+  "latency_ms_exec": null,
+  "tokens_in": 23326,
+  "tokens_out": 782,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `pc.ProductCategoryName` in scope SELECT pc.ProductCategoryName, avgIf(day_total, IsWorkDay = 'WeekEnd') AS avg_weekend_day, avgIf(day_total, IsWorkDay = 'WorkDay') AS avg_weekday, avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay') AS abs_difference, ((avgIf(day_total, IsWorkDay = 'WeekEnd') - avgIf(day_total, IsWorkDay = 'WorkDay')) * 100.) / nullif(avgIf(day_total, IsWorkDay = 'WorkDay'), 0) AS pct_bigger FROM (SELECT f.DateKey AS DateKey, pc.ProductCategoryKey AS ProductCategoryKey, pc.ProductCategoryName AS ProductCategoryName, d.IsWorkDay AS IsWorkDay, sum(f.SalesAmount) AS day_total FROM retail.FactOnlineSales AS f INNER JOIN retail.DimProduct AS p ON f.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey INNER JOIN retail.DimDate AS d ON f.DateKey = d.DateKey GROUP BY f.DateKey, pc.ProductCategoryKey, pc.ProductCategoryName, d.IsWorkDay) AS t GROUP BY ProductCategoryName ORDER BY pct_bigger DESC. Maybe you meant: ['t.ProductCategoryName']. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

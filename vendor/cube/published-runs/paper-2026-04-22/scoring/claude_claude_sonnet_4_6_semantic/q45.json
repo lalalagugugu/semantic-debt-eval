@@ -1,0 +1,11 @@
+{
+  "question_id": 45,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactOnlineSales instead of FactSales, returning only 3 online-channel stores with different sales figures and sales-per-sqft values that do not match the expected 10-row result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 185,
+  "judge_latency_ms": 10550
+}

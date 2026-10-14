@@ -1,0 +1,15 @@
+{
+  "question_id": 49,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "WITH RECURSIVE entity_rollup AS (\n    SELECT EntityKey AS LeafEntityKey, EntityKey AS AncestorEntityKey, ParentEntityKey\n    FROM retail.DimEntity\n    UNION ALL\n    SELECT er.LeafEntityKey, toInt32(e.EntityKey) AS AncestorEntityKey, e.ParentEntityKey\n    FROM entity_rollup er\n    JOIN retail.DimEntity e ON toInt32(er.ParentEntityKey) = e.EntityKey\n    WHERE er.ParentEntityKey IS NOT NULL\n)\nSELECT\n    de.EntityKey,\n    de.EntityName,\n    de.EntityType,\n    sum(f.SalesAmount) AS TotalSalesAmount,\n    sum(f.SalesQuantity) AS TotalSalesQuantity,\n    sum(f.SalesAmount) - sum(f.TotalCost) AS GrossMargin\nFROM retail.FactOnlineSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nJOIN entity_rollup er ON er.LeafEntityKey = toInt32(s.EntityKey)\nJOIN retail.DimEntity de ON de.EntityKey = er.AncestorEntityKey\nGROUP BY de.EntityKey, de.EntityName, de.EntityType\nORDER BY TotalSalesAmount DESC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 15607,
+  "latency_ms_exec": null,
+  "tokens_in": 23316,
+  "tokens_out": 1063,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 306, server response: Code: 306. DB::Exception: Maximum recursive CTE evaluation depth (1000) exceeded, during evaluation of  entity_rollup AS er. Consider raising max_recursive_cte_evaluation_depth setting: While executing RecursiveCTESource. (TOO_DEEP_RECURSION) (for url https://clickhouse.vanya.cc:443)"
+}

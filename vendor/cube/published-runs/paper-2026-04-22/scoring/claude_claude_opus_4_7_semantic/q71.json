@@ -1,0 +1,11 @@
+{
+  "question_id": 71,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly in category, subcategory, and sales amount (only negligible floating-point precision differences, well within 1%), with equivalent logic using ProductCategoryKey instead of ProductCategoryName for partitioning.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 206,
+  "judge_latency_ms": 12420
+}

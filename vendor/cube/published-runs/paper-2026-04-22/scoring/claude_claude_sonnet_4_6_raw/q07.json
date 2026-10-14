@@ -1,0 +1,11 @@
+{
+  "question_id": 7,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 10 products with identical ProductName and UnitPrice values in the same order; the extra ProductKey column is irrelevant to correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 178,
+  "judge_latency_ms": 11013
+}

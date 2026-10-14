@@ -1,0 +1,92 @@
+{
+  "question_id": 93,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT p.PromotionName AS PromotionName, p.DiscountPercent AS DiscountPercent, sum(f.SalesQuantity) AS TotalUnits, sum(f.SalesAmount) AS TotalSales, count(*) AS LineItems FROM retail.FactSales AS f INNER JOIN retail.DimPromotion AS p ON f.PromotionKey = p.PromotionKey GROUP BY p.PromotionName, p.DiscountPercent ORDER BY DiscountPercent ASC",
+  "rows": [
+    [
+      "No Discount",
+      0.0,
+      17272753,
+      4180838166.4210277,
+      1166300
+    ],
+    [
+      "North America Spring Promotion",
+      0.05,
+      6067102,
+      1401058550.2345033,
+      464096
+    ],
+    [
+      "European Spring Promotion",
+      0.07,
+      2854633,
+      664333055.481625,
+      165728
+    ],
+    [
+      "North America Back-to-School Promotion",
+      0.1,
+      8258435,
+      1911237036.8454123,
+      473687
+    ],
+    [
+      "European Back-to-Scholl Promotion",
+      0.1,
+      1625266,
+      394051847.0097957,
+      119816
+    ],
+    [
+      "Asian Summer Promotion",
+      0.1,
+      2208579,
+      476202781.2724016,
+      113429
+    ],
+    [
+      "Asian Holiday Promotion",
+      0.15,
+      3568100,
+      758296368.1045676,
+      170995
+    ],
+    [
+      "Asian Spring Promotion",
+      0.2,
+      2465604,
+      535601306.4600024,
+      168986
+    ],
+    [
+      "North America Holiday Promotion",
+      0.2,
+      6048564,
+      1410825425.5781722,
+      319714
+    ],
+    [
+      "European Holiday Promotion",
+      0.2,
+      2951418,
+      681213071.4871488,
+      243338
+    ]
+  ],
+  "columns": [
+    "PromotionName",
+    "DiscountPercent",
+    "TotalUnits",
+    "TotalSales",
+    "LineItems"
+  ],
+  "row_count": 10,
+  "latency_ms_gen": 11170,
+  "latency_ms_exec": 679,
+  "tokens_in": 19134,
+  "tokens_out": 184,
+  "claude_error": null,
+  "sql_error": null
+}

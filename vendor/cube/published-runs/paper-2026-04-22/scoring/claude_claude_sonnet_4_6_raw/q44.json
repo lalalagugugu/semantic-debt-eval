@@ -1,0 +1,11 @@
+{
+  "question_id": 44,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same years, sales amounts, and YoY growth percentages as the reference (within negligible floating-point precision), with only an extra TotalSalesQuantity column that is ignored under strict matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 206,
+  "judge_latency_ms": 11261
+}

@@ -1,0 +1,17 @@
+{
+  "question_id": 25,
+  "sql": "SELECT d.NorthAmericaSeason, avg(daily_sales) as avg_daily_sales FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales GROUP BY DateKey) s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
+  "rows": [
+    [
+      "Back to School",
+      2634610.8500552108
+    ]
+  ],
+  "columns": [
+    "NorthAmericaSeason",
+    "avg_daily_sales"
+  ],
+  "row_count": 1,
+  "exec_ms": 518,
+  "error": null
+}

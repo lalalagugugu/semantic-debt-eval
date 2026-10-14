@@ -1,0 +1,11 @@
+{
+  "question_id": 71,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "All 8 rows match exactly in category, subcategory, and sales amount (differences are only sub-0.001% floating-point precision), and the candidate uses semantically equivalent SQL (partitioning by ProductCategoryKey instead of ProductCategoryName, which is 1:1).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 228,
+  "judge_latency_ms": 15419
+}

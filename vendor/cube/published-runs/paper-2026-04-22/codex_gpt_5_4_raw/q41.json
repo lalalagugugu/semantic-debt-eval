@@ -1,0 +1,21 @@
+{
+  "question_id": 41,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT sum(SalesAmount) AS last_quarter_sales\nFROM retail.FactSales\nWHERE DateKey >= addQuarters(toStartOfQuarter((SELECT max(DateKey) FROM retail.FactSales)), -1)\n  AND DateKey < toStartOfQuarter((SELECT max(DateKey) FROM retail.FactSales));",
+  "rows": [
+    [
+      972185118.5492029
+    ]
+  ],
+  "columns": [
+    "last_quarter_sales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 18243,
+  "latency_ms_exec": 513,
+  "tokens_in": 17221,
+  "tokens_out": 229,
+  "claude_error": null,
+  "sql_error": null
+}

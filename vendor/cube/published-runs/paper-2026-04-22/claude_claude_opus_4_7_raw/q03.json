@@ -1,0 +1,21 @@
+{
+  "question_id": 3,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT uniqExact(CustomerKey) AS unique_customers FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      18869
+    ]
+  ],
+  "columns": [
+    "unique_customers"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 5915,
+  "latency_ms_exec": 518,
+  "tokens_in": 19114,
+  "tokens_out": 42,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 73,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows are identical to the reference rows in both values and order, using a semantically equivalent query with an inline subquery instead of a CTE.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 124,
+  "judge_latency_ms": 9868
+}

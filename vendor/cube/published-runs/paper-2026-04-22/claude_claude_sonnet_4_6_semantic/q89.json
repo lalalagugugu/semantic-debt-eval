@@ -1,0 +1,39 @@
+{
+  "question_id": 89,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "WITH customer_stats AS (\n    SELECT\n        CustomerKey,\n        dateDiff('month', MAX(DateKey), toDate('2009-12-31')) AS months_since_last,\n        sum(SalesAmount)                                       AS total_spend,\n        countDistinct(ProductKey)                              AS distinct_products\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncustomer_segments AS (\n    SELECT\n        CustomerKey,\n        total_spend,\n        distinct_products,\n        CASE\n            WHEN months_since_last <= 6  THEN 'Active'\n            WHEN months_since_last <= 12 THEN 'At Risk'\n            ELSE                              'Churned'\n        END AS recency_segment\n    FROM customer_stats\n)\nSELECT\n    recency_segment,\n    count()                       AS customer_count,\n    avg(total_spend)              AS avg_spend_per_customer,\n    avg(distinct_products)        AS avg_distinct_products_per_customer\nFROM customer_segments\nGROUP BY recency_segment\nORDER BY\n    CASE recency_segment\n        WHEN 'Active'   THEN 1\n        WHEN 'At Risk'  THEN 2\n        WHEN 'Churned'  THEN 3\n    END",
+  "rows": [
+    [
+      "Active",
+      16890,
+      76861.78514268647,
+      74.97377146240379
+    ],
+    [
+      "At Risk",
+      1841,
+      344026.72974015103,
+      138.58229223248236
+    ],
+    [
+      "Churned",
+      138,
+      5700390.357222763,
+      780.3623188405797
+    ]
+  ],
+  "columns": [
+    "recency_segment",
+    "customer_count",
+    "avg_spend_per_customer",
+    "avg_distinct_products_per_customer"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 11835,
+  "latency_ms_exec": 625,
+  "tokens_in": 16778,
+  "tokens_out": 530,
+  "claude_error": null,
+  "sql_error": null
+}

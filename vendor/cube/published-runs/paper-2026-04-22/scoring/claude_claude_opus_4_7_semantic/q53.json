@@ -1,0 +1,11 @@
+{
+  "question_id": 53,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is identical to the reference except for the missing column alias, and produces the same result: 378070 distinct online orders in 2009.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 166,
+  "judge_latency_ms": 13982
+}

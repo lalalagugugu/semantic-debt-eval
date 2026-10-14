@@ -1,0 +1,11 @@
+{
+  "question_id": 22,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same 65 rows with identical values as the reference, merely with different column ordering and sorted output; all customer keys, spend amounts, and rank values match exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 227,
+  "judge_latency_ms": 16634
+}

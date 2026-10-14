@@ -1,0 +1,722 @@
+{
+  "question_id": 4,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT ProductKey, ProductName, BrandName, UnitPrice, UnitCost FROM retail.DimProduct WHERE BrandName = 'Contoso' ORDER BY ProductName",
+  "rows": [
+    [
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      "Contoso",
+      24.99,
+      12.74
+    ],
+    [
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      "Contoso",
+      24.99,
+      12.74
+    ],
+    [
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      "Contoso",
+      24.99,
+      12.74
+    ],
+    [
+      25,
+      "Contoso 16GB Mp5 Player M1600 Black",
+      "Contoso",
+      199.9,
+      91.93
+    ],
+    [
+      24,
+      "Contoso 16GB Mp5 Player M1600 Blue",
+      "Contoso",
+      199.9,
+      91.93
+    ],
+    [
+      26,
+      "Contoso 16GB Mp5 Player M1600 Green",
+      "Contoso",
+      199.9,
+      91.93
+    ],
+    [
+      28,
+      "Contoso 16GB Mp5 Player M1600 Red",
+      "Contoso",
+      199.9,
+      91.93
+    ],
+    [
+      27,
+      "Contoso 16GB Mp5 Player M1600 White",
+      "Contoso",
+      199.9,
+      91.93
+    ],
+    [
+      43,
+      "Contoso 16GB New Generation MP5 Player M1650 Black",
+      "Contoso",
+      232.0,
+      106.69
+    ],
+    [
+      45,
+      "Contoso 16GB New Generation MP5 Player M1650 Pink",
+      "Contoso",
+      232.0,
+      106.69
+    ],
+    [
+      41,
+      "Contoso 16GB New Generation MP5 Player M1650 Silver",
+      "Contoso",
+      232.0,
+      106.69
+    ],
+    [
+      42,
+      "Contoso 16GB New Generation MP5 Player M1650 White",
+      "Contoso",
+      232.0,
+      106.69
+    ],
+    [
+      44,
+      "Contoso 16GB New Generation MP5 Player M1650 blue",
+      "Contoso",
+      232.0,
+      106.69
+    ],
+    [
+      3,
+      "Contoso 1G MP3 Player E100 White",
+      "Contoso",
+      14.52,
+      7.4
+    ],
+    [
+      1332,
+      "Contoso 2-Line Corded Cordless Telephone M202 Black",
+      "Contoso",
+      28.99,
+      13.33
+    ],
+    [
+      1398,
+      "Contoso 2-Line Corded Cordless Telephone M202 Grey",
+      "Contoso",
+      28.99,
+      13.33
+    ],
+    [
+      1365,
+      "Contoso 2-Line Corded Cordless Telephone M202 White",
+      "Contoso",
+      28.99,
+      13.33
+    ],
+    [
+      1339,
+      "Contoso 2-Line Speakerphone M109 Black",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      1405,
+      "Contoso 2-Line Speakerphone M109 Grey",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      1372,
+      "Contoso 2-Line Speakerphone M109 White",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      6,
+      "Contoso 2G MP3 Player E200 Black",
+      "Contoso",
+      21.57,
+      11.0
+    ],
+    [
+      7,
+      "Contoso 2G MP3 Player E200 Blue",
+      "Contoso",
+      21.57,
+      11.0
+    ],
+    [
+      5,
+      "Contoso 2G MP3 Player E200 Red",
+      "Contoso",
+      21.57,
+      11.0
+    ],
+    [
+      4,
+      "Contoso 2G MP3 Player E200 Silver",
+      "Contoso",
+      21.57,
+      11.0
+    ],
+    [
+      1318,
+      "Contoso 3 Handset Cordless Phone System  E30 Black",
+      "Contoso",
+      16.99,
+      8.66
+    ],
+    [
+      1384,
+      "Contoso 3 Handset Cordless Phone System E30 Grey",
+      "Contoso",
+      16.99,
+      8.66
+    ],
+    [
+      1351,
+      "Contoso 3 Handset Cordless Phone System E30 White",
+      "Contoso",
+      16.99,
+      8.66
+    ],
+    [
+      33,
+      "Contoso 32GB Video MP3 Player M3200 Black",
+      "Contoso",
+      255.0,
+      84.49
+    ],
+    [
+      31,
+      "Contoso 32GB Video MP3 Player M3200 Orange",
+      "Contoso",
+      255.0,
+      84.49
+    ],
+    [
+      32,
+      "Contoso 32GB Video MP3 Player M3200 Pink",
+      "Contoso",
+      255.0,
+      84.49
+    ],
+    [
+      30,
+      "Contoso 32GB Video MP3 Player M3200 Red",
+      "Contoso",
+      255.0,
+      84.49
+    ],
+    [
+      29,
+      "Contoso 32GB Video MP3 Player M3200 White",
+      "Contoso",
+      255.0,
+      84.49
+    ],
+    [
+      1323,
+      "Contoso 4 Handset Cordless Phone System M86 Black",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      1389,
+      "Contoso 4 Handset Cordless Phone System M86 Grey",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      1356,
+      "Contoso 4 Handset Cordless Phone System M86 White",
+      "Contoso",
+      35.99,
+      16.55
+    ],
+    [
+      1333,
+      "Contoso 4-Line Corded Cordless Telephone M203 Black",
+      "Contoso",
+      32.99,
+      15.17
+    ],
+    [
+      1399,
+      "Contoso 4-Line Corded Cordless Telephone M203 Grey",
+      "Contoso",
+      32.99,
+      15.17
+    ],
+    [
+      1366,
+      "Contoso 4-Line Corded Cordless Telephone M203 White",
+      "Contoso",
+      32.99,
+      15.17
+    ],
+    [
+      1345,
+      "Contoso 4-Line Expandable Cordless Phone System M900 Black",
+      "Contoso",
+      22.0,
+      10.12
+    ],
+    [
+      1378,
+      "Contoso 4-Line Expandable Cordless Phone System M900 White",
+      "Contoso",
+      22.0,
+      10.12
+    ],
+    [
+      9,
+      "Contoso 4G MP3 Player E400 Black",
+      "Contoso",
+      59.99,
+      30.58
+    ],
+    [
+      10,
+      "Contoso 4G MP3 Player E400 Green",
+      "Contoso",
+      59.99,
+      30.58
+    ],
+    [
+      11,
+      "Contoso 4G MP3 Player E400 Orange",
+      "Contoso",
+      59.99,
+      30.58
+    ],
+    [
+      8,
+      "Contoso 4G MP3 Player E400 Silver",
+      "Contoso",
+      59.99,
+      30.58
+    ],
+    [
+      13,
+      "Contoso 4GB Flash MP3 Player E401 Black",
+      "Contoso",
+      77.68,
+      35.72
+    ],
+    [
+      12,
+      "Contoso 4GB Flash MP3 Player E401 Blue",
+      "Contoso",
+      77.68,
+      35.72
+    ],
+    [
+      14,
+      "Contoso 4GB Flash MP3 Player E401 Silver",
+      "Contoso",
+      77.68,
+      35.72
+    ],
+    [
+      15,
+      "Contoso 4GB Flash MP3 Player E401 White",
+      "Contoso",
+      77.68,
+      35.72
+    ],
+    [
+      34,
+      "Contoso 4GB Portable MP3 Player M450 Black",
+      "Contoso",
+      95.95,
+      48.92
+    ],
+    [
+      35,
+      "Contoso 4GB Portable MP3 Player M450 White",
+      "Contoso",
+      95.95,
+      48.92
+    ],
+    [
+      36,
+      "Contoso 4GB Portable MP3 Player M450 Yellow",
+      "Contoso",
+      95.95,
+      48.92
+    ],
+    [
+      2,
+      "Contoso 512MB MP3 Player E51 Blue",
+      "Contoso",
+      12.99,
+      6.62
+    ],
+    [
+      1,
+      "Contoso 512MB MP3 Player E51 Silver",
+      "Contoso",
+      12.99,
+      6.62
+    ],
+    [
+      38,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Black",
+      "Contoso",
+      299.23,
+      99.14
+    ],
+    [
+      40,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Blue",
+      "Contoso",
+      299.23,
+      99.14
+    ],
+    [
+      39,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Green",
+      "Contoso",
+      299.23,
+      99.14
+    ],
+    [
+      37,
+      "Contoso 8GB Clock & Radio MP3 Player X850 Silver",
+      "Contoso",
+      299.23,
+      99.14
+    ],
+    [
+      20,
+      "Contoso 8GB MP3 Player new model M820 Black",
+      "Contoso",
+      134.0,
+      61.62
+    ],
+    [
+      21,
+      "Contoso 8GB MP3 Player new model M820 Blue",
+      "Contoso",
+      134.0,
+      61.62
+    ],
+    [
+      23,
+      "Contoso 8GB MP3 Player new model M820 White",
+      "Contoso",
+      134.0,
+      61.62
+    ],
+    [
+      22,
+      "Contoso 8GB MP3 Player new model M820 Yellow",
+      "Contoso",
+      134.0,
+      61.62
+    ],
+    [
+      18,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Green",
+      "Contoso",
+      109.95,
+      50.56
+    ],
+    [
+      19,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Pink",
+      "Contoso",
+      109.95,
+      50.56
+    ],
+    [
+      17,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 Red",
+      "Contoso",
+      109.95,
+      50.56
+    ],
+    [
+      16,
+      "Contoso 8GB Super-Slim MP3/Video Player M800 White",
+      "Contoso",
+      109.95,
+      50.56
+    ],
+    [
+      759,
+      "Contoso 90W AC/DC Power Adapter E300 Black",
+      "Contoso",
+      11.9,
+      6.07
+    ],
+    [
+      824,
+      "Contoso 90W AC/DC Power Adapter E300 Grey",
+      "Contoso",
+      11.9,
+      6.07
+    ],
+    [
+      794,
+      "Contoso 90W AC/DC Power Adapter E300 White",
+      "Contoso",
+      11.9,
+      6.07
+    ],
+    [
+      768,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Black",
+      "Contoso",
+      17.9,
+      9.13
+    ],
+    [
+      833,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Grey",
+      "Contoso",
+      17.9,
+      9.13
+    ],
+    [
+      803,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 White",
+      "Contoso",
+      17.9,
+      9.13
+    ],
+    [
+      769,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Black",
+      "Contoso",
+      22.9,
+      11.68
+    ],
+    [
+      834,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 Grey",
+      "Contoso",
+      22.9,
+      11.68
+    ],
+    [
+      804,
+      "Contoso ADSL Modem Splitter/Filter X 2 E200 White",
+      "Contoso",
+      22.9,
+      11.68
+    ],
+    [
+      770,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 Black",
+      "Contoso",
+      52.9,
+      26.97
+    ],
+    [
+      835,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 Grey",
+      "Contoso",
+      52.9,
+      26.97
+    ],
+    [
+      805,
+      "Contoso ADSL Modem Splitter/Filter X 3 E300 White",
+      "Contoso",
+      52.9,
+      26.97
+    ],
+    [
+      2378,
+      "Contoso Air conditioner 10000BTU M0490 Blue",
+      "Contoso",
+      429.99,
+      197.74
+    ],
+    [
+      2371,
+      "Contoso Air conditioner 10000BTU M0490 Grey",
+      "Contoso",
+      429.99,
+      197.74
+    ],
+    [
+      2357,
+      "Contoso Air conditioner 10000BTU M0490 Red",
+      "Contoso",
+      429.99,
+      197.74
+    ],
+    [
+      2364,
+      "Contoso Air conditioner 10000BTU M0490 Silver",
+      "Contoso",
+      429.99,
+      197.74
+    ],
+    [
+      2350,
+      "Contoso Air conditioner 10000BTU M0490 White",
+      "Contoso",
+      429.99,
+      197.74
+    ],
+    [
+      2377,
+      "Contoso Air conditioner 12000BTU M0640 Blue",
+      "Contoso",
+      459.99,
+      211.53
+    ],
+    [
+      2370,
+      "Contoso Air conditioner 12000BTU M0640 Grey",
+      "Contoso",
+      459.99,
+      211.53
+    ],
+    [
+      2356,
+      "Contoso Air conditioner 12000BTU M0640 Red",
+      "Contoso",
+      459.99,
+      211.53
+    ],
+    [
+      2363,
+      "Contoso Air conditioner 12000BTU M0640 Silver",
+      "Contoso",
+      459.99,
+      211.53
+    ],
+    [
+      2349,
+      "Contoso Air conditioner 12000BTU M0640 White",
+      "Contoso",
+      459.99,
+      211.53
+    ],
+    [
+      2376,
+      "Contoso Air conditioner 25000BTU L1672 Blue",
+      "Contoso",
+      635.99,
+      210.72
+    ],
+    [
+      2369,
+      "Contoso Air conditioner 25000BTU L1672 Grey",
+      "Contoso",
+      635.99,
+      210.72
+    ],
+    [
+      2355,
+      "Contoso Air conditioner 25000BTU L1672 Red",
+      "Contoso",
+      635.99,
+      210.72
+    ],
+    [
+      2362,
+      "Contoso Air conditioner 25000BTU L1672 Silver",
+      "Contoso",
+      635.99,
+      210.72
+    ],
+    [
+      2348,
+      "Contoso Air conditioner 25000BTU L1672 White",
+      "Contoso",
+      635.99,
+      210.72
+    ],
+    [
+      2382,
+      "Contoso Air conditioner 5200BTU E0100 Blue",
+      "Contoso",
+      109.99,
+      56.08
+    ],
+    [
+      2375,
+      "Contoso Air conditioner 5200BTU E0100 Grey",
+      "Contoso",
+      109.99,
+      56.08
+    ],
+    [
+      2361,
+      "Contoso Air conditioner 5200BTU E0100 Red",
+      "Contoso",
+      109.99,
+      56.08
+    ],
+    [
+      2368,
+      "Contoso Air conditioner 5200BTU E0100 Silver",
+      "Contoso",
+      109.99,
+      56.08
+    ],
+    [
+      2354,
+      "Contoso Air conditioner 5200BTU E0100 White",
+      "Contoso",
+      109.99,
+      56.08
+    ],
+    [
+      2381,
+      "Contoso Air conditioner 6000BTU E0180 Blue",
+      "Contoso",
+      199.99,
+      101.96
+    ],
+    [
+      2374,
+      "Contoso Air conditioner 6000BTU E0180 Grey",
+      "Contoso",
+      199.99,
+      101.96
+    ],
+    [
+      2360,
+      "Contoso Air conditioner 6000BTU E0180 Red",
+      "Contoso",
+      199.99,
+      101.96
+    ]
+  ],
+  "columns": [
+    "ProductKey",
+    "ProductName",
+    "BrandName",
+    "UnitPrice",
+    "UnitCost"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 8240,
+  "latency_ms_exec": 504,
+  "tokens_in": 23311,
+  "tokens_out": 73,
+  "claude_error": null,
+  "sql_error": null
+}

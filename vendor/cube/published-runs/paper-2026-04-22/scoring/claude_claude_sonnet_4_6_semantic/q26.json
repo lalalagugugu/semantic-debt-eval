@@ -1,0 +1,11 @@
+{
+  "question_id": 26,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows [Q1: 18015, Q2: 853] exactly match the expected rows; the only difference is using HAVING instead of WHERE to filter first purchases in 2007, which is semantically equivalent here.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 165,
+  "judge_latency_ms": 9746
+}

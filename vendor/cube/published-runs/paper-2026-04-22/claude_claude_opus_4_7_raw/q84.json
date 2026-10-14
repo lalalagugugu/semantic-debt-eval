@@ -1,0 +1,31 @@
+{
+  "question_id": 84,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT Class, count() AS ProductCount\nFROM (\n    SELECT ProductKey,\n           CASE WHEN CumPct <= 0.80 THEN 'A'\n                WHEN CumPct <= 0.95 THEN 'B'\n                ELSE 'C' END AS Class\n    FROM (\n        SELECT ProductKey,\n               Revenue,\n               sum(Revenue) OVER (ORDER BY Revenue DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) / sum(Revenue) OVER () AS CumPct\n        FROM (\n            SELECT ProductKey, sum(SalesAmount) AS Revenue\n            FROM retail.FactSales\n            WHERE toYear(DateKey) = 2009\n            GROUP BY ProductKey\n        )\n    )\n)\nGROUP BY Class\nORDER BY Class",
+  "rows": [
+    [
+      "A",
+      1119
+    ],
+    [
+      "B",
+      672
+    ],
+    [
+      "C",
+      713
+    ]
+  ],
+  "columns": [
+    "Class",
+    "ProductCount"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 8324,
+  "latency_ms_exec": 515,
+  "tokens_in": 19169,
+  "tokens_out": 313,
+  "claude_error": null,
+  "sql_error": null
+}

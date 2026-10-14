@@ -1,0 +1,11 @@
+{
+  "question_id": 39,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 62, server response: Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 2982 (\u2014) (line 74, col 38): \u2014 default for unqualified sales questions |\n| **\"New\" product** | `AvailableForSaleDate` year equals the sale year \u2014 first year the product appears on the market... . (SYNTAX_ERROR) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

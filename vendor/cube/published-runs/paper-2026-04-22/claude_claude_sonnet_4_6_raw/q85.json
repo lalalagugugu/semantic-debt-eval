@@ -1,0 +1,15 @@
+{
+  "question_id": 85,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    StoreKey,\n    StoreName,\n    actual_sales,\n    sales_quota,\n    round(actual_sales / nullIf(sales_quota, 0) * 100, 2) AS attainment_pct,\n    rank_pos\nFROM (\n    SELECT\n        s.StoreKey,\n        st.StoreName,\n        actual_sales,\n        sales_quota,\n        row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) DESC) AS rn_top,\n        row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) ASC)  AS rn_bottom,\n        count(*) OVER ()                                                          AS total,\n        'top'                                                                     AS rank_pos\n    FROM (\n        SELECT StoreKey, sum(SalesAmount) AS actual_sales\n        FROM retail.FactSales\n        WHERE toYear(DateKey) = 2009\n        GROUP BY StoreKey\n    ) s\n    JOIN (\n        SELECT StoreKey, sum(SalesAmountQuota) AS sales_quota\n        FROM retail.FactSalesQuota\n        WHERE toYear(DateKey) = 2009\n        GROUP BY StoreKey\n    ) q ON s.StoreKey = q.StoreKey\n    JOIN retail.DimStore st ON s.StoreKey = st.StoreKey\n) t\nWHERE rn_top <= 5 OR rn_bottom <= 5\nORDER BY attainment_pct DESC",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 10876,
+  "latency_ms_exec": null,
+  "tokens_in": 13817,
+  "tokens_out": 508,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 47, server response: Code: 47. DB::Exception: Unknown expression identifier `StoreKey` in scope SELECT StoreKey, StoreName, actual_sales, sales_quota, round((actual_sales / nullIf(sales_quota, 0)) * 100, 2) AS attainment_pct, rank_pos FROM (SELECT s.StoreKey, st.StoreName, actual_sales, sales_quota, row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) DESC) AS rn_top, row_number() OVER (ORDER BY actual_sales / nullIf(sales_quota, 0) ASC) AS rn_bottom, count(*) OVER () AS total, 'top' AS rank_pos FROM (SELECT StoreKey, sum(SalesAmount) AS actual_sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY StoreKey) AS s INNER JOIN (SELECT StoreKey, sum(SalesAmountQuota) AS sales_quota FROM retail.FactSalesQuota WHERE toYear(DateKey) = 2009 GROUP BY StoreKey) AS q ON s.StoreKey = q.StoreKey INNER JOIN retail.DimStore AS st ON s.StoreKey = st.StoreKey) AS t WHERE (rn_top <= 5) OR (rn_bottom <= 5) ORDER BY attainment_pct DESC. (UNKNOWN_IDENTIFIER) (for url https://clickhouse.vanya.cc:443)"
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 80,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Values match within rounding (1077.977\u21921078.0); candidate omits n_customers (not requested) and LIMIT 20 (not in question), and including 0-day customers has negligible effect on averages.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1042,
+  "judge_latency_ms": 27883
+}

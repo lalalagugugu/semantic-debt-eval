@@ -1,0 +1,11 @@
+{
+  "question_id": 21,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate uses the same CTE logic to fetch the latest inventory snapshot per store/product and returns the same StoreName, ProductName, OnHandQuantity values; extra columns (OnOrderQuantity, SafetyStockQuantity, SnapshotDate) and different row ordering are permissible under the strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 268,
+  "judge_latency_ms": 12239
+}

@@ -1,0 +1,21 @@
+{
+  "question_id": 58,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT max(SalesAmount) AS largest_single_online_sale_amount\nFROM retail.FactOnlineSales",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "largest_single_online_sale_amount"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8930,
+  "latency_ms_exec": 528,
+  "tokens_in": 18824,
+  "tokens_out": 49,
+  "claude_error": null,
+  "sql_error": null
+}

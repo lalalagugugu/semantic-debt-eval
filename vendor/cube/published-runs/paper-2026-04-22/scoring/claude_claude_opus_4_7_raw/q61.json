@@ -1,0 +1,11 @@
+{
+  "question_id": 61,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, producing the same 30 rows with only negligible floating-point precision differences (well under 1% relative drift).",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 180,
+  "judge_latency_ms": 11571
+}

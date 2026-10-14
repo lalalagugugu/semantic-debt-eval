@@ -1,0 +1,11 @@
+{
+  "question_id": 75,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate rows match the expected rows (same customers, same spend values within floating-point precision, same pct_growth ordering); the only differences are an extra CustomerKey column and no LIMIT 25, but the top-25 rows are identical to the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 216,
+  "judge_latency_ms": 13802
+}

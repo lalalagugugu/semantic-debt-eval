@@ -1,0 +1,11 @@
+{
+  "question_id": 82,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Manager names and direct report counts match, but average tenure values differ by ~8% (e.g., 10.83 vs 10.0 for Terry Adams) because the candidate uses days/365.25 while the reference uses dateDiff('year'), a systematic difference exceeding 1% tolerance.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 825,
+  "judge_latency_ms": 26359
+}

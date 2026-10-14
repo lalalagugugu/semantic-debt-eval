@@ -1,0 +1,78 @@
+{
+  "question_id": 95,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT pc.ProductCategoryName AS ProductCategoryName, sumIf(s.SalesAmount, s.PromotionKey != 1) AS PromotionSalesAmount, sumIf(s.SalesAmount, s.PromotionKey = 1) AS FullPriceSalesAmount, sumIf(s.SalesAmount, s.PromotionKey != 1) - sumIf(s.SalesAmount, s.PromotionKey = 1) AS IncrementalRevenue, sumIf(s.DiscountAmount, s.PromotionKey != 1) AS TotalDiscountAmount FROM retail.FactSales AS s INNER JOIN retail.DimProduct AS p ON s.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY IncrementalRevenue DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      2587272826.971443,
+      1335463960.2180498,
+      1251808866.7533934,
+      75559191.75898327
+    ],
+    [
+      "Cameras and camcorders",
+      1697501192.7401466,
+      851517178.6500194,
+      845984014.0901272,
+      40364080.419901386
+    ],
+    [
+      "Computers",
+      1732091956.2950287,
+      889347214.7000134,
+      842744741.5950153,
+      41203747.40499988
+    ],
+    [
+      "TV and Video",
+      907661618.6242214,
+      452459496.1400026,
+      455202122.48421884,
+      21885320.945799958
+    ],
+    [
+      "Cell phones",
+      588001810.4479791,
+      296349144.45005965,
+      291652665.99791944,
+      12327247.672000634
+    ],
+    [
+      "Music, Movies and Audio Books",
+      110926352.86109594,
+      54878353.119994685,
+      56047999.74110125,
+      2697201.3488997607
+    ],
+    [
+      "Audio",
+      100839946.07089998,
+      50774418.23999757,
+      50065527.830902405,
+      2429793.5290999357
+    ],
+    [
+      "Games and Toys",
+      22046752.233599156,
+      10395578.799999975,
+      11651173.433599181,
+      105752.36639999965
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "PromotionSalesAmount",
+    "FullPriceSalesAmount",
+    "IncrementalRevenue",
+    "TotalDiscountAmount"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 8658,
+  "latency_ms_exec": 564,
+  "tokens_in": 19132,
+  "tokens_out": 397,
+  "claude_error": null,
+  "sql_error": null
+}

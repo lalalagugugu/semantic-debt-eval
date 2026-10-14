@@ -1,0 +1,11 @@
+{
+  "question_id": 94,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate omits LIMIT 20 and returns 99 rows instead of 20, so strict fails; but the top rows match in store names, Q3/Q4 sales, and pct-change within floating-point noise \u2014 returning all declining stores is a valid analytical superset.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 637,
+  "judge_latency_ms": 22083
+}

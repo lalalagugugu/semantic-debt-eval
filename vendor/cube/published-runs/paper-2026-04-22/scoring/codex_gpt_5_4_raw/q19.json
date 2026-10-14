@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate first aggregates SalesAmount to order-level totals (per SalesOrderNumber) before averaging, while the reference averages at the line-item level; this produces fundamentally different values (~1682 vs ~213 for F, ~1563 vs ~217 for M), answering a different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 288,
+  "judge_latency_ms": 13177
+}

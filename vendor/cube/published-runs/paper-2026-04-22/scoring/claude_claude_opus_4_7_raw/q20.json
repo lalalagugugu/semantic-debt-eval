@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate aggregates quantities across all stores per product before comparing, while reference checks per-store rows individually \u2014 a different logic yielding wrong products and values (e.g., \"SV DVD 58\u2026\" is 30 vs 90 in reference but 270 vs 970 in candidate).",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 865,
+  "judge_latency_ms": 22688
+}

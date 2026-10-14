@@ -1,0 +1,29 @@
+{
+  "question_id": 38,
+  "model": "claude-opus-4-7",
+  "variant": "semantic",
+  "sql": "SELECT\n  sumIf(Amount, ScenarioKey = 1) AS ActualSales,\n  sumIf(Amount, ScenarioKey = 3) AS ForecastSales,\n  sumIf(Amount, ScenarioKey = 1) - sumIf(Amount, ScenarioKey = 3) AS Variance,\n  (sumIf(Amount, ScenarioKey = 1) - sumIf(Amount, ScenarioKey = 3)) * 100.0 / nullif(sumIf(Amount, ScenarioKey = 3), 0) AS VariancePercent,\n  100.0 - abs(sumIf(Amount, ScenarioKey = 1) - sumIf(Amount, ScenarioKey = 3)) * 100.0 / nullif(sumIf(Amount, ScenarioKey = 3), 0) AS ForecastAccuracyPercent\nFROM retail.FactStrategyPlan\nWHERE AccountKey = 50\n  AND ScenarioKey IN (1, 3)\n  AND toYear(DateKey) = 2009\n  AND toQuarter(DateKey) = 4",
+  "rows": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      null,
+      null
+    ]
+  ],
+  "columns": [
+    "ActualSales",
+    "ForecastSales",
+    "Variance",
+    "VariancePercent",
+    "ForecastAccuracyPercent"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8835,
+  "latency_ms_exec": 507,
+  "tokens_in": 23326,
+  "tokens_out": 389,
+  "claude_error": null,
+  "sql_error": null
+}

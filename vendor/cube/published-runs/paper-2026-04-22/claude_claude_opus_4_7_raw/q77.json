@@ -1,0 +1,15 @@
+{
+  "question_id": 77,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT month, SalesAmount, prev_SalesAmount, if(prev_SalesAmount = 0, NULL, (SalesAmount - prev_SalesAmount) / prev_SalesAmount * 100) AS GrowthRatePercent\nFROM (\n    SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS SalesAmount, any(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey) ROWS BETWEEN 1 PRECEDING AND 1 PRECEDING) AS prev_SalesAmount\n    FROM retail.FactOnlineSales\n    WHERE toYear(DateKey) = 2009\n    GROUP BY month\n)\nORDER BY month",
+  "rows": null,
+  "columns": null,
+  "row_count": null,
+  "latency_ms_gen": 7815,
+  "latency_ms_exec": null,
+  "tokens_in": 19126,
+  "tokens_out": 262,
+  "claude_error": null,
+  "sql_error": "Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Aggregate function sum(SalesAmount) AS SalesAmount is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (for url https://clickhouse.vanya.cc:443)"
+}

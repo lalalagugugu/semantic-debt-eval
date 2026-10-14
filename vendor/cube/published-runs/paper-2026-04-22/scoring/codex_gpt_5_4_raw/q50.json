@@ -1,0 +1,11 @@
+{
+  "question_id": 50,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same sales_2008, sales_2009, and growth_pct values (-9.54%) as the reference, just with the first two columns in swapped order, which is ignored under row-level matching rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 214,
+  "judge_latency_ms": 10929
+}

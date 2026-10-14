@@ -1,0 +1,11 @@
+{
+  "question_id": 19,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes sum(SalesAmount)/countDistinct(SalesOrderNumber) (average per distinct order), yielding ~1682/1565, while the reference computes avg(SalesAmount) per row, yielding ~213/217 \u2014 a fundamentally different measure with values ~7-8x larger that cannot be reconciled by aggregation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 288,
+  "judge_latency_ms": 12696
+}

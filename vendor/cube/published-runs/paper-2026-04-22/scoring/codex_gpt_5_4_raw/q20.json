@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate aggregates OnHandQuantity and SafetyStockQuantity across all stores per product before comparing, while the reference compares at the individual store-level row; this changes which products qualify and yields different values, answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 577,
+  "judge_latency_ms": 17533
+}

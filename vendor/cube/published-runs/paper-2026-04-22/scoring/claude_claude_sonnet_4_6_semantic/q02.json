@@ -1,0 +1,11 @@
+{
+  "question_id": 2,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same total sales amount (2718202629.808) as the reference, differing only by an inconsequential alias and sub-0.0001% floating-point rounding.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 174,
+  "judge_latency_ms": 10196
+}

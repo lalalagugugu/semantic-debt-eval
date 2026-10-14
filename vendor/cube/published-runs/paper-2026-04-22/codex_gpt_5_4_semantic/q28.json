@@ -1,0 +1,27 @@
+{
+  "question_id": 28,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    channel,\n    average_transaction_value\nFROM\n(\n    SELECT\n        'Online' AS channel,\n        sum(SalesAmount) / nullIf(countDistinct(SalesOrderNumber), 0) AS average_transaction_value\n    FROM retail.FactOnlineSales\n\n    UNION ALL\n\n    SELECT\n        'Store' AS channel,\n        sum(fs.SalesAmount) / nullIf(countDistinct(fs.SalesKey), 0) AS average_transaction_value\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimChannel AS dc\n        ON fs.channelKey = dc.ChannelKey\n    WHERE dc.ChannelName = 'Store'\n)\nORDER BY channel;",
+  "rows": [
+    [
+      "Online",
+      1623.466619169697
+    ],
+    [
+      "Store",
+      3193.7727681961146
+    ]
+  ],
+  "columns": [
+    "channel",
+    "average_transaction_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 26786,
+  "latency_ms_exec": 786,
+  "tokens_in": 19679,
+  "tokens_out": 575,
+  "claude_error": null,
+  "sql_error": null
+}

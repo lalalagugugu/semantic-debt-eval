@@ -1,0 +1,11 @@
+{
+  "question_id": 39,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Window function min(toDate(p.AvailableForSaleDate)) OVER (PARTITION BY psc.ProductSubcategoryKey) is found inside an aggregate function in query. (ILLEGAL_AGGREGATION) (for url https://clickhouse.vanya.cc:443)",
+  "skipped_judge": true,
+  "judge_tokens_in": 0,
+  "judge_tokens_out": 0,
+  "judge_latency_ms": 0
+}

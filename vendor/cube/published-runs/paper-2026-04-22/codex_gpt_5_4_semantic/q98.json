@@ -1,0 +1,87 @@
+{
+  "question_id": 98,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "WITH quarterly_sales AS (\n    SELECT\n        pc.ProductCategoryName AS product_category,\n        d.CalendarYear AS calendar_year,\n        d.CalendarQuarterLabel AS calendar_quarter,\n        sum(fos.SalesAmount) AS quarter_sales\n    FROM retail.FactOnlineSales AS fos\n    INNER JOIN retail.DimDate AS d\n        ON fos.DateKey = d.DateKey\n    INNER JOIN retail.DimProduct AS p\n        ON fos.ProductKey = p.ProductKey\n    INNER JOIN retail.DimProductSubcategory AS ps\n        ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\n    INNER JOIN retail.DimProductCategory AS pc\n        ON ps.ProductCategoryKey = pc.ProductCategoryKey\n    GROUP BY\n        pc.ProductCategoryName,\n        d.CalendarYear,\n        d.CalendarQuarterLabel\n),\nannual_sales AS (\n    SELECT\n        product_category,\n        calendar_year,\n        sum(quarter_sales) AS annual_sales\n    FROM quarterly_sales\n    GROUP BY\n        product_category,\n        calendar_year\n),\ncategory_quarter_dependence AS (\n    SELECT\n        qs.product_category,\n        qs.calendar_year,\n        qs.calendar_quarter,\n        qs.quarter_sales,\n        a.annual_sales,\n        qs.quarter_sales / nullif(a.annual_sales, 0) AS quarter_share_of_annual_sales\n    FROM quarterly_sales AS qs\n    INNER JOIN annual_sales AS a\n        ON qs.product_category = a.product_category\n       AND qs.calendar_year = a.calendar_year\n),\nranked AS (\n    SELECT\n        product_category,\n        calendar_year,\n        calendar_quarter,\n        quarter_sales,\n        annual_sales,\n        quarter_share_of_annual_sales,\n        row_number() OVER (\n            PARTITION BY product_category\n            ORDER BY quarter_share_of_annual_sales DESC, calendar_year DESC, calendar_quarter\n        ) AS rn\n    FROM category_quarter_dependence\n)\nSELECT\n    product_category,\n    calendar_year,\n    calendar_quarter AS most_important_quarter,\n    quarter_sales,\n    annual_sales,\n    round(quarter_share_of_annual_sales * 100, 2) AS single_quarter_share_pct\nFROM ranked\nWHERE rn = 1\nORDER BY single_quarter_share_pct DESC, product_category;",
+  "rows": [
+    [
+      "Audio",
+      2008,
+      "Q4",
+      3382154.219999914,
+      10457839.100799967,
+      32.34
+    ],
+    [
+      "TV and Video",
+      2007,
+      "Q1",
+      65223757.16500247,
+      210367298.43344766,
+      31.0
+    ],
+    [
+      "Games and Toys",
+      2009,
+      "Q3",
+      623579.1850001904,
+      2057197.8850002538,
+      30.31
+    ],
+    [
+      "Home Appliances",
+      2007,
+      "Q3",
+      66430993.91695055,
+      235070159.3548887,
+      28.26
+    ],
+    [
+      "Music, Movies and Audio Books",
+      2007,
+      "Q4",
+      3076492.7615003563,
+      10918079.079600716,
+      28.18
+    ],
+    [
+      "Cell phones",
+      2009,
+      "Q3",
+      17423558.84403111,
+      62248458.68515207,
+      27.99
+    ],
+    [
+      "Computers",
+      2009,
+      "Q2",
+      49498400.42201193,
+      179034949.16104716,
+      27.65
+    ],
+    [
+      "Cameras and camcorders",
+      2009,
+      "Q3",
+      40824950.51200391,
+      149428309.1583789,
+      27.32
+    ]
+  ],
+  "columns": [
+    "product_category",
+    "calendar_year",
+    "most_important_quarter",
+    "quarter_sales",
+    "annual_sales",
+    "single_quarter_share_pct"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 23617,
+  "latency_ms_exec": 1585,
+  "tokens_in": 18826,
+  "tokens_out": 789,
+  "claude_error": null,
+  "sql_error": null
+}

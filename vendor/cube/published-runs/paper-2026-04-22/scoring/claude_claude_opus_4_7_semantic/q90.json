@@ -1,0 +1,11 @@
+{
+  "question_id": 90,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same 8 categories with matching gross margin percentages and YoY deltas (differences are only sub-rounding-level); extra sales columns and different row ordering (by name vs. m_2009 DESC) don't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 241,
+  "judge_latency_ms": 14259
+}

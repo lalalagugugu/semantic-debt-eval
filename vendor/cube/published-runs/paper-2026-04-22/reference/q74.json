@@ -1,0 +1,69 @@
+{
+  "question_id": 74,
+  "sql": "WITH prod_store AS (\n  SELECT f.StoreKey, f.ProductKey, sum(f.SalesAmount) AS sales\n  FROM retail.FactOnlineSales f\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY f.StoreKey, f.ProductKey\n),\nranked AS (\n  SELECT StoreKey, ProductKey, sales,\n         row_number() OVER (PARTITION BY StoreKey ORDER BY sales DESC) AS rn,\n         sum(sales) OVER (PARTITION BY StoreKey) AS store_total\n  FROM prod_store\n)\nSELECT s.StoreName, p.ProductName, round(r.sales, 2) AS product_sales,\n       round(r.sales * 100.0 / nullif(r.store_total, 0), 2) AS pct_of_store\nFROM ranked r\nJOIN retail.DimStore s ON r.StoreKey = s.StoreKey\nJOIN retail.DimProduct p ON r.ProductKey = p.ProductKey\nWHERE r.rn <= 3\nORDER BY s.StoreName, r.rn\nLIMIT 50",
+  "rows": [
+    [
+      "Contoso Asia Online Store",
+      "Fabrikam Refrigerator 24.7CuFt X9800 Grey",
+      1079996.62,
+      0.36
+    ],
+    [
+      "Contoso Asia Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Green",
+      1075196.64,
+      0.36
+    ],
+    [
+      "Contoso Asia Online Store",
+      "Litware Refrigerator L1200 Orange",
+      1047996.72,
+      0.35
+    ],
+    [
+      "Contoso Europe Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Silver",
+      882941.24,
+      0.36
+    ],
+    [
+      "Contoso Europe Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      880253.25,
+      0.35
+    ],
+    [
+      "Contoso Europe Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      869373.28,
+      0.35
+    ],
+    [
+      "Contoso North America Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Brown",
+      1336795.82,
+      0.43
+    ],
+    [
+      "Contoso North America Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Grey",
+      1133436.46,
+      0.37
+    ],
+    [
+      "Contoso North America Online Store",
+      "Litware Refrigerator 24.7CuFt X980 Blue",
+      951837.03,
+      0.31
+    ]
+  ],
+  "columns": [
+    "StoreName",
+    "ProductName",
+    "product_sales",
+    "pct_of_store"
+  ],
+  "row_count": 9,
+  "exec_ms": 511,
+  "error": null
+}

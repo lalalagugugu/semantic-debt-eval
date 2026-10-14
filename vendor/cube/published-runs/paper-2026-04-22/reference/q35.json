@@ -1,0 +1,716 @@
+{
+  "question_id": 35,
+  "sql": "SELECT e.FirstName, e.LastName, e.Title, m.FirstName as manager_first, m.LastName as manager_last FROM retail.DimEmployee e LEFT JOIN retail.DimEmployee m ON e.ParentEmployeeKey = m.EmployeeKey",
+  "rows": [
+    [
+      "Kim",
+      "Abercrombie",
+      "Sales Region Manager",
+      "Pieter",
+      "Uittenbogaard"
+    ],
+    [
+      "Sagiv",
+      "Hadaya",
+      "Sales Region Manager",
+      "Pieter",
+      "Uittenbogaard"
+    ],
+    [
+      "Luka",
+      "Abrus",
+      "Sales Region Manager",
+      "Pieter",
+      "Uittenbogaard"
+    ],
+    [
+      "Kirk",
+      "Nason",
+      "Sales Region Manager",
+      "Pieter",
+      "Uittenbogaard"
+    ],
+    [
+      "Humberto",
+      "Acevedo",
+      "Sales Region Manager",
+      "Pieter",
+      "Uittenbogaard"
+    ],
+    [
+      "Yoichiro",
+      "Okada",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Pilar",
+      "Ackerman",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "Aaron",
+      "Painter",
+      "Sales State Manager",
+      "Luka",
+      "Abrus"
+    ],
+    [
+      "Terry",
+      "Adams",
+      "Sales State Manager",
+      "Kirk",
+      "Nason"
+    ],
+    [
+      "David",
+      "Probst",
+      "Sales State Manager",
+      "Humberto",
+      "Acevedo"
+    ],
+    [
+      "Manoj",
+      "Agarwal",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Michael",
+      "Raheem",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "David",
+      "Ahs",
+      "Sales State Manager",
+      "Luka",
+      "Abrus"
+    ],
+    [
+      "Miguel",
+      "Saenz",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Kim",
+      "Akers",
+      "Sales Store Manager",
+      "Terry",
+      "Adams"
+    ],
+    [
+      "Kate",
+      "Taneyhill",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "David",
+      "Alexander",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "Pieter",
+      "Uittenbogaard",
+      "Sales Group Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Michelle",
+      "Alexander",
+      "Sales State Manager",
+      "Kirk",
+      "Nason"
+    ],
+    [
+      "Rene",
+      "Valdes",
+      "Sales State Manager",
+      "Humberto",
+      "Acevedo"
+    ],
+    [
+      "Michael",
+      "Allen",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Rohinton",
+      "Wadia",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "Luis",
+      "Alverca",
+      "Sales State Manager",
+      "Luka",
+      "Abrus"
+    ],
+    [
+      "Ming-Yang",
+      "Xie",
+      "Sales Store Manager",
+      "Terry",
+      "Adams"
+    ],
+    [
+      "Antonio",
+      "Alwan",
+      "Sales Store Manager",
+      "David",
+      "Probst"
+    ],
+    [
+      "David",
+      "Yalovsky",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Oleg",
+      "Anashkin",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "Marko",
+      "Zajc",
+      "Sales State Manager",
+      "Luka",
+      "Abrus"
+    ],
+    [
+      "Christen",
+      "Anderson",
+      "Sales State Manager",
+      "Kirk",
+      "Nason"
+    ],
+    [
+      "Mike",
+      "Nash",
+      "Sales State Manager",
+      "Humberto",
+      "Acevedo"
+    ],
+    [
+      "Diogo",
+      "Andrade",
+      "Sales State Manager",
+      "Kim",
+      "Abercrombie"
+    ],
+    [
+      "Aneta",
+      "Olecka",
+      "Sales State Manager",
+      "Sagiv",
+      "Hadaya"
+    ],
+    [
+      "Ben",
+      "Andrews",
+      "Sales State Manager",
+      "Luka",
+      "Abrus"
+    ],
+    [
+      "Jae",
+      "Pak",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Roy",
+      "Antebi",
+      "Sales Store Manager",
+      "David",
+      "Probst"
+    ],
+    [
+      "Prithvi",
+      "Raj",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Luca",
+      "Argentiero",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Suriya",
+      "Sajjateerakool",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Zainal",
+      "Arifin",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Amy",
+      "Strande",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Ties",
+      "Arts",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Daniel",
+      "Taylor",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Ronen",
+      "Ashkenazi",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Hans-Walter",
+      "Untch",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Chris",
+      "Ashton",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Michael",
+      "Vanderhyde",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Vivian",
+      "Atlas",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Robin",
+      "Wakefield",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Anahita",
+      "Bahrami",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Pieter",
+      "Wycoff",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Dev",
+      "Balasubramanian",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Steven",
+      "Wright",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Eiji",
+      "Yasuda",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Ed",
+      "Banti",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Mrina",
+      "Natarajan",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Dave",
+      "Barnett",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Manuel",
+      "Oliveira",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Adam",
+      "Barr",
+      "Sales Store Manager",
+      "Yoichiro",
+      "Okada"
+    ],
+    [
+      "Rok",
+      "Palcic",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Shai",
+      "Bassli",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Yossi",
+      "Ran",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Shaun",
+      "Beasley",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Karolina",
+      "Salas-Szlejter",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Anna",
+      "Bedecs",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Oliver",
+      "Szimmetat",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Ann",
+      "Beebe",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Jeff",
+      "Teper",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Allie",
+      "Bellew",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Siri",
+      "Velauthapillai",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Nuno",
+      "Bento",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Anne",
+      "Wallace",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Matt",
+      "Berg",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "John",
+      "Yokim",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Antonio",
+      "Bermejo",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Robert",
+      "Zare",
+      "Sales Store Manager",
+      "Pilar",
+      "Ackerman"
+    ],
+    [
+      "Michael",
+      "Berroth",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Jimmy",
+      "Bischoff",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Michael",
+      "Neipper",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Ari",
+      "Bixhorn",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Paulo",
+      "Neves",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Rex",
+      "Bloesser",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Aaron",
+      "Nicholls",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Tomasz",
+      "Bochenek",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Toby",
+      "Nixon",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Corinna",
+      "Bolender",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Fabricio",
+      "Noriega",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Raffaella",
+      "Bonaldi",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Jerry",
+      "Orman",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Laurent",
+      "Bonnet",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Danni",
+      "Ortman",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Thomas",
+      "Bouchard",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Scott",
+      "Oveson",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Marc",
+      "Boyer",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Tude",
+      "Palma",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Peter",
+      "Bankov",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Dan",
+      "Park",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Bryan",
+      "Bredehoeft",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Rajesh",
+      "Patel",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Alan",
+      "Brewer",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ],
+    [
+      "Dorena",
+      "Paschke",
+      "Sales Store Manager",
+      "Aaron",
+      "Painter"
+    ]
+  ],
+  "columns": [
+    "FirstName",
+    "LastName",
+    "Title",
+    "manager_first",
+    "manager_last"
+  ],
+  "row_count": 100,
+  "exec_ms": 495,
+  "error": null
+}

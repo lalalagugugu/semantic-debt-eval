@@ -1,0 +1,25 @@
+{
+  "question_id": 83,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH first_buyers_2007 AS (\n    SELECT CustomerKey\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n    HAVING toYear(min(DateKey)) = 2007\n),\nreturned_2008 AS (\n    SELECT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN first_buyers_2007 fb ON f.CustomerKey = fb.CustomerKey\n    WHERE toYear(f.DateKey) = 2008\n    GROUP BY f.CustomerKey\n),\nreturned_2009 AS (\n    SELECT f.CustomerKey\n    FROM retail.FactOnlineSales f\n    INNER JOIN returned_2008 r ON f.CustomerKey = r.CustomerKey\n    WHERE toYear(f.DateKey) = 2009\n    GROUP BY f.CustomerKey\n)\nSELECT\n    count(DISTINCT fb.CustomerKey)  AS cohort_2007,\n    count(DISTINCT r8.CustomerKey)  AS retained_in_2008,\n    count(DISTINCT r9.CustomerKey)  AS retained_in_2009\nFROM first_buyers_2007 fb\nLEFT JOIN returned_2008 r8 ON fb.CustomerKey = r8.CustomerKey\nLEFT JOIN returned_2009 r9 ON fb.CustomerKey = r9.CustomerKey",
+  "rows": [
+    [
+      18868,
+      18724,
+      17672
+    ]
+  ],
+  "columns": [
+    "cohort_2007",
+    "retained_in_2008",
+    "retained_in_2009"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 11118,
+  "latency_ms_exec": 617,
+  "tokens_in": 13826,
+  "tokens_out": 471,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 78,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate queries FactSales instead of FactOnlineSales, yielding a \"Store\" discount total of ~62.2M vs the expected ~84.2M \u2014 a ~26% discrepancy that cannot be reconciled by aggregation.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 228,
+  "judge_latency_ms": 12260
+}

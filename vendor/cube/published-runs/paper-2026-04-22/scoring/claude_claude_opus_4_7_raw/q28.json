@@ -1,0 +1,11 @@
+{
+  "question_id": 28,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate computes wrong averages for both channels: for Online it pre-aggregates by SalesOrderNumber before averaging (2342 vs 215), and for Store it includes all channels instead of filtering to channelKey=1 (3506 vs 3193), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 367,
+  "judge_latency_ms": 13966
+}

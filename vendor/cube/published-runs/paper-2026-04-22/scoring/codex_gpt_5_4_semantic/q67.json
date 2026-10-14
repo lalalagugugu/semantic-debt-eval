@@ -1,0 +1,11 @@
+{
+  "question_id": 67,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate applies LIMIT 1 and returns only the top-ranked color (Green), omitting the remaining 16 qualifying colors that the reference returns; this is an incomplete answer to the question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 238,
+  "judge_latency_ms": 11104
+}

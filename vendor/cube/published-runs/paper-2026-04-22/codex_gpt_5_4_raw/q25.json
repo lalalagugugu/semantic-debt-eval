@@ -1,0 +1,23 @@
+{
+  "question_id": 25,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    d.NorthAmericaSeason,\n    avg(daily_sales) AS avg_daily_sales\nFROM\n(\n    SELECT\n        fs.DateKey,\n        dd.NorthAmericaSeason,\n        sum(fs.SalesAmount) AS daily_sales\n    FROM retail.FactSales AS fs\n    INNER JOIN retail.DimStore AS s ON fs.StoreKey = s.StoreKey\n    INNER JOIN retail.DimGeography AS g ON s.GeographyKey = g.GeographyKey\n    INNER JOIN retail.DimDate AS dd ON fs.DateKey = dd.DateKey\n    WHERE g.ContinentName = 'North America'\n    GROUP BY\n        fs.DateKey,\n        dd.NorthAmericaSeason\n) AS d\nGROUP BY d.NorthAmericaSeason\nORDER BY avg_daily_sales DESC\nLIMIT 1",
+  "rows": [
+    [
+      "Holiday",
+      7687343.434896186
+    ]
+  ],
+  "columns": [
+    "NorthAmericaSeason",
+    "avg_daily_sales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13701,
+  "latency_ms_exec": 902,
+  "tokens_in": 17226,
+  "tokens_out": 241,
+  "claude_error": null,
+  "sql_error": null
+}

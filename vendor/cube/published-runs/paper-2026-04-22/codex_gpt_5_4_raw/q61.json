@@ -1,0 +1,139 @@
+{
+  "question_id": 61,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT\n    ps.ProductSubcategoryName,\n    sum(os.SalesAmount) AS total_online_sales\nFROM retail.FactOnlineSales AS os\nINNER JOIN retail.DimProduct AS p\n    ON os.ProductKey = p.ProductKey\nINNER JOIN retail.DimProductSubcategory AS ps\n    ON toInt32(p.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nWHERE toYear(os.DateKey) = 2009\nGROUP BY ps.ProductSubcategoryName\nHAVING sum(os.SalesAmount) > 1000000\nORDER BY total_online_sales DESC",
+  "rows": [
+    [
+      "Camcorders",
+      73068729.8299963
+    ],
+    [
+      "Projectors & Screens",
+      67523354.93998772
+    ],
+    [
+      "Laptops",
+      66922899.66849257
+    ],
+    [
+      "Washers & Dryers",
+      64400719.66199561
+    ],
+    [
+      "Refrigerators",
+      62920032.8479767
+    ],
+    [
+      "Home Theater System",
+      52866813.41398308
+    ],
+    [
+      "Digital SLR Cameras",
+      48962745.8289915
+    ],
+    [
+      "Coffee Machines",
+      39700534.95239422
+    ],
+    [
+      "Lamps",
+      39060917.81639924
+    ],
+    [
+      "Televisions",
+      31463974.333507057
+    ],
+    [
+      "Monitors",
+      25316411.49999103
+    ],
+    [
+      "Smart phones & PDAs",
+      24839157.879999056
+    ],
+    [
+      "Microwaves",
+      23792157.789615445
+    ],
+    [
+      "Air Conditioners",
+      22763070.664205655
+    ],
+    [
+      "Water Heaters",
+      22505275.7000006
+    ],
+    [
+      "Digital Cameras",
+      21999626.000003323
+    ],
+    [
+      "Car Video",
+      20935974.629998222
+    ],
+    [
+      "Touch Screen Phones",
+      19684686.74000156
+    ],
+    [
+      "Printers, Scanners & Fax",
+      16265530.550001498
+    ],
+    [
+      "Cell phones Accessories",
+      15003897.672000447
+    ],
+    [
+      "Movie DVD",
+      8857910.86930433
+    ],
+    [
+      "Fans",
+      7068738.211402438
+    ],
+    [
+      "MP4&MP3",
+      6199726.490300186
+    ],
+    [
+      "Bluetooth Headphones",
+      5476681.371199815
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      5397207.499400079
+    ],
+    [
+      "Recording Pen",
+      4419299.384999998
+    ],
+    [
+      "VCD & DVD",
+      3261383.419999725
+    ],
+    [
+      "Computers Accessories",
+      3006752.5024996344
+    ],
+    [
+      "Home & Office Phones",
+      2720716.393099642
+    ],
+    [
+      "Boxed Games",
+      2057197.8849989995
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "total_online_sales"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 12026,
+  "latency_ms_exec": 596,
+  "tokens_in": 16374,
+  "tokens_out": 171,
+  "claude_error": null,
+  "sql_error": null
+}

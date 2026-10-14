@@ -1,0 +1,11 @@
+{
+  "question_id": 47,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match reference exactly; the LEFT JOIN without explicit NULL filter produces identical results because ClickHouse's avg() ignores NULLs natively, and no store is missing from DimStore.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 207,
+  "judge_latency_ms": 10885
+}

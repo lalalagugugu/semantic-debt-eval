@@ -1,0 +1,11 @@
+{
+  "question_id": 66,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns the same four quarters with matching TotalDiscountAmount values (within floating-point precision); the only difference is the omission of the countDistinct column, which does not affect correctness of the discount totals.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 201,
+  "judge_latency_ms": 11688
+}

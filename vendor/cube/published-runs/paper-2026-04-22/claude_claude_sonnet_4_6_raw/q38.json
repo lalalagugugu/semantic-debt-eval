@@ -1,0 +1,31 @@
+{
+  "question_id": 38,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    toYear(fs.DateKey) AS Year,\n    toQuarter(fs.DateKey) AS Quarter,\n    sum(fs.SalesAmount) AS ActualSales,\n    sum(fsq.SalesAmountQuota) AS QuotaSales,\n    round(sum(fs.SalesAmount) - sum(fsq.SalesAmountQuota), 2) AS Variance,\n    round(\n        (sum(fs.SalesAmount) - sum(fsq.SalesAmountQuota)) / nullIf(sum(fsq.SalesAmountQuota), 0) * 100,\n        2\n    ) AS VariancePct\nFROM retail.FactSales AS fs\nFULL OUTER JOIN retail.FactSalesQuota AS fsq\n    ON fs.StoreKey = fsq.StoreKey\n    AND fs.ProductKey = fsq.ProductKey\n    AND fs.channelKey = fsq.ChannelKey\n    AND toStartOfQuarter(fs.DateKey) = toStartOfQuarter(fsq.DateKey)\nWHERE\n    toYear(coalesce(fs.DateKey, fsq.DateKey)) = 2009\n    AND toQuarter(coalesce(fs.DateKey, fsq.DateKey)) = 4\nGROUP BY Year, Quarter",
+  "rows": [
+    [
+      2009,
+      4,
+      5564829357.302895,
+      10629223259.460001,
+      -5064393902.16,
+      -47.65
+    ]
+  ],
+  "columns": [
+    "Year",
+    "Quarter",
+    "ActualSales",
+    "QuotaSales",
+    "Variance",
+    "VariancePct"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 10493,
+  "latency_ms_exec": 1231,
+  "tokens_in": 13803,
+  "tokens_out": 422,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,69 @@
+{
+  "question_id": 24,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "SELECT pc.ProductCategoryName, sum(fs.ReturnQuantity) / sum(fs.SalesQuantity) AS ReturnRate, sum(fs.ReturnQuantity) AS TotalReturns, sum(fs.SalesQuantity) AS TotalSales FROM retail.FactSales AS fs INNER JOIN retail.DimProduct AS p ON fs.ProductKey = p.ProductKey INNER JOIN retail.DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey INNER JOIN retail.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY ReturnRate DESC",
+  "rows": [
+    [
+      "Home Appliances",
+      0.012719914847306299,
+      132026,
+      10379472
+    ],
+    [
+      "Music, Movies and Audio Books",
+      0.012128015018888483,
+      18476,
+      1523415
+    ],
+    [
+      "TV and Video",
+      0.012016423537543243,
+      41447,
+      3449196
+    ],
+    [
+      "Cameras and camcorders",
+      0.01183129078445654,
+      75145,
+      6351378
+    ],
+    [
+      "Audio",
+      0.011829619196954404,
+      16009,
+      1353298
+    ],
+    [
+      "Computers",
+      0.011779908619490416,
+      91132,
+      7736223
+    ],
+    [
+      "Cell phones",
+      0.0043948737732647965,
+      55684,
+      12670216
+    ],
+    [
+      "Games and Toys",
+      0.002510838776574858,
+      9342,
+      3720669
+    ]
+  ],
+  "columns": [
+    "ProductCategoryName",
+    "ReturnRate",
+    "TotalReturns",
+    "TotalSales"
+  ],
+  "row_count": 8,
+  "latency_ms_gen": 7736,
+  "latency_ms_exec": 3069,
+  "tokens_in": 19111,
+  "tokens_out": 287,
+  "claude_error": null,
+  "sql_error": null
+}

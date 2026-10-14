@@ -1,0 +1,11 @@
+{
+  "question_id": 80,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate omits WHERE first_d!=last_d filter and LIMIT 20, returning 29 rows vs 20; but visible values match the reference within rounding, and the extra rows are simply lower-ranked countries the question asks about\u2014analytically correct and more complete.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 1265,
+  "judge_latency_ms": 29681
+}

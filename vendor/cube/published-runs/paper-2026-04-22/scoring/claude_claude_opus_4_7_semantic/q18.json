@@ -1,0 +1,11 @@
+{
+  "question_id": 18,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, producing the same single row with matching PromotionType and total discount amount; the only differences are an alias name and an added ORDER BY clause.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 177,
+  "judge_latency_ms": 13332
+}

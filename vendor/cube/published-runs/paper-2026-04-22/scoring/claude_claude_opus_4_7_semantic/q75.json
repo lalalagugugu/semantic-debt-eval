@@ -1,0 +1,11 @@
+{
+  "question_id": 75,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same rows in the same order with matching values (within floating-point precision); the only differences are an extra CustomerKey column and no LIMIT 25, but the top 25 rows align exactly with the reference.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 319,
+  "judge_latency_ms": 15693
+}

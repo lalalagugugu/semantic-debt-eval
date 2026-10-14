@@ -1,0 +1,263 @@
+{
+  "question_id": 86,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT\n    ps.ProductSubcategoryName,\n    pc.ProductCategoryName,\n    count() AS TransactionCount,\n    round(avg(p.DiscountPercent), 4) AS AvgDiscountPct,\n    sum(fs.SalesQuantity) AS TotalSalesQty,\n    round(corr(p.DiscountPercent, fs.SalesQuantity), 6) AS CorrDiscountVsSalesQty\nFROM retail.FactSales fs\nJOIN retail.DimPromotion p ON fs.PromotionKey = p.PromotionKey\nJOIN retail.DimProduct prod ON fs.ProductKey = prod.ProductKey\nJOIN retail.DimProductSubcategory ps\n    ON toInt32(prod.ProductSubcategoryKey) = ps.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc\n    ON ps.ProductCategoryKey = pc.ProductCategoryKey\nWHERE toYear(fs.DateKey) = 2009\n  AND p.DiscountPercent IS NOT NULL\n  AND p.DiscountPercent > 0\nGROUP BY\n    ps.ProductSubcategoryName,\n    pc.ProductCategoryName\nHAVING TransactionCount >= 30\nORDER BY CorrDiscountVsSalesQty DESC",
+  "rows": [
+    [
+      "Boxed Games",
+      "Games and Toys",
+      10685,
+      0.1268,
+      868679,
+      0.074541
+    ],
+    [
+      "VCD & DVD",
+      "TV and Video",
+      5781,
+      0.127,
+      100575,
+      0.04604
+    ],
+    [
+      "Touch Screen Phones",
+      "Cell phones",
+      14542,
+      0.1267,
+      212275,
+      0.041697
+    ],
+    [
+      "Coffee Machines",
+      "Home Appliances",
+      17311,
+      0.126,
+      314495,
+      0.040044
+    ],
+    [
+      "Computers Accessories",
+      "Computers",
+      22570,
+      0.1268,
+      453013,
+      0.039402
+    ],
+    [
+      "Air Conditioners",
+      "Home Appliances",
+      14490,
+      0.1264,
+      222983,
+      0.036933
+    ],
+    [
+      "Cell phones Accessories",
+      "Cell phones",
+      5930,
+      0.1271,
+      2752420,
+      0.035629
+    ],
+    [
+      "Home Theater System",
+      "TV and Video",
+      23090,
+      0.127,
+      337060,
+      0.032928
+    ],
+    [
+      "Laptops",
+      "Computers",
+      37589,
+      0.1211,
+      521640,
+      0.031269
+    ],
+    [
+      "Lamps",
+      "Home Appliances",
+      36928,
+      0.1262,
+      673918,
+      0.03116
+    ],
+    [
+      "Bluetooth Headphones",
+      "Audio",
+      11211,
+      0.1272,
+      200684,
+      0.028223
+    ],
+    [
+      "Camcorders",
+      "Cameras and camcorders",
+      24183,
+      0.1266,
+      343096,
+      0.026799
+    ],
+    [
+      "Refrigerators",
+      "Home Appliances",
+      19776,
+      0.1267,
+      276448,
+      0.026528
+    ],
+    [
+      "Movie DVD",
+      "Music, Movies and Audio Books",
+      20786,
+      0.126,
+      275616,
+      0.02542
+    ],
+    [
+      "Printers, Scanners & Fax",
+      "Computers",
+      23492,
+      0.1267,
+      333327,
+      0.024878
+    ],
+    [
+      "Digital Cameras",
+      "Cameras and camcorders",
+      22953,
+      0.1262,
+      331754,
+      0.023912
+    ],
+    [
+      "Water Heaters",
+      "Home Appliances",
+      7290,
+      0.1276,
+      102973,
+      0.023491
+    ],
+    [
+      "Digital SLR Cameras",
+      "Cameras and camcorders",
+      23325,
+      0.1264,
+      351438,
+      0.02305
+    ],
+    [
+      "Fans",
+      "Home Appliances",
+      17717,
+      0.1267,
+      397078,
+      0.023034
+    ],
+    [
+      "Microwaves",
+      "Home Appliances",
+      24305,
+      0.127,
+      387631,
+      0.021949
+    ],
+    [
+      "Home & Office Phones",
+      "Cell phones",
+      21120,
+      0.1266,
+      300902,
+      0.021798
+    ],
+    [
+      "Smart phones & PDAs",
+      "Cell phones",
+      22317,
+      0.1278,
+      268057,
+      0.020891
+    ],
+    [
+      "Projectors & Screens",
+      "Computers",
+      23826,
+      0.1265,
+      347583,
+      0.020055
+    ],
+    [
+      "Cameras & Camcorders Accessories",
+      "Cameras and camcorders",
+      12216,
+      0.1278,
+      282749,
+      0.019687
+    ],
+    [
+      "Televisions",
+      "TV and Video",
+      11279,
+      0.1283,
+      176094,
+      0.018245
+    ],
+    [
+      "Car Video",
+      "TV and Video",
+      10576,
+      0.1272,
+      170781,
+      0.013806
+    ],
+    [
+      "Monitors",
+      "Computers",
+      17599,
+      0.1265,
+      313866,
+      0.010341
+    ],
+    [
+      "Washers & Dryers",
+      "Home Appliances",
+      16206,
+      0.127,
+      84510,
+      0.004609
+    ],
+    [
+      "MP4&MP3",
+      "Audio",
+      9549,
+      0.1284,
+      158503,
+      0.004486
+    ],
+    [
+      "Recording Pen",
+      "Audio",
+      4431,
+      0.127,
+      72162,
+      0.000743
+    ]
+  ],
+  "columns": [
+    "ProductSubcategoryName",
+    "ProductCategoryName",
+    "TransactionCount",
+    "AvgDiscountPct",
+    "TotalSalesQty",
+    "CorrDiscountVsSalesQty"
+  ],
+  "row_count": 30,
+  "latency_ms_gen": 13303,
+  "latency_ms_exec": 557,
+  "tokens_in": 13818,
+  "tokens_out": 599,
+  "claude_error": null,
+  "sql_error": null
+}

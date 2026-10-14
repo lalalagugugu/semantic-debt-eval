@@ -1,0 +1,25 @@
+{
+  "question_id": 83,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "WITH first_purchase AS (\n    SELECT CustomerKey, min(toYear(DateKey)) AS first_year\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\ncohort_2007 AS (\n    SELECT CustomerKey FROM first_purchase WHERE first_year = 2007\n),\nreturned_2008 AS (\n    SELECT DISTINCT s.CustomerKey\n    FROM retail.FactOnlineSales s\n    INNER JOIN cohort_2007 c ON s.CustomerKey = c.CustomerKey\n    WHERE toYear(s.DateKey) = 2008\n),\nreturned_2009 AS (\n    SELECT DISTINCT s.CustomerKey\n    FROM retail.FactOnlineSales s\n    INNER JOIN returned_2008 r ON s.CustomerKey = r.CustomerKey\n    WHERE toYear(s.DateKey) = 2009\n)\nSELECT\n    (SELECT count() FROM cohort_2007) AS first_bought_2007,\n    (SELECT count() FROM returned_2008) AS returned_in_2008,\n    (SELECT count() FROM returned_2009) AS returned_again_in_2009;",
+  "rows": [
+    [
+      18868,
+      18723,
+      17671
+    ]
+  ],
+  "columns": [
+    "first_bought_2007",
+    "returned_in_2008",
+    "returned_again_in_2009"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 9510,
+  "latency_ms_exec": 620,
+  "tokens_in": 19146,
+  "tokens_out": 481,
+  "claude_error": null,
+  "sql_error": null
+}

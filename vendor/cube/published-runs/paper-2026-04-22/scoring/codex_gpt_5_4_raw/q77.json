@@ -1,0 +1,11 @@
+{
+  "question_id": 77,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "Candidate returns growth as a decimal (0.0424) vs reference percentage (4.24) \u2014 analytically equivalent \u2014 and shows Infinity instead of null for month 1 due to lagInFrame returning 0 not NULL; values otherwise match.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 658,
+  "judge_latency_ms": 19246
+}

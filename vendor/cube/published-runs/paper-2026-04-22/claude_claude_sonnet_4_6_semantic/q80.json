@@ -1,0 +1,135 @@
+{
+  "question_id": 80,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    g.RegionCountryName AS Country,\n    avg(dateDiff('day', customer_stats.first_purchase, customer_stats.last_purchase)) AS avg_days_between_first_and_last_purchase\nFROM (\n    SELECT\n        f.CustomerKey,\n        MIN(f.DateKey) AS first_purchase,\n        MAX(f.DateKey) AS last_purchase\n    FROM retail.FactOnlineSales f\n    GROUP BY f.CustomerKey\n    HAVING first_purchase <> last_purchase\n) AS customer_stats\nJOIN retail.DimCustomer c ON customer_stats.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY g.RegionCountryName\nORDER BY avg_days_between_first_and_last_purchase DESC",
+  "rows": [
+    [
+      "Poland",
+      1087.0
+    ],
+    [
+      "France",
+      1080.7116868798237
+    ],
+    [
+      "Germany",
+      1078.6007816862088
+    ],
+    [
+      "United Kingdom",
+      1077.9772138788192
+    ],
+    [
+      "Armenia",
+      1068.0
+    ],
+    [
+      "Russia",
+      1051.5
+    ],
+    [
+      "Bhutan",
+      1047.0
+    ],
+    [
+      "Iran",
+      1041.0
+    ],
+    [
+      "Taiwan",
+      1034.0
+    ],
+    [
+      "Singapore",
+      1024.0
+    ],
+    [
+      "Italy",
+      1021.0
+    ],
+    [
+      "Spain",
+      998.0
+    ],
+    [
+      "Japan",
+      996.2857142857143
+    ],
+    [
+      "United States",
+      990.727801137769
+    ],
+    [
+      "Australia",
+      988.5545454545454
+    ],
+    [
+      "Canada",
+      987.7441418619379
+    ],
+    [
+      "Portugal",
+      985.0
+    ],
+    [
+      "India",
+      958.6666666666666
+    ],
+    [
+      "China",
+      956.8
+    ],
+    [
+      "Ireland",
+      954.0
+    ],
+    [
+      "South Korea",
+      949.0
+    ],
+    [
+      "Pakistan",
+      927.0
+    ],
+    [
+      "Syria",
+      904.0
+    ],
+    [
+      "Switzerland",
+      902.0
+    ],
+    [
+      "Greece",
+      888.0
+    ],
+    [
+      "the Netherlands",
+      881.0
+    ],
+    [
+      "Kyrgyzstan",
+      881.0
+    ],
+    [
+      "Thailand",
+      866.0
+    ],
+    [
+      "Turkmenistan",
+      860.0
+    ]
+  ],
+  "columns": [
+    "Country",
+    "avg_days_between_first_and_last_purchase"
+  ],
+  "row_count": 29,
+  "latency_ms_gen": 10271,
+  "latency_ms_exec": 574,
+  "tokens_in": 16761,
+  "tokens_out": 376,
+  "claude_error": null,
+  "sql_error": null
+}

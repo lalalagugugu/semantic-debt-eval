@@ -1,0 +1,11 @@
+{
+  "question_id": 4,
+  "system": "codex_gpt_5_4_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 100 Contoso products as the reference, with identical ProductName values; the extra ProductKey column is ignored under the strict rules.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 175,
+  "judge_latency_ms": 11267
+}

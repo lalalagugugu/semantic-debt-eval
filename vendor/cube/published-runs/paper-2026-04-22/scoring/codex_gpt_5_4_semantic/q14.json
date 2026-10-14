@@ -1,0 +1,11 @@
+{
+  "question_id": 14,
+  "system": "codex_gpt_5_4_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate returns \"Not Provided\" customers with totals in the tens of millions (~$18-19M), while the reference returns named customers with totals in the tens of thousands (~$20k-57k); the values are wildly different and answer a different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 913,
+  "judge_latency_ms": 25210
+}

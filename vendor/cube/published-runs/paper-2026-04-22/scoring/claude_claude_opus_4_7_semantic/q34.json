@@ -1,0 +1,11 @@
+{
+  "question_id": 34,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses FactSales instead of FactOnlineSales for COGS and has a broken direct join to FactInventory causing massive row fan-out, resulting in COGS values in the billions vs. hundreds of thousands in the reference, and completely wrong turnover ratios and rankings.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 274,
+  "judge_latency_ms": 13421
+}

@@ -1,0 +1,43 @@
+{
+  "question_id": 45,
+  "model": "claude-sonnet-4-6",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    s.SellingAreaSize,\n    sum(f.SalesAmount) AS TotalSales,\n    sum(f.SalesAmount) / nullif(s.SellingAreaSize, 0) AS SalesPerSquareFoot\nFROM retail.FactOnlineSales f\nJOIN retail.DimStore s ON f.StoreKey = s.StoreKey\nWHERE s.SellingAreaSize IS NOT NULL\n  AND s.SellingAreaSize > 0\nGROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize\nORDER BY SalesPerSquareFoot DESC",
+  "rows": [
+    [
+      199,
+      "Contoso North America Online Store",
+      500.0,
+      1031261452.7919643,
+      2062522.9055839286
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      1000.0,
+      837356228.1802413,
+      837356.2281802413
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      93800.0,
+      849584948.836169,
+      9057.408836206492
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "SellingAreaSize",
+    "TotalSales",
+    "SalesPerSquareFoot"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 12052,
+  "latency_ms_exec": 767,
+  "tokens_in": 16752,
+  "tokens_out": 437,
+  "claude_error": null,
+  "sql_error": null
+}

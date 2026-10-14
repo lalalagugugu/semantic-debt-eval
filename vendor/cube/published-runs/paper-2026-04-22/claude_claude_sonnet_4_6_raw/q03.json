@@ -1,0 +1,21 @@
+{
+  "question_id": 3,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "SELECT count(DISTINCT CustomerKey) AS unique_customers FROM retail.FactOnlineSales",
+  "rows": [
+    [
+      18869
+    ]
+  ],
+  "columns": [
+    "unique_customers"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 6105,
+  "latency_ms_exec": 505,
+  "tokens_in": 13794,
+  "tokens_out": 53,
+  "claude_error": null,
+  "sql_error": null
+}

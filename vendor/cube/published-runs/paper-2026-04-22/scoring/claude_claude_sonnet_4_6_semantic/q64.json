@@ -1,0 +1,11 @@
+{
+  "question_id": 64,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "pass",
+  "reason": "The gross margin dollar values match within floating-point precision; the margin percent differs only by a factor of 100 (candidate returns a decimal ratio ~0.491 vs the reference's percentage ~49.1), which is explicitly an analytical pass condition.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 255,
+  "judge_latency_ms": 12456
+}

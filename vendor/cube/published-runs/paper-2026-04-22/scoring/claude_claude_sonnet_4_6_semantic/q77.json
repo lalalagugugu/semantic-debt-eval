@@ -1,0 +1,11 @@
+{
+  "question_id": 77,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces the same 12 rows with identical month-over-month growth rates (rounded to 2 decimals); the only difference is that sales/prev_month_sales columns are not pre-rounded, which is a minor cosmetic difference within acceptable numeric precision.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 225,
+  "judge_latency_ms": 10973
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 35,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the same 100 employee-manager pairs with identical data; names are concatenated into single columns rather than split, and an extra EmployeeKey column is included, but the underlying information fully matches the reference result.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 355,
+  "judge_latency_ms": 17768
+}

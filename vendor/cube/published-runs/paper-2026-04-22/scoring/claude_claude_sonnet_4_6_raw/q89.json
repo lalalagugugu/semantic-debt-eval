@@ -1,0 +1,11 @@
+{
+  "question_id": 89,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate uses a different segmentation strategy (days from max data date: \u226490/\u2264180 days) vs. the reference (months from fixed date 2009-12-31: \u22646/\u226412 months), producing wildly different segment sizes and metrics (e.g., At Risk: 58 vs 1841 customers), answering a genuinely different question.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 268,
+  "judge_latency_ms": 12611
+}

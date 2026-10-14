@@ -1,0 +1,11 @@
+{
+  "question_id": 87,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "Candidate rows match expected rows exactly in product name, on_hand, avg_daily_qty, and days_of_coverage (differences are only unrounded vs rounded numeric precision well within 1%), with an extra ProductKey column that doesn't affect correctness.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 232,
+  "judge_latency_ms": 11361
+}

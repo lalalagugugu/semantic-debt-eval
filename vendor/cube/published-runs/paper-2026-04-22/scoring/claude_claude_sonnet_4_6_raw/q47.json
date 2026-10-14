@@ -1,0 +1,11 @@
+{
+  "question_id": 47,
+  "system": "claude_claude_sonnet_4_6_raw",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate produces identical store names and average downtime values as the reference; the only differences are a minor column alias and grouping by StoreName alone instead of StoreKey+StoreName, which yields the same results.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 203,
+  "judge_latency_ms": 10848
+}

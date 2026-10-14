@@ -1,0 +1,9 @@
+{
+  "question_id": 49,
+  "sql": "-- Using FactStrategyPlan which has EntityKey linkage\nWITH RECURSIVE entity_tree AS (SELECT EntityKey, EntityName, ParentEntityKey, EntityKey as root_key FROM retail.DimEntity WHERE ParentEntityKey IS NULL UNION ALL SELECT e.EntityKey, e.EntityName, e.ParentEntityKey, t.root_key FROM retail.DimEntity e JOIN entity_tree t ON e.ParentEntityKey = t.EntityKey) SELECT et.EntityName, sum(sp.Amount) as total_amount FROM retail.FactStrategyPlan sp JOIN entity_tree et ON sp.EntityKey = et.EntityKey WHERE sp.ScenarioKey = 1 AND sp.AccountKey = 4 GROUP BY et.EntityName",
+  "rows": [],
+  "columns": [],
+  "row_count": 0,
+  "exec_ms": 505,
+  "error": null
+}

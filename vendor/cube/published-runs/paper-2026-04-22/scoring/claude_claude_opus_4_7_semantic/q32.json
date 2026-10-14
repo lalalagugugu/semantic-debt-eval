@@ -1,0 +1,11 @@
+{
+  "question_id": 32,
+  "system": "claude_claude_opus_4_7_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate returns the total lifetime value (1191133222.28) matching the reference's total_ltv within floating-point precision; the reference's extra customer_count column is not requested by the question and can be ignored.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 479,
+  "judge_latency_ms": 17579
+}

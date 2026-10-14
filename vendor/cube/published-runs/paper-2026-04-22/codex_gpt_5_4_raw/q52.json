@@ -1,0 +1,21 @@
+{
+  "question_id": 52,
+  "model": "gpt-5.4",
+  "variant": "raw",
+  "sql": "SELECT max(UnitPrice) AS highest_unit_price\nFROM retail.DimProduct;",
+  "rows": [
+    [
+      3199.99
+    ]
+  ],
+  "columns": [
+    "highest_unit_price"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 8939,
+  "latency_ms_exec": 503,
+  "tokens_in": 16368,
+  "tokens_out": 33,
+  "claude_error": null,
+  "sql_error": null
+}

@@ -1,0 +1,11 @@
+{
+  "question_id": 89,
+  "system": "claude_claude_opus_4_7_raw",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "Candidate uses wrong reference date (2026-04-23 vs 2009-12-31) and day-based thresholds instead of month-based, collapsing all customers into one \"Churned\" segment with entirely wrong values instead of the expected three segments.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 391,
+  "judge_latency_ms": 13954
+}

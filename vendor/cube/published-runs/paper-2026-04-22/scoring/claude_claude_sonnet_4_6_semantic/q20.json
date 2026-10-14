@@ -1,0 +1,11 @@
+{
+  "question_id": 20,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "fail",
+  "analytical_verdict": "fail",
+  "reason": "The candidate aggregates quantities across all stores per product (summing thousands of units) using a per-(StoreKey,ProductKey) max date, while the reference uses a single global max date returning individual store-level rows with small quantities; the products and values are entirely different.",
+  "skipped_judge": false,
+  "judge_tokens_in": 4,
+  "judge_tokens_out": 665,
+  "judge_latency_ms": 19547
+}

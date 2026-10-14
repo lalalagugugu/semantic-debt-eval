@@ -1,0 +1,21 @@
+{
+  "question_id": 41,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT sum(SalesAmount) AS last_quarter_sales\nFROM retail.FactOnlineSales\nWHERE DateKey >= toDate('2009-10-01')\n  AND DateKey <= toDate('2009-12-31')",
+  "rows": [
+    [
+      210717984.6982018
+    ]
+  ],
+  "columns": [
+    "last_quarter_sales"
+  ],
+  "row_count": 1,
+  "latency_ms_gen": 13498,
+  "latency_ms_exec": 502,
+  "tokens_in": 18819,
+  "tokens_out": 135,
+  "claude_error": null,
+  "sql_error": null
+}

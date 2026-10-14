@@ -1,0 +1,39 @@
+{
+  "question_id": 89,
+  "model": "claude-sonnet-4-6",
+  "variant": "raw",
+  "sql": "WITH customer_stats AS (\n    SELECT\n        CustomerKey,\n        max(DateKey) AS last_purchase_date,\n        sum(SalesAmount) AS total_spend,\n        count(DISTINCT ProductKey) AS distinct_products\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n),\nmax_date AS (\n    SELECT max(DateKey) AS max_date FROM retail.FactOnlineSales\n),\ncustomer_segments AS (\n    SELECT\n        cs.CustomerKey,\n        cs.total_spend,\n        cs.distinct_products,\n        dateDiff('day', cs.last_purchase_date, md.max_date) AS days_since_last_purchase,\n        CASE\n            WHEN dateDiff('day', cs.last_purchase_date, md.max_date) <= 90  THEN 'Active'\n            WHEN dateDiff('day', cs.last_purchase_date, md.max_date) <= 180 THEN 'At Risk'\n            ELSE 'Churned'\n        END AS segment\n    FROM customer_stats cs\n    CROSS JOIN max_date md\n)\nSELECT\n    segment,\n    count(CustomerKey)            AS customer_count,\n    round(avg(total_spend), 2)    AS avg_total_spend,\n    round(avg(distinct_products), 2) AS avg_distinct_products\nFROM customer_segments\nGROUP BY segment\nORDER BY\n    multiIf(segment = 'Active', 1, segment = 'At Risk', 2, 3) ASC",
+  "rows": [
+    [
+      "Active",
+      16815,
+      55132.32,
+      72.04
+    ],
+    [
+      "At Risk",
+      58,
+      4716601.52,
+      695.95
+    ],
+    [
+      "Churned",
+      1996,
+      760315.49,
+      189.05
+    ]
+  ],
+  "columns": [
+    "segment",
+    "customer_count",
+    "avg_total_spend",
+    "avg_distinct_products"
+  ],
+  "row_count": 3,
+  "latency_ms_gen": 11176,
+  "latency_ms_exec": 601,
+  "tokens_in": 13821,
+  "tokens_out": 494,
+  "claude_error": null,
+  "sql_error": null
+}

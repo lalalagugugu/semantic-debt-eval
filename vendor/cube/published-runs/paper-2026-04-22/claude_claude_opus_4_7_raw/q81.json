@@ -1,0 +1,30 @@
+{
+  "question_id": 81,
+  "model": "claude-opus-4-7",
+  "variant": "raw",
+  "sql": "WITH customer_totals AS (\n    SELECT\n        CustomerKey,\n        SUM(SalesAmount) AS lifetime_value,\n        toYear(MIN(DateKey)) AS cohort_year\n    FROM retail.FactOnlineSales\n    GROUP BY CustomerKey\n)\nSELECT\n    cohort_year,\n    COUNT(*) AS customer_count,\n    AVG(lifetime_value) AS avg_lifetime_value\nFROM customer_totals\nGROUP BY cohort_year\nORDER BY cohort_year;",
+  "rows": [
+    [
+      2007,
+      18868,
+      144060.93374646624
+    ],
+    [
+      2009,
+      1,
+      60931.880000000085
+    ]
+  ],
+  "columns": [
+    "cohort_year",
+    "customer_count",
+    "avg_lifetime_value"
+  ],
+  "row_count": 2,
+  "latency_ms_gen": 7863,
+  "latency_ms_exec": 550,
+  "tokens_in": 19143,
+  "tokens_out": 249,
+  "claude_error": null,
+  "sql_error": null
+}

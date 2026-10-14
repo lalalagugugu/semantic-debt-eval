@@ -1,0 +1,80 @@
+{
+  "question_id": 12,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    d.CalendarMonthLabel AS month,\n    d.MonthNumber AS month_number,\n    sum(fos.SalesAmount) AS monthly_online_sales\nFROM retail.FactOnlineSales AS fos\nINNER JOIN retail.DimDate AS d\n    ON fos.DateKey = d.DateKey\nWHERE d.CalendarYear = 2008\nGROUP BY\n    d.CalendarMonthLabel,\n    d.MonthNumber\nORDER BY d.MonthNumber",
+  "rows": [
+    [
+      "January",
+      1,
+      56738060.40719989
+    ],
+    [
+      "February",
+      2,
+      60673391.766286716
+    ],
+    [
+      "March",
+      3,
+      60559498.89931015
+    ],
+    [
+      "April",
+      4,
+      75567228.14840493
+    ],
+    [
+      "May",
+      5,
+      77899819.79758754
+    ],
+    [
+      "June",
+      6,
+      76515782.97921604
+    ],
+    [
+      "July",
+      7,
+      84399362.09039119
+    ],
+    [
+      "August",
+      8,
+      74672334.95439379
+    ],
+    [
+      "September",
+      9,
+      72022788.04579991
+    ],
+    [
+      "October",
+      10,
+      69434585.45273131
+    ],
+    [
+      "November",
+      11,
+      69174095.2224578
+    ],
+    [
+      "December",
+      12,
+      72014255.66005851
+    ]
+  ],
+  "columns": [
+    "month",
+    "month_number",
+    "monthly_online_sales"
+  ],
+  "row_count": 12,
+  "latency_ms_gen": 11927,
+  "latency_ms_exec": 565,
+  "tokens_in": 18822,
+  "tokens_out": 125,
+  "claude_error": null,
+  "sql_error": null
+}

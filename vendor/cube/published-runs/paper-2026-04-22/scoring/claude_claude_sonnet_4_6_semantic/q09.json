@@ -1,0 +1,11 @@
+{
+  "question_id": 9,
+  "system": "claude_claude_sonnet_4_6_semantic",
+  "verdict": "pass",
+  "analytical_verdict": "pass",
+  "reason": "The candidate query is semantically identical to the reference, differing only by adding an alias; the returned value matches exactly.",
+  "skipped_judge": false,
+  "judge_tokens_in": 3,
+  "judge_tokens_out": 155,
+  "judge_latency_ms": 9555
+}

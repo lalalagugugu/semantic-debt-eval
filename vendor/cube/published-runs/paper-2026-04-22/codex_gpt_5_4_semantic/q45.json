@@ -1,0 +1,520 @@
+{
+  "question_id": 45,
+  "model": "gpt-5.4",
+  "variant": "semantic",
+  "sql": "SELECT\n    s.StoreKey,\n    s.StoreName,\n    round(sum(fs.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) AS sales_per_square_foot\nFROM retail.FactSales AS fs\nINNER JOIN retail.DimStore AS s\n    ON fs.StoreKey = s.StoreKey\nWHERE s.SellingAreaSize IS NOT NULL\n  AND s.SellingAreaSize > 0\nGROUP BY\n    s.StoreKey,\n    s.StoreName,\n    s.SellingAreaSize\nORDER BY sales_per_square_foot DESC",
+  "rows": [
+    [
+      200,
+      "Contoso Catalog Store",
+      2333349.67
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      1968498.81
+    ],
+    [
+      308,
+      "Contoso North America Reseller",
+      1395930.46
+    ],
+    [
+      309,
+      "Contoso Europe Reseller",
+      949342.91
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      806300.46
+    ],
+    [
+      253,
+      "Contoso Sydney No.1 Store",
+      79019.9
+    ],
+    [
+      294,
+      "Contoso Tehran No.2 Store",
+      78611.17
+    ],
+    [
+      300,
+      "Contoso Sydney  No.2 Store",
+      78581.5
+    ],
+    [
+      257,
+      "Contoso Kolkata Store",
+      78436.02
+    ],
+    [
+      302,
+      "Contoso Taipei  Store",
+      78354.28
+    ],
+    [
+      276,
+      "Contoso Bishkek Store",
+      78332.08
+    ],
+    [
+      278,
+      "Contoso Urumqi Store",
+      78174.14
+    ],
+    [
+      295,
+      "Contoso Damascus No.2 Store",
+      78130.78
+    ],
+    [
+      260,
+      "Contoso Tehran No.1 Store",
+      78090.83
+    ],
+    [
+      297,
+      "Contoso Moscow  No.2 Store",
+      77972.45
+    ],
+    [
+      255,
+      "Contoso New Delhi Store",
+      77952.25
+    ],
+    [
+      296,
+      "Contoso Bangkok No.2 Store",
+      77951.49
+    ],
+    [
+      267,
+      "Contoso Tokyo No.1 Store",
+      77880.66
+    ],
+    [
+      254,
+      "Contoso Yerevan Store",
+      77641.65
+    ],
+    [
+      270,
+      "Contoso Osaka No.1 Store",
+      77252.0
+    ],
+    [
+      264,
+      "Contoso Ashgabat No.1 Store",
+      77195.38
+    ],
+    [
+      265,
+      "Contoso Islamabad No.1 Store",
+      77118.05
+    ],
+    [
+      268,
+      "Contoso Tokyo No.2 Store",
+      76969.04
+    ],
+    [
+      259,
+      "Contoso Hong Kong No.1 Store",
+      76907.99
+    ],
+    [
+      252,
+      "Contoso Canberra Store",
+      76903.34
+    ],
+    [
+      292,
+      "Contoso Thimphu No.2 Store",
+      76847.98
+    ],
+    [
+      256,
+      "Contoso Mumbai Store",
+      76776.48
+    ],
+    [
+      277,
+      "Contoso Shanghai No.1 Store",
+      76738.87
+    ],
+    [
+      281,
+      "Contoso Shanghai No.2 Store",
+      76629.81
+    ],
+    [
+      298,
+      "Contoso Ashgabat  No.2 Store",
+      76580.63
+    ],
+    [
+      275,
+      "Contoso Busan Store",
+      76194.13
+    ],
+    [
+      269,
+      "Contoso Yokohama Store",
+      75909.47
+    ],
+    [
+      251,
+      "Contoso Singapore Store",
+      75548.11
+    ],
+    [
+      293,
+      "Contoso Hong Kong No.2 Store",
+      74304.4
+    ],
+    [
+      301,
+      "Contoso Osaka No.2 Store",
+      71853.71
+    ],
+    [
+      272,
+      "Contoso Sapporo Store",
+      65036.92
+    ],
+    [
+      261,
+      "Contoso Damascus No.1 Store",
+      60861.04
+    ],
+    [
+      299,
+      "Contoso Islamabad  No.2 Store",
+      56873.53
+    ],
+    [
+      58,
+      "Contoso Sheboygan Store",
+      52119.52
+    ],
+    [
+      12,
+      "Contoso North Bend Store",
+      51025.15
+    ],
+    [
+      165,
+      "Contoso Nantucket Store",
+      50923.61
+    ],
+    [
+      81,
+      "Contoso Bacliff Store",
+      50797.36
+    ],
+    [
+      96,
+      "Contoso Richardson Store",
+      50683.08
+    ],
+    [
+      131,
+      "Contoso Newark No.2 Store",
+      50322.51
+    ],
+    [
+      116,
+      "Contoso Rochester No.1 Store",
+      50313.31
+    ],
+    [
+      112,
+      "Contoso Key West Store",
+      50294.17
+    ],
+    [
+      196,
+      "Contoso Parkville Store",
+      50215.52
+    ],
+    [
+      158,
+      "Contoso Haverhill Store",
+      50133.34
+    ],
+    [
+      54,
+      "Contoso Waukesha No.2 Store",
+      49987.18
+    ],
+    [
+      62,
+      "Contoso Stoughton Store",
+      49915.82
+    ],
+    [
+      35,
+      "Contoso Denver No.2 Store",
+      49863.75
+    ],
+    [
+      23,
+      "Contoso Grand Junction Store",
+      49846.27
+    ],
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      49772.57
+    ],
+    [
+      50,
+      "Contoso Waukesha No.1 Store",
+      49750.52
+    ],
+    [
+      31,
+      "Contoso Greeley No.2 Store",
+      49730.3
+    ],
+    [
+      146,
+      "Contoso Boston Store",
+      49708.32
+    ],
+    [
+      127,
+      "Contoso Poestenkill Store",
+      49696.58
+    ],
+    [
+      19,
+      "Contoso Cheney Store",
+      49694.57
+    ],
+    [
+      88,
+      "Contoso Cedar Park Store",
+      49689.44
+    ],
+    [
+      142,
+      "Contoso Montclair Store",
+      49636.29
+    ],
+    [
+      92,
+      "Contoso Hillsboro Store",
+      49624.83
+    ],
+    [
+      73,
+      "Contoso Shreveport Store",
+      49573.35
+    ],
+    [
+      42,
+      "Contoso Green Bay Store",
+      49562.05
+    ],
+    [
+      154,
+      "Contoso Quincy Store",
+      49528.69
+    ],
+    [
+      135,
+      "Contoso East Orange Store",
+      49469.47
+    ],
+    [
+      188,
+      "Contoso Martinsville Store",
+      49461.18
+    ],
+    [
+      169,
+      "Contoso Lewiston Store",
+      49456.37
+    ],
+    [
+      162,
+      "Contoso Pittsfield Store",
+      49285.83
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      49232.08
+    ],
+    [
+      192,
+      "Contoso Baltimore Store",
+      49183.61
+    ],
+    [
+      119,
+      "Contoso Buffalo Store",
+      49123.3
+    ],
+    [
+      104,
+      "Contoso Tallahassee No.1 Store",
+      49118.11
+    ],
+    [
+      291,
+      "Contoso Calgary  Store",
+      48943.99
+    ],
+    [
+      181,
+      "Contoso Virginia Beach Store",
+      48851.21
+    ],
+    [
+      289,
+      "Contoso Vancouver  No.1 Store",
+      48833.82
+    ],
+    [
+      108,
+      "Contoso Lakeland Store",
+      48804.76
+    ],
+    [
+      69,
+      "Contoso Houston No.4 Store",
+      48748.06
+    ],
+    [
+      185,
+      "Contoso Roanoke Store",
+      48666.72
+    ],
+    [
+      85,
+      "Contoso Spring Store",
+      48594.09
+    ],
+    [
+      173,
+      "Contoso Bridgeport Store",
+      48579.88
+    ],
+    [
+      177,
+      "Contoso New Haven Store",
+      48571.99
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      48421.44
+    ],
+    [
+      139,
+      "Contoso New Brunswick Store",
+      48371.08
+    ],
+    [
+      77,
+      "Contoso Orange Store",
+      48328.34
+    ],
+    [
+      150,
+      "Contoso Attleboro Store",
+      48272.9
+    ],
+    [
+      101,
+      "Contoso Miami No.1 Store",
+      48217.4
+    ],
+    [
+      27,
+      "Contoso Lafayette Store",
+      48187.63
+    ],
+    [
+      290,
+      "Contoso Vancouver  No.2 Store",
+      48038.54
+    ],
+    [
+      284,
+      "Contoso Toronto No.1 Store",
+      47974.07
+    ],
+    [
+      283,
+      "Contoso Ottawa No.2 Store",
+      47880.02
+    ],
+    [
+      123,
+      "Contoso Ithaca Store",
+      47801.91
+    ],
+    [
+      100,
+      "Contoso Plano Store",
+      47765.05
+    ],
+    [
+      39,
+      "Contoso Littleton Store",
+      47270.9
+    ],
+    [
+      201,
+      "Contoso London Store",
+      47172.83
+    ],
+    [
+      107,
+      "Contoso Sebring Store",
+      47110.92
+    ],
+    [
+      288,
+      "Contoso Montreal No.2 Store",
+      46977.95
+    ],
+    [
+      287,
+      "Contoso Montreal No.1 Store",
+      46966.89
+    ],
+    [
+      286,
+      "Contoso Toronto No.3 Store",
+      46953.09
+    ],
+    [
+      53,
+      "Contoso East Troy Store",
+      46868.58
+    ],
+    [
+      30,
+      "Contoso Fort Collins Store",
+      46794.08
+    ]
+  ],
+  "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "sales_per_square_foot"
+  ],
+  "row_count": 100,
+  "latency_ms_gen": 17420,
+  "latency_ms_exec": 590,
+  "tokens_in": 18821,
+  "tokens_out": 439,
+  "claude_error": null,
+  "sql_error": null
+}
