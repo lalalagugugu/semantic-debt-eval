@@ -42,6 +42,10 @@
 - 不得读取主仓库 `semantic/` 下除 `conventions.md` 以外的文件。
 - 不要打开 `$SEMDEBT_DATA_DIR/chdb`（那份给 Claude Code 用）。
 
+## T02 裁决转交（2026-10-14）
+
+依据主仓库 `decisions/2026-10-14-scorer-contract-and-acceptance.md` 第六节：仅跟进 G-R Q30，查明公开窗口结果与本地重执行的根因，记录于 `audit/data_check.md`。其余六条 Q14 已解释为公开工件抽样/截断差异，不再作为数据库漂移追查；本卡原有逐题数据一致性校验仍按计划执行。
+
 ## 记录（完成后填写）
 
 - 产出：
