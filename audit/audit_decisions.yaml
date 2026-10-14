@@ -1,0 +1,171 @@
+# 22 道疑点题的审计结论与用户裁决（2026-10-13）
+# 适用范围：中文主题集。英文锚点（R-EN、L1c-EN）一律使用外部基准的原题、原参考答案，不做任何修改。
+# action 取值：
+#   fix_reference            修参考答案，问句不变
+#   scoring_rule             参考答案不变，靠评分规则处理
+#   rewrite                  改写问句并重算参考答案
+#   accepted_interpretations 问句不变，模型须声明假设；列出可接受解读，每个解读一份参考结果
+#   judge_with_interpretations 统计或开放式题，由宽松裁判评分，裁判拿到可接受解读清单
+#   keep                     原样保留
+#   open_ended_repair        保留为开放式题，修复参考答案
+
+questions:
+  - id: 19
+    action: fix_reference
+    user_verdict: 同意
+    finding: 参考按销售行求平均（约 215 美元），但「平均订单金额」应为总额 ÷ 订单数（约 1,600 美元），相差约 7 倍。
+    fix: 线上销售按性别分组，sum(SalesAmount) / countDistinct(SalesOrderNumber)。
+
+  - id: 79
+    action: fix_reference
+    user_verdict: 同意
+    finding: 参考用了配额表的「实际」场景（ScenarioKey = 1），配额等于实际，前 10 名全是 100%。
+    fix: 改用预算场景（ScenarioKey = 2），与 Q85 一致；全渠道实际销售额 ÷ 预算场景的目标销售额（约定第 12 条）。
+
+  - id: 33
+    action: fix_reference
+    user_verdict: 同意
+    finding: 参考 SQL 在外部基准的服务器上 30 秒超时，被剔除。
+    fix: 本地不设超时重算参考结果；归入统计类题。
+
+  - id: 14
+    action: scoring_rule
+    user_verdict: 同意
+    finding: 结果被截成 100 行且无排序，比的是任意一段；候选里出现的「Not Provided」客户是公司客户，参考按 CustomerKey 分组时同样包含。
+    rule: 比对完整结果集（按 CustomerKey 匹配）。
+
+  - id: 27
+    action: scoring_rule
+    user_verdict: 同意
+    finding: 第 10 名有并列，参考先四舍五入再排序，tie-break 结果随写法变化。
+    rule: 边界并列时，并列者任一都算对。
+
+  - id: 28
+    action: rewrite
+    user_verdict: 同意
+    finding: 线上表与全渠道表的「交易」粒度不同，参考答案拿两种口径直接比。
+    new_question: 在全渠道销售中，比较门店渠道和线上渠道的平均每条销售记录金额。
+    fix: 全渠道销售按渠道（门店、线上）分组，avg(SalesAmount)。
+
+  - id: 10
+    action: accepted_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 外部基准的语义文档没写门店状态取值，加文档的模型猜成 'Open' 得 0。
+    interpretations:
+      - 状态为 'On'
+      - 关店日期为空
+      - 状态为 'On' 或关店日期为空（原参考）
+    note: 若三者结果相同，合并为一份参考结果并在 refs 中注明。
+
+  - id: 13
+    action: accepted_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 全渠道表没有订单号，「平均订单金额」无从计算；外部基准的文档又把模型引向线上表。
+    interpretations:
+      - 全渠道销售按门店：销售额合计、每条记录的平均金额、记录数（须声明「无订单号，按记录计算」）
+    not_accepted:
+      - 只用线上销售（违反约定第 2 条：以门店为对象的问题用全渠道销售）
+    note: 先检查 StoreName 是否唯一；不唯一则以 StoreKey 分组为准。
+
+  - id: 20
+    action: accepted_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 参考取全表最后一天；各门店 × 产品的最近快照日并不相同。
+    interpretations:
+      - 每个门店 × 产品取最近一次快照，列出在手量低于安全库存的门店 × 产品
+      - 每个门店 × 产品取最近一次快照后按产品汇总，列出汇总在手量低于汇总安全库存的产品
+    not_accepted:
+      - 全表最后一天的快照（违反约定第 11 条；原参考只用于英文锚点）
+
+  - id: 37
+    action: accepted_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 小数与百分数之争（0.9967 vs 99.67）；加文档的模型被引向线上表。
+    interpretations:
+      - 全渠道销售按门店求和，并给出百分位排名（小数或百分数均可）
+    not_accepted:
+      - 只用线上销售（违反约定第 2 条）
+
+  - id: 49
+    action: accepted_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 原参考返回 0 行。
+    interpretations:
+      - 计划表「实际」场景、收入科目（Sale Revenue），沿实体层级汇总，只给顶层实体
+      - 同上，逐层给出每个实体的汇总
+    todo: 先查清原参考为何返回 0 行（可能是键的类型不一致或递归条件问题），再重算。
+
+  - id: 46
+    action: judge_with_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 「客户群体」可按学历也可按职业，原参考选了学历。
+    interpretations:
+      - 按学历分组，毛利（销售金额 − 总成本）最高的一组
+      - 按职业分组，同上
+
+  - id: 48
+    action: judge_with_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 原参考用「停机超过 1,000 分钟」这一问句没说的阈值分组。
+    interpretations:
+      - 按停机时长分组（阈值由模型声明），比较各组门店的平均全渠道销售
+      - 计算门店层面停机时长与全渠道销售的相关系数
+
+  - id: 86
+    action: judge_with_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 原参考暗含「样本数大于 100」「取前 20」两个问句没说的条件，且包含无折扣交易。
+    interpretations:
+      - 各子品类折扣百分比与销量的相关系数；是否包含无折扣交易、最少样本数、取前几名由模型声明
+
+  - id: 97
+    action: judge_with_interpretations
+    user_verdict: 模型回答时声明假设
+    finding: 按增幅还是增加额、取几名、上半年至少多少，问句都没说。
+    interpretations:
+      - 按下半年相对上半年的增幅排名（上半年下限、前 N 名由模型声明）
+      - 按下半年相对上半年的增加额排名（前 N 名由模型声明）
+
+  - id: 39
+    action: open_ended_repair
+    user_verdict: 再讨论 → 保留为开放式题（设计 v4）
+    finding: 算的是品类内的蚕食（新品上市后同子品类老产品的销售是否下降）；原参考返回 0 行。
+    fix: 新品 = 2008–2009 年上市的产品；对每个有新品的子品类，比较老产品在首个新品上市前后的线上销售（日均或同长度窗口），由宽松裁判评分。
+
+  - id: 31
+    action: keep
+    user_verdict: 同意
+    finding: 错在外部基准的语义文档（把销售科目写成键 50，实际是 Sale Revenue），题目本身没问题。
+
+  - id: 38
+    action: keep
+    user_verdict: 同意
+    finding: 同 Q31。
+
+  - id: 94
+    action: keep
+    user_verdict: 同意
+    finding: 外部基准的文档「未说明渠道默认线上」把模型引向线上表，参考用全渠道表；约定第 2 条已覆盖。
+
+  - id: 74
+    action: keep
+    user_verdict: 同意
+    finding: ClickHouse 作用域报错，属方言难点。
+
+  - id: 85
+    action: keep
+    user_verdict: 同意
+    finding: 多种错误，题目本身没问题。
+
+  - id: 93
+    action: keep
+    user_verdict: 同意
+    finding: 统计题；模型给了明细而不是相关系数。
+
+pending_user_decision:
+  - id: 43
+    proposal: accepted_interpretations
+    finding: 「地区」是大洲还是国家有歧义；原参考取大洲。路径按约定第 5 条走客户所在地。
+    interpretations:
+      - 按客户所在大洲的毛利
+      - 按客户所在国家的毛利
