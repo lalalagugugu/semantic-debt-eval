@@ -35,6 +35,6 @@
 ## 记录（完成后填写）
 
 - 外部基准的提交号：`4c37310f9fae65255f6d0015475b430ceea3ab1f`
-- 产出：主仓库 PR https://github.com/lalalagugugu/semantic-debt/pull/5；题库 `vendor/cube/` 保留 100 道题、参考 SQL、语义文档与 600 条公开候选 SQL 及逐题判定。已逐字节核对复制文件；上游 README 原文保留并追加来源记录。临时 `_vendor/` 在两个 PR 创建后删除。
+- 产出：主仓库 PR https://github.com/lalalagugugu/semantic-debt/pull/5；题库 PR https://github.com/lalalagugugu/semantic-debt-eval/pull/1；`vendor/cube/` 保留 100 道题、参考 SQL、语义文档与 600 条公开候选 SQL 及逐题判定。已逐字节核对复制文件；上游 README 原文保留并追加来源记录。临时 `_vendor/` 已在两个 PR 创建后删除。
 - 偏离与理由：用户于 2026-10-14 裁决：上游该提交没有 LICENSE，不补写 MIT 全文或代为署名，两个仓库各新增 NOTICE，逐字保留许可原话 `MIT.`；主仓库实际为三个 vendor 文件（DDL、README、NOTICE），并允许同一 PR 仅更新 BOARD 中 T01a 状态格。
 - 工时：约 10 分钟执行时间（不含等待用户裁决）。
