@@ -10,6 +10,7 @@ import argparse
 import csv
 import hashlib
 import importlib.util
+from importlib.metadata import version as package_version
 import io
 import json
 import os
@@ -20,7 +21,6 @@ from collections import defaultdict
 from decimal import Decimal
 import difflib
 
-import chdb
 from chdb import session
 import yaml
 
@@ -203,7 +203,7 @@ def main():
                 print(f"{question['id']} {ref['result_path']} {len(rows)} rows", flush=True)
     finally:
         sess.close()
-    manifest = {"chdb_version": chdb.__version__, "clickhouse_version": version, "max_threads": 1, "max_execution_time": 0, "unit_policy_sha256": policy_hash, "tie_quantization": "Decimal ROUND_HALF_EVEN; amount=2; percentage /100 then 6; ratio/other=6", "csv_null": "\\N", "reference_review": "provisional; T05b independent pandas recomputation required", "records": records}
+    manifest = {"chdb_version": package_version("chdb"), "clickhouse_version": version, "max_threads": 1, "max_execution_time": 0, "unit_policy_sha256": policy_hash, "tie_quantization": "Decimal ROUND_HALF_EVEN; amount=2; percentage /100 then 6; ratio/other=6", "csv_null": "\\N", "reference_review": "provisional; T05b independent pandas recomputation required", "records": records}
     path = REPO / "refs/MANIFEST.json"
     content = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     if args.check:

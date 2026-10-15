@@ -1059,7 +1059,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "现参考从12月1日起输出：前6天使用12月内已有日期，第7天起为完整7日窗口，不使用11月数据。用户对窗口起点提出疑问；最终可接受起始窗口规则待确认，当前参考暂不改动。",
+      "scoring_notes": "用户已确认：从12月1日起输出，前6天使用12月内已有日期，第7天起为完整7日窗口，不使用11月数据；当前参考不改动。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1415,13 +1415,13 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey AND s.CurrencyKey = er.CurrencyKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE c.CurrencyName = 'EUR'",
+          "interpretation": "方案A：仅31个有同日EUR汇率的销售日期，须披露1065天缺失",
+          "sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE s.CurrencyKey = 1 AND c.CurrencyName = 'EUR'",
           "result_path": "refs/cube/Q40-1.csv"
         }
       ],
-      "scoring": "deterministic",
-      "scoring_notes": "用户仅批准汇率调查方向，尚未批准最终参考。线上全为USD；EUR目标汇率仅31个日期而销售覆盖1096天。不得把31天换算误称全期间结果，不擅自前填/剔除缺失日期。暂存原参考仅为待修历史工件，T04仍待Q40定案，不得作为已验收换汇答案。",
+      "scoring": "judge",
+      "scoring_notes": "用户批准方案A并确认公式：USD销售额乘同日EUR收盘汇率，仅汇总有同日汇率的31个销售日期。必须明确这是部分答案：1096个销售日期中覆盖31天，缺失1065天；不得声称全期间总额，不前填、插值或外推。judge同时核验金额和覆盖范围披露，只有金额正确但未披露缺失不算正确。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1437,7 +1437,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "调查完成但未定案：线上USD，欧元仅31个日期；缺失日期处理未经批准，暂存原历史参考不代表验收。"
+          "notes": "用户批准USD销售额乘同日EUR收盘汇率，仅31天部分答案，必须披露缺失1065天，不外推全期间。"
         },
         "persona": "分析师"
       },
@@ -1634,7 +1634,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "门店全渠道、每平方英尺销售额；已批准允许声明Top-N或完整排名，不固定前10；新中文待确认。"
+          "notes": "门店全渠道、每平方英尺销售额；已批准允许声明Top-N或完整排名，不固定前10；新中文已确认。"
         },
         "persona": "管理层"
       },
@@ -2490,7 +2490,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：接受折前金额加权与成交记录简单平均的实际折扣率，须声明权重。题目按促销营收排序，不按折扣深度排序；用户对中文提出异议，当前修订译文待确认。",
+      "scoring_notes": "已批准：接受折前金额加权与成交记录简单平均的实际折扣率，须声明权重。题目按促销营收排序，不按折扣深度排序；用户已确认修订译文。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {

@@ -1196,7 +1196,7 @@
     {
       "question_id": "Q40",
       "result_path": "refs/cube/Q40-1.csv",
-      "sql_sha256": "1f551a2bcf126d1b43ed1b0dd55916d513ecfc632b732d1a3d442b795347a526",
+      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
       "row_count": 1,
       "columns": [
         {
@@ -1211,7 +1211,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "169bca689f85491e4fc04edebd1a4337984d2818a5be288dec4e159831a4ed02"
+      "sha256": "d8ab1e323b596c22907ac9016b3fe0779d4a5d436648905ab58b6bdfa3256ff5"
     },
     {
       "question_id": "Q41",

@@ -3,6 +3,7 @@
 import csv
 from decimal import Decimal
 import hashlib
+from importlib.metadata import version
 import json
 from pathlib import Path
 import re
@@ -59,7 +60,19 @@ def main():
     assert all(q["text_en"] in current_review and q["text_zh"] in current_review for q in questions)
     for qid in ("Q46", "Q97"):
         assert "不是封闭白名单" in questions[int(qid[1:]) - 1]["scoring_notes"]
+    for qid in ("Q28", "Q30", "Q45", "Q49", "Q50", "Q69"):
+        assert f"- [x] {qid} " in current_review.split("## 本轮仅需补确认的项目")[1]
+    q40 = questions[39]
+    assert q40["scoring"] == "judge"
+    assert "s.CurrencyKey = er.CurrencyKey" not in q40["refs"][0]["sql"]
+    assert "s.SalesAmount * er.EndOfDayRate" in q40["refs"][0]["sql"]
+    assert all(value in q40["scoring_notes"] for value in ("31", "1065", "部分答案"))
+    assert not yaml.safe_load((REPO / "audit/audit_decisions.yaml").read_text())["pending_user_decision"]
+    with (REPO / "refs/cube/Q40-1.csv").open() as stream:
+        eur = list(csv.DictReader(stream))
+    assert len(eur) == 1 and Decimal(eur[0]["sales_eur"]) > 0
     manifest = json.loads((REPO / "refs/MANIFEST.json").read_text())
+    assert manifest["chdb_version"] == version("chdb")
     refs = [ref for q in questions for ref in q["refs"]]
     assert {ref["result_path"] for ref in refs} == {record["result_path"] for record in manifest["records"]}
     for record in manifest["records"]:
