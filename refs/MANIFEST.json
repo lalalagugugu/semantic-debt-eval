@@ -24,6 +24,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d98c675cd7917669a84685c863b1772db5a8ff15010ecc632c2f4e35abf26585"
     },
     {
@@ -42,6 +44,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "ca0280d169f101686c5b14245c005158f444a4fbb4a7cc2d332e421c9bc74323"
     },
     {
@@ -60,6 +64,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "ff4b3d9ed9f6a6ddb97e89ef6daa6e5dc168588dbae0c302fc0c0c5b333a9f06"
     },
     {
@@ -78,6 +84,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "19285ea7ea6e68f8190b783718fa2a949c59858f4b10e4147a4819999bd146d9"
     },
     {
@@ -101,6 +109,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "94302ed60afe77626c2b6fc3492e2c29b7bf668de9541275d827797ec2026c78"
     },
     {
@@ -119,6 +129,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "19423f9ca408162fb19e4bcbe378377ec2718551213a4ae181b0629f6ab5f390"
     },
     {
@@ -142,6 +154,8 @@
       ],
       "top_n": 10,
       "tie_column": 1,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4137f5ec60d0904923a382cd1a1cfea5f701f7e073d13d932058d1418a30d0dc"
     },
     {
@@ -165,6 +179,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "36446c1de72cb68a0dfbb1eecb3a5499c0be74dda93099dc76ec5b59df7ba428"
     },
     {
@@ -183,6 +199,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "93a2a53078b2b7f6cf973a822dca17617a4facaacdf8d0e8549364ddb706eaf1"
     },
     {
@@ -201,6 +219,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "a3c841786680343066f7f293f02e68da1e82ff9f61053d5f373fb0ebada415dc"
     },
     {
@@ -219,6 +239,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "f13418cacea1466521de8cd07babb722d01980fc3d584d6861e626c156eba934"
     },
     {
@@ -237,6 +259,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "a3c841786680343066f7f293f02e68da1e82ff9f61053d5f373fb0ebada415dc"
     },
     {
@@ -260,6 +284,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "350eeaf93d66ddaea903a7490fd826baa02c6d0a8ce4e7dac2153309b769b222"
     },
     {
@@ -283,6 +309,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "2d170f2cc22bb63bb4ccd63db7bef72c41e7cd6e540092fedde5845bc2852036"
     },
     {
@@ -321,6 +349,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "742c7cda3ac1021c4f4c8b0210230d3d0968f3f225c46d9a7dbf47a0f9449098"
     },
     {
@@ -354,6 +384,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "af4ba022c8f4bce32311d115508d298666a9f442a311c6e4ca091488759f4781"
     },
     {
@@ -377,6 +409,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "6405bc74974056f94cbd1efe078d9883aac37dd38ec577f06e5c07ab3ff6ffee"
     },
     {
@@ -400,6 +434,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "c69a6d0a03696424bcb72791a9430709e63e84cfe94ca8b2fa0e90e6c778669e"
     },
     {
@@ -428,6 +464,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "69c6282a04e7d02f0c7d235e9d874b5957e9ab5b7c2ca0ffa33be409a6d8316c"
     },
     {
@@ -451,6 +489,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "a7f4e4ac336a66013faf66ff89b1491c4e0c834506eb6e0ffcb3bc7607097c1c"
     },
     {
@@ -474,6 +514,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4da90240176e77e2ee7bbe14454e5ce21803315919fe04301692b6f578470fda"
     },
     {
@@ -517,6 +559,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "495057a623d260ae899a8d4ad1149cfb38293fd14e729d7d5ffd693b00af63ce"
     },
     {
@@ -550,6 +594,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "77633a2091f67ef66a1839a8bc5a648b6dea1e9dc3f1668d0ac249a8d26a2c91"
     },
     {
@@ -578,6 +624,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "de51ec9ba713ce709e28382528fe001f68f54cfcb03ef8261d3f203a92dc3b2e"
     },
     {
@@ -621,6 +669,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "5253f320bae42b2ab768c51809af0d40a9fc803973369a5647750c58d7b1f5ed"
     },
     {
@@ -649,6 +699,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "9f545e1bb1e560d17d560a7b96acea378b585ef09cdb124e2a0c3016809f97d4"
     },
     {
@@ -682,12 +734,14 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "44a9f8facea90c6a26a7bd4686c98bf06a7ee02d29834928b70de18c2f234415"
     },
     {
       "question_id": "Q25",
       "result_path": "refs/cube/Q25-1.csv",
-      "sql_sha256": "561a72b5682566bce8f55d6755b3b8b861e2ef1e5db429df331f6dfbf43381d9",
+      "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a",
       "row_count": 1,
       "columns": [
         {
@@ -705,7 +759,9 @@
       ],
       "top_n": 1,
       "tie_column": 1,
-      "sha256": "018ce76528fc87fde00238892f5b0895b98eb0063689a8e0f1a0e3e3383d6344"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "45233ed05dbc8e4859ec81b8679d384a5e5fc719389a0a34bffa4a9403233bfd"
     },
     {
       "question_id": "Q26",
@@ -728,6 +784,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "2637c754fc62577a33fc86a93e35becbd26c2a642143b66db998ec277f89e701"
     },
     {
@@ -761,6 +819,8 @@
       ],
       "top_n": 10,
       "tie_column": 3,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4822554f31a1ef090bfe0d3af073fd98e255fe1959bf7a5657cdfd8ae95425c9"
     },
     {
@@ -784,6 +844,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "1e6f355ea26979e34317251088d8b045807c875a4b262743e2d95362ec0fc346"
     },
     {
@@ -802,6 +864,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "803f0a04ca8a57703b1dbb7d4dce95ae11fa8ee9a6ae6b4a7b7daa6b65fd033e"
     },
     {
@@ -830,6 +894,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "51d30a3d622eee68a7d9bae9e2a7abc70834d23da3095521610f47ae8369682c"
     },
     {
@@ -858,6 +924,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "00753ae2e3618c3e152c59aa043d6bbcb0cdc77fe43b1bde4b5fe7ffc1b9c5ac"
     },
     {
@@ -881,6 +949,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "0d52c9afc2aad2fc1e0c432bac0b45dde97341e0e6a853ff96ad40d2419dd59d"
     },
     {
@@ -909,6 +979,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "af1b8c597754737ef585e5115345100cb080931a97df8dd220c6921545fc4bbb"
     },
     {
@@ -942,6 +1014,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "3dfdf471d0115da1654d4253489419e95e296963d7fec38dc7f848573004bd89"
     },
     {
@@ -980,6 +1054,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "3a4f36eaec00467df907b02634ceca60e5ffcf7d16b151ddb9158a50e9e09e56"
     },
     {
@@ -1003,6 +1079,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "6be5ea6bbadafc511538d30f64ead443cf0830e626f71dacf92bfa2df5e4e94a"
     },
     {
@@ -1031,6 +1109,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d2c672ed6f345a3bac7d1d0cb50e43e9dfea81f271256d75fea7e573b6f834f6"
     },
     {
@@ -1064,6 +1144,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "8a7b4fdef2ed6bc07c2052f3177f26ea3079479b82f6ca0c32ce71ca818eb920"
     },
     {
@@ -1107,12 +1189,14 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "bdf2d24b7774b8faf3f6d9618028955584c797f0bb9ddab88614dae9e7bda74b"
     },
     {
       "question_id": "Q40",
       "result_path": "refs/cube/Q40-1.csv",
-      "sql_sha256": "1f551a2bcf126d1b43ed1b0dd55916d513ecfc632b732d1a3d442b795347a526",
+      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
       "row_count": 1,
       "columns": [
         {
@@ -1125,7 +1209,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "169bca689f85491e4fc04edebd1a4337984d2818a5be288dec4e159831a4ed02"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "d8ab1e323b596c22907ac9016b3fe0779d4a5d436648905ab58b6bdfa3256ff5"
     },
     {
       "question_id": "Q41",
@@ -1143,6 +1229,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "5481597382947a91434bcbc6521d1f3942c19d90fcf1c176e6ba5739185a0362"
     },
     {
@@ -1171,7 +1259,34 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "fe5c0569416d54eb62d6573d8830093284365b73a5ea8bfcd56b7ff0b31ed390"
+    },
+    {
+      "question_id": "Q42",
+      "result_path": "refs/cube/Q42-2.csv",
+      "sql_sha256": "748060c29f5d07aadf8e056bd21df4a7226f87379b87f11f63bfa8054ebe2d3a",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "year",
+          "type": "UInt16"
+        },
+        {
+          "name": "gross_margin",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "daf6700ac8c6d13ddf83f5cd26cfe0fc2558eec789f91630a2467cbc5ecd5356"
     },
     {
       "question_id": "Q43",
@@ -1194,6 +1309,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "929a4e7b942edca49b82de0ac54224fe88e8b8b85b924005f0037fa4d4074995"
     },
     {
@@ -1217,12 +1334,14 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "ef2f141e4d1962bd9ab2c56a330bc8b8eb74955d63e7eef1a34e0253b730d0a8"
     },
     {
       "question_id": "Q44",
       "result_path": "refs/cube/Q44-1.csv",
-      "sql_sha256": "330db198469dcf6eefc453de00f63dca9f381c0d76e9034c35d0d8f5f3550359",
+      "sql_sha256": "79b03b8b38d60605e90e897492d88c11e72feb79a40eeabb341c3681d8a5c340",
       "row_count": 3,
       "columns": [
         {
@@ -1235,7 +1354,7 @@
         },
         {
           "name": "growth_pct",
-          "type": "Float64"
+          "type": "Nullable(Float64)"
         }
       ],
       "value_kinds": [
@@ -1245,13 +1364,40 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "64ea3f96bc869386184fac50ec24278179fab67904754ced187e07401646cf2e"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "01ecad36c0042e799c2135ff895923009224e84e5ac02f4e5fb4ccb45ef95eb7"
+    },
+    {
+      "question_id": "Q44",
+      "result_path": "refs/cube/Q44-2.csv",
+      "sql_sha256": "eb12c3514a0f64777fc448f742ad4a506c57cd355b1b77a868cebf63a4fbc145",
+      "row_count": 36,
+      "columns": [
+        {
+          "name": "month",
+          "type": "Date"
+        },
+        {
+          "name": "sales",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "8446bd3db8738981da6129e2265f744a986dec3748a9c14f19e3e6b38e668aac"
     },
     {
       "question_id": "Q45",
       "result_path": "refs/cube/Q45-1.csv",
-      "sql_sha256": "13304b9df27d57409001e3a075b30e41128039c19906d3a63a6025aa67878019",
-      "row_count": 10,
+      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5",
+      "row_count": 306,
       "columns": [
         {
           "name": "StoreName",
@@ -1278,7 +1424,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "2f8cdf82db302ae9096fcd5e5d8e760d5befacaa4c5b77dfd505dcaae2387f21"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "815178698e497de8dc3f5bbc89b9c1d0500dc96dbc6998d79b4a4aa6960d7b42"
     },
     {
       "question_id": "Q46",
@@ -1301,6 +1449,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "823c7a6ee503263def36197c23e6f19e4facf9186039e7fcc78a31ff5bd2630d"
     },
     {
@@ -1324,6 +1474,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "8ad2141d2884125c4e8bc02edc7f34a90f160390f341dcf243691c94bf17a00c"
     },
     {
@@ -1347,6 +1499,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "44e623ceaae2a9c631802d4d0b04d3c4dd59a43dc29cb1dd769dbca25ba25768"
     },
     {
@@ -1375,6 +1529,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4dfb942b6940f22a2402dbf4a554111ddf2b1e5dddeb263827dc7b148deded2d"
     },
     {
@@ -1393,6 +1549,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "7b563514e213b98738e49b741b3614048df9305cbb6fadb0d6f03c075c3f3744"
     },
     {
@@ -1421,6 +1579,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "7dc44c63fbbeda1ef54938bc9c5507f6a704bc9a8978fc8db64836c4f81053c9"
     },
     {
@@ -1449,6 +1609,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "12dad3e10df7beca72ec779e703f0c33956e00bd156bb50e8aba2d78ed6c8e35"
     },
     {
@@ -1477,6 +1639,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "8c97042b2d508272897aac9094daed4bab6ef060894b21bffb68f5a34d18db19"
     },
     {
@@ -1495,6 +1659,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "48e2db30b00bd51d3f4583f7111d2bc6796d044a318e56a75a0facbcf43f6a45"
     },
     {
@@ -1513,6 +1679,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "b3529b3db1d02b1335de72c43bcaadb098b96e1adf32fa457fd5c963761d954b"
     },
     {
@@ -1531,6 +1699,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "3a85ca5515baf96521a038deebe164deeb789de68a9e8c9ed50d55f1975ce52f"
     },
     {
@@ -1549,6 +1719,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "cb434473f2d97388c64215e36a952a2bec5e9eb48fe5f0a6284c2cbeb5b9c1cb"
     },
     {
@@ -1567,6 +1739,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "ded01cb3e54cd4e0935c15e33562b9c28459f83edcc85f3e7a95538ceca22041"
     },
     {
@@ -1585,6 +1759,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "590f4ee5204a766d0f997d9bcefbc60065500a0e23f29177c4fbc67f698d316b"
     },
     {
@@ -1603,6 +1779,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "e383af9c1b4752b03145ddfb148f256f8380bfbe79f80a50ad0936bb4f071db8"
     },
     {
@@ -1621,6 +1799,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4f281dd5f09fb897d854ff83bd34090bfc2e5f244854a018546eb4dcff749ddc"
     },
     {
@@ -1639,6 +1819,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "796585831e1f787e3d703cada20b86985f0e5c70e0801a4806ebac93c346c4ef"
     },
     {
@@ -1657,6 +1839,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d6606929d0fc03e916a03222140336e5a541e2069b0bcffd4532c1ab40241992"
     },
     {
@@ -1680,6 +1864,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d17c2cc706f7faba6c2edf8e5fb870d248fe4c5e842d87fd344bad5507e1ae01"
     },
     {
@@ -1708,6 +1894,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "05131cef8bd99116c694bfe291a902897febbd05845ed108b88074608a92e226"
     },
     {
@@ -1736,6 +1924,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "32ece7c6fe18bdf3f86d7f20c724dfd932b291c4d33d8db64f908e7000baad60"
     },
     {
@@ -1764,13 +1954,15 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d21d80b436a0f750777af33a7141600c61db0228a142fa2c1a5c3e4dace810be"
     },
     {
       "question_id": "Q65",
       "result_path": "refs/cube/Q65-1.csv",
-      "sql_sha256": "e0d97a401d4ad2e504fc3a14eaf4b1294dd7046fcbe427e5650e663c35c1e3f3",
-      "row_count": 50,
+      "sql_sha256": "5cbfdf8db80944a7c35fe2f8e476c87f959b3da4b98ba2072517361a0f60f6b3",
+      "row_count": 303,
       "columns": [
         {
           "name": "StoreManager",
@@ -1792,7 +1984,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "b9a8fe9dbc5921d1ff52d015e94f794782af8895c8e6cf35f188ee267bfd0555"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "c3a33bfb872ad9ffdd037b274b9878221fa1fedd4ca5df59b90d3e787ac80977"
     },
     {
       "question_id": "Q66",
@@ -1820,12 +2014,14 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "5d9ee814ff3ffc5e66cf404db12fd702785756677ee317ebd6a0e1f1df0c52a8"
     },
     {
       "question_id": "Q67",
       "result_path": "refs/cube/Q67-1.csv",
-      "sql_sha256": "306417c69bf026fd629a0646a75e0ed38dc1487964e00858f47c4a296bf564a8",
+      "sql_sha256": "e217df1c69e652563099f9ac0d131c4930ef4470e9c30e3ccfd7d290edef7df1",
       "row_count": 17,
       "columns": [
         {
@@ -1848,6 +2044,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "360096aed5c32a48fcb230cc5b797517a38959f20ae735174885a840dbe2398a"
     },
     {
@@ -1876,6 +2074,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "a73925d33216c1905e588c6e63d4259153a59b1caf6bb78bfc0a231aceaa2c4e"
     },
     {
@@ -1909,12 +2109,49 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "c0ea76768d95b1212743e3c77d28172f5870ce1b73ff4f178453f0c2ba8a2161"
+    },
+    {
+      "question_id": "Q69",
+      "result_path": "refs/cube/Q69-2.csv",
+      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "PromotionCategory",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "total_discount",
+          "type": "Float64"
+        },
+        {
+          "name": "avg_discount_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "6d99d3b1bb6665ae4f48de5fa323f55ea0bd21472a5e1d39a30ebd56c8e3cfa2"
     },
     {
       "question_id": "Q70",
       "result_path": "refs/cube/Q70-1.csv",
-      "sql_sha256": "0e1aa6c9901283026f7ea74672a368208bfad6c3daae82560bf1016c428e8834",
+      "sql_sha256": "6dfa3daa4f832880a8d3e0f3af321b6d38cf8d499ef0162935bfd9633ab6f6dc",
       "row_count": 4,
       "columns": [
         {
@@ -1942,7 +2179,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "693a39a76e23e6456d6752d46d9bbdb38e9426ecb300be43ce07c0a91659e381"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "6961370750cf4676ea365d66c9635f9f98da6b24c3f7a9a4ef82da89a8bd9616"
     },
     {
       "question_id": "Q71",
@@ -1970,6 +2209,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "1eb91711748f5de6336612991ad0d505fc815596f2fa4cbd2bd29be299277777"
     },
     {
@@ -2003,6 +2244,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "3ed4d7163ed6716032d099368c37837ed0a65898950f603685af249a15e39801"
     },
     {
@@ -2036,13 +2279,15 @@
       ],
       "top_n": 10,
       "tie_column": 3,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "d0f4bfb0e0dc31b1414442c16c0e686a0560ec452d77f02d80acc6cb3b8e609f"
     },
     {
       "question_id": "Q74",
       "result_path": "refs/cube/Q74-1.csv",
-      "sql_sha256": "55ad2b090492d0b38b7be885c00c18c9eb1af53a874462c74414d83bacbad4b4",
-      "row_count": 9,
+      "sql_sha256": "127fd8fdea44a87471b11868dafab41efbacddcdd1b3b2a23464ad0f1778dec7",
+      "row_count": 925,
       "columns": [
         {
           "name": "StoreName",
@@ -2058,7 +2303,7 @@
         },
         {
           "name": "pct_of_store",
-          "type": "Nullable(Float64)"
+          "type": "Float64"
         }
       ],
       "value_kinds": [
@@ -2069,13 +2314,20 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "a6170133fbf0645fd50f22b172da0fb964c66bcec7a5c77f1dd57dc811324da7"
+      "postprocess": "store_top3",
+      "postprocess_details": {
+        "domain_rows": 333486,
+        "groups": 306,
+        "top_n_per_store": 3,
+        "complete_boundary": true
+      },
+      "sha256": "dc04ec4b9e5e864bb3755f85c84b43cba9aaea2b441969dee2591f81957d4b10"
     },
     {
       "question_id": "Q75",
       "result_path": "refs/cube/Q75-1.csv",
-      "sql_sha256": "5487a62c4d1fb7a7660c25f382b484ba92e2b7709355435ec26eb4bab6cd1e23",
-      "row_count": 25,
+      "sql_sha256": "4d96fb928a90e776ee90c3a94d09332c617a54512f80670427f1eb9a5bd8d83b",
+      "row_count": 1470,
       "columns": [
         {
           "name": "FirstName",
@@ -2107,7 +2359,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "bc5acda45efc00a5e64699489ed3e3137b1e6e91769ba56ad0b6ad93aa8d0912"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "44f322faa1810e8157b6f3b540f390d26629dad3a7f5f4126eafb4b43cf508f8"
     },
     {
       "question_id": "Q76",
@@ -2130,7 +2384,34 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "345d81ecc6a537148fa7d8f99d8f4b6c2a8c83a2031a7edd7d7366dabb161eae"
+    },
+    {
+      "question_id": "Q76",
+      "result_path": "refs/cube/Q76-2.csv",
+      "sql_sha256": "cf6a6ceac571476fc24b143a51e8e318a5b742121eab73c5eaf5e7976fe12a52",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "category",
+          "type": "String"
+        },
+        {
+          "name": "pct_repeat_customer_sales",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "849d55882f35c94067c1f23942451a68c0d63dd485f58688477775e734c5d7b7"
     },
     {
       "question_id": "Q77",
@@ -2163,6 +2444,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "43eb10f493b3ab028c0ad72d7fb1a0e105cd57228da1e74861275733e2ae54d3"
     },
     {
@@ -2196,6 +2479,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "7597870ca147515c9148b321d33c584021e89b1a26a175ed3a0d31802bce97be"
     },
     {
@@ -2229,13 +2514,15 @@
       ],
       "top_n": 10,
       "tie_column": 3,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "6e91867ce968ae63e87a3a41863e806f8836a50ebcbd01d352ef6bcdb77dd172"
     },
     {
       "question_id": "Q80",
       "result_path": "refs/cube/Q80-1.csv",
-      "sql_sha256": "ea9d4c7ac25320f054c89df49864c44b3dd0bdf62c49d3aa6e1227dbac6596d8",
-      "row_count": 20,
+      "sql_sha256": "b8ff395acfb5195fd4e837f3524b979593c2c704c099c1ac7a6060e91f0776a6",
+      "row_count": 29,
       "columns": [
         {
           "name": "country",
@@ -2257,7 +2544,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "e27ee06b81ab6300c64fd2908096680e8b642a5d1d14fbfc3c2bf98552698f67"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "f9d3d3da5917ca836251ba1851dc1875ac55a7f2f7880970ae3d7791ebce05c1"
     },
     {
       "question_id": "Q81",
@@ -2290,12 +2579,14 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "55e7fe2f3cddd97d0d28faed5e319b667be967a862bbe9e1eae94b5aa5c79f70"
     },
     {
       "question_id": "Q82",
       "result_path": "refs/cube/Q82-1.csv",
-      "sql_sha256": "c9af0904a500a5c9d22be6b41483901e278231452488cfa808f11c3ca8dfe93c",
+      "sql_sha256": "95c444eaa75496b9961c6733eb06d058ac596f924cf22f9d24c462a9413d89e3",
       "row_count": 11,
       "columns": [
         {
@@ -2323,50 +2614,44 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "b5c52968baf9b6114ffceeac0b3dac282ba3a5be1c0099e6cbebb43612133079"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "62394b023cc7081765ad3abd7f8dc6ce5e4c134007a41d85560ecc6d64d97058"
     },
     {
       "question_id": "Q83",
       "result_path": "refs/cube/Q83-1.csv",
-      "sql_sha256": "684280447347b9d99486bfe3b952b0c3a415380d955437dff7627372b4753f88",
+      "sql_sha256": "990978a9a4c55a1ed4a488b6cc7be32519c7e1ec0759d77e290665f92ece81ed",
       "row_count": 1,
       "columns": [
         {
           "name": "cohort_size_2007",
-          "type": "Nullable(UInt64)"
+          "type": "UInt64"
         },
         {
           "name": "returned_2008",
           "type": "UInt64"
         },
         {
-          "name": "retention_2008_pct",
-          "type": "Nullable(Float64)"
-        },
-        {
           "name": "returned_2008_and_2009",
           "type": "UInt64"
-        },
-        {
-          "name": "retention_2009_pct",
-          "type": "Nullable(Float64)"
         }
       ],
       "value_kinds": [
         "count",
         "count",
-        "percentage",
-        "count",
-        "percentage"
+        "count"
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "71015f92e8ae3835bdb721d5f9578f2ed398374ab21cbe85d28622afd344ad72"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "5b68686417e9299cfa66e3c4bf782268b94ef84bc4eb7f6772a5fbec43cc9518"
     },
     {
       "question_id": "Q84",
       "result_path": "refs/cube/Q84-1.csv",
-      "sql_sha256": "3dd1d782a1cf1a39c625d4aff88716f9484a34864439a35f9e52028ab2df452a",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
       "row_count": 3,
       "columns": [
         {
@@ -2383,7 +2668,7 @@
         },
         {
           "name": "pct_of_revenue",
-          "type": "Nullable(Float64)"
+          "type": "Float64"
         }
       ],
       "value_kinds": [
@@ -2394,7 +2679,13 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "8246e971478e09f7f98900b6627a07aaea562e125526eeb617a376061487ba02"
+      "postprocess": "abc_groups",
+      "postprocess_details": {
+        "domain_rows": 2504,
+        "same_amount_groups": 2504,
+        "quantized_total_revenue": "857728031.41"
+      },
+      "sha256": "2cf897ef86439f0a47e3cdc8b57850afedcba0d30a69e3bfd0283ac2c74f2a20"
     },
     {
       "question_id": "Q85",
@@ -2432,6 +2723,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "8459cd044e99a0ac155e73f66946e6f9bf411585b7d220383d062f0999361481"
     },
     {
@@ -2460,6 +2753,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "15fc9a32d3b0d55e034e749252e4607607b03d0323b4acae1424db3c7620916d"
     },
     {
@@ -2493,6 +2788,8 @@
       ],
       "top_n": 20,
       "tie_column": 3,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "31867eee53d83f399d1c8606ac0c5a2fea946f162c8775525dbfa4078dc3d7d2"
     },
     {
@@ -2516,6 +2813,8 @@
       ],
       "top_n": 20,
       "tie_column": 1,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "8dc2e55d34f2f58a1c96c6a8c3d789530f8ea06b4ecd549368e53791079c675e"
     },
     {
@@ -2549,6 +2848,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "6440e687f275fb6ca7917711fff0589ab2510b980facb1cebe336120e9366dcc"
     },
     {
@@ -2592,6 +2893,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "c927aa9b655caa1ed83f679f5a13947ea99b7586334a29c03e9d8100803d2119"
     },
     {
@@ -2615,13 +2918,15 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "1cfab4064733f5d56cfb7614199ab69f09b68b040adc3d3dc8854dd441b18a76"
     },
     {
       "question_id": "Q92",
       "result_path": "refs/cube/Q92-1.csv",
-      "sql_sha256": "877a4dcf8487889f74fd922318c92e42fa500509835d760f2dc95d3603717547",
-      "row_count": 10,
+      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee",
+      "row_count": 11,
       "columns": [
         {
           "name": "BrandName",
@@ -2648,7 +2953,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "a03eca8ddaa4422511396845b281fa7087bc1f5fd3550ac12a1c01df880186eb"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "3256c70c1d867304aa870f4aedc8c02d5418e052ccc4276817e9ef8994c6e69f"
     },
     {
       "question_id": "Q93",
@@ -2676,13 +2983,15 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "b16894c189533869a0b1f069f8f5bce7a7820b5db1200c008fc104eaf3385477"
     },
     {
       "question_id": "Q94",
       "result_path": "refs/cube/Q94-1.csv",
-      "sql_sha256": "eddf2057c45231965efe07744f1050eb3f89edc31cbcfd6dee1d379d4961f73e",
-      "row_count": 20,
+      "sql_sha256": "e67a00a108c52fd38dab04dab68782e9b1976deac443916fdb275893af8da285",
+      "row_count": 99,
       "columns": [
         {
           "name": "StoreName",
@@ -2709,7 +3018,9 @@
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "85bf28c0845ec2834c9ac95626dea0ca83945f61ab6403bf5f853a945a8ca64c"
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "ef2a96ffae21815872a4a5255b27717f4b98afc4ef2ff56203fc8528299a6875"
     },
     {
       "question_id": "Q95",
@@ -2747,6 +3058,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "50e707ccdb3c7a20774fe9881b7d9432a3609d34fb4a9ff3e45db1ad587288f6"
     },
     {
@@ -2780,6 +3093,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "e4beb01b5cbe06423283d6a8a4a4535b546c0750532504524ce93511f979ddf8"
     },
     {
@@ -2813,6 +3128,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "bd65acdf107929780b51bb104d8cc227b4b7b5c0e1c09c2b43496e23a9f4d1a7"
     },
     {
@@ -2851,6 +3168,8 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "4b6886b3bc41e806bb68bb36021ad7c1a1db9810d5bc305f8c4c1f33f628a454"
     },
     {
@@ -2879,7 +3198,44 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "071cea6343b3e55ef7b5cf847743ac587924a38cd1de8d356bad070e4d51cc6c"
+    },
+    {
+      "question_id": "Q98",
+      "result_path": "refs/cube/Q98-2.csv",
+      "sql_sha256": "3bb04975750fc553d5f23fd72a1e2482126aafccf1f89303766f76837042e8b5",
+      "row_count": 24,
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "year",
+          "type": "UInt16"
+        },
+        {
+          "name": "peak_quarter_share_pct",
+          "type": "Float64"
+        },
+        {
+          "name": "peak_quarter",
+          "type": "UInt8"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "percentage",
+        "other"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "93278ab67a874d8095914b6e069b866e0f4c6e1e49402464cdcfdf1a480e235c"
     },
     {
       "question_id": "Q99",
@@ -2912,13 +3268,15 @@
       ],
       "top_n": null,
       "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
       "sha256": "96f8ba8bb2428d418e12d9c620084fd8b283267dd082e796a9d6895d03310604"
     },
     {
       "question_id": "Q100",
       "result_path": "refs/cube/Q100-1.csv",
-      "sql_sha256": "4691ed2f5a908107d535f49b48aaa904e84687e5081e72fc3500edf91f081f53",
-      "row_count": 30,
+      "sql_sha256": "32383d97b91ce7c7663e2b8f999fbc6fcd38dd692e5cc3f780fad25e7bf0069c",
+      "row_count": 108,
       "columns": [
         {
           "name": "customer_name",
@@ -2929,23 +3287,30 @@
           "type": "UInt64"
         },
         {
-          "name": "aov",
-          "type": "Nullable(Float64)"
+          "name": "avg_order_amount",
+          "type": "Float64"
         },
         {
           "name": "lifetime_value",
-          "type": "Nullable(Float64)"
+          "type": "Float64"
         }
       ],
       "value_kinds": [
         "other",
         "count",
-        "other",
+        "amount",
         "amount"
       ],
       "top_n": null,
       "tie_column": null,
-      "sha256": "7dda458bf8caac944517192ef82f9e2a595a07ec1f37b1fae5921fe3b20c1b75"
+      "postprocess": "power_customers",
+      "postprocess_details": {
+        "domain_rows": 18869,
+        "orders_p90": "129.0000000",
+        "avg_order_amount_p90": "651.334",
+        "percentile_method": "exact linear interpolation at (n-1)*0.9"
+      },
+      "sha256": "7fbcb57779fbcfd101f2b11b4267798ba79d5756863f74b3bdad7300b15b799f"
     }
   ]
 }

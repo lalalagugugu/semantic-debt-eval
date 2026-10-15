@@ -1,10 +1,926 @@
 StoreName,ProductName,product_sales,pct_of_store
-Contoso Asia Online Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,1079996.62,0.36
-Contoso Asia Online Store,Litware Refrigerator 24.7CuFt X980 Green,1075196.64,0.36
-Contoso Asia Online Store,Litware Refrigerator L1200 Orange,1047996.72,0.35
-Contoso Europe Online Store,Litware Refrigerator 24.7CuFt X980 Brown,869373.28,0.35
-Contoso Europe Online Store,Litware Refrigerator 24.7CuFt X980 Grey,880253.25,0.35
-Contoso Europe Online Store,Litware Refrigerator 24.7CuFt X980 Silver,882941.24,0.36
-Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Blue,951837.03,0.31
-Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Brown,1336795.82,0.43
-Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Grey,1133436.46,0.37
+Contoso Albany Store,Adventure Works Laptop15 M1501 White,59589.74999999999,1.0770023575698586
+Contoso Albany Store,WWI Laptop15 M0150 Black,56339.399999999994,1.0182567744296844
+Contoso Albany Store,WWI Projector 1080p DLP86 Black,54228.3,0.9801015602013026
+Contoso Alexandria Store,Litware Refrigerator 24.7CuFt X980 Green,60479.811,1.072684800461542
+Contoso Alexandria Store,Proseware Laptop15 M510 Black,48685.35,0.86349533979447
+Contoso Alexandria Store,WWI Projector 1080p DLP86 Silver,59976,1.0637490846735853
+Contoso Amsterdam Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,89151.72140000001,1.9490957203252819
+Contoso Amsterdam Store,Litware Refrigerator 24.7CuFt X980 Brown,46911.8534,1.0256189253398647
+Contoso Amsterdam Store,WWI Laptop19W X0196 Black,69106.8,1.510859981278782
+Contoso Anchorage Store,Adventure Works Laptop19W X1980 Blue,69626.4,1.220038393933495
+Contoso Anchorage Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,63999.8,1.121445503488115
+Contoso Anchorage Store,WWI Laptop15 M0150 Black,65321.55,1.1446060538997636
+Contoso Annapolis Store,Fabrikam Refrigerator 24.7CuFt X9800 White,63999.8,1.1401125124172393
+Contoso Annapolis Store,Proseware Projector 1080p DLP86 Black,100209.90000000001,1.7851705920656051
+Contoso Annapolis Store,WWI Projector 1080p DLP86 Silver,69222.3,1.233147765591453
+Contoso Appleton Store,Adventure Works Laptop15.4W M1548 Red,42106.899999999994,0.8165203123314018
+Contoso Appleton Store,Adventure Works Laptop19W X1980 White,43451.55,0.842595232070837
+Contoso Appleton Store,WWI Laptop19W X0196 White,54038.4,1.0478912303182906
+Contoso Arlington Store,Contoso Projector 1080p X981 Black,47106.15,0.9148695043240933
+Contoso Arlington Store,Contoso Projector 1080p X981 Silver,49980,0.9706838242165446
+Contoso Arlington Store,Litware Refrigerator 24.7CuFt X980 Grey,47039.853,0.9135819207807945
+Contoso Ashgabat  No.2 Store,"Adventure Works 52"" LCD HDTV X590 Silver",113099.61000000002,0.8672854793825548
+Contoso Ashgabat  No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,110719.65400000001,0.8490351840864933
+Contoso Ashgabat  No.2 Store,Litware Refrigerator 24.7CuFt X980 Grey,113279.64600000001,0.8686660553948515
+Contoso Ashgabat No.1 Store,Contoso Bluetooth Active Headphones L15 Black,75342.204,0.5717273016200665
+Contoso Ashgabat No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,92159.712,0.6993453955746032
+Contoso Ashgabat No.1 Store,WWI Projector 1080p DLP86 Silver,89589.15,0.679838925125357
+Contoso Asia Online Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,1137436.4455,0.37047866707194615
+Contoso Asia Online Store,Litware Refrigerator 24.7CuFt X980 Green,1121916.494,0.3654236057825976
+Contoso Asia Online Store,Litware Refrigerator L1200 Orange,1117276.5085,0.3639122987991841
+Contoso Asia Reseller,Contoso Projector 1080p X981 White,574645.0499999999,0.31937501941689644
+Contoso Asia Reseller,Fabrikam Laptop19 M9000 Black,673632.0499999999,0.3743898064528595
+Contoso Asia Reseller,Litware Refrigerator 24.7CuFt X980 Grey,589118.159,0.3274188535505027
+Contoso Athens Store,"Adventure Works 52"" LCD HDTV X590 Brown",51039.824,1.0514881250395096
+Contoso Athens Store,Adventure Works Laptop19W X1980 White,59299.350000000006,1.2216453243953516
+Contoso Athens Store,Fabrikam Laptop16W M6080 Black,45874.48,0.9450751821237174
+Contoso Atlantic City Store,Adventure Works Laptop15 M1500 Black,39738.15,0.7437106025992435
+Contoso Atlantic City Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,47199.8525,0.8833584539131895
+Contoso Atlantic City Store,Litware Refrigerator 24.7CuFt X980 Grey,85439.73300000001,1.5990285233547228
+Contoso Attleboro Store,Adventure Works Laptop19W X1980 White,71315.1,1.3046446878259985
+Contoso Attleboro Store,Fabrikam Laptop17 M7000 Black,52456.95,0.9596520394285922
+Contoso Attleboro Store,Proseware Projector 1080p DLP86 Silver,49980,0.9143384991052862
+Contoso Aurora Store,Adventure Works Laptop19W X1980 White,67677.90000000001,1.2029292211964304
+Contoso Aurora Store,Fabrikam Laptop19 M9000 Black,65720.2,1.1681324184537882
+Contoso Aurora Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.1375534638445828
+Contoso Austin Store,Contoso Bluetooth Active Headphones L15 Red,70110.1065,1.2754355220933071
+Contoso Austin Store,Fabrikam Laptop19 M9000 Black,61763.799999999996,1.1236004112968594
+Contoso Austin Store,Fabrikam Laptop19W M9800 Black,72539.5,1.3196307875368507
+Contoso Back River Store,Fabrikam Independent filmmaker 2/3'' 17mm X100 White,65740,1.1710934738517715
+Contoso Back River Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,60319.811499999996,1.074538144076955
+Contoso Back River Store,Proseware Projector 1080p DLP86 White,59101.34999999999,1.0528324502712105
+Contoso Bacliff Store,Adventure Works Laptop15 M1501 Silver,78672.45,1.4022566852856768
+Contoso Bacliff Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,115199.64000000001,2.0533168260617702
+Contoso Bacliff Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,60479.811,1.0779913336824292
+Contoso Baildon Store,Adventure Works Laptop15.4W M1548 Red,53560.28,1.1304906931293721
+Contoso Baildon Store,Adventure Works Laptop19W X1980 Silver,62248.08,1.3138630922984833
+Contoso Baildon Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,52479.835999999996,1.1076858854165021
+Contoso Baltimore Store,Contoso Water Heater 7.2GPM X1800 Blue,35621.25,0.6966302341526421
+Contoso Baltimore Store,Fabrikam Coffee Maker Super-Auto 12C X125 Black,42735,0.8357509367726613
+Contoso Baltimore Store,Fabrikam Laptop16W M6080 Black,50719.15,0.9918936966143238
+Contoso Bangkok No.1 Store,Contoso Projector 1080p X981 Black,111955.2,0.951432019759949
+Contoso Bangkok No.1 Store,WWI Projector 1080p DLP86 Black,72471,0.6158823342196098
+Contoso Bangkok No.1 Store,WWI Projector 1080p LCD86 White,68850,0.585109888245231
+Contoso Bangkok No.2 Store,Contoso Bluetooth Active Headphones L15 Red,80528.80500000001,0.6106266573319166
+Contoso Bangkok No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,102399.68,0.7764671822741924
+Contoso Bangkok No.2 Store,Litware Refrigerator 24.7CuFt X980 White,120639.623,0.9147753991167831
+Contoso Bangor Store,Litware Refrigerator 24.7CuFt X980 Silver,49919.844,0.9179047416433032
+Contoso Bangor Store,Proseware Projector 1080p DLP86 Black,61850.25,1.1372759447490204
+Contoso Bangor Store,WWI Laptop19W X0196 Blue,48192.9,0.8861504339545122
+Contoso Bar Harbor Store,Adventure Works Laptop15.4W M1548 Red,49042.6,0.9261426215145363
+Contoso Bar Harbor Store,Adventure Works Laptop15.4W M1548 White,55637.200000000004,1.0506780281169545
+Contoso Bar Harbor Store,Fabrikam Laptop19W M9800 Black,73139,1.3811899286528786
+Contoso Baumholder Store,"Adventure Works 52"" LCD HDTV X590 Black",54229.813,1.0672023578908059
+Contoso Baumholder Store,Adventure Works Laptop19W X1980 White,54194.28,1.0665030948971654
+Contoso Baumholder Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,51199.84,1.0075747443870404
+Contoso Bayonne Store,Adventure Works Laptop8.9 E0890 Red,51116.8,0.9305809340311968
+Contoso Bayonne Store,Contoso Bluetooth Active Headphones L15 White,51996,0.9465867629798053
+Contoso Bayonne Store,Litware Refrigerator 24.7CuFt X980 Brown,46559.8545,0.8476217777514755
+Contoso Baytown Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,50879.841,0.9452993800081921
+Contoso Baytown Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,63999.8,1.1890558239096758
+Contoso Baytown Store,Fabrikam Refrigerator 24.7CuFt X9800 White,63999.8,1.1890558239096758
+Contoso Beaumont No.1 Store,Adventure Works Laptop16 M1601 Silver,45434.15,0.8217697015009477
+Contoso Beaumont No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,63999.8,1.1575675244748795
+Contoso Beaumont No.1 Store,WWI Laptop15.4W M0156 Black,59199.8,1.0707496888335273
+Contoso Beaumont No.2 Store,Litware Refrigerator 24.7CuFt X980 Brown,60319.811499999996,1.0186713829781433
+Contoso Beaumont No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,63999.8,1.0808184434781363
+Contoso Beaumont No.2 Store,Litware Refrigerator 24.7CuFt X980 White,81919.744,1.3834476076520146
+Contoso Beijing Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,79999.75,0.6794925708626948
+Contoso Beijing Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,135039.578,1.146983459616229
+Contoso Beijing Store,Litware Refrigerator 24.7CuFt X980 Blue,92159.712,0.7827754416338244
+Contoso Bellevue Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,63999.8,1.2854086162112401
+Contoso Bellevue Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,49279.846000000005,0.989764634482655
+Contoso Bellevue Store,Fabrikam Refrigerator 24.7CuFt X9800 White,60799.81,1.2211381854006782
+Contoso Berlin Store,"Adventure Works 52"" LCD HDTV X590 Silver",54519.812000000005,1.5558860224406934
+Contoso Berlin Store,Litware Refrigerator 24.7CuFt X980 Grey,31999.9,0.9132129276142762
+Contoso Berlin Store,Proseware Projector 1080p LCD86 White,36720,1.047915109172098
+Contoso Berne Store,Adventure Works Laptop19W X1980 Silver,43386.6,0.9366125933941801
+Contoso Berne Store,Adventure Works Laptop19W X1980 White,82785.27,1.787135346617099
+Contoso Berne Store,Fabrikam Laptop19 M9000 Black,64972.88,1.4026085850720929
+Contoso Berthoud Store,Adventure Works Laptop19W X1980 Red,115870.8,2.0065061205297576
+Contoso Berthoud Store,Fabrikam Laptop19 M9000 Black,55114.85,0.9544102902291131
+Contoso Berthoud Store,Litware Refrigerator 24.7CuFt X980 Brown,60479.811,1.0473139992127696
+Contoso Bishkek Store,Adventure Works Laptop15.4W M1548 Red,65718.6,0.49569806443572517
+Contoso Bishkek Store,Contoso Projector 720p M621 Black,92757.15,0.6996427148109396
+Contoso Bishkek Store,Litware Refrigerator 24.7CuFt X980 Brown,116479.636,0.8785751691511657
+Contoso Boston Store,"Adventure Works 52"" LCD HDTV X590 Black",57999.8,1.0397935992118652
+Contoso Boston Store,Adventure Works Laptop15.4W M1548 Black,47754,0.8561116337774166
+Contoso Boston Store,Contoso Projector 1080p X980 Black,43260.75,0.7755587251525815
+Contoso Boulder Store,Adventure Works Laptop19W X1980 White,64495.35,1.1676367703723183
+Contoso Boulder Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,63999.8,1.1586652336404764
+Contoso Boulder Store,Litware Refrigerator 24.7CuFt X980 Brown,125279.60849999999,2.2680871948512324
+Contoso Bridgeport Store,Contoso Projector 1080p X981 Black,64724.1,1.2442412249116546
+Contoso Bridgeport Store,Fabrikam Laptop16W M6080 Black,43321.600000000006,0.8328044831698355
+Contoso Bridgeport Store,Fabrikam Laptop19W M9800 Black,55873.399999999994,1.0740974019874951
+Contoso Brooklyn Store,Adventure Works Laptop19W X1980 Blue,72224.4,1.3266500607279086
+Contoso Brooklyn Store,Litware Refrigerator 24.7CuFt X980 Grey,50879.841,0.9345836608192846
+Contoso Brooklyn Store,Proseware Projector 1080p LCD86 White,45900,0.843111715533961
+Contoso Bucharest Store,Adventure Works Laptop15 M1500 Black,58016.99999999999,1.1999929006139025
+Contoso Bucharest Store,Litware Refrigerator 24.7CuFt X980 Brown,50559.842,1.0457529940562356
+Contoso Bucharest Store,WWI Laptop15.4W M0156 White,57987,1.1993723965027212
+Contoso Buffalo Store,Adventure Works Laptop19W X1980 Red,50661,0.9579974549923306
+Contoso Buffalo Store,Litware Refrigerator 24.7CuFt X980 Silver,49279.846000000005,0.9318798888773216
+Contoso Buffalo Store,Proseware Projector 1080p DLP86 White,63974.4,1.2097533089489223
+Contoso Burlington Store,Adventure Works Laptop19W X1980 Blue,61962.299999999996,1.114545598167465
+Contoso Burlington Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,63999.8,1.1511950875548218
+Contoso Burlington Store,Proseware Laptop8.9 E089 Black,58549.59999999999,1.053159727035081
+Contoso Busan Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,78079.756,0.6122114829301548
+Contoso Busan Store,Litware Refrigerator 24.7CuFt X980 Green,78079.756,0.6122114829301548
+Contoso Busan Store,Litware Refrigerator 24.7CuFt X980 Grey,138239.568,1.08391541240093
+Contoso Busan Store,Litware Refrigerator 24.7CuFt X980 Silver,86719.729,0.679956196205213
+Contoso Calgary  Store,Adventure Works Laptop19W X1980 Red,64430.399999999994,1.1485520336520432
+Contoso Calgary  Store,Contoso Bluetooth Active Headphones L15 Black,77929.005,1.3891814605097943
+Contoso Calgary  Store,Fabrikam Laptop19 M9000 Black,86106.65,1.5349581559087746
+Contoso Cambridge Store,Adventure Works Laptop19W X1980 Blue,86643.3,1.5932267776179556
+Contoso Cambridge Store,Fabrikam Laptop16W M6080 Black,50525.75,0.9290848554848491
+Contoso Cambridge Store,Litware Refrigerator 19CuFt M760 Orange,55917.799999999996,1.0282357240027251
+Contoso Canberra Store,Litware Refrigerator 24.7CuFt X980 Blue,101759.682,0.781928352436048
+Contoso Canberra Store,WWI Projector 1080p LCD86 Silver,95357.25,0.7327316272994283
+Contoso Canberra Store,WWI Projector 1080p LCD86 White,89046,0.684235550883702
+Contoso Cape Canaveral Store,Contoso Bluetooth Active Headphones L15 White,57117.606,1.0250896959065434
+Contoso Cape Canaveral Store,Fabrikam Laptop19W M9800 Black,51077.4,0.9166861166011909
+Contoso Cape Canaveral Store,Proseware Projector 1080p LCD86 Silver,63915.75,1.147095988776887
+Contoso Cape May Store,Adventure Works Laptop19W X1980 Silver,51960,0.9119695744961581
+Contoso Cape May Store,Fabrikam Laptop19 M9000 Black,58576.7,1.028101773948982
+Contoso Cape May Store,Litware Refrigerator 24.7CuFt X980 Blue,63999.8,1.1232846492270827
+Contoso Carlisle Store,Fabrikam Laptop19 M9000 Black,44025.939999999995,0.9371585739724086
+Contoso Carlisle Store,Fabrikam Laptop19W M9800 Black,42684.399999999994,0.9086018705078842
+Contoso Carlisle Store,WWI Laptop8.9 E0089 White,43211.3,0.9198177321709418
+Contoso Castle Rock Store,Contoso Coffee Maker Super-Auto 12C X1250 White,49995,0.8637247199762
+Contoso Castle Rock Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,50559.842000000004,0.8734830557753959
+Contoso Castle Rock Store,WWI Laptop16 M0160 Black,50016.5,0.8640961587496672
+Contoso Catalog Store,Adventure Works Laptop19W X1980 Blue,1020494.3999999998,0.3409114750752852
+Contoso Catalog Store,Adventure Works Laptop19W X1980 Silver,1041992.8500000002,0.34809335505555
+Contoso Catalog Store,Proseware Projector 1080p DLP86 White,1095561.6,0.3659888002245183
+Contoso Cedar Park Store,Adventure Works Laptop15.4W M1548 White,62156,1.084481686788313
+Contoso Cedar Park Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,82559.742,1.4404808588867999
+Contoso Cedar Park Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1166518285944185
+Contoso Charleston Store,Adventure Works Laptop19W X1980 Blue,50466.15,0.9517625095760953
+Contoso Charleston Store,Contoso Bluetooth Active Headphones L15 White,51996,0.9806145990514167
+Contoso Charleston Store,Litware Refrigerator 24.7CuFt X980 Grey,46399.854999999996,0.8750745289420122
+Contoso Charlottesville Store,Adventure Works Coffee Maker Super-Auto 12C X125 Silver,45870,0.8631975496081651
+Contoso Charlottesville Store,Adventure Works Laptop8.9 E0890 Black,46503.9,0.875126499394444
+Contoso Charlottesville Store,WWI Laptop15 M0150 White,45924.3,0.8642193858179694
+Contoso Cheney Store,Adventure Works Laptop19W X1980 Blue,55207.49999999999,1.0262729218734448
+Contoso Cheney Store,Adventure Works Laptop19W X1980 White,39879.3,0.7413312635650533
+Contoso Cheney Store,Litware Refrigerator 24.7CuFt X980 Green,92159.712,1.7131914488657372
+Contoso Cheshire Store,Fabrikam Laptop16W M6080 Black,57826.600000000006,1.245978037404347
+Contoso Cheshire Store,Fabrikam Refrigerator 24.7CuFt X9800 White,63999.8,1.3789907274207842
+Contoso Cheshire Store,Litware Refrigerator 24.7CuFt X980 Blue,69727.78210000001,1.5024103975249445
+Contoso Cle Elum Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.1111552791892119
+Contoso Cle Elum Store,Proseware Projector 1080p DLP86 Silver,64974,1.128069198810619
+Contoso Cle Elum Store,SV Car Video LCD9.2W X9281 Silver,47273.6,0.8207574118400234
+Contoso Clifton Store,Adventure Works Laptop19W X1980 Blue,49297.05,0.9339992931697485
+Contoso Clifton Store,Contoso Projector 1080p X980 Silver,43490.25,0.8239816126882978
+Contoso Clifton Store,Proseware Projector 1080p DLP86 Black,88464.6,1.6760815073223354
+Contoso Copenhagen Store,Adventure Works Laptop8.9 E0890 White,66588.76000000001,1.3511917194260312
+Contoso Copenhagen Store,Fabrikam Laptop19 M9000 Black,84139.44,1.7073228966141338
+Contoso Copenhagen Store,Fabrikam Laptop19W M9800 Black,84409.59999999999,1.7128048721745759
+Contoso Dallas Store,Contoso Water Heater 7.2GPM X1800 Blue,37760,0.8625706623023491
+Contoso Dallas Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,35839.888,0.8187085786282312
+Contoso Dallas Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,63999.8,1.4619796046932703
+Contoso Damascus No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,82719.7415,0.6880840825877973
+Contoso Damascus No.1 Store,Litware Refrigerator 24.7CuFt X980 Brown,126879.6035,1.0554171711646485
+Contoso Damascus No.1 Store,Proseware Projector 1080p LCD86 Black,91226.25,0.7588434078843808
+Contoso Damascus No.2 Store,Litware Refrigerator 24.7CuFt X980 Brown,141759.557,1.0720736378494875
+Contoso Damascus No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,83199.74,0.6292080041554554
+Contoso Damascus No.2 Store,Litware Refrigerator 24.7CuFt X980 White,117439.633,0.8881512981732774
+Contoso Darien Store,Adventure Works Laptop19W X1980 Blue,74432.7,1.34091244030491
+Contoso Darien Store,Contoso Bluetooth Active Headphones L15 White,90960.5025,1.6386624343687097
+Contoso Darien Store,Fabrikam Laptop16W M6080 Black,47914.85,0.8631907540683559
+Contoso Denton Store,Adventure Works Coffee Maker Super-Auto 12C X125 Silver,62535,1.0794755198976393
+Contoso Denton Store,Adventure Works Laptop19W X1980 Red,64105.65,1.1065879885204464
+Contoso Denton Store,Contoso Bluetooth Active Headphones L15 Black,77890.008,1.3445327717379274
+Contoso Denver No.1 Store,Adventure Works Laptop19W X1980 Red,43841.25,0.838195920173538
+Contoso Denver No.1 Store,Fabrikam Laptop19W M9800 Black,45262.25,0.865363859102437
+Contoso Denver No.1 Store,Proseware Projector 1080p DLP86 Silver,49980,0.9555619899130026
+Contoso Denver No.2 Store,Fabrikam Coffee Maker Super-Auto 12C X125 Silver,66000,1.1523425900273006
+Contoso Denver No.2 Store,Fabrikam Laptop19W M9800 Black,83390.45,1.4559752596445774
+Contoso Denver No.2 Store,Litware Refrigerator L1200 Orange,92479.71100000001,1.6146713590714585
+Contoso Denver No.3 Store,Contoso Projector 1080p X981 Black,54478.2,0.9799374918340003
+Contoso Denver No.3 Store,Fabrikam Laptop16W M6080 Black,62081.399999999994,1.1167015688026274
+Contoso Denver No.3 Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,60479.811,1.08789266712069
+Contoso Desoto Store,Adventure Works Laptop19W X1980 Blue,62936.55,1.1281222032630231
+Contoso Desoto Store,Fabrikam Laptop16W M6080 Black,60969.35,1.092860626353278
+Contoso Desoto Store,Litware Refrigerator 24.7CuFt X980 Silver,63999.8,1.1471806984080448
+Contoso Dublin Store,Adventure Works Coffee Maker Super-Auto 12C X125 White,41745,0.8763176984742085
+Contoso Dublin Store,Fabrikam Laptop17 M7000 Black,53063.009999999995,1.1139071696565792
+Contoso Dublin Store,Litware Refrigerator 24.7CuFt X980 Brown,74239.768,1.558453051359904
+Contoso Dusseldorf Store,Adventure Works Coffee Maker Super-Auto 12C X125 Black,45870,1.1638178501387764
+Contoso Dusseldorf Store,Contoso Projector 1080p X981 Black,65973.6,1.673888234530534
+Contoso Dusseldorf Store,WWI Projector 1080p DLP86 White,41983.2,1.065201603792158
+Contoso East Orange Store,"Fabrikam Independent Filmmaker 2/3"" 17mm X100 Blue",45676,0.8488736221828742
+Contoso East Orange Store,Fabrikam Laptop17 M7000 Black,46437.3,0.8630221353750938
+Contoso East Orange Store,WWI Laptop15 M0150 White,44526.3,0.8275068211621269
+Contoso East Troy Store,Cigarette Lighter Adapter for Contoso Phones E110 Red,46964.9565,0.8614772370467904
+Contoso East Troy Store,WWI Laptop15.4W M0156 Black,51316.6,0.9412993448133039
+Contoso East Troy Store,WWI Laptop19W X0196 White,54168.299999999996,0.9936080196203663
+Contoso Edgerton Store,Adventure Works Laptop15 M1500 Black,48650.4,0.8766729218330077
+Contoso Edgerton Store,Adventure Works Laptop15.4W M1548 Silver,47602.4,0.8577881187875859
+Contoso Edgerton Store,Contoso Bluetooth Active Headphones L15 Red,41583.801,0.7493338661879934
+Contoso Edinburgh Store,Adventure Works Laptop19W X1980 Red,67418.1,1.4535018434083844
+Contoso Edinburgh Store,Adventure Works Laptop19W X1980 White,54168.3,1.1678425215824588
+Contoso Edinburgh Store,Fabrikam Laptop17 M7000 Black,53480.700000000004,1.1530181959558452
+Contoso Elmira Store,Adventure Works Laptop19W X1980 Silver,61897.35,1.1236820288201637
+Contoso Elmira Store,Litware Refrigerator 24.7CuFt X980 Blue,79359.752,1.4406937798471993
+Contoso Elmira Store,Litware Refrigerator 24.7CuFt X980 Grey,50559.842000000004,0.9178613597413608
+Contoso Englewood Store,Adventure Works Laptop19W X1980 Blue,69301.65000000001,1.2924005713575841
+Contoso Englewood Store,Fabrikam Laptop19 M9000 Black,54785.15,1.0216835986143322
+Contoso Englewood Store,WWI Laptop15 M0150 White,54661.8,1.0193832549648383
+Contoso Europe Online Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,907677.1635000001,0.3597115179000897
+Contoso Europe Online Store,Litware Refrigerator 24.7CuFt X980 Grey,947165.0401,0.3753605224158207
+Contoso Europe Online Store,Litware Refrigerator 24.7CuFt X980 Silver,925821.1068000001,0.3669019437999434
+Contoso Europe Reseller,Adventure Works Laptop19W X1980 Blue,618531.84,0.4141609464311817
+Contoso Europe Reseller,Fabrikam Laptop19W M9800 Black,613084.67,0.41051359161987316
+Contoso Europe Reseller,Fabrikam Refrigerator 24.7CuFt X9800 Orange,667517.914,0.4469613900911037
+Contoso Everett Store,Adventure Works Laptop19W X1980 Silver,67548,1.2557621149287055
+Contoso Everett Store,Litware Refrigerator 24.7CuFt X980 Green,50879.841,0.945889985512469
+Contoso Everett Store,Proseware Projector 1080p DLP86 Black,47231.1,0.8780574706343516
+Contoso Fall City Store,Adventure Works Laptop19W X1980 Blue,64430.399999999994,1.1376263660212305
+Contoso Fall City Store,Adventure Works Laptop8.9 E0890 Black,56039.399999999994,0.9894692408554058
+Contoso Fall City Store,Fabrikam Laptop15 M5000 White,56898.600000000006,1.0046398524562257
+Contoso Falmouth Store,Litware Refrigerator 24.7CuFt X980 Green,60799.81,1.1059052640829445
+Contoso Falmouth Store,Litware Refrigerator 24.7CuFt X980 Grey,63999.8,1.1641108042978363
+Contoso Falmouth Store,Proseware Projector 1080p DLP86 White,72471,1.3181959021476395
+Contoso Firenze Store,Adventure Works Laptop19W X1980 White,60858.15,1.2448482423402027
+Contoso Firenze Store,Fabrikam Laptop16W M6080 Black,55815.24,1.141695950497946
+Contoso Firenze Store,WWI Projector 1080p DLP86 White,90463.79999999999,1.850429275707783
+Contoso Fond du Lac Store,Litware Refrigerator 24.7CuFt X980 Green,74879.766,1.6117496104458116
+Contoso Fond du Lac Store,Litware Refrigerator 24.7CuFt X980 Silver,60799.81,1.3086855811312144
+Contoso Fond du Lac Store,Proseware Projector 1080p LCD86 Black,39703.5,0.8545980319748231
+Contoso Fort Atkinson Store,Adventure Works Laptop19W X1980 Silver,49362,0.9000203627282354
+Contoso Fort Atkinson Store,Fabrikam Laptop19 M9000 Black,46817.4,0.8536245154165732
+Contoso Fort Atkinson Store,WWI Laptop8.9 E0089 Black,54605,0.995616302150952
+Contoso Fort Collins Store,Fabrikam Independent Filmmaker 1'' 25mm X400 Grey,48000,0.8496299842832791
+Contoso Fort Collins Store,Litware Refrigerator 24.7CuFt X980 Blue,51199.84,0.9062691511355501
+Contoso Fort Collins Store,Litware Refrigerator L1200 Orange,51199.84,0.9062691511355501
+Contoso Fort Lauderdale Store,"Adventure Works 52"" LCD HDTV X590 White",75399.73999999999,1.3067633462235861
+Contoso Fort Lauderdale Store,Contoso Projector 1080p X981 Silver,64224.3,1.1130802463890124
+Contoso Fort Lauderdale Store,Proseware Projector 1080p DLP86 Black,89464.2,1.5505164521683519
+Contoso Fort Worth Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1342593913191694
+Contoso Fort Worth Store,WWI Laptop15.4W M0156 Black,58896.59999999999,1.043816100468573
+Contoso Fort Worth Store,WWI Projector 1080p DLP86 Black,72471,1.2843932691710211
+Contoso Framingham Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,49279.846000000005,0.8744751504699901
+Contoso Framingham Store,Litware Refrigerator 24.7CuFt X980 Blue,95999.70000000001,1.7035230203960847
+Contoso Framingham Store,WWI Projector 1080p DLP86 White,49980,0.8868994440544742
+Contoso Fredericksburg Store,"Adventure Works 52"" LCD HDTV X590 Black",45239.844,0.8470835252786234
+Contoso Fredericksburg Store,Contoso Projector 1080p X980 White,59899.5,1.121575035104606
+Contoso Fredericksburg Store,Litware Refrigerator 24.7CuFt X980 Grey,60479.811,1.132440941000258
+Contoso Georgetown Store,Adventure Works Laptop15.4W M1548 Silver,51430.3,0.9163538724050049
+Contoso Georgetown Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,49279.846000000005,0.8780383881412765
+Contoso Georgetown Store,Proseware Laptop15 M510 Black,63469.2,1.1308556862092527
+Contoso Germantown Store,Adventure Works Coffee Maker Super-Auto 12C X125 Silver,50160,0.9244269936676577
+Contoso Germantown Store,Adventure Works Laptop19W X1980 Red,39294.75,0.7241851596774759
+Contoso Germantown Store,Litware Refrigerator 24.7CuFt X980 Blue,49919.844,0.9200010229919946
+Contoso Giebelstadt Store,Adventure Works Laptop19W X1980 Red,67418.09999999999,1.4069370190731583
+Contoso Giebelstadt Store,Fabrikam Laptop16W M6080 Black,64556.920000000006,1.347227533634801
+Contoso Giebelstadt Store,WWI Laptop19W X0196 Black,57026.1,1.1900681143990686
+Contoso Glasgow Store,Fabrikam Coffee Maker Super-Auto 12C X125 White,33000,0.8135685914708936
+Contoso Glasgow Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,31999.9,0.7889125324305893
+Contoso Glasgow Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,31999.9,0.7889125324305893
+Contoso Glasgow Store,WWI Projector 1080p DLP86 White,37485,0.9241399591298923
+Contoso Grand Junction Store,"Adventure Works 37"" 1080p LCD HDTV M150W Brown",54889.501000000004,1.0000146379862522
+Contoso Grand Junction Store,Litware Refrigerator 24.7CuFt X980 Brown,60159.812000000005,1.0960327844572861
+Contoso Grand Junction Store,Litware Refrigerator 24.7CuFt X980 Grey,92479.71100000001,1.684858908022105
+Contoso Grand Prairie Store,Contoso Projector 1080p X980 Black,47277,0.9422828996522777
+Contoso Grand Prairie Store,Litware Refrigerator 24.7CuFt X980 Blue,60639.81050000001,1.208618492550387
+Contoso Grand Prairie Store,WWI Laptop19W X0196 White,48712.49999999999,0.970894002354455
+Contoso Granger Store,Contoso Bluetooth Active Headphones L15 Black,72755.403,1.3820829830265253
+Contoso Granger Store,Litware Refrigerator 24.7CuFt X980 Grey,63999.8,1.215758979399798
+Contoso Granger Store,Proseware Projector 1080p LCD86 Black,63686.25,1.2098026915990423
+Contoso Greeley  No.1 Store,Adventure Works Laptop15.4W M1548 Red,47109.700000000004,0.8354858762289958
+Contoso Greeley  No.1 Store,Litware Refrigerator 24.7CuFt X980 Silver,47679.850999999995,0.845597447897205
+Contoso Greeley  No.1 Store,WWI Laptop15.4W M0156 Black,50331.2,0.892618860524623
+Contoso Greeley No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1494577933935028
+Contoso Greeley No.2 Store,Litware Refrigerator 24.7CuFt X980 Brown,63999.8,1.1494577933935028
+Contoso Greeley No.2 Store,Litware Refrigerator 24.7CuFt X980 White,81279.746,1.4598113976097487
+Contoso Green Bay Store,Fabrikam Laptop19 M9000 Black,48905.5,0.9156127617046497
+Contoso Green Bay Store,Litware Refrigerator 24.7CuFt X980 White,50559.842000000004,0.946585487623493
+Contoso Green Bay Store,Proseware Projector 1080p DLP86 Silver,49980,0.9357296383841979
+Contoso Greenville Store,Contoso Projector 1080p X980 Silver,59211,1.0446287619883279
+Contoso Greenville Store,Fabrikam Laptop17 M7000 Black,52620.75,0.9283604216682255
+Contoso Greenville Store,Fabrikam Laptop19W M9800 Black,62467.9,1.1020885484286815
+Contoso Guangzhou Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,51199.84,0.8719722926538824
+Contoso Guangzhou Store,Fabrikam Trendsetter 1'' 25mm X400 White,56000,0.9537226754735447
+Contoso Guangzhou Store,Litware Refrigerator 24.7CuFt X980 Silver,63999.8,1.0899653658173531
+Contoso Hackensack Store,Fabrikam Independent filmmaker 1/3'' 8.5mm X200 White,46176,0.8473873059074088
+Contoso Hackensack Store,Fabrikam Laptop19 M9000 Black,55444.55,1.0174767812662124
+Contoso Hackensack Store,Litware Refrigerator 24.7CuFt X980 Silver,47199.85249999999,0.8661762787855611
+Contoso Hartford Store,"Adventure Works 52"" LCD HDTV X590 Black",57999.8,1.039736360699724
+Contoso Hartford Store,Contoso Bluetooth Active Headphones L15 Black,75374.7015,1.3512084149676038
+Contoso Hartford Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,65919.794,1.181714535423148
+Contoso Haverhill Store,Adventure Works Laptop15.4W M1548 White,54121.200000000004,1.0033061825287526
+Contoso Haverhill Store,Proseware Projector 1080p DLP86 Silver,54228.3,1.0052916169268966
+Contoso Haverhill Store,WWI Laptop15.4W M0156 Black,49194.2,0.9119687849596084
+Contoso Hillsboro Store,"Adventure Works 52"" LCD HDTV X590 White",46399.84,0.8527855727247772
+Contoso Hillsboro Store,Adventure Works Laptop19W X1980 Blue,44425.8,0.8165045676182592
+Contoso Hillsboro Store,WWI Projector 1080p DLP86 Black,47481,0.8726562802489222
+Contoso Hingham Store,Adventure Works Laptop19W X1980 White,57935.4,1.0619401435594296
+Contoso Hingham Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1730989481349015
+Contoso Hingham Store,Litware Refrigerator 24.7CuFt X980 Grey,60799.81,1.1144440007281564
+Contoso Hoboken Store,Litware Refrigerator 24.7CuFt X980 Green,78879.75349999999,1.412187445940817
+Contoso Hoboken Store,Litware Refrigerator 24.7CuFt X980 Grey,60159.812000000005,1.0770435693179456
+Contoso Hoboken Store,WWI Laptop19W X0196 Black,77940,1.3953630006796014
+Contoso Hofheim Store,Adventure Works Laptop15 M1501 Red,50740.409999999996,1.0610445730522882
+Contoso Hofheim Store,Litware Refrigerator 24.7CuFt X980 Green,57279.820999999996,1.19779172492805
+Contoso Hofheim Store,Litware Refrigerator 24.7CuFt X980 Grey,89599.72,1.873640687038291
+Contoso Holyoke Store,"Adventure Works 52"" LCD HDTV X790W Brown",48402.880000000005,0.8738820562601959
+Contoso Holyoke Store,Adventure Works Laptop19W X1980 Silver,50401.2,0.9099604051242691
+Contoso Holyoke Store,WWI Laptop19W X0196 Blue,53518.8,0.9662466157505125
+Contoso Hong Kong No.1 Store,Contoso Water Heater 4.0GPM M1250 Green,65850.75,0.5019057431168279
+Contoso Hong Kong No.1 Store,Litware Refrigerator 24.7CuFt X980 White,69759.782,0.5316998701514852
+Contoso Hong Kong No.1 Store,WWI Projector 1080p DLP86 Black,74970,0.5714114654953601
+Contoso Hong Kong No.2 Store,Contoso Projector 1080p X981 Black,68097.75,0.5176291654254132
+Contoso Hong Kong No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,63999.8,0.4864795541907531
+Contoso Hong Kong No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,88959.72200000001,0.6762065803251469
+Contoso Hong Kong No.2 Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,0.4864795541907531
+Contoso Houston No.1 Store,Contoso Projector 1080p X980 Black,56342.25,0.9778874509910213
+Contoso Houston No.1 Store,Fabrikam Laptop19 M9000 Black,71929.55,1.2484237725761966
+Contoso Houston No.1 Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.1107934327424829
+Contoso Houston No.2 Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.149997528059112
+Contoso Houston No.2 Store,Proseware Projector 1080p LCD86 Silver,56571.75,1.0165246244203587
+Contoso Houston No.2 Store,WWI Projector 1080p LCD86 White,73899,1.3278739515754787
+Contoso Houston No.3 Store,Adventure Works Laptop19W X1980 Red,56831.25,0.9860461905369561
+Contoso Houston No.3 Store,Fabrikam Laptop19 M9000 Black,56158.9,0.9743806340656921
+Contoso Houston No.3 Store,Fabrikam Laptop19W M9800 Black,62348,1.081764133071121
+Contoso Houston No.4 Store,Litware Refrigerator 24.7CuFt X980 Blue,49919.844,0.9206801390121432
+Contoso Houston No.4 Store,WWI Laptop15 M0150 Black,51726,0.9539913800720635
+Contoso Houston No.4 Store,WWI Laptop8.9 E0089 Black,49910.6,0.9205096503542655
+Contoso Howard Store,Fabrikam Laptop17 M7000 Black,52497.90000000001,0.9540107957088929
+Contoso Howard Store,Fabrikam Laptop19W M9800 Black,52396.3,0.952164483821293
+Contoso Howard Store,Litware Refrigerator 24.7CuFt X980 Brown,60319.811499999996,1.0961533959667988
+Contoso Humble Store,Adventure Works Laptop15.4W M1548 Red,46162.2,0.8586620768127914
+Contoso Humble Store,Proseware Projector 1080p LCD86 White,66440.25,1.2358536432180671
+Contoso Humble Store,WWI Projector 1080p DLP86 White,44357.25,0.825088241173605
+Contoso Islamabad  No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,81279.746,0.6690640657316567
+Contoso Islamabad  No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,83199.73999999999,0.6848687287016958
+Contoso Islamabad  No.2 Store,Proseware Projector 1080p DLP86 White,103208.7,0.8495749044402628
+Contoso Islamabad No.1 Store,Contoso Bluetooth Active Headphones L15 Red,98792.40000000001,0.7644926180011605
+Contoso Islamabad No.1 Store,Contoso Bluetooth Active Headphones L15 White,106435.812,0.823640204762303
+Contoso Islamabad No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,75519.764,0.5844002381882594
+Contoso Ithaca Store,Adventure Works Laptop15 M1500 Black,47112.6,0.8701062321520568
+Contoso Ithaca Store,Litware Refrigerator 24.7CuFt X980 White,47359.852,0.8746726433904954
+Contoso Ithaca Store,WWI Projector 1080p LCD86 Silver,56227.5,1.0384461517371102
+Contoso Jacksonville Store,Adventure Works Laptop19W X1980 Silver,53194.05,0.9287659022216511
+Contoso Jacksonville Store,Fabrikam Independent Filmmaker 1/2'' 3mm X300 Black,62244,1.0867776531000075
+Contoso Jacksonville Store,Litware Refrigerator 24.7CuFt X980 Green,47999.85,0.838075386095887
+Contoso Jersey City Store,Adventure Works Laptop15.4W M1548 Black,50861.799999999996,0.9346694699788468
+Contoso Jersey City Store,Fabrikam Laptop16W M6080 Black,49268.65,0.9053927108767937
+Contoso Jersey City Store,Litware Refrigerator L1200 Orange,65919.794,1.2113849474280256
+Contoso Kennebunkport Store,Adventure Works Laptop19W X1980 Silver,56311.65,1.0294746737294576
+Contoso Kennebunkport Store,Fabrikam Laptop16W M6080 Black,53861.9,0.984688992933943
+Contoso Kennebunkport Store,Fabrikam Laptop19W M9800 Black,63966.65,1.1694213566520677
+Contoso Kennewick Store,Adventure Works Laptop19W X1980 Red,56636.4,1.0755426390575173
+Contoso Kennewick Store,Fabrikam Laptop16W M6080 Black,48640.1,0.923690444979228
+Contoso Kennewick Store,Litware Refrigerator L1200 Orange,50559.842000000004,0.960146935451602
+Contoso Key West Store,Litware Refrigerator 24.7CuFt X980 Blue,60159.812000000005,1.091942320699058
+Contoso Key West Store,Litware Refrigerator 24.7CuFt X980 Brown,47039.853,0.8538059635253273
+Contoso Key West Store,Litware Refrigerator 24.7CuFt X980 Grey,63999.8,1.1616407667011255
+Contoso Knotty Ash Store,Adventure Works Laptop19W X1980 Red,47413.5,1.0070888437083059
+Contoso Knotty Ash Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,44799.86,0.9515736911574548
+Contoso Knotty Ash Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,85439.73300000001,1.8147869681360034
+Contoso Kolkata Store,Fabrikam Independent Filmmaker 2/3'' 17mm X100 Black,105150,0.8261146921837587
+Contoso Kolkata Store,Fabrikam Laptop19 M9000 Black,97261.5,0.7641384130654364
+Contoso Kolkata Store,Litware Refrigerator 24.7CuFt X980 Grey,84159.737,0.6612039488922594
+Contoso Kyoto Store,"Adventure Works 52"" LCD HDTV X590 Brown",57999.8,1.3638468903762995
+Contoso Kyoto Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.504934986236247
+Contoso Kyoto Store,Proseware Projector 1080p DLP86 Silver,49980,1.1752638385133647
+Contoso La Porte Store,Adventure Works Laptop19W X1980 Silver,52349.7,0.9358614160128408
+Contoso La Porte Store,Adventure Works Laptop19W X1980 White,62676.75,1.1204792387746791
+Contoso La Porte Store,Litware Refrigerator 24.7CuFt X980 White,46079.856,0.8237747166808558
+Contoso Lafayette Store,Adventure Works Laptop19W X1980 Blue,55077.6,1.0143143070685763
+Contoso Lafayette Store,Adventure Works Laptop8.9 E0890 Black,70090,1.2907840897649228
+Contoso Lafayette Store,Fabrikam Laptop19W M9800 Black,50358,0.9273977056981306
+Contoso Lakeland Store,"Adventure Works 52"" LCD HDTV X590 White",57999.8,1.071572943715221
+Contoso Lakeland Store,Fabrikam Laptop19W M9800 Black,50837.6,0.9392480091899785
+Contoso Lakeland Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,51199.84,0.9459405595631075
+Contoso Lancashire Store,Litware Refrigerator 24.7CuFt X980 Brown,56959.822,1.181017640178559
+Contoso Lancashire Store,Litware Refrigerator L1200 Orange,51199.84,1.061588890048143
+Contoso Lancashire Store,WWI Laptop19W X0196 White,63650.99999999999,1.3197540156464227
+Contoso Landstuhl Store,Adventure Works Laptop15 M1500 Black,49419.299999999996,1.0558004212780903
+Contoso Landstuhl Store,Adventure Works Laptop15.4W M1548 Red,56395.200000000004,1.2048344658475971
+Contoso Landstuhl Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,44799.86,0.9571100979010116
+Contoso Leeds Store,Adventure Works Laptop15.4W M1548 Black,53302.56,1.1028736033680562
+Contoso Leeds Store,Adventure Works Laptop19W X1980 Blue,51960.00000000001,1.0750949378604744
+Contoso Leeds Store,Litware Refrigerator 24.7CuFt X980 Green,52479.835999999996,1.085850770272284
+Contoso Leominster Store,Adventure Works Laptop15.4W M1548 Silver,50331.2,0.9321321453472685
+Contoso Leominster Store,Contoso Bluetooth Active Headphones L15 Red,64917.005999999994,1.2022607859995689
+Contoso Leominster Store,Litware Refrigerator 24.7CuFt X980 White,47679.850999999995,0.8830292502954054
+Contoso Lewiston Store,"Fabrikam Business Videographer 1/2"" 3mm M500 Blue",39158.8,0.7393675382788523
+Contoso Lewiston Store,Fabrikam Laptop19W M9800 Black,48919.2,0.9236562018900177
+Contoso Lewiston Store,WWI Laptop19W X0196 Black,40918.5,0.7725928939360556
+Contoso Lewisville Store,Adventure Works Laptop19W X1980 White,76511.1,1.3862414223004298
+Contoso Lewisville Store,Litware Refrigerator 24.7CuFt X980 Green,76959.7595,1.3943703131856553
+Contoso Lewisville Store,WWI Projector 1080p LCD86 White,63342,1.1476413771512082
+Contoso Lisbon Store,Fabrikam Laptop14.1 M4100 White,50513.2,1.07164476095638
+Contoso Lisbon Store,Litware Refrigerator 24.7CuFt X980 Brown,60159.812000000005,1.2762990139195451
+Contoso Lisbon Store,Litware Refrigerator 24.7CuFt X980 White,60799.81,1.2898766630037954
+Contoso Litchfield County Store,Contoso Projector 1080p X981 Black,49980,0.8845165258446012
+Contoso Litchfield County Store,Litware Refrigerator 24.7CuFt X980 Brown,63999.8,1.1326306672818989
+Contoso Litchfield County Store,Litware Refrigerator 24.7CuFt X980 Silver,63999.8,1.1326306672818989
+Contoso Littleton Store,Adventure Works Laptop19W X1980 Silver,50596.05,0.998764140746229
+Contoso Littleton Store,Adventure Works Laptop19W X1980 White,50531.1,0.9974820301676074
+Contoso Littleton Store,Fabrikam Laptop19 M9000 Black,66544.45000000001,1.3135849621794666
+Contoso Liverpool Store,Adventure Works Laptop19W X1980 Blue,63131.4,1.4148265614012934
+Contoso Liverpool Store,Fabrikam Laptop19W M9800 Black,53475.4,1.198427665180223
+Contoso Liverpool Store,Litware Refrigerator 24.7CuFt X980 White,53439.833,1.1976305794778725
+Contoso Ljubljana Store,Adventure Works Laptop19W X1980 Silver,77758.14,1.6623425547845319
+Contoso Ljubljana Store,Litware Refrigerator 24.7CuFt X980 Green,74847.76610000001,1.6001234947053657
+Contoso Ljubljana Store,WWI Laptop15.4W M0156 Black,54212.16,1.1589678013747218
+Contoso London Store,Fabrikam Laptop19W M9800 Black,69697.87,1.4980771904170584
+Contoso London Store,Litware Refrigerator 24.7CuFt X980 Silver,59839.813,1.2861893618000402
+Contoso London Store,WWI Laptop8.9 E0089 White,44701.12,0.960800211801247
+Contoso Longview Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,60319.811499999996,1.0834612854906518
+Contoso Longview Store,Litware Refrigerator 24.7CuFt X980 Blue,60639.81050000001,1.089209090718719
+Contoso Longview Store,Proseware Projector 1080p DLP86 White,47106.15,0.8461181917572052
+Contoso Loveland Store,Contoso Projector 1080p X981 White,43232.7,0.7974648968939021
+Contoso Loveland Store,Fabrikam Laptop8.9 E8002 Red,37750.8,0.6963464652835081
+Contoso Loveland Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,45919.8565,0.8470318446258337
+Contoso Lowell Store,Fabrikam Coffee Maker Super-Auto 12C X125 Black,64927.5,1.1573731986114855
+Contoso Lowell Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,63999.8,1.1408363672788162
+Contoso Lowell Store,Litware Refrigerator 24.7CuFt X980 Brown,78079.756,1.3918203680801557
+Contoso Lynn Store,Adventure Works Laptop8.9 E0890 Black,49405.3,0.9052046028630497
+Contoso Lynn Store,Fabrikam Laptop19 M9000 Black,73742.9,1.3511184530499678
+Contoso Lynn Store,WWI Laptop19W X0196 White,53778.6,0.9853322670954493
+Contoso Lyon Store,Adventure Works Laptop19W X1980 Red,60013.8,1.2941100064342994
+Contoso Lyon Store,Fabrikam Laptop19W M9800 Black,64374.31,1.3881380403891037
+Contoso Lyon Store,Litware Refrigerator 24.7CuFt X980 Green,56319.824,1.2144548053784066
+Contoso Madison Store,Adventure Works Laptop19W X1980 Red,60728.25,1.1438091389238285
+Contoso Madison Store,Fabrikam Laptop8.9 E8002 Red,54507.2,1.0266364253399185
+Contoso Madison Store,Litware Refrigerator 24.7CuFt X980 Silver,60639.81050000001,1.142143391790627
+Contoso Madrid Store,"Adventure Works 52"" LCD HDTV X590 Brown",46979.838,0.9889348470524866
+Contoso Madrid Store,Fabrikam Laptop16W M6080 Black,43505.33,0.9157957690172952
+Contoso Madrid Store,Fabrikam Laptop19 M9000 Black,76699.20999999999,1.6145334837126626
+Contoso Manchester Store,"Adventure Works 52"" LCD HDTV X590 Black",57999.8,1.2178724058315815
+Contoso Manchester Store,Adventure Works Laptop15 M1500 Black,56150.67,1.1790446098427099
+Contoso Manchester Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,55679.826,1.1691578875600233
+Contoso Manitowoc Store,Adventure Works Laptop19W X1980 Red,56441.55,1.0189718964469936
+Contoso Manitowoc Store,Contoso Projector 1080p X980 Silver,49342.5,0.8908086471834276
+Contoso Manitowoc Store,Litware Refrigerator L1200 Orange,55999.825,1.0109971799312698
+Contoso Marseille Store,"Adventure Works 52"" LCD HDTV X590 Brown",57999.8,1.6530038388264314
+Contoso Marseille Store,Litware Refrigerator 24.7CuFt X980 Green,49279.846,1.4044837157158363
+Contoso Marseille Store,Proseware Projector 1080p DLP86 Silver,41483.4,1.182283722488222
+Contoso Marshall Store,Fabrikam Laptop19 M9000 Black,56708.4,0.9927747044869368
+Contoso Marshall Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,79039.753,1.383722119250331
+Contoso Marshall Store,Litware Refrigerator L1200 Orange,50239.843,0.8795318733696437
+Contoso Martinsville Store,"Adventure Works 37"" 1080p LCD HDTV M150W Brown",37564.658500000005,0.7113094710738689
+Contoso Martinsville Store,Contoso Bluetooth Active Headphones L15 White,41544.804000000004,0.7866759272976633
+Contoso Martinsville Store,Proseware Projector 1080p LCD86 White,52785,0.9995158196535757
+Contoso Menasha Store,Adventure Works Laptop19W X1980 Silver,57675.6,1.024995031011738
+Contoso Menasha Store,Litware Refrigerator 24.7CuFt X980 Brown,92799.70999999999,1.6492111331192094
+Contoso Menasha Store,WWI Projector 1080p LCD86 Silver,59211,1.0522817410002845
+Contoso Miami No.1 Store,Contoso Projector 1080p X980 Black,58752,1.1088177485087067
+Contoso Miami No.1 Store,Fabrikam Laptop19 M9000 Black,91986.3,1.7360437442069452
+Contoso Miami No.1 Store,Litware Refrigerator 24.7CuFt X980 Brown,60159.812000000005,1.1353871747778301
+Contoso Miami No.2 Store,"Adventure Works 40"" LCD HDTV M690 White",42303.429000000004,0.768561391496485
+Contoso Miami No.2 Store,Fabrikam Laptop19W M9800 Black,52276.4,0.9497486061100825
+Contoso Miami No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,48639.848,0.8836803574730908
+Contoso Midland Store,Adventure Works Laptop19W X1980 Red,65079.9,1.2040573724598929
+Contoso Midland Store,Adventure Works Laptop19W X1980 White,59429.25,1.0995134688630759
+Contoso Midland Store,Contoso Bluetooth Active Headphones L15 Black,77994,1.4429839429322555
+Contoso Milan Store,Adventure Works Laptop15.4W M1548 Red,44335.42,0.9144379452232785
+Contoso Milan Store,Adventure Works Laptop19W X1980 Blue,73913.09999999999,1.5244908763485876
+Contoso Milan Store,Contoso Bluetooth Active Headphones L15 Red,46770.402,0.9646605423416924
+Contoso Milliken Store,Contoso Bluetooth Active Headphones L15 Black,77994,1.4623460815149505
+Contoso Milliken Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,63999.8,1.1999622630938345
+Contoso Milliken Store,WWI Projector 1080p LCD86 White,58752,1.1015687999226398
+Contoso Milwaukee No.1 Store,"Adventure Works 52"" LCD HDTV X590 White",63799.78,1.1448124869691279
+Contoso Milwaukee No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,76799.76,1.3780819345181463
+Contoso Milwaukee No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,60319.811499999996,1.082368519402794
+Contoso Milwaukee No.2 Store,Contoso Bluetooth Active Headphones L15 White,54472.3095,1.0013534211308588
+Contoso Milwaukee No.2 Store,Contoso Projector 1080p X980 White,43490.25,0.7994724479845366
+Contoso Milwaukee No.2 Store,"Fabrikam Business Videographer 2/3"" 17mm M280 Blue",45335.799999999996,0.8333988194442974
+Contoso Milwaukee No.3 Store,Adventure Works Laptop19W X1980 Silver,41048.4,0.7668871065953521
+Contoso Milwaukee No.3 Store,Fabrikam Laptop19W M9800 Black,45322.2,0.8467324139926493
+Contoso Milwaukee No.3 Store,WWI Laptop19W X0196 Black,47413.5,0.8858031452762769
+Contoso Minden Store,Contoso Bluetooth Active Headphones L15 Black,49376.701499999996,0.8938053373541186
+Contoso Minden Store,Fabrikam Refrigerator 24.7CuFt X9800 White,51199.84,0.9268073579940713
+Contoso Minden Store,Litware Refrigerator L1200 Orange,49919.844,0.9036371740442195
+Contoso Montclair Store,Adventure Works Laptop15.4W M1548 Silver,64278.4,1.1606610934395791
+Contoso Montclair Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,63999.8,1.1556304738125776
+Contoso Montclair Store,Proseware Projector 1080p DLP86 White,69847.05,1.2612129957579679
+Contoso Montreal No.1 Store,Adventure Works Laptop8.9 E0890 Red,40978.2,0.769245715337788
+Contoso Montreal No.1 Store,Contoso Projector 1080p X980 Silver,36490.5,0.6850022884249077
+Contoso Montreal No.1 Store,Fabrikam Laptop19 M9000 Black,46377.8,0.8706073945852396
+Contoso Montreal No.2 Store,Adventure Works Laptop19W X1980 Blue,46764,0.8566237713680901
+Contoso Montreal No.2 Store,Contoso Bluetooth Active Headphones L15 White,77994,1.4286954585596359
+Contoso Montreal No.2 Store,Litware Refrigerator 24.7CuFt X980 Green,110079.65599999999,2.0164410673514244
+Contoso Morristown Store,Adventure Works Laptop19W X1980 Silver,47673.3,0.8366343490906661
+Contoso Morristown Store,Contoso Projector 720p M621 White,58641.3,1.0291153718188268
+Contoso Morristown Store,WWI Laptop15 M0150 Blue,57807.3,1.0144792327820575
+Contoso Moscow  No.1 Store,Adventure Works Laptop19W X1980 White,64040.7,1.3540813313558897
+Contoso Moscow  No.1 Store,Fabrikam Laptop15.4W M5480 White,52400.54000000001,1.107960921210536
+Contoso Moscow  No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,78047.7561,1.6502475689558007
+Contoso Moscow  No.2 Store,Adventure Works Coffee Maker Super-Auto 12C X125 Black,68310,0.5350558099571414
+Contoso Moscow  No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,75487.7641,0.5912775107946
+Contoso Moscow  No.2 Store,WWI Projector 1080p LCD86 Silver,73440,0.5752378668313931
+Contoso Mumbai Store,Litware Refrigerator 24.7CuFt X980 Blue,81599.745,0.6315596024467042
+Contoso Mumbai Store,Litware Refrigerator 24.7CuFt X980 White,81279.746,0.6290828981233837
+Contoso Mumbai Store,WWI Projector 1080p DLP86 Silver,85465.8,0.6614818057432598
+Contoso Munich Store,Adventure Works Laptop19W X1980 White,61312.799999999996,1.2580952849982956
+Contoso Munich Store,Litware Refrigerator 24.7CuFt X980 Silver,56959.822,1.168775255616155
+Contoso Munich Store,Litware Refrigerator 24.7CuFt X980 White,55679.826,1.1425106431303986
+Contoso Nagoya Store,"Adventure Works 52"" LCD HDTV X590 Black",104689.639,0.8816573179258834
+Contoso Nagoya Store,"Adventure Works 52"" LCD HDTV X590 White",75109.74100000001,0.6325463859911463
+Contoso Nagoya Store,Fabrikam Refrigerator 24.7CuFt X9800 White,88319.724,0.7437959642003759
+Contoso Nantes Store,Fabrikam Laptop15.4W M5480 White,70494,1.5108893492248712
+Contoso Nantes Store,Fabrikam Laptop17 M7000 Black,49631.4,1.063743774606623
+Contoso Nantes Store,Fabrikam Laptop19 M9000 Black,62379.24,1.336966682678555
+Contoso Nantucket Store,Fabrikam Laptop16W M6080 Black,52314.7,0.9655430029260085
+Contoso Nantucket Store,Fabrikam Laptop19W M9800 Black,64386.3,1.1883417366303326
+Contoso Nantucket Store,WWI Projector 1080p LCD86 Silver,59440.5,1.0970598869041284
+Contoso Naples Store,Adventure Works Laptop16 M1601 Silver,40282.75,0.9056113366205731
+Contoso Naples Store,Adventure Works Laptop19W X1980 Red,53843.55,1.2104766751003013
+Contoso Naples Store,Adventure Works Laptop19W X1980 White,47673.3,1.071761012694356
+Contoso New Bedford Store,"Adventure Works 52"" LCD HDTV X590 Brown",86999.70000000001,1.5754646140348645
+Contoso New Bedford Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,49919.844,0.903991022499395
+Contoso New Bedford Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,63999.8,1.158962849358199
+Contoso New Bedford Store,Fabrikam Refrigerator 24.7CuFt X9800 White,49919.844,0.903991022499395
+Contoso New Bedford Store,Litware Refrigerator 24.7CuFt X980 Brown,49919.844,0.903991022499395
+Contoso New Brunswick Store,Adventure Works Laptop19W X1980 White,55727.1,0.9708703226692693
+Contoso New Brunswick Store,Litware Refrigerator 24.7CuFt X980 Brown,76479.761,1.3324204963067985
+Contoso New Brunswick Store,Litware Refrigerator 24.7CuFt X980 Silver,67519.78899999999,1.1763210239361275
+Contoso New Castle Store,Contoso Coffee Maker Super-Auto 12C X1250 Grey,52305,0.9470141294490011
+Contoso New Castle Store,Fabrikam Independent Filmmaker 1/2'' 3mm X300 Black,46800,0.8473427255178902
+Contoso New Castle Store,Fabrikam Laptop19W M9800 Black,69182.3,1.25258800511958
+Contoso New Delhi Store,"Adventure Works 52"" LCD HDTV X590 Silver",91494.6845,0.6976166844070812
+Contoso New Delhi Store,Adventure Works Laptop19W X1980 Red,100022.99999999999,0.7626422672067847
+Contoso New Delhi Store,Fabrikam Refrigerator 24.7CuFt X9800 White,85439.733,0.651449683419437
+Contoso New Haven Store,Adventure Works Laptop19W X1980 Silver,72808.95000000001,1.3250240690357944
+Contoso New Haven Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,69439.783,1.2637098024847573
+Contoso New Haven Store,WWI Laptop19W X0196 Black,53388.9,0.9716055171698688
+Contoso New London Store,Adventure Works Laptop19W X1980 White,105868.5,1.986353893131346
+Contoso New London Store,Litware Refrigerator 24.7CuFt X980 Blue,51199.84,0.9606351418193515
+Contoso New London Store,Litware Refrigerator 24.7CuFt X980 White,85439.73299999998,1.6030598929110422
+Contoso New York No.1 Store,Adventure Works Laptop19W X1980 Red,56376.6,1.0155029307170491
+Contoso New York No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,50879.841,0.9164906654519334
+Contoso New York No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,49279.846000000005,0.8876702042741997
+Contoso New York No.2 Store,Adventure Works Laptop19W X1980 Silver,60143.7,1.080057410412619
+Contoso New York No.2 Store,Proseware Projector 1080p DLP86 Black,49980,0.8975382188395908
+Contoso New York No.2 Store,WWI Projector 1080p DLP86 Black,49980,0.8975382188395908
+Contoso Newark No.1 Store,Contoso Bluetooth Active Headphones L15 White,72768.402,1.2763791560124698
+Contoso Newark No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 White,67839.788,1.1899298180480158
+Contoso Newark No.1 Store,WWI Laptop15.4W M0156 Black,52453.600000000006,0.9200515588869973
+Contoso Newark No.2 Store,Fabrikam Laptop17 M7000 Black,38574.9,0.7003244795452769
+Contoso Newark No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,56959.822,1.0341013896897104
+Contoso Newark No.2 Store,WWI Laptop19W X0196 Black,38970,0.707497491059716
+Contoso Nice Store,Adventure Works Laptop19W X1980 Silver,57922.409999999996,1.1846025976408652
+Contoso Nice Store,Litware Refrigerator 24.7CuFt X980 Grey,63999.8,1.3088945941388805
+Contoso Nice Store,Litware Refrigerator L1200 Orange,63999.8,1.3088945941388805
+Contoso Nizhny Novgorod Store,Adventure Works Laptop19W X1980 Blue,62222.09999999999,1.3437077023839004
+Contoso Nizhny Novgorod Store,Adventure Works Laptop19W X1980 White,47153.7,1.0183004091134777
+Contoso Nizhny Novgorod Store,Proseware Projector 1080p LCD86 Silver,46840.950000000004,1.0115464650337929
+Contoso Norfolk Store,Adventure Works Laptop19W X1980 Red,51505.35,0.9544357639067113
+Contoso Norfolk Store,Contoso Bluetooth Active Headphones L15 Red,41583.801,0.7705814419973782
+Contoso Norfolk Store,Litware Refrigerator 24.7CuFt X980 White,51199.84,0.948774416682954
+Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Blue,988316.9115000002,0.318461805761838
+Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Brown,1415835.5755,0.4562196080923595
+Contoso North America Online Store,Litware Refrigerator 24.7CuFt X980 Grey,1174716.3290000001,0.37852462002645537
+Contoso North America Reseller,Fabrikam Refrigerator 24.7CuFt X9800 Green,759037.6280000003,0.4118054524206669
+Contoso North America Reseller,Litware Refrigerator 24.7CuFt X980 Brown,705277.7959999999,0.3826387930586633
+Contoso North America Reseller,Litware Refrigerator 24.7CuFt X980 White,755037.6405000002,0.40963531407527976
+Contoso North Bend Store,Litware Refrigerator 24.7CuFt X980 Brown,49919.844,0.8930568572630924
+Contoso North Bend Store,Proseware Projector 1080p DLP86 White,46981.2,0.8404850548501073
+Contoso North Bend Store,WWI Projector 1080p LCD86 Black,63915.75,1.1434410497078777
+Contoso North Harford Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,66079.7935,1.140068719730491
+Contoso North Harford Store,Litware Refrigerator 24.7CuFt X980 Green,63999.8,1.1041827793999914
+Contoso North Harford Store,Litware Refrigerator 24.7CuFt X980 White,60159.812000000005,1.037931812635992
+Contoso Northampton Store,"Adventure Works 52"" LCD HDTV X590 Brown",62349.785,1.11756803290041
+Contoso Northampton Store,WWI Laptop19W X0196 Black,77940,1.3970096686661864
+Contoso Northampton Store,WWI Laptop19W X0196 White,67028.4,1.2014283150529201
+Contoso Old Saybrook Store,"Adventure Works 52"" LCD HDTV X590 Silver",75399.74,1.3900885322849295
+Contoso Old Saybrook Store,Contoso Bluetooth Active Headphones L15 Black,72761.9025,1.341456698026865
+Contoso Old Saybrook Store,Proseware Projector 1080p DLP86 Silver,51229.5,0.9444799208152547
+Contoso Orange Store,Fabrikam Independent Filmmaker 1'' 25mm X400 Black,57440,1.0514083876969746
+Contoso Orange Store,Fabrikam Laptop19 M9000 Black,58247,1.0661800898012828
+Contoso Orange Store,Litware Refrigerator 24.7CuFt X980 Silver,60799.81,1.112907907457911
+Contoso Oregon Store,"Adventure Works 40"" LCD HDTV M690 Silver",45976.835999999996,0.816884290794662
+Contoso Oregon Store,WWI Laptop15.4W M0156 White,60412.600000000006,1.0733688570057671
+Contoso Oregon Store,WWI Laptop19W X0196 Black,80018.4,1.421711009746812
+Contoso Orlando Store,"Adventure Works 52"" LCD HDTV X590 Black",45239.844,0.8337521846732336
+Contoso Orlando Store,Litware Refrigerator 24.7CuFt X980 Green,63999.8,1.179490651396809
+Contoso Orlando Store,Litware Refrigerator 24.7CuFt X980 Grey,75679.7635,1.3947476952767268
+Contoso Orono Store,Adventure Works Laptop15 M1500 Black,61931.4,1.0484111508232234
+Contoso Orono Store,Contoso Projector 1080p X981 Black,101459.4,1.71756437470869
+Contoso Orono Store,Litware Refrigerator 24.7CuFt X980 Grey,55359.827,0.9371636994229836
+Contoso Osaka No.1 Store,"Adventure Works 52"" LCD HDTV X590 Black",120494.5845,0.9205211540826072
+Contoso Osaka No.1 Store,Litware Refrigerator 24.7CuFt X980 Grey,95999.70000000001,0.7333919196641081
+Contoso Osaka No.1 Store,Litware Refrigerator L1200 Orange,92799.70999999999,0.7089455223419711
+Contoso Osaka No.2 Store,Contoso Projector 1080p X981 White,72970.8,0.5673848051942573
+Contoso Osaka No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,102079.68099999998,0.7937210489466596
+Contoso Osaka No.2 Store,Litware Refrigerator 24.7CuFt X980 White,92799.70999999999,0.7215645899515089
+Contoso Oshkosh Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,95999.70000000001,2.0712433289020535
+Contoso Oshkosh Store,Litware Refrigerator 24.7CuFt X980 Silver,63999.8,1.380828885934702
+Contoso Oshkosh Store,WWI Projector 1080p DLP86 Black,61600.350000000006,1.3290595074310816
+Contoso Oswego Store,Contoso Coffee Maker Super-Auto 12C X1250 Silver,33000,0.6208205216667761
+Contoso Oswego Store,Contoso Projector 1080p X980 Black,39015,0.7339791712978566
+Contoso Oswego Store,Proseware Laptop15 M510 Black,44176.8,0.8310867885323889
+Contoso Ottawa No.1 Store,Adventure Works Laptop19W X1980 Silver,46374.3,0.8556875850338131
+Contoso Ottawa No.1 Store,Contoso Projector 1080p X980 Silver,43260.75,0.7982370988726845
+Contoso Ottawa No.1 Store,Fabrikam Laptop17 M7000 Black,55446.3,1.023081977432766
+Contoso Ottawa No.2 Store,Fabrikam Independent Filmmaker 1'' 25mm X400 Black,59680,1.0558415061284272
+Contoso Ottawa No.2 Store,Fabrikam Laptop17 M7000 Black,77886.9,1.3779527782116987
+Contoso Ottawa No.2 Store,WWI Laptop19W X0196 Blue,53778.6,0.9514356236842867
+Contoso Paris Store,Adventure Works Laptop15.4W M1548 Red,53060,1.1231318892964994
+Contoso Paris Store,Fabrikam Laptop15.4 M5400 White,54374.09,1.1509475015167336
+Contoso Paris Store,Fabrikam Laptop19 M9000 Black,82897.57,1.7547098456876897
+Contoso Parker Store,Adventure Works Laptop19W X1980 White,46374.3,0.8345944976170805
+Contoso Parker Store,Fabrikam Laptop19W M9800 Black,52396.3,0.9429719408270062
+Contoso Parker Store,WWI Projector 1080p DLP86 Silver,72471,1.3042546806487092
+Contoso Parkville Store,Contoso Projector 1080p X980 Black,52899.75,0.952562779716706
+Contoso Parkville Store,Fabrikam Laptop19 M9000 Black,55499.5,0.999376329621356
+Contoso Parkville Store,WWI Laptop19W X0196 White,59754,1.07598686835367
+Contoso Pasadena Store,Contoso Bluetooth Active Headphones L15 Red,38899.5075,0.7165650911737373
+Contoso Pasadena Store,Fabrikam Laptop16 M6000 Black,40312.7,0.742597410801654
+Contoso Pasadena Store,WWI Projector 1080p LCD86 Silver,49113,0.9047071180224008
+Contoso Passaic Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,63999.8,1.1596134888935037
+Contoso Passaic Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,63999.8,1.1596134888935037
+Contoso Passaic Store,Litware Refrigerator 24.7CuFt X980 Grey,138399.5675,2.5076641697322017
+Contoso Paterson Store,Litware Refrigerator 24.7CuFt X980 Silver,46879.8535,1.0363165585244394
+Contoso Paterson Store,Proseware Projector 1080p LCD86 Black,90423,1.998872547062362
+Contoso Paterson Store,WWI Projector 1080p DLP86 White,49355.25,1.091037172825494
+Contoso Pittsfield Store,Adventure Works Laptop19W X1980 Blue,82551.45000000001,1.5092924555809908
+Contoso Pittsfield Store,Fabrikam Laptop15.4W M5480 White,66476.6,1.2153951366411528
+Contoso Pittsfield Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,60639.81050000001,1.108680810518906
+Contoso Plano Store,Adventure Works Laptop15 M1501 White,51131.85,0.9456080233666954
+Contoso Plano Store,Adventure Works Laptop15.4W M1548 White,48815.2,0.9027650042439282
+Contoso Plano Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,60159.812000000005,1.1125668426124227
+Contoso Plattsburgh Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,37759.882,0.7046824051853133
+Contoso Plattsburgh Store,Proseware Projector 1080p DLP86 Black,36110.55,0.6739022443598877
+Contoso Plattsburgh Store,WWI Laptop19W X0196 Blue,64950,1.2121097787537076
+Contoso Poestenkill Store,Contoso Projector 1080p X981 Black,37984.8,0.7250287610985228
+Contoso Poestenkill Store,Proseware Laptop12 M210 White,37222.740000000005,0.7104830634067423
+Contoso Poestenkill Store,WWI Laptop19W X0196 Blue,40398.9,0.7711075066011432
+Contoso Port Washington Store,Adventure Works Laptop19W X1980 Silver,50790.9,0.9033878101527899
+Contoso Port Washington Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,50559.842000000004,0.8992781176559395
+Contoso Port Washington Store,Litware Refrigerator 24.7CuFt X980 Grey,60319.811499999996,1.0728729441654719
+Contoso Provincetown Store,Adventure Works Laptop19W X1980 Blue,58714.8,1.0262115230068782
+Contoso Provincetown Store,Adventure Works Laptop19W X1980 Silver,80927.7,1.414446413347976
+Contoso Provincetown Store,Fabrikam Refrigerator 24.7CuFt X9800 White,92319.7115,1.6135548744434216
+Contoso Queen Anne's County Store,Adventure Works Laptop19W X1980 Silver,72614.1,1.323993330719978
+Contoso Queen Anne's County Store,Litware Refrigerator 24.7CuFt X980 Blue,89279.72099999999,1.6278622908297473
+Contoso Queen Anne's County Store,WWI Projector 1080p LCD86 Silver,55539,1.0126582247092073
+Contoso Queens Store,Fabrikam Laptop15.4W M5480 White,61056.9,1.1299913295727104
+Contoso Queens Store,Litware Refrigerator 24.7CuFt X980 White,77759.757,1.439114190200958
+Contoso Queens Store,WWI Laptop15.4W M0156 Black,52529.4,0.9721713114759631
+Contoso Quincy Store,Fabrikam Laptop16W M6080 Black,46706.100000000006,0.853806787054586
+Contoso Quincy Store,Fabrikam Laptop19W M9800 Black,53955,0.9863196712106165
+Contoso Quincy Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,51199.84,0.9359542091527416
+Contoso Racine No.1 Store,Adventure Works Laptop19W X1980 Blue,62222.1,1.1608440678649645
+Contoso Racine No.1 Store,WWI Laptop19W X0196 Black,53388.9,0.9960478327609613
+Contoso Racine No.1 Store,WWI Laptop19W X0196 White,59494.2,1.1099511129063753
+Contoso Racine No.2 Store,Fabrikam Trendsetter 1/3'' 8.5mm X200 White,24650.6,1.0286017812601644
+Contoso Racine No.2 Store,Litware Refrigerator 24.7CuFt X980 White,37759.882,1.5756160858305122
+Contoso Racine No.2 Store,WWI Projector 1080p LCD86 Silver,34884,1.4556134348648544
+Contoso Ramstein Store,Adventure Works Laptop19W X1980 Blue,61962.299999999996,1.2691055503135622
+Contoso Ramstein Store,Fabrikam Laptop19W M9800 Black,70261.40000000001,1.439086875613096
+Contoso Ramstein Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,79039.753,1.6188842122986562
+Contoso Redmond Store,Adventure Works Laptop19W X1980 White,55727.100000000006,1.021679582360474
+Contoso Redmond Store,Fabrikam Laptop19W M9800 Black,45382.149999999994,0.8320191802304512
+Contoso Redmond Store,Litware Refrigerator 24.7CuFt X980 Brown,47679.850999999995,0.874144361660478
+Contoso Renton Store,Adventure Works Laptop19W X1980 Red,58065.299999999996,1.0649073681618146
+Contoso Renton Store,Adventure Works Laptop19W X1980 White,58325.1,1.0696720543728295
+Contoso Renton Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,60319.811499999996,1.1062547117208
+Contoso Richardson Store,Contoso Projector 1080p X980 Silver,45900,0.8130822279726451
+Contoso Richardson Store,Litware Refrigerator L1200 Orange,49919.844,0.884290587790128
+Contoso Richardson Store,WWI Projector 1080p DLP86 Black,49980,0.8853562037924358
+Contoso Ridgely Store,Litware Refrigerator L1200 Orange,50559.842000000004,0.8883266253390159
+Contoso Ridgely Store,WWI Laptop19W X0196 Black,53259,0.9357503082966644
+Contoso Ridgely Store,WWI Projector 1080p DLP86 Silver,53978.4,0.9483900268754702
+Contoso Roanoke Store,Adventure Works Laptop19W X1980 White,51505.35,0.9514158599422409
+Contoso Roanoke Store,Fabrikam Coffee Maker Super-Auto 12C X125 White,73755,1.3624152976349053
+Contoso Roanoke Store,Fabrikam Laptop19W M9800 Black,52516.2,0.9700884584591447
+Contoso Rochester No.1 Store,Litware Refrigerator 24.7CuFt X980 Brown,63999.8,1.1976616574504366
+Contoso Rochester No.1 Store,Litware Refrigerator 24.7CuFt X980 Silver,65279.796,1.2216148905994455
+Contoso Rochester No.1 Store,WWI Laptop19W X0196 Black,72484.2,1.35643466246721
+Contoso Rochester No.2 Store,Fabrikam Laptop19 M9000 Black,86381.40000000001,1.5553545442935675
+Contoso Rochester No.2 Store,Litware Refrigerator L1200 Orange,46719.854,0.8412220365452748
+Contoso Rochester No.2 Store,Proseware Projector 1080p DLP86 Silver,47231.1,0.8504273607163569
+Contoso Roma Store,Contoso Projector 1080p X980 Black,45900,1.1833078707409843
+Contoso Roma Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,48639.848,1.2539415026153622
+Contoso Roma Store,Litware Refrigerator 24.7CuFt X980 Grey,63999.8,1.6499230297570555
+Contoso Round Rock Store,Fabrikam Laptop17 M7000 Black,58927.05,1.0425962042791102
+Contoso Round Rock Store,Litware Refrigerator 24.7CuFt X980 Silver,78879.75349999999,1.3956193563664199
+Contoso Round Rock Store,WWI Laptop19W X0196 Black,53518.799999999996,0.9469080454150146
+Contoso Russellville Store,Contoso Water Heater 7.2GPM X1800 Grey,38202.5,0.8491262052864854
+Contoso Russellville Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,89439.72050000001,1.9879748830586712
+Contoso Russellville Store,Proseware Projector 1080p DLP86 Black,38484.6,0.8553964363580466
+Contoso Saint Petersburg Store,Fabrikam Laptop14.1 M4100 White,53355.299999999996,1.121605904076469
+Contoso Saint Petersburg Store,Fabrikam Laptop17 M7000 Black,54545.4,1.1466235346856382
+Contoso Saint Petersburg Store,Litware Refrigerator 24.7CuFt X980 Green,63999.8,1.3453687551136102
+Contoso San Antonio Store,Adventure Works Laptop19W X1980 Silver,57740.55,1.0695629710477734
+Contoso San Antonio Store,Litware Refrigerator 24.7CuFt X980 White,63999.8,1.1855068272550797
+Contoso San Antonio Store,Proseware Projector 1080p LCD86 Black,66210.75,1.2264615852343175
+Contoso Sapporo Store,Adventure Works Coffee Maker Super-Auto 12C X125 White,68062.5,0.5454680158397898
+Contoso Sapporo Store,Contoso Projector 1080p X980 Black,75390.75,0.6041982415452507
+Contoso Sapporo Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,114559.64199999999,0.9181064553470213
+Contoso Seattle No.1 Store,Fabrikam Laptop8.9 E8002 Red,47139.6,0.8284714740609729
+Contoso Seattle No.1 Store,Litware Refrigerator 24.7CuFt X980 Brown,50879.841,0.8942056545506946
+Contoso Seattle No.1 Store,WWI Laptop8.9 E0089 Black,54474.600000000006,0.9573830104812489
+Contoso Seattle No.2 Store,Fabrikam Laptop19 M9000 Black,62862.8,1.1086287573564302
+Contoso Seattle No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,63999.8,1.1286805351505191
+Contoso Seattle No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,51199.84,0.9029444281204153
+Contoso Sebring Store,"Fabrikam Independent Filmmaker 1/2"" 3mm X300 Orange",64069,1.1506449936165528
+Contoso Sebring Store,WWI Laptop15 M0150 White,50677.5,0.910140811687444
+Contoso Sebring Store,WWI Projector 1080p DLP86 Black,49980,0.8976140845175562
+Contoso Sedalia Store,"Adventure Works 52"" LCD HDTV X590 Silver",45529.843,0.7948113798919273
+Contoso Sedalia Store,Adventure Works Laptop15 M1501 Red,47462.1,0.8285426592305325
+Contoso Sedalia Store,Litware Refrigerator 24.7CuFt X980 Grey,60799.81,1.061378157690265
+Contoso Seoul Store,Contoso Bluetooth Active Headphones L15 Red,64995,0.5463804150902167
+Contoso Seoul Store,Fabrikam Independent Filmmaker 1/3'' 8.5mm X200 Grey,64974,0.5462038786071504
+Contoso Seoul Store,Litware Refrigerator 24.7CuFt X980 Grey,88319.724,0.7424596885879433
+Contoso Shanghai No.1 Store,Contoso Bluetooth Active Headphones L15 White,101210.214,0.7882500875096519
+Contoso Shanghai No.1 Store,Litware Refrigerator 24.7CuFt X980 White,78719.754,0.6130888427845659
+Contoso Shanghai No.1 Store,Litware Refrigerator L1200 Orange,91519.714,0.7127780855137635
+Contoso Shanghai No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,93119.709,0.7284867625916003
+Contoso Shanghai No.2 Store,Litware Refrigerator 24.7CuFt X980 Grey,77439.758,0.6058206066912964
+Contoso Shanghai No.2 Store,WWI Projector 1080p DLP86 Black,104208.3,0.8152341530854038
+Contoso Sheboygan Store,Fabrikam Laptop19W M9800 Black,65045.75,1.1033213956657864
+Contoso Sheboygan Store,Proseware Laptop16 M610 Black,56216.15,0.9535516321505586
+Contoso Sheboygan Store,WWI Projector 720p DLP56 Black,53096.85,0.9006413277955425
+Contoso Shreveport Store,"Adventure Works 52"" LCD HDTV X590 White",57999.8,0.9621430754006122
+Contoso Shreveport Store,Fabrikam Laptop19W M9800 Black,73139,1.2132831904890253
+Contoso Shreveport Store,Litware Refrigerator L1200 Orange,63999.8,1.0616754608985566
+Contoso Singapore Store,"Adventure Works 40"" LCD HDTV M690 Brown",65054.852999999996,0.5137672552666063
+Contoso Singapore Store,Litware Refrigerator 24.7CuFt X980 Brown,68479.786,0.5408154821972248
+Contoso Singapore Store,Litware Refrigerator 24.7CuFt X980 White,78719.754,0.6216850870117631
+Contoso Snoqualmie Store,Adventure Works Laptop19W X1980 Blue,60793.200000000004,1.08041484427165
+Contoso Snoqualmie Store,Contoso Bluetooth Active Headphones L15 Black,51996,0.9240712817017152
+Contoso Snoqualmie Store,Contoso Bluetooth Active Headphones L15 Red,67542.804,1.200368594930528
+Contoso Somerville Store,"Adventure Works 52"" LCD HDTV X590 White",57999.8,0.9821152458209207
+Contoso Somerville Store,Fabrikam Laptop19W M9800 Black,58691.05,0.9938202372807828
+Contoso Somerville Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,50879.841,0.8615524114056317
+Contoso South Portland Store,Adventure Works Laptop19W X1980 White,54298.2,1.0156421735639825
+Contoso South Portland Store,Fabrikam Laptop17 M7000 Black,42260.4,0.7904763788059885
+Contoso South Portland Store,Fabrikam Refrigerator 19CuFt M7600 Green,42073.2,0.7869748223107239
+Contoso Spokane Store,Adventure Works Laptop8.9 E0890 Black,44596.8,0.8451439533332048
+Contoso Spokane Store,Fabrikam Laptop19 M9000 Black,49015.40000000001,0.9288798508011421
+Contoso Spokane Store,WWI Projector 1080p LCD86 Silver,53129.25,1.0068404993772686
+Contoso Spring Store,Contoso Bluetooth Active Headphones L15 White,49376.701499999996,0.9170690250081769
+Contoso Spring Store,Proseware Laptop15 M510 Black,49873.65,0.9262988046923115
+Contoso Spring Store,WWI Laptop19W X0196 White,59234.4,1.10015517044905
+Contoso Stockholm Store,Litware Refrigerator 24.7CuFt X980 Brown,44799.86,0.9574683245408696
+Contoso Stockholm Store,Litware Refrigerator 24.7CuFt X980 Green,51519.839,1.1010885732220002
+Contoso Stockholm Store,WWI Laptop15 M0150 Black,56276.48999999999,1.202748325359521
+Contoso Stockport Store,Adventure Works Laptop19W X1980 Red,61741.47,1.3351097811919017
+Contoso Stockport Store,Contoso Projector 1080p X980 Silver,61735.5,1.3349806847289618
+Contoso Stockport Store,WWI Projector 1080p DLP86 Silver,43982.4,0.9510841325983119
+Contoso Stoughton Store,Adventure Works Laptop19W X1980 Blue,69561.45,1.2334593820682394
+Contoso Stoughton Store,Fabrikam Laptop17 M7000 Black,51556.05,0.9141887291722535
+Contoso Stoughton Store,Litware Refrigerator L1200 Orange,48639.848,0.8624788134516042
+Contoso Strasbourg Store,Fabrikam Laptop16W M6080 Black,57826.6,1.189980832749611
+Contoso Strasbourg Store,Fabrikam Laptop19W M9800 Black,60141.84,1.2376248447305196
+Contoso Strasbourg Store,Litware Refrigerator 24.7CuFt X980 Blue,56319.824,1.1589737432916951
+Contoso Strasbourg Store,Litware Refrigerator 24.7CuFt X980 Silver,56319.824,1.1589737432916951
+Contoso Sunnyside Store,Fabrikam Independent Filmmaker 2/3'' 17mm X100 Grey,47880,0.9151336044976777
+Contoso Sunnyside Store,Fabrikam Laptop16W M6080 Black,44578.700000000004,0.8520356394072812
+Contoso Sunnyside Store,Fabrikam Laptop8.9 E8002 Red,48476.2,0.9265288145018864
+Contoso Sydney  No.2 Store,"Adventure Works 52"" LCD HDTV X590 Silver",75254.7405,0.5763102603122879
+Contoso Sydney  No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,86399.73000000001,0.6616599905385548
+Contoso Sydney  No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,81759.7445,0.6261263984540768
+Contoso Sydney No.1 Store,Contoso Bluetooth Active Headphones L15 Red,80554.803,0.6066160341159351
+Contoso Sydney No.1 Store,Fabrikam Laptop19W M9800 Black,81951.65,0.6171349573315593
+Contoso Sydney No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,83199.73999999999,0.6265336694855665
+Contoso Syracuse Store,Adventure Works Laptop8.9 E0890 White,42184.4,0.7861276695391908
+Contoso Syracuse Store,Fabrikam Independent filmmaker 1/3'' 8.5mm X200 White,49296,0.9186559391055449
+Contoso Syracuse Store,Litware Refrigerator 24.7CuFt X980 Brown,46239.8555,0.8617031377486447
+Contoso Taipei  Store,"Adventure Works 52"" LCD HDTV X590 Silver",63364.7815,0.48229089670707886
+Contoso Taipei  Store,"Adventure Works 52"" LCD HDTV X590 White",62929.782999999996,0.47897997521938723
+Contoso Taipei  Store,Contoso Bluetooth Active Headphones L15 Black,111570.417,0.8492003789346724
+Contoso Tallahassee No.1 Store,Adventure Works Laptop16 M1601 Blue,45943.299999999996,0.8533722924796147
+Contoso Tallahassee No.1 Store,Contoso Bluetooth Active Headphones L15 Black,49370.202000000005,0.9170251693048096
+Contoso Tallahassee No.1 Store,Fabrikam Laptop19W M9800 Black,52756,0.9799145612538619
+Contoso Tallahassee No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Brown,50559.842000000004,0.9228473795464576
+Contoso Tallahassee No.2 Store,Proseware Laptop8.9 E089 White,63667.8,1.1621013845630284
+Contoso Tallahassee No.2 Store,WWI Projector 1080p LCD86 Black,68850,1.2566898860517326
+Contoso Tampa Store,Adventure Works Laptop15 M1501 Blue,47776.65,0.8943441525960765
+Contoso Tampa Store,Adventure Works Laptop19W X1980 White,56506.5,1.0577605976699955
+Contoso Tampa Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1980297257618182
+Contoso Tehran No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 White,63679.801,0.4996144587214468
+Contoso Tehran No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,88639.723,0.6954432415368883
+Contoso Tehran No.1 Store,Proseware Projector 1080p LCD86 Silver,63801,0.5005653532253819
+Contoso Tehran No.2 Store,Fabrikam Business Videographer 1/3'' 8.5mm M380 Black,82818,0.6293831422423128
+Contoso Tehran No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,111359.652,0.8462880979348746
+Contoso Tehran No.2 Store,Proseware Projector 1080p LCD86 Black,94324.5,0.7168278659281199
+Contoso Texas City Store,Adventure Works Laptop16 M1601 Red,42169.6,0.8308540185369602
+Contoso Texas City Store,Fabrikam Refrigerator 24.7CuFt X9800 White,63999.8,1.2609674034271547
+Contoso Texas City Store,Litware Refrigerator 24.7CuFt X980 Grey,47679.850999999995,0.9394207155532301
+Contoso Thimphu No.1 Store,Fabrikam Trendsetter 2/3'' 17mm X100 Grey,54439,0.8596501532007653
+Contoso Thimphu No.1 Store,Litware Refrigerator 24.7CuFt X980 White,67999.7875,1.073789521152014
+Contoso Thimphu No.1 Store,Proseware Projector 1080p DLP86 Black,64974,1.0260090937391673
+Contoso Thimphu No.2 Store,Fabrikam Coffee Maker Super-Auto 12C X125 Black,90750,0.7141827262697368
+Contoso Thimphu No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,100959.6845,0.7945307186726446
+Contoso Thimphu No.2 Store,Litware Refrigerator 24.7CuFt X980 Grey,83199.73999999999,0.6547638252135897
+Contoso Thornton Store,Contoso Bluetooth Active Headphones L15 Black,64982.001000000004,1.1099856715998109
+Contoso Thornton Store,Contoso Projector 1080p X981 Black,72221.1,1.2336398533984372
+Contoso Thornton Store,WWI Projector 1080p DLP86 Black,51979.2,0.887879202445934
+Contoso Tokyo No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 White,64959.797,0.5010637135719834
+Contoso Tokyo No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,67839.788,0.5232783609717265
+Contoso Tokyo No.1 Store,Litware Refrigerator 24.7CuFt X980 Grey,78719.754,0.6072003622596449
+Contoso Tokyo No.2 Store,Litware Refrigerator 24.7CuFt X980 Brown,101759.682,0.8053063874572464
+Contoso Tokyo No.2 Store,Proseware Projector 1080p DLP86 Silver,82966.79999999999,0.6565831641149179
+Contoso Tokyo No.2 Store,WWI Projector 1080p DLP86 White,86715.3,0.6862480661080619
+Contoso Toppenish Store,Adventure Works Coffee Maker Super-Auto 12C X125 Grey,49665,0.9390279064941743
+Contoso Toppenish Store,Adventure Works Laptop15 M1501 Silver,60673.2,1.1471625486016779
+Contoso Toppenish Store,Litware Refrigerator 24.7CuFt X980 Silver,46079.856,0.8712427405865905
+Contoso Torino Store,Adventure Works Laptop19W X1980 Blue,57052.08,1.2286235459878028
+Contoso Torino Store,"Fabrikam Independent Filmmaker 1"" 25mm X400 Blue",57996,1.2489509790547269
+Contoso Torino Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.3782435490259106
+Contoso Toronto No.1 Store,Adventure Works Laptop19W X1980 Red,58065.3,1.0355634199539183
+Contoso Toronto No.1 Store,Adventure Works Laptop19W X1980 White,51830.1,0.9243619788850412
+Contoso Toronto No.1 Store,Contoso Bluetooth Active Headphones L15 White,49383.201,0.8807228502364021
+Contoso Toronto No.2 Store,Adventure Works Laptop15.4W M1548 White,45859,0.8214081082432954
+Contoso Toronto No.2 Store,Adventure Works Laptop19W X1980 Blue,46634.1,0.8352913901443263
+Contoso Toronto No.2 Store,Fabrikam Laptop19W M9800 Black,49758.5,0.8912543961713951
+Contoso Toronto No.3 Store,Fabrikam Laptop19 M9000 Black,79018.1,1.4692562309860604
+Contoso Toronto No.3 Store,Fabrikam Laptop19W M9800 Black,65345.5,1.2150290002151354
+Contoso Toronto No.3 Store,Proseware Projector 1080p LCD86 Silver,45900,0.8534609286006645
+Contoso Toulouse Store,"Adventure Works 52"" LCD HDTV X590 Brown",46689.839,0.9811327786312419
+Contoso Toulouse Store,Litware Refrigerator 24.7CuFt X980 Green,65919.794,1.3852279647830668
+Contoso Toulouse Store,WWI Laptop15.4W M0156 Black,52908.4,1.1118086208207572
+Contoso Trenton No.1 Store,Fabrikam Laptop19W M9800 Black,84229.75,1.5283021380245583
+Contoso Trenton No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,63999.8,1.1612409056555923
+Contoso Trenton No.1 Store,Litware Refrigerator 24.7CuFt X980 Blue,60799.81,1.1031788603728128
+Contoso Trenton No.2 Store,Adventure Works Laptop8.9 E0890 Red,67873.2,1.1707956189978221
+Contoso Trenton No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,50239.843,0.8666246483669312
+Contoso Trenton No.2 Store,Litware Refrigerator 24.7CuFt X980 Silver,117119.634,2.0202842121165405
+Contoso Urumqi Store,Adventure Works Laptop19W X1980 White,63001.50000000001,0.4919083074627604
+Contoso Urumqi Store,Contoso Bluetooth Active Headphones L15 Black,134981.61599999998,1.0539205934009228
+Contoso Urumqi Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,64799.7975,0.5059492029896845
+Contoso Valletta Store,Adventure Works Laptop19W X1980 White,51440.4,1.0850238509411838
+Contoso Valletta Store,Fabrikam Laptop17 M7000 Black,54856.619999999995,1.1570816144901122
+Contoso Valletta Store,Litware Refrigerator 24.7CuFt X980 Blue,51199.84,1.0799497586405329
+Contoso Vancouver  No.1 Store,Adventure Works Laptop19W X1980 Red,56701.35,0.9819619858344095
+Contoso Vancouver  No.1 Store,Adventure Works Laptop19W X1980 Silver,66768.59999999999,1.1563080428840469
+Contoso Vancouver  No.1 Store,WWI Laptop19W X0196 Blue,77940,1.3497759255455801
+Contoso Vancouver  No.2 Store,Fabrikam Laptop19W M9800 Black,74997.45,1.3229543451647348
+Contoso Vancouver  No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Silver,63999.8,1.1289558978295129
+Contoso Vancouver  No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,63999.8,1.1289558978295129
+Contoso Venezia Store,Adventure Works Coffee Maker Super-Auto 12C X125 Black,44055,2.8512075801884365
+Contoso Venezia Store,Litware Refrigerator 24.7CuFt X980 Blue,24959.922,1.6153880106074703
+Contoso Venezia Store,Litware Refrigerator 24.7CuFt X980 Brown,24959.922,1.6153880106074703
+Contoso Venezia Store,WWI Projector 1080p LCD86 Black,34884,2.257667125803959
+Contoso Veradale Store,Contoso Bluetooth Active Headphones L15 Red,51996,0.9634989252894115
+Contoso Veradale Store,Fabrikam Laptop15 M5000 White,43233.15,0.801121116275789
+Contoso Veradale Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,47039.853,0.8716602779304544
+Contoso Vineland Store,Fabrikam Independent filmmaker 1'' 25mm X400 White,54240,0.9696543353298025
+Contoso Vineland Store,Litware Refrigerator 24.7CuFt X980 Green,63999.8,1.1441313335221293
+Contoso Vineland Store,Proseware Projector 1080p DLP86 Silver,61975.2,1.1079373407620128
+Contoso Virginia Beach Store,"Adventure Works 52"" LCD HDTV X590 Silver",61769.787,1.1825214056730309
+Contoso Virginia Beach Store,Adventure Works Laptop16 M1601 Red,49147.95,0.9408888348594734
+Contoso Virginia Beach Store,Fabrikam Laptop17 M7000 Black,53071.2,1.0159955711803663
+Contoso Wapato Store,Fabrikam Laptop19 M9000 Black,58192.05,1.0187086054522354
+Contoso Wapato Store,Litware Refrigerator 24.7CuFt X980 Brown,60479.811,1.0587580936197432
+Contoso Wapato Store,Litware Refrigerator 24.7CuFt X980 White,65439.79549999999,1.1455874610859123
+Contoso Warsaw Store,Adventure Works Laptop15 M1501 Red,47476.08,1.059561692182782
+Contoso Warsaw Store,Adventure Works Laptop8.9 E0890 Silver,45529.16,1.0161107196141852
+Contoso Warsaw Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,63999.8,1.4283347822179002
+Contoso Waterbury Store,Fabrikam Refrigerator 24.7CuFt X9800 Orange,63999.8,1.1911562852323496
+Contoso Waterbury Store,Litware Refrigerator 24.7CuFt X980 Blue,51199.84,0.9529250281858798
+Contoso Waterbury Store,WWI Laptop8.9 E0089 Black,55273.3,1.0287397570075725
+Contoso Waukesha No.1 Store,Contoso Projector 1080p X980 Silver,56571.75,1.0508576909497156
+Contoso Waukesha No.1 Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,51199.84,0.9510709079955082
+Contoso Waukesha No.1 Store,Litware Refrigerator 24.7CuFt X980 Green,60639.81050000001,1.1264246066571801
+Contoso Waukesha No.2 Store,Fabrikam Laptop15.4W M5480 White,46541.200000000004,0.8565635114051664
+Contoso Waukesha No.2 Store,Litware Home Theater System 7.1 Channel X711 Brown,39036.8,0.7184494272176308
+Contoso Waukesha No.2 Store,WWI Laptop15.4W M0156 Black,39074.899999999994,0.7191506353898424
+Contoso West Yorkshire Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,56959.822,1.208582301079623
+Contoso West Yorkshire Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,55679.826,1.1814231482463728
+Contoso West Yorkshire Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,51199.84,1.0863661133299982
+Contoso Westminster Store,Fabrikam Laptop19W M9800 Black,45322.2,0.8714216970653085
+Contoso Westminster Store,WWI Laptop19W X0196 Black,46634.1,0.8966459387036222
+Contoso Westminster Store,WWI Projector 1080p LCD86 Black,43146,0.8295793351068528
+Contoso Wheat Ridge Store,Fabrikam Laptop15 M5000 White,55745.24999999999,1.0018476928808058
+Contoso Wheat Ridge Store,Proseware Projector 1080p LCD86 White,43605,0.7836644135252339
+Contoso Wheat Ridge Store,WWI Laptop19W X0196 White,46764,0.8404376249075574
+Contoso Winchester Store,Adventure Works Laptop19W X1980 White,50531.1,0.9308918118752468
+Contoso Winchester Store,Fabrikam Laptop19W M9800 Black,49218.95,0.9067191797545904
+Contoso Winchester Store,WWI Laptop19W X0196 Black,58974.6,1.0864392868672548
+Contoso Worcester No.1 Store,Contoso Water Heater 7.2GPM X1800 Green,55681.25,1.0478081952265164
+Contoso Worcester No.1 Store,Fabrikam Laptop19 M9000 Black,53411.4,1.005094221816528
+Contoso Worcester No.1 Store,Proseware Projector 1080p LCD86 White,56112.75,1.0559281500809823
+Contoso Worcester No.2 Store,Adventure Works Laptop19W X1980 Blue,63586.05,1.201041768069888
+Contoso Worcester No.2 Store,Litware Refrigerator 24.7CuFt X980 Grey,56639.823000000004,1.0698383239576215
+Contoso Worcester No.2 Store,Proseware Projector 1080p LCD86 Silver,56112.75,1.0598827332608898
+Contoso Yakima Store,Adventure Works Laptop19W X1980 White,50401.2,0.9331968025349072
+Contoso Yakima Store,Contoso Bluetooth Active Headphones L15 White,49396.2,0.9145888569592546
+Contoso Yakima Store,Litware Refrigerator 24.7CuFt X980 Silver,60639.81050000001,1.1227684512456588
+Contoso Yerevan Store,Contoso Projector 1080p X981 White,123700.5,0.945576898488392
+Contoso Yerevan Store,Fabrikam Refrigerator 24.7CuFt X9800 Green,98559.69200000001,0.7533984735496719
+Contoso Yerevan Store,Litware Refrigerator L1200 Orange,82719.7415,0.6323165760149032
+Contoso Yokohama Store,Contoso Bluetooth Active Headphones L15 Red,75368.202,0.5916055619669345
+Contoso Yokohama Store,Litware Refrigerator 24.7CuFt X980 Blue,88959.722,0.6982927140312072
+Contoso Yokohama Store,WWI Projector 1080p LCD86 Black,97308,0.7638228390253818
+Contoso York Store,Fabrikam Laptop19W M9800 Black,61520.69,1.3081188317109014
+Contoso York Store,Fabrikam Refrigerator 24.7CuFt X9800 Blue,63999.8,1.3608323249581782
+Contoso York Store,Litware Refrigerator 24.7CuFt X980 White,59519.814,1.2655740622111056
+Contoso koln No.1 Store,"Adventure Works 52"" LCD HDTV X590 Brown",57999.8,1.1797392411874608
+Contoso koln No.1 Store,Adventure Works Laptop19W X1980 White,63391.2,1.2894024839044715
+Contoso koln No.1 Store,Fabrikam Laptop19 M9000 Black,96261.40999999999,1.957995765313588
+Contoso koln No.2 Store,Fabrikam Laptop19 M9000 Black,65115.75,1.3743433582476308
+Contoso koln No.2 Store,Fabrikam Refrigerator 24.7CuFt X9800 Grey,55679.826,1.1751872481156054
+Contoso koln No.2 Store,Litware Refrigerator 24.7CuFt X980 Blue,53439.833,1.1279096002029088
+Contoso obamberg Store,"Adventure Works 52"" LCD HDTV X590 Silver",51039.824,1.0619251829591287
+Contoso obamberg Store,Adventure Works Laptop19W X1980 Silver,77212.56,1.6064703104137408
+Contoso obamberg Store,Adventure Works Laptop8.9 E0890 Red,49649.799999999996,1.0330045994845936
