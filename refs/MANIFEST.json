@@ -3311,6 +3311,1115 @@
         "percentile_method": "exact linear interpolation at (n-1)*0.9"
       },
       "sha256": "7fbcb57779fbcfd101f2b11b4267798ba79d5756863f74b3bdad7300b15b799f"
+    },
+    {
+      "question_id": "Q101",
+      "result_path": "refs/new/Q101-1.csv",
+      "sql_sha256": "8b529c5642acba890fcf5b11a421e330e5ce09b1606308c2369da7d677aa37e4",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "GMV",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "c7ed6b25397c5347d9e397457070e4fe078335e2724f9fad66e93936cb2e3dc0",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [
+        {
+          "question_id": "Q101",
+          "column_position": 1,
+          "column_name": "GMV",
+          "declared": "amount",
+          "inferred": "other"
+        }
+      ],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q102",
+      "result_path": "refs/new/Q102-1.csv",
+      "sql_sha256": "a61fd238164a7d152cc92d5aa32aa580200d835fabbe8674115e4993a147deec",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "净销售额",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "3dd8ec32b01c4d973b7d622f849658d28307cad2f538e3a9cc6f42ec00fa7473",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [
+        {
+          "question_id": "Q102",
+          "column_position": 2,
+          "column_name": "净销售额",
+          "declared": "amount",
+          "inferred": "other"
+        }
+      ],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q103",
+      "result_path": "refs/new/Q103-1.csv",
+      "sql_sha256": "4b670295d83a7f7894e26606c6c1c4fc54225b677d77e0da1a9f40ccb90d85c6",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "avg_order_amount",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "f8ba9094ab70bcf2afb2a4a8a08154941978777726af982aa3c28a428c673f54",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q104",
+      "result_path": "refs/new/Q104-1.csv",
+      "sql_sha256": "cffcd00dd364cd57d85ddf99159cc24c14ca0e68faf111b00fd27c4d4db77725",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "month",
+          "type": "UInt8"
+        },
+        {
+          "name": "profit",
+          "type": "Float64"
+        },
+        {
+          "name": "margin_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "9ea6983d9d21047a2663c0c75ff3c9b15b2367b1ece406771fc00684ed406db0",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q105",
+      "result_path": "refs/new/Q105-1.csv",
+      "sql_sha256": "e89147adbbae89ed5227ea1feba0092f0e80f968184c65543080bf08455535c3",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "sales_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "fd8e8be482d52b56bac2450b0bc40c7fdce41c1c9c648ffe9673060e55cdc25a",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q106",
+      "result_path": "refs/new/Q106-1.csv",
+      "sql_sha256": "7869674e8c4c3da1a2c22d3c810daa0c61b0744378b0ec72bf6008a3d5d175f8",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "sales_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "b4c835cb5a2f49e8c7ff736ff47eda1da388ebeecc2733b4dd4a8a3e99a5ed5f",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q107",
+      "result_path": "refs/new/Q107-1.csv",
+      "sql_sha256": "682a263b879eb5ea3350cee6d4043bbbd91cce7704cf1c42db555817af276e9b",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "month",
+          "type": "UInt8"
+        },
+        {
+          "name": "sales_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "7f72f6693bbed5e4a3593d2fc943f061e983e443aedc6f6adc4e1332f497765f",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q108",
+      "result_path": "refs/new/Q108-1.csv",
+      "sql_sha256": "e259c5cd7a8c28182ee50a7e77503ef2f40a584f4945573c4d0920ba66fedc23",
+      "row_count": 29,
+      "columns": [
+        {
+          "name": "RegionCountryName",
+          "type": "String"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "orders",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "count"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "60219393202497b6f8e2ad9610a78860805a31be683d8b05a48d6a5be78d80ae",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "UInt64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q109",
+      "result_path": "refs/new/Q109-1.csv",
+      "sql_sha256": "6af14227b862099c8c96e5aca4dbb3dfbbd78b9161e44c05b56aa90594e50870",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "uplift_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "060bf0637bb4a9f524c5a704fb36513b218fd00707c6a63b63433e3ddcc64229",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "percentage"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q110",
+      "result_path": "refs/new/Q110-1.csv",
+      "sql_sha256": "e89200e25daa7416b82241164d717074392903c41540e6ff90c2d712dc697832",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "PromotionType",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "discount_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "8b054b0bdca54d54be5b05348073f503acbc672bd9925bad710f52b044451838",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q111",
+      "result_path": "refs/new/Q111-1.csv",
+      "sql_sha256": "bf607af3c733e770c2f27cc4cadf526afd1d1d188bc7dfaddfefeabb4cc463cc",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "actual_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "budget_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "da295dda016235f8b0eb8ab22eb67ac52435ff40fee058cefbf1b1f947898a72",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q112",
+      "result_path": "refs/new/Q112-1.csv",
+      "sql_sha256": "b366f7b834375da4f16532dba341f965fe24258108897c174cdb1423ad9102ee",
+      "row_count": 306,
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "sales_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "quota_amount",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "d7b6de6f6ca2394f55efcb95daafe8e312f4736ab2dbe0fcb7d421e124ce5d88",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q113",
+      "result_path": "refs/new/Q113-1.csv",
+      "sql_sha256": "24a31e346c1d2446022a06992e3d1cc73c3775cf1b09d038c475ae155a11dd20",
+      "row_count": 32,
+      "columns": [
+        {
+          "name": "quarter",
+          "type": "UInt8"
+        },
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "actual_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "budget_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "variance_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "amount",
+        "amount",
+        "amount"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "f9d696e413df216966d61bf4aed19aad58911feb3902168ce86b869d30ddd2c4",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "UInt8",
+          "String",
+          "Float64",
+          "Float64",
+          "Float64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q114",
+      "result_path": "refs/new/Q114-1.csv",
+      "sql_sha256": "29f54d244b2e41acf71cb301a6ff922561c69a977f16cc2aa05cecda89466b9d",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "cutoff",
+          "type": "Date"
+        },
+        {
+          "name": "new_customers",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "294c0f093aaa38eb82234c5c9b0acb24a583363d08259130fee244c28b76c97c",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Date",
+          "UInt64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q114",
+      "result_path": "refs/new/Q114-2.csv",
+      "sql_sha256": "bddcdd448ee32cff7bb675088779e5a2b939b001e4353b77a5fe94b7b6d1ddcf",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "cutoff",
+          "type": "Date"
+        },
+        {
+          "name": "new_customers",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "6680258378de378d2893171d0c0a7fa489ee4744d541bbb28926caca34f19f02",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Date",
+          "UInt64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q115",
+      "result_path": "refs/new/Q115-1.csv",
+      "sql_sha256": "3ef0974b08664ada9dfe3a7471b8a144c29d5049be4173a7468130a3eec9219a",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "month",
+          "type": "Date"
+        },
+        {
+          "name": "new_customer_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "share_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "d2152d6391c88f6f5b7149fce4b75797516d98476bb99a9db48d9b88359223e0",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Date",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q115",
+      "result_path": "refs/new/Q115-2.csv",
+      "sql_sha256": "8713b48c293ed070ac8420f27e54da0642788c5ae3ae44bbc2744f3f3d8e5bab",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "month",
+          "type": "Date"
+        },
+        {
+          "name": "new_customer_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "share_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "345285b037ef56b0896df6cded1431be84016df3a8b0a7c48403c2f1ff83042f",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Date",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q116",
+      "result_path": "refs/new/Q116-1.csv",
+      "sql_sha256": "0402705cf69588645af18e68b340afdfab2b56fb38a109635432f6694b160a18",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "cutoff",
+          "type": "Date"
+        },
+        {
+          "name": "active_customers",
+          "type": "UInt64"
+        },
+        {
+          "name": "at_risk_customers",
+          "type": "UInt64"
+        },
+        {
+          "name": "churned_customers",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "count",
+        "count"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "f2ae8bf7322ec1e42392dbab93a19b6a024938bcce57e94d268da689f739e99e",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "count",
+          "count"
+        ],
+        "value_types": [
+          "Date",
+          "UInt64",
+          "UInt64",
+          "UInt64"
+        ]
+      }
+    },
+    {
+      "question_id": "Q117",
+      "result_path": "refs/new/Q117-1.csv",
+      "sql_sha256": "0b5d4e6a7147c4dd17eab2bfdf8f90bb8a63849ce7874ab06ff8398212401cb3",
+      "row_count": 1612,
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "category",
+          "type": "String"
+        },
+        {
+          "name": "decline_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "contribution_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "003ddf340f505f5c063b14da59a9779ff1898dfb390ee593509904adc8b85171",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q118",
+      "result_path": "refs/new/Q118-1.csv",
+      "sql_sha256": "c4fddcb26f80cc4cadc50bd8674c48752efeedd1a22fcd12879a8fb5e8929d03",
+      "row_count": 29,
+      "columns": [
+        {
+          "name": "RegionCountryName",
+          "type": "String"
+        },
+        {
+          "name": "cohort_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "cohort_share_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "0f87641326ec3c488c3aa7fb99c2531ac05649fb28147459e5c3dc42afee47c5",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q119",
+      "result_path": "refs/new/Q119-1.csv",
+      "sql_sha256": "ca5f850d57dc46239bff669d6833757450dce239ae36d126af68a9c1d1b94e88",
+      "row_count": 12,
+      "columns": [
+        {
+          "name": "month",
+          "type": "Date"
+        },
+        {
+          "name": "repeat_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "repeat_share_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "percentage"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "d33711121c57477f09bb59fde627eb818d8bd5f1f1dafcb19c282e86b50d0ac8",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Date",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q120",
+      "result_path": "refs/new/Q120-1.csv",
+      "sql_sha256": "7a38caf41494feeb4357fe476e133ad1a66f4b603d41b3e8ddb2985402e40b4a",
+      "row_count": 2,
+      "columns": [
+        {
+          "name": "Gender",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "customers",
+          "type": "UInt64"
+        },
+        {
+          "name": "correlation",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "ratio"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "e85745525d244fbba4fd438c6aeed75a62a9fa3ac4e3cccac09a36b1c1140fd1",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "ratio"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "UInt64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q121",
+      "result_path": "refs/new/Q121-1.csv",
+      "sql_sha256": "d89ea1d04fcfe980d0b326793002fec47d0ddde049ef4d08771f8df479735bf7",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "category",
+          "type": "String"
+        },
+        {
+          "name": "observations",
+          "type": "UInt64"
+        },
+        {
+          "name": "correlation",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "ratio"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "458eceb6d27e5116e5b10f7266a689243568bd063ffb6be8cc77ac50d1e99dd0",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "ratio"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Nullable(Float64)"
+        ]
+      }
+    },
+    {
+      "question_id": "Q122",
+      "result_path": "refs/new/Q122-1.csv",
+      "sql_sha256": "1814768cb98d207076bda8cd132c36e0732a89281a14b7bdc834057d4c3a64ad",
+      "row_count": 28,
+      "columns": [
+        {
+          "name": "category_a",
+          "type": "String"
+        },
+        {
+          "name": "category_b",
+          "type": "String"
+        },
+        {
+          "name": "intersection_orders",
+          "type": "UInt64"
+        },
+        {
+          "name": "union_orders",
+          "type": "Int64"
+        },
+        {
+          "name": "jaccard_ratio",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "count",
+        "count",
+        "ratio"
+      ],
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "9b3b1ecc0a003a1f6a767126d14e05846f454db9e237e53b9e30932a3141bc0d",
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "count",
+          "count",
+          "ratio"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "UInt64",
+          "Int64",
+          "Nullable(Float64)"
+        ]
+      }
     }
   ]
 }

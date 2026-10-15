@@ -23,3 +23,11 @@ CSV 使用 UTF-8、逗号分隔，第一行为列名，SQL NULL 编码为 `\N`�
 这是为了执行用户已批准的跨引擎确定性规则，不在SQL里使用引擎默认round。T05b须用pandas从原始表独立实现规则，不能导入本构建器作为独立核对。
 
 Q40已按用户方案A及乘法公式替换历史0参考：仅31天同日汇率覆盖的部分金额，必须披露1065天缺失，不代表全期间总额。评分同时核验金额与覆盖声明；详见`audit/T04-closeout.md`。全部新改参考仍须T05b独立重算。
+
+## T05 新题草稿
+
+`questions/new.yaml`为Q101–Q122；`refs/new/`共24份，另含Q114/Q115端点解读。新题逐题带`rules`：`ordered`、`top_n`、`tie_columns`、`value_kinds`、`value_types`，清单逐参考保存同一规则。所有新题无排序/Top-N要求，`ordered=false`、`top_n=null`；CSV物理行序无判定效力。
+
+量纲只用显式声明；英文词表推断仅作交叉检查。Q101/1与Q102/2的amount/other告警是已解释的别名词表缺口，声明不会被推断覆盖；查询输出类型不符声明则直接报错。运行同一`build_refs.py`命令会覆盖外部100题与新题，`--check`严格验证全部CSV和清单。
+
+新题仍待用户在`audit/T05-review.md`审阅，端点多解、全零参考不自动视为获批。`audit/T05b-handoff.md`只列交接事项，不代表已跨厂商验证。

@@ -1,0 +1,29 @@
+category_a,category_b,intersection_orders,union_orders,jaccard_ratio
+Audio,Cameras and camcorders,0,16115,0
+Audio,Cell phones,0,16614,0
+Audio,Computers,0,18215,0
+Audio,Games and Toys,0,164187,0
+Audio,Home Appliances,0,38364,0
+Audio,"Music, Movies and Audio Books",0,14803,0
+Audio,TV and Video,0,39305,0
+Cameras and camcorders,Cell phones,0,6015,0
+Cameras and camcorders,Games and Toys,0,153588,0
+Cameras and camcorders,Home Appliances,0,27765,0
+Cameras and camcorders,"Music, Movies and Audio Books",0,4204,0
+Cell phones,Games and Toys,0,154087,0
+Cell phones,Home Appliances,0,28264,0
+Cell phones,"Music, Movies and Audio Books",0,4703,0
+Computers,Cameras and camcorders,0,7616,0
+Computers,Cell phones,0,8115,0
+Computers,Games and Toys,0,155688,0
+Computers,Home Appliances,0,29865,0
+Computers,"Music, Movies and Audio Books",0,6304,0
+Games and Toys,Home Appliances,0,175837,0
+"Music, Movies and Audio Books",Games and Toys,0,152276,0
+"Music, Movies and Audio Books",Home Appliances,0,26453,0
+TV and Video,Cameras and camcorders,0,28706,0
+TV and Video,Cell phones,0,29205,0
+TV and Video,Computers,0,30806,0
+TV and Video,Games and Toys,0,176778,0
+TV and Video,Home Appliances,0,50955,0
+TV and Video,"Music, Movies and Audio Books",0,27394,0

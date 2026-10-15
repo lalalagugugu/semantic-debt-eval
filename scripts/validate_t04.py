@@ -74,8 +74,9 @@ def main():
     manifest = json.loads((REPO / "refs/MANIFEST.json").read_text())
     assert manifest["chdb_version"] == version("chdb")
     refs = [ref for q in questions for ref in q["refs"]]
-    assert {ref["result_path"] for ref in refs} == {record["result_path"] for record in manifest["records"]}
-    for record in manifest["records"]:
+    cube_records = [record for record in manifest["records"] if record["result_path"].startswith("refs/cube/")]
+    assert {ref["result_path"] for ref in refs} == {record["result_path"] for record in cube_records}
+    for record in cube_records:
         path = REPO / record["result_path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == record["sha256"]
         with path.open(newline="") as stream:
