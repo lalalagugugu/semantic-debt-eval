@@ -1,0 +1,1844 @@
+{
+  "questions": [
+    {
+      "id": "Q01",
+      "source": "cube",
+      "text_en": "How many products are in the catalog?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count() FROM retail.DimProduct",
+          "result_path": "refs/cube/Q01-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q02",
+      "source": "cube",
+      "text_en": "What is the total sales amount from online sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales",
+          "result_path": "refs/cube/Q02-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q03",
+      "source": "cube",
+      "text_en": "How many unique customers have made online purchases?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count(DISTINCT CustomerKey) FROM retail.FactOnlineSales",
+          "result_path": "refs/cube/Q03-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q04",
+      "source": "cube",
+      "text_en": "List all products from the brand Contoso",
+      "text_zh": null,
+      "type": "维度查找",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT ProductName FROM retail.DimProduct WHERE BrandName = 'Contoso'",
+          "result_path": "refs/cube/Q04-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q05",
+      "source": "cube",
+      "text_en": "How many products are there in each product category?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pc.ProductCategoryName, count() as product_count FROM retail.DimProduct p JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+          "result_path": "refs/cube/Q05-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q06",
+      "source": "cube",
+      "text_en": "What were the total online sales in 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+          "result_path": "refs/cube/Q06-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q07",
+      "source": "cube",
+      "text_en": "What are the top 10 most expensive products by unit price?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT ProductName, UnitPrice FROM retail.DimProduct ORDER BY UnitPrice DESC LIMIT 10",
+          "result_path": "refs/cube/Q07-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q08",
+      "source": "cube",
+      "text_en": "List all employees who are sales people",
+      "text_zh": null,
+      "type": "维度查找",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT FirstName, LastName FROM retail.DimEmployee WHERE IsSalesPerson = 'Yes'",
+          "result_path": "refs/cube/Q08-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q09",
+      "source": "cube",
+      "text_en": "What is the average unit cost across all products?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT avg(UnitCost) FROM retail.DimProduct",
+          "result_path": "refs/cube/Q09-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q10",
+      "source": "cube",
+      "text_en": "How many stores are currently open?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "状态为 On",
+          "sql": "SELECT count() AS store_count FROM retail.DimStore WHERE Status = 'On'",
+          "result_path": "refs/cube/Q10-1.csv"
+        },
+        {
+          "interpretation": "关店日期为 SQL NULL",
+          "sql": "SELECT count() AS store_count FROM retail.DimStore WHERE CloseDate IS NULL",
+          "result_path": "refs/cube/Q10-2.csv"
+        },
+        {
+          "interpretation": "状态为 On 或关店日期为 SQL NULL",
+          "sql": "SELECT count() AS store_count FROM retail.DimStore WHERE Status = 'On' OR CloseDate IS NULL",
+          "result_path": "refs/cube/Q10-3.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "须声明营业判据。SQL NULL 与字符串占位值不等价；三个判据分别重算，不按结果预先合并。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q11",
+      "source": "cube",
+      "text_en": "Show total sales amount by product category",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC",
+          "result_path": "refs/cube/Q11-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q12",
+      "source": "cube",
+      "text_en": "What were the monthly online sales for 2008?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2008 GROUP BY month ORDER BY month",
+          "result_path": "refs/cube/Q12-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q13",
+      "source": "cube",
+      "text_en": "For each store, show total sales, average order value, and number of transactions",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "全渠道按门店统计；无订单号，按销售记录计算",
+          "sql": "SELECT s.StoreKey,s.StoreName,sum(f.SalesAmount) AS total_sales,avg(f.SalesAmount) AS avg_record_amount,count() AS record_count FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
+          "result_path": "refs/cube/Q13-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "须声明全渠道无订单号，按记录计算；不接受只用线上销售。StoreName 已核对唯一，以 StoreKey 保留实体标识。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q14",
+      "source": "cube",
+      "text_en": "Which customers have spent more than $10,000 in total?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "按 CustomerKey 匹配完整客户结果",
+          "sql": "SELECT c.CustomerKey,c.FirstName,c.LastName,sum(s.SalesAmount) AS total_spent FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.CustomerKey,c.FirstName,c.LastName HAVING sum(s.SalesAmount)>10000",
+          "result_path": "refs/cube/Q14-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "比对完整结果集，按 CustomerKey 匹配；不得使用公开100行截断作为真值。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q15",
+      "source": "cube",
+      "text_en": "What are the total online sales by country?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT g.RegionCountryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName ORDER BY total_sales DESC",
+          "result_path": "refs/cube/Q15-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q16",
+      "source": "cube",
+      "text_en": "Compare total online sales between 2008 and 2009",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toYear(DateKey) as year, sum(SalesAmount) as total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008, 2009) GROUP BY year ORDER BY year",
+          "result_path": "refs/cube/Q16-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q17",
+      "source": "cube",
+      "text_en": "What percentage of sales occur on weekends vs weekdays?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT d.IsWorkDay, sum(s.SalesAmount) as sales, round(sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales), 2) as percentage FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.IsWorkDay",
+          "result_path": "refs/cube/Q17-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q18",
+      "source": "cube",
+      "text_en": "What is the total discount amount given by each promotion type?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p.PromotionType, sum(s.DiscountAmount) as total_discount FROM retail.FactOnlineSales s JOIN retail.DimPromotion p ON s.PromotionKey = p.PromotionKey WHERE p.PromotionKey != 1 GROUP BY p.PromotionType",
+          "result_path": "refs/cube/Q18-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q19",
+      "source": "cube",
+      "text_en": "What is the average order value by customer gender?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "线上销售额除以去重订单数，按性别分组",
+          "sql": "SELECT c.Gender,sum(s.SalesAmount)/countDistinct(s.SalesOrderNumber) AS avg_order_amount FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.Gender",
+          "result_path": "refs/cube/Q19-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q20",
+      "source": "cube",
+      "text_en": "Which products currently have inventory below their safety stock level?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "每个门店×产品最近快照，列出低于安全库存的门店×产品",
+          "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey), current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date) SELECT i.StoreKey,s.StoreName,i.ProductKey,p.ProductName,i.OnHandQuantity,i.SafetyStockQuantity FROM current_stock i JOIN retail.DimStore s ON i.StoreKey=s.StoreKey JOIN retail.DimProduct p ON i.ProductKey=p.ProductKey WHERE i.OnHandQuantity<i.SafetyStockQuantity",
+          "result_path": "refs/cube/Q20-1.csv"
+        },
+        {
+          "interpretation": "每个门店×产品最近快照后按产品汇总",
+          "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey), current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date) SELECT i.ProductKey,p.ProductName,sum(i.OnHandQuantity) AS on_hand_units,sum(i.SafetyStockQuantity) AS safety_stock_units FROM current_stock i JOIN retail.DimProduct p ON i.ProductKey=p.ProductKey GROUP BY i.ProductKey,p.ProductName HAVING on_hand_units<safety_stock_units",
+          "result_path": "refs/cube/Q20-2.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "须声明输出层级；不接受全表最后一天快照。最近快照须按门店×产品取值。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q21",
+      "source": "cube",
+      "text_en": "What is the current inventory level for each product in each store?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH latest AS (SELECT StoreKey, ProductKey, MAX(DateKey) as max_date FROM retail.FactInventory GROUP BY StoreKey, ProductKey) SELECT s.StoreName, p.ProductName, i.OnHandQuantity FROM retail.FactInventory i JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date JOIN retail.DimStore s ON i.StoreKey = s.StoreKey JOIN retail.DimProduct p ON i.ProductKey = p.ProductKey",
+          "result_path": "refs/cube/Q21-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q22",
+      "source": "cube",
+      "text_en": "Rank the top 5 customers by total spend in each country",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH customer_sales AS (SELECT c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName, sum(s.SalesAmount) as total_spent, ROW_NUMBER() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(s.SalesAmount) DESC) as rn FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName) SELECT * FROM customer_sales WHERE rn <= 5",
+          "result_path": "refs/cube/Q22-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q23",
+      "source": "cube",
+      "text_en": "Show cumulative monthly sales for 2009",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales, sum(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey)) as cumulative_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+          "result_path": "refs/cube/Q23-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q24",
+      "source": "cube",
+      "text_en": "What is the return rate by product category?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+          "result_path": "refs/cube/Q24-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q25",
+      "source": "cube",
+      "text_en": "Which season has the highest average daily sales in North America?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT d.NorthAmericaSeason, avg(daily_sales) as avg_daily_sales FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales GROUP BY DateKey) s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
+          "result_path": "refs/cube/Q25-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q26",
+      "source": "cube",
+      "text_en": "How many customers made their first purchase in each quarter of 2007?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH first_purchase AS (SELECT CustomerKey, MIN(DateKey) as first_date FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT toQuarter(first_date) as quarter, count() as new_customers FROM first_purchase WHERE toYear(first_date) = 2007 GROUP BY quarter ORDER BY quarter",
+          "result_path": "refs/cube/Q26-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q27",
+      "source": "cube",
+      "text_en": "What are the top 10 products by profit margin percentage?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT ProductName, UnitPrice, UnitCost, round((UnitPrice - UnitCost) * 100.0 / nullIf(UnitPrice, 0), 2) as margin_pct FROM retail.DimProduct WHERE UnitPrice > 0 ORDER BY margin_pct DESC LIMIT 10",
+          "result_path": "refs/cube/Q27-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "前10名边界并列任一成员均可；参考保存完整边界并列组。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q28",
+      "source": "cube",
+      "text_en": "Compare average transaction value between Store and Online channels",
+      "text_zh": "在全渠道销售中，比较门店渠道和线上渠道的平均每条销售记录金额。",
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "全渠道销售按门店、线上渠道比较每条销售记录金额",
+          "sql": "SELECT c.ChannelName,avg(s.SalesAmount) AS avg_record_amount FROM retail.FactSales s JOIN retail.DimChannel c ON s.channelKey=c.ChannelKey WHERE c.ChannelName IN ('Store','Online') GROUP BY c.ChannelName",
+          "result_path": "refs/cube/Q28-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "已裁决改写：在全渠道销售中比较门店与线上渠道的平均每条销售记录金额。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q29",
+      "source": "cube",
+      "text_en": "What percentage more or less do we sell on holidays compared to regular days?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT round((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales, 2) as pct_difference FROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
+          "result_path": "refs/cube/Q29-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q30",
+      "source": "cube",
+      "text_en": "Calculate a 7-day moving average of daily online sales for December 2009",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT DateKey, daily_sales, avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as moving_avg_7d FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales WHERE DateKey >= '2009-12-01' AND DateKey <= '2009-12-31' GROUP BY DateKey) ORDER BY DateKey",
+          "result_path": "refs/cube/Q30-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q31",
+      "source": "cube",
+      "text_en": "Compare actual sales revenue to budget for each product category in 2009",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pc.ProductCategoryName, sum(CASE WHEN sp.ScenarioKey = 1 THEN sp.Amount ELSE 0 END) as actual, sum(CASE WHEN sp.ScenarioKey = 2 THEN sp.Amount ELSE 0 END) as budget FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey = pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey = a.AccountKey WHERE a.AccountName = 'Sale Revenue' AND toYear(sp.DateKey) = 2009 GROUP BY pc.ProductCategoryName",
+          "result_path": "refs/cube/Q31-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q32",
+      "source": "cube",
+      "text_en": "What is the total lifetime value for customers who made purchases in all 3 years?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count() as customer_count, sum(total_ltv) as total_ltv FROM (SELECT CustomerKey, sum(SalesAmount) as total_ltv FROM retail.FactOnlineSales GROUP BY CustomerKey HAVING count(DISTINCT toYear(DateKey)) = 3)",
+          "result_path": "refs/cube/Q32-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q33",
+      "source": "cube",
+      "text_en": "Which products are most frequently purchased together in the same order?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p1.ProductName as product1, p2.ProductName as product2, count() as times_together FROM retail.FactOnlineSales s1 JOIN retail.FactOnlineSales s2 ON s1.SalesOrderNumber = s2.SalesOrderNumber AND s1.ProductKey < s2.ProductKey JOIN retail.DimProduct p1 ON s1.ProductKey = p1.ProductKey JOIN retail.DimProduct p2 ON s2.ProductKey = p2.ProductKey GROUP BY p1.ProductName, p2.ProductName ORDER BY times_together DESC LIMIT 20",
+          "result_path": "refs/cube/Q33-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "统计类；公开参考超时，本地不设30秒限制。须交T05b独立重算。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q34",
+      "source": "cube",
+      "text_en": "Calculate inventory turnover ratio by product for 2009",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cogs AS (SELECT ProductKey, sum(TotalCost) as total_cogs FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey), avg_inv AS (SELECT ProductKey, avg(OnHandQuantity * UnitCost) as avg_inventory FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey) SELECT p.ProductName, c.total_cogs, a.avg_inventory, round(c.total_cogs / nullIf(a.avg_inventory, 0), 2) as turnover_ratio FROM cogs c JOIN avg_inv a ON c.ProductKey = a.ProductKey JOIN retail.DimProduct p ON c.ProductKey = p.ProductKey ORDER BY turnover_ratio DESC",
+          "result_path": "refs/cube/Q34-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q35",
+      "source": "cube",
+      "text_en": "List all employees and their manager's name",
+      "text_zh": null,
+      "type": "维度查找",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT e.FirstName, e.LastName, e.Title, m.FirstName as manager_first, m.LastName as manager_last FROM retail.DimEmployee e LEFT JOIN retail.DimEmployee m ON e.ParentEmployeeKey = m.EmployeeKey",
+          "result_path": "refs/cube/Q35-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q36",
+      "source": "cube",
+      "text_en": "Classify customers into Active, At Risk, and Churned based on recency",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN 'Active' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN 'At Risk' ELSE 'Churned' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+          "result_path": "refs/cube/Q36-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q37",
+      "source": "cube",
+      "text_en": "Show each store's total sales and its percentile rank",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, round(PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100, 2) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
+          "result_path": "refs/cube/Q37-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "使用全渠道销售，按门店计算百分位；小数和百分数等价，不接受只用线上销售。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q38",
+      "source": "cube",
+      "text_en": "How accurate were the sales forecasts compared to actuals for Q4 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as error_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
+          "result_path": "refs/cube/Q38-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q39",
+      "source": "cube",
+      "text_en": "Analyze if new product introductions affected existing product sales by subcategory",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "示例：2008–2009新品；首个新品上市前后等长窗口的老品日均线上销售",
+          "sql": "WITH introductions AS (SELECT toInt32(ProductSubcategoryKey) AS subcategory_key,min(toDate(AvailableForSaleDate)) AS introduction_date FROM retail.DimProduct WHERE toDate(AvailableForSaleDate) BETWEEN '2008-01-01' AND '2009-12-31' GROUP BY subcategory_key), windows AS (SELECT *,least(dateDiff('day',toDate('2007-01-01'),introduction_date),dateDiff('day',introduction_date,toDate('2010-01-01'))) AS window_days FROM introductions), old_sales AS (SELECT w.subcategory_key,w.introduction_date,w.window_days,sumIf(f.SalesAmount,f.DateKey<w.introduction_date) AS before_sales,sumIf(f.SalesAmount,f.DateKey>=w.introduction_date) AS after_sales FROM windows w JOIN retail.DimProduct p ON toInt32(p.ProductSubcategoryKey)=w.subcategory_key JOIN retail.FactOnlineSales f ON f.ProductKey=p.ProductKey WHERE toDate(p.AvailableForSaleDate)<w.introduction_date AND f.DateKey>=subtractDays(w.introduction_date,toInt32(w.window_days)) AND f.DateKey<addDays(w.introduction_date,toInt32(w.window_days)) GROUP BY w.subcategory_key,w.introduction_date,w.window_days) SELECT o.subcategory_key,ps.ProductSubcategoryName,o.introduction_date,o.window_days,o.before_sales/o.window_days AS before_daily_sales,o.after_sales/o.window_days AS after_daily_sales FROM old_sales o JOIN retail.DimProductSubcategory ps ON o.subcategory_key=ps.ProductSubcategoryKey",
+          "result_path": "refs/cube/Q39-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "开放式：新品为2008–2009上市；按子品类首个新品上市比较老品线上销售，日均或等长窗口均可。参考仅为示例，不强制示例窗口长度。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q40",
+      "source": "cube",
+      "text_en": "What would online sales have been in EUR using end-of-day exchange rates?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey AND s.CurrencyKey = er.CurrencyKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE c.CurrencyName = 'EUR'",
+          "result_path": "refs/cube/Q40-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q41",
+      "source": "cube",
+      "text_en": "What were last quarter's sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "-- Ambiguous: assuming last quarter of available data (Q4 2009)\nSELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE DateKey >= '2009-10-01' AND DateKey <= '2009-12-31'",
+          "result_path": "refs/cube/Q41-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q42",
+      "source": "cube",
+      "text_en": "How is the Cameras category performing?",
+      "text_zh": null,
+      "type": "开放式",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(sum(s.SalesAmount)) OVER (ORDER BY toYear(s.DateKey)) as yoy_change FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
+          "result_path": "refs/cube/Q42-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q43",
+      "source": "cube",
+      "text_en": "Show me the gross margin by region",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "按客户所在大洲的毛利",
+          "sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.ContinentName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.ContinentName",
+          "result_path": "refs/cube/Q43-1.csv"
+        },
+        {
+          "interpretation": "按客户所在国家的毛利",
+          "sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.RegionCountryName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName",
+          "result_path": "refs/cube/Q43-2.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "须声明大洲或国家；按客户所在地计算毛利。中文保留“按地区”。接受多解使本题不再测试地理粒度能力，但仍测试指标、来源与计算。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q44",
+      "source": "cube",
+      "text_en": "Are online sales growing?",
+      "text_zh": null,
+      "type": "开放式",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "-- Interpreting as year-over-year growth\nSELECT toYear(DateKey) as year, sum(SalesAmount) as sales, round((sum(SalesAmount) - lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey))) * 100.0 / lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey)), 2) as growth_pct FROM retail.FactOnlineSales GROUP BY year ORDER BY year",
+          "result_path": "refs/cube/Q44-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q45",
+      "source": "cube",
+      "text_en": "Which stores have the best sales per square foot?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC LIMIT 10",
+          "result_path": "refs/cube/Q45-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q46",
+      "source": "cube",
+      "text_en": "What's our most profitable customer segment?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "按学历，毛利最高的客户群体",
+          "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Education as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Education IS NOT NULL GROUP BY c.Education ORDER BY profit DESC LIMIT 1",
+          "result_path": "refs/cube/Q46-1.csv"
+        },
+        {
+          "interpretation": "按职业，毛利最高的客户群体",
+          "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Occupation as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Occupation IS NOT NULL GROUP BY c.Occupation ORDER BY profit DESC LIMIT 1",
+          "result_path": "refs/cube/Q46-2.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "可按学历或职业，须声明；按线上毛利最高的群体评价。示例结果不排除其他已声明且经裁决允许的参数。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q47",
+      "source": "cube",
+      "text_en": "What's the average machine downtime per store?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreName, avg(i.DownTime) as avg_downtime_minutes FROM retail.FactITSLA i JOIN retail.DimStore s ON i.StoreKey = s.StoreKey WHERE i.DownTime IS NOT NULL GROUP BY s.StoreKey, s.StoreName ORDER BY avg_downtime_minutes DESC",
+          "result_path": "refs/cube/Q47-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q48",
+      "source": "cube",
+      "text_en": "Is there a correlation between IT outages and sales performance?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "示例：声明停机总时长超过1000分钟分组，比较门店平均全渠道销售",
+          "sql": "-- Complex: comparing stores with high outages vs low outages\nWITH store_outages AS (SELECT StoreKey, count() as outage_count, sum(DownTime) as total_downtime FROM retail.FactITSLA GROUP BY StoreKey), store_sales AS (SELECT StoreKey, sum(SalesAmount) as total_sales FROM retail.FactSales GROUP BY StoreKey) SELECT CASE WHEN so.total_downtime > 1000 THEN 'High Downtime' ELSE 'Low Downtime' END as downtime_group, avg(ss.total_sales) as avg_sales, count() as store_count FROM store_outages so JOIN store_sales ss ON so.StoreKey = ss.StoreKey GROUP BY downtime_group",
+          "result_path": "refs/cube/Q48-1.csv"
+        },
+        {
+          "interpretation": "门店停机总时长与全渠道销售额的相关系数",
+          "sql": "WITH outages AS (SELECT StoreKey,sum(DownTime) AS downtime FROM retail.FactITSLA GROUP BY StoreKey), sales AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales GROUP BY StoreKey) SELECT corr(o.downtime,s.sales_amount) AS correlation FROM outages o JOIN sales s ON o.StoreKey=s.StoreKey",
+          "result_path": "refs/cube/Q48-2.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "可声明停机阈值比较各组门店平均全渠道销售，或计算门店层面相关系数；1000分钟只是示例参数。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q49",
+      "source": "cube",
+      "text_en": "Roll up sales to the entity hierarchy level",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "实际场景收入沿实体层级汇总，只列顶层实体",
+          "sql": "WITH RECURSIVE ancestry AS (SELECT EntityKey AS descendant_key,EntityKey AS ancestor_key,ParentEntityKey FROM retail.DimEntity UNION ALL SELECT a.descendant_key,e.EntityKey AS ancestor_key,e.ParentEntityKey FROM ancestry a JOIN retail.DimEntity e ON a.ParentEntityKey=e.EntityKey WHERE a.ancestor_key!=a.ParentEntityKey), amounts AS (SELECT sp.EntityKey,sum(sp.Amount) AS revenue FROM retail.FactStrategyPlan sp JOIN retail.DimAccount ac ON sp.AccountKey=ac.AccountKey WHERE sp.ScenarioKey=1 AND ac.AccountName='Sale Revenue' GROUP BY sp.EntityKey) SELECT e.EntityKey,e.EntityName,sum(m.revenue) AS total_amount FROM ancestry a JOIN amounts m ON a.descendant_key=m.EntityKey JOIN retail.DimEntity e ON a.ancestor_key=e.EntityKey WHERE e.ParentEntityKey=e.EntityKey GROUP BY e.EntityKey,e.EntityName",
+          "result_path": "refs/cube/Q49-1.csv"
+        },
+        {
+          "interpretation": "实际场景收入沿实体层级汇总，列出各级实体",
+          "sql": "WITH RECURSIVE ancestry AS (SELECT EntityKey AS descendant_key,EntityKey AS ancestor_key,ParentEntityKey FROM retail.DimEntity UNION ALL SELECT a.descendant_key,e.EntityKey AS ancestor_key,e.ParentEntityKey FROM ancestry a JOIN retail.DimEntity e ON a.ParentEntityKey=e.EntityKey WHERE a.ancestor_key!=a.ParentEntityKey), amounts AS (SELECT sp.EntityKey,sum(sp.Amount) AS revenue FROM retail.FactStrategyPlan sp JOIN retail.DimAccount ac ON sp.AccountKey=ac.AccountKey WHERE sp.ScenarioKey=1 AND ac.AccountName='Sale Revenue' GROUP BY sp.EntityKey) SELECT e.EntityKey,e.EntityName,sum(m.revenue) AS total_amount FROM ancestry a JOIN amounts m ON a.descendant_key=m.EntityKey JOIN retail.DimEntity e ON a.ancestor_key=e.EntityKey GROUP BY e.EntityKey,e.EntityName",
+          "result_path": "refs/cube/Q49-2.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "须声明只给顶层或逐层汇总；计划表实际场景、Sale Revenue；自指根节点终止递归。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q50",
+      "source": "cube",
+      "text_en": "What's the same-store sales growth comparing 2009 to 2008?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, round((s9.sales - s8.sales) * 100.0 / s8.sales, 2) as growth_pct FROM sales_2009 s9, sales_2008 s8",
+          "result_path": "refs/cube/Q50-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q51",
+      "source": "cube",
+      "text_en": "How many stores are there in total?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count(*) AS total_stores FROM retail.DimStore",
+          "result_path": "refs/cube/Q51-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q52",
+      "source": "cube",
+      "text_en": "What is the highest unit price in the product catalog?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT max(UnitPrice) AS max_unit_price FROM retail.DimProduct",
+          "result_path": "refs/cube/Q52-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q53",
+      "source": "cube",
+      "text_en": "How many online orders were placed in 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT countDistinct(SalesOrderNumber) AS total_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+          "result_path": "refs/cube/Q53-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q54",
+      "source": "cube",
+      "text_en": "What is the total return amount from online sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT sum(ReturnAmount) AS total_return_amount FROM retail.FactOnlineSales",
+          "result_path": "refs/cube/Q54-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q55",
+      "source": "cube",
+      "text_en": "How many female customers are in the database?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count(*) AS female_customers FROM retail.DimCustomer WHERE Gender = 'F'",
+          "result_path": "refs/cube/Q55-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q56",
+      "source": "cube",
+      "text_en": "What is the average yearly income of our customers?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT avg(YearlyIncome) AS avg_yearly_income FROM retail.DimCustomer",
+          "result_path": "refs/cube/Q56-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q57",
+      "source": "cube",
+      "text_en": "How many distinct product brands do we carry?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT countDistinct(BrandName) AS total_brands FROM retail.DimProduct",
+          "result_path": "refs/cube/Q57-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q58",
+      "source": "cube",
+      "text_en": "What was the largest single online sale amount ever recorded?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT max(SalesAmount) AS max_line_sales_amount FROM retail.FactOnlineSales",
+          "result_path": "refs/cube/Q58-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q59",
+      "source": "cube",
+      "text_en": "How many holidays are on the calendar?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count(*) AS holiday_days FROM retail.DimDate WHERE IsHoliday = 'Yes'",
+          "result_path": "refs/cube/Q59-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q60",
+      "source": "cube",
+      "text_en": "How many employees work in the Production department?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT count(*) AS production_employees FROM retail.DimEmployee WHERE DepartmentName = 'Production'",
+          "result_path": "refs/cube/Q60-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q61",
+      "source": "cube",
+      "text_en": "Which product subcategories generated more than $1 million in online sales in 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC",
+          "result_path": "refs/cube/Q61-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q62",
+      "source": "cube",
+      "text_en": "For each product brand, show total online revenue and units sold in 2008, listing only brands with at least 500 units.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p.BrandName, sum(f.SalesAmount) AS revenue, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey WHERE toYear(f.DateKey) = 2008 GROUP BY p.BrandName HAVING units >= 500 ORDER BY revenue DESC",
+          "result_path": "refs/cube/Q62-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q63",
+      "source": "cube",
+      "text_en": "What is the average online order value by customer occupation?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT c.Occupation, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS avg_order_value, countDistinct(f.SalesOrderNumber) AS orders FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey GROUP BY c.Occupation ORDER BY avg_order_value DESC",
+          "result_path": "refs/cube/Q63-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q64",
+      "source": "cube",
+      "text_en": "Show monthly online gross margin dollars and margin percent for 2009.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toMonth(DateKey) AS month, sum(SalesAmount) - sum(TotalCost) AS gross_margin, (sum(SalesAmount) - sum(TotalCost)) * 100.0 / nullif(sum(SalesAmount), 0) AS margin_pct FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+          "result_path": "refs/cube/Q64-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q65",
+      "source": "cube",
+      "text_en": "Which store managers run stores with more than $5M in total all-channel sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreManager, s.StoreName, sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreManager, s.StoreName HAVING total_sales > 5000000 ORDER BY total_sales DESC LIMIT 50",
+          "result_path": "refs/cube/Q65-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q66",
+      "source": "cube",
+      "text_en": "What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toQuarter(DateKey) AS quarter, sum(DiscountAmount) AS total_discount, countDistinct(SalesOrderNumber) AS discounted_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 AND PromotionKey <> 1 GROUP BY quarter ORDER BY quarter",
+          "result_path": "refs/cube/Q66-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q67",
+      "source": "cube",
+      "text_en": "Which product colors have the highest average online unit price realized, among colors with at least 1000 units sold?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC LIMIT 20",
+          "result_path": "refs/cube/Q67-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q68",
+      "source": "cube",
+      "text_en": "How many online orders were placed on holidays vs non-holidays in 2009, and the revenue for each?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT d.IsHoliday, countDistinct(f.SalesOrderNumber) AS orders, sum(f.SalesAmount) AS revenue FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey WHERE toYear(f.DateKey) = 2009 GROUP BY d.IsHoliday",
+          "result_path": "refs/cube/Q68-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q69",
+      "source": "cube",
+      "text_en": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
+          "result_path": "refs/cube/Q69-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q70",
+      "source": "cube",
+      "text_en": "For each store type, what are the total all-channel sales and average selling area size?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreType, sum(f.SalesAmount) AS revenue, avg(s.SellingAreaSize) AS avg_area, countDistinct(f.StoreKey) AS stores FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
+          "result_path": "refs/cube/Q70-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q71",
+      "source": "cube",
+      "text_en": "For each product category, which subcategory had the highest online sales in 2009, and what was that amount?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n  JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked WHERE rn = 1\nORDER BY sales_amount DESC",
+          "result_path": "refs/cube/Q71-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q72",
+      "source": "cube",
+      "text_en": "Show the running cumulative total of online sales by quarter across 2007-2009.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT toYear(DateKey) AS year, toQuarter(DateKey) AS quarter,\n       round(sum(SalesAmount), 2) AS quarterly_sales,\n       round(sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), 2) AS cumulative_sales\nFROM retail.FactOnlineSales\nGROUP BY year, quarter\nORDER BY year, quarter",
+          "result_path": "refs/cube/Q72-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q73",
+      "source": "cube",
+      "text_en": "Which 10 products have the largest gap between their current on-hand inventory and safety stock level?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nJOIN retail.DimProduct p ON i.ProductKey = p.ProductKey\nGROUP BY p.ProductName\nORDER BY gap DESC\nLIMIT 10",
+          "result_path": "refs/cube/Q73-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q74",
+      "source": "cube",
+      "text_en": "For each store, rank the top 3 products by sales in 2009 and show each product's share of the store's total.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH prod_store AS (\n  SELECT f.StoreKey, f.ProductKey, sum(f.SalesAmount) AS sales\n  FROM retail.FactOnlineSales f\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY f.StoreKey, f.ProductKey\n),\nranked AS (\n  SELECT StoreKey, ProductKey, sales,\n         row_number() OVER (PARTITION BY StoreKey ORDER BY sales DESC) AS rn,\n         sum(sales) OVER (PARTITION BY StoreKey) AS store_total\n  FROM prod_store\n)\nSELECT s.StoreName, p.ProductName, round(r.sales, 2) AS product_sales,\n       round(r.sales * 100.0 / nullif(r.store_total, 0), 2) AS pct_of_store\nFROM ranked r\nJOIN retail.DimStore s ON r.StoreKey = s.StoreKey\nJOIN retail.DimProduct p ON r.ProductKey = p.ProductKey\nWHERE r.rn <= 3\nORDER BY s.StoreName, r.rn\nLIMIT 50",
+          "result_path": "refs/cube/Q74-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q75",
+      "source": "cube",
+      "text_en": "Which customers increased their spending by more than 50% from 2008 to 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY pct_growth DESC\nLIMIT 25",
+          "result_path": "refs/cube/Q75-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q76",
+      "source": "cube",
+      "text_en": "For each product category, what percentage of total online sales came from repeat customers (customers with 2+ orders)?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       round(sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0), 2) AS pct_repeat_customer_sales\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY pct_repeat_customer_sales DESC",
+          "result_path": "refs/cube/Q76-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q77",
+      "source": "cube",
+      "text_en": "For each month in 2009, what is the month-over-month growth rate of online sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH monthly AS (\n  SELECT toMonth(DateKey) AS month, sum(SalesAmount) AS sales\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY month\n)\nSELECT month,\n       round(sales, 2) AS sales,\n       round(lagInFrame(sales) OVER (ORDER BY month), 2) AS prev_month_sales,\n       round((sales - lagInFrame(sales) OVER (ORDER BY month)) * 100.0 / nullif(lagInFrame(sales) OVER (ORDER BY month), 0), 2) AS mom_growth_pct\nFROM monthly\nORDER BY month",
+          "result_path": "refs/cube/Q77-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q78",
+      "source": "cube",
+      "text_en": "Rank promotion categories by total discount amount given in 2009, and show each one's share of all discounts.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       round(disc, 2) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       round(disc * 100.0 / nullif(sum(disc) OVER (), 0), 2) AS pct_of_total\nFROM promo\nORDER BY rnk",
+          "result_path": "refs/cube/Q78-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q79",
+      "source": "cube",
+      "text_en": "Which 10 stores had the highest sales-to-quota attainment in 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "预算场景目标达成率，取前10名并保留边界并列",
+          "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       round(a.actual_sales, 2) AS actual_sales,\n       round(q.quota, 2) AS quota,\n       round(a.actual_sales * 100.0 / nullif(q.quota, 0), 2) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
+          "result_path": "refs/cube/Q79-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "全渠道实际/预算场景目标；完整边界并列按统一量化规则处理。T06冻结前复核确定性。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q80",
+      "source": "cube",
+      "text_en": "For each country, what is the average days between a customer's first and most recent purchase?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nWHERE cust.first_d != cust.last_d\nGROUP BY country\nORDER BY avg_active_days DESC\nLIMIT 20",
+          "result_path": "refs/cube/Q80-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q81",
+      "source": "cube",
+      "text_en": "Compute the average customer lifetime value broken down by the year each customer first made a purchase, and include how many customers fall into each cohort.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       round(avg(lifetime_spend), 2) AS avg_ltv,\n       round(sum(lifetime_spend), 2) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
+          "result_path": "refs/cube/Q81-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q82",
+      "source": "cube",
+      "text_en": "For each manager with direct reports, show how many people they manage and the average hire tenure of their team in years.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('year', toDate(HireDate), toDate('2009-12-31'))) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name\nLIMIT 25",
+          "result_path": "refs/cube/Q82-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q83",
+      "source": "cube",
+      "text_en": "Show the year-over-year retention: of customers who first bought in 2007, how many came back in 2008, and of those how many came back again in 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH first_yr AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS first_year\n  FROM retail.FactOnlineSales GROUP BY CustomerKey\n),\ncohort_2007 AS (\n  SELECT CustomerKey FROM first_yr WHERE first_year = 2007\n),\nactive AS (\n  SELECT CustomerKey, toYear(DateKey) AS y\n  FROM retail.FactOnlineSales\n  WHERE CustomerKey IN (SELECT CustomerKey FROM cohort_2007)\n  GROUP BY CustomerKey, y\n)\nSELECT (SELECT count() FROM cohort_2007) AS cohort_size_2007,\n       countDistinctIf(CustomerKey, y = 2008) AS returned_2008,\n       round(countDistinctIf(CustomerKey, y = 2008) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2008_pct,\n       countDistinctIf(CustomerKey, y = 2008 AND CustomerKey IN (\n           SELECT CustomerKey FROM active WHERE y = 2009\n       )) AS returned_2008_and_2009,\n       round(countDistinctIf(CustomerKey, y = 2009) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2009_pct\nFROM active",
+          "result_path": "refs/cube/Q83-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q84",
+      "source": "cube",
+      "text_en": "Perform ABC analysis on products for 2009: identify the 'A' products (top 80% of revenue), 'B' (next 15%), and 'C' (remaining 5%), and report how many products fall in each class.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH prod_rev AS (\n  SELECT ProductKey, SUM(SalesAmount) AS rev\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY ProductKey\n),\nranked AS (\n  SELECT ProductKey, rev,\n         SUM(rev) OVER (ORDER BY rev DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum_rev,\n         SUM(rev) OVER () AS total_rev\n  FROM prod_rev\n),\nclassed AS (\n  SELECT ProductKey,\n         CASE WHEN cum_rev / total_rev <= 0.80 THEN 'A'\n              WHEN cum_rev / total_rev <= 0.95 THEN 'B'\n              ELSE 'C' END AS abc_class,\n         rev\n  FROM ranked\n)\nSELECT abc_class,\n       count() AS product_count,\n       round(sum(rev), 2) AS revenue,\n       round(sum(rev) * 100.0 / (SELECT sum(rev) FROM prod_rev), 2) AS pct_of_revenue\nFROM classed\nGROUP BY abc_class\nORDER BY abc_class",
+          "result_path": "refs/cube/Q84-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q85",
+      "source": "cube",
+      "text_en": "Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC LIMIT 5)\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC LIMIT 5)\n) ORDER BY bucket, attainment_pct DESC",
+          "result_path": "refs/cube/Q85-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "保留原参考SQL；上下边界存在并列，T06冻结前须处理可复现完整边界，当前结果不得直接冻结。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q86",
+      "source": "cube",
+      "text_en": "Analyze the relationship between discount depth and sales volume: for each product subcategory, show the correlation between promotion discount percent and sales quantity in 2009.",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  JOIN retail.DimProduct dp ON dp.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC\nLIMIT 20",
+          "result_path": "refs/cube/Q86-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "须声明是否含无折扣、样本下限和前N；按子品类计算折扣百分比与销量相关系数；现有参考是示例而非唯一判据。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q87",
+      "source": "cube",
+      "text_en": "Calculate days-of-inventory-coverage per product: current on-hand quantity divided by average daily sales quantity in the last 90 days of 2009. Show the 20 products with the lowest coverage.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / 90.0 AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT p.ProductName,\n       c.on_hand,\n       round(r.avg_daily_qty, 2) AS avg_daily_qty,\n       round(c.on_hand / r.avg_daily_qty, 1) AS days_of_coverage\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nJOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
+          "result_path": "refs/cube/Q87-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q88",
+      "source": "cube",
+      "text_en": "Identify loyal customers who made at least one purchase in every quarter of 2009, and show their total spend ranked highest to lowest (top 20).",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cust_q AS (\n  SELECT CustomerKey, toQuarter(DateKey) AS q\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY CustomerKey, q\n),\nloyal AS (\n  SELECT CustomerKey\n  FROM cust_q GROUP BY CustomerKey HAVING count(distinct q) = 4\n),\nspend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS spend_2009\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009 AND CustomerKey IN (SELECT CustomerKey FROM loyal)\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       round(s.spend_2009, 2) AS total_spend_2009\nFROM spend s\nJOIN retail.DimCustomer c ON c.CustomerKey = s.CustomerKey\nORDER BY s.spend_2009 DESC\nLIMIT 20",
+          "result_path": "refs/cube/Q88-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "保留原参考SQL，重算时扩展并按统一量化判定完整边界；T06冻结前核对。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q89",
+      "source": "cube",
+      "text_en": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n           ELSE 'Churned'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       round(avg(total_spend), 2) AS avg_spend,\n       round(avg(distinct_products), 1) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN 'Active' THEN 1 WHEN 'At Risk' THEN 2 ELSE 3 END",
+          "result_path": "refs/cube/Q89-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q90",
+      "source": "cube",
+      "text_en": "Compute the gross margin percentage trend by product category across 2007, 2008, and 2009 and show the year-over-year change in margin in percentage points.",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimProduct p ON p.ProductKey = fos.ProductKey\n  JOIN retail.DimProductSubcategory psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
+          "result_path": "refs/cube/Q90-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q91",
+      "source": "cube",
+      "text_en": "Is there a relationship between a customer's yearly income and how much they spend online?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT corr(c.YearlyIncome, cust_spend.total_spend) AS income_spend_correlation,\n       count() AS customers_analyzed\nFROM (\n  SELECT CustomerKey, sum(SalesAmount) AS total_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n) cust_spend\nJOIN retail.DimCustomer c ON c.CustomerKey = cust_spend.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
+          "result_path": "refs/cube/Q91-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "统计关系由宽松裁判结合参考结果评价。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q92",
+      "source": "cube",
+      "text_en": "Which product brands were our most profitable last quarter?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC\nLIMIT 10",
+          "result_path": "refs/cube/Q92-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q93",
+      "source": "cube",
+      "text_en": "Is there evidence of price elasticity — do bigger discount percentages actually move more units across our promotions?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH promo_stats AS (\n  SELECT f.PromotionKey,\n         dp.DiscountPercent,\n         sum(f.SalesQuantity) AS units_sold,\n         sum(f.SalesAmount) AS revenue\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion dp ON dp.PromotionKey = f.PromotionKey\n  WHERE f.PromotionKey <> 1 AND dp.DiscountPercent IS NOT NULL\n  GROUP BY f.PromotionKey, dp.DiscountPercent\n)\nSELECT corr(DiscountPercent, units_sold) AS discount_qty_correlation,\n       corr(DiscountPercent, revenue) AS discount_revenue_correlation,\n       count() AS promos_analyzed\nFROM promo_stats",
+          "result_path": "refs/cube/Q93-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "统计题：需要相关关系或价格弹性证据，不能只给明细；相关性不证明因果。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q94",
+      "source": "cube",
+      "text_en": "Which of our stores look like they're losing momentum going into year-end — sales trending down from Q3 to Q4 2009?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC\nLIMIT 20",
+          "result_path": "refs/cube/Q94-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q95",
+      "source": "cube",
+      "text_en": "How much incremental revenue do our promotions actually drive per product category compared to what we sell at full price?",
+      "text_zh": null,
+      "type": "开放式",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nJOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC",
+          "result_path": "refs/cube/Q95-1.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q96",
+      "source": "cube",
+      "text_en": "For each yearly customer cohort, what fraction actually came back and bought again in a later year?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH first_year AS (\n  SELECT CustomerKey, toYear(min(DateKey)) AS first_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nyears_active AS (\n  SELECT CustomerKey, countDistinct(toYear(DateKey)) AS years_with_activity\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT fy.first_year AS cohort_year,\n       count() AS cohort_size,\n       countIf(ya.years_with_activity > 1) AS returning_customers,\n       countIf(ya.years_with_activity > 1) * 100.0 / count() AS retention_pct\nFROM first_year fy\nJOIN years_active ya ON ya.CustomerKey = fy.CustomerKey\nGROUP BY fy.first_year\nORDER BY cohort_year",
+          "result_path": "refs/cube/Q96-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q97",
+      "source": "cube",
+      "text_en": "Which products had the biggest second-half comeback in 2009 — meaning H2 sales dramatically exceeded H1?",
+      "text_zh": null,
+      "type": "统计",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
+          "result_path": "refs/cube/Q97-1.csv"
+        },
+        {
+          "interpretation": "示例：按H2较H1的增加额排序，取前15名，不设H1下限",
+          "sql": "SELECT p.ProductKey,p.ProductName,sumIf(f.SalesAmount,toMonth(f.DateKey)<=6) AS h1_sales,sumIf(f.SalesAmount,toMonth(f.DateKey)>=7) AS h2_sales,h2_sales-h1_sales AS sales_increase FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey WHERE toYear(f.DateKey)=2009 GROUP BY p.ProductKey,p.ProductName HAVING sales_increase>0 ORDER BY sales_increase DESC LIMIT 15",
+          "result_path": "refs/cube/Q97-2.csv"
+        }
+      ],
+      "scoring": "judge",
+      "scoring_notes": "可按H2相对H1增幅或增加额排名；须声明前N和H1下限；原SQL参数仅为示例。",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q98",
+      "source": "cube",
+      "text_en": "Which product categories depend most heavily on a single quarter for their annual sales?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n)\nSELECT ProductCategoryName,\n       max(q_sales) / sum(q_sales) * 100 AS peak_quarter_share_pct,\n       argMax(q, q_sales) AS peak_quarter\nFROM cat_q\nGROUP BY ProductCategoryName\nORDER BY peak_quarter_share_pct DESC",
+          "result_path": "refs/cube/Q98-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q99",
+      "source": "cube",
+      "text_en": "For each product category, how much bigger is an average weekend day compared to an average weekday?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC",
+          "result_path": "refs/cube/Q99-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    },
+    {
+      "id": "Q100",
+      "source": "cube",
+      "text_en": "Who are our true power customers — people who are both in the top 10% by order count AND top 10% by average order size?",
+      "text_zh": null,
+      "type": "指标分析",
+      "refs": [
+        {
+          "interpretation": "原参考解读",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey,\n         countDistinct(SalesOrderNumber) AS orders,\n         sum(SalesAmount) / nullif(countDistinct(SalesOrderNumber), 0) AS aov\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nthresholds AS (\n  SELECT quantile(0.9)(orders) AS orders_p90,\n         quantile(0.9)(aov) AS aov_p90\n  FROM cust\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       cu.orders,\n       cu.aov,\n       cu.orders * cu.aov AS lifetime_value\nFROM cust cu\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer c ON c.CustomerKey = cu.CustomerKey\nWHERE cu.orders >= t.orders_p90 AND cu.aov >= t.aov_p90\nORDER BY lifetime_value DESC\nLIMIT 30",
+          "result_path": "refs/cube/Q100-1.csv"
+        }
+      ],
+      "scoring": "deterministic",
+      "scoring_notes": "",
+      "labels": {},
+      "split": null
+    }
+  ]
+}
