@@ -4,7 +4,7 @@
       "id": "Q01",
       "source": "cube",
       "text_en": "How many products are in the catalog?",
-      "text_zh": null,
+      "text_zh": "产品目录中共有多少种产品？",
       "type": "指标分析",
       "refs": [
         {
@@ -15,14 +15,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "产品目录的实体粒度与产品键；直接计数。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q02",
       "source": "cube",
       "text_en": "What is the total sales amount from online sales?",
-      "text_zh": null,
+      "text_zh": "线上销售额合计是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -33,14 +49,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "题干已明确线上，查线上事实表销售金额并求和，无额外业务默认。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q03",
       "source": "cube",
       "text_en": "How many unique customers have made online purchases?",
-      "text_zh": null,
+      "text_zh": "有多少位客户在线上购买过商品？",
       "type": "指标分析",
       "refs": [
         {
@@ -51,14 +83,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "题干明确线上，客户键去重与客户/订单/记录粒度可由结构探查。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q04",
       "source": "cube",
       "text_en": "List all products from the brand Contoso",
-      "text_zh": null,
+      "text_zh": "列出 Contoso 品牌的所有产品。",
       "type": "维度查找",
       "refs": [
         {
@@ -69,14 +117,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "品牌枚举Contoso与产品名称字段。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q05",
       "source": "cube",
       "text_en": "How many products are there in each product category?",
-      "text_zh": null,
+      "text_zh": "各产品品类分别有多少种产品？",
       "type": "指标分析",
       "refs": [
         {
@@ -87,14 +152,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "产品→子品类→品类的连接路径及唯一键。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q06",
       "source": "cube",
       "text_en": "What were the total online sales in 2009?",
-      "text_zh": null,
+      "text_zh": "2009 年的线上销售额是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -105,14 +187,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "题干明确线上及2009，销售额字段和日期取值。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q07",
       "source": "cube",
       "text_en": "What are the top 10 most expensive products by unit price?",
-      "text_zh": null,
+      "text_zh": "按产品单价，最贵的前 10 款产品是哪些？",
       "type": "指标分析",
       "refs": [
         {
@@ -123,14 +222,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "题干明确按单价；产品目录UnitPrice字段和Top-10并列。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q08",
       "source": "cube",
       "text_en": "List all employees who are sales people",
-      "text_zh": null,
+      "text_zh": "列出所有销售人员。",
       "type": "维度查找",
       "refs": [
         {
@@ -141,14 +256,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "销售人员标志的Yes枚举，而非职位名称猜测。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q09",
       "source": "cube",
       "text_en": "What is the average unit cost across all products?",
-      "text_zh": null,
+      "text_zh": "所有产品的平均单位成本是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -159,14 +291,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "产品单位成本字段与空值处理。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q10",
       "source": "cube",
       "text_en": "How many stores are currently open?",
-      "text_zh": null,
+      "text_zh": "目前有多少家门店在营业？",
       "type": "指标分析",
       "refs": [
         {
@@ -187,14 +335,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "须声明营业判据。SQL NULL 与字符串占位值不等价；三个判据分别重算，不按结果预先合并。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "营业状态On、CloseDate未来占位日期2090-12-31及SQL NULL均可探查；三种接受判据结果不同。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q11",
       "source": "cube",
       "text_en": "Show total sales amount by product category",
-      "text_zh": null,
+      "text_zh": "按产品品类汇总销售额。",
       "type": "指标分析",
       "refs": [
         {
@@ -205,14 +369,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "未说明渠道默认线上；品类连接路径。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q12",
       "source": "cube",
       "text_en": "What were the monthly online sales for 2008?",
-      "text_zh": null,
+      "text_zh": "2008 年各月的线上销售额分别是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -223,14 +405,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上和2008；日期按月分组。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q13",
       "source": "cube",
       "text_en": "For each store, show total sales, average order value, and number of transactions",
-      "text_zh": null,
+      "text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
       "type": "指标分析",
       "refs": [
         {
@@ -241,14 +440,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "须声明全渠道无订单号，按记录计算；不接受只用线上销售。StoreName 已核对唯一，以 StoreKey 保留实体标识。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店问题用全渠道；全渠道无订单号，须声明以销售记录代替订单。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q14",
       "source": "cube",
       "text_en": "Which customers have spent more than $10,000 in total?",
-      "text_zh": null,
+      "text_zh": "哪些客户的累计消费超过 1 万美元？",
       "type": "指标分析",
       "refs": [
         {
@@ -259,14 +476,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "比对完整结果集，按 CustomerKey 匹配；不得使用公开100行截断作为真值。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "未说明渠道默认线上；按CustomerKey累计并匹配完整客户结果。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q15",
       "source": "cube",
       "text_en": "What are the total online sales by country?",
-      "text_zh": null,
+      "text_zh": "各国家的线上销售额是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -277,14 +512,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "关联路径",
+          "items": [
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "明确线上；国家按客户所在地，不按门店所在地（约定5）。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q16",
       "source": "cube",
       "text_en": "Compare total online sales between 2008 and 2009",
-      "text_zh": null,
+      "text_zh": "比较 2008 年和 2009 年的线上销售总额。",
       "type": "指标分析",
       "refs": [
         {
@@ -295,14 +547,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上及两个年份；日期分组。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q17",
       "source": "cube",
       "text_en": "What percentage of sales occur on weekends vs weekdays?",
-      "text_zh": null,
+      "text_zh": "周末和工作日的销售分别占多少比例？",
       "type": "指标分析",
       "refs": [
         {
@@ -313,14 +582,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "未说明渠道默认线上；日类型比较是否要求日均待裁决，不能由参考物理结果替代口径。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q18",
       "source": "cube",
       "text_en": "What is the total discount amount given by each promotion type?",
-      "text_zh": null,
+      "text_zh": "各促销类型累计提供了多少折扣金额？",
       "type": "指标分析",
       "refs": [
         {
@@ -331,14 +618,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；促销键1无折扣须排除；促销类型枚举。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q19",
       "source": "cube",
       "text_en": "What is the average order value by customer gender?",
-      "text_zh": null,
+      "text_zh": "不同性别客户的客单价分别是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -349,14 +654,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "客单价=销售额÷去重订单数；默认线上，性别维度。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q20",
       "source": "cube",
       "text_en": "Which products currently have inventory below their safety stock level?",
-      "text_zh": null,
+      "text_zh": "哪些产品目前的库存低于安全库存水平？",
       "type": "指标分析",
       "refs": [
         {
@@ -372,14 +695,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "须声明输出层级；不接受全表最后一天快照。最近快照须按门店×产品取值。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "库存快照不能跨日期累加，当前取每个门店×产品最近快照；输出层级须声明。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q21",
       "source": "cube",
       "text_en": "What is the current inventory level for each product in each store?",
-      "text_zh": null,
+      "text_zh": "各门店每种产品目前的库存是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -390,14 +732,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "当前库存按每个门店×产品最近快照，不取全表最大日。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q22",
       "source": "cube",
       "text_en": "Rank the top 5 customers by total spend in each country",
-      "text_zh": null,
+      "text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
       "type": "指标分析",
       "refs": [
         {
@@ -408,14 +768,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；国家按客户所在地；国家内客户排名与边界。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q23",
       "source": "cube",
       "text_en": "Show cumulative monthly sales for 2009",
-      "text_zh": null,
+      "text_zh": "展示 2009 年逐月累计销售额。",
       "type": "指标分析",
       "refs": [
         {
@@ -426,14 +805,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；2009月销售后累计，不能直接累积销售行。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q24",
       "source": "cube",
       "text_en": "What is the return rate by product category?",
-      "text_zh": null,
+      "text_zh": "各产品品类的退货率是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -444,14 +841,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "退货率=退货数量÷销售数量；默认线上。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q25",
       "source": "cube",
       "text_en": "Which season has the highest average daily sales in North America?",
-      "text_zh": null,
+      "text_zh": "在北美，哪个季节的日均销售额最高？",
       "type": "指标分析",
       "refs": [
         {
@@ -462,14 +877,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "不同类型日子比较用日均；北美地域过滤与季节标签含义待裁决。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q26",
       "source": "cube",
       "text_en": "How many customers made their first purchase in each quarter of 2007?",
-      "text_zh": null,
+      "text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
       "type": "指标分析",
       "refs": [
         {
@@ -480,14 +913,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "首次购买按客户全历史最小日期，再筛2007分季度。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q27",
       "source": "cube",
       "text_en": "What are the top 10 products by profit margin percentage?",
-      "text_zh": null,
+      "text_zh": "按利润率排名，前 10 款产品是哪些？",
       "type": "指标分析",
       "refs": [
         {
@@ -498,7 +949,26 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "前10名边界并列任一成员均可；参考保存完整边界并列组。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "组合增长累计占比排名",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "产品利润率使用目录标价和成本；边界并列任一。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
@@ -516,14 +986,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "已裁决改写：在全渠道销售中比较门店与线上渠道的平均每条销售记录金额。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "全渠道销售门店/线上渠道；两边统一按销售记录而非订单计算。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q29",
       "source": "cube",
       "text_en": "What percentage more or less do we sell on holidays compared to regular days?",
-      "text_zh": null,
+      "text_zh": "节假日相比普通日，销售多或少了百分之多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -534,14 +1023,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "节假日/普通日按日均比较；默认线上；IsHoliday枚举。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q30",
       "source": "cube",
       "text_en": "Calculate a 7-day moving average of daily online sales for December 2009",
-      "text_zh": null,
+      "text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
       "type": "指标分析",
       "refs": [
         {
@@ -552,14 +1060,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上和时间范围；先按日求和再做7行窗口；12月首几日窗口截短。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q31",
       "source": "cube",
       "text_en": "Compare actual sales revenue to budget for each product category in 2009",
-      "text_zh": null,
+      "text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
       "type": "指标分析",
       "refs": [
         {
@@ -570,14 +1095,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "计划表收入科目Sale Revenue、实际/预算场景含义及品类粒度。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q32",
       "source": "cube",
       "text_en": "What is the total lifetime value for customers who made purchases in all 3 years?",
-      "text_zh": null,
+      "text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -588,14 +1132,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；终身消费价值是全历史销售额，筛选三个年份均有购买的客户。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q33",
       "source": "cube",
       "text_en": "Which products are most frequently purchased together in the same order?",
-      "text_zh": null,
+      "text_zh": "同一订单中，哪些产品最常被一起购买？",
       "type": "统计",
       "refs": [
         {
@@ -606,14 +1168,32 @@
       ],
       "scoring": "judge",
       "scoring_notes": "统计类；公开参考超时，本地不设30秒限制。须交T05b独立重算。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "超出查询语言",
+          "items": [
+            "超出查询语言",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "订单号对应线上订单；同订单产品对的计数粒度及自连接去重。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q34",
       "source": "cube",
       "text_en": "Calculate inventory turnover ratio by product for 2009",
-      "text_zh": null,
+      "text_zh": "计算 2009 年各产品的库存周转率。",
       "type": "指标分析",
       "refs": [
         {
@@ -624,14 +1204,34 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "库存快照半可加；周转率的销售成本/平均库存金额口径和日期对齐。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q35",
       "source": "cube",
       "text_en": "List all employees and their manager's name",
-      "text_zh": null,
+      "text_zh": "列出所有员工及其上级经理的姓名。",
       "type": "维度查找",
       "refs": [
         {
@@ -642,14 +1242,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "关联路径",
+          "items": [
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "员工父键到经理的自连接及空值表示。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q36",
       "source": "cube",
       "text_en": "Classify customers into Active, At Risk, and Churned based on recency",
-      "text_zh": null,
+      "text_zh": "根据距最近一次购买的时间，将客户划分为活跃、有流失风险和已流失。",
       "type": "指标分析",
       "refs": [
         {
@@ -660,14 +1276,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "截至2009-12-31，按月数<=6、7–12、>12三档；默认线上购买历史。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q37",
       "source": "cube",
       "text_en": "Show each store's total sales and its percentile rank",
-      "text_zh": null,
+      "text_zh": "展示各门店的销售总额及其百分位排名。",
       "type": "指标分析",
       "refs": [
         {
@@ -678,14 +1311,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "使用全渠道销售，按门店计算百分位；小数和百分数等价，不接受只用线上销售。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店用全渠道；百分位排序，小数/百分数等价。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q38",
       "source": "cube",
       "text_en": "How accurate were the sales forecasts compared to actuals for Q4 2009?",
-      "text_zh": null,
+      "text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
       "type": "指标分析",
       "refs": [
         {
@@ -696,15 +1347,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "计划实际/预测场景及收入科目；相同期间和品类对齐。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q39",
       "source": "cube",
       "text_en": "Analyze if new product introductions affected existing product sales by subcategory",
-      "text_zh": null,
-      "type": "统计",
+      "text_zh": "按子品类分析，新产品上市是否影响了老产品的销售？",
+      "type": "开放式",
       "refs": [
         {
           "interpretation": "示例：2008–2009新品；首个新品上市前后等长窗口的老品日均线上销售",
@@ -714,14 +1385,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "开放式：新品为2008–2009上市；按子品类首个新品上市比较老品线上销售，日均或等长窗口均可。参考仅为示例，不强制示例窗口长度。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "新品2008–2009上市；同子品类老产品的可比前后窗口，须声明方法。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q40",
       "source": "cube",
       "text_en": "What would online sales have been in EUR using end-of-day exchange rates?",
-      "text_zh": null,
+      "text_zh": "如果采用每日收盘汇率折算，线上销售额相当于多少欧元？",
       "type": "指标分析",
       "refs": [
         {
@@ -732,14 +1422,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "关联路径",
+          "items": [
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上金额已是美元；欧元汇率、方向和缺失日期处理待核定，不能使用销售原币键直接限定欧元交易。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q41",
       "source": "cube",
       "text_en": "What were last quarter's sales?",
-      "text_zh": null,
+      "text_zh": "上季度销售额是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -750,14 +1458,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "今天2009-12-31、上季度2009Q4；默认线上。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q42",
       "source": "cube",
       "text_en": "How is the Cameras category performing?",
-      "text_zh": null,
+      "text_zh": "相机品类的经营表现如何？",
       "type": "开放式",
       "refs": [
         {
@@ -768,14 +1493,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；“表现”的指标选择须声明并待可接受范围裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q43",
       "source": "cube",
       "text_en": "Show me the gross margin by region",
-      "text_zh": null,
+      "text_zh": "按地区展示毛利。",
       "type": "指标分析",
       "refs": [
         {
@@ -791,14 +1535,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "须声明大洲或国家；按客户所在地计算毛利。中文保留“按地区”。接受多解使本题不再测试地理粒度能力，但仍测试指标、来源与计算。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "关联路径",
+          "items": [
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上、客户所在地；地区粒度未指定，大洲/国家均接受。本题不再测试地理粒度；T06以任一可接受解读覆盖为准。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q44",
       "source": "cube",
       "text_en": "Are online sales growing?",
-      "text_zh": null,
+      "text_zh": "线上销售在增长吗？",
       "type": "开放式",
       "refs": [
         {
@@ -809,14 +1570,32 @@
       ],
       "scoring": "judge",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "组合增长累计占比排名"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上已明确；“增长”的时间粒度和首期无基期表达待裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q45",
       "source": "cube",
       "text_en": "Which stores have the best sales per square foot?",
-      "text_zh": null,
+      "text_zh": "哪些门店的单位营业面积销售额最高？",
       "type": "指标分析",
       "refs": [
         {
@@ -827,14 +1606,34 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店用全渠道；营业面积字段/单位及隐含前10问题。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q46",
       "source": "cube",
       "text_en": "What's our most profitable customer segment?",
-      "text_zh": null,
+      "text_zh": "哪个客户群体带来的利润最多？",
       "type": "统计",
       "refs": [
         {
@@ -850,14 +1649,34 @@
       ],
       "scoring": "judge",
       "scoring_notes": "可按学历或职业，须声明；按线上毛利最高的群体评价。示例结果不排除其他已声明且经裁决允许的参数。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "毛利=销售额−成本；默认线上；学历或职业群体须声明。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q47",
       "source": "cube",
       "text_en": "What's the average machine downtime per store?",
-      "text_zh": null,
+      "text_zh": "各门店的机器平均停机时长是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -868,14 +1687,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "关联路径",
+          "items": [
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "门店IT停机事实表、DownTime字段与按门店分组可探查。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q48",
       "source": "cube",
       "text_en": "Is there a correlation between IT outages and sales performance?",
-      "text_zh": null,
+      "text_zh": "IT 故障与销售表现之间有相关关系吗？",
       "type": "统计",
       "refs": [
         {
@@ -891,14 +1727,34 @@
       ],
       "scoring": "judge",
       "scoring_notes": "可声明停机阈值比较各组门店平均全渠道销售，或计算门店层面相关系数；1000分钟只是示例参数。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "超出查询语言",
+          "items": [
+            "超出查询语言",
+            "粒度对齐与半可加",
+            "关联路径",
+            "开放式"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店销售用全渠道；先按门店汇总故障和销售，声明分组阈值或使用相关系数。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q49",
       "source": "cube",
       "text_en": "Roll up sales to the entity hierarchy level",
-      "text_zh": null,
+      "text_zh": "按实体层级汇总销售收入。",
       "type": "指标分析",
       "refs": [
         {
@@ -914,14 +1770,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "须声明只给顶层或逐层汇总；计划表实际场景、Sale Revenue；自指根节点终止递归。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "计划实际场景、收入科目；自指父键是根，向祖先汇总；只顶层/各级须声明。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q50",
       "source": "cube",
       "text_en": "What's the same-store sales growth comparing 2009 to 2008?",
-      "text_zh": null,
+      "text_zh": "比较 2009 年与 2008 年，同店销售增长率是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -932,14 +1807,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "全渠道，同店只比较两年均有销售门店；同口径算增长。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q51",
       "source": "cube",
       "text_en": "How many stores are there in total?",
-      "text_zh": null,
+      "text_zh": "共有多少家门店？",
       "type": "指标分析",
       "refs": [
         {
@@ -950,14 +1844,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "门店实体与唯一键。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q52",
       "source": "cube",
       "text_en": "What is the highest unit price in the product catalog?",
-      "text_zh": null,
+      "text_zh": "产品目录中的最高单价是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -968,14 +1878,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "产品目录单价字段最大值。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q53",
       "source": "cube",
       "text_en": "How many online orders were placed in 2009?",
-      "text_zh": null,
+      "text_zh": "2009 年共下了多少笔线上订单？",
       "type": "指标分析",
       "refs": [
         {
@@ -986,14 +1912,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上订单=去重SalesOrderNumber；不能按销售记录行数。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q54",
       "source": "cube",
       "text_en": "What is the total return amount from online sales?",
-      "text_zh": null,
+      "text_zh": "线上销售的退货金额合计是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1004,14 +1948,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上退货金额；ReturnAmount字段而非退货数量。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q55",
       "source": "cube",
       "text_en": "How many female customers are in the database?",
-      "text_zh": null,
+      "text_zh": "客户库中有多少位女性客户？",
       "type": "指标分析",
       "refs": [
         {
@@ -1022,14 +1982,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "性别F枚举与客户实体计数。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q56",
       "source": "cube",
       "text_en": "What is the average yearly income of our customers?",
-      "text_zh": null,
+      "text_zh": "客户的平均年收入是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1040,14 +2017,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "YearlyIncome字段及缺失值表示。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q57",
       "source": "cube",
       "text_en": "How many distinct product brands do we carry?",
-      "text_zh": null,
+      "text_zh": "我们经营多少个不同的产品品牌？",
       "type": "指标分析",
       "refs": [
         {
@@ -1058,14 +2051,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "产品BrandName去重；品牌与产品数量不同。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q58",
       "source": "cube",
       "text_en": "What was the largest single online sale amount ever recorded?",
-      "text_zh": null,
+      "text_zh": "历史上金额最大的一笔线上销售是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1076,14 +2085,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上；单笔销售与订单/销售行粒度需要从字段关系核实，原参考使用单行金额。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q59",
       "source": "cube",
       "text_en": "How many holidays are on the calendar?",
-      "text_zh": null,
+      "text_zh": "日历中共有多少个节假日？",
       "type": "指标分析",
       "refs": [
         {
@@ -1094,14 +2119,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "日历IsHoliday的Yes枚举与日期实体。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q60",
       "source": "cube",
       "text_en": "How many employees work in the Production department?",
-      "text_zh": null,
+      "text_zh": "生产部门共有多少名员工？",
       "type": "指标分析",
       "refs": [
         {
@@ -1112,14 +2154,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "直接汇总",
+          "items": [
+            "直接汇总",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "部门Production枚举与员工实体。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q61",
       "source": "cube",
       "text_en": "Which product subcategories generated more than $1 million in online sales in 2009?",
-      "text_zh": null,
+      "text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
       "type": "指标分析",
       "refs": [
         {
@@ -1130,14 +2189,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上、2009、100万美元阈值；产品至子品类路径。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q62",
       "source": "cube",
       "text_en": "For each product brand, show total online revenue and units sold in 2008, listing only brands with at least 500 units.",
-      "text_zh": null,
+      "text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
       "type": "指标分析",
       "refs": [
         {
@@ -1148,14 +2224,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上、2008、销量至少500；金额和数量单位字段。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q63",
       "source": "cube",
       "text_en": "What is the average online order value by customer occupation?",
-      "text_zh": null,
+      "text_zh": "按客户职业统计线上客单价。",
       "type": "指标分析",
       "refs": [
         {
@@ -1166,14 +2259,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上客单价按销售额÷去重订单数，不按销售记录avg。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q64",
       "source": "cube",
       "text_en": "Show monthly online gross margin dollars and margin percent for 2009.",
-      "text_zh": null,
+      "text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
       "type": "指标分析",
       "refs": [
         {
@@ -1184,14 +2295,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "毛利/毛利率定义；月份汇总与百分数单位。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q65",
       "source": "cube",
       "text_en": "Which store managers run stores with more than $5M in total all-channel sales?",
-      "text_zh": null,
+      "text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
       "type": "指标分析",
       "refs": [
         {
@@ -1202,14 +2331,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "全渠道事实表选择、StoreManager字段；LIMIT50未获题干授权。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q66",
       "source": "cube",
       "text_en": "What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?",
-      "text_zh": null,
+      "text_zh": "2009 年各季度累计提供了多少折扣金额？不计无折扣交易。",
       "type": "指标分析",
       "refs": [
         {
@@ -1220,14 +2367,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；排除促销键1；按2009季度统计。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q67",
       "source": "cube",
       "text_en": "Which product colors have the highest average online unit price realized, among colors with at least 1000 units sold?",
-      "text_zh": null,
+      "text_zh": "哪些产品颜色的线上实际成交均价最高？仅考虑销量至少 1000 件的颜色。",
       "type": "指标分析",
       "refs": [
         {
@@ -1238,14 +2402,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "成交均价=金额÷数量；样本阈值1000件，不能按产品目录均价；隐含Top-20待审。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q68",
       "source": "cube",
       "text_en": "How many online orders were placed on holidays vs non-holidays in 2009, and the revenue for each?",
-      "text_zh": null,
+      "text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
       "type": "指标分析",
       "refs": [
         {
@@ -1256,14 +2439,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "筛选",
+          "items": [
+            "筛选",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上订单去重；按订单日期对应节假日枚举，营收已扣折扣。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q69",
       "source": "cube",
       "text_en": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
-      "text_zh": null,
+      "text_zh": "哪些促销类别带来的折扣线上营收最高？各自的平均折扣比例是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1274,14 +2475,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "排除无折扣促销；平均折扣的权重/折前分母待裁决。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q70",
       "source": "cube",
       "text_en": "For each store type, what are the total all-channel sales and average selling area size?",
-      "text_zh": null,
+      "text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
       "type": "指标分析",
       "refs": [
         {
@@ -1292,14 +2512,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q1",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "全渠道；门店面积先按唯一门店还是按销售记录加权待裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q71",
       "source": "cube",
       "text_en": "For each product category, which subcategory had the highest online sales in 2009, and what was that amount?",
-      "text_zh": null,
+      "text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1310,14 +2548,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上与2009；品类内子品类最高销售额与连接路径。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q72",
       "source": "cube",
       "text_en": "Show the running cumulative total of online sales by quarter across 2007-2009.",
-      "text_zh": null,
+      "text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
       "type": "指标分析",
       "refs": [
         {
@@ -1328,14 +2584,30 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上、2007–2009；先按季度求和再跨年累计。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q73",
       "source": "cube",
       "text_en": "Which 10 products have the largest gap between their current on-hand inventory and safety stock level?",
-      "text_zh": null,
+      "text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
       "type": "指标分析",
       "refs": [
         {
@@ -1346,14 +2618,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合增长累计占比排名",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "当前库存按门店×产品最近快照再按产品汇总；缺口方向/并列排序。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q74",
       "source": "cube",
       "text_en": "For each store, rank the top 3 products by sales in 2009 and show each product's share of the store's total.",
-      "text_zh": null,
+      "text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
       "type": "指标分析",
       "refs": [
         {
@@ -1364,14 +2655,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店问题全渠道（与原keep参考线上冲突）；每店排名和完整结果。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q75",
       "source": "cube",
       "text_en": "Which customers increased their spending by more than 50% from 2008 to 2009?",
-      "text_zh": null,
+      "text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
       "type": "指标分析",
       "refs": [
         {
@@ -1382,14 +2694,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；同客户跨年金额对齐；去掉未声明截断待裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q76",
       "source": "cube",
       "text_en": "For each product category, what percentage of total online sales came from repeat customers (customers with 2+ orders)?",
-      "text_zh": null,
+      "text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
       "type": "指标分析",
       "refs": [
         {
@@ -1400,14 +2731,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "订单去重；回头客按全目录还是品类内两单待裁决；按品类收入占比。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q77",
       "source": "cube",
       "text_en": "For each month in 2009, what is the month-over-month growth rate of online sales?",
-      "text_zh": null,
+      "text_zh": "计算 2009 年各月线上销售额的环比增长率。",
       "type": "指标分析",
       "refs": [
         {
@@ -1418,14 +2768,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "组合比率",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确线上、2009、环比；月份窗口和首月基期缺失可由数据探查。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q78",
       "source": "cube",
       "text_en": "Rank promotion categories by total discount amount given in 2009, and show each one's share of all discounts.",
-      "text_zh": null,
+      "text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
       "type": "指标分析",
       "refs": [
         {
@@ -1436,14 +2804,34 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "组合比率",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上、排除促销键1；类别折扣占全部折扣分母。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q79",
       "source": "cube",
       "text_en": "Which 10 stores had the highest sales-to-quota attainment in 2009?",
-      "text_zh": null,
+      "text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
       "type": "指标分析",
       "refs": [
         {
@@ -1454,14 +2842,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "全渠道实际/预算场景目标；完整边界并列按统一量化规则处理。T06冻结前复核确定性。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店实际全渠道/预算场景目标；不能用实际场景配额。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q80",
       "source": "cube",
       "text_en": "For each country, what is the average days between a customer's first and most recent purchase?",
-      "text_zh": null,
+      "text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
       "type": "指标分析",
       "refs": [
         {
@@ -1472,14 +2881,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "国家按客户所在地；首末购买跨度，单次客户是否纳入及隐含截断待审。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q81",
       "source": "cube",
       "text_en": "Compute the average customer lifetime value broken down by the year each customer first made a purchase, and include how many customers fall into each cohort.",
-      "text_zh": null,
+      "text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
       "type": "指标分析",
       "refs": [
         {
@@ -1490,14 +2918,32 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "首次购买年按全历史；终身价值按客户累计再组内求平均。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q82",
       "source": "cube",
       "text_en": "For each manager with direct reports, show how many people they manage and the average hire tenure of their team in years.",
-      "text_zh": null,
+      "text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
       "type": "指标分析",
       "refs": [
         {
@@ -1508,14 +2954,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "今天2009-12-31为年限截止日；员工层级、服务年限定义和隐含截断。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q83",
       "source": "cube",
       "text_en": "Show the year-over-year retention: of customers who first bought in 2007, how many came back in 2008, and of those how many came back again in 2009?",
-      "text_zh": null,
+      "text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
       "type": "指标分析",
       "refs": [
         {
@@ -1526,14 +2991,34 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "组合比率",
+            "实体级派生属性",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；2007首购队列、2008与2009交集；条件留存分母与辅助列待审。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q84",
       "source": "cube",
       "text_en": "Perform ABC analysis on products for 2009: identify the 'A' products (top 80% of revenue), 'B' (next 15%), and 'C' (remaining 5%), and report how many products fall in each class.",
-      "text_zh": null,
+      "text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
       "type": "指标分析",
       "refs": [
         {
@@ -1544,14 +3029,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "组合增长累计占比排名",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；ABC累计营收边界和同额产品归属待统一规则。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q85",
       "source": "cube",
       "text_en": "Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.",
-      "text_zh": null,
+      "text_zh": "计算各门店 2009 年的销售目标达成率（实际销售额÷目标销售额），列出最高和最低的各 5 家门店。",
       "type": "指标分析",
       "refs": [
         {
@@ -1562,14 +3066,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "保留原参考SQL；上下边界存在并列，T06冻结前须处理可复现完整边界，当前结果不得直接冻结。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店实际全渠道/预算目标；两路Top/Bottom并列冻结前复核。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q86",
       "source": "cube",
       "text_en": "Analyze the relationship between discount depth and sales volume: for each product subcategory, show the correlation between promotion discount percent and sales quantity in 2009.",
-      "text_zh": null,
+      "text_zh": "分析折扣力度与销量的关系：按产品子品类展示 2009 年促销折扣比例与销售数量的相关系数。",
       "type": "统计",
       "refs": [
         {
@@ -1580,14 +3105,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "须声明是否含无折扣、样本下限和前N；按子品类计算折扣百分比与销量相关系数；现有参考是示例而非唯一判据。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "超出查询语言",
+          "items": [
+            "超出查询语言",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "相关系数统计粒度、促销折扣枚举；是否包含无折扣和样本条件须声明。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q87",
       "source": "cube",
       "text_en": "Calculate days-of-inventory-coverage per product: current on-hand quantity divided by average daily sales quantity in the last 90 days of 2009. Show the 20 products with the lowest coverage.",
-      "text_zh": null,
+      "text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
       "type": "指标分析",
       "refs": [
         {
@@ -1598,14 +3142,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "粒度对齐与半可加",
+          "items": [
+            "粒度对齐与半可加",
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "当前库存按每个门店×产品最新快照后汇总；最后90个日历日的日均线上销量。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q88",
       "source": "cube",
       "text_en": "Identify loyal customers who made at least one purchase in every quarter of 2009, and show their total spend ranked highest to lowest (top 20).",
-      "text_zh": null,
+      "text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
       "type": "指标分析",
       "refs": [
         {
@@ -1616,14 +3181,34 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "保留原参考SQL，重算时扩展并按统一量化判定完整边界；T06冻结前核对。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；忠实客户按每季度均有购买筛选，全年消费和并列。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q89",
       "source": "cube",
       "text_en": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
-      "text_zh": null,
+      "text_zh": "按距最近一次购买的时间，将每位客户分为活跃、有流失风险和已流失，再计算各组客户的平均消费额和平均购买产品种类数（去重）。",
       "type": "指标分析",
       "refs": [
         {
@@ -1634,14 +3219,31 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "固定截止日、按6/12个月阈值分层；客户消费与产品种类先按人计算。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q90",
       "source": "cube",
       "text_en": "Compute the gross margin percentage trend by product category across 2007, 2008, and 2009 and show the year-over-year change in margin in percentage points.",
-      "text_zh": null,
+      "text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
       "type": "指标分析",
       "refs": [
         {
@@ -1652,14 +3254,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；毛利率定义，跨年百分点差而非相对增长率。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q91",
       "source": "cube",
       "text_en": "Is there a relationship between a customer's yearly income and how much they spend online?",
-      "text_zh": null,
+      "text_zh": "客户年收入与其线上消费额之间有关联吗？",
       "type": "统计",
       "refs": [
         {
@@ -1670,14 +3291,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "统计关系由宽松裁判结合参考结果评价。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "超出查询语言",
+          "items": [
+            "超出查询语言",
+            "实体级派生属性",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "可从数据发现",
+          "items": [
+            "可从数据发现"
+          ],
+          "notes": "明确客户年收入与线上消费；先客户累计再相关，字段与连接可探查。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q92",
       "source": "cube",
       "text_en": "Which product brands were our most profitable last quarter?",
-      "text_zh": null,
+      "text_zh": "上季度哪些产品品牌的盈利能力最强？",
       "type": "指标分析",
       "refs": [
         {
@@ -1688,14 +3328,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "上季度=2009Q4；默认线上，盈利指标口径及前10待审。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q93",
       "source": "cube",
       "text_en": "Is there evidence of price elasticity — do bigger discount percentages actually move more units across our promotions?",
-      "text_zh": null,
+      "text_zh": "促销折扣比例越大，真的能带来更多销量吗？有价格弹性的证据吗？",
       "type": "统计",
       "refs": [
         {
@@ -1706,14 +3365,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "统计题：需要相关关系或价格弹性证据，不能只给明细；相关性不证明因果。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "超出查询语言",
+          "items": [
+            "超出查询语言",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "排除无折扣；促销层面数量/营收与折扣相关；相关不证明因果。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q94",
       "source": "cube",
       "text_en": "Which of our stores look like they're losing momentum going into year-end — sales trending down from Q3 to Q4 2009?",
-      "text_zh": null,
+      "text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
       "type": "指标分析",
       "refs": [
         {
@@ -1724,14 +3402,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合增长累计占比排名",
+          "items": [
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "门店全渠道，Q3到Q4下降；前20未声明。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q95",
       "source": "cube",
       "text_en": "How much incremental revenue do our promotions actually drive per product category compared to what we sell at full price?",
-      "text_zh": null,
+      "text_zh": "与按原价销售相比，各产品品类的促销实际带来了多少增量营收？",
       "type": "开放式",
       "refs": [
         {
@@ -1742,14 +3439,33 @@
       ],
       "scoring": "judge",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上、促销/原价定义；描述性差异不等同因果增量，待裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q96",
       "source": "cube",
       "text_en": "For each yearly customer cohort, what fraction actually came back and bought again in a later year?",
-      "text_zh": null,
+      "text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
       "type": "指标分析",
       "refs": [
         {
@@ -1760,14 +3476,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "实体级派生属性",
+          "items": [
+            "实体级派生属性",
+            "组合比率",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；按全历史首购年分队列，后续年份回购不能只看订单数。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q97",
       "source": "cube",
       "text_en": "Which products had the biggest second-half comeback in 2009 — meaning H2 sales dramatically exceeded H1?",
-      "text_zh": null,
+      "text_zh": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
       "type": "统计",
       "refs": [
         {
@@ -1783,14 +3518,34 @@
       ],
       "scoring": "judge",
       "scoring_notes": "可按H2相对H1增幅或增加额排名；须声明前N和H1下限；原SQL参数仅为示例。",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "开放式",
+          "items": [
+            "开放式",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；H2相对H1的增幅/增加额、基数阈值与N须声明。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q98",
       "source": "cube",
       "text_en": "Which product categories depend most heavily on a single quarter for their annual sales?",
-      "text_zh": null,
+      "text_zh": "哪些产品品类的全年销售最依赖某一个季度？",
       "type": "指标分析",
       "refs": [
         {
@@ -1801,14 +3556,35 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；按品类年内季度份额；年度是否限定2009待裁决。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     },
     {
       "id": "Q99",
       "source": "cube",
       "text_en": "For each product category, how much bigger is an average weekend day compared to an average weekday?",
-      "text_zh": null,
+      "text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1819,14 +3595,33 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q2",
+        "complexity_source": {
+          "primary": "组合比率",
+          "items": [
+            "组合比率",
+            "粒度对齐与半可加",
+            "关联路径"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "默认线上；日均不是销售记录均值；周末/工作日枚举。"
+        },
+        "persona": "分析师"
+      },
       "split": null
     },
     {
       "id": "Q100",
       "source": "cube",
       "text_en": "Who are our true power customers — people who are both in the top 10% by order count AND top 10% by average order size?",
-      "text_zh": null,
+      "text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
       "type": "指标分析",
       "refs": [
         {
@@ -1837,7 +3632,29 @@
       ],
       "scoring": "deterministic",
       "scoring_notes": "",
-      "labels": {},
+      "labels": {
+        "q_level": "Q3",
+        "complexity_source": {
+          "primary": "多步依赖",
+          "items": [
+            "多步依赖",
+            "组合比率",
+            "组合增长累计占比排名",
+            "实体级派生属性",
+            "关联路径",
+            "筛选"
+          ]
+        },
+        "semantic_dependency": {
+          "primary": "只能由业务告知",
+          "items": [
+            "可从数据发现",
+            "只能由业务告知"
+          ],
+          "notes": "线上订单去重、客单价定义；两个90%分位交集，精确分位/边界与截断待审。"
+        },
+        "persona": "管理层"
+      },
       "split": null
     }
   ]
