@@ -1,0 +1,4 @@
+segment,customers,avg_spend,avg_distinct_products
+Active,16890,76861.79,75
+At Risk,1841,344026.73,138.6
+Churned,138,5700390.36,780.4

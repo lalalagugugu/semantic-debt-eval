@@ -162,10 +162,13 @@ questions:
     user_verdict: 同意
     finding: 统计题；模型给了明细而不是相关系数。
 
-pending_user_decision:
   - id: 43
-    proposal: accepted_interpretations
+    action: accepted_interpretations
+    user_verdict: 同意；2026-10-15 G0 裁决，主仓库 decisions/2026-10-15-g0-passed.md
     finding: 「地区」是大洲还是国家有歧义；原参考取大洲。路径按约定第 5 条走客户所在地。
     interpretations:
       - 按客户所在大洲的毛利
       - 按客户所在国家的毛利
+    note: 中文保留「按地区」，不改约定清单；本题不再测试地理粒度能力，T04/T06 标注该代价。
+
+pending_user_decision: []
