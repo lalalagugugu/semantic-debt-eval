@@ -581,7 +581,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "用户确认：本题比较销售构成占比，不适用约定4的日均比较；周末/工作日销售额分别除以全部销售额。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -597,7 +597,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "未说明渠道默认线上；日类型比较是否要求日均待裁决，不能由参考物理结果替代口径。"
+          "notes": "已裁决：本题销售构成占比不套用约定4日均比较；默认线上，IsWorkDay枚举。"
         },
         "persona": "管理层"
       },
@@ -607,7 +607,7 @@
       "id": "Q18",
       "source": "cube",
       "text_en": "What is the total discount amount given by each promotion type?",
-      "text_zh": "各促销类型累计提供了多少折扣金额？",
+      "text_zh": "各种促销类型分别提供了多少累计折扣金额？",
       "type": "指标分析",
       "refs": [
         {
@@ -871,12 +871,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT d.NorthAmericaSeason, avg(daily_sales) as avg_daily_sales FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales GROUP BY DateKey) s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
+          "sql": "SELECT d.NorthAmericaSeason,avg(s.daily_sales) AS avg_daily_sales FROM (SELECT f.DateKey,sum(f.SalesAmount) AS daily_sales FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey WHERE g.ContinentName='North America' GROUP BY f.DateKey) s JOIN retail.DimDate d ON s.DateKey=d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
           "result_path": "refs/cube/Q25-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：North America限定客户所在地为北美，不只是季节命名；先按天汇总，再按北美季节计算日均销售。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -892,7 +892,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "不同类型日子比较用日均；北美地域过滤与季节标签含义待裁决。"
+          "notes": "已裁决：先按客户所在地过滤北美，按日汇总后使用NorthAmericaSeason分组算日均。"
         },
         "persona": "分析师"
       },
@@ -975,7 +975,7 @@
       "id": "Q28",
       "source": "cube",
       "text_en": "Compare average transaction value between Store and Online channels",
-      "text_zh": "在全渠道销售中，比较门店渠道和线上渠道的平均每条销售记录金额。",
+      "text_zh": "比较门店渠道和线上渠道的平均交易金额。",
       "type": "指标分析",
       "refs": [
         {
@@ -985,7 +985,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已裁决改写：在全渠道销售中比较门店与线上渠道的平均每条销售记录金额。",
+      "scoring_notes": "按用户批注改为自然业务问法“平均交易金额”；全渠道无订单号，参考仍为按渠道的每条销售记录均额，回答须声明交易粒度；不可把记录均额称为按订单计算的客单价。该措辞待最终确认。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1059,7 +1059,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "现参考从12月1日起输出：前6天使用12月内已有日期，第7天起为完整7日窗口，不使用11月数据。用户对窗口起点提出疑问；最终可接受起始窗口规则待确认，当前参考暂不改动。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1421,7 +1421,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "用户仅批准汇率调查方向，尚未批准最终参考。线上全为USD；EUR目标汇率仅31个日期而销售覆盖1096天。不得把31天换算误称全期间结果，不擅自前填/剔除缺失日期。暂存原参考仅为待修历史工件，T04仍待Q40定案，不得作为已验收换汇答案。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1437,7 +1437,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "线上金额已是美元；欧元汇率、方向和缺失日期处理待核定，不能使用销售原币键直接限定欧元交易。"
+          "notes": "调查完成但未定案：线上USD，欧元仅31个日期；缺失日期处理未经批准，暂存原历史参考不代表验收。"
         },
         "persona": "分析师"
       },
@@ -1486,13 +1486,18 @@
       "type": "开放式",
       "refs": [
         {
-          "interpretation": "原参考解读",
+          "interpretation": "示例：年度线上销售趋势；不是封闭的唯一分析口径",
           "sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(sum(s.SalesAmount)) OVER (ORDER BY toYear(s.DateKey)) as yoy_change FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey = p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
           "result_path": "refs/cube/Q42-1.csv"
+        },
+        {
+          "interpretation": "示例：年度线上毛利；需声明指标和时间范围",
+          "sql": "SELECT toYear(s.DateKey) AS year,sum(s.SalesAmount-s.TotalCost) AS gross_margin FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE pc.ProductCategoryName='Cameras and camcorders' GROUP BY year ORDER BY year",
+          "result_path": "refs/cube/Q42-2.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "",
+      "scoring_notes": "已批准开放式：年度销售趋势仅为示例，允许声明指标与时间范围后分析销售额、毛利、增长趋势的一项或多项；judge核验所声明口径、数据及结论，不按示例列集合机械评分。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1564,12 +1569,17 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "-- Interpreting as year-over-year growth\nSELECT toYear(DateKey) as year, sum(SalesAmount) as sales, round((sum(SalesAmount) - lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey))) * 100.0 / lag(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey)), 2) as growth_pct FROM retail.FactOnlineSales GROUP BY year ORDER BY year",
+          "sql": "WITH annual AS (SELECT toYear(DateKey) AS year,sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY year), compared AS (SELECT year,sales,lagInFrame(toNullable(sales)) OVER (ORDER BY year ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS previous_sales FROM annual) SELECT year,sales,(sales-previous_sales)*100.0/nullIf(previous_sales,0) AS growth_pct FROM compared ORDER BY year",
           "result_path": "refs/cube/Q44-1.csv"
+        },
+        {
+          "interpretation": "示例：逐月线上销售趋势；声明年度/月度即可，不强制唯一粒度",
+          "sql": "SELECT toStartOfMonth(DateKey) AS month,sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY month ORDER BY month",
+          "result_path": "refs/cube/Q44-2.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：接受声明时间粒度的年度同比或月度趋势。无基期使用NULL/不可计算，不能将inf当增长率；示例不是封闭白名单。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1595,17 +1605,17 @@
       "id": "Q45",
       "source": "cube",
       "text_en": "Which stores have the best sales per square foot?",
-      "text_zh": "哪些门店的单位营业面积销售额最高？",
-      "type": "指标分析",
+      "text_zh": "哪些门店的销售平效最高（按每平方英尺销售额计算）？",
+      "type": "开放式",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC LIMIT 10",
+          "interpretation": "完整销售平效排序域；允许声明正整数Top-N或返回完整排名",
+          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC",
           "result_path": "refs/cube/Q45-1.csv"
         }
       ],
-      "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring": "judge",
+      "scoring_notes": "已批准：不把未声明的前10当唯一边界；允许模型声明正整数Top-N或完整排名，由judge核验排名及数据。单位保留每平方英尺，不能无声改成平方米。中文“销售平效”按用户批注改写，单位补充待最终确认。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1614,7 +1624,8 @@
             "组合比率",
             "组合增长累计占比排名",
             "关联路径",
-            "筛选"
+            "筛选",
+            "开放式"
           ]
         },
         "semantic_dependency": {
@@ -1623,7 +1634,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "门店用全渠道；营业面积字段/单位及隐含前10问题。"
+          "notes": "门店全渠道、每平方英尺销售额；已批准允许声明Top-N或完整排名，不固定前10；新中文待确认。"
         },
         "persona": "管理层"
       },
@@ -1637,18 +1648,18 @@
       "type": "统计",
       "refs": [
         {
-          "interpretation": "按学历，毛利最高的客户群体",
+          "interpretation": "示例：按学历，毛利最高的客户群体",
           "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Education as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Education IS NOT NULL GROUP BY c.Education ORDER BY profit DESC LIMIT 1",
           "result_path": "refs/cube/Q46-1.csv"
         },
         {
-          "interpretation": "按职业，毛利最高的客户群体",
+          "interpretation": "示例：按职业，毛利最高的客户群体",
           "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Occupation as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Occupation IS NOT NULL GROUP BY c.Occupation ORDER BY profit DESC LIMIT 1",
           "result_path": "refs/cube/Q46-2.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "可按学历或职业，须声明；按线上毛利最高的群体评价。示例结果不排除其他已声明且经裁决允许的参数。",
+      "scoring_notes": "用户新批注优先：题干模糊，要求agent声明合理客户分群、利润指标及查询条件；学历/职业仅为参考示例，不是封闭白名单。遵守未说明渠道默认线上、毛利=销售额-总成本等已冻结约定；judge核验声明与计算、排名是否一致，不能仅因声明假设就判对。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1666,7 +1677,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "毛利=销售额−成本；默认线上；学历或职业群体须声明。"
+          "notes": "默认线上、遵守既有毛利口径；要求agent声明合理分群及筛选，学历/职业仅是示例。"
         },
         "persona": "管理层"
       },
@@ -1754,7 +1765,7 @@
       "id": "Q49",
       "source": "cube",
       "text_en": "Roll up sales to the entity hierarchy level",
-      "text_zh": "按实体层级汇总销售收入。",
+      "text_zh": "按组织层级汇总销售收入。",
       "type": "指标分析",
       "refs": [
         {
@@ -1769,7 +1780,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "须声明只给顶层或逐层汇总；计划表实际场景、Sale Revenue；自指根节点终止递归。",
+      "scoring_notes": "须声明只给顶层或逐层汇总；计划表实际场景、Sale Revenue；自指根节点终止递归。 EntityType实测Group/Country-Region/State/Store，因此建议译为组织层级；新中文待最终确认。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1796,7 +1807,7 @@
       "id": "Q50",
       "source": "cube",
       "text_en": "What's the same-store sales growth comparing 2009 to 2008?",
-      "text_zh": "比较 2009 年与 2008 年，同店销售增长率是多少？",
+      "text_zh": "仅比较2008年和2009年均有销售的门店，其销售总额增长了多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -1806,7 +1817,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "同店严格按约定15：两个年份均有销售，不等同两年全程营业；中文按用户批注展开，新措辞待最终确认。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1901,7 +1912,7 @@
       "id": "Q53",
       "source": "cube",
       "text_en": "How many online orders were placed in 2009?",
-      "text_zh": "2009 年共下了多少笔线上订单？",
+      "text_zh": "2009年总共有多少笔线上订单？",
       "type": "指标分析",
       "refs": [
         {
@@ -2040,7 +2051,7 @@
       "id": "Q57",
       "source": "cube",
       "text_en": "How many distinct product brands do we carry?",
-      "text_zh": "我们经营多少个不同的产品品牌？",
+      "text_zh": "我们有多少个不同的产品品牌？",
       "type": "指标分析",
       "refs": [
         {
@@ -2325,12 +2336,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT s.StoreManager, s.StoreName, sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreManager, s.StoreName HAVING total_sales > 5000000 ORDER BY total_sales DESC LIMIT 50",
+          "sql": "SELECT s.StoreManager, s.StoreName, sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreManager, s.StoreName HAVING total_sales > 5000000 ORDER BY total_sales DESC",
           "result_path": "refs/cube/Q65-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -2346,7 +2357,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "全渠道事实表选择、StoreManager字段；LIMIT50未获题干授权。"
+          "notes": "全渠道事实表、StoreManager字段；已批准返回全部超500万美元门店，移除LIMIT50。"
         },
         "persona": "管理层"
       },
@@ -2396,12 +2407,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC LIMIT 20",
+          "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC",
           "result_path": "refs/cube/Q67-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2418,7 +2429,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "成交均价=金额÷数量；样本阈值1000件，不能按产品目录均价；隐含Top-20待审。"
+          "notes": "成交均价=销售金额/销售数量；销量至少1000件；已批准完整颜色排名，不固定前20。"
         },
         "persona": "分析师"
       },
@@ -2464,17 +2475,22 @@
       "id": "Q69",
       "source": "cube",
       "text_en": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
-      "text_zh": "哪些促销类别带来的折扣线上营收最高？各自的平均折扣比例是多少？",
+      "text_zh": "哪些促销类别带来的线上促销营收最高？各自的平均折扣比例是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
+          "interpretation": "折前金额加权实际折扣率，须声明权重",
           "sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
           "result_path": "refs/cube/Q69-1.csv"
+        },
+        {
+          "interpretation": "成交记录的实际折扣率简单平均，须声明权重",
+          "sql": "SELECT pr.PromotionCategory,sum(f.SalesAmount) AS revenue,sum(f.DiscountAmount) AS total_discount,avg(f.DiscountAmount*100.0/nullIf(f.SalesAmount+f.DiscountAmount,0)) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey=pr.PromotionKey WHERE f.PromotionKey<>1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
+          "result_path": "refs/cube/Q69-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：接受折前金额加权与成交记录简单平均的实际折扣率，须声明权重。题目按促销营收排序，不按折扣深度排序；用户对中文提出异议，当前修订译文待确认。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2491,7 +2507,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "排除无折扣促销；平均折扣的权重/折前分母待裁决。"
+          "notes": "排除无折扣；已批准金额加权或成交记录实际折扣率简单平均，须声明权重；按营收而非折扣深度排序。"
         },
         "persona": "分析师"
       },
@@ -2506,14 +2522,14 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT s.StoreType, sum(f.SalesAmount) AS revenue, avg(s.SellingAreaSize) AS avg_area, countDistinct(f.StoreKey) AS stores FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
+          "sql": "WITH store_sales AS (SELECT StoreKey,sum(SalesAmount) AS revenue FROM retail.FactSales GROUP BY StoreKey) SELECT s.StoreType,sum(coalesce(f.revenue,0)) AS revenue,avg(s.SellingAreaSize) AS avg_area,count() AS stores FROM retail.DimStore s LEFT JOIN store_sales f ON s.StoreKey=f.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
           "result_path": "refs/cube/Q70-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：门店面积按DimStore唯一门店等权平均，含无销售门店；全渠道销售按门店先汇总，避免销售记录数量加权面积。",
       "labels": {
-        "q_level": "Q1",
+        "q_level": "Q2",
         "complexity_source": {
           "primary": "粒度对齐与半可加",
           "items": [
@@ -2527,7 +2543,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "全渠道；门店面积先按唯一门店还是按销售记录加权待裁决。"
+          "notes": "已批准：DimStore唯一门店的面积等权平均（含无销售门店），与全渠道销售汇总分开计算后对齐。"
         },
         "persona": "管理层"
       },
@@ -2648,13 +2664,14 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "WITH prod_store AS (\n  SELECT f.StoreKey, f.ProductKey, sum(f.SalesAmount) AS sales\n  FROM retail.FactOnlineSales f\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY f.StoreKey, f.ProductKey\n),\nranked AS (\n  SELECT StoreKey, ProductKey, sales,\n         row_number() OVER (PARTITION BY StoreKey ORDER BY sales DESC) AS rn,\n         sum(sales) OVER (PARTITION BY StoreKey) AS store_total\n  FROM prod_store\n)\nSELECT s.StoreName, p.ProductName, round(r.sales, 2) AS product_sales,\n       round(r.sales * 100.0 / nullif(r.store_total, 0), 2) AS pct_of_store\nFROM ranked r\nJOIN retail.DimStore s ON r.StoreKey = s.StoreKey\nJOIN retail.DimProduct p ON r.ProductKey = p.ProductKey\nWHERE r.rn <= 3\nORDER BY s.StoreName, r.rn\nLIMIT 50",
-          "result_path": "refs/cube/Q74-1.csv"
+          "interpretation": "全渠道每店前3产品，完整边界并列；SQL取排序域，按全局量化键生成参考",
+          "sql": "WITH sales AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey) SELECT f.StoreKey AS StoreKey,s.StoreName AS StoreName,p.ProductName AS ProductName,f.product_sales AS product_sales,f.product_sales*100.0/sum(f.product_sales) OVER (PARTITION BY f.StoreKey) AS pct_of_store FROM sales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey",
+          "result_path": "refs/cube/Q74-1.csv",
+          "postprocess": "store_top3"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：全渠道、每店前三名，移除全局LIMIT50。参考由完整门店×产品排序域按全局金额量化键取严格前缀和完整边界，每店候选仍应恰好3行；分组Top-N契约留T06冻结前核对，不得误用全局Top-N。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2673,7 +2690,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "门店问题全渠道（与原keep参考线上冲突）；每店排名和完整结果。"
+          "notes": "已批准覆盖原keep：门店用全渠道，每店前三产品及占比，不设全局LIMIT50，参考保存完整量化边界。"
         },
         "persona": "管理层"
       },
@@ -2688,12 +2705,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY pct_growth DESC\nLIMIT 25",
+          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY pct_growth DESC",
           "result_path": "refs/cube/Q75-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2710,7 +2727,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上；同客户跨年金额对齐；去掉未声明截断待裁决。"
+          "notes": "默认线上；客户两年金额对齐，增长>50%；已批准完整结果，不固定前25。"
         },
         "persona": "管理层"
       },
@@ -2724,13 +2741,18 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
+          "interpretation": "客户全目录累计至少两笔线上订单，须声明粒度",
           "sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       round(sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0), 2) AS pct_repeat_customer_sales\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nJOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\nJOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nJOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY pct_repeat_customer_sales DESC",
           "result_path": "refs/cube/Q76-1.csv"
+        },
+        {
+          "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度",
+          "sql": "WITH tagged AS (SELECT f.CustomerKey AS CustomerKey,f.SalesOrderNumber AS SalesOrderNumber,f.SalesAmount AS SalesAmount,pc.ProductCategoryKey AS ProductCategoryKey,pc.ProductCategoryName AS ProductCategoryName FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey), counts AS (SELECT CustomerKey,ProductCategoryKey,countDistinct(SalesOrderNumber) AS orders FROM tagged GROUP BY CustomerKey,ProductCategoryKey) SELECT t.ProductCategoryName AS category,sumIf(t.SalesAmount,c.orders>=2)*100.0/nullIf(sum(t.SalesAmount),0) AS pct_repeat_customer_sales FROM tagged t JOIN counts c ON t.CustomerKey=c.CustomerKey AND t.ProductCategoryKey=c.ProductCategoryKey GROUP BY category ORDER BY pct_repeat_customer_sales DESC",
+          "result_path": "refs/cube/Q76-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：全目录累计至少2单或品类内至少2单均接受，须声明粒度；各自在对应品类内计算回头客销售额/品类总销售额。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -2747,7 +2769,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "订单去重；回头客按全目录还是品类内两单待裁决；按品类收入占比。"
+          "notes": "已批准全目录回头客或品类内回头客双解读；须声明订单去重的粒度。"
         },
         "persona": "分析师"
       },
@@ -2875,12 +2897,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nWHERE cust.first_d != cust.last_d\nGROUP BY country\nORDER BY avg_active_days DESC\nLIMIT 20",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY country\nORDER BY avg_active_days DESC",
           "result_path": "refs/cube/Q80-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：含全部有购买客户，首末购买同日跨度为0；去掉隐含前20，按客户所在地国家完整统计。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -2897,7 +2919,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "国家按客户所在地；首末购买跨度，单次客户是否纳入及隐含截断待审。"
+          "notes": "国家按客户所在地；已批准纳入所有购买客户，同日跨度为0，完整国家结果。"
         },
         "persona": "分析师"
       },
@@ -2948,12 +2970,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('year', toDate(HireDate), toDate('2009-12-31'))) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name\nLIMIT 25",
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
           "result_path": "refs/cube/Q82-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：截止2009-12-31，入职天数/365.25，直属下属等权平均；去掉LIMIT25。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2970,7 +2992,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "今天2009-12-31为年限截止日；员工层级、服务年限定义和隐含截断。"
+          "notes": "截止2009-12-31；直属下属入职天数/365.25后等权平均，不采用仅跨年边界的年差；无隐含LIMIT。"
         },
         "persona": "分析师"
       },
@@ -2985,12 +3007,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH first_yr AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS first_year\n  FROM retail.FactOnlineSales GROUP BY CustomerKey\n),\ncohort_2007 AS (\n  SELECT CustomerKey FROM first_yr WHERE first_year = 2007\n),\nactive AS (\n  SELECT CustomerKey, toYear(DateKey) AS y\n  FROM retail.FactOnlineSales\n  WHERE CustomerKey IN (SELECT CustomerKey FROM cohort_2007)\n  GROUP BY CustomerKey, y\n)\nSELECT (SELECT count() FROM cohort_2007) AS cohort_size_2007,\n       countDistinctIf(CustomerKey, y = 2008) AS returned_2008,\n       round(countDistinctIf(CustomerKey, y = 2008) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2008_pct,\n       countDistinctIf(CustomerKey, y = 2008 AND CustomerKey IN (\n           SELECT CustomerKey FROM active WHERE y = 2009\n       )) AS returned_2008_and_2009,\n       round(countDistinctIf(CustomerKey, y = 2009) * 100.0 / (SELECT count() FROM cohort_2007), 2) AS retention_2009_pct\nFROM active",
+          "sql": "WITH first_yr AS (SELECT CustomerKey,toYear(min(DateKey)) AS first_year FROM retail.FactOnlineSales GROUP BY CustomerKey), activity AS (SELECT CustomerKey,max(toYear(DateKey)=2008) AS in_2008,max(toYear(DateKey)=2009) AS in_2009 FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT count() AS cohort_size_2007,countIf(a.in_2008) AS returned_2008,countIf(a.in_2008 AND a.in_2009) AS returned_2008_and_2009 FROM first_yr f JOIN activity a ON f.CustomerKey=a.CustomerKey WHERE f.first_year=2007",
           "result_path": "refs/cube/Q83-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：只保留2007首购人数、其中2008回购人数、再其中2009回购人数三列计数；去掉两个辅助留存率。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -3008,7 +3030,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上；2007首购队列、2008与2009交集；条件留存分母与辅助列待审。"
+          "notes": "默认线上，2007首购队列→2008回购→再2009回购；已批准仅保留三项人数，不要求有误的辅助比率。"
         },
         "persona": "管理层"
       },
@@ -3022,13 +3044,14 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "WITH prod_rev AS (\n  SELECT ProductKey, SUM(SalesAmount) AS rev\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY ProductKey\n),\nranked AS (\n  SELECT ProductKey, rev,\n         SUM(rev) OVER (ORDER BY rev DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum_rev,\n         SUM(rev) OVER () AS total_rev\n  FROM prod_rev\n),\nclassed AS (\n  SELECT ProductKey,\n         CASE WHEN cum_rev / total_rev <= 0.80 THEN 'A'\n              WHEN cum_rev / total_rev <= 0.95 THEN 'B'\n              ELSE 'C' END AS abc_class,\n         rev\n  FROM ranked\n)\nSELECT abc_class,\n       count() AS product_count,\n       round(sum(rev), 2) AS revenue,\n       round(sum(rev) * 100.0 / (SELECT sum(rev) FROM prod_rev), 2) AS pct_of_revenue\nFROM classed\nGROUP BY abc_class\nORDER BY abc_class",
-          "result_path": "refs/cube/Q84-1.csv"
+          "interpretation": "同额组整体归类，以组加入前的累计占比划分80%/95%边界；SQL取产品收入域",
+          "sql": "SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey",
+          "result_path": "refs/cube/Q84-1.csv",
+          "postprocess": "abc_groups"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：按全局金额量化规范识别同额组；用组加入前的累计营收占比判A(<80%)、B(80%至<95%)、C(>=95%)；跨阈值整组留前类，允许实际占比略超阈值。Python后处理严格调用同一Decimal ROUND_HALF_EVEN规则，不用引擎默认round。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -3045,7 +3068,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上；ABC累计营收边界和同额产品归属待统一规则。"
+          "notes": "已批准按全局金额量化合并同额组，用组加入前累计份额判ABC，跨阈值整组留前类。"
         },
         "persona": "分析师"
       },
@@ -3322,12 +3345,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC\nLIMIT 10",
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC",
           "result_path": "refs/cube/Q92-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3344,7 +3367,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "上季度=2009Q4；默认线上，盈利指标口径及前10待审。"
+          "notes": "上季度=2009Q4，默认线上；已批准完整品牌盈利排名，不固定前10。"
         },
         "persona": "管理层"
       },
@@ -3396,12 +3419,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC\nLIMIT 20",
+          "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC",
           "result_path": "refs/cube/Q94-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3418,7 +3441,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "门店全渠道，Q3到Q4下降；前20未声明。"
+          "notes": "门店全渠道；已批准返回所有Q3有销售且Q4下降的门店，无隐含前20。"
         },
         "persona": "管理层"
       },
@@ -3438,7 +3461,7 @@
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "",
+      "scoring_notes": "已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3455,7 +3478,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上、促销/原价定义；描述性差异不等同因果增量，待裁决。"
+          "notes": "默认线上、促销/原价定义；已批准描述性比较且必须声明不能识别因果增量。"
         },
         "persona": "管理层"
       },
@@ -3506,7 +3529,7 @@
       "type": "统计",
       "refs": [
         {
-          "interpretation": "原参考解读",
+          "interpretation": "示例：原参考解读",
           "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
           "result_path": "refs/cube/Q97-1.csv"
         },
@@ -3517,7 +3540,7 @@
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "可按H2相对H1增幅或增加额排名；须声明前N和H1下限；原SQL参数仅为示例。",
+      "scoring_notes": "用户新批注优先：agent必须声明反弹指标、前N、H1基数下限和其他筛选；增幅/增加额及既有阈值仅为示例，不是封闭白名单。固定2009年H1/H2含义；judge核验声明、数据与排序，不仅因声明就判对。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3535,7 +3558,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上；H2相对H1的增幅/增加额、基数阈值与N须声明。"
+          "notes": "固定2009年H1/H2；agent须声明合理反弹指标、N与基数筛选；增幅/增加额仅为示例。"
         },
         "persona": "管理层"
       },
@@ -3549,13 +3572,18 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
+          "interpretation": "仅分析2009年度，须声明年份",
           "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n)\nSELECT ProductCategoryName,\n       max(q_sales) / sum(q_sales) * 100 AS peak_quarter_share_pct,\n       argMax(q, q_sales) AS peak_quarter\nFROM cat_q\nGROUP BY ProductCategoryName\nORDER BY peak_quarter_share_pct DESC",
           "result_path": "refs/cube/Q98-1.csv"
+        },
+        {
+          "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
+          "sql": "WITH cat_q AS (SELECT pc.ProductCategoryName,toYear(f.DateKey) AS year,toQuarter(f.DateKey) AS quarter,sum(f.SalesAmount) AS quarter_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) BETWEEN 2007 AND 2009 GROUP BY pc.ProductCategoryName,year,quarter) SELECT ProductCategoryName,year,max(quarter_sales)*100.0/sum(quarter_sales) AS peak_quarter_share_pct,argMax(quarter,quarter_sales) AS peak_quarter FROM cat_q GROUP BY ProductCategoryName,year ORDER BY year,peak_quarter_share_pct DESC",
+          "result_path": "refs/cube/Q98-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：声明只看2009，或分别看2007、2008、2009；每个年度内算最大季度占比，不将跨年同季度合并称为单年集中度。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3574,7 +3602,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "默认线上；按品类年内季度份额；年度是否限定2009待裁决。"
+          "notes": "已批准2009年度或2007–2009逐年分析，声明年份，各年度内算季度集中度。"
         },
         "persona": "管理层"
       },
@@ -3625,13 +3653,14 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "WITH cust AS (\n  SELECT CustomerKey,\n         countDistinct(SalesOrderNumber) AS orders,\n         sum(SalesAmount) / nullif(countDistinct(SalesOrderNumber), 0) AS aov\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nthresholds AS (\n  SELECT quantile(0.9)(orders) AS orders_p90,\n         quantile(0.9)(aov) AS aov_p90\n  FROM cust\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       cu.orders,\n       cu.aov,\n       cu.orders * cu.aov AS lifetime_value\nFROM cust cu\nCROSS JOIN thresholds t\nJOIN retail.DimCustomer c ON c.CustomerKey = cu.CustomerKey\nWHERE cu.orders >= t.orders_p90 AND cu.aov >= t.aov_p90\nORDER BY lifetime_value DESC\nLIMIT 30",
-          "result_path": "refs/cube/Q100-1.csv"
+          "interpretation": "两个精确线性插值P90阈值交集，保留全部阈值并列；SQL取客户排序域",
+          "sql": "WITH customers AS (SELECT CustomerKey,countDistinct(SalesOrderNumber) AS orders,sum(SalesAmount)/countDistinct(SalesOrderNumber) AS avg_order_amount,sum(SalesAmount) AS lifetime_value FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT c.FirstName||' '||c.LastName AS customer_name,f.orders,f.avg_order_amount,f.lifetime_value FROM customers f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey",
+          "result_path": "refs/cube/Q100-1.csv",
+          "postprocess": "power_customers"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "已批准：按全局量化规范处理订单数、客单价，再各算精确线性插值90%分位阈值；同时>=两阈值的全部客户，不设LIMIT30；不额外要求题干未指定的最终行序。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -3651,7 +3680,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "线上订单去重、客单价定义；两个90%分位交集，精确分位/边界与截断待审。"
+          "notes": "线上订单去重、客单价定义；全局量化后精确线性插值P90双阈值交集，含阈值并列，无LIMIT30。"
         },
         "persona": "管理层"
       },

@@ -77,6 +77,10 @@
                 "result_path": {
                   "type": "string",
                   "pattern": "^refs/[A-Za-z0-9/_-]+\\.csv$"
+                },
+                "postprocess": {
+                  "description": "Explicit approved processing of a SQL aggregate domain using the shared Decimal quantization policy; omitted for direct SQL results.",
+                  "enum": ["abc_groups", "power_customers", "store_top3"]
                 }
               }
             }

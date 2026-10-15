@@ -9,166 +9,264 @@
 #   keep                     原样保留
 #   open_ended_repair        保留为开放式题，修复参考答案
 
+# 2026-10-15用户批阅的新意见覆盖早期裁决；原批阅见audit/reviews/2026-10-15-user-review.md。
 questions:
-  - id: 19
-    action: fix_reference
-    user_verdict: 同意
-    finding: 参考按销售行求平均（约 215 美元），但「平均订单金额」应为总额 ÷ 订单数（约 1,600 美元），相差约 7 倍。
-    fix: 线上销售按性别分组，sum(SalesAmount) / countDistinct(SalesOrderNumber)。
-
-  - id: 79
-    action: fix_reference
-    user_verdict: 同意
-    finding: 参考用了配额表的「实际」场景（ScenarioKey = 1），配额等于实际，前 10 名全是 100%。
-    fix: 改用预算场景（ScenarioKey = 2），与 Q85 一致；全渠道实际销售额 ÷ 预算场景的目标销售额（约定第 12 条）。
-
-  - id: 33
-    action: fix_reference
-    user_verdict: 同意
-    finding: 参考 SQL 在外部基准的服务器上 30 秒超时，被剔除。
-    fix: 本地不设超时重算参考结果；归入统计类题。
-
-  - id: 14
-    action: scoring_rule
-    user_verdict: 同意
-    finding: 结果被截成 100 行且无排序，比的是任意一段；候选里出现的「Not Provided」客户是公司客户，参考按 CustomerKey 分组时同样包含。
-    rule: 比对完整结果集（按 CustomerKey 匹配）。
-
-  - id: 27
-    action: scoring_rule
-    user_verdict: 同意
-    finding: 第 10 名有并列，参考先四舍五入再排序，tie-break 结果随写法变化。
-    rule: 边界并列时，并列者任一都算对。
-
-  - id: 28
-    action: rewrite
-    user_verdict: 同意
-    finding: 线上表与全渠道表的「交易」粒度不同，参考答案拿两种口径直接比。
-    new_question: 在全渠道销售中，比较门店渠道和线上渠道的平均每条销售记录金额。
-    fix: 全渠道销售按渠道（门店、线上）分组，avg(SalesAmount)。
-
-  - id: 10
-    action: accepted_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 外部基准的语义文档没写门店状态取值，加文档的模型猜成 'Open' 得 0。
-    interpretations:
-      - 状态为 'On'
-      - 关店日期为空
-      - 状态为 'On' 或关店日期为空（原参考）
-    note: 若三者结果相同，合并为一份参考结果并在 refs 中注明。
-
-  - id: 13
-    action: accepted_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 全渠道表没有订单号，「平均订单金额」无从计算；外部基准的文档又把模型引向线上表。
-    interpretations:
-      - 全渠道销售按门店：销售额合计、每条记录的平均金额、记录数（须声明「无订单号，按记录计算」）
-    not_accepted:
-      - 只用线上销售（违反约定第 2 条：以门店为对象的问题用全渠道销售）
-    note: 先检查 StoreName 是否唯一；不唯一则以 StoreKey 分组为准。
-
-  - id: 20
-    action: accepted_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 参考取全表最后一天；各门店 × 产品的最近快照日并不相同。
-    interpretations:
-      - 每个门店 × 产品取最近一次快照，列出在手量低于安全库存的门店 × 产品
-      - 每个门店 × 产品取最近一次快照后按产品汇总，列出汇总在手量低于汇总安全库存的产品
-    not_accepted:
-      - 全表最后一天的快照（违反约定第 11 条；原参考只用于英文锚点）
-
-  - id: 37
-    action: accepted_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 小数与百分数之争（0.9967 vs 99.67）；加文档的模型被引向线上表。
-    interpretations:
-      - 全渠道销售按门店求和，并给出百分位排名（小数或百分数均可）
-    not_accepted:
-      - 只用线上销售（违反约定第 2 条）
-
-  - id: 49
-    action: accepted_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 原参考返回 0 行。
-    interpretations:
-      - 计划表「实际」场景、收入科目（Sale Revenue），沿实体层级汇总，只给顶层实体
-      - 同上，逐层给出每个实体的汇总
-    todo: 先查清原参考为何返回 0 行（可能是键的类型不一致或递归条件问题），再重算。
-
-  - id: 46
-    action: judge_with_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 「客户群体」可按学历也可按职业，原参考选了学历。
-    interpretations:
-      - 按学历分组，毛利（销售金额 − 总成本）最高的一组
-      - 按职业分组，同上
-
-  - id: 48
-    action: judge_with_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 原参考用「停机超过 1,000 分钟」这一问句没说的阈值分组。
-    interpretations:
-      - 按停机时长分组（阈值由模型声明），比较各组门店的平均全渠道销售
-      - 计算门店层面停机时长与全渠道销售的相关系数
-
-  - id: 86
-    action: judge_with_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 原参考暗含「样本数大于 100」「取前 20」两个问句没说的条件，且包含无折扣交易。
-    interpretations:
-      - 各子品类折扣百分比与销量的相关系数；是否包含无折扣交易、最少样本数、取前几名由模型声明
-
-  - id: 97
-    action: judge_with_interpretations
-    user_verdict: 模型回答时声明假设
-    finding: 按增幅还是增加额、取几名、上半年至少多少，问句都没说。
-    interpretations:
-      - 按下半年相对上半年的增幅排名（上半年下限、前 N 名由模型声明）
-      - 按下半年相对上半年的增加额排名（前 N 名由模型声明）
-
-  - id: 39
-    action: open_ended_repair
-    user_verdict: 再讨论 → 保留为开放式题（设计 v4）
-    finding: 算的是品类内的蚕食（新品上市后同子品类老产品的销售是否下降）；原参考返回 0 行。
-    fix: 新品 = 2008–2009 年上市的产品；对每个有新品的子品类，比较老产品在首个新品上市前后的线上销售（日均或同长度窗口），由宽松裁判评分。
-
-  - id: 31
-    action: keep
-    user_verdict: 同意
-    finding: 错在外部基准的语义文档（把销售科目写成键 50，实际是 Sale Revenue），题目本身没问题。
-
-  - id: 38
-    action: keep
-    user_verdict: 同意
-    finding: 同 Q31。
-
-  - id: 94
-    action: keep
-    user_verdict: 同意
-    finding: 外部基准的文档「未说明渠道默认线上」把模型引向线上表，参考用全渠道表；约定第 2 条已覆盖。
-
-  - id: 74
-    action: keep
-    user_verdict: 同意
-    finding: ClickHouse 作用域报错，属方言难点。
-
-  - id: 85
-    action: keep
-    user_verdict: 同意
-    finding: 多种错误，题目本身没问题。
-
-  - id: 93
-    action: keep
-    user_verdict: 同意
-    finding: 统计题；模型给了明细而不是相关系数。
-
-  - id: 43
-    action: accepted_interpretations
-    user_verdict: 同意；2026-10-15 G0 裁决，主仓库 decisions/2026-10-15-g0-passed.md
-    finding: 「地区」是大洲还是国家有歧义；原参考取大洲。路径按约定第 5 条走客户所在地。
-    interpretations:
-      - 按客户所在大洲的毛利
-      - 按客户所在国家的毛利
-    note: 中文保留「按地区」，不改约定清单；本题不再测试地理粒度能力，T04/T06 标注该代价。
-
-pending_user_decision: []
+- id: 19
+  action: fix_reference
+  user_verdict: 同意
+  finding: 参考按销售行求平均（约 215 美元），但「平均订单金额」应为总额 ÷ 订单数（约 1,600 美元），相差约 7 倍。
+  fix: 线上销售按性别分组，sum(SalesAmount) / countDistinct(SalesOrderNumber)。
+- id: 79
+  action: fix_reference
+  user_verdict: 同意
+  finding: 参考用了配额表的「实际」场景（ScenarioKey = 1），配额等于实际，前 10 名全是 100%。
+  fix: 改用预算场景（ScenarioKey = 2），与 Q85 一致；全渠道实际销售额 ÷ 预算场景的目标销售额（约定第 12 条）。
+- id: 33
+  action: fix_reference
+  user_verdict: 同意
+  finding: 参考 SQL 在外部基准的服务器上 30 秒超时，被剔除。
+  fix: 本地不设超时重算参考结果；归入统计类题。
+- id: 14
+  action: scoring_rule
+  user_verdict: 同意
+  finding: 结果被截成 100 行且无排序，比的是任意一段；候选里出现的「Not Provided」客户是公司客户，参考按 CustomerKey 分组时同样包含。
+  rule: 比对完整结果集（按 CustomerKey 匹配）。
+- id: 27
+  action: scoring_rule
+  user_verdict: 同意
+  finding: 第 10 名有并列，参考先四舍五入再排序，tie-break 结果随写法变化。
+  rule: 边界并列时，并列者任一都算对。
+- id: 28
+  action: rewrite
+  user_verdict: 同意
+  finding: 线上表与全渠道表的「交易」粒度不同，参考答案拿两种口径直接比。
+  new_question: 在全渠道销售中，比较门店渠道和线上渠道的平均每条销售记录金额。
+  fix: 全渠道销售按渠道（门店、线上）分组，avg(SalesAmount)。
+- id: 10
+  action: accepted_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 外部基准的语义文档没写门店状态取值，加文档的模型猜成 'Open' 得 0。
+  interpretations:
+  - 状态为 'On'
+  - 关店日期为空
+  - 状态为 'On' 或关店日期为空（原参考）
+  note: 若三者结果相同，合并为一份参考结果并在 refs 中注明。
+- id: 13
+  action: accepted_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 全渠道表没有订单号，「平均订单金额」无从计算；外部基准的文档又把模型引向线上表。
+  interpretations:
+  - 全渠道销售按门店：销售额合计、每条记录的平均金额、记录数（须声明「无订单号，按记录计算」）
+  not_accepted:
+  - 只用线上销售（违反约定第 2 条：以门店为对象的问题用全渠道销售）
+  note: 先检查 StoreName 是否唯一；不唯一则以 StoreKey 分组为准。
+- id: 20
+  action: accepted_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 参考取全表最后一天；各门店 × 产品的最近快照日并不相同。
+  interpretations:
+  - 每个门店 × 产品取最近一次快照，列出在手量低于安全库存的门店 × 产品
+  - 每个门店 × 产品取最近一次快照后按产品汇总，列出汇总在手量低于汇总安全库存的产品
+  not_accepted:
+  - 全表最后一天的快照（违反约定第 11 条；原参考只用于英文锚点）
+- id: 37
+  action: accepted_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 小数与百分数之争（0.9967 vs 99.67）；加文档的模型被引向线上表。
+  interpretations:
+  - 全渠道销售按门店求和，并给出百分位排名（小数或百分数均可）
+  not_accepted:
+  - 只用线上销售（违反约定第 2 条）
+- id: 49
+  action: accepted_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 原参考返回 0 行。
+  interpretations:
+  - 计划表「实际」场景、收入科目（Sale Revenue），沿实体层级汇总，只给顶层实体
+  - 同上，逐层给出每个实体的汇总
+  todo: 先查清原参考为何返回 0 行（可能是键的类型不一致或递归条件问题），再重算。
+- id: 46
+  action: judge_with_interpretations
+  user_verdict: 用户批注修订（2026-10-15）：agent声明合理口径，既有示例不是封闭白名单
+  finding: 「客户群体」可按学历也可按职业，原参考选了学历。
+  interpretations:
+  - agent声明合理分析口径和查询条件，judge核验一致性；既有学历/职业或增幅/增加额仅作示例
+  note: 用户新批注优先：题干模糊，要求agent声明合理客户分群、利润指标及查询条件；学历/职业仅为参考示例，不是封闭白名单。遵守未说明渠道默认线上、毛利=销售额-总成本等已冻结约定；judge核验声明与计算、排名是否一致，不能仅因声明假设就判对。
+- id: 48
+  action: judge_with_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 原参考用「停机超过 1,000 分钟」这一问句没说的阈值分组。
+  interpretations:
+  - 按停机时长分组（阈值由模型声明），比较各组门店的平均全渠道销售
+  - 计算门店层面停机时长与全渠道销售的相关系数
+- id: 86
+  action: judge_with_interpretations
+  user_verdict: 模型回答时声明假设
+  finding: 原参考暗含「样本数大于 100」「取前 20」两个问句没说的条件，且包含无折扣交易。
+  interpretations:
+  - 各子品类折扣百分比与销量的相关系数；是否包含无折扣交易、最少样本数、取前几名由模型声明
+- id: 97
+  action: judge_with_interpretations
+  user_verdict: 用户批注修订（2026-10-15）：agent声明合理口径，既有示例不是封闭白名单
+  finding: 按增幅还是增加额、取几名、上半年至少多少，问句都没说。
+  interpretations:
+  - agent声明合理分析口径和查询条件，judge核验一致性；既有学历/职业或增幅/增加额仅作示例
+  note: 用户新批注优先：agent必须声明反弹指标、前N、H1基数下限和其他筛选；增幅/增加额及既有阈值仅为示例，不是封闭白名单。固定2009年H1/H2含义；judge核验声明、数据与排序，不仅因声明就判对。
+- id: 39
+  action: open_ended_repair
+  user_verdict: 再讨论 → 保留为开放式题（设计 v4）
+  finding: 算的是品类内的蚕食（新品上市后同子品类老产品的销售是否下降）；原参考返回 0 行。
+  fix: 新品 = 2008–2009 年上市的产品；对每个有新品的子品类，比较老产品在首个新品上市前后的线上销售（日均或同长度窗口），由宽松裁判评分。
+- id: 31
+  action: keep
+  user_verdict: 同意
+  finding: 错在外部基准的语义文档（把销售科目写成键 50，实际是 Sale Revenue），题目本身没问题。
+- id: 38
+  action: keep
+  user_verdict: 同意
+  finding: 同 Q31。
+- id: 94
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  finding: 参考全渠道口径保留；题干未声明前20而原SQL含LIMIT20，用户本轮批准删除隐含截断。
+  note: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+  fix: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+- id: 74
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  finding: 本轮复核覆盖早期keep：题干按门店，原SQL却用线上销售且含全局LIMIT50；按约定2应改全渠道并返回每店完整前三名边界。
+  note: 已批准：全渠道、每店前三名，移除全局LIMIT50。参考由完整门店×产品排序域按全局金额量化键取严格前缀和完整边界，每店候选仍应恰好3行；分组Top-N契约留T06冻结前核对，不得误用全局Top-N。
+  fix: 已批准：全渠道、每店前三名，移除全局LIMIT50。参考由完整门店×产品排序域按全局金额量化键取严格前缀和完整边界，每店候选仍应恰好3行；分组Top-N契约留T06冻结前核对，不得误用全局Top-N。
+- id: 85
+  action: keep
+  user_verdict: 同意
+  finding: 多种错误，题目本身没问题。
+- id: 93
+  action: keep
+  user_verdict: 同意
+  finding: 统计题；模型给了明细而不是相关系数。
+- id: 43
+  action: accepted_interpretations
+  user_verdict: 同意；2026-10-15 G0 裁决，主仓库 decisions/2026-10-15-g0-passed.md
+  finding: 「地区」是大洲还是国家有歧义；原参考取大洲。路径按约定第 5 条走客户所在地。
+  interpretations:
+  - 按客户所在大洲的毛利
+  - 按客户所在国家的毛利
+  note: 中文保留「按地区」，不改约定清单；本题不再测试地理粒度能力，T04/T06 标注该代价。
+- id: 17
+  action: scoring_rule
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 用户确认：本题比较销售构成占比，不适用约定4的日均比较；周末/工作日销售额分别除以全部销售额。
+  rule: 用户确认：本题比较销售构成占比，不适用约定4的日均比较；周末/工作日销售额分别除以全部销售额。
+- id: 25
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：North America限定客户所在地为北美，不只是季节命名；先按天汇总，再按北美季节计算日均销售。
+  fix: 已批准：North America限定客户所在地为北美，不只是季节命名；先按天汇总，再按北美季节计算日均销售。
+- id: 40
+  action: keep
+  user_verdict: 仅同意调查方向；最终公式/缺失日期处理未批准
+  note: 用户仅批准汇率调查方向，尚未批准最终参考。线上全为USD；EUR目标汇率仅31个日期而销售覆盖1096天。不得把31天换算误称全期间结果，不擅自前填/剔除缺失日期。暂存原参考仅为待修历史工件，T04仍待Q40定案，不得作为已验收换汇答案。
+  todo: 查清方向和覆盖后交用户决定，禁止将历史0答案视为已验收
+- id: 42
+  action: judge_with_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准开放式：年度销售趋势仅为示例，允许声明指标与时间范围后分析销售额、毛利、增长趋势的一项或多项；judge核验所声明口径、数据及结论，不按示例列集合机械评分。
+  interpretations:
+  - 已批准开放式：年度销售趋势仅为示例，允许声明指标与时间范围后分析销售额、毛利、增长趋势的一项或多项；judge核验所声明口径、数据及结论，不按示例列集合机械评分。
+- id: 44
+  action: judge_with_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：接受声明时间粒度的年度同比或月度趋势。无基期使用NULL/不可计算，不能将inf当增长率；示例不是封闭白名单。
+  interpretations:
+  - 已批准：接受声明时间粒度的年度同比或月度趋势。无基期使用NULL/不可计算，不能将inf当增长率；示例不是封闭白名单。
+- id: 45
+  action: judge_with_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：不把未声明的前10当唯一边界；允许模型声明正整数Top-N或完整排名，由judge核验排名及数据。单位保留每平方英尺，不能无声改成平方米。中文“销售平效”按用户批注改写，单位补充待最终确认。
+  interpretations:
+  - 已批准：不把未声明的前10当唯一边界；允许模型声明正整数Top-N或完整排名，由judge核验排名及数据。单位保留每平方英尺，不能无声改成平方米。中文“销售平效”按用户批注改写，单位补充待最终确认。
+- id: 65
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+  fix: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+- id: 67
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+  fix: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+- id: 69
+  action: accepted_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：接受折前金额加权与成交记录简单平均的实际折扣率，须声明权重。题目按促销营收排序，不按折扣深度排序；用户对中文提出异议，当前修订译文待确认。
+  interpretations:
+  - 折前金额加权实际折扣率，须声明权重
+  - 成交记录的实际折扣率简单平均，须声明权重
+- id: 70
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：门店面积按DimStore唯一门店等权平均，含无销售门店；全渠道销售按门店先汇总，避免销售记录数量加权面积。
+  fix: 已批准：门店面积按DimStore唯一门店等权平均，含无销售门店；全渠道销售按门店先汇总，避免销售记录数量加权面积。
+- id: 75
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+  fix: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+- id: 76
+  action: accepted_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：全目录累计至少2单或品类内至少2单均接受，须声明粒度；各自在对应品类内计算回头客销售额/品类总销售额。
+  interpretations:
+  - 客户全目录累计至少两笔线上订单，须声明粒度
+  - 在该品类内至少两笔线上订单的回头客，须声明粒度
+- id: 80
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：含全部有购买客户，首末购买同日跨度为0；去掉隐含前20，按客户所在地国家完整统计。
+  fix: 已批准：含全部有购买客户，首末购买同日跨度为0；去掉隐含前20，按客户所在地国家完整统计。
+- id: 82
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：截止2009-12-31，入职天数/365.25，直属下属等权平均；去掉LIMIT25。
+  fix: 已批准：截止2009-12-31，入职天数/365.25，直属下属等权平均；去掉LIMIT25。
+- id: 83
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：只保留2007首购人数、其中2008回购人数、再其中2009回购人数三列计数；去掉两个辅助留存率。
+  fix: 已批准：只保留2007首购人数、其中2008回购人数、再其中2009回购人数三列计数；去掉两个辅助留存率。
+- id: 84
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：按全局金额量化规范识别同额组；用组加入前的累计营收占比判A(<80%)、B(80%至<95%)、C(>=95%)；跨阈值整组留前类，允许实际占比略超阈值。Python后处理严格调用同一Decimal ROUND_HALF_EVEN规则，不用引擎默认round。
+  fix: 已批准：按全局金额量化规范识别同额组；用组加入前的累计营收占比判A(<80%)、B(80%至<95%)、C(>=95%)；跨阈值整组留前类，允许实际占比略超阈值。Python后处理严格调用同一Decimal ROUND_HALF_EVEN规则，不用引擎默认round。
+- id: 92
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+  fix: 已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。
+- id: 95
+  action: judge_with_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。
+  interpretations:
+  - 已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。
+- id: 98
+  action: accepted_interpretations
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：声明只看2009，或分别看2007、2008、2009；每个年度内算最大季度占比，不将跨年同季度合并称为单年集中度。
+  interpretations:
+  - 仅分析2009年度，须声明年份
+  - 分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份
+- id: 100
+  action: fix_reference
+  user_verdict: 用户勾选接受建议（2026-10-15批阅表）
+  note: 已批准：按全局量化规范处理订单数、客单价，再各算精确线性插值90%分位阈值；同时>=两阈值的全部客户，不设LIMIT30；不额外要求题干未指定的最终行序。
+  fix: 已批准：按全局量化规范处理订单数、客单价，再各算精确线性插值90%分位阈值；同时>=两阈值的全部客户，不设LIMIT30；不额外要求题干未指定的最终行序。
+pending_user_decision:
+- id: 40
+  proposal: 缺失日期处理与最终换汇公式
+  note: 用户仅批准汇率调查方向，尚未批准最终参考。线上全为USD；EUR目标汇率仅31个日期而销售覆盖1096天。不得把31天换算误称全期间结果，不擅自前填/剔除缺失日期。暂存原参考仅为待修历史工件，T04仍待Q40定案，不得作为已验收换汇答案。
+- id: 30
+  proposal: 7日窗口起始边界
+  note: 现参考从12月1日起输出：前6天使用12月内已有日期，第7天起为完整7日窗口，不使用11月数据。用户对窗口起点提出疑问；最终可接受起始窗口规则待确认，当前参考暂不改动。
