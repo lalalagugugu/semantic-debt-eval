@@ -58,10 +58,28 @@
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category",
           "result_path": "refs/new/Q102-1.csv"
+        },
+        {
+          "interpretation": "遵守企业约定及题干限定口径；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
+          "result_path": "refs/new/Q102-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1187,10 +1205,50 @@
           "interpretation": "声明样本标准差（除以11）",
           "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
           "result_path": "refs/new/Q121-2.csv"
+        },
+        {
+          "interpretation": "声明总体标准差（除以12）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevPop(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
+          "result_path": "refs/new/Q121-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "ratio"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Nullable(Float64)"
+            ]
+          }
+        },
+        {
+          "interpretation": "声明样本标准差（除以11）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
+          "result_path": "refs/new/Q121-4.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "ratio"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {

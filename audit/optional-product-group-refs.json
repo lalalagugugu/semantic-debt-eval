@@ -1,0 +1,1171 @@
+{
+  "questions_scanned": 122,
+  "baseline_references": 148,
+  "added_references": 13,
+  "added_this_invocation": 0,
+  "final_references": 161,
+  "local_ratios_allowed": true,
+  "applied": true,
+  "records": [
+    {
+      "question_id": "Q01",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q02",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q03",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q04",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q05",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q06",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q07",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q08",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q09",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q10",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q11",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q11-1.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q11-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q12",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q13",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q14",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q15",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q16",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q17",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q18",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q19",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q20",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q21",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q22",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q23",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q24",
+      "eligible": true,
+      "reason": "allowed: within-group ratio/statistic",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q24-1.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q24-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q25",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q26",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q27",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q28",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q29",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q30",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q31",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q32",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q33",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q34",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q35",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q36",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q37",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q38",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q39",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q40",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q41",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q42",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q43",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q44",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q45",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q46",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q47",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q48",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q49",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q50",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q51",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q52",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q53",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q54",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q55",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q56",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q57",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q58",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q59",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q60",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q61",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q61-1.csv",
+          "attribute_columns": [
+            "ProductSubcategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 30
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q61-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q62",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q62-1.csv",
+          "attribute_columns": [
+            "BrandName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 11
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q62-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q63",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q64",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q65",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q66",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q67",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q67-1.csv",
+          "attribute_columns": [
+            "ColorName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 17
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q67-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q68",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q69",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q70",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q71",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q71-1.csv",
+          "attribute_columns": [
+            "category",
+            "subcategory"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q71-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q72",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q73",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q74",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q75",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q76",
+      "eligible": false,
+      "reason": "excluded: total/share/parent-denominator semantics",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q76-1.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        },
+        {
+          "source_reference": "refs/cube/Q76-2.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        },
+        {
+          "source_reference": "refs/cube/Q76-3.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q77",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q78",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q79",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q80",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q81",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q82",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q83",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q84",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q85",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q86",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q86-1.csv",
+          "attribute_columns": [
+            "ProductSubcategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 19
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q86-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q87",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q88",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q89",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q90",
+      "eligible": true,
+      "reason": "allowed: within-group ratio/statistic",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q90-1.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q90-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q91",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q92",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q93",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q94",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q95",
+      "eligible": true,
+      "reason": "allowed: within-group ratio/statistic",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q95-1.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q95-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q96",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q97",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q98",
+      "eligible": false,
+      "reason": "excluded: total/share/parent-denominator semantics",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q98-1.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        },
+        {
+          "source_reference": "refs/cube/Q98-2.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 3,
+          "named_rows": 24
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q99",
+      "eligible": true,
+      "reason": "allowed: within-group ratio/statistic",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/cube/Q99-1.csv",
+          "attribute_columns": [
+            "ProductCategoryName"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/cube/Q99-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q100",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q101",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q102",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/new/Q102-1.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/new/Q102-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q103",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q104",
+      "eligible": true,
+      "reason": "allowed: named product-attribute groups independent of empty row",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q105",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q106",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q107",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q108",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q109",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q110",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q111",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q112",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q113",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q114",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q115",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q116",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q117",
+      "eligible": false,
+      "reason": "excluded: total/share/parent-denominator semantics",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q118",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q119",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q120",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    },
+    {
+      "question_id": "Q121",
+      "eligible": true,
+      "reason": "allowed: within-group ratio/statistic",
+      "empty_group_references": [
+        {
+          "source_reference": "refs/new/Q121-1.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        },
+        {
+          "source_reference": "refs/new/Q121-2.csv",
+          "attribute_columns": [
+            "category"
+          ],
+          "empty_rows": 1,
+          "named_rows": 8
+        }
+      ],
+      "additions": [],
+      "existing_optional_references": [
+        "refs/new/Q121-3.csv",
+        "refs/new/Q121-4.csv"
+      ]
+    },
+    {
+      "question_id": "Q122",
+      "eligible": false,
+      "reason": "not eligible: product identity, detail or other grouping",
+      "empty_group_references": [],
+      "additions": [],
+      "existing_optional_references": []
+    }
+  ]
+}

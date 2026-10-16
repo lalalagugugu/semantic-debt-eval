@@ -1,6 +1,6 @@
 # T05 补题与参考答案
 
-- 状态：第二轮22题正式SQL与122题148份参考已从头重算；购买事件双解已按用户裁决落地。Codex交付待合并，T05b独立核对进行中、结果待交；T06冻结未执行（2026-10-16）
+- 状态：第二轮22题正式SQL与122题161份参考已从头重算并严格复算；购买事件双解及13份无空产品属性组参考已按裁决落地。T05b独立核对进行中、结果待交；T06冻结未执行（2026-10-16）
 - 负责：Codex（出题并用 SQL 算参考答案）；独立重算在 T05b 由 Claude Code 做
 - 模式：题库（`cd ~/semdebt/semantic-debt-eval && codex "执行任务卡 T05"`）
 - 限制：不得读取主仓库 `semantic/` 下除 `conventions.md` 以外的文件（避免对着 L1 文档出题）
@@ -51,16 +51,17 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 
 ## 2026-10-16 收尾交付
 
-- 产出：正式第二轮22题、122题148份参考与实际返回类型／量纲规则；7题分组选择元数据；Q79的306成员及规则版本快照；20题24份内／左连接审计；全122题购买事件双解报告；全部参考从头重算及严格检查。
+- 产出：正式第二轮22题、122题161份参考与实际返回类型／量纲规则；7题分组选择元数据；Q79当前修订参考的42边界成员及规则版本快照（替代旧306快照，数量从参考推导）；20题24份内／左连接审计；全122题购买事件双解报告；13份无空产品属性组参考；全部参考从头重算及严格检查。
 - 偏离及理由：依据用户已批准的第二轮设计替换第一轮；纯退货行按用户裁决保留两种购买算法，相同结果不增加重复参考。第一轮审阅、SQL及报告归档，不沿用其复算结论。Q33已按订单去重产品并完整计算，不以未验证进入eval-v1。
 - 分工：Codex SQL与审计完成；T05b仍由Claude Code独立pandas复现（含Q79相同成员与7题选择语义）；英文锚点接线由T11处理。
-- 验证与600条最终归因：见audit/T05-finalization.md、audit/T05-report.md和audit/rules-final-impact.*。
+- 验证与600条归因：历史轮次见audit/T05-finalization.md、audit/T05-report.md和audit/rules-final-impact.*；本次裁决追加轮次见audit/Q79-orphan-followup.md及audit/orphan-group-impact.*，不覆盖历史数字。
 - 工时：本会话未单独计时；无付费调用和新依赖。
 
 ## 用户裁决依据
 
 - 第二轮22题：decisions/2026-10-16-t05-redesign-approval.md。
 - 购买事件双解：audit/T05-purchase-events.md及decisions/open-questions.md的已裁决记录。
-- Q79：主仓库decisions/2026-10-16-q79-release-and-anchor-refs.md第一节；题库tasks/T06-split-freeze.md已改为T05b独立成员集合一致才放行。
+- Q79：主仓库decisions/2026-10-16-q79-release-and-anchor-refs.md第四节；题库tasks/T06-split-freeze.md要求T05b独立成员集合一致才放行，不写死成员数。
+- 空产品属性组与组内比率：主仓库decisions/2026-10-16-orphan-product-group-row-and-scorer-early-reject.md第一、三节。
 
 参考SQL一条命令重算：`uv run --locked python scripts/build_refs.py`；严格复算：加`--check`。两个命令都需要SEMDEBT_MAIN_DIR和SEMDEBT_DATA_DIR，串行使用chdb-eval。
