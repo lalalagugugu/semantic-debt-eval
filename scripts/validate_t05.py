@@ -61,6 +61,30 @@ def main():
     records = {r['result_path']: r for r in manifest['records']}
     assert set(records) == {r['result_path'] for q in old + new for r in q['refs']}
     assert set((REPO/'refs/new').glob('*.csv')) == {REPO/r['result_path'] for q in new for r in q['refs']}
+    # The 600-case runner may omit sensitivity, never change verdicts/reasons.
+    from check_rules_impact import verdict_only
+    from harness.scorer import ExecError, score_detailed
+    simple={'ordered':False,'top_n':None,'tie_columns':[],'value_kinds':['other','count'],'value_types':['String','UInt64']}
+    matrices=[[],[['a',1]],[['a',2]],[['b',1]],[['a',1],['a',1]],[['a',None]],[['a',1],['b',2]]]
+    for candidate in matrices:
+        for reference in matrices:
+            expected=score_detailed(candidate,[reference],simple)
+            actual=verdict_only(candidate,[reference],simple)
+            assert (actual.outcome,actual.reason,actual.matched_ref)==(expected.outcome,expected.reason,expected.matched_ref)
+    for candidate in [ExecError('fixture'),'__REFUSED__']:
+        if isinstance(candidate,str):
+            from harness.scorer import REFUSAL
+            candidate=REFUSAL
+        assert verdict_only(candidate,[[['a',1]]],simple).outcome==score_detailed(candidate,[[['a',1]]],simple).outcome
+    winning={'ordered':False,'top_n':None,'tie_columns':[],'value_kinds':['count'],'value_types':['UInt64']}
+    refs=[[['a',1]],[[2]]]
+    actual=verdict_only([[2]],refs,simple,reference_rules=[None,winning])
+    assert actual==score_detailed([[2]],refs,simple,reference_rules=[None,winning])
+    top={'ordered':True,'top_n':1,'tie_columns':[1],'value_kinds':['other','amount'],'value_types':['String','Float64']}
+    for candidate in [[['a',10]],[['b',10]],[['a',10],['b',10]],[['c',9]],[]]:
+        actual=verdict_only(candidate,[[['a',10],['b',10]]],top)
+        expected=score_detailed(candidate,[[['a',10],['b',10]]],top)
+        assert (actual.outcome,actual.reason)==(expected.outcome,expected.reason)
     policy, _ = load_unit_policy()
     from snapshot_q79_boundary import compare_members
     stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}

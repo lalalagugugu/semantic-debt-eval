@@ -69,6 +69,51 @@ def contract_domain(qid, sql, question):
     return sql, rules
 
 
+def verdict_only(candidate, refs, rules, *, reference_rules=None):
+    """Use the production matcher without its optional numeric sensitivity pass.
+
+    This audit stores outcomes/reasons only. The diagnostic numeric projection
+    can require a quadratic all-numeric match for large inventory row sets.
+    Parsing, coercion and every verdict use the unchanged scorer core, with the necessary NULL
+    condition below as an equivalent early rejection.
+    """
+    from collections.abc import Mapping, Sequence
+    from harness.scorer import (BOUNDARY_TIE_FULL_GROUP, ExecError, ScoreResult,
+                                _coerce_rows, _matches_reference, _parse_rules,
+                                score_detailed)
+    if reference_rules is not None:
+        if isinstance(reference_rules,(str,bytes)) or not isinstance(reference_rules,Sequence) or len(reference_rules)!=len(refs):
+            raise ValueError('reference_rules must align with refs')
+        if any(item is not None and not isinstance(item,Mapping) for item in reference_rules):
+            raise TypeError('reference_rules entries must be mappings or None')
+    parsed=[_parse_rules(reference_rules[i] if reference_rules is not None and reference_rules[i] is not None else rules) for i in range(len(refs))]
+    if isinstance(candidate,(ExecError,str)):
+        return score_detailed(candidate,refs,rules,reference_rules=reference_rules)
+    candidate=_coerce_rows(candidate,'candidate_rows')
+    references=[_coerce_rows(ref,f'refs[{i}]') for i,ref in enumerate(refs)]
+    if not references:
+        raise ValueError('refs must contain at least one acceptable result set')
+    reasons=[]
+    candidate_has_null=any(cell is None for row in candidate for cell in row)
+    for i,(reference,rule) in enumerate(zip(references,parsed,strict=True)):
+        # Necessary condition of the unchanged scalar matcher: None only
+        # matches None. A flat complete reference containing NULL cannot match
+        # a candidate with no NULL in any column. Avoid enumerating every
+        # column permutation over hundreds of thousands of rows in this case.
+        null_impossible=(not candidate_has_null and candidate and reference
+                         and rule.top_n is None and rule.selection is None
+                         and len(candidate)==len(reference)
+                         and len(candidate[0])>=len(reference[0])
+                         and (not rule.value_kinds or len(rule.value_kinds)==len(reference[0]))
+                         and (not rule.value_types or len(rule.value_types)==len(reference[0]))
+                         and any(cell is None for row in reference for cell in row))
+        matched,reason=(False,'values') if null_impossible else _matches_reference(candidate,reference,rule)
+        if matched:
+            return ScoreResult('correct',matched_ref=i)
+        reasons.append(reason)
+    return ScoreResult('wrong',BOUNDARY_TIE_FULL_GROUP if BOUNDARY_TIE_FULL_GROUP in reasons else reasons[0])
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--clean-baseline', type=Path, required=True)
@@ -82,7 +127,7 @@ def main():
     spec = importlib.util.spec_from_file_location('impact_validation_adapter', main_dir / 'scripts/validate_scorer.py')
     adapter = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(adapter)
-    from harness.scorer import ExecError, score_detailed
+    from harness.scorer import ExecError
     from chdb import session
 
     questions = {int(q['id'][1:]): q for q in yaml.safe_load((REPO / 'questions/cube_100.yaml').read_text())['questions']}
@@ -132,16 +177,16 @@ def main():
                     if qid in adapter.EXCLUDED_QUESTION_IDS:
                         row.update(baseline='excluded', contract='excluded', reference_only='excluded', combined='excluded')
                     else:
-                        before = score_detailed(candidate, [references[qid]], baseline_rules[qid])
-                        after = score_detailed(candidate, [changed_references.get(qid, references[qid])], contract_rules.get(qid, baseline_rules[qid]))
+                        before = verdict_only(candidate, [references[qid]], baseline_rules[qid])
+                        after = verdict_only(candidate, [changed_references.get(qid, references[qid])], contract_rules.get(qid, baseline_rules[qid]))
                         row.update(baseline=before.outcome, contract=after.outcome, contract_reason=after.reason)
                         if questions[qid]['scoring'] == 'deterministic':
                             current_refs = questions[qid]['refs']
                             current = [csv_rows(records_by_path[ref['result_path']]) for ref in current_refs]
                             overrides = [ref.get('rules') for ref in current_refs]
-                            combined = score_detailed(candidate, current, questions[qid]['rules'], reference_rules=overrides)
+                            combined = verdict_only(candidate, current, questions[qid]['rules'], reference_rules=overrides)
                             flat_overrides = [{**effective_rules(questions[qid], ref), 'selection': None} for ref in current_refs]
-                            reference_only = score_detailed(candidate, current, {**questions[qid]['rules'], 'selection': None}, reference_rules=flat_overrides)
+                            reference_only = verdict_only(candidate, current, {**questions[qid]['rules'], 'selection': None}, reference_rules=flat_overrides)
                             row.update(reference_only=reference_only.outcome, combined=combined.outcome, combined_reason=combined.reason)
                         else:
                             row.update(reference_only=None, combined=None, combined_reason='judge_examples_are_not_closed_answer_sets')
@@ -162,7 +207,8 @@ def main():
     agreements = sum((r['contract'] == 'correct') == (r['strict'] == 'pass') for r in comparable)
     analytical = sum((r['contract'] == 'correct') == (r['analytical'] == 'pass') for r in comparable)
     wider = sum(r['intentional_broader'] for r in comparable)
-    result = {'executed_candidates': len(output), 'runtime': {'max_threads': 1, 'max_execution_time': 30, 'session_resets': resets}, 'unit_policy_sha256': policy_hash,
+    result = {'executed_candidates': len(output), 'runtime': {'max_threads': 1, 'max_execution_time': 30, 'session_resets': resets, 'diagnostic_numeric_projection': False, 'null_impossibility_fast_rejection': True}, 'unit_policy_sha256': policy_hash,
+              'scorer_sha256': hashlib.sha256((main_dir / 'harness/scorer.py').read_bytes()).hexdigest(),
               'selection_sha256': hashlib.sha256((main_dir / 'harness/selection.py').read_bytes()).hexdigest(), 'question_sha256': hashlib.sha256((REPO / 'questions/cube_100.yaml').read_bytes()).hexdigest(),
               'raw_candidates_sha256': hashlib.sha256((raw_dir / 'candidates.jsonl').read_bytes()).hexdigest(), 'raw_candidates_path': str(raw_dir / 'candidates.jsonl'),
               'contract_counts': dict(Counter(r['contract'] for r in output)), 'reference_counts': dict(Counter(r['reference_only'] for r in output if r['reference_only'] is not None)), 'combined_counts': dict(Counter(r['combined'] for r in output if r['combined'] is not None)),
@@ -174,7 +220,7 @@ def main():
              f'原公开参考＋新分组契约：strict一致{agreements}/{len(comparable)}；analytical一致{analytical}/{len(comparable)}；排除有意更宽后的描述性分母为{agreements}/{len(comparable)-wider}。', '',
              '历史strict一致521/594（87.7%）、排除11条有意更宽后521/583（89.4%）保留，不覆盖。', '',
              'reference_only固定旧扁平比较，combined为当前题库参考＋新契约；二者只在确定性题记录。judge参考仅是示例，不能用“与例子不同”代替judge结论。参考修复轴同时包含T04既有修订及本次孤儿修复，不将其全部归为Q74或模型改善。', '',
-             '每条四轴判定保存在配套JSON。下表逐条列出任何判定变化；historical_clean差异是复执行稳定性轴，不能直接归为新契约。', '',
+             '仅调用未改动评分核心取得判定／原因，不执行未写入本报告的numeric sensitivity投影；大行集该诊断会出现平方级匹配。NULL必要条件早拒绝和判定均与正式score_detailed合成对照一致。每条四轴判定保存在配套JSON。下表逐条列出任何判定变化；historical_clean差异是复执行稳定性轴，不能直接归为新契约。', '',
              '| 系统 | 题号 | 干净历史 | 本轮旧契约 | 仅契约 | 仅参考 | 联合 |', '|---|---|---|---|---|---|---|']
     for r in output:
         if any(r[k] for k in ('contract_changed', 'reference_changed', 'combined_changed', 'baseline_reexecution_changed')):

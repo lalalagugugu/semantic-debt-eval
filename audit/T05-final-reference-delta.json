@@ -1,0 +1,320 @@
+{
+  "comparison": "current formal references vs prior #36 reference axis; contract unchanged",
+  "counts": {
+    "contract_changed": 0,
+    "reference_changed": 73,
+    "combined_changed": 74,
+    "baseline_reexecution_changed": 0
+  },
+  "changed": 43,
+  "directions": {
+    "correct_to_wrong": 43
+  },
+  "reasons": {
+    "row_count": 37,
+    "selection_group_coverage": 6
+  },
+  "records": [
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 21,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 67,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 11,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 67,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 90,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 67,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 11,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 20,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 21,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 24,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 34,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 67,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 90,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 99,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 11,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 20,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 21,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 34,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 61,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 62,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 71,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "selection_group_coverage"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 76,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 99,
+      "before": "correct",
+      "after": "wrong",
+      "reason": "row_count"
+    }
+  ]
+}
