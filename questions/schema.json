@@ -85,7 +85,10 @@
                     "abc_groups",
                     "power_customers",
                     "store_top3",
-                    "selection"
+                    "selection",
+                    "baseline_top_decile",
+                    "product_rank_competition",
+                    "product_rank_dense"
                   ]
                 },
                 "rules": {

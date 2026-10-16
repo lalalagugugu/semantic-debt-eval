@@ -1,0 +1,2705 @@
+{
+  "scope": "122 active questions, both formal rounds",
+  "source_sha256": "ea05adc863f1f4442117c38e7b5993b9638807c3a7bb0cd02e342ed1c2c4a515",
+  "quantization_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "references": [
+    {
+      "question_id": "Q01",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q01-1.csv",
+      "sql_sha256": "7475ef1a93b1299e1a59bed9c57e0d11eb670a76329fa7a16e34e6632100f2b8",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q02",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q02-1.csv",
+      "sql_sha256": "c767d5ee977f960566113eacf8efb31ab18ae460ff3eeddc819b4ad662471d61",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q03",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q03-1.csv",
+      "sql_sha256": "51472307cc6376a211b9508104d7b1c6e3d532acf1d86d3f21e03ee273d02621",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q04",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q04-1.csv",
+      "sql_sha256": "f6bbfc9675c4cd50f1f18f30cfa6be69313ab7b8446a122e636965f4aaaf9e4d",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q05",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q05-1.csv",
+      "sql_sha256": "26a0350e5f276491404f3b753bf46f541d35c81ba11ac272fbc0f66a585939f9",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q06",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q06-1.csv",
+      "sql_sha256": "1798cab9d75605b6aff2180a094a54742c8606bf61e35e1cb5cc583acb4d6f07",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q07",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q07-1.csv",
+      "sql_sha256": "13f331aa61aac68bf16a9e45847a99e3a2cf511ba2affb180d8e2632d694e333",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q08",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q08-1.csv",
+      "sql_sha256": "eaf4c193f84d5808534cdef98b6fc40569f6c5f8fb61e79081e126b5e78d5038",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "orphan-store-employee",
+        "no-fact-on-employee-or-territory"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q09",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q09-1.csv",
+      "sql_sha256": "ef28c4b6fd74bd23887b100aa540c04e7fd1be023a0cd266dea36ef84f775554",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-1.csv",
+      "sql_sha256": "5a647eb59674cacf0b223fd81e4fb879cb666be98ec7e6bc6c10adf6a65e4f18",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-2.csv",
+      "sql_sha256": "daebc6d5c11d26bdd99bab1d47f93098730e4660fd99b391da95ba5397f11582",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "sentinel-close-date"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-3.csv",
+      "sql_sha256": "4ef7575fd5ac474195c67b104bfab6ee0e64fbfae9aea40608a76a288280d7f4",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "sentinel-close-date"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q11",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q11-1.csv",
+      "sql_sha256": "9ca814e2a227535e130a634df0984383251007dfc14480dda2d134fb94e58983",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q12",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q12-1.csv",
+      "sql_sha256": "f727c4e87c28652359392563efc40e0554856f4671df2ba8e38fde5a8734b62f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q13",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q13-1.csv",
+      "sql_sha256": "4627286a3473e9bf5f1395b9955952557888c5b0a743f57930dce38831c46dff",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q14",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q14-1.csv",
+      "sql_sha256": "bce32a8ea87b1a1b0c28dccd1633aa91ebd44ea57da466711ea7ad4bfc3f9a89",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q15",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q15-1.csv",
+      "sql_sha256": "bb62fa657cdf4c2c4a20fae8737c68f69d1158cc880c9ce431eb4b0f56584f99",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q16",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q16-1.csv",
+      "sql_sha256": "d25de5a1fca644d1206801ef6837b4a0a14a60fee830118294d5a10be0e5d3cc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q17",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q17-1.csv",
+      "sql_sha256": "39db3fe433939955402f7f56f2b3f8279f46ecf68e311e07c830d74b157c2d0e",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "holiday-equals-weekend",
+        "online-sales-mismatch",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q18",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q18-1.csv",
+      "sql_sha256": "23073211db731011ee627224521ddf2b34bc935d685e2a8ccaf9e29f4e9bbe09",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q19",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q19-1.csv",
+      "sql_sha256": "ba25fa16780262c51588a18eae569b95ba99a6aa5bdd5be05331de77d5d2e1fc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q20",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q20-1.csv",
+      "sql_sha256": "b3662e56e6cee9e90fc726538529a26f7f74a6c14886f55c524a25a057dad24a",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q20",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q20-2.csv",
+      "sql_sha256": "4ee06b4ef225d1a26d3d701251cb0ce478af7b23da2fbffc6e9fcfe7199c6188",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q21",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q21-1.csv",
+      "sql_sha256": "cb09d946360984867eef114ac620c3518e2e36151e786740168952a435acf4aa",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q22",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q22-1.csv",
+      "sql_sha256": "cd71118a2ead197927a08da37f70f8dda72e0de212694966040aa51a41f7d766",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q23",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q23-1.csv",
+      "sql_sha256": "46d21e44441e2a4568c0632f27fc6103351c440b077382eedd927326da122ee5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q24",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q24-1.csv",
+      "sql_sha256": "6a8953b8a022e88b4dff024b7b645c8b6df7cbd6854572326dfde13bd8c47eeb",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q25",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q25-1.csv",
+      "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q26",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q26-1.csv",
+      "sql_sha256": "a8ba0ae98862ee37c9bb28c4c7529e64e574321e069fa76b78d3d57224b35781",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q26",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q26-2.csv",
+      "sql_sha256": "983ee79c2af8a95fb702f80c2883347d0995ab1295624656c87de0c482c7959d",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q27",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q27-1.csv",
+      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q28",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q28-1.csv",
+      "sql_sha256": "c96768dc686256a8292bcc5eee67d7ea1f479052d05c6fb37b4a98a6fd42f7cd",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q29",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q29-1.csv",
+      "sql_sha256": "27b484639ba13a7e1149b9899880b4f22bb075b7ae5d531fa2843278a9e3ce03",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "holiday-equals-weekend",
+        "online-sales-mismatch",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q30",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q30-1.csv",
+      "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q31",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q31-1.csv",
+      "sql_sha256": "011944191b49d5d4369900390fcc4d2dd54e7f013d63e8cbddc47dc2256712b0",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q32",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q32-1.csv",
+      "sql_sha256": "47011f5cc278adb6b2b25d59892f0030fc914917afe14e407d69e1a5a95252f6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q33",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q33-1.csv",
+      "sql_sha256": "3338a6c5414633be6d4712f8210fe531ca2bd7b73eb8e42f5d85f2fe73c803f4",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        },
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q33",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q33-2.csv",
+      "sql_sha256": "27b963c97b6222099165029784146109ce133abdb61fe519f02e58aebee45803",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        },
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q34",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q34-1.csv",
+      "sql_sha256": "5e4770bf3b06f22232b532dc67b54824a6d2179a9d95f15d385596ee487cde77",
+      "fact_tables": [
+        "FactInventory",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q35",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q35-1.csv",
+      "sql_sha256": "76f4157cb3c3187987201aba019a70b09f1e803c78c03f92b64edf8f6a9d13df",
+      "fact_tables": [],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimEmployee"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "orphan-store-employee",
+        "no-fact-on-employee-or-territory"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q36",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q36-1.csv",
+      "sql_sha256": "1fa53532f3253ea3ad2c8cd3a5bd124ecd237e071ccdf0209d091f84b4235d43",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q36",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q36-2.csv",
+      "sql_sha256": "f7c7d5f9b1bdcc0560dfe402d8d65c645e6598969768fb6756af44b2b27f058f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q37",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q37-1.csv",
+      "sql_sha256": "d4e2ae306e8fd20f079eccb0306a212e284ce939949c7ad81516bd9a25353497",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q38",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q38-1.csv",
+      "sql_sha256": "011e927206f30e8321efa151548cfc9ac0dd473920ab34db26876a5bdf99cfd1",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q39",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q39-1.csv",
+      "sql_sha256": "56f06e82ad345d1111ecc8475e2f266fb43e816a05fc275d14d82b24bd48e605",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "新旧产品识别需要上市日期；缺维度产品无法判定新旧，须披露可分类范围，不编造日期。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q40",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q40-1.csv",
+      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
+      "fact_tables": [
+        "FactExchangeRate",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q41",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q41-1.csv",
+      "sql_sha256": "d91d81eeaafb4a292a8b82c228b4bf3121de3eadfe5e8bbeb17b2dff52043e5a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q42",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q42-1.csv",
+      "sql_sha256": "2d0c7a6aa2dc8ece556543ee8215a646da4826d00f43d0666f6c33157b557f09",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q42",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q42-2.csv",
+      "sql_sha256": "748060c29f5d07aadf8e056bd21df4a7226f87379b87f11f63bfa8054ebe2d3a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "题干限定相机品类；孤儿产品无法归类，不应凭空归入相机，须披露分类缺失。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q43",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q43-1.csv",
+      "sql_sha256": "65df53f0336d75237f56fda5111501cbc4420590e50bd01d2e6eb0b2d57cf942",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q43",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q43-2.csv",
+      "sql_sha256": "86ee42e9c70de5a491c3510df239dee50e8472aff85191421a3cc1f71db4dd3a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q44",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q44-1.csv",
+      "sql_sha256": "79b03b8b38d60605e90e897492d88c11e72feb79a40eeabb341c3681d8a5c340",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q44",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q44-2.csv",
+      "sql_sha256": "eb12c3514a0f64777fc448f742ad4a506c57cd355b1b77a868cebf63a4fbc145",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q45",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q45-1.csv",
+      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "outlier-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q46",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q46-1.csv",
+      "sql_sha256": "490178d5bff1441bc276bb52817a554da1715626e831bba302c98a7398c73a0a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q46",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q46-2.csv",
+      "sql_sha256": "5c1d939d2bf75c5137e6154274935cb87d745ce2e40c6bcfb9c4e05dba9226e6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q47",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q47-1.csv",
+      "sql_sha256": "9cd5f2ff40b0d640f61253989deb0de1f57b3a2746cd7b726cc01c786fac0264",
+      "fact_tables": [
+        "FactITSLA"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q48",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q48-1.csv",
+      "sql_sha256": "6f8b5042be0f7754a83ab2368874be03f0dc9dbf0fecabe9fd1a691562963473",
+      "fact_tables": [
+        "FactITSLA",
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q48",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q48-2.csv",
+      "sql_sha256": "b52d90932128204330f5674c1923f6ce0cd868ef7799920850136564423dd5bc",
+      "fact_tables": [
+        "FactITSLA",
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q49",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q49-1.csv",
+      "sql_sha256": "a6b5c77843581c564fd37a1293ba15e53a2d462f4cb8f8857b5f35c4ea607dc4",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q49",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q49-2.csv",
+      "sql_sha256": "0be93beab6d6601bb00c86f1dfc9983189d51ec3e34bbd28c0da51b7bdfe8520",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q50",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q50-1.csv",
+      "sql_sha256": "c11a09e2ffd17683e413e41f69425cb95bda1e47a6ed5efd11bafbc480bbcd88",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q51",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q51-1.csv",
+      "sql_sha256": "61cb319fc7aebf0db90e147141d20765fabc4539cedd94dafe5841fa87d25593",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q52",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q52-1.csv",
+      "sql_sha256": "bdcfc99340f39ac5f1132f2a9502fdc320dc0a182d6a44c2b5dc480b0cf528ed",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q53",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q53-1.csv",
+      "sql_sha256": "b163d900915879a0084ee11414efb6bbadc569013fb8c32ef775306177bf5525",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q54",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q54-1.csv",
+      "sql_sha256": "c9e21151a6b551fe4cfd9033f5ba36b064091ccf13433b6dfeb2ad6bee6e1074",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q55",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q55-1.csv",
+      "sql_sha256": "452452d252ae5d083a49c3043bf4ecc5cf40167b445df911389d89717ced8949",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q56",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q56-1.csv",
+      "sql_sha256": "f9b1301ccc99820cfb9ab24fd6e0b01bd7c4b1e77803c8c35c67007bef65ea96",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "outlier-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q57",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q57-1.csv",
+      "sql_sha256": "21ce3d08797dfeb0dd23ae2be436adb0f8a6ec019b9148e6a33e380a5fe52770",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "missing-products"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q58",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q58-1.csv",
+      "sql_sha256": "263508f2236de652fac4c4f2a5ef4c54a118994364231676946b8b94295e9a47",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q59",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q59-1.csv",
+      "sql_sha256": "ca594c40be55494d411faad1a6179c7554580aae305f36bdfb6a60831859e693",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "holiday-equals-weekend",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q60",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q60-1.csv",
+      "sql_sha256": "23e4d6d8b35f8527e2373c750ed1b252e73d1815cc9f5daaed54f3c97838c7ce",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "orphan-store-employee",
+        "dirty-enum-values",
+        "no-fact-on-employee-or-territory"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q61",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q61-1.csv",
+      "sql_sha256": "287a1a8a150443ba44eed14a6bacdbd61849bd90fbd1d039bf7ea0a911dce05c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q62",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q62-1.csv",
+      "sql_sha256": "46b961b0aba293d0957a8664fa6caea187e52e795fec9be3fa25233bc66a86ed",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q63",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q63-1.csv",
+      "sql_sha256": "a5babb8a345f8593eeca4f875f8e333afa08bd5abcbb632b304a840393bb4cfb",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q64",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q64-1.csv",
+      "sql_sha256": "61349ebce63bf1699d765b0b0b3cccde1afaa1762f6b45fca016a9ae52ca04da",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q65",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q65-1.csv",
+      "sql_sha256": "5cbfdf8db80944a7c35fe2f8e476c87f959b3da4b98ba2072517361a0f60f6b3",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "store-manager-is-id"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q66",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q66-1.csv",
+      "sql_sha256": "5ad683444c9e6d545b231cebd25b586d610c97cc6aeccf7a5e8b8313f24a7ac5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q67",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q67-1.csv",
+      "sql_sha256": "f6a9ab1cb3438e754434bf3658a3df749fe5fc2f40999eac676fac1951940991",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q68",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q68-1.csv",
+      "sql_sha256": "94eba87889513422b2da2a837f8286511f45f079a38f5661530f07ff8e2c6f01",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "holiday-equals-weekend",
+        "online-sales-mismatch",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q69",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q69-1.csv",
+      "sql_sha256": "648b07f2a7b8c6494aa3ee2768f90fd133040b69832af164a2dc30c821e25ab5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q69",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q69-2.csv",
+      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q70",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q70-1.csv",
+      "sql_sha256": "6dfa3daa4f832880a8d3e0f3af321b6d38cf8d499ef0162935bfd9633ab6f6dc",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "outlier-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q71",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q71-1.csv",
+      "sql_sha256": "bab437c87dadf70502c9c747209fc499d45f78df027bb538dc4cccf1582e35fa",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q72",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q72-1.csv",
+      "sql_sha256": "0d6bfd9653a6712c36c71b3eae5b71b6afa12653b98d453cf80ca26aa9cbab6b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q73",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q73-1.csv",
+      "sql_sha256": "e13993334fbcc7bd1766f73d9b3548260be27e958e7b8931f4628ede82044bbe",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q74",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q74-1.csv",
+      "sql_sha256": "6aceda07e88353e22604bbb672863c37c5aa2cbb3d54864f7b9bf70ef6bcac83",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "已批准修复：完整事实分母、左连产品、按ProductKey保留孤儿；结果见清单。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q75",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q75-1.csv",
+      "sql_sha256": "4d96fb928a90e776ee90c3a94d09332c617a54512f80670427f1eb9a5bd8d83b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q76",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q76-1.csv",
+      "sql_sha256": "6b15e9da0d0ecdc7984db2db104db3d69db85d7621d07472151e065d54d66b69",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q76",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q76-2.csv",
+      "sql_sha256": "f8224940b4417aad10149e5b68cae4fa706a0cec9b3cd0fe94e26b7480eaaab8",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q76",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q76-3.csv",
+      "sql_sha256": "8eaf0088c385da7e6218c7bd36995e9dc0b5ab40d2a0f23ea03a08708b038ff1",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q77",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q77-1.csv",
+      "sql_sha256": "1da942dacf58a1e5b79c5322127814f22fb11c0039abc4c0f901f024e20c0f62",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q78",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q78-1.csv",
+      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q79",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q79-1.csv",
+      "sql_sha256": "b77e29f25761f205d396500aa185d7d6fff1ec199ab782847d68d8b1ceae461d",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q80",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q80-1.csv",
+      "sql_sha256": "b8ff395acfb5195fd4e837f3524b979593c2c704c099c1ac7a6060e91f0776a6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q80",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q80-2.csv",
+      "sql_sha256": "de0fe6fe906835e76f7e6d36a89e9a2e80c58fd95032a1d784ceacee36d9f219",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q81",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q81-1.csv",
+      "sql_sha256": "df19eb5b19d1345dad58ff92e25a9946ac63a2f8fa47c7b67181b84c95a9eb2f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q82",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q82-1.csv",
+      "sql_sha256": "95c444eaa75496b9961c6733eb06d058ac596f924cf22f9d24c462a9413d89e3",
+      "fact_tables": [],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimEmployee"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "quality_routes": [
+        "orphan-store-employee",
+        "no-fact-on-employee-or-territory"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q83",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q83-1.csv",
+      "sql_sha256": "990978a9a4c55a1ed4a488b6cc7be32519c7e1ec0759d77e290665f92ece81ed",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q84",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q84-1.csv",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q85",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q85-1.csv",
+      "sql_sha256": "d97ca6ac17e67ba2aeac6a6d22bbab9d78e00f7a5c7e1951dae4d4bf249d7245",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q86",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q86-1.csv",
+      "sql_sha256": "77377039e250415dd22a3063c5a12888490b771f0254f0b3d6f55a433bc6f98c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q87",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q87-1.csv",
+      "sql_sha256": "e30510dbb8363ecfb58df56742ab4325898833c34775ab6c153c76eb086ab555",
+      "fact_tables": [
+        "FactInventory",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "quality_routes": [
+        "missing-products",
+        "inventory-weekly",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q88",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q88-1.csv",
+      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q89",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q89-1.csv",
+      "sql_sha256": "48aa0fb677e8c97a918d3b129efeec3678c6c9e84a0f4db05f3ca43e09371369",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q89",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q89-2.csv",
+      "sql_sha256": "2784a1ed6274819d8259a072803abf4e120c580b1f630ad2c1de898e6a1b3dd0",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q90",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q90-1.csv",
+      "sql_sha256": "f7882435ec74c1206e0f4aa054cbf75bb4edf17451431417f1925088d9c943b3",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q91",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q91-1.csv",
+      "sql_sha256": "253eca2c0bf56c1dab0d9fea31950bd6bdac2ac323091e0a0c6925e0f9ee77ec",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "outlier-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q92",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q92-1.csv",
+      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "原SQL同时内连和BrandName IS NOT NULL；只改LEFT仍会删未知组，须先确认是否要求全品牌含未知。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q93",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q93-1.csv",
+      "sql_sha256": "af04582a21b68acda10283b0d89c9e88d455f94121a8079ec06868ba36684b63",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q94",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q94-1.csv",
+      "sql_sha256": "e67a00a108c52fd38dab04dab68782e9b1976deac443916fdb275893af8da285",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q95",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q95-1.csv",
+      "sql_sha256": "26bd671aed6999035111610632377c34444637124a03f6be1a8faa9c198e5a6d",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "promotion-vs-discount-amount",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q96",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q96-1.csv",
+      "sql_sha256": "85857ec1f4f9a007618424df9680409e92e4575b7fcbf182069c6f2517ba5f25",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q97",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q97-1.csv",
+      "sql_sha256": "5aa2f2c03998d8c5f92728d3a87f5c3b2a74fc19b016161c91b5100f6efe1d94",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q97",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q97-2.csv",
+      "sql_sha256": "19552767953f367f1d4020eeef383a7260d90fa71facf412be5cfafff4342307",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q98",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q98-1.csv",
+      "sql_sha256": "ade88bb1d8c94bdc56d9433a3890b10c96919ffe070d48ba60c7a6db6ea1ef76",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q98",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q98-2.csv",
+      "sql_sha256": "3da596722a404196939cac4dd7fef5844b5e6c81d87a017f7f34480acbe5ed03",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q99",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q99-1.csv",
+      "sql_sha256": "499658a653340d8ed44547a8b26bc318d079238e8fa160d251265b9524d44c1f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "holiday-equals-weekend",
+        "online-sales-mismatch",
+        "dirty-enum-values",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q100",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q100-1.csv",
+      "sql_sha256": "32383d97b91ce7c7663e2b8f999fbc6fcd38dd692e5cc3f780fad25e7bf0069c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q101",
+      "generation": "active_new",
+      "result_path": "refs/new/Q101-1.csv",
+      "sql_sha256": "e5c7d987045e36f3d873b57d636f3cc6431bc89a0004b67b40acb1dd364e77f7",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q102",
+      "generation": "active_new",
+      "result_path": "refs/new/Q102-1.csv",
+      "sql_sha256": "abab18d6eabe9e1e514305df9293fb1807e673a18097d347a88ceeddc7efb34f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q103",
+      "generation": "active_new",
+      "result_path": "refs/new/Q103-1.csv",
+      "sql_sha256": "beb3ff45fead49f9113cb57ab26ceeb8a4d154508d56de5afff8e88ac5fbfa49",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q104",
+      "generation": "active_new",
+      "result_path": "refs/new/Q104-1.csv",
+      "sql_sha256": "6b7f6013a591e6971e12e4d081ba7a1006984a5175221a751dacded5f32d7cd0",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q105",
+      "generation": "active_new",
+      "result_path": "refs/new/Q105-1.csv",
+      "sql_sha256": "7ed59289afc26f7393c1af71f6c31c49011563f2b501744147f29ee19ed3abf1",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q106",
+      "generation": "active_new",
+      "result_path": "refs/new/Q106-1.csv",
+      "sql_sha256": "98330ddbcde78d9dd682b95c13a54638afe5159efda52d6a5b0457dd16e5e7bd",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q107",
+      "generation": "active_new",
+      "result_path": "refs/new/Q107-1.csv",
+      "sql_sha256": "3ca684693478bbbc2e575800feae0362356f3c4512a30129ac00e79a17cbd5fb",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q108",
+      "generation": "active_new",
+      "result_path": "refs/new/Q108-1.csv",
+      "sql_sha256": "dbd13df2f618c85c10e2a2fa9796022fb0c9a136290fd467da603d8b671be980",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "dirty-enum-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q109",
+      "generation": "active_new",
+      "result_path": "refs/new/Q109-1.csv",
+      "sql_sha256": "6ca6eb8819f116a54346c4a0effb33c1f14df607920a0a57fe800506ad4446b6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "holiday-equals-weekend",
+        "online-sales-mismatch",
+        "date-dim-wider-than-facts"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q110",
+      "generation": "active_new",
+      "result_path": "refs/new/Q110-1.csv",
+      "sql_sha256": "68d2c2fab970bb783e544e8a60dc88c08c318cf0358f06210d1809ba89bba8ef",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q111",
+      "generation": "active_new",
+      "result_path": "refs/new/Q111-1.csv",
+      "sql_sha256": "163dbed85506a992fe2394c801e13c158620c0584baa4903f1b7a009c5b1ba3f",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q112",
+      "generation": "active_new",
+      "result_path": "refs/new/Q112-1.csv",
+      "sql_sha256": "002bb3454e5fea8ad2bf3f3699e0bf12612dc7e54905bd8f2dd0b455d64aa605",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimEmployee"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "orphan-store-employee",
+        "no-fact-on-employee-or-territory"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q113",
+      "generation": "active_new",
+      "result_path": "refs/new/Q113-1.csv",
+      "sql_sha256": "34e7ffe320f9fe88f4255b9a6e9457fe40a37fa05046db883a047024ee232d55",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q114",
+      "generation": "active_new",
+      "result_path": "refs/new/Q114-1.csv",
+      "sql_sha256": "facccf8b85b8cbfcab055cd44be943dc38f06a964d65910750da49a11ab22c32",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q114",
+      "generation": "active_new",
+      "result_path": "refs/new/Q114-2.csv",
+      "sql_sha256": "5a720ce7eecb94231ef807cb42f5cb494f473e4caa1c832cd62e473d80047575",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q115",
+      "generation": "active_new",
+      "result_path": "refs/new/Q115-1.csv",
+      "sql_sha256": "e7bf6fb48001c3f2bb853b389abe3c57b181bc5c97a206349af7bae5a57e0587",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q115",
+      "generation": "active_new",
+      "result_path": "refs/new/Q115-2.csv",
+      "sql_sha256": "1fddd44a2987155a34a9a4794d862047b21bfd41b40f6a8f1d1fd2a8f124aca0",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q116",
+      "generation": "active_new",
+      "result_path": "refs/new/Q116-1.csv",
+      "sql_sha256": "4579b53adda68d7f460155d229fd09b01186b562274516f304193591b44b6dc0",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q116",
+      "generation": "active_new",
+      "result_path": "refs/new/Q116-2.csv",
+      "sql_sha256": "86d35ec2246f955c91bd347dff6e343c5ea9d60c0a9bc3657f3ca202a717ba1b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q116",
+      "generation": "active_new",
+      "result_path": "refs/new/Q116-3.csv",
+      "sql_sha256": "2fb1a69a1a2604657a39f36d74aa930602c18bad19ece0f12b27c24b6c513a27",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "new-customer-degenerate",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q117",
+      "generation": "active_new",
+      "result_path": "refs/new/Q117-1.csv",
+      "sql_sha256": "caaf560cf8b8603e17c897516765066c496d593260753d30ea5ab137901fb33f",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q118",
+      "generation": "active_new",
+      "result_path": "refs/new/Q118-1.csv",
+      "sql_sha256": "eeb1df186ae822a48b9ee3b4d6ff2bfc5c391326c1244046d4691ede1e195e2b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q119",
+      "generation": "active_new",
+      "result_path": "refs/new/Q119-1.csv",
+      "sql_sha256": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q119",
+      "generation": "active_new",
+      "result_path": "refs/new/Q119-2.csv",
+      "sql_sha256": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q120",
+      "generation": "active_new",
+      "result_path": "refs/new/Q120-1.csv",
+      "sql_sha256": "44dadc9fb05e6d22879d87625f4855871c10b472bbd5c37e905b047ba1ea5980",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "online-sales-mismatch",
+        "outlier-values"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q121",
+      "generation": "active_new",
+      "result_path": "refs/new/Q121-1.csv",
+      "sql_sha256": "71f495e6996da27f4960210faaa5ccddadd07ac70ad0ac08c0c7684a4d64ed89",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q121",
+      "generation": "active_new",
+      "result_path": "refs/new/Q121-2.csv",
+      "sql_sha256": "9963fe35c60d1aa6d9789d4cb9e7c0cc42b223b5a557d66952536d75917b29d3",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q122",
+      "generation": "active_new",
+      "result_path": "refs/new/Q122-1.csv",
+      "sql_sha256": "1a735dd55809e36af07e180b84840384e4063916b1b0d2bbb9fe34f7f80fe790",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    },
+    {
+      "question_id": "Q122",
+      "generation": "active_new",
+      "result_path": "refs/new/Q122-2.csv",
+      "sql_sha256": "6e7fdbc303bd32b9a6fbcfe647f6e6c99d39de833bc6bbabd4ecf773edb903ec",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "quality_routes": [
+        "missing-products",
+        "online-sales-mismatch"
+      ],
+      "manifest_hashes_match": true
+    }
+  ],
+  "execution": "static SQL routes and current manifest hashes; historical probes were not rerun",
+  "purchase_event_ruling": "see audit/T05-purchase-events.md",
+  "T05b_independent_verification": "pending"
+}

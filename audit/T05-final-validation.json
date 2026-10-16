@@ -1,0 +1,110 @@
+{
+  "questions": 122,
+  "references": 148,
+  "external_references": 119,
+  "new_references": 29,
+  "reference_manifest_sha256": "de4ce79d7f15796ae9c69bacad53312f552c0db9a1242e447c1921e595991e90",
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "validation": [
+    {
+      "command": "uv run --locked --offline python scripts/build_refs.py --refresh-rules",
+      "result": "Built 148 references for 122 questions"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/build_refs.py --check",
+      "result": "Verified 148 references for 122 questions"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/validate_t04.py",
+      "result": "PASS: 100 questions, 119 reference hashes/headers/counts"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/validate_t05.py",
+      "result": "PASS: 122 questions, 148 references; declaration/selection/percentile/rank fixtures; verdict-only and NULL rejection compared against scorer"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/validate_rules.py",
+      "result": "PASS: 122 questions, 148 reference rules/types/hashes, complete external review table"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/check_t05_domains.py",
+      "result": "PASS: basket support/confidence/lift; return-only orders remain denominator; CV zero padding; maximal month intervals; manager245; all product pairs"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/snapshot_q79_boundary.py --check",
+      "result": "PASS: 306 current members; independent T05b gate remains pending"
+    },
+    {
+      "command": "uv run --locked --offline python scripts/review_anchor_rules.py --check",
+      "result": "PASS: 8 original-reference rule handoffs; cached actual meta and SQL/payload hashes; no harness wiring"
+    },
+    {
+      "command": "main pytest scorer/selection/validate_scorer/harness, excluding all 8 main-chdb integration test functions",
+      "result": "132 passed, 1 skipped, 15 deselected on main14d749e; EVAL/DATA env set; no database/model calls"
+    },
+    {
+      "command": "main uv run --offline --no-sync pytest tests/test_repo_layout.py; MAIN/EVAL/DATA env set",
+      "result": "39 passed, 1 skipped; first unset DATA environment failure recorded"
+    }
+  ],
+  "incomplete_runs": [
+    {
+      "raw_directory": "$SEMDEBT_DATA_DIR/rules-backfill/20261016T054816Z",
+      "executed_candidates": 121,
+      "stopped_at_question": 21,
+      "reason": "manual interrupt: diagnostic numeric projection quadratic matching; not used as final result"
+    },
+    {
+      "raw_directory": "$SEMDEBT_DATA_DIR/rules-backfill/20261016T055626Z",
+      "executed_candidates": 121,
+      "stopped_at_question": 21,
+      "reason": "manual interrupt: full flat column-permutation matching; not used as final result"
+    }
+  ],
+  "freeze_status": "not frozen; T05b independent pandas checks and Q79 members pending",
+  "final_600": {
+    "executed_candidates": 600,
+    "runtime": {
+      "max_threads": 1,
+      "max_execution_time": 30,
+      "session_resets": 43,
+      "diagnostic_numeric_projection": false,
+      "null_impossibility_fast_rejection": true
+    },
+    "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+    "scorer_sha256": "3d7fb59b1ac205dce95883d266f35441fbc16f7cd7709189af9fea270a635838",
+    "selection_sha256": "326307d66a141f1a9a4ec400a8d34400a92bca9773fdc9f6f6921598798d3ce2",
+    "reference_manifest_sha256": "de4ce79d7f15796ae9c69bacad53312f552c0db9a1242e447c1921e595991e90",
+    "raw_candidates_path": "/Users/yuhuang/dev/semdebt/data/rules-backfill/20261016T060255Z/candidates.jsonl",
+    "raw_candidates_sha256": "b6cc390d63452b8c412cc0845dd7631a92e07a8b4b782b43cccde6a100e772fb",
+    "contract_counts": {
+      "correct": 251,
+      "wrong": 304,
+      "excluded": 6,
+      "exec_error": 39
+    },
+    "reference_counts": {
+      "correct": 219,
+      "wrong": 273,
+      "excluded": 6,
+      "exec_error": 30
+    },
+    "combined_counts": {
+      "correct": 220,
+      "wrong": 272,
+      "excluded": 6,
+      "exec_error": 30
+    },
+    "strict_agreements": 521,
+    "strict_comparable": 594,
+    "analytical_agreements": 487,
+    "changes": {
+      "contract_changed": 0,
+      "reference_changed": 73,
+      "combined_changed": 74,
+      "baseline_reexecution_changed": 0
+    },
+    "incremental_changes_vs_36": 43
+  },
+  "main_final_base": "21cacd9"
+}

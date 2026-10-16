@@ -24,9 +24,13 @@
 - 最小样本 24 道全部属于 `tuning`。
 - 每道题都有 `summary_coverage`；`MANIFEST.md` 与题目文件一致（脚本校验）。
 
+## 2026-10-16新增覆盖标注交接（T05b通过后执行）
+
+依据主仓库decisions/2026-10-16-early-open-questions-t08-t09.md及BOARD待办15：依赖新客口径（约定14）的题须在覆盖分析中标为「低区分度」，T19单独报告。新客在本库几乎恒为0，不能因随口回答0抬高准确率而不披露。本轮只记待办，不提前改题目schema或进行T06标注；购买事件双解均须核对，不修改冻结约定或语义层。
+
 ## 用户确认
 
-- [ ] Q79：按 `audit/Q79-membership.md` 补齐完整量化成员比较证据；目前只确认旧、新代码在同一重建数据上的306行一致，历史运行原始快照缺失。未核对完成前不得将该Top-N并列随eval-v1冻结；成员不同时不得带入。
+- [ ] Q79：按主仓库2026-10-16裁决，以 `audit/Q79-boundary-members.json` 的306成员及量纲规则版本为快照。T05b必须用pandas独立复现同一成员集合；`scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot <T05b输出JSON>`通过才放行。无需追补历史原始行哈希；成员集合不一致不得带该Top-N并列进入eval-v1。
 - [ ] G2：同意划分、最小样本和覆盖标注，打 tag `eval-v1`。
 
 ## 不能做

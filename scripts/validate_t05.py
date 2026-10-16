@@ -9,10 +9,11 @@ import io
 import json
 from pathlib import Path
 import math
+import re
 
 import yaml
 
-from build_refs import has_final_order_by, load_unit_policy, reference_value_kinds, validate_questions
+from build_refs import effective_rules, has_final_order_by, load_unit_policy, postprocess_reference, reference_value_kinds, validate_questions
 
 REPO = Path(__file__).resolve().parent.parent
 
@@ -59,20 +60,84 @@ def main():
     manifest = json.loads((REPO / 'refs/MANIFEST.json').read_text())
     records = {r['result_path']: r for r in manifest['records']}
     assert set(records) == {r['result_path'] for q in old + new for r in q['refs']}
+    assert set((REPO/'refs/new').glob('*.csv')) == {REPO/r['result_path'] for q in new for r in q['refs']}
+    # The 600-case runner may omit sensitivity, never change verdicts/reasons.
+    from check_rules_impact import verdict_only
+    from harness.scorer import ExecError, score_detailed
+    simple={'ordered':False,'top_n':None,'tie_columns':[],'value_kinds':['other','count'],'value_types':['String','UInt64']}
+    matrices=[[],[['a',1]],[['a',2]],[['b',1]],[['a',1],['a',1]],[['a',None]],[['a',1],['b',2]]]
+    for candidate in matrices:
+        for reference in matrices:
+            expected=score_detailed(candidate,[reference],simple)
+            actual=verdict_only(candidate,[reference],simple)
+            assert (actual.outcome,actual.reason,actual.matched_ref)==(expected.outcome,expected.reason,expected.matched_ref)
+    for candidate in [ExecError('fixture'),'__REFUSED__']:
+        if isinstance(candidate,str):
+            from harness.scorer import REFUSAL
+            candidate=REFUSAL
+        assert verdict_only(candidate,[[['a',1]]],simple).outcome==score_detailed(candidate,[[['a',1]]],simple).outcome
+    winning={'ordered':False,'top_n':None,'tie_columns':[],'value_kinds':['count'],'value_types':['UInt64']}
+    refs=[[['a',1]],[[2]]]
+    actual=verdict_only([[2]],refs,simple,reference_rules=[None,winning])
+    assert actual==score_detailed([[2]],refs,simple,reference_rules=[None,winning])
+    top={'ordered':True,'top_n':1,'tie_columns':[1],'value_kinds':['other','amount'],'value_types':['String','Float64']}
+    for candidate in [[['a',10]],[['b',10]],[['a',10],['b',10]],[['c',9]],[]]:
+        actual=verdict_only(candidate,[[['a',10],['b',10]]],top)
+        expected=score_detailed(candidate,[[['a',10],['b',10]]],top)
+        assert (actual.outcome,actual.reason)==(expected.outcome,expected.reason)
     policy, _ = load_unit_policy()
+    from snapshot_q79_boundary import compare_members
+    stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}
+    independent={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['b',2.002],['a',1.003]]}
+    compare_members(stored,independent,policy)
+    invalid=deepcopy(independent)
+    invalid['rows'][0][0]='another-member'
+    expect_error(lambda:compare_members(stored,invalid,policy))
+    invalid=deepcopy(independent)
+    invalid['unit_policy_sha256']='different-policy'
+    expect_error(lambda:compare_members(stored,invalid,policy))
+    domain_meta = [{'name': n, 'type': t} for n,t in [('ProductKey','Int32'),('base_sales','Float64'),('sales_amount','Float64'),('total_sales','Float64'),('share_pct','Nullable(Float64)')]]
+    domain = [[1,10.004,10,100,10],[2,10.005,20,100,20],[3,20,30,100,30],[4,20.004,40,100,40]]
+    meta, selected, details = postprocess_reference('baseline_top_decile',domain_meta,domain,policy)
+    assert selected == [[70,70.0]] and set(details['selected_product_keys']) == {3,4}
+    assert [c['name'] for c in meta] == ['sales_amount','share_pct']
+    rank_meta = [{'name': n, 'type': t} for n,t in [('StoreKey','Int32'),('StoreName','String'),('ProductKey','Int32'),('ProductName','String'),('product_sales','Float64'),('global_sales','Float64'),('global_rank','UInt64')]]
+    rank_domain = [[1,'s1',1,'a',60,100.004,0],[1,'s1',2,'b',50,100.005,0],[2,'s2',1,'a',40,100.004,0],[2,'s2',3,'c',30,90,0]]
+    for method, expected in [('competition',{1:1,2:1,3:3}),('dense',{1:1,2:1,3:2})]:
+        _, ranked, _ = postprocess_reference('product_rank_'+method,rank_meta,rank_domain,policy)
+        assert {r[2]:r[-1] for r in ranked} == expected
+    expect_error(lambda: postprocess_reference('product_rank_dense',rank_meta,rank_domain+[[3,'s3',1,'a',1,100.02,0]],policy))
+    draft = (REPO / 'audit/T05-rewrite-draft.md').read_text()
+    approved = {f'Q{m[1]}':m[2] for m in re.finditer(r'\| D\d+→Q(\d+) \| ([^|]+?) \|',draft)}
+    assert len(approved) == 22 and all(q['text_zh'] == approved[q['id']] for q in new)
+    assert {q['id'] for q in old+new if any(effective_rules(q,r).get('selection') for r in q['refs'])} == {'Q22','Q71','Q74','Q85','Q98','Q117','Q119'}
+    purchase = json.loads((REPO/'audit/T05-purchase-events.json').read_text())
+    assert purchase['scanned_questions']==122 and len(purchase['records'])==122
+    assert purchase['compared_questions']==18 and purchase['different_questions']==9
+    assert purchase['added_references']==9 and purchase['final_references']==len(records)==148
+    expected_different={'Q26','Q33','Q36','Q76','Q80','Q89','Q115','Q116','Q122'}
+    assert {r['question_id'] for r in purchase['records'] if any(not x['quantized_equal'] for x in r['references'])}==expected_different
+    for item in purchase['records']:
+        for comparison in item['references']:
+            assert comparison['positive_maps_to'] in records
+            if comparison['quantized_equal']:
+                assert not comparison['new_reference']
     warnings = []
     for q in new:
         assert q['split'] is None and q['scoring'] == 'deterministic'
         assert set(q['labels']) == set(old[0]['labels'])
         for ref in q['refs']:
-            assert not q['rules']['ordered'] and q['rules']['top_n'] is None
-            assert not has_final_order_by(ref['sql'])
+            rules = effective_rules(q,ref)
+            assert rules['top_n'] is None
+            assert rules['ordered'] == (q['id']=='Q117')
+            assert has_final_order_by(ref['sql']) == rules['ordered']
             assert 'LIMIT' not in ref['sql'].upper()
             assert not ('FactOnlineSales' in ref['sql'] and 'FactSales ' in ref['sql'])
-            assert 'DimChannel' not in ref['sql']
+            if q['id'] == 'Q110':
+                assert 'FactSales' in ref['sql'] and 'FactOnlineSales' not in ref['sql'] and 'DimChannel' in ref['sql']
             record = records[ref['result_path']]
-            assert record['rules'] == q['rules']
-            assert record['value_kinds'] == q['rules']['value_kinds']
+            assert record['rules'] == rules
+            assert record['value_kinds'] == rules['value_kinds']
             assert record['value_kind_source'] == 'declared'
             assert record['sql_sha256'] == hashlib.sha256(ref['sql'].encode()).hexdigest()
             path = REPO / ref['result_path']
@@ -80,15 +145,15 @@ def main():
             with path.open(newline='') as stream:
                 rows = list(csv.reader(stream))
             assert rows[0] == [c['name'] for c in record['columns']]
-            assert len(rows)-1 == record['row_count'] > 0
-            assert [c['type'] for c in record['columns']] == q['rules']['value_types']
+            assert len(rows)-1 == record['row_count'] >= 0
+            assert [c['type'] for c in record['columns']] == rules['value_types']
             for row in rows[1:]:
-                for v, typ in zip(row, q['rules']['value_types'], strict=True):
+                for v, typ in zip(row, rules['value_types'], strict=True):
                     if policy.is_numeric_type(typ) and v != '\\N':
                         assert math.isfinite(float(v)), (q['id'], v)
             warnings.extend(record['value_kind_warnings'])
-    assert {(w['question_id'], w['column_position'], w['declared'], w['inferred']) for w in warnings} == {('Q101',1,'amount','other'),('Q102',2,'amount','other')}
-    print(f'PASS: {len(old)+len(new)} questions, {len(records)} references; declared kinds/types, unordered rows, table policy, coverage and warning fixtures')
+    assert {(w['question_id'], w['column_position'], w['declared'], w['inferred']) for w in warnings} == {('Q101',1,'amount','other')}
+    print(f'PASS: {len(old)+len(new)} questions, {len(records)} references; approved second round, declared kinds/types, selection domains, table policy, coverage and warning fixtures')
 
 
 if __name__ == '__main__':

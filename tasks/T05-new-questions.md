@@ -1,6 +1,6 @@
 # T05 补题与参考答案
 
-- 状态：技术交付及隔离复验通过，22题草稿及24份参考待用户逐题审阅；存在端点多解与退化结果待裁决，尚未验收（2026-10-15）
+- 状态：第二轮22题正式SQL与122题148份参考已从头重算；购买事件双解已按用户裁决落地。Codex交付待合并，T05b独立核对进行中、结果待交；T06冻结未执行（2026-10-16）
 - 负责：Codex（出题并用 SQL 算参考答案）；独立重算在 T05b 由 Claude Code 做
 - 模式：题库（`cd ~/semdebt/semantic-debt-eval && codex "执行任务卡 T05"`）
 - 限制：不得读取主仓库 `semantic/` 下除 `conventions.md` 以外的文件（避免对着 L1 文档出题）
@@ -49,23 +49,18 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 
 并列只比较量化键；结果比较的 `max(0.005×|参考|, atol)` 不得用于并列键。T05b比较量化后的完整边界成员集合，不要求跨引擎未量化浮点值或原始行哈希相同。成员集合无法复现时，T06不得带着Top-N并列冻结。
 
-## 记录（完成后填写）
+## 2026-10-16 收尾交付
 
-- 产出：questions/new.yaml（Q101–Q122）、refs/new/（24份）、显式评分元数据、构建器与窄检查、标签分布、audit/T05-review.md、audit/T05-report.md及T05b交接清单。
-- 偏离与理由：财年=自然年，不补财年题；基础19题加3题统计/购物篮以补足复杂度来源，共22题。近90天端点多解保留原文，待用户审定；全零及近满值不隐藏、不静默换题。当前无新Top-N，完整边界约束保持，旧题不改；所有题目待用户过目，不宣布T05完成。
-- 工时：本会话未单独计时；本地只读试算与复验，未调用付费模型或新增依赖。
+- 产出：正式第二轮22题、122题148份参考与实际返回类型／量纲规则；7题分组选择元数据；Q79的306成员及规则版本快照；20题24份内／左连接审计；全122题购买事件双解报告；全部参考从头重算及严格检查。
+- 偏离及理由：依据用户已批准的第二轮设计替换第一轮；纯退货行按用户裁决保留两种购买算法，相同结果不增加重复参考。第一轮审阅、SQL及报告归档，不沿用其复算结论。Q33已按订单去重产品并完整计算，不以未验证进入eval-v1。
+- 分工：Codex SQL与审计完成；T05b仍由Claude Code独立pandas复现（含Q79相同成员与7题选择语义）；英文锚点接线由T11处理。
+- 验证与600条最终归因：见audit/T05-finalization.md、audit/T05-report.md和audit/rules-final-impact.*。
+- 工时：本会话未单独计时；无付费调用和新依赖。
 
-## 用户确认
+## 用户裁决依据
 
-- [ ] 逐题审阅audit/T05-review.md中的22题、标签与口径。
-- [ ] 审定Q114/Q115端点多解及零值/满值题的保留建议。
+- 第二轮22题：decisions/2026-10-16-t05-redesign-approval.md。
+- 购买事件双解：audit/T05-purchase-events.md及decisions/open-questions.md的已裁决记录。
+- Q79：主仓库decisions/2026-10-16-q79-release-and-anchor-refs.md第一节；题库tasks/T06-split-freeze.md已改为T05b独立成员集合一致才放行。
 
-## 2026-10-16 本轮rules补齐交付
-
-现行122题／137份参考均有完整有效rules；外部100题逐参考推断表在audit/rules-backfill-review.md，供用户过目。逐参考覆盖、真实返回类型、行序、完整量化边界与通用选择声明已落地；接口裁决和通用实现另见主仓库PR #36，harness透传由Claude Code跟进。
-
-本交付包含已批准Q74完整事实分母／孤儿保键修复作为前置，并保留同工作区已批准Q87/Q97修复。它们与评分契约变化分轴复验，不据此改变企业约定或judge路由。
-
-new.yaml仍是第一轮文件；已接受的第二轮22题及Q117/Q119正式SQL／selection声明尚未替换，必须后续全量重算。T05未完成，T05b独立pandas重算、量纲人工过目和冻结检查仍待执行，不将本次规则覆盖当成eval-v1验收。
-
-可复现命令：设置SEMDEBT_MAIN_DIR（包含PR #36实现的checkout）及SEMDEBT_DATA_DIR后，`uv run --locked python scripts/build_refs.py --check`；数据库无关检查为`uv run --locked python scripts/validate_rules.py`。会话污染基线与新旧契约影响分别见audit/session-clean-rules-baseline.*及audit/rules-impact.*。
+参考SQL一条命令重算：`uv run --locked python scripts/build_refs.py`；严格复算：加`--check`。两个命令都需要SEMDEBT_MAIN_DIR和SEMDEBT_DATA_DIR，串行使用chdb-eval。

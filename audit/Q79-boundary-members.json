@@ -1,0 +1,1872 @@
+{
+  "question_id": 79,
+  "scope": "published_reference_boundary",
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "boundary_policy_sha256": "8ac88b76c5a8834864e9e46b65e51505958184ef11596d80977f6cfefad04dbb",
+  "sql_sha256": "957a8736ce31ab675f57c38803dce44baa07bb4fdbc06a6b475673d2ed60f02a",
+  "serialization_version": "json-compact-utf8-v1",
+  "columns": [
+    {
+      "name": "StoreName",
+      "type": "String"
+    },
+    {
+      "name": "actual_sales",
+      "type": "Float64"
+    },
+    {
+      "name": "quota",
+      "type": "Nullable(Float64)"
+    },
+    {
+      "name": "attainment_pct",
+      "type": "Nullable(Float64)"
+    }
+  ],
+  "value_kinds": [
+    "other",
+    "amount",
+    "amount",
+    "percentage"
+  ],
+  "row_count": 306,
+  "sha256": "50ab695ea3fb4469e18aeaa0ad025ed5bd9690f54a95971d291ab60ade3b87e4",
+  "rows": [
+    [
+      "Contoso Albany Store",
+      5703101.56,
+      5703101.56,
+      100
+    ],
+    [
+      "Contoso Alexandria Store",
+      5793820.68,
+      5793820.68,
+      100
+    ],
+    [
+      "Contoso Amsterdam Store",
+      4781201.86,
+      4781201.86,
+      100
+    ],
+    [
+      "Contoso Anchorage Store",
+      5897212.88,
+      5897212.88,
+      100
+    ],
+    [
+      "Contoso Annapolis Store",
+      5837197.1,
+      5837197.1,
+      100
+    ],
+    [
+      "Contoso Appleton Store",
+      5338891.87,
+      5338891.87,
+      100
+    ],
+    [
+      "Contoso Arlington Store",
+      5334708.39,
+      5334708.39,
+      100
+    ],
+    [
+      "Contoso Ashgabat  No.2 Store",
+      13497199.95,
+      13497199.95,
+      100
+    ],
+    [
+      "Contoso Ashgabat No.1 Store",
+      13743661.34,
+      13743661.34,
+      100
+    ],
+    [
+      "Contoso Asia Online Store",
+      339364204.37,
+      339364204.37,
+      100
+    ],
+    [
+      "Contoso Asia Reseller",
+      191594222.99,
+      191594222.99,
+      100
+    ],
+    [
+      "Contoso Athens Store",
+      5049809.47,
+      5049809.47,
+      100
+    ],
+    [
+      "Contoso Atlantic City Store",
+      5504542.18,
+      5504542.18,
+      100
+    ],
+    [
+      "Contoso Attleboro Store",
+      5610429.85,
+      5610429.85,
+      100
+    ],
+    [
+      "Contoso Aurora Store",
+      5864273.59,
+      5864273.59,
+      100
+    ],
+    [
+      "Contoso Austin Store",
+      5697902.29,
+      5697902.29,
+      100
+    ],
+    [
+      "Contoso Back River Store",
+      5813286.16,
+      5813286.16,
+      100
+    ],
+    [
+      "Contoso Bacliff Store",
+      5810662.4,
+      5810662.4,
+      100
+    ],
+    [
+      "Contoso Baildon Store",
+      4911726.12,
+      4911726.12,
+      100
+    ],
+    [
+      "Contoso Baltimore Store",
+      5330206.22,
+      5330206.22,
+      100
+    ],
+    [
+      "Contoso Bangkok No.1 Store",
+      12252554.36,
+      12252554.36,
+      100
+    ],
+    [
+      "Contoso Bangkok No.2 Store",
+      13717801.81,
+      13717801.81,
+      100
+    ],
+    [
+      "Contoso Bangor Store",
+      5651048.93,
+      5651048.93,
+      100
+    ],
+    [
+      "Contoso Bar Harbor Store",
+      5521889.48,
+      5521889.48,
+      100
+    ],
+    [
+      "Contoso Baumholder Store",
+      5236552.09,
+      5236552.09,
+      100
+    ],
+    [
+      "Contoso Bayonne Store",
+      5702253.91,
+      5702253.91,
+      100
+    ],
+    [
+      "Contoso Baytown Store",
+      5624379.1,
+      5624379.1,
+      100
+    ],
+    [
+      "Contoso Beaumont No.1 Store",
+      5788206.18,
+      5788206.18,
+      100
+    ],
+    [
+      "Contoso Beaumont No.2 Store",
+      6124637.53,
+      6124637.53,
+      100
+    ],
+    [
+      "Contoso Beijing Store",
+      12395725.74,
+      12395725.74,
+      100
+    ],
+    [
+      "Contoso Bellevue Store",
+      5223093.48,
+      5223093.48,
+      100
+    ],
+    [
+      "Contoso Berlin Store",
+      3743782.05,
+      3743782.05,
+      100
+    ],
+    [
+      "Contoso Berne Store",
+      4785769.58,
+      4785769.58,
+      100
+    ],
+    [
+      "Contoso Berthoud Store",
+      5967438.36,
+      5967438.36,
+      100
+    ],
+    [
+      "Contoso Bishkek Store",
+      13804578.11,
+      13804578.11,
+      100
+    ],
+    [
+      "Contoso Boston Store",
+      5766369.93,
+      5766369.93,
+      100
+    ],
+    [
+      "Contoso Boulder Store",
+      5786577.32,
+      5786577.32,
+      100
+    ],
+    [
+      "Contoso Bridgeport Store",
+      5396941.96,
+      5396941.96,
+      100
+    ],
+    [
+      "Contoso Brooklyn Store",
+      5613725.72,
+      5613725.72,
+      100
+    ],
+    [
+      "Contoso Bucharest Store",
+      4950364.81,
+      4950364.81,
+      100
+    ],
+    [
+      "Contoso Buffalo Store",
+      5561909.8,
+      5561909.8,
+      100
+    ],
+    [
+      "Contoso Burlington Store",
+      5757396.27,
+      5757396.27,
+      100
+    ],
+    [
+      "Contoso Busan Store",
+      13359692.69,
+      13359692.69,
+      100
+    ],
+    [
+      "Contoso Calgary  Store",
+      5876275.63,
+      5876275.63,
+      100
+    ],
+    [
+      "Contoso Cambridge Store",
+      5647897.9,
+      5647897.9,
+      100
+    ],
+    [
+      "Contoso Canberra Store",
+      13657731.15,
+      13657731.15,
+      100
+    ],
+    [
+      "Contoso Cape Canaveral Store",
+      5786212.1,
+      5786212.1,
+      100
+    ],
+    [
+      "Contoso Cape May Store",
+      5928576.57,
+      5928576.57,
+      100
+    ],
+    [
+      "Contoso Carlisle Store",
+      4876509.18,
+      4876509.18,
+      100
+    ],
+    [
+      "Contoso Castle Rock Store",
+      5998183.69,
+      5998183.69,
+      100
+    ],
+    [
+      "Contoso Catalog Store",
+      314303239.23,
+      314303239.23,
+      100
+    ],
+    [
+      "Contoso Cedar Park Store",
+      5931400.95,
+      5931400.95,
+      100
+    ],
+    [
+      "Contoso Charleston Store",
+      5489243.29,
+      5489243.29,
+      100
+    ],
+    [
+      "Contoso Charlottesville Store",
+      5588656.56,
+      5588656.56,
+      100
+    ],
+    [
+      "Contoso Cheney Store",
+      5601093.67,
+      5601093.67,
+      100
+    ],
+    [
+      "Contoso Cheshire Store",
+      4791092.31,
+      4791092.31,
+      100
+    ],
+    [
+      "Contoso Cle Elum Store",
+      5938246.98,
+      5938246.98,
+      100
+    ],
+    [
+      "Contoso Clifton Store",
+      5554606.36,
+      5554606.36,
+      100
+    ],
+    [
+      "Contoso Copenhagen Store",
+      5130625.49,
+      5130625.49,
+      100
+    ],
+    [
+      "Contoso Dallas Store",
+      4588160.61,
+      4588160.61,
+      100
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      12575283.64,
+      12575283.64,
+      100
+    ],
+    [
+      "Contoso Damascus No.2 Store",
+      13724559.65,
+      13724559.65,
+      100
+    ],
+    [
+      "Contoso Darien Store",
+      5679112.63,
+      5679112.63,
+      100
+    ],
+    [
+      "Contoso Denton Store",
+      5966959.55,
+      5966959.55,
+      100
+    ],
+    [
+      "Contoso Denver No.1 Store",
+      5398392.47,
+      5398392.47,
+      100
+    ],
+    [
+      "Contoso Denver No.2 Store",
+      5908100.99,
+      5908100.99,
+      100
+    ],
+    [
+      "Contoso Denver No.3 Store",
+      5789562.52,
+      5789562.52,
+      100
+    ],
+    [
+      "Contoso Desoto Store",
+      5776223.89,
+      5776223.89,
+      100
+    ],
+    [
+      "Contoso Dublin Store",
+      4962315.77,
+      4962315.77,
+      100
+    ],
+    [
+      "Contoso Dusseldorf Store",
+      4143375.8,
+      4143375.8,
+      100
+    ],
+    [
+      "Contoso East Orange Store",
+      5598531.28,
+      5598531.28,
+      100
+    ],
+    [
+      "Contoso East Troy Store",
+      5729559.54,
+      5729559.54,
+      100
+    ],
+    [
+      "Contoso Edgerton Store",
+      5728343.95,
+      5728343.95,
+      100
+    ],
+    [
+      "Contoso Edinburgh Store",
+      4810985.99,
+      4810985.99,
+      100
+    ],
+    [
+      "Contoso Elmira Store",
+      5706666.92,
+      5706666.92,
+      100
+    ],
+    [
+      "Contoso Englewood Store",
+      5559369.23,
+      5559369.23,
+      100
+    ],
+    [
+      "Contoso Europe Online Store",
+      272327817.32,
+      272327817.32,
+      100
+    ],
+    [
+      "Contoso Europe Reseller",
+      158263209.7,
+      158263209.7,
+      100
+    ],
+    [
+      "Contoso Everett Store",
+      5701476.68,
+      5701476.68,
+      100
+    ],
+    [
+      "Contoso Fall City Store",
+      5869155.45,
+      5869155.45,
+      100
+    ],
+    [
+      "Contoso Falmouth Store",
+      5700926.46,
+      5700926.46,
+      100
+    ],
+    [
+      "Contoso Firenze Store",
+      5067388.17,
+      5067388.17,
+      100
+    ],
+    [
+      "Contoso Fond du Lac Store",
+      4806227.73,
+      4806227.73,
+      100
+    ],
+    [
+      "Contoso Fort Atkinson Store",
+      5659096.08,
+      5659096.08,
+      100
+    ],
+    [
+      "Contoso Fort Collins Store",
+      5856826.4,
+      5856826.4,
+      100
+    ],
+    [
+      "Contoso Fort Lauderdale Store",
+      5991119.55,
+      5991119.55,
+      100
+    ],
+    [
+      "Contoso Fort Worth Store",
+      5860062.01,
+      5860062.01,
+      100
+    ],
+    [
+      "Contoso Framingham Store",
+      5815064.89,
+      5815064.89,
+      100
+    ],
+    [
+      "Contoso Fredericksburg Store",
+      5515855.41,
+      5515855.41,
+      100
+    ],
+    [
+      "Contoso Georgetown Store",
+      5821118.49,
+      5821118.49,
+      100
+    ],
+    [
+      "Contoso Germantown Store",
+      5592331.7,
+      5592331.7,
+      100
+    ],
+    [
+      "Contoso Giebelstadt Store",
+      5039423.69,
+      5039423.69,
+      100
+    ],
+    [
+      "Contoso Glasgow Store",
+      4235886.79,
+      4235886.79,
+      100
+    ],
+    [
+      "Contoso Grand Junction Store",
+      5695060.89,
+      5695060.89,
+      100
+    ],
+    [
+      "Contoso Grand Prairie Store",
+      5231790.35,
+      5231790.35,
+      100
+    ],
+    [
+      "Contoso Granger Store",
+      5466525.28,
+      5466525.28,
+      100
+    ],
+    [
+      "Contoso Greeley  No.1 Store",
+      5858814.13,
+      5858814.13,
+      100
+    ],
+    [
+      "Contoso Greeley No.2 Store",
+      5806960.21,
+      5806960.21,
+      100
+    ],
+    [
+      "Contoso Green Bay Store",
+      5562941.56,
+      5562941.56,
+      100
+    ],
+    [
+      "Contoso Greenville Store",
+      5902714.09,
+      5902714.09,
+      100
+    ],
+    [
+      "Contoso Guangzhou Store",
+      6168400.62,
+      6168400.62,
+      100
+    ],
+    [
+      "Contoso Hackensack Store",
+      5669429.76,
+      5669429.76,
+      100
+    ],
+    [
+      "Contoso Hartford Store",
+      5788037.11,
+      5788037.11,
+      100
+    ],
+    [
+      "Contoso Haverhill Store",
+      5620352.96,
+      5620352.96,
+      100
+    ],
+    [
+      "Contoso Hillsboro Store",
+      5648171.34,
+      5648171.34,
+      100
+    ],
+    [
+      "Contoso Hingham Store",
+      5614696.29,
+      5614696.29,
+      100
+    ],
+    [
+      "Contoso Hoboken Store",
+      5809236.17,
+      5809236.18,
+      100
+    ],
+    [
+      "Contoso Hofheim Store",
+      4999207.88,
+      4999207.88,
+      100
+    ],
+    [
+      "Contoso Holyoke Store",
+      5699223.37,
+      5699223.37,
+      100
+    ],
+    [
+      "Contoso Hong Kong No.1 Store",
+      13669915.38,
+      13669915.38,
+      100
+    ],
+    [
+      "Contoso Hong Kong No.2 Store",
+      13721965.76,
+      13721965.76,
+      100
+    ],
+    [
+      "Contoso Houston No.1 Store",
+      5975830.54,
+      5975830.54,
+      100
+    ],
+    [
+      "Contoso Houston No.2 Store",
+      5826235.96,
+      5826235.96,
+      100
+    ],
+    [
+      "Contoso Houston No.3 Store",
+      5970957.52,
+      5970957.52,
+      100
+    ],
+    [
+      "Contoso Houston No.4 Store",
+      5617590.9,
+      5617590.9,
+      100
+    ],
+    [
+      "Contoso Howard Store",
+      5804051.72,
+      5804051.72,
+      100
+    ],
+    [
+      "Contoso Humble Store",
+      5529774.87,
+      5529774.87,
+      100
+    ],
+    [
+      "Contoso Islamabad  No.2 Store",
+      12714265.41,
+      12714265.41,
+      100
+    ],
+    [
+      "Contoso Islamabad No.1 Store",
+      13565079.17,
+      13565079.17,
+      100
+    ],
+    [
+      "Contoso Ithaca Store",
+      5582760.77,
+      5582760.77,
+      100
+    ],
+    [
+      "Contoso Jacksonville Store",
+      5934711.02,
+      5934711.02,
+      100
+    ],
+    [
+      "Contoso Jersey City Store",
+      5625135.36,
+      5625135.36,
+      100
+    ],
+    [
+      "Contoso Kennebunkport Store",
+      5684771.54,
+      5684771.54,
+      100
+    ],
+    [
+      "Contoso Kennewick Store",
+      5443097.96,
+      5443097.96,
+      100
+    ],
+    [
+      "Contoso Key West Store",
+      5690051.54,
+      5690051.54,
+      100
+    ],
+    [
+      "Contoso Knotty Ash Store",
+      4877387.61,
+      4877387.61,
+      100
+    ],
+    [
+      "Contoso Kolkata Store",
+      13285310.86,
+      13285310.86,
+      100
+    ],
+    [
+      "Contoso Kyoto Store",
+      4431766.16,
+      4431766.16,
+      100
+    ],
+    [
+      "Contoso La Porte Store",
+      5834332.14,
+      5834332.14,
+      100
+    ],
+    [
+      "Contoso Lafayette Store",
+      5648188.83,
+      5648188.84,
+      100
+    ],
+    [
+      "Contoso Lakeland Store",
+      5635827.05,
+      5635827.05,
+      100
+    ],
+    [
+      "Contoso Lancashire Store",
+      5047330.16,
+      5047330.16,
+      100
+    ],
+    [
+      "Contoso Landstuhl Store",
+      4811971.67,
+      4811971.67,
+      100
+    ],
+    [
+      "Contoso Leeds Store",
+      5009105.25,
+      5009105.25,
+      100
+    ],
+    [
+      "Contoso Leominster Store",
+      5596591.8,
+      5596591.8,
+      100
+    ],
+    [
+      "Contoso Lewiston Store",
+      5503635.62,
+      5503635.62,
+      100
+    ],
+    [
+      "Contoso Lewisville Store",
+      5706647.59,
+      5706647.59,
+      100
+    ],
+    [
+      "Contoso Lisbon Store",
+      4910978.97,
+      4910978.97,
+      100
+    ],
+    [
+      "Contoso Litchfield County Store",
+      5856909.05,
+      5856909.05,
+      100
+    ],
+    [
+      "Contoso Littleton Store",
+      5289938.59,
+      5289938.59,
+      100
+    ],
+    [
+      "Contoso Liverpool Store",
+      4657429.32,
+      4657429.32,
+      100
+    ],
+    [
+      "Contoso Ljubljana Store",
+      4862182.32,
+      4862182.32,
+      100
+    ],
+    [
+      "Contoso London Store",
+      4846831.33,
+      4846831.33,
+      100
+    ],
+    [
+      "Contoso Longview Store",
+      5798874.3,
+      5798874.3,
+      100
+    ],
+    [
+      "Contoso Loveland Store",
+      5612752.2,
+      5612752.2,
+      100
+    ],
+    [
+      "Contoso Lowell Store",
+      5800572.22,
+      5800572.22,
+      100
+    ],
+    [
+      "Contoso Lynn Store",
+      5711927.2,
+      5711927.2,
+      100
+    ],
+    [
+      "Contoso Lyon Store",
+      4818032.79,
+      4818032.79,
+      100
+    ],
+    [
+      "Contoso Madison Store",
+      5525206.5,
+      5525206.5,
+      100
+    ],
+    [
+      "Contoso Madrid Store",
+      4896696.91,
+      4896696.91,
+      100
+    ],
+    [
+      "Contoso Manchester Store",
+      4993712.18,
+      4993712.18,
+      100
+    ],
+    [
+      "Contoso Manitowoc Store",
+      5789436.99,
+      5789436.99,
+      100
+    ],
+    [
+      "Contoso Marseille Store",
+      3645384.62,
+      3645384.62,
+      100
+    ],
+    [
+      "Contoso Marshall Store",
+      5941574.31,
+      5941574.31,
+      100
+    ],
+    [
+      "Contoso Martinsville Store",
+      5494853.79,
+      5494853.79,
+      100
+    ],
+    [
+      "Contoso Menasha Store",
+      5824076.02,
+      5824076.02,
+      100
+    ],
+    [
+      "Contoso Miami No.1 Store",
+      5517708.19,
+      5517708.19,
+      100
+    ],
+    [
+      "Contoso Miami No.2 Store",
+      5719293.9,
+      5719293.9,
+      100
+    ],
+    [
+      "Contoso Midland Store",
+      5607883.61,
+      5607883.61,
+      100
+    ],
+    [
+      "Contoso Milan Store",
+      5004922.37,
+      5004922.37,
+      100
+    ],
+    [
+      "Contoso Milliken Store",
+      5598149.76,
+      5598149.76,
+      100
+    ],
+    [
+      "Contoso Milwaukee No.1 Store",
+      5790030.49,
+      5790030.49,
+      100
+    ],
+    [
+      "Contoso Milwaukee No.2 Store",
+      5658733.28,
+      5658733.28,
+      100
+    ],
+    [
+      "Contoso Milwaukee No.3 Store",
+      5567616.06,
+      5567616.06,
+      100
+    ],
+    [
+      "Contoso Minden Store",
+      5763857.39,
+      5763857.39,
+      100
+    ],
+    [
+      "Contoso Montclair Store",
+      5766156.49,
+      5766156.49,
+      100
+    ],
+    [
+      "Contoso Montreal No.1 Store",
+      5572691.2,
+      5572691.2,
+      100
+    ],
+    [
+      "Contoso Montreal No.2 Store",
+      5675570.34,
+      5675570.34,
+      100
+    ],
+    [
+      "Contoso Morristown Store",
+      5878888.89,
+      5878888.89,
+      100
+    ],
+    [
+      "Contoso Moscow  No.1 Store",
+      4905288.89,
+      4905288.89,
+      100
+    ],
+    [
+      "Contoso Moscow  No.2 Store",
+      13260170.95,
+      13260170.95,
+      100
+    ],
+    [
+      "Contoso Mumbai Store",
+      13469958.02,
+      13469958.02,
+      100
+    ],
+    [
+      "Contoso Munich Store",
+      5074852.72,
+      5074852.72,
+      100
+    ],
+    [
+      "Contoso Nagoya Store",
+      12439048.39,
+      12439048.39,
+      100
+    ],
+    [
+      "Contoso Nantes Store",
+      4846553.43,
+      4846553.43,
+      100
+    ],
+    [
+      "Contoso Nantucket Store",
+      5624616.02,
+      5624616.02,
+      100
+    ],
+    [
+      "Contoso Naples Store",
+      4619530.01,
+      4619530.01,
+      100
+    ],
+    [
+      "Contoso New Bedford Store",
+      5745608.21,
+      5745608.21,
+      100
+    ],
+    [
+      "Contoso New Brunswick Store",
+      5957681.09,
+      5957681.09,
+      100
+    ],
+    [
+      "Contoso New Castle Store",
+      5783502.14,
+      5783502.14,
+      100
+    ],
+    [
+      "Contoso New Delhi Store",
+      13707108.44,
+      13707108.44,
+      100
+    ],
+    [
+      "Contoso New Haven Store",
+      5697899.68,
+      5697899.67,
+      100
+    ],
+    [
+      "Contoso New London Store",
+      5570019.2,
+      5570019.2,
+      100
+    ],
+    [
+      "Contoso New York No.1 Store",
+      5754068.72,
+      5754068.71,
+      100
+    ],
+    [
+      "Contoso New York No.2 Store",
+      5727104.19,
+      5727104.19,
+      100
+    ],
+    [
+      "Contoso Newark No.1 Store",
+      5910298.62,
+      5910298.62,
+      100
+    ],
+    [
+      "Contoso Newark No.2 Store",
+      5720618.52,
+      5720618.52,
+      100
+    ],
+    [
+      "Contoso Nice Store",
+      5048420.48,
+      5048420.48,
+      100
+    ],
+    [
+      "Contoso Nizhny Novgorod Store",
+      4795739.64,
+      4795739.64,
+      100
+    ],
+    [
+      "Contoso Norfolk Store",
+      5614164.31,
+      5614164.31,
+      100
+    ],
+    [
+      "Contoso North America Online Store",
+      339458077.24,
+      339458077.24,
+      100
+    ],
+    [
+      "Contoso North America Reseller",
+      193960348.98,
+      193960348.98,
+      100
+    ],
+    [
+      "Contoso North Bend Store",
+      5793175.66,
+      5793175.66,
+      100
+    ],
+    [
+      "Contoso North Harford Store",
+      5984509.67,
+      5984509.67,
+      100
+    ],
+    [
+      "Contoso Northampton Store",
+      5801443.93,
+      5801443.93,
+      100
+    ],
+    [
+      "Contoso Old Saybrook Store",
+      5669536.29,
+      5669536.29,
+      100
+    ],
+    [
+      "Contoso Orange Store",
+      5664182.72,
+      5664182.72,
+      100
+    ],
+    [
+      "Contoso Oregon Store",
+      5867636.47,
+      5867636.47,
+      100
+    ],
+    [
+      "Contoso Orlando Store",
+      5654296.6,
+      5654296.6,
+      100
+    ],
+    [
+      "Contoso Orono Store",
+      6040208.8,
+      6040208.8,
+      100
+    ],
+    [
+      "Contoso Osaka No.1 Store",
+      13592892.53,
+      13592892.53,
+      100
+    ],
+    [
+      "Contoso Osaka No.2 Store",
+      13393145.6,
+      13393145.6,
+      100
+    ],
+    [
+      "Contoso Oshkosh Store",
+      4890188.28,
+      4890188.28,
+      100
+    ],
+    [
+      "Contoso Oswego Store",
+      5547546.28,
+      5547546.28,
+      100
+    ],
+    [
+      "Contoso Ottawa No.1 Store",
+      5647467.05,
+      5647467.05,
+      100
+    ],
+    [
+      "Contoso Ottawa No.2 Store",
+      5850894.75,
+      5850894.75,
+      100
+    ],
+    [
+      "Contoso Paris Store",
+      4949134.22,
+      4949134.22,
+      100
+    ],
+    [
+      "Contoso Parker Store",
+      5797031,
+      5797031,
+      100
+    ],
+    [
+      "Contoso Parkville Store",
+      5735053.1,
+      5735053.1,
+      100
+    ],
+    [
+      "Contoso Pasadena Store",
+      5654055.52,
+      5654055.52,
+      100
+    ],
+    [
+      "Contoso Passaic Store",
+      5745196.17,
+      5745196.17,
+      100
+    ],
+    [
+      "Contoso Paterson Store",
+      4663765.44,
+      4663765.44,
+      100
+    ],
+    [
+      "Contoso Pittsfield Store",
+      5686858.11,
+      5686858.11,
+      100
+    ],
+    [
+      "Contoso Plano Store",
+      5558951.29,
+      5558951.29,
+      100
+    ],
+    [
+      "Contoso Plattsburgh Store",
+      5576245.36,
+      5576245.36,
+      100
+    ],
+    [
+      "Contoso Poestenkill Store",
+      5454421.91,
+      5454421.91,
+      100
+    ],
+    [
+      "Contoso Port Washington Store",
+      5811466.29,
+      5811466.29,
+      100
+    ],
+    [
+      "Contoso Provincetown Store",
+      5904117.78,
+      5904117.78,
+      100
+    ],
+    [
+      "Contoso Queen Anne's County Store",
+      5731637.95,
+      5731637.95,
+      100
+    ],
+    [
+      "Contoso Queens Store",
+      5553975,
+      5553975,
+      100
+    ],
+    [
+      "Contoso Quincy Store",
+      5687127.51,
+      5687127.51,
+      100
+    ],
+    [
+      "Contoso Racine No.1 Store",
+      5569690.15,
+      5569690.15,
+      100
+    ],
+    [
+      "Contoso Racine No.2 Store",
+      2485142.31,
+      2485142.31,
+      100
+    ],
+    [
+      "Contoso Ramstein Store",
+      5047370.62,
+      5047370.62,
+      100
+    ],
+    [
+      "Contoso Redmond Store",
+      5690083.9,
+      5690083.9,
+      100
+    ],
+    [
+      "Contoso Renton Store",
+      5633681.4,
+      5633681.4,
+      100
+    ],
+    [
+      "Contoso Richardson Store",
+      5869196.09,
+      5869196.08,
+      100
+    ],
+    [
+      "Contoso Ridgely Store",
+      5908587.92,
+      5908587.92,
+      100
+    ],
+    [
+      "Contoso Roanoke Store",
+      5651967.4,
+      5651967.4,
+      100
+    ],
+    [
+      "Contoso Rochester No.1 Store",
+      5551092.77,
+      5551092.77,
+      100
+    ],
+    [
+      "Contoso Rochester No.2 Store",
+      5741228.27,
+      5741228.27,
+      100
+    ],
+    [
+      "Contoso Roma Store",
+      4042906.4,
+      4042906.4,
+      100
+    ],
+    [
+      "Contoso Round Rock Store",
+      5853778.5,
+      5853778.5,
+      100
+    ],
+    [
+      "Contoso Russellville Store",
+      4692871.56,
+      4692871.56,
+      100
+    ],
+    [
+      "Contoso Saint Petersburg Store",
+      4908958.55,
+      4908958.55,
+      100
+    ],
+    [
+      "Contoso San Antonio Store",
+      5549601.41,
+      5549601.41,
+      100
+    ],
+    [
+      "Contoso Sapporo Store",
+      13063561.67,
+      13063561.67,
+      100
+    ],
+    [
+      "Contoso Seattle No.1 Store",
+      5894604.24,
+      5894604.24,
+      100
+    ],
+    [
+      "Contoso Seattle No.2 Store",
+      5829718.99,
+      5829718.99,
+      100
+    ],
+    [
+      "Contoso Sebring Store",
+      5773073.5,
+      5773073.5,
+      100
+    ],
+    [
+      "Contoso Sedalia Store",
+      5953730.76,
+      5953730.76,
+      100
+    ],
+    [
+      "Contoso Seoul Store",
+      12449907.39,
+      12449907.39,
+      100
+    ],
+    [
+      "Contoso Shanghai No.1 Store",
+      13428894.19,
+      13428894.19,
+      100
+    ],
+    [
+      "Contoso Shanghai No.2 Store",
+      13415202.36,
+      13415202.36,
+      100
+    ],
+    [
+      "Contoso Sheboygan Store",
+      6060185.37,
+      6060185.37,
+      100
+    ],
+    [
+      "Contoso Shreveport Store",
+      6252821.38,
+      6252821.38,
+      100
+    ],
+    [
+      "Contoso Singapore Store",
+      13167637.07,
+      13167637.07,
+      100
+    ],
+    [
+      "Contoso Snoqualmie Store",
+      5805181.36,
+      5805181.36,
+      100
+    ],
+    [
+      "Contoso Somerville Store",
+      6131759.15,
+      6131759.15,
+      100
+    ],
+    [
+      "Contoso South Portland Store",
+      5532389.8,
+      5532389.8,
+      100
+    ],
+    [
+      "Contoso Spokane Store",
+      5530706.17,
+      5530706.17,
+      100
+    ],
+    [
+      "Contoso Spring Store",
+      5615127.25,
+      5615127.25,
+      100
+    ],
+    [
+      "Contoso Stockholm Store",
+      4817243.12,
+      4817243.12,
+      100
+    ],
+    [
+      "Contoso Stockport Store",
+      4780593.5,
+      4780593.5,
+      100
+    ],
+    [
+      "Contoso Stoughton Store",
+      5858762.82,
+      5858762.82,
+      100
+    ],
+    [
+      "Contoso Strasbourg Store",
+      4989148.23,
+      4989148.23,
+      100
+    ],
+    [
+      "Contoso Sunnyside Store",
+      5413995.75,
+      5413995.75,
+      100
+    ],
+    [
+      "Contoso Sydney  No.2 Store",
+      13589444.66,
+      13589444.66,
+      100
+    ],
+    [
+      "Contoso Sydney No.1 Store",
+      13881637.56,
+      13881637.56,
+      100
+    ],
+    [
+      "Contoso Syracuse Store",
+      5628773.71,
+      5628773.71,
+      100
+    ],
+    [
+      "Contoso Taipei  Store",
+      13663685.18,
+      13663685.18,
+      100
+    ],
+    [
+      "Contoso Tallahassee No.1 Store",
+      5582439.36,
+      5582439.36,
+      100
+    ],
+    [
+      "Contoso Tallahassee No.2 Store",
+      5711509.2,
+      5711509.2,
+      100
+    ],
+    [
+      "Contoso Tampa Store",
+      5537379.93,
+      5537379.93,
+      100
+    ],
+    [
+      "Contoso Tehran No.1 Store",
+      13351954.93,
+      13351954.93,
+      100
+    ],
+    [
+      "Contoso Tehran No.2 Store",
+      13746525.89,
+      13746525.89,
+      100
+    ],
+    [
+      "Contoso Texas City Store",
+      5309680.48,
+      5309680.48,
+      100
+    ],
+    [
+      "Contoso Thimphu No.1 Store",
+      6622523.1,
+      6622523.1,
+      100
+    ],
+    [
+      "Contoso Thimphu No.2 Store",
+      13339734.64,
+      13339734.64,
+      100
+    ],
+    [
+      "Contoso Thornton Store",
+      6064612.73,
+      6064612.73,
+      100
+    ],
+    [
+      "Contoso Tokyo No.1 Store",
+      13444452.44,
+      13444452.44,
+      100
+    ],
+    [
+      "Contoso Tokyo No.2 Store",
+      13166377.98,
+      13166377.98,
+      100
+    ],
+    [
+      "Contoso Toppenish Store",
+      5527158.04,
+      5527158.04,
+      100
+    ],
+    [
+      "Contoso Torino Store",
+      4812303.49,
+      4812303.49,
+      100
+    ],
+    [
+      "Contoso Toronto No.1 Store",
+      5821716.77,
+      5821716.77,
+      100
+    ],
+    [
+      "Contoso Toronto No.2 Store",
+      5730002.84,
+      5730002.84,
+      100
+    ],
+    [
+      "Contoso Toronto No.3 Store",
+      5540205.62,
+      5540205.62,
+      100
+    ],
+    [
+      "Contoso Toulouse Store",
+      4948726.87,
+      4948726.87,
+      100
+    ],
+    [
+      "Contoso Trenton No.1 Store",
+      5707222.96,
+      5707222.96,
+      100
+    ],
+    [
+      "Contoso Trenton No.2 Store",
+      5996555.57,
+      5996555.57,
+      100
+    ],
+    [
+      "Contoso Urumqi Store",
+      13367659.62,
+      13367659.62,
+      100
+    ],
+    [
+      "Contoso Valletta Store",
+      4921696.16,
+      4921696.16,
+      100
+    ],
+    [
+      "Contoso Vancouver  No.1 Store",
+      5974631.76,
+      5974631.76,
+      100
+    ],
+    [
+      "Contoso Vancouver  No.2 Store",
+      5915059.76,
+      5915059.76,
+      100
+    ],
+    [
+      "Contoso Venezia Store",
+      1614187.75,
+      1614187.75,
+      100
+    ],
+    [
+      "Contoso Veradale Store",
+      5629972.11,
+      5629972.11,
+      100
+    ],
+    [
+      "Contoso Vineland Store",
+      5796636.06,
+      5796636.06,
+      100
+    ],
+    [
+      "Contoso Virginia Beach Store",
+      5434137.3,
+      5434137.31,
+      100
+    ],
+    [
+      "Contoso Wapato Store",
+      5911069.28,
+      5911069.28,
+      100
+    ],
+    [
+      "Contoso Warsaw Store",
+      4693341.12,
+      4693341.12,
+      100
+    ],
+    [
+      "Contoso Waterbury Store",
+      5616887.94,
+      5616887.94,
+      100
+    ],
+    [
+      "Contoso Waukesha No.1 Store",
+      5596868.15,
+      5596868.15,
+      100
+    ],
+    [
+      "Contoso Waukesha No.2 Store",
+      5639247.11,
+      5639247.11,
+      100
+    ],
+    [
+      "Contoso West Yorkshire Store",
+      4849598.86,
+      4849598.86,
+      100
+    ],
+    [
+      "Contoso Westminster Store",
+      5398120.76,
+      5398120.76,
+      100
+    ],
+    [
+      "Contoso Wheat Ridge Store",
+      5753184.78,
+      5753184.78,
+      100
+    ],
+    [
+      "Contoso Winchester Store",
+      5612741.51,
+      5612741.51,
+      100
+    ],
+    [
+      "Contoso Worcester No.1 Store",
+      5523952.39,
+      5523952.39,
+      100
+    ],
+    [
+      "Contoso Worcester No.2 Store",
+      5541917.46,
+      5541917.46,
+      100
+    ],
+    [
+      "Contoso Yakima Store",
+      5658486.21,
+      5658486.21,
+      100
+    ],
+    [
+      "Contoso Yerevan Store",
+      13768349.9,
+      13768349.9,
+      100
+    ],
+    [
+      "Contoso Yokohama Store",
+      13287001.21,
+      13287001.21,
+      100
+    ],
+    [
+      "Contoso York Store",
+      4894607.4,
+      4894607.4,
+      100
+    ],
+    [
+      "Contoso koln No.1 Store",
+      5148101.68,
+      5148101.68,
+      100
+    ],
+    [
+      "Contoso koln No.2 Store",
+      4914791.52,
+      4914791.52,
+      100
+    ],
+    [
+      "Contoso obamberg Store",
+      4975250.78,
+      4975250.78,
+      100
+    ]
+  ]
+}

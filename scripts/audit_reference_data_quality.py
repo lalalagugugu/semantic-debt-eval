@@ -216,6 +216,7 @@ def main():
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--probe-orphans', action='store_true')
     mode.add_argument('--reuse-probes', action='store_true', help='render saved measured evidence without rerunning failed SQL')
+    parser.add_argument('--current-only', action='store_true', help='audit both active rounds and manifest without claiming old probes were rerun')
     args = parser.parse_args()
     main_dir = Path(os.environ['SEMDEBT_MAIN_DIR'])
     source = main_dir / 'semantic/source.yaml'
@@ -223,6 +224,39 @@ def main():
     if frozen != source.read_bytes():
         raise ValueError('source.yaml differs from semantic-v1; do not audit an unfrozen variant')
     quality = yaml.safe_load(source.read_text())['data_quality']
+    if args.current_only:
+        if args.probe_orphans or args.reuse_probes:
+            parser.error('--current-only does not reuse or rerun historical probes')
+        manifest = json.loads((ROOT/'refs/MANIFEST.json').read_text())
+        by_path = {r['result_path']:r for r in manifest['records']}
+        current = []
+        for filename,generation in [('cube_100.yaml','active_original'),('new.yaml','active_new')]:
+            for question in yaml.safe_load((ROOT/'questions'/filename).read_text())['questions']:
+                for ref in question['refs']:
+                    record = inspect_reference(question,ref,generation)
+                    record['quality_routes'] = [item['id'] for item in quality if quality_match(item['id'],record['masked_sql'])]
+                    record.pop('masked_sql')
+                    stored = by_path[ref['result_path']]
+                    if record['sql_sha256'] != stored['sql_sha256'] or digest(ROOT/ref['result_path']) != stored['sha256']:
+                        raise ValueError('stale SQL/CSV manifest: '+ref['result_path'])
+                    record['manifest_hashes_match'] = True
+                    current.append(record)
+        if len({r['question_id'] for r in current}) != 122 or len(current) != len(by_path):
+            raise ValueError('incomplete active reference audit')
+        result = {'scope':'122 active questions, both formal rounds', 'source_sha256':digest(source), 'quantization_sha256':manifest['unit_policy_sha256'], 'references':current,
+                  'execution':'static SQL routes and current manifest hashes; historical probes were not rerun',
+                  'purchase_event_ruling':'see audit/T05-purchase-events.md', 'T05b_independent_verification':'pending'}
+        (ROOT/'audit/T05-current-data-quality.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+        risks = [r for r in current if r['fact_product_inner_exposure'] or r['fact_employee_inner_exposure']]
+        lines = ['# 第二轮现行参考数据质量审计','',f'122题／{len(current)}份正式参考的SQL及CSV哈希均与当前manifest一致。这里只做静态风险路由和哈希核对，不宣称所有业务定义已独立通过。',
+                 '', '20题／24份内连接实测及修复见T05-inner-left.json/md；Q33当前参考已完成离线计算，旧审计30秒超时属于历史探查，不再代表当前参考未验证。',
+                 '', '纯退货购买事件口径见T05-purchase-events.md；T05b与Q79独立成员复现仍待执行。', '', '| 仍存在内连接路径 | 参考 | 处置依据 |','|---|---|---|']
+        for r in risks:
+            lines.append(f"| {r['question_id']} | {r['result_path']} | 已测过滤后结果无影响；见逐参考对照，不把路径存在直接判为丢失结果 |")
+        lines += ['', f'semantic/source.yaml与semantic-v1逐字核对；冻结语义层、企业约定及主仓库评分代码均未改。完整数据质量条目路由及{len(current)}份记录见配套JSON。旧版审计作为修复前历史保留。']
+        (ROOT/'audit/T05-current-data-quality.md').write_text('\n'.join(lines)+'\n')
+        print(json.dumps({'questions':122,'references':len(current),'remaining_inner_paths':len(risks),'historical_probes_rerun':False}))
+        return
     original_path = ROOT / 'questions/cube_100.yaml'
     legacy_path = ROOT / 'questions/new.yaml'
     draft_path = ROOT / 'audit/T05-rewrite-draft.md'

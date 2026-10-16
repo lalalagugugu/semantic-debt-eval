@@ -1,0 +1,1352 @@
+{
+  "status": "executed_both_algorithms_before_full_rebuild",
+  "baseline_sha256": "fc82ae20da6e7ae2a52709da5ed2f9bab0cee40956ebaaf0aca893de18ab9a02",
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "raw_directory": "/Users/yuhuang/dev/semdebt/data/t05-finalize/20261016T054321Z-purchase-events-full",
+  "scanned_questions": 122,
+  "compared_questions": 18,
+  "different_questions": 9,
+  "added_references": 9,
+  "baseline_references": 139,
+  "records": [
+    {
+      "question_id": "Q01",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q02",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q03",
+      "scope": "购买过的客户集合",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q03-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 1,
+          "positive_sales_count": 1,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "00ac8ab7f6f5d425124902433ddb96981c4142a7e64bb051c6558e1db209db5e",
+          "positive_sales_signature": "00ac8ab7f6f5d425124902433ddb96981c4142a7e64bb051c6558e1db209db5e",
+          "positive_sql_sha256": "1bca4ed52d4883d8561245e16b180620f9329b7262744e7abf865dd37be03a34",
+          "positive_maps_to": "refs/cube/Q03-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q04",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q05",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q06",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q07",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q08",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q09",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q10",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q11",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q12",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q13",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q14",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q15",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q16",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q17",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q18",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q19",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q20",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q21",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q22",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q23",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q24",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q25",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q26",
+      "scope": "首次购买／新客（约定14）",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q26-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 2,
+          "positive_sales_count": 2,
+          "removed_rows": 2,
+          "added_rows": 2,
+          "all_rows_signature": "a4f3163388303fca6277770297d192625c47e662cd151d734d86224f77f8c780",
+          "positive_sales_signature": "f2b4f8e0075823a93257348fc1413c52e15555ccc07b93b699a80c3753555a2f",
+          "positive_sql_sha256": "983ee79c2af8a95fb702f80c2883347d0995ab1295624656c87de0c482c7959d",
+          "positive_maps_to": "refs/cube/Q26-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+          "sql": "WITH first_purchase AS (SELECT CustomerKey, MIN(DateKey) as first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey) SELECT toQuarter(first_date) as quarter, count() as new_customers FROM first_purchase WHERE toYear(first_date) = 2007 GROUP BY quarter ORDER BY quarter",
+          "result_path": "refs/cube/Q26-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "UInt8",
+              "UInt64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q27",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q28",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q29",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q30",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q31",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q32",
+      "scope": "连续三个年份购买",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q32-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 1,
+          "positive_sales_count": 1,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "d68bda4611be8a9d7cbfb554814e44baadb9b4de789ef612a0211189e3775796",
+          "positive_sales_signature": "d68bda4611be8a9d7cbfb554814e44baadb9b4de789ef612a0211189e3775796",
+          "positive_sql_sha256": "f18dcd5db95ca447ac84d511155709ff534eaec9952e479e32ff0f7b0011eacd",
+          "positive_maps_to": "refs/cube/Q32-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q33",
+      "scope": "同订单共购",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q33-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 20,
+          "positive_sales_count": 20,
+          "removed_rows": 12,
+          "added_rows": 12,
+          "all_rows_signature": "c9c7d26e51c718d5c40d6ffd3ca9dbfabc83f85c9c603aa5316d7e7f257200b2",
+          "positive_sales_signature": "1712a805c0b5c721e40bb1e25a86d61c000ebd5f0a34f24def63802a6ee77159",
+          "positive_sql_sha256": "27b963c97b6222099165029784146109ce133abdb61fe519f02e58aebee45803",
+          "positive_maps_to": "refs/cube/Q33-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "共购按不同订单计数：每订单内产品去重；保留产品键与缺失名称。前20仅是judge示例，不是题干固定N。；购买事件=SalesQuantity>0",
+          "sql": "WITH baskets AS (\n  SELECT SalesOrderNumber,arraySort(groupUniqArray(ProductKey)) AS products\n  FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY SalesOrderNumber\n), first_product AS (\n  SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets\n), pairs AS (\n  SELECT product1_key,product2_key,count() AS co_order_count\n  FROM first_product ARRAY JOIN products AS product2_key\n  WHERE product1_key<product2_key GROUP BY product1_key,product2_key\n)\nSELECT x.product1_key,x.product2_key,\n       if(p1.ProductKey=0,NULL,p1.ProductName) AS product1,\n       if(p2.ProductKey=0,NULL,p2.ProductName) AS product2,\n       x.co_order_count\nFROM pairs x\nLEFT JOIN retail.DimProduct p1 ON x.product1_key=p1.ProductKey\nLEFT JOIN retail.DimProduct p2 ON x.product2_key=p2.ProductKey\nORDER BY co_order_count DESC,product1_key,product2_key LIMIT 20",
+          "result_path": "refs/cube/Q33-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Int32",
+              "Int32",
+              "Nullable(String)",
+              "Nullable(String)",
+              "UInt64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q34",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q35",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q36",
+      "scope": "最近购买／客户分层（约定13）",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q36-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 3,
+          "positive_sales_count": 3,
+          "removed_rows": 2,
+          "added_rows": 2,
+          "all_rows_signature": "e359d1191dacd12af0bf5371f9006152c86c9f2bd915239eb37b488d6a42f9e2",
+          "positive_sales_signature": "b7afcd1cfdeaa3a980fb6e77347bc663d3c29e7cc003f525e276ba6e99835c4a",
+          "positive_sql_sha256": "f7c7d5f9b1bdcc0560dfe402d8d65c645e6598969768fb6756af44b2b27f058f",
+          "positive_maps_to": "refs/cube/Q36-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+          "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0)), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN 'Active' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN 'At Risk' ELSE 'Churned' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+          "result_path": "refs/cube/Q36-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "String",
+              "UInt64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q37",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q38",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q39",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q40",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q41",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q42",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q43",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q44",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q45",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q46",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q47",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q48",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q49",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q50",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q51",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q52",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q53",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q54",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q55",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q56",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q57",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q58",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q59",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q60",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q61",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q62",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q63",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q64",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q65",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q66",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q67",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q68",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q69",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q70",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q71",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q72",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q73",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q74",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q75",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q76",
+      "scope": "回头客订单事件",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q76-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 9,
+          "positive_sales_count": 9,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "ca1e7be2bf5a9c0affe228cdabd87d806fe95d695e0d639f18f2625dcf0766b8",
+          "positive_sales_signature": "ca1e7be2bf5a9c0affe228cdabd87d806fe95d695e0d639f18f2625dcf0766b8",
+          "positive_sql_sha256": "8accc84b08a37ac7caeffed2375d03751f35b407ed6fe8a429f38c836acdcac9",
+          "positive_maps_to": "refs/cube/Q76-1.csv",
+          "new_reference": false
+        },
+        {
+          "result_path": "refs/cube/Q76-2.csv",
+          "quantized_equal": false,
+          "all_rows_count": 9,
+          "positive_sales_count": 9,
+          "removed_rows": 3,
+          "added_rows": 3,
+          "all_rows_signature": "7a85da13b81db918ead0e4e7a8cff9cd2d975ba9b389d3fcc5c0bdaa355966d0",
+          "positive_sales_signature": "bbb4f2b6743f12efddc66c727433eb37b69275e55fe8cabde5a1de14e5f39ba3",
+          "positive_sql_sha256": "8eaf0088c385da7e6218c7bd36995e9dc0b5ab40d2a0f23ea03a08708b038ff1",
+          "positive_maps_to": "refs/cube/Q76-3.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度；购买事件=SalesQuantity>0",
+          "sql": "WITH tagged AS (SELECT f.CustomerKey AS CustomerKey,f.SalesOrderNumber AS SalesOrderNumber,f.SalesAmount AS SalesAmount,f.SalesQuantity AS SalesQuantity,pc.ProductCategoryKey AS ProductCategoryKey,pc.ProductCategoryName AS ProductCategoryName FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey=p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey=pc.ProductCategoryKey), counts AS (SELECT CustomerKey,ProductCategoryKey,countDistinctIf(SalesOrderNumber,SalesQuantity>0) AS orders FROM tagged GROUP BY CustomerKey,ProductCategoryKey) SELECT t.ProductCategoryName AS category,sumIf(t.SalesAmount,c.orders>=2)*100.0/nullIf(sum(t.SalesAmount),0) AS pct_repeat_customer_sales FROM tagged t JOIN counts c ON t.CustomerKey=c.CustomerKey AND t.ProductCategoryKey=c.ProductCategoryKey GROUP BY category ORDER BY pct_repeat_customer_sales DESC",
+          "result_path": "refs/cube/Q76-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Nullable(Float64)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q77",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q78",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q79",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q80",
+      "scope": "首购至末购时长",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q80-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 29,
+          "positive_sales_count": 29,
+          "removed_rows": 6,
+          "added_rows": 6,
+          "all_rows_signature": "e9cac923102b0658050777cbcd07d6b6a77246ddc11781f9ef8e6f08b3394019",
+          "positive_sales_signature": "408ecf16ea10da472c12733f56d998895015318961f3fdae8edf01a532387d2e",
+          "positive_sql_sha256": "de0fe6fe906835e76f7e6d36a89e9a2e80c58fd95032a1d784ceacee36d9f219",
+          "positive_maps_to": "refs/cube/Q80-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0)\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY country\nORDER BY avg_active_days DESC",
+          "result_path": "refs/cube/Q80-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count",
+              "other"
+            ],
+            "value_types": [
+              "String",
+              "UInt64",
+              "Float64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q81",
+      "scope": "首购年份与终身消费",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q81-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 2,
+          "positive_sales_count": 2,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "6c94652e41b07faab99cebf2aae5d9fd73b9851d28932ad7b8e69a65a988dd33",
+          "positive_sales_signature": "6c94652e41b07faab99cebf2aae5d9fd73b9851d28932ad7b8e69a65a988dd33",
+          "positive_sql_sha256": "c4d53d3274387e00251721310549d2d1c4e22b5da07e6be96ef90f6474fde113",
+          "positive_maps_to": "refs/cube/Q81-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q82",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q83",
+      "scope": "首购与后续年份留存",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q83-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 1,
+          "positive_sales_count": 1,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "814f27cb89686c6c12f0a930e40f1d357a3acd508e84d7861ed81dfe4999d855",
+          "positive_sales_signature": "814f27cb89686c6c12f0a930e40f1d357a3acd508e84d7861ed81dfe4999d855",
+          "positive_sql_sha256": "7dd9b6d9ded004b5dff190989c84e702d2a96b0a6da3d9ebb7c4bc0c64cc790e",
+          "positive_maps_to": "refs/cube/Q83-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q84",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q85",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q86",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q87",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q88",
+      "scope": "四季度均购买",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q88-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 26,
+          "positive_sales_count": 26,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "07c4a4a24b80169b1977828f7b2469029f8f82472f64db1c50ca12cb37a4d7a2",
+          "positive_sales_signature": "07c4a4a24b80169b1977828f7b2469029f8f82472f64db1c50ca12cb37a4d7a2",
+          "positive_sql_sha256": "520aa5456bd3af8468c88cf9070f67f8fc9d8d3c7dc2b4fe987f4bf0fb0da2b2",
+          "positive_maps_to": "refs/cube/Q88-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q89",
+      "scope": "最近购买分层及购买产品种类",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q89-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 3,
+          "positive_sales_count": 3,
+          "removed_rows": 3,
+          "added_rows": 3,
+          "all_rows_signature": "078a98a430542394bc8c622cbbaf3a0f995e31364ef95cb8cc3f61b2cb8c8127",
+          "positive_sales_signature": "051203a97266e501997ecebbdfa446fe6faf4217672f5798fb7b9eac8b66d4ff",
+          "positive_sql_sha256": "2784a1ed6274819d8259a072803abf4e120c580b1f630ad2c1de898e6a1b3dd0",
+          "positive_maps_to": "refs/cube/Q89-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+          "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         maxIf(DateKey,SalesQuantity>0) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinctIf(ProductKey,SalesQuantity>0) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey HAVING countIf(SalesQuantity>0)>0\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n           ELSE 'Churned'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       round(avg(total_spend), 2) AS avg_spend,\n       round(avg(distinct_products), 1) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN 'Active' THEN 1 WHEN 'At Risk' THEN 2 ELSE 3 END",
+          "result_path": "refs/cube/Q89-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count",
+              "amount",
+              "other"
+            ],
+            "value_types": [
+              "String",
+              "UInt64",
+              "Float64",
+              "Float64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q90",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q91",
+      "scope": "线上消费者集合与收入相关",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q91-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 1,
+          "positive_sales_count": 1,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "edc5210a96963042a953c329babf84d23d1db636c596bea9e6da381477730f32",
+          "positive_sales_signature": "edc5210a96963042a953c329babf84d23d1db636c596bea9e6da381477730f32",
+          "positive_sql_sha256": "f2a11bba5a9a737d369b77b27ae34529f48f8a835a830757a3ae144f18bcee06",
+          "positive_maps_to": "refs/cube/Q91-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q92",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q93",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q94",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q95",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q96",
+      "scope": "首次购买年份与后续购买",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/cube/Q96-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 2,
+          "positive_sales_count": 2,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "e002e0f390986aff43fb59608e61c7fc3553375ddadc88fefbea75d2d0ff7163",
+          "positive_sales_signature": "e002e0f390986aff43fb59608e61c7fc3553375ddadc88fefbea75d2d0ff7163",
+          "positive_sql_sha256": "1b1f2860ba0e6ccaf0ad82239ec7aa1f87f650d020cae5ce3cefbf8b780b9b5c",
+          "positive_maps_to": "refs/cube/Q96-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q97",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q98",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q99",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q100",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q101",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q102",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q103",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q104",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q105",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q106",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q107",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q108",
+      "scope": "订单数／客单价采用冻结的全部去重订单号；不改为购买事件数",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q109",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q110",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q111",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q112",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q113",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q114",
+      "scope": "近90天首次购买／新客（约定14）",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/new/Q114-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 12,
+          "positive_sales_count": 12,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "01e1484f3debeda9996e985035102a4cf0b9471c9c9e51876b8889ac44073bc3",
+          "positive_sales_signature": "01e1484f3debeda9996e985035102a4cf0b9471c9c9e51876b8889ac44073bc3",
+          "positive_sql_sha256": "e96b577bbc024be2aec6b8771d863bee1644154f706bcd6b36a64623036ea155",
+          "positive_maps_to": "refs/new/Q114-1.csv",
+          "new_reference": false
+        },
+        {
+          "result_path": "refs/new/Q114-2.csv",
+          "quantized_equal": true,
+          "all_rows_count": 12,
+          "positive_sales_count": 12,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "70df9b6792268a5c18898081339226277a92c75d5773d31baffe689742780963",
+          "positive_sales_signature": "70df9b6792268a5c18898081339226277a92c75d5773d31baffe689742780963",
+          "positive_sql_sha256": "68032855f4e888f99373cc3bddaaec52def90cd72a2210290350faa6cdaddf54",
+          "positive_maps_to": "refs/new/Q114-2.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q115",
+      "scope": "固定已购群体的最近购买分层（约定13）",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/new/Q115-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 9,
+          "positive_sales_count": 9,
+          "removed_rows": 2,
+          "added_rows": 2,
+          "all_rows_signature": "16ddbdc86fd011f1432e41a0831e2cd5e040874851d021b63c8dac03baabb8d5",
+          "positive_sales_signature": "4b0482d873555e275b0d7ed2760dd507f345c263bd5587f99f4faf98d6790ca5",
+          "positive_sql_sha256": "1fddd44a2987155a34a9a4794d862047b21bfd41b40f6a8f1d1fd2a8f124aca0",
+          "positive_maps_to": "refs/new/Q115-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+          "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
+          "result_path": "refs/new/Q115-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "String",
+              "String",
+              "UInt64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q116",
+      "scope": "首购与90日复购",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/new/Q116-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 4,
+          "positive_sales_count": 5,
+          "removed_rows": 1,
+          "added_rows": 2,
+          "all_rows_signature": "8e0ef705f9d3ec53030d272f3300e7a5786e9da31e0b8201c4eb42c88d3c124c",
+          "positive_sales_signature": "b62eda3effea1b235fb48613a226ef7d237266e864bb0045a797000d7504825b",
+          "positive_sql_sha256": "2fb1a69a1a2604657a39f36d74aa930602c18bad19ece0f12b27c24b6c513a27",
+          "positive_maps_to": "refs/new/Q116-3.csv",
+          "new_reference": true
+        },
+        {
+          "result_path": "refs/new/Q116-2.csv",
+          "quantized_equal": false,
+          "all_rows_count": 4,
+          "positive_sales_count": 5,
+          "removed_rows": 1,
+          "added_rows": 2,
+          "all_rows_signature": "8e0ef705f9d3ec53030d272f3300e7a5786e9da31e0b8201c4eb42c88d3c124c",
+          "positive_sales_signature": "b62eda3effea1b235fb48613a226ef7d237266e864bb0045a797000d7504825b",
+          "positive_sql_sha256": "97f38c7f48019f3052571d511c29e88d6dd05c2ee0a0bbdf9ed2d0e57206739d",
+          "positive_maps_to": "refs/new/Q116-3.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "首购日后第1至90天，出现订单即复购；完整随访；购买事件=SalesQuantity>0；亦覆盖：首购日计入90日窗；去重订单数至少2才复购；完整随访（正销量结果相同）",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey\nHAVING addDays(first_date,90)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "result_path": "refs/new/Q116-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "Date",
+              "Float64"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "question_id": "Q117",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q118",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q119",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q120",
+      "scope": "当年购买客户集合与收入相关",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/new/Q120-1.csv",
+          "quantized_equal": true,
+          "all_rows_count": 6,
+          "positive_sales_count": 6,
+          "removed_rows": 0,
+          "added_rows": 0,
+          "all_rows_signature": "dee2e98bcdf2221572505564076541b9e8582ccdde22c61a555590a81f4ac488",
+          "positive_sales_signature": "dee2e98bcdf2221572505564076541b9e8582ccdde22c61a555590a81f4ac488",
+          "positive_sql_sha256": "3d9dae706184a20d56bd16bcb86237aad01020d962fbe2990cd0aff199d0ba88",
+          "positive_maps_to": "refs/new/Q120-1.csv",
+          "new_reference": false
+        }
+      ],
+      "additions": []
+    },
+    {
+      "question_id": "Q121",
+      "scope": "非购买事件题；维度、财务金额、库存、目标或统计观察单位不改",
+      "compared": false,
+      "references": [],
+      "additions": []
+    },
+    {
+      "question_id": "Q122",
+      "scope": "已售产品及共购，全部订单分母固定",
+      "compared": true,
+      "references": [
+        {
+          "result_path": "refs/new/Q122-1.csv",
+          "quantized_equal": false,
+          "all_rows_count": 207046,
+          "positive_sales_count": 207046,
+          "removed_rows": 5813,
+          "added_rows": 5813,
+          "all_rows_signature": "40248c402308de1dbe07f097084e4f76a41e462cc8986c18bf917ded6921c70a",
+          "positive_sales_signature": "991e3a726157cc57a00cd708e4f058be65fb930249c7598fb3f53f6b908fdb91",
+          "positive_sql_sha256": "6e7fdbc303bd32b9a6fbcfe647f6e6c99d39de833bc6bbabd4ecf773edb903ec",
+          "positive_maps_to": "refs/new/Q122-2.csv",
+          "new_reference": true
+        }
+      ],
+      "additions": [
+        {
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso' AND f.SalesQuantity>0) AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
+          "result_path": "refs/new/Q122-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "ratio",
+              "ratio",
+              "ratio",
+              "ratio"
+            ],
+            "value_types": [
+              "Int32",
+              "Int32",
+              "Float64",
+              "Float64",
+              "Float64",
+              "Float64"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "final_references": 148
+}
