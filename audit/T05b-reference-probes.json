@@ -1,0 +1,19 @@
+{
+  "Q34": {
+    "products": 2504,
+    "new_inventory_over_old_median": 11.980769230769212
+  },
+  "Q48": {
+    "old_store_count": 299,
+    "new_store_count": 306
+  },
+  "Q77": {
+    "january": [
+      1,
+      57453262.78,
+      72014255.66,
+      -20.22
+    ],
+    "december_2008_sales": 72014255.66
+  }
+}

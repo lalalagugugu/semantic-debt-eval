@@ -120,13 +120,18 @@ def main():
     rewrite_path=REPO/'audit/T05-degeneracy-rewrites.json'
     rewrites=json.loads(rewrite_path.read_text()) if rewrite_path.exists() else None
     changed={r['question_id']:r for r in rewrites['records'] if r['changed']} if rewrites else {}
+    corrections_path=REPO/'audit/T05b-reference-corrections.json'
+    corrections=json.loads(corrections_path.read_text()) if corrections_path.exists() else None
+    text_changes={r['question_id']:r for r in corrections['records'] if r['text_changed']} if corrections else {}
     assert len(approved)==22
     for q in new:
+        expected=changed[q['id']]['new_question'] if q['id'] in changed else approved[q['id']]
+        if q['id'] in text_changes:
+            assert text_changes[q['id']]['old_text_zh']==expected
+            expected=text_changes[q['id']]['new_text_zh']
         if q['id'] in changed:
             assert changed[q['id']]['original_question']==approved[q['id']]
-            assert q['text_zh']==changed[q['id']]['new_question']
-        else:
-            assert q['text_zh']==approved[q['id']]
+        assert q['text_zh']==expected
     assert {q['id'] for q in old+new if any(effective_rules(q,r).get('selection') for r in q['refs'])} == {'Q22','Q71','Q74','Q85','Q98','Q117','Q119'}
     purchase = json.loads((REPO/'audit/T05-purchase-events.json').read_text())
     assert purchase['scanned_questions']==122 and len(purchase['records'])==122
@@ -140,7 +145,9 @@ def main():
         after=json.loads((REPO/'audit/T05-degeneracy-after.json').read_text())
         assert before['questions_scanned']==after['questions_scanned']==22 and not after['hits']
         assert set(before['hits'])==set(changed)==set(rewrites['rewritten_questions'])
-        assert after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
+        current_after=json.loads((REPO/corrections['new_question_audit']).read_text()) if corrections else after
+        assert not current_after['hits'] and current_after['questions_scanned']==22
+        assert current_after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
         assert not rewrites['post_rewrite_audit_required'] and rewrites['after_hits']==[]
         assert rewrites['after_audit_sha256']==hashlib.sha256((REPO/'audit/T05-degeneracy-after.json').read_bytes()).hexdigest()
     else:
@@ -190,12 +197,17 @@ def main():
         n=rules['top_n']
         end=n if len(reference)==n else _boundary_start(reference,n,tuple(rules['tie_columns']),tuple(rules['value_kinds']))
         key=lambda row:tuple(policy.quantize_tie(row[k['column']],rules['value_kinds'][k['column']]) for k in rules['order_by'])
-        position=next(i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1])
+        positions=[i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1]]
+        if not positions:
+            return False  # A corrected precise ranking may have no prefix tie.
+        position=positions[0]
         candidate=deepcopy(reference[:n]);candidate[position],candidate[position+1]=candidate[position+1],candidate[position]
         assert score(candidate,[reference],rules)=='correct'
+        return True
     for qid in ('Q27','Q87','Q88'):
         question=next(q for q in old if q['id']==qid);ref=question['refs'][0]
-        tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+        swapped=tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+        assert swapped or (qid=='Q27' and corrections is not None)
     from harness.questions import load_questions
     for anchor in load_questions(REPO,lang='en'):
         if anchor.qid in ('EN27','EN88'):

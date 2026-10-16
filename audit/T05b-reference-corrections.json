@@ -1,0 +1,1151 @@
+{
+  "decision": "2026-10-16-t05b-recheck-differences.md",
+  "base_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "questions_scanned": 122,
+  "current_references": 165,
+  "new_question_audit": "audit/T05b-label-question-degeneracy.json",
+  "pending_order_precision_questions": [
+    "Q27",
+    "Q45",
+    "Q79",
+    "Q85",
+    "Q87"
+  ],
+  "status": "partial; awaiting user choice on canonical ranking precision, no new scorer interface assumed",
+  "records": [
+    {
+      "question_id": "Q01",
+      "text_changed": false,
+      "old_text_zh": "产品目录中共有多少种产品？",
+      "new_text_zh": "产品目录中共有多少种产品？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q02",
+      "text_changed": false,
+      "old_text_zh": "线上销售额合计是多少？",
+      "new_text_zh": "线上销售额合计是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q03",
+      "text_changed": false,
+      "old_text_zh": "有多少位客户在线上购买过商品？",
+      "new_text_zh": "有多少位客户在线上购买过商品？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q04",
+      "text_changed": false,
+      "old_text_zh": "列出 Contoso 品牌的所有产品。",
+      "new_text_zh": "列出 Contoso 品牌的所有产品。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q05",
+      "text_changed": false,
+      "old_text_zh": "各产品品类分别有多少种产品？",
+      "new_text_zh": "各产品品类分别有多少种产品？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q06",
+      "text_changed": false,
+      "old_text_zh": "2009 年的线上销售额是多少？",
+      "new_text_zh": "2009 年的线上销售额是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q07",
+      "text_changed": false,
+      "old_text_zh": "按产品单价，最贵的前 10 款产品是哪些？",
+      "new_text_zh": "按产品单价，最贵的前 10 款产品是哪些？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q08",
+      "text_changed": false,
+      "old_text_zh": "列出所有销售人员。",
+      "new_text_zh": "列出所有销售人员。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q09",
+      "text_changed": false,
+      "old_text_zh": "所有产品的平均单位成本是多少？",
+      "new_text_zh": "所有产品的平均单位成本是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q10",
+      "text_changed": false,
+      "old_text_zh": "目前有多少家门店在营业？",
+      "new_text_zh": "目前有多少家门店在营业？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q11",
+      "text_changed": false,
+      "old_text_zh": "按产品品类汇总销售额。",
+      "new_text_zh": "按产品品类汇总销售额。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q12",
+      "text_changed": false,
+      "old_text_zh": "2008 年各月的线上销售额分别是多少？",
+      "new_text_zh": "2008 年各月的线上销售额分别是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q13",
+      "text_changed": false,
+      "old_text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
+      "new_text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q14",
+      "text_changed": false,
+      "old_text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "new_text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q15",
+      "text_changed": false,
+      "old_text_zh": "各国家的线上销售额是多少？",
+      "new_text_zh": "各国家的线上销售额是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q16",
+      "text_changed": false,
+      "old_text_zh": "比较 2008 年和 2009 年的线上销售总额。",
+      "new_text_zh": "比较 2008 年和 2009 年的线上销售总额。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q17",
+      "text_changed": false,
+      "old_text_zh": "周末和工作日的销售分别占多少比例？",
+      "new_text_zh": "周末和工作日的销售分别占多少比例？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q18",
+      "text_changed": false,
+      "old_text_zh": "各种促销类型分别提供了多少累计折扣金额？",
+      "new_text_zh": "各种促销类型分别提供了多少累计折扣金额？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q19",
+      "text_changed": false,
+      "old_text_zh": "不同性别客户的客单价分别是多少？",
+      "new_text_zh": "不同性别客户的客单价分别是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q20",
+      "text_changed": false,
+      "old_text_zh": "哪些产品目前的库存低于安全库存水平？",
+      "new_text_zh": "哪些产品目前的库存低于安全库存水平？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q21",
+      "text_changed": false,
+      "old_text_zh": "各门店每种产品目前的库存是多少？",
+      "new_text_zh": "各门店每种产品目前的库存是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q22",
+      "text_changed": false,
+      "old_text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
+      "new_text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q23",
+      "text_changed": false,
+      "old_text_zh": "展示 2009 年逐月累计销售额。",
+      "new_text_zh": "展示 2009 年逐月累计销售额。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q24",
+      "text_changed": false,
+      "old_text_zh": "各产品品类的退货率是多少？",
+      "new_text_zh": "各产品品类的退货率是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q25",
+      "text_changed": false,
+      "old_text_zh": "在北美，哪个季节的日均销售额最高？",
+      "new_text_zh": "在北美，哪个季节的日均销售额最高？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q26",
+      "text_changed": false,
+      "old_text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
+      "new_text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q27",
+      "text_changed": false,
+      "old_text_zh": "按利润率排名，前 10 款产品是哪些？",
+      "new_text_zh": "按利润率排名，前 10 款产品是哪些？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q28",
+      "text_changed": false,
+      "old_text_zh": "比较门店渠道和线上渠道的平均交易金额。",
+      "new_text_zh": "比较门店渠道和线上渠道的平均交易金额。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q29",
+      "text_changed": false,
+      "old_text_zh": "节假日相比普通日，销售多或少了百分之多少？",
+      "new_text_zh": "节假日相比普通日，销售多或少了百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q30",
+      "text_changed": false,
+      "old_text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
+      "new_text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q31",
+      "text_changed": false,
+      "old_text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
+      "new_text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q32",
+      "text_changed": false,
+      "old_text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
+      "new_text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q33",
+      "text_changed": false,
+      "old_text_zh": "同一订单中，哪些产品最常被一起购买？",
+      "new_text_zh": "同一订单中，哪些产品最常被一起购买？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q34",
+      "text_changed": false,
+      "old_text_zh": "计算 2009 年各产品的库存周转率。",
+      "new_text_zh": "计算 2009 年各产品的库存周转率。",
+      "changed_references": [
+        "refs/cube/Q34-1.csv"
+      ],
+      "added_references": [],
+      "reason": "每个产品每个快照日跨门店求和，再在快照日上取平均，分子分母均为同年公司产品粒度；排序用未取整周转率。"
+    },
+    {
+      "question_id": "Q35",
+      "text_changed": false,
+      "old_text_zh": "列出所有员工及其上级经理的姓名。",
+      "new_text_zh": "列出所有员工及其上级经理的姓名。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q36",
+      "text_changed": false,
+      "old_text_zh": "根据距最近一次购买的时间，将客户划分为活跃、有流失风险和已流失。",
+      "new_text_zh": "根据距最近一次购买的时间，将客户划分为活跃、有流失风险和已流失。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q37",
+      "text_changed": false,
+      "old_text_zh": "展示各门店的销售总额及其百分位排名。",
+      "new_text_zh": "展示各门店的销售总额及其百分位排名。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q38",
+      "text_changed": false,
+      "old_text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
+      "new_text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
+      "changed_references": [
+        "refs/cube/Q38-2.csv"
+      ],
+      "added_references": [
+        "refs/cube/Q38-2.csv"
+      ],
+      "reason": "中英文题面都未点名错误率／准确率，补准确率=100%-绝对百分比误差，与原误差率互补。"
+    },
+    {
+      "question_id": "Q39",
+      "text_changed": false,
+      "old_text_zh": "按子品类分析，新产品上市是否影响了老产品的销售？",
+      "new_text_zh": "按子品类分析，新产品上市是否影响了老产品的销售？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q40",
+      "text_changed": false,
+      "old_text_zh": "如果采用每日收盘汇率折算，线上销售额相当于多少欧元？",
+      "new_text_zh": "如果采用每日收盘汇率折算，线上销售额相当于多少欧元？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q41",
+      "text_changed": false,
+      "old_text_zh": "上季度销售额是多少？",
+      "new_text_zh": "上季度销售额是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q42",
+      "text_changed": false,
+      "old_text_zh": "相机品类的经营表现如何？",
+      "new_text_zh": "相机品类的经营表现如何？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q43",
+      "text_changed": false,
+      "old_text_zh": "按地区展示毛利。",
+      "new_text_zh": "按地区展示毛利。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q44",
+      "text_changed": false,
+      "old_text_zh": "线上销售在增长吗？",
+      "new_text_zh": "线上销售在增长吗？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q45",
+      "text_changed": false,
+      "old_text_zh": "哪些门店的销售平效最高（按每平方英尺销售额计算）？",
+      "new_text_zh": "哪些门店的销售平效最高（按每平方英尺销售额计算）？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q46",
+      "text_changed": false,
+      "old_text_zh": "哪个客户群体带来的利润最多？",
+      "new_text_zh": "哪个客户群体带来的利润最多？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q47",
+      "text_changed": false,
+      "old_text_zh": "各门店的机器平均停机时长是多少？",
+      "new_text_zh": "各门店的机器平均停机时长是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q48",
+      "text_changed": false,
+      "old_text_zh": "IT 故障与销售表现之间有相关关系吗？",
+      "new_text_zh": "IT 故障与销售表现之间有相关关系吗？",
+      "changed_references": [
+        "refs/cube/Q48-1.csv",
+        "refs/cube/Q48-2.csv"
+      ],
+      "added_references": [],
+      "reason": "两份judge示例均从有销售门店左连接停机汇总，无SLA记录按0停机；保住7家被原连接删掉的门店。"
+    },
+    {
+      "question_id": "Q49",
+      "text_changed": false,
+      "old_text_zh": "按组织层级汇总销售收入。",
+      "new_text_zh": "按组织层级汇总销售收入。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q50",
+      "text_changed": false,
+      "old_text_zh": "仅比较2008年和2009年均有销售的门店，其销售总额增长了多少？",
+      "new_text_zh": "仅比较2008年和2009年均有销售的门店，其销售总额增长了多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q51",
+      "text_changed": false,
+      "old_text_zh": "共有多少家门店？",
+      "new_text_zh": "共有多少家门店？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q52",
+      "text_changed": false,
+      "old_text_zh": "产品目录中的最高单价是多少？",
+      "new_text_zh": "产品目录中的最高单价是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q53",
+      "text_changed": false,
+      "old_text_zh": "2009年总共有多少笔线上订单？",
+      "new_text_zh": "2009年总共有多少笔线上订单？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q54",
+      "text_changed": false,
+      "old_text_zh": "线上销售的退货金额合计是多少？",
+      "new_text_zh": "线上销售的退货金额合计是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q55",
+      "text_changed": false,
+      "old_text_zh": "客户库中有多少位女性客户？",
+      "new_text_zh": "客户库中有多少位女性客户？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q56",
+      "text_changed": false,
+      "old_text_zh": "客户的平均年收入是多少？",
+      "new_text_zh": "客户的平均年收入是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q57",
+      "text_changed": false,
+      "old_text_zh": "我们有多少个不同的产品品牌？",
+      "new_text_zh": "我们有多少个不同的产品品牌？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q58",
+      "text_changed": false,
+      "old_text_zh": "历史上金额最大的一笔线上销售是多少？",
+      "new_text_zh": "历史上金额最大的一笔线上销售是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q59",
+      "text_changed": false,
+      "old_text_zh": "日历中共有多少个节假日？",
+      "new_text_zh": "日历中共有多少个节假日？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q60",
+      "text_changed": false,
+      "old_text_zh": "生产部门共有多少名员工？",
+      "new_text_zh": "生产部门共有多少名员工？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q61",
+      "text_changed": false,
+      "old_text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
+      "new_text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q62",
+      "text_changed": false,
+      "old_text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
+      "new_text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q63",
+      "text_changed": false,
+      "old_text_zh": "按客户职业统计线上客单价。",
+      "new_text_zh": "按客户职业统计线上客单价。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q64",
+      "text_changed": false,
+      "old_text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
+      "new_text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q65",
+      "text_changed": false,
+      "old_text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
+      "new_text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
+      "changed_references": [
+        "refs/cube/Q65-2.csv"
+      ],
+      "added_references": [
+        "refs/cube/Q65-2.csv"
+      ],
+      "reason": "保留员工键参考，另补姓名参考；保持同一门店域及金额，缺员工映射的经理仍保留NULL姓名。"
+    },
+    {
+      "question_id": "Q66",
+      "text_changed": false,
+      "old_text_zh": "2009 年各季度累计提供了多少折扣金额？不计无折扣交易。",
+      "new_text_zh": "2009 年各季度累计提供了多少折扣金额？不计无折扣交易。",
+      "changed_references": [
+        "refs/cube/Q66-1.csv"
+      ],
+      "added_references": [],
+      "reason": "题目只问季度折扣金额，删除额外的打折订单去重数列并更新返回schema。"
+    },
+    {
+      "question_id": "Q67",
+      "text_changed": false,
+      "old_text_zh": "哪些产品颜色的线上实际成交均价最高？仅考虑销量至少 1000 件的颜色。",
+      "new_text_zh": "哪些产品颜色的线上实际成交均价最高？仅考虑销量至少 1000 件的颜色。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q68",
+      "text_changed": false,
+      "old_text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
+      "new_text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q69",
+      "text_changed": false,
+      "old_text_zh": "哪些促销类别带来的线上促销营收最高？各自的平均折扣比例是多少？",
+      "new_text_zh": "哪些促销类别带来的线上促销营收最高？各自的平均折扣比例是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q70",
+      "text_changed": false,
+      "old_text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
+      "new_text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q71",
+      "text_changed": false,
+      "old_text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
+      "new_text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
+      "changed_references": [
+        "refs/cube/Q71-1.csv",
+        "refs/cube/Q71-2.csv"
+      ],
+      "added_references": [],
+      "reason": "SQL提供未取整销售额，分组选择及最终排序使用原有全局金额两位HALF_EVEN量化；展示ROUND不再先于选择。"
+    },
+    {
+      "question_id": "Q72",
+      "text_changed": false,
+      "old_text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
+      "new_text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q73",
+      "text_changed": false,
+      "old_text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
+      "new_text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q74",
+      "text_changed": false,
+      "old_text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
+      "new_text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q75",
+      "text_changed": false,
+      "old_text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
+      "new_text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
+      "changed_references": [
+        "refs/cube/Q75-1.csv"
+      ],
+      "added_references": [],
+      "reason": "按未取整增长率排序，ROUND仅留在最终展示列。"
+    },
+    {
+      "question_id": "Q76",
+      "text_changed": false,
+      "old_text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
+      "new_text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
+      "changed_references": [
+        "refs/cube/Q76-1.csv"
+      ],
+      "added_references": [],
+      "reason": "两份参考均按未取整占比排序，ROUND仅留在最终展示列。"
+    },
+    {
+      "question_id": "Q77",
+      "text_changed": false,
+      "old_text_zh": "计算 2009 年各月线上销售额的环比增长率。",
+      "new_text_zh": "计算 2009 年各月线上销售额的环比增长率。",
+      "changed_references": [
+        "refs/cube/Q77-1.csv"
+      ],
+      "added_references": [],
+      "reason": "计算域包含2008年12月，先用未取整月销售额计算lag／环比，再只输出2009年12个月。"
+    },
+    {
+      "question_id": "Q78",
+      "text_changed": false,
+      "old_text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
+      "new_text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q79",
+      "text_changed": false,
+      "old_text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
+      "new_text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q80",
+      "text_changed": false,
+      "old_text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
+      "new_text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
+      "changed_references": [
+        "refs/cube/Q80-1.csv",
+        "refs/cube/Q80-2.csv"
+      ],
+      "added_references": [],
+      "reason": "两份参考按未取整平均活跃天数排序，ROUND仅留在最终展示列。"
+    },
+    {
+      "question_id": "Q81",
+      "text_changed": false,
+      "old_text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
+      "new_text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q82",
+      "text_changed": false,
+      "old_text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
+      "new_text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q83",
+      "text_changed": false,
+      "old_text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
+      "new_text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q84",
+      "text_changed": false,
+      "old_text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
+      "new_text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q85",
+      "text_changed": false,
+      "old_text_zh": "计算各门店 2009 年的销售目标达成率（实际销售额÷目标销售额），列出最高和最低的各 5 家门店。",
+      "new_text_zh": "计算各门店 2009 年的销售目标达成率（实际销售额÷目标销售额），列出最高和最低的各 5 家门店。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q86",
+      "text_changed": false,
+      "old_text_zh": "分析折扣力度与销量的关系：按产品子品类展示 2009 年促销折扣比例与销售数量的相关系数。",
+      "new_text_zh": "分析折扣力度与销量的关系：按产品子品类展示 2009 年促销折扣比例与销售数量的相关系数。",
+      "changed_references": [
+        "refs/cube/Q86-1.csv",
+        "refs/cube/Q86-2.csv"
+      ],
+      "added_references": [],
+      "reason": "题面未要求前N，删除两份示例的LIMIT20，保留已声明的样本下限和有／无空组两份解读。"
+    },
+    {
+      "question_id": "Q87",
+      "text_changed": false,
+      "old_text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
+      "new_text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q88",
+      "text_changed": false,
+      "old_text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
+      "new_text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
+      "changed_references": [
+        "refs/cube/Q88-1.csv"
+      ],
+      "added_references": [],
+      "reason": "SQL提供未取整全年消费额，Top-N构建仍使用原有金额两位HALF_EVEN量化；EN88原SQL不动。"
+    },
+    {
+      "question_id": "Q89",
+      "text_changed": false,
+      "old_text_zh": "按距最近一次购买的时间，将每位客户分为活跃、有流失风险和已流失，再计算各组客户的平均消费额和平均购买产品种类数（去重）。",
+      "new_text_zh": "按距最近一次购买的时间，将每位客户分为活跃、有流失风险和已流失，再计算各组客户的平均消费额和平均购买产品种类数（去重）。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q90",
+      "text_changed": false,
+      "old_text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
+      "new_text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q91",
+      "text_changed": false,
+      "old_text_zh": "客户年收入与其线上消费额之间有关联吗？",
+      "new_text_zh": "客户年收入与其线上消费额之间有关联吗？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q92",
+      "text_changed": false,
+      "old_text_zh": "上季度哪些产品品牌的盈利能力最强？",
+      "new_text_zh": "上季度哪些产品品牌的盈利能力最强？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q93",
+      "text_changed": false,
+      "old_text_zh": "促销折扣比例越大，真的能带来更多销量吗？有价格弹性的证据吗？",
+      "new_text_zh": "促销折扣比例越大，真的能带来更多销量吗？有价格弹性的证据吗？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "按冻结约定10，参考SQL、规则、CSV均不改。"
+    },
+    {
+      "question_id": "Q94",
+      "text_changed": false,
+      "old_text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
+      "new_text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q95",
+      "text_changed": false,
+      "old_text_zh": "与按原价销售相比，各产品品类的促销实际带来了多少增量营收？",
+      "new_text_zh": "与按原价销售相比，各产品品类的促销实际带来了多少增量营收？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q96",
+      "text_changed": false,
+      "old_text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
+      "new_text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q97",
+      "text_changed": false,
+      "old_text_zh": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
+      "new_text_zh": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q98",
+      "text_changed": false,
+      "old_text_zh": "哪些产品品类的全年销售最依赖某一个季度？",
+      "new_text_zh": "哪些产品品类的全年销售最依赖某一个季度？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q99",
+      "text_changed": false,
+      "old_text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
+      "new_text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q100",
+      "text_changed": false,
+      "old_text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
+      "new_text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
+      "changed_references": [
+        "refs/cube/Q100-2.csv"
+      ],
+      "added_references": [
+        "refs/cube/Q100-2.csv"
+      ],
+      "reason": "另补SalesQuantity>0购买算法，重新计算订单数、客单价及完整客户域上的两个P90阈值交集。"
+    },
+    {
+      "question_id": "Q101",
+      "text_changed": false,
+      "old_text_zh": "上季度的GMV是多少？",
+      "new_text_zh": "上季度的GMV是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q102",
+      "text_changed": false,
+      "old_text_zh": "今年各产品品类的净销售额是多少？",
+      "new_text_zh": "今年各产品品类的净销售额是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q103",
+      "text_changed": false,
+      "old_text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "new_text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q104",
+      "text_changed": false,
+      "old_text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "new_text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q105",
+      "text_changed": false,
+      "old_text_zh": "西雅图2号店2009年卖了多少？",
+      "new_text_zh": "西雅图2号店2009年卖了多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q106",
+      "text_changed": false,
+      "old_text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "new_text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q107",
+      "text_changed": false,
+      "old_text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "new_text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q108",
+      "text_changed": false,
+      "old_text_zh": "2009年各国家的营收和订单数是多少？",
+      "new_text_zh": "2009年各国家的营收和订单数是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q109",
+      "text_changed": false,
+      "old_text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
+      "new_text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q110",
+      "text_changed": false,
+      "old_text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "new_text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q111",
+      "text_changed": false,
+      "old_text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "new_text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q112",
+      "text_changed": false,
+      "old_text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
+      "new_text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q113",
+      "text_changed": false,
+      "old_text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
+      "new_text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q114",
+      "text_changed": false,
+      "old_text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "new_text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q115",
+      "text_changed": true,
+      "old_text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "new_text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "题面明确中文三种状态标签，数值算法和参考不改。"
+    },
+    {
+      "question_id": "Q116",
+      "text_changed": false,
+      "old_text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
+      "new_text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q117",
+      "text_changed": false,
+      "old_text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "new_text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q118",
+      "text_changed": false,
+      "old_text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "new_text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q119",
+      "text_changed": false,
+      "old_text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "new_text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q120",
+      "text_changed": true,
+      "old_text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "new_text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "题面明确全体／职业内标签及职业列表示，数值算法和参考不改。"
+    },
+    {
+      "question_id": "Q121",
+      "text_changed": false,
+      "old_text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "new_text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    },
+    {
+      "question_id": "Q122",
+      "text_changed": false,
+      "old_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "new_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "changed_references": [],
+      "added_references": [],
+      "reason": "未修改题意或参考算法；全库两项扫描逐题结果见T05b-bank-scan.json"
+    }
+  ]
+}

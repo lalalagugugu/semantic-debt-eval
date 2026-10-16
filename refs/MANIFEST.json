@@ -2374,7 +2374,7 @@
     {
       "question_id": "Q34",
       "result_path": "refs/cube/Q34-1.csv",
-      "sql_sha256": "5e4770bf3b06f22232b532dc67b54824a6d2179a9d95f15d385596ee487cde77",
+      "sql_sha256": "eec210dec8db35fd08ff4ffea7256b405cd1827b1a09b3544945a45d5fbc17c7",
       "row_count": 2504,
       "columns": [
         {
@@ -2410,7 +2410,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "78ffb508ddd5c0db1016acb1afb7657e1dbe8893f201b0b637f64b336910a031",
+      "sha256": "b9597ecbcd9cff779ae19dd694a4d30947eb42228d12c25bdf57326a84c4edb4",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -2692,6 +2692,68 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "8a7b4fdef2ed6bc07c2052f3177f26ea3079479b82f6ca0c32ce71ca818eb920",
+      "value_types": [
+        "String",
+        "Float64",
+        "Float64",
+        "Nullable(Float64)"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q38",
+      "result_path": "refs/cube/Q38-2.csv",
+      "sql_sha256": "9ddf3f11a1970c9b26e070dc2222825905b4e94191bba0972fd6ddf07a299269",
+      "row_count": 8,
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "actual",
+          "type": "Float64"
+        },
+        {
+          "name": "forecast",
+          "type": "Float64"
+        },
+        {
+          "name": "accuracy_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "other",
+        "percentage"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "b112cfad106d7a47a1266bfccf7930db891acea2cf4ac3a64c7c10bd38e12067",
       "value_types": [
         "String",
         "Float64",
@@ -3390,7 +3452,7 @@
     {
       "question_id": "Q48",
       "result_path": "refs/cube/Q48-1.csv",
-      "sql_sha256": "6f8b5042be0f7754a83ab2368874be03f0dc9dbf0fecabe9fd1a691562963473",
+      "sql_sha256": "e681b67da2cb0fe811cdc907380df1a747df8fdc6472bbb69d6c999696849988",
       "row_count": 2,
       "columns": [
         {
@@ -3416,7 +3478,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "4dfb942b6940f22a2402dbf4a554111ddf2b1e5dddeb263827dc7b148deded2d",
+      "sha256": "ce98fb687893bff90954ebf1d19e688d00a4a02d1d4471d1085062eb02f111fd",
       "value_types": [
         "String",
         "Float64",
@@ -3444,12 +3506,12 @@
     {
       "question_id": "Q48",
       "result_path": "refs/cube/Q48-2.csv",
-      "sql_sha256": "b52d90932128204330f5674c1923f6ce0cd868ef7799920850136564423dd5bc",
+      "sql_sha256": "8f31c6b657630a35748cda84324c089ae09a6c6cc8660fccac7ac3904f135cd4",
       "row_count": 1,
       "columns": [
         {
           "name": "correlation",
-          "type": "Nullable(Float64)"
+          "type": "Float64"
         }
       ],
       "value_kinds": [
@@ -3460,9 +3522,9 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "7b563514e213b98738e49b741b3614048df9305cbb6fadb0d6f03c075c3f3744",
+      "sha256": "0eebc49bad5ee0d61d58bab1e64ef80e7e5e849e2b2c8e6da9f33cd82ea5e9b5",
       "value_types": [
-        "Nullable(Float64)"
+        "Float64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -3474,7 +3536,7 @@
           "ratio"
         ],
         "value_types": [
-          "Nullable(Float64)"
+          "Float64"
         ]
       },
       "selection_checks": null
@@ -4384,39 +4446,39 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q66",
-      "result_path": "refs/cube/Q66-1.csv",
-      "sql_sha256": "5ad683444c9e6d545b231cebd25b586d610c97cc6aeccf7a5e8b8313f24a7ac5",
-      "row_count": 4,
+      "question_id": "Q65",
+      "result_path": "refs/cube/Q65-2.csv",
+      "sql_sha256": "3c8e7cb65b51b66a47b27ef85b937c561beafdba8dd6dd5a9998d1c1151fec30",
+      "row_count": 303,
       "columns": [
         {
-          "name": "quarter",
-          "type": "UInt8"
+          "name": "manager_name",
+          "type": "Nullable(String)"
         },
         {
-          "name": "total_discount",
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "total_sales",
           "type": "Float64"
-        },
-        {
-          "name": "discounted_orders",
-          "type": "UInt64"
         }
       ],
       "value_kinds": [
         "other",
-        "amount",
-        "count"
+        "other",
+        "amount"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "5d9ee814ff3ffc5e66cf404db12fd702785756677ee317ebd6a0e1f1df0c52a8",
+      "sha256": "0bb13be7f5236c4e1af7ba72e4f2ac8067a2b0fd0ed4eb831f4bc1d486ba8fdb",
       "value_types": [
-        "UInt8",
-        "Float64",
-        "UInt64"
+        "Nullable(String)",
+        "String",
+        "Float64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -4426,13 +4488,59 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "amount",
-          "count"
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "String",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q66",
+      "result_path": "refs/cube/Q66-1.csv",
+      "sql_sha256": "89bbdd9badab52be6ff5cb2d0a74824db949c9a007e67f8c02b11809c89b7fa4",
+      "row_count": 4,
+      "columns": [
+        {
+          "name": "quarter",
+          "type": "UInt8"
+        },
+        {
+          "name": "total_discount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "14961e49e9c496657d2b172514268502b87b56c1ef9bc4dc8964fe30f4fbcffd",
+      "value_types": [
+        "UInt8",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
         ],
         "value_types": [
           "UInt8",
-          "Float64",
-          "UInt64"
+          "Float64"
         ]
       },
       "selection_checks": null
@@ -4812,7 +4920,7 @@
     {
       "question_id": "Q71",
       "result_path": "refs/cube/Q71-1.csv",
-      "sql_sha256": "bab437c87dadf70502c9c747209fc499d45f78df027bb538dc4cccf1582e35fa",
+      "sql_sha256": "2a0e18f62b3e1305234f11585e13137d0915ddb5b64eb224f5af47469b638f65",
       "row_count": 9,
       "columns": [
         {
@@ -4838,7 +4946,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "e80f40db663a77f97e26f05bc429a5e65f6d524fb06848a3400647112b057aa4",
+      "sha256": "6d70d67eef83dafe9199698be66a2e15db926fa40c5272a7e3dfb677fa319761",
       "value_types": [
         "Nullable(String)",
         "Nullable(String)",
@@ -4973,7 +5081,7 @@
     {
       "question_id": "Q71",
       "result_path": "refs/cube/Q71-2.csv",
-      "sql_sha256": "5afc611b90363e61ca7638bc71d36d4622ffbe0524a901fc240c5ed95237331f",
+      "sql_sha256": "1aa0997e39249f6190ef52a60544528d29d40aa06de8f0dee14aade152fa0cb1",
       "row_count": 8,
       "columns": [
         {
@@ -4999,7 +5107,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "1eb91711748f5de6336612991ad0d505fc815596f2fa4cbd2bd29be299277777",
+      "sha256": "e403b18c8094873229c67512e33964145f3809943fedcebe11e7792904264ba3",
       "value_types": [
         "Nullable(String)",
         "Nullable(String)",
@@ -8117,7 +8225,7 @@
     {
       "question_id": "Q75",
       "result_path": "refs/cube/Q75-1.csv",
-      "sql_sha256": "4d96fb928a90e776ee90c3a94d09332c617a54512f80670427f1eb9a5bd8d83b",
+      "sql_sha256": "f2c4d9b6360803137e803ef304f22842320b0905fe061a1ab7679d4974836bd4",
       "row_count": 1470,
       "columns": [
         {
@@ -8187,7 +8295,7 @@
     {
       "question_id": "Q76",
       "result_path": "refs/cube/Q76-1.csv",
-      "sql_sha256": "6b15e9da0d0ecdc7984db2db104db3d69db85d7621d07472151e065d54d66b69",
+      "sql_sha256": "0d4633fd4be84bb3f6ffc9ae1d824c74200b347f0c7f57a0fbb9f76f86c5fca3",
       "row_count": 9,
       "columns": [
         {
@@ -8325,7 +8433,7 @@
     {
       "question_id": "Q77",
       "result_path": "refs/cube/Q77-1.csv",
-      "sql_sha256": "1da942dacf58a1e5b79c5322127814f22fb11c0039abc4c0f901f024e20c0f62",
+      "sql_sha256": "4e80fc9a22179f8f9d7b88f79e911d11a9058c381f9293afe558dc99edc536d4",
       "row_count": 12,
       "columns": [
         {
@@ -8356,7 +8464,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "43eb10f493b3ab028c0ad72d7fb1a0e105cd57228da1e74861275733e2ae54d3",
+      "sha256": "d356465a94eabbfe7492d1dc6f2ca353f9fb08bef9b6631961281db469f73c69",
       "value_types": [
         "UInt8",
         "Float64",
@@ -8525,7 +8633,7 @@
     {
       "question_id": "Q80",
       "result_path": "refs/cube/Q80-1.csv",
-      "sql_sha256": "b8ff395acfb5195fd4e837f3524b979593c2c704c099c1ac7a6060e91f0776a6",
+      "sql_sha256": "392e6879b896e2f503f4a645da66f9a318d48126b3d181907d66202e62827b22",
       "row_count": 29,
       "columns": [
         {
@@ -8579,7 +8687,7 @@
     {
       "question_id": "Q80",
       "result_path": "refs/cube/Q80-2.csv",
-      "sql_sha256": "de0fe6fe906835e76f7e6d36a89e9a2e80c58fd95032a1d784ceacee36d9f219",
+      "sql_sha256": "016018d78f83e80069710ffa25aaa543fcb82a385b7d39558a42d630f6e43069",
       "row_count": 29,
       "columns": [
         {
@@ -9039,8 +9147,8 @@
     {
       "question_id": "Q86",
       "result_path": "refs/cube/Q86-1.csv",
-      "sql_sha256": "77377039e250415dd22a3063c5a12888490b771f0254f0b3d6f55a433bc6f98c",
-      "row_count": 20,
+      "sql_sha256": "3fa0d24605faac4a757aab658e037fd8af654b12027cd7bb786b4d0de04246bc",
+      "row_count": 31,
       "columns": [
         {
           "name": "ProductSubcategoryName",
@@ -9065,7 +9173,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "ffc2e3eb46130ffae8a52548f50bbfcc99a0334c126ffb1b74ad713866cfa031",
+      "sha256": "f41ce7780baa3a79f51973d90131aebb64ea915b88178ded06d327b472e1cab7",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -9093,8 +9201,8 @@
     {
       "question_id": "Q86",
       "result_path": "refs/cube/Q86-2.csv",
-      "sql_sha256": "55b8490be461d7c030cc0d65ea9453acd39f000eeced06df38305f3edeb9c21b",
-      "row_count": 19,
+      "sql_sha256": "e2ffc3e985b118fbabe101663eee6b772aec8df04ec1a0b005cad40ce0937fc5",
+      "row_count": 30,
       "columns": [
         {
           "name": "ProductSubcategoryName",
@@ -9119,7 +9227,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6acb2a56ec6fd812caec46965040e6386f6d7da78c7326664dc52fcf085ae149",
+      "sha256": "8bb2d146021fcbb33802d2eeef6c1be98f82170a39a47132185178ce77d13129",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -9225,7 +9333,7 @@
     {
       "question_id": "Q88",
       "result_path": "refs/cube/Q88-1.csv",
-      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528",
+      "sql_sha256": "15fef95f8339d6e6469d45d6209b8bbfa37b7234af5ec84bd6bfd31a7998830b",
       "row_count": 26,
       "columns": [
         {
@@ -9246,7 +9354,7 @@
       "tie_column": 1,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "8dc2e55d34f2f58a1c96c6a8c3d789530f8ea06b4ecd549368e53791079c675e",
+      "sha256": "4fd7552149234d21a22c843ad8594746b41ab96fae047aa024257de2583e177b",
       "value_types": [
         "String",
         "Float64"
@@ -10860,6 +10968,73 @@
         "percentile_method": "exact linear interpolation at (n-1)*0.9"
       },
       "sha256": "7fbcb57779fbcfd101f2b11b4267798ba79d5756863f74b3bdad7300b15b799f",
+      "value_types": [
+        "String",
+        "UInt64",
+        "Float64",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q100",
+      "result_path": "refs/cube/Q100-2.csv",
+      "sql_sha256": "c2f8b0582a7322c5e8ccde72d5cb3f422fb09f219ee32a5dfd8799ba90450715",
+      "row_count": 109,
+      "columns": [
+        {
+          "name": "customer_name",
+          "type": "String"
+        },
+        {
+          "name": "orders",
+          "type": "UInt64"
+        },
+        {
+          "name": "avg_order_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "lifetime_value",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "amount",
+        "amount"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": "power_customers",
+      "postprocess_details": {
+        "domain_rows": 18869,
+        "orders_p90": "128.0000000",
+        "avg_order_amount_p90": "656.080",
+        "percentile_method": "exact linear interpolation at (n-1)*0.9"
+      },
+      "sha256": "e00aef1123ba4f33e83ca6361d085f88ecc0e6599016af9b4e6a2dcbdd332c58",
       "value_types": [
         "String",
         "UInt64",

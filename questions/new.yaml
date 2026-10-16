@@ -850,8 +850,8 @@
     {
       "id": "Q115",
       "source": "new",
-      "text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end?",
-      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end? Use the exact labels 活跃, 有流失风险 and 已流失 for both initial and final states.",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
       "type": "指标分析",
       "refs": [
         {
@@ -1342,8 +1342,8 @@
     {
       "id": "Q120",
       "source": "new",
-      "text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts?",
-      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts? Use scope labels 全体 and 职业内; the overall occupation is NULL, while occupation rows use the recorded occupation names.",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
       "type": "统计",
       "refs": [
         {

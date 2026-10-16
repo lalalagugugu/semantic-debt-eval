@@ -56,6 +56,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q36/2 | false | 参考行集 | `segment` / `String` / **other**<br>`customers` / `UInt64` / **count** [整数守卫] |
 | Q37/1 | false | 参考行集 | `StoreName` / `String` / **other**<br>`total_sales` / `Float64` / **amount**<br>`percentile` / `Float64` / **percentage** |
 | Q38/1 | false | 参考行集 | `ProductCategoryName` / `String` / **other**<br>`actual` / `Float64` / **other**<br>`forecast` / `Float64` / **other**<br>`error_pct` / `Nullable(Float64)` / **percentage** |
+| Q38/2 | false | 参考行集 | `ProductCategoryName` / `String` / **other**<br>`actual` / `Float64` / **other**<br>`forecast` / `Float64` / **other**<br>`accuracy_pct` / `Nullable(Float64)` / **percentage** |
 | Q39/1 | false | 参考行集 | `subcategory_key` / `Nullable(Int32)` / **other**<br>`ProductSubcategoryName` / `String` / **other**<br>`introduction_date` / `Nullable(Date)` / **other**<br>`window_days` / `Nullable(Int64)` / **other**<br>`before_daily_sales` / `Nullable(Float64)` / **amount**<br>`after_daily_sales` / `Nullable(Float64)` / **amount** |
 | Q40/1 | false | 参考行集 | `sales_eur` / `Float64` / **amount** |
 | Q41/1 | false | 参考行集 | `sum(SalesAmount)` / `Float64` / **amount** |
@@ -70,7 +71,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q46/2 | true | Top-1，键[1] | `segment` / `Nullable(String)` / **other**<br>`profit` / `Float64` / **amount** |
 | Q47/1 | false | 参考行集 | `StoreName` / `String` / **other**<br>`avg_downtime_minutes` / `Nullable(Float64)` / **other** |
 | Q48/1 | false | 参考行集 | `downtime_group` / `String` / **other**<br>`avg_sales` / `Float64` / **amount**<br>`store_count` / `UInt64` / **count** [整数守卫] |
-| Q48/2 | false | 参考行集 | `correlation` / `Nullable(Float64)` / **ratio** |
+| Q48/2 | false | 参考行集 | `correlation` / `Float64` / **ratio** |
 | Q49/1 | false | 参考行集 | `e.EntityKey` / `Int32` / **other**<br>`EntityName` / `String` / **other**<br>`total_amount` / `Float64` / **amount** |
 | Q49/2 | false | 参考行集 | `e.EntityKey` / `Int32` / **other**<br>`EntityName` / `String` / **other**<br>`total_amount` / `Float64` / **amount** |
 | Q50/1 | false | 参考行集 | `sales_2009` / `Float64` / **amount**<br>`sales_2008` / `Float64` / **amount**<br>`growth_pct` / `Float64` / **percentage** |
@@ -91,7 +92,8 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q63/1 | false | 参考行集 | `Occupation` / `Nullable(String)` / **other**<br>`avg_order_value` / `Nullable(Float64)` / **other**<br>`orders` / `UInt64` / **count** [整数守卫] |
 | Q64/1 | false | 参考行集 | `month` / `UInt8` / **other**<br>`gross_margin` / `Float64` / **amount**<br>`margin_pct` / `Nullable(Float64)` / **percentage** |
 | Q65/1 | false | 参考行集 | `StoreManager` / `Nullable(String)` / **other**<br>`StoreName` / `String` / **other**<br>`total_sales` / `Float64` / **amount** |
-| Q66/1 | false | 参考行集 | `quarter` / `UInt8` / **other**<br>`total_discount` / `Float64` / **amount**<br>`discounted_orders` / `UInt64` / **count** [整数守卫] |
+| Q65/2 | false | 参考行集 | `manager_name` / `Nullable(String)` / **other**<br>`StoreName` / `String` / **other**<br>`total_sales` / `Float64` / **amount** |
+| Q66/1 | false | 参考行集 | `quarter` / `UInt8` / **other**<br>`total_discount` / `Float64` / **amount** |
 | Q67/1 | true | 参考行集 | `ColorName` / `Nullable(String)` / **other**<br>`avg_realized_price` / `Nullable(Float64)` / **amount**<br>`units` / `Int64` / **count** [整数守卫] |
 | Q67/2 | true | 参考行集 | `ColorName` / `Nullable(String)` / **other**<br>`avg_realized_price` / `Nullable(Float64)` / **amount**<br>`units` / `Int64` / **count** [整数守卫] |
 | Q68/1 | false | 参考行集 | `IsHoliday` / `String` / **other**<br>`orders` / `UInt64` / **count** [整数守卫]<br>`revenue` / `Float64` / **amount** |
@@ -139,11 +141,12 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q99/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`avg_weekend_day_sales` / `Float64` / **amount**<br>`avg_weekday_sales` / `Float64` / **amount**<br>`weekend_lift_pct` / `Nullable(Float64)` / **percentage** |
 | Q99/2 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`avg_weekend_day_sales` / `Float64` / **amount**<br>`avg_weekday_sales` / `Float64` / **amount**<br>`weekend_lift_pct` / `Nullable(Float64)` / **percentage** |
 | Q100/1 | false | 参考行集 | `customer_name` / `String` / **other**<br>`orders` / `UInt64` / **count** [整数守卫]<br>`avg_order_amount` / `Float64` / **amount**<br>`lifetime_value` / `Float64` / **amount** |
+| Q100/2 | false | 参考行集 | `customer_name` / `String` / **other**<br>`orders` / `UInt64` / **count** [整数守卫]<br>`avg_order_amount` / `Float64` / **amount**<br>`lifetime_value` / `Float64` / **amount** |
 
-合计：100题、129份参考；ordered=true共24份；分组选择7份参考；整数计数守卫52列。
+合计：100题、132份参考；ordered=true共24份；分组选择7份参考；整数计数守卫52列。
 
 Q33/Q45/Q97等judge题的示例截断不自动成为题干固定N；维持已批准的声明口径与非封闭示例，不将示例LIMIT伪装成新增的题意限制。
 
 类型来源：直接查询列取引擎返回元数据；Q74等后处理保留对应投影类型。Q84的abc_groups会生成新输出列，表中类型沿用T04已批准的正式后处理schema，不是原始聚合域的列类型；T05b须同时独立核对这一输出schema。
 
-冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序、完整边界及已披露的参考修复；Q79按已存306成员快照独立复现成员集合，不再以历史原始行哈希追溯为门槛。
+冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序、完整边界及已披露的参考修复。Q79以当前参考推导的边界成员集合及规则版本为准；2026-10-16 T05b差异裁决已确认独立成员集合一致并放行，旧306成员仅为历史工件，不是现行门禁。

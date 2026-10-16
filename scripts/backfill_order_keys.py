@@ -32,6 +32,7 @@ def reference_order(sql,columns,declared=None):
         positions=[i for i,c in enumerate(columns) if c['name'].lower()==expression.lower() or c['name'].split('.')[-1].lower()==tail]
         if not positions:
             aliases=set(re.findall(r'\b'+re.escape(expression)+r'\s+AS\s+([A-Za-z_]\w*)\b',sql,re.I))
+            aliases.update(re.findall(r'\(\s*'+re.escape(expression)+r'\s*\)\s+AS\s+([A-Za-z_]\w*)\b',sql,re.I))
             rounded_aliases=set(re.findall(r'\bround\(\s*'+re.escape(expression)+r'\s*,\s*\d+\s*\)\s+AS\s+([A-Za-z_]\w*)\b',sql,re.I))
             rounded|=bool(rounded_aliases)
             aliases.update(rounded_aliases)

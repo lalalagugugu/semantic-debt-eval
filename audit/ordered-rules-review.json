@@ -546,8 +546,8 @@
           "type": "Float64"
         }
       ],
-      "source": "outer ORDER BY uses projected ROUND value under the existing reference/tie precision contract",
-      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528"
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "15fef95f8339d6e6469d45d6209b8bbfa37b7234af5ec84bd6bfd31a7998830b"
     },
     {
       "question_id": "Q92",
