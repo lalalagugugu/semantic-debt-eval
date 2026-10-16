@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Reexecute the 600 public candidates; separate contract and reference effects."""
 from collections import Counter
+from contextlib import nullcontext
 import argparse
 import ast
 import csv
@@ -121,9 +122,18 @@ def main():
     parser.add_argument('--report', type=Path, default=REPO / 'audit/rules-impact.md')
     parser.add_argument('--previous-bank', type=Path, help='fixed pre-ruling questions/manifest archive')
     parser.add_argument('--previous-impact', type=Path, help='completed pre-ruling 600 outcomes')
+    parser.add_argument('--order-registry', type=Path, help='persisted original-reference order keys for the contract axis')
+    parser.add_argument('--candidate-cache', type=Path, help='reuse the exact 600 executions from a completed scorer comparison')
+    parser.add_argument('--candidate-cache-report', type=Path, help='completed comparison proving the cache hash and execution scope')
     args = parser.parse_args()
     if bool(args.previous_bank) != bool(args.previous_impact):
         parser.error('--previous-bank and --previous-impact must be supplied together')
+    if bool(args.candidate_cache) != bool(args.candidate_cache_report):
+        parser.error('--candidate-cache and --candidate-cache-report must be supplied together')
+    cached_report=json.loads(args.candidate_cache_report.read_text()) if args.candidate_cache_report else None
+    if cached_report and (cached_report['records_compared']!=600 or not cached_report['candidate_sql_reexecuted'] or hashlib.sha256(args.candidate_cache.read_bytes()).hexdigest()!=cached_report['raw_candidates_sha256']):
+        raise ValueError('cache is not the complete immutable 600-SQL reexecution')
+    order_records={r['question_id']:r for r in json.loads(args.order_registry.read_text())['original_records']} if args.order_registry else {}
     main_dir = Path(os.environ['SEMDEBT_MAIN_DIR'])
     data_dir = Path(os.environ['SEMDEBT_DATA_DIR'])
     selection, _ = load_selection_policy()
@@ -156,7 +166,9 @@ def main():
     run_root = REPO / 'vendor/cube/published-runs' / adapter.RUN_ID
     systems = sorted(p.name for p in run_root.iterdir() if p.is_dir() and p.name not in {'reference', 'scoring'})
     raw_dir = data_dir / 'rules-backfill' / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    raw_dir.mkdir(parents=True, exist_ok=False)
+    if not args.candidate_cache:raw_dir.mkdir(parents=True, exist_ok=False)
+    raw_path=args.candidate_cache or raw_dir/'candidates.jsonl'
+    cached_stream=args.candidate_cache.open() if args.candidate_cache else None
     output = []
     references, changed_references, baseline_rules, contract_rules = {}, {}, {}, {}
     resets = 0
@@ -169,6 +181,11 @@ def main():
             reference, _, _ = adapter.stable_reference(sess, original['expected_sql'], qid, rule)
             baseline_rules[qid] = rule
             references[qid] = reference
+            if args.order_registry and rule['ordered']:
+                declared=order_records[qid]
+                if declared['columns']!=rule['reference_columns'] or declared['sql_sha256']!=hashlib.sha256(original['expected_sql'].strip().rstrip(';').encode()).hexdigest():
+                    raise ValueError('persisted ordering provenance differs')
+                contract_rules[qid]={**rule,'order_by':declared['order_by']}
             if qid in {22, 71, 74, 85, 98}:
                 sql, new_rules = contract_domain(qid, original['expected_sql'], questions[qid])
                 payload = json.loads(str(sess.query(sql, 'JSONCompact')))
@@ -177,15 +194,20 @@ def main():
                 rows = sorted(payload['data'], key=lambda row: json.dumps(row, ensure_ascii=False))
                 changed_references[qid], _ = selection.complete_selection(rows, new_rules['selection'], new_rules['value_kinds'])
                 contract_rules[qid] = new_rules
-        with (raw_dir / 'candidates.jsonl').open('x') as raw:
+        with (nullcontext(None) if cached_stream else raw_path.open('x')) as raw:
             for system in systems:
                 for qid in sorted(public):
-                    candidate_sql = adapter.load_json(run_root / system / f'q{qid:02d}.json')['sql']
-                    candidate = adapter.execute_rows(sess, candidate_sql)
-                    if isinstance(candidate, ExecError):
-                        sess = adapter.reset_session(sess, session, data_dir / 'chdb-eval')
-                        resets += 1
-                    raw.write(json.dumps({'system': system, 'question_id': qid, 'error': candidate.message if isinstance(candidate, ExecError) else None, 'rows': None if isinstance(candidate, ExecError) else candidate}, ensure_ascii=False) + '\n')
+                    if cached_stream:
+                        saved=json.loads(next(cached_stream))
+                        if (saved['system'],saved['question_id'])!=(system,qid):raise ValueError('cached candidate order/keys differ')
+                        candidate=ExecError(saved['error']) if saved['error'] else saved['rows']
+                    else:
+                        candidate_sql = adapter.load_json(run_root / system / f'q{qid:02d}.json')['sql']
+                        candidate = adapter.execute_rows(sess, candidate_sql)
+                        if isinstance(candidate, ExecError):
+                            sess = adapter.reset_session(sess, session, data_dir / 'chdb-eval')
+                            resets += 1
+                        raw.write(json.dumps({'system': system, 'question_id': qid, 'error': candidate.message if isinstance(candidate, ExecError) else None, 'rows': None if isinstance(candidate, ExecError) else candidate}, ensure_ascii=False) + '\n')
                     strict = adapter.load_json(run_root / 'scoring' / system / f'q{qid:02d}.json')
                     row = {'system': system, 'question_id': qid, 'historical_clean': clean_outcomes[system, qid], 'strict': strict['verdict'], 'analytical': strict['analytical_verdict']}
                     if qid in adapter.EXCLUDED_QUESTION_IDS:
@@ -199,9 +221,12 @@ def main():
                             current = [csv_rows(records_by_path[ref['result_path']]) for ref in current_refs]
                             overrides = [ref.get('rules') for ref in current_refs]
                             combined = verdict_only(candidate, current, questions[qid]['rules'], reference_rules=overrides)
-                            flat_overrides = [{**effective_rules(questions[qid], ref), 'selection': None} for ref in current_refs]
-                            reference_only = verdict_only(candidate, current, {**questions[qid]['rules'], 'selection': None}, reference_rules=flat_overrides)
+                            flat_overrides = [{**{k:v for k,v in effective_rules(questions[qid], ref).items() if k!='order_by'}, 'selection': None} for ref in current_refs]
+                            reference_only = verdict_only(candidate, current, {**{k:v for k,v in questions[qid]['rules'].items() if k!='order_by'}, 'selection': None}, reference_rules=flat_overrides)
                             row.update(reference_only=reference_only.outcome, combined=combined.outcome, combined_reason=combined.reason)
+                            if args.order_registry:
+                                before_ties=verdict_only(candidate,current,questions[qid]['rules'],reference_rules=[{k:v for k,v in effective_rules(questions[qid],ref).items() if k!='order_by'} for ref in current_refs])
+                                row['current_references_before_ordered_ties']=before_ties.outcome
                         else:
                             row.update(reference_only=None, combined=None, combined_reason='judge_examples_are_not_closed_answer_sets')
                     if previous_bank:
@@ -216,7 +241,7 @@ def main():
                         row['pre_ruling_reference_new_scorer']=fixed
                         row['pre_ruling_reference_old_scorer']=previous_outcomes[system,qid]
                         row['fixed_reference_scorer_changed']=fixed!=previous_outcomes[system,qid]
-                        row['optional_group_reference_changed']=fixed is not None and fixed!=row['combined']
+                        row['optional_group_reference_changed']=fixed is not None and fixed!=row.get('current_references_before_ordered_ties',row['combined'])
                         row['recovered_original_43']=(system,qid) in regression_keys and fixed=='wrong' and row['combined']=='correct'
                     row['contract_changed'] = row['baseline'] != row['contract']
                     row['reference_changed'] = row['reference_only'] is not None and row['baseline'] != row['reference_only']
@@ -229,8 +254,12 @@ def main():
                     output.append(row)
                     if len(output) % 10 == 0:
                         print(f'impact executed {len(output)}/600', flush=True)
+        if cached_stream and cached_stream.readline():
+            raise ValueError('candidate cache contains extra records')
     finally:
         sess.close()
+        if cached_stream:
+            cached_stream.close()
     comparable = [r for r in output if r['contract'] != 'excluded']
     agreements = sum((r['contract'] == 'correct') == (r['strict'] == 'pass') for r in comparable)
     analytical = sum((r['contract'] == 'correct') == (r['analytical'] == 'pass') for r in comparable)
@@ -238,10 +267,15 @@ def main():
     result = {'executed_candidates': len(output), 'runtime': {'max_threads': 1, 'max_execution_time': 30, 'session_resets': resets, 'diagnostic_numeric_projection': False, 'null_impossibility_fast_rejection': True}, 'unit_policy_sha256': policy_hash,
               'scorer_sha256': hashlib.sha256((main_dir / 'harness/scorer.py').read_bytes()).hexdigest(),
               'selection_sha256': hashlib.sha256((main_dir / 'harness/selection.py').read_bytes()).hexdigest(), 'question_sha256': hashlib.sha256((REPO / 'questions/cube_100.yaml').read_bytes()).hexdigest(),
-              'raw_candidates_sha256': hashlib.sha256((raw_dir / 'candidates.jsonl').read_bytes()).hexdigest(), 'raw_candidates_path': str(raw_dir / 'candidates.jsonl'),
+              'raw_candidates_sha256': hashlib.sha256(raw_path.read_bytes()).hexdigest(), 'raw_candidates_path': str(raw_path),
               'contract_counts': dict(Counter(r['contract'] for r in output)), 'reference_counts': dict(Counter(r['reference_only'] for r in output if r['reference_only'] is not None)), 'combined_counts': dict(Counter(r['combined'] for r in output if r['combined'] is not None)),
               'reference_manifest_sha256': hashlib.sha256((REPO / 'refs/MANIFEST.json').read_bytes()).hexdigest(), 'baseline_input_sha256': hashlib.sha256(args.clean_baseline.read_bytes()).hexdigest(), 'strict_agreements': agreements, 'strict_comparable': len(comparable), 'analytical_agreements': analytical,
               'wider_excluded_agreements': agreements, 'wider_excluded_comparable': len(comparable) - wider, 'records': output}
+    result['candidate_cache_reused']=bool(cached_stream)
+    result['candidate_execution_source_audit_sha256']=hashlib.sha256(args.candidate_cache_report.read_bytes()).hexdigest() if cached_report else None
+    result['candidate_execution_session_resets']=cached_report['session_resets'] if cached_report else resets
+    result['order_registry_sha256']=hashlib.sha256(args.order_registry.read_bytes()).hexdigest() if args.order_registry else None
+    result['current_reference_ordered_tie_changes']=sum(r.get('current_references_before_ordered_ties',r['combined'])!=r['combined'] for r in output)
     if previous_bank:
         result['fixed_reference_scorer_changes']=sum(r['fixed_reference_scorer_changed'] for r in output)
         result['optional_group_reference_changes']=sum(r['optional_group_reference_changed'] for r in output)
@@ -250,8 +284,8 @@ def main():
         result['previous_impact_sha256']=hashlib.sha256(args.previous_impact.read_bytes()).hexdigest()
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     lines = ['# 评分规则补齐：600条影响复验', '', '本报告仅题号及汇总，不含题干、SQL或结果行。会话污染复验另存；本次固定全局量化与容差。', '',
-             f'执行600条；Q33的6条历史excluded保留（当前题库Q33已完整复算；该题仍为judge，不能凭示例替代开放评分），可比较分母{len(comparable)}。执行失败即关闭并重建会话，共{resets}次。', '',
-             f'原公开参考＋新分组契约：strict一致{agreements}/{len(comparable)}；analytical一致{analytical}/{len(comparable)}；排除有意更宽后的描述性分母为{agreements}/{len(comparable)-wider}。', '',
+             f'600条执行记录；Q33的6条历史excluded保留（当前题库Q33已完整复算；该题仍为judge，不能凭示例替代开放评分），可比较分母{len(comparable)}。候选SQL执行阶段失败即重建会话{result["candidate_execution_session_resets"]}次；复用已完整重执行且哈希匹配的缓存={bool(cached_stream)}，本次参考构造阶段重置{resets}次。', '',
+             f'原公开参考＋新契约（分组及提供的有序并列键）：strict一致{agreements}/{len(comparable)}；analytical一致{analytical}/{len(comparable)}；排除有意更宽后的描述性分母为{agreements}/{len(comparable)-wider}。', '',
              '历史strict一致521/594（87.7%）、排除11条有意更宽后521/583（89.4%）保留，不覆盖。', '',
              'reference_only固定旧扁平比较，combined为当前题库参考＋新契约；二者只在确定性题记录。judge参考仅是示例，不能用“与例子不同”代替judge结论。参考修复轴同时包含T04既有修订及本次孤儿修复，不将其全部归为Q74或模型改善。', '',
              '调用生产评分核心取得判定／原因，代码版本由scorer_sha256记录，不执行未写入本报告的numeric sensitivity投影；大行集该诊断会出现平方级匹配。NULL必要条件早拒绝和判定均与正式score_detailed合成对照一致。每条四轴判定保存在配套JSON。下表逐条列出任何判定变化；historical_clean差异是复执行稳定性轴，不能直接归为新契约。', '',

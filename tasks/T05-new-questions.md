@@ -66,3 +66,9 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 - 新题退化必须改写：主仓库decisions/2026-10-16-tie-order-and-degenerate-new-questions.md第二节；逐题原意、证据、新意和不再退化的原因见audit/T05-degeneracy-review.md及配套before/after/rewrites.json。外部100题不改写。
 
 参考SQL一条命令重算：`uv run --locked python scripts/build_refs.py`；严格复算：加`--check`。两个命令都需要SEMDEBT_MAIN_DIR和SEMDEBT_DATA_DIR，串行使用chdb-eval。
+
+## 最终追加验收（题库PR #14）
+
+22题A/B/C数据自查及五题改写已完成，0题复查命中；当前122题162份全部重新计算并严格复算。19道有序题25份逐参考显式排序键及18份公开原参考审阅已落盘；validate_t05另用Q27/Q87/Q88及EN27/EN88实际参考核对前缀内并列换序。最终同批600条分轴契约3／参考43／联合47（复执行0），逐条及方向见audit/rules-order-final-impact.*；原43条回归队列补空组恢复30，与参考轴43不是同一集合。
+
+T05b必须按新题意重新独立计算、核对双解及Q79成员；实际T06标注与eval-v1冻结仍未完成。旧轮报告保留，不以600条外部候选证明新题质量。

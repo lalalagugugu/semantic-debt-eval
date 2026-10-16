@@ -184,6 +184,22 @@ def main():
     for path,item in current_ordered.items():
         assert item['order_by']==records[path]['rules']['order_by']
         assert item['columns']==records[path]['columns'] and item['sql_sha256']==records[path]['sql_sha256']
+    from harness.scorer import _boundary_start, score
+    from check_rules_impact import csv_rows
+    def tied_prefix_swap(reference,rules):
+        n=rules['top_n']
+        end=n if len(reference)==n else _boundary_start(reference,n,tuple(rules['tie_columns']),tuple(rules['value_kinds']))
+        key=lambda row:tuple(policy.quantize_tie(row[k['column']],rules['value_kinds'][k['column']]) for k in rules['order_by'])
+        position=next(i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1])
+        candidate=deepcopy(reference[:n]);candidate[position],candidate[position+1]=candidate[position+1],candidate[position]
+        assert score(candidate,[reference],rules)=='correct'
+    for qid in ('Q27','Q87','Q88'):
+        question=next(q for q in old if q['id']==qid);ref=question['refs'][0]
+        tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+    from harness.questions import load_questions
+    for anchor in load_questions(REPO,lang='en'):
+        if anchor.qid in ('EN27','EN88'):
+            tied_prefix_swap(anchor.refs[0],anchor.rules)
     warnings = []
     for q in new:
         assert q['split'] is None and q['scoring'] == 'deterministic'
