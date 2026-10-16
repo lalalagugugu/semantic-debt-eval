@@ -178,6 +178,19 @@ def execute(sess: Any, sql: str) -> tuple[list[dict[str, str]], list[list[object
     return payload["meta"], payload["data"]
 
 
+def open_session(session_module: Any, db_dir: Path) -> Any:
+    """Open a clean session with the reference-check execution settings."""
+    sess = session_module.Session(str(db_dir))
+    try:
+        sess.query("SET max_execution_time = 0")
+        sess.query("SET max_threads = 1")
+        sess.query("SET output_format_json_quote_denormals = 1")
+    except Exception:
+        sess.close()
+        raise
+    return sess
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     benchmark = load_json(args.repo / "vendor/cube/text_to_sql_benchmark.json")
@@ -188,13 +201,11 @@ def main(argv: list[str] | None = None) -> int:
 
     from chdb import session
 
-    sess = session.Session(str(args.db_dir))
+    sess = open_session(session, args.db_dir)
     records: list[dict[str, object]] = []
+    session_resets = 0
     started = time.monotonic()
     try:
-        sess.query("SET max_execution_time = 0")
-        sess.query("SET max_threads = 1")
-        sess.query("SET output_format_json_quote_denormals = 1")
         runtime_version = str(sess.query("SELECT version()", "CSV")).strip().strip('"')
         for question_id, question in sorted(questions.items()):
             published = load_json(reference_dir / f"q{question_id:02d}.json")
@@ -216,6 +227,9 @@ def main(argv: list[str] | None = None) -> int:
                         "local_row_count": None,
                     }
                 )
+                sess.close()
+                sess = open_session(session, args.db_dir)
+                session_resets += 1
             else:
                 record["local_row_count"] = len(rows)
                 record["local_columns"] = [column["name"] for column in meta]
@@ -246,6 +260,7 @@ def main(argv: list[str] | None = None) -> int:
             "max_threads": 1,
             "max_execution_time": 0,
             "relative_tolerance": RELATIVE_TOLERANCE,
+            "session_resets": session_resets,
         },
         "elapsed_seconds": round(time.monotonic() - started, 3),
         "counts": dict(sorted(counts.items())),
