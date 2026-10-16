@@ -22,7 +22,8 @@
           "scoring",
           "scoring_notes",
           "labels",
-          "split"
+          "split",
+          "rules"
         ],
         "additionalProperties": false,
         "properties": {
@@ -80,7 +81,15 @@
                 },
                 "postprocess": {
                   "description": "Explicit approved processing of a SQL aggregate domain using the shared Decimal quantization policy; omitted for direct SQL results.",
-                  "enum": ["abc_groups", "power_customers", "store_top3"]
+                  "enum": [
+                    "abc_groups",
+                    "power_customers",
+                    "store_top3",
+                    "selection"
+                  ]
+                },
+                "rules": {
+                  "$ref": "#/$defs/rulesOverride"
                 }
               }
             }
@@ -99,14 +108,56 @@
           },
           "rules": {
             "type": "object",
-            "required": ["ordered", "top_n", "tie_columns", "value_kinds", "value_types"],
+            "required": [
+              "ordered",
+              "top_n",
+              "tie_columns",
+              "value_kinds",
+              "value_types"
+            ],
             "additionalProperties": false,
             "properties": {
-              "ordered": {"type": "boolean"},
-              "top_n": {"type": ["integer", "null"], "minimum": 1},
-              "tie_columns": {"type": "array", "items": {"type": "integer", "minimum": 0}},
-              "value_kinds": {"type": "array", "minItems": 1, "items": {"enum": ["percentage", "ratio", "amount", "count", "other"]}},
-              "value_types": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+              "ordered": {
+                "type": "boolean"
+              },
+              "top_n": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "tie_columns": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "value_kinds": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "enum": [
+                    "percentage",
+                    "ratio",
+                    "amount",
+                    "count",
+                    "other"
+                  ]
+                }
+              },
+              "value_types": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "selection": {
+                "$ref": "#/$defs/selection"
+              }
             }
           },
           "split": {
@@ -116,8 +167,182 @@
               "heldout"
             ]
           }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "rulesOverride": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "ordered": {
+          "type": "boolean"
         },
-        "allOf": [{"if": {"properties": {"source": {"const": "new"}}}, "then": {"required": ["rules"]}}]
+        "top_n": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "tie_columns": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "value_kinds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "percentage",
+              "ratio",
+              "amount",
+              "count",
+              "other"
+            ]
+          }
+        },
+        "value_types": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "selection": {
+          "$ref": "#/$defs/selection"
+        }
+      },
+      "required": [
+        "ordered",
+        "top_n",
+        "tie_columns",
+        "value_kinds",
+        "value_types"
+      ]
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "stages",
+        "output_order"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "stages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "parent",
+              "where",
+              "group_columns",
+              "object_columns",
+              "order_by",
+              "n"
+            ],
+            "properties": {
+              "parent": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "where": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "column",
+                    "equals"
+                  ],
+                  "properties": {
+                    "column": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "equals": {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              },
+              "group_columns": {
+                "$ref": "#/$defs/columns"
+              },
+              "object_columns": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "order_by": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/orderKey"
+                }
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "output_order": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/orderKey"
+          }
+        }
+      }
+    },
+    "columns": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "orderKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "column",
+        "descending"
+      ],
+      "properties": {
+        "column": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "descending": {
+          "type": "boolean"
+        }
       }
     }
   }

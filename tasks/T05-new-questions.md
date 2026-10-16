@@ -59,3 +59,13 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 
 - [ ] 逐题审阅audit/T05-review.md中的22题、标签与口径。
 - [ ] 审定Q114/Q115端点多解及零值/满值题的保留建议。
+
+## 2026-10-16 本轮rules补齐交付
+
+现行122题／137份参考均有完整有效rules；外部100题逐参考推断表在audit/rules-backfill-review.md，供用户过目。逐参考覆盖、真实返回类型、行序、完整量化边界与通用选择声明已落地；接口裁决和通用实现另见主仓库PR #36，harness透传由Claude Code跟进。
+
+本交付包含已批准Q74完整事实分母／孤儿保键修复作为前置，并保留同工作区已批准Q87/Q97修复。它们与评分契约变化分轴复验，不据此改变企业约定或judge路由。
+
+new.yaml仍是第一轮文件；已接受的第二轮22题及Q117/Q119正式SQL／selection声明尚未替换，必须后续全量重算。T05未完成，T05b独立pandas重算、量纲人工过目和冻结检查仍待执行，不将本次规则覆盖当成eval-v1验收。
+
+可复现命令：设置SEMDEBT_MAIN_DIR（包含PR #36实现的checkout）及SEMDEBT_DATA_DIR后，`uv run --locked python scripts/build_refs.py --check`；数据库无关检查为`uv run --locked python scripts/validate_rules.py`。会话污染基线与新旧契约影响分别见audit/session-clean-rules-baseline.*及audit/rules-impact.*。

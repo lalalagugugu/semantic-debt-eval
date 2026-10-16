@@ -25,7 +25,7 @@ from chdb import session
 import yaml
 
 REPO = Path(__file__).resolve().parent.parent
-TOP_N = {7: (10, 1), 25: (1, 1), 27: (10, 3), 73: (10, 3), 79: (10, 3), 87: (20, 3), 88: (20, 1)}
+
 
 
 def load_unit_policy():
@@ -37,6 +37,21 @@ def load_unit_policy():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module, hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_selection_policy():
+    main_dir = os.environ.get("SEMDEBT_MAIN_DIR")
+    if not main_dir:
+        raise SystemExit("SEMDEBT_MAIN_DIR must be set")
+    sys.dont_write_bytecode = True
+    sys.path.insert(0, main_dir)
+    from harness import selection
+    from harness.scorer import _parse_rules
+    return selection, _parse_rules
+
+
+def effective_rules(question, ref):
+    return ref["rules"] if "rules" in ref else question["rules"]
 
 
 def has_final_order_by(sql):
@@ -62,7 +77,7 @@ def validate_questions(questions, source="cube"):
     ids = []
     paths = []
     for question in questions:
-        if set(question) != required | ({"rules"} if source == "new" else set()):
+        if set(question) != required:
             raise ValueError(f"{question.get('id')}: unexpected/missing question fields")
         ids.append(question["id"])
         if question["source"] not in {"cube", "new"} or question["scoring"] not in {"deterministic", "judge"}:
@@ -76,21 +91,20 @@ def validate_questions(questions, source="cube"):
         if not question["refs"]:
             raise ValueError(f"{question['id']}: no references")
         for ref in question["refs"]:
-            if not {"interpretation", "sql", "result_path"} <= set(ref) or set(ref) - {"interpretation", "sql", "result_path", "postprocess"} or not all(ref.values()):
+            if not {"interpretation", "sql", "result_path"} <= set(ref) or set(ref) - {"interpretation", "sql", "result_path", "postprocess", "rules"} or not all(ref.values()):
                 raise ValueError(f"{question['id']}: invalid reference")
             if question["source"] != source:
                 raise ValueError(f"{question['id']}: wrong source file")
-            if source == "new":
-                rules = question["rules"]
-                if set(rules) != {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} or not isinstance(rules["ordered"], bool):
-                    raise ValueError(f"{question['id']}: invalid scoring rules")
-                if rules["top_n"] is not None or rules["tie_columns"]:
-                    raise ValueError(f"{question['id']}: new Top-N requires a complete-boundary implementation before use")
-                if rules["ordered"] and not has_final_order_by(ref["sql"]):
-                    raise ValueError(f"{question['id']}: ordered result requires final SQL ordering")
-                if not isinstance(rules["value_kinds"], list) or not rules["value_kinds"] or any(kind not in {"percentage", "ratio", "amount", "count", "other"} for kind in rules["value_kinds"]):
-                    raise ValueError(f"{question['id']}: new references require declared value_kinds")
-            if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3"}:
+            rules = effective_rules(question, ref)
+            if set(rules) - {"ordered", "top_n", "tie_columns", "value_kinds", "value_types", "selection"} or not {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} <= set(rules):
+                raise ValueError(f"{question['id']}: invalid scoring rules")
+            _, parse_rules = load_selection_policy()
+            parse_rules(rules)
+            if rules["ordered"] and not has_final_order_by(ref["sql"]):
+                raise ValueError(f"{question['id']}: ordered result requires final SQL ordering")
+            if not isinstance(rules["value_kinds"], list) or not rules["value_kinds"] or len(rules["value_types"]) != len(rules["value_kinds"]):
+                raise ValueError(f"{question['id']}: references require complete kinds/types")
+            if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3", "selection"}:
                 raise ValueError(f"{question['id']}: invalid postprocess")
             if not re.fullmatch(r"refs/[A-Za-z0-9/_-]+\.csv", ref["result_path"]):
                 raise ValueError("invalid reference path")
@@ -104,13 +118,16 @@ def validate_questions(questions, source="cube"):
 
 
 def reference_value_kinds(question, ref, meta, inferred):
-    if question["source"] != "new":
-        return inferred, []
-    declared = question["rules"]["value_kinds"]
+    rules = effective_rules(question, ref)
+    declared = rules["value_kinds"]
     if len(declared) != len(meta):
         raise ValueError(f"{question['id']}: value_kinds length differs from output columns")
-    if question["rules"]["value_types"] != [column["type"] for column in meta]:
+    if rules["value_types"] != [column["type"] for column in meta]:
         raise ValueError(f"{question['id']}: value_types differ from query output types")
+    if question["source"] != "new":
+        if declared != inferred:
+            raise ValueError(f"{question['id']}: persisted inference differs; review and rebuild rules explicitly")
+        return declared, []
     mismatches = []
     for position, (column, explicit, heuristic) in enumerate(zip(meta, declared, inferred, strict=True), 1):
         if explicit != heuristic:
@@ -146,7 +163,7 @@ def postprocess_reference(method, meta, rows, policy):
     current data, never embedded answer literals. Pandas must recompute these
     rules independently in T05b rather than importing this implementation.
     """
-    if method is None:
+    if method in {None, "selection"}:
         return meta, rows, None
     positions = {column["name"]: i for i, column in enumerate(meta)}
     def value(row, name):
@@ -177,24 +194,50 @@ def postprocess_reference(method, meta, rows, policy):
         selected = [row for row in rows if quantized(row, "orders") >= order_p90 and quantized(row, "avg_order_amount") >= amount_p90]
         return meta, selected, {"domain_rows": len(rows), "orders_p90": str(order_p90), "avg_order_amount_p90": str(amount_p90), "percentile_method": "exact linear interpolation at (n-1)*0.9"}
     if method == "store_top3":
+        if not {"StoreKey", "ProductKey", "ProductName"} <= positions.keys():
+            raise ValueError("store_top3 requires stable store/product keys and nullable product names")
         groups = defaultdict(list)
         for row in rows:
             groups[value(row, "StoreKey")].append(row)
         selected = []
+        orphan_members = []
         for store, members in sorted(groups.items()):
+            keys = [value(row, "ProductKey") for row in members]
+            if len(keys) != len(set(keys)):
+                raise ValueError("store_top3 domain repeats a store/product identity")
             members.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
             members.sort(key=lambda row: quantized(row, "product_sales"), reverse=True)
             boundary = quantized(members[min(3, len(members)) - 1], "product_sales")
-            selected.extend(row for row in members if quantized(row, "product_sales") >= boundary)
+            winners = [row for row in members if quantized(row, "product_sales") >= boundary]
+            selected.extend(winners)
+            strict_orphan_count = sum(value(row, "ProductName") is None and quantized(row, "product_sales") > boundary for row in winners)
+            orphan_boundary_count = sum(value(row, "ProductName") is None and quantized(row, "product_sales") == boundary for row in winners)
+            non_orphan_boundary_count = sum(value(row, "ProductName") is not None and quantized(row, "product_sales") == boundary for row in winners)
+            remaining_slots = min(3, len(members)) - sum(quantized(row, "product_sales") > boundary for row in winners)
+            for row in winners:
+                if value(row, "ProductName") is None:
+                    orphan_members.append({
+                        "StoreKey": store, "StoreName": value(row, "StoreName"),
+                        "ProductKey": value(row, "ProductKey"),
+                        "product_sales": value(row, "product_sales"),
+                        "pct_of_store": value(row, "pct_of_store"),
+                        "selection_role": "strict_prefix" if quantized(row, "product_sales") > boundary else "boundary",
+                        "minimum_orphans_in_any_valid_selection": strict_orphan_count + max(0, remaining_slots - non_orphan_boundary_count),
+                        "orphan_boundary_members": orphan_boundary_count,
+                    })
         keep = [i for i, column in enumerate(meta) if column["name"] != "StoreKey"]
-        return [meta[i] for i in keep], [[row[i] for i in keep] for row in selected], {"domain_rows": len(rows), "groups": len(groups), "top_n_per_store": 3, "complete_boundary": True}
+        return [meta[i] for i in keep], [[row[i] for i in keep] for row in selected], {"domain_rows": len(rows), "groups": len(groups), "top_n_per_store": 3, "complete_boundary": True, "product_identity": "ProductKey", "missing_product_name": "NULL; retain and disclose ProductKey", "orphan_topn_members": orphan_members, "orphan_topn_member_count": len(orphan_members), "stores_with_orphan_topn_members": len({row["StoreKey"] for row in orphan_members})}
     raise ValueError(f"unsupported postprocess: {method}")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--question", action="append", help="recompute only these IDs; preserve all other manifest records")
+    parser.add_argument("--refresh-rules", action="store_true", help="persist external-column inference and actual return types for review")
     args = parser.parse_args()
+    if args.check and args.refresh_rules:
+        parser.error("--check cannot change rules; omit --refresh-rules")
     data_dir = os.environ.get("SEMDEBT_DATA_DIR")
     if not data_dir:
         raise SystemExit("SEMDEBT_DATA_DIR must be set")
@@ -202,6 +245,9 @@ def main():
     if not db.is_dir():
         raise SystemExit("chdb-eval does not exist; rebuild it from Parquet first")
     policy, policy_hash = load_unit_policy()
+    selection_policy, _ = load_selection_policy()
+    input_paths = [REPO / filename for filename in ("questions/cube_100.yaml", "questions/new.yaml", "refs/MANIFEST.json")]
+    input_hashes = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in input_paths if path.exists()}
     questions = yaml.safe_load((REPO / "questions/cube_100.yaml").read_text())["questions"]
     validate_questions(questions)
     new_path = REPO / "questions/new.yaml"
@@ -209,7 +255,14 @@ def main():
         new_questions = yaml.safe_load(new_path.read_text())["questions"]
         validate_questions(new_questions, "new")
         questions += new_questions
+    all_questions = questions
+    if args.question:
+        wanted = set(args.question)
+        if not wanted <= {question["id"] for question in questions}:
+            raise ValueError("unknown --question ID")
+        questions = [question for question in questions if question["id"] in wanted]
     records = []
+    pending_writes = []
     sess = session.Session(str(db))
     try:
         sess.query("SET max_threads=1")
@@ -220,56 +273,92 @@ def main():
             qid = int(question["id"][1:])
             for ref in question["refs"]:
                 sql = ref["sql"]
-                boundary = TOP_N.get(qid)
-                if boundary:
-                    sql, replacements = re.subn(rf"\bLIMIT\s+{boundary[0]}\s*;?\s*$", "", sql, flags=re.I)
+                rules = effective_rules(question, ref)
+                n = rules["top_n"]
+                if n is not None:
+                    sql, replacements = re.subn(rf"\bLIMIT\s+{n}\s*;?\s*$", "", sql, flags=re.I)
                     if replacements != 1:
                         raise ValueError(f"{question['id']}: cannot extend boundary")
-                payload = json.loads(str(sess.query(sql, "JSONCompact")))
+                try:
+                    payload = json.loads(str(sess.query(sql, "JSONCompact")))
+                except Exception as error:
+                    raise RuntimeError(f"{question['id']} {ref['result_path']}: reference execution failed; build aborted and session closed") from error
                 meta, rows = payload["meta"], payload["data"]
                 meta, rows, postprocess_details = postprocess_reference(ref.get("postprocess"), meta, rows, policy)
                 count_aliases = {m.group(1).lower() for m in re.finditer(r"(?:\bSELECT\s+|,)\s*(?:count|countDistinct|countIf|uniqExact)\s*\([^)]*\)\s+(?:AS\s+)?([A-Za-z_]\w*)", sql, re.I)}
                 kinds = ["count" if c["name"].lower() in count_aliases else policy.infer_value_kind(c["name"], c["type"]) for c in meta]
+                if args.refresh_rules and question["source"] == "cube":
+                    rules = {**rules, "value_kinds": kinds, "value_types": [column["type"] for column in meta]}
+                    ref["rules"] = rules
                 kinds, kind_warnings = reference_value_kinds(question, ref, meta, kinds)
-                if boundary:
-                    n, column = boundary
-                    key = lambda row: policy.quantize_tie(row[column], kinds[column])
+                selection_checks = None
+                if rules.get("selection") is not None:
                     rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
-                    rows.sort(key=key, reverse=qid != 87)
+                    rows, selection_checks = selection_policy.complete_selection(rows, rules["selection"], kinds)
+                elif n is not None:
+                    columns = rules["tie_columns"]
+                    if not columns:
+                        raise ValueError(f"{question['id']}: Top-N requires tie_columns")
+                    key = lambda row: tuple(policy.quantize_tie(row[i], kinds[i]) for i in columns)
+                    # Ranking direction comes from the declared reference SQL.
+                    descending = not bool(re.search(r"\bASC\s*(?:LIMIT\s+\d+)?\s*;?\s*$", ref["sql"], re.I))
+                    rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
+                    rows.sort(key=key, reverse=descending)
                     if len(rows) < n:
                         raise ValueError(f"{question['id']}: insufficient ranked rows")
                     cut = n
                     while cut < len(rows) and key(rows[cut]) == key(rows[n - 1]):
                         cut += 1
                     rows = rows[:cut]
-                else:
-                    # Store canonical row sets. Ordering requirements are separately
-                    # retained in the source SQL; physical group order is not truth.
-                    if not (question["source"] == "new" and question["rules"]["ordered"]):
-                        rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
+                elif not rules["ordered"]:
+                    rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
                 contents = csv_bytes(meta, rows)
                 path = REPO / ref["result_path"]
                 if args.check:
                     if not path.is_file() or path.read_bytes() != contents:
                         raise ValueError(f"reference changed: {ref['result_path']}")
                 else:
-                    path.parent.mkdir(parents=True, exist_ok=True)
-                    path.write_bytes(contents)
-                records.append({"question_id": question["id"], "result_path": ref["result_path"], "sql_sha256": hashlib.sha256(ref["sql"].encode()).hexdigest(), "row_count": len(rows), "columns": meta, "value_kinds": kinds, "top_n": boundary[0] if boundary else None, "tie_column": boundary[1] if boundary else None, "postprocess": ref.get("postprocess"), "postprocess_details": postprocess_details, "sha256": hashlib.sha256(contents).hexdigest()})
-                if question["source"] == "new":
-                    records[-1].update(value_kind_source="declared", value_kind_warnings=kind_warnings, rules=question["rules"])
+                    pending_writes.append((path, contents))
+                records.append({"question_id": question["id"], "result_path": ref["result_path"], "sql_sha256": hashlib.sha256(ref["sql"].encode()).hexdigest(), "row_count": len(rows), "columns": meta, "value_kinds": kinds, "ordered": rules["ordered"], "top_n": n, "tie_column": rules["tie_columns"][0] if len(rules["tie_columns"]) == 1 else None, "postprocess": ref.get("postprocess"), "postprocess_details": postprocess_details, "sha256": hashlib.sha256(contents).hexdigest()})
+                records[-1].update(value_types=rules["value_types"], value_kind_source="declared" if question["source"] == "new" else "inferred", value_kind_warnings=kind_warnings, rules=rules, selection_checks=selection_checks)
                 print(f"{question['id']} {ref['result_path']} {len(rows)} rows", flush=True)
     finally:
         sess.close()
     manifest = {"chdb_version": package_version("chdb"), "clickhouse_version": version, "max_threads": 1, "max_execution_time": 0, "unit_policy_sha256": policy_hash, "tie_quantization": "Decimal ROUND_HALF_EVEN; amount=2; percentage /100 then 6; ratio/other=6", "csv_null": "\\N", "reference_review": "provisional; T05b independent pandas recomputation required", "records": records}
     path = REPO / "refs/MANIFEST.json"
+    if args.question:
+        previous = json.loads(path.read_text())
+        if {key: value for key, value in previous.items() if key != "records"} != {key: value for key, value in manifest.items() if key != "records"}:
+            raise ValueError("targeted build cannot mix runtime or quantization versions")
+        replacements = {record["result_path"]: record for record in records}
+        expected = {ref["result_path"] for question in all_questions for ref in question["refs"]}
+        if expected != {record["result_path"] for record in previous["records"]}:
+            raise ValueError("targeted build cannot add/remove references; use a full build")
+        manifest["records"] = [replacements.get(record["result_path"], record) for record in previous["records"]]
     content = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     if args.check:
         if path.read_text() != content:
             difference = list(difflib.unified_diff(path.read_text().splitlines(), content.splitlines(), fromfile="stored manifest", tofile="recomputed manifest"))
             raise ValueError("reference manifest changed:\n" + "\n".join(difference[:40]))
     else:
+        for input_path, digest in input_hashes.items():
+            if hashlib.sha256(input_path.read_bytes()).hexdigest() != digest:
+                raise RuntimeError(f"concurrent edit detected: {input_path.name}; no reference files written")
+        for result_path, contents in pending_writes:
+            result_path.parent.mkdir(parents=True, exist_ok=True)
+            result_path.write_bytes(contents)
         path.write_text(content)
+    if args.refresh_rules:
+        source_questions = [question for question in all_questions if question["source"] == "cube"]
+        for question in source_questions:
+            reference_rules = [effective_rules(question, ref) for ref in question["refs"]]
+            question["rules"] = reference_rules[0]
+            for ref, rules in zip(question["refs"], reference_rules, strict=True):
+                if rules == question["rules"]:
+                    ref.pop("rules", None)
+                else:
+                    ref["rules"] = rules
+        (REPO / "questions/cube_100.yaml").write_text(json.dumps({"questions": source_questions}, ensure_ascii=False, indent=2) + "\n")
     print(f"{'Verified' if args.check else 'Built'} {len(records)} references for {len(questions)} questions")
 
 
