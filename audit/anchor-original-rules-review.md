@@ -183,7 +183,17 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
         "descending": true
       }
     ]
-  }
+  },
+  "order_by": [
+    {
+      "column": 0,
+      "descending": false
+    },
+    {
+      "column": 2,
+      "descending": true
+    }
+  ]
 }
 ```
 
@@ -235,6 +245,12 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
     "Int64",
     "Float64",
     "Float64"
+  ],
+  "order_by": [
+    {
+      "column": 3,
+      "descending": false
+    }
   ]
 }
 ```

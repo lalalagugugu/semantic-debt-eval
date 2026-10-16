@@ -1011,7 +1011,85 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "WITH totals AS (\nSELECT StoreKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS sales_2008,sumIf(SalesAmount,toYear(DateKey)=2009) AS sales_2009\nFROM retail.FactSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY StoreKey HAVING sales_2008>0 AND sales_2009>0 AND sales_2009<sales_2008),\ncategories AS (SELECT f.StoreKey AS StoreKey,if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2008)-sumIf(f.SalesAmount,toYear(f.DateKey)=2009) AS decline_amount\nFROM retail.FactSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009) GROUP BY f.StoreKey,category)\nSELECT t.StoreKey,s.StoreName,(t.sales_2008-t.sales_2009)*100.0/t.sales_2008 AS decline_pct,\nc.category,c.decline_amount,c.decline_amount*100.0/(t.sales_2008-t.sales_2009) AS contribution_pct\nFROM totals t JOIN categories c ON t.StoreKey=c.StoreKey LEFT JOIN retail.DimStore s ON t.StoreKey=s.StoreKey\nORDER BY decline_pct DESC,decline_amount DESC",
-          "result_path": "refs/new/Q117-1.csv"
+          "result_path": "refs/new/Q117-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "percentage",
+              "other",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "Int32",
+              "String",
+              "Float64",
+              "Nullable(String)",
+              "Float64",
+              "Float64"
+            ],
+            "selection": {
+              "version": 1,
+              "stages": [
+                {
+                  "parent": null,
+                  "where": [],
+                  "group_columns": [],
+                  "object_columns": [
+                    0
+                  ],
+                  "order_by": [
+                    {
+                      "column": 2,
+                      "descending": true
+                    }
+                  ],
+                  "n": 3
+                },
+                {
+                  "parent": 0,
+                  "where": [],
+                  "group_columns": [
+                    0
+                  ],
+                  "object_columns": [
+                    3
+                  ],
+                  "order_by": [
+                    {
+                      "column": 4,
+                      "descending": true
+                    }
+                  ],
+                  "n": 1
+                }
+              ],
+              "output_order": [
+                {
+                  "column": 2,
+                  "descending": true
+                },
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ]
+            },
+            "order_by": [
+              {
+                "column": 2,
+                "descending": true
+              },
+              {
+                "column": 4,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -1106,7 +1184,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       }
     },
     {

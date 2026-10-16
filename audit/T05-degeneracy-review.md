@@ -44,3 +44,7 @@ Q114两种90日端点×两种购买事件，共4份结果，均不同；Q116题�
 改写前完整证据：T05-degeneracy-before.json（Git基线5402622）；改写记录：T05-degeneracy-rewrites.json；改写后完整证据：T05-degeneracy-after.json。T05b必须依据这里的新题意独立pandas重算后再比对，不能将旧Q109/Q112/Q113/Q114/Q116结果拿来核对。本轮SQL与同厂商自查不代替T05b独立验证，不打eval-v1。
 
 复现：设置SEMDEBT_MAIN_DIR、SEMDEBT_DATA_DIR后，串行运行 `uv run python scripts/audit_new_question_degeneracy.py --output /tmp/new-question-audit.json`；改写前加 `--revision 5402622` 并选另一输出路径；全量参考运行 `uv run python scripts/build_refs.py --check`。审计输出已存在时会拒绝覆盖。
+
+## 排序键元数据追加
+
+有序比较新裁决追加后，当前25份有序参考均持久化order_by，并单独记录18份原始公开验证参考的键；8份原始锚点规则交接已更新。新题意和SQL未再改变。22题A/B/C再次复查仍0命中，全部162份参考在新元数据下再次严格复算通过。排序键逐参考映射见ordered-rules-review.json/md；此审阅不读取或推断模型作答。Q79仍为42成员，快照已绑定包含order_by的有效规则。

@@ -13,6 +13,7 @@ import re
 
 from build_refs import effective_rules, has_final_order_by, load_selection_policy, load_unit_policy
 from check_rules_impact import contract_domain, verdict_only
+from backfill_order_keys import reference_order
 
 ROOT=Path(__file__).resolve().parent.parent
 REPORT=ROOT/'audit/anchor-original-rules-review.md'
@@ -54,6 +55,8 @@ def main():
         if qid==74:
             _,rules=contract_domain(qid,sql,q)
             rules.update(value_kinds=reference_value_kinds(sql,columns),value_types=types)
+        if rules['ordered']:
+            rules['order_by'],_=reference_order(sql,columns,rules.get('selection',{}).get('output_order'))
         parse_rules(rules)
         result=verdict_only(payload['rows'],[payload['rows']],rules)
         if result.outcome!='correct':

@@ -1,0 +1,1322 @@
+{
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "current_ordered_references": 25,
+  "original_ordered_validation_references": 18,
+  "current_records": [
+    {
+      "question_id": "Q07",
+      "reference": "refs/cube/Q07-1.csv",
+      "order_clause": "UnitPrice DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "13f331aa61aac68bf16a9e45847a99e3a2cf511ba2affb180d8e2632d694e333"
+    },
+    {
+      "question_id": "Q25",
+      "reference": "refs/cube/Q25-1.csv",
+      "order_clause": "avg_daily_sales DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "NorthAmericaSeason",
+          "type": "String"
+        },
+        {
+          "name": "avg_daily_sales",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a"
+    },
+    {
+      "question_id": "Q27",
+      "reference": "refs/cube/Q27-1.csv",
+      "order_clause": "margin_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "UnitCost",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "margin_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760"
+    },
+    {
+      "question_id": "Q33",
+      "reference": "refs/cube/Q33-1.csv",
+      "order_clause": "co_order_count DESC,product1_key,product2_key",
+      "order_by": [
+        {
+          "column": 4,
+          "descending": true
+        },
+        {
+          "column": 0,
+          "descending": false
+        },
+        {
+          "column": 1,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "product1_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product2_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product1",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "product2",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "co_order_count",
+          "type": "UInt64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "3338a6c5414633be6d4712f8210fe531ca2bd7b73eb8e42f5d85f2fe73c803f4"
+    },
+    {
+      "question_id": "Q33",
+      "reference": "refs/cube/Q33-2.csv",
+      "order_clause": "co_order_count DESC,product1_key,product2_key",
+      "order_by": [
+        {
+          "column": 4,
+          "descending": true
+        },
+        {
+          "column": 0,
+          "descending": false
+        },
+        {
+          "column": 1,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "product1_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product2_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product1",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "product2",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "co_order_count",
+          "type": "UInt64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "27b963c97b6222099165029784146109ce133abdb61fe519f02e58aebee45803"
+    },
+    {
+      "question_id": "Q45",
+      "reference": "refs/cube/Q45-1.csv",
+      "order_clause": "sales_per_sqft DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "total_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "SellingAreaSize",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "sales_per_sqft",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5"
+    },
+    {
+      "question_id": "Q46",
+      "reference": "refs/cube/Q46-1.csv",
+      "order_clause": "profit DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "segment",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "profit",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "490178d5bff1441bc276bb52817a554da1715626e831bba302c98a7398c73a0a"
+    },
+    {
+      "question_id": "Q46",
+      "reference": "refs/cube/Q46-2.csv",
+      "order_clause": "profit DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "segment",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "profit",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "5c1d939d2bf75c5137e6154274935cb87d745ce2e40c6bcfb9c4e05dba9226e6"
+    },
+    {
+      "question_id": "Q67",
+      "reference": "refs/cube/Q67-1.csv",
+      "order_clause": "avg_realized_price DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ColorName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "avg_realized_price",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "units",
+          "type": "Int64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "f6a9ab1cb3438e754434bf3658a3df749fe5fc2f40999eac676fac1951940991"
+    },
+    {
+      "question_id": "Q67",
+      "reference": "refs/cube/Q67-2.csv",
+      "order_clause": "avg_realized_price DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ColorName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "avg_realized_price",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "units",
+          "type": "Int64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "d976feae9173889f4241e7a4f92cd155220cb22e38e3da3db25965eb5757725a"
+    },
+    {
+      "question_id": "Q69",
+      "reference": "refs/cube/Q69-1.csv",
+      "order_clause": "revenue DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "PromotionCategory",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "total_discount",
+          "type": "Float64"
+        },
+        {
+          "name": "avg_discount_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "648b07f2a7b8c6494aa3ee2768f90fd133040b69832af164a2dc30c821e25ab5"
+    },
+    {
+      "question_id": "Q69",
+      "reference": "refs/cube/Q69-2.csv",
+      "order_clause": "revenue DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "PromotionCategory",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "total_discount",
+          "type": "Float64"
+        },
+        {
+          "name": "avg_discount_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc"
+    },
+    {
+      "question_id": "Q73",
+      "reference": "refs/cube/Q73-1.csv",
+      "order_clause": "gap DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "total_on_hand",
+          "type": "Int64"
+        },
+        {
+          "name": "total_safety",
+          "type": "Int64"
+        },
+        {
+          "name": "gap",
+          "type": "Int64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "e13993334fbcc7bd1766f73d9b3548260be27e958e7b8931f4628ede82044bbe"
+    },
+    {
+      "question_id": "Q78",
+      "reference": "refs/cube/Q78-1.csv",
+      "order_clause": "rnk",
+      "order_by": [
+        {
+          "column": 2,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "category",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "discount_total",
+          "type": "Float64"
+        },
+        {
+          "name": "rnk",
+          "type": "UInt64"
+        },
+        {
+          "name": "pct_of_total",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa"
+    },
+    {
+      "question_id": "Q79",
+      "reference": "refs/cube/Q79-1.csv",
+      "order_clause": "attainment_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "actual_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "quota",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "b77e29f25761f205d396500aa185d7d6fff1ec199ab782847d68d8b1ceae461d"
+    },
+    {
+      "question_id": "Q85",
+      "reference": "refs/cube/Q85-1.csv",
+      "order_clause": "bucket, attainment_pct DESC",
+      "order_by": [
+        {
+          "column": 0,
+          "descending": false
+        },
+        {
+          "column": 4,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "bucket",
+          "type": "String"
+        },
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "actual_amt",
+          "type": "Float64"
+        },
+        {
+          "name": "quota_amt",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "existing explicit selection.output_order",
+      "sql_sha256": "d97ca6ac17e67ba2aeac6a6d22bbab9d78e00f7a5c7e1951dae4d4bf249d7245"
+    },
+    {
+      "question_id": "Q87",
+      "reference": "refs/cube/Q87-1.csv",
+      "order_clause": "days_of_coverage ASC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "on_hand",
+          "type": "Int64"
+        },
+        {
+          "name": "avg_daily_qty",
+          "type": "Float64"
+        },
+        {
+          "name": "days_of_coverage",
+          "type": "Float64"
+        },
+        {
+          "name": "ProductKey",
+          "type": "Int32"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "e30510dbb8363ecfb58df56742ab4325898833c34775ab6c153c76eb086ab555"
+    },
+    {
+      "question_id": "Q88",
+      "reference": "refs/cube/Q88-1.csv",
+      "order_clause": "s.spend_2009 DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "customer_name",
+          "type": "String"
+        },
+        {
+          "name": "total_spend_2009",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY uses projected ROUND value under the existing reference/tie precision contract",
+      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528"
+    },
+    {
+      "question_id": "Q92",
+      "reference": "refs/cube/Q92-1.csv",
+      "order_clause": "gross_margin_dollars DESC",
+      "order_by": [
+        {
+          "column": 2,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "BrandName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "gross_margin_dollars",
+          "type": "Float64"
+        },
+        {
+          "name": "gross_margin_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee"
+    },
+    {
+      "question_id": "Q94",
+      "reference": "refs/cube/Q94-1.csv",
+      "order_clause": "qoq_pct_change ASC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "q3_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "q4_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "qoq_pct_change",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "e67a00a108c52fd38dab04dab68782e9b1976deac443916fdb275893af8da285"
+    },
+    {
+      "question_id": "Q97",
+      "reference": "refs/cube/Q97-1.csv",
+      "order_clause": "h2_vs_h1_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "h1_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "h2_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "h2_vs_h1_pct",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "ProductKey",
+          "type": "Int32"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "5aa2f2c03998d8c5f92728d3a87f5c3b2a74fc19b016161c91b5100f6efe1d94"
+    },
+    {
+      "question_id": "Q97",
+      "reference": "refs/cube/Q97-2.csv",
+      "order_clause": "sales_increase DESC",
+      "order_by": [
+        {
+          "column": 4,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductKey",
+          "type": "Int32"
+        },
+        {
+          "name": "ProductName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "h1_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "h2_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "sales_increase",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "19552767953f367f1d4020eeef383a7260d90fa71facf412be5cfafff4342307"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-1.csv",
+      "order_clause": "peak_quarter_share_pct DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "peak_quarter_share_pct",
+          "type": "Float64"
+        },
+        {
+          "name": "peak_quarter",
+          "type": "UInt8"
+        }
+      ],
+      "source": "existing explicit selection.output_order",
+      "sql_sha256": "ade88bb1d8c94bdc56d9433a3890b10c96919ffe070d48ba60c7a6db6ea1ef76"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-2.csv",
+      "order_clause": "year,peak_quarter_share_pct DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": false
+        },
+        {
+          "column": 2,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "year",
+          "type": "UInt16"
+        },
+        {
+          "name": "peak_quarter_share_pct",
+          "type": "Float64"
+        },
+        {
+          "name": "peak_quarter",
+          "type": "UInt8"
+        }
+      ],
+      "source": "existing explicit selection.output_order",
+      "sql_sha256": "3da596722a404196939cac4dd7fef5844b5e6c81d87a017f7f34480acbe5ed03"
+    },
+    {
+      "question_id": "Q117",
+      "reference": "refs/new/Q117-1.csv",
+      "order_clause": "decline_pct DESC,decline_amount DESC",
+      "order_by": [
+        {
+          "column": 2,
+          "descending": true
+        },
+        {
+          "column": 4,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "t.StoreKey",
+          "type": "Int32"
+        },
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "decline_pct",
+          "type": "Float64"
+        },
+        {
+          "name": "category",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "decline_amount",
+          "type": "Float64"
+        },
+        {
+          "name": "contribution_pct",
+          "type": "Float64"
+        }
+      ],
+      "source": "existing explicit selection.output_order",
+      "sql_sha256": "caaf560cf8b8603e17c897516765066c496d593260753d30ea5ab137901fb33f"
+    }
+  ],
+  "original_records": [
+    {
+      "question_id": 7,
+      "order_clause": "UnitPrice DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "13f331aa61aac68bf16a9e45847a99e3a2cf511ba2affb180d8e2632d694e333",
+      "payload_sha256": "3581b70b35974305dec3aeaa83c476aa01744899169615a4976374ea0902199e"
+    },
+    {
+      "question_id": 25,
+      "order_clause": "avg_daily_sales DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "NorthAmericaSeason",
+          "type": "String"
+        },
+        {
+          "name": "avg_daily_sales",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "561a72b5682566bce8f55d6755b3b8b861e2ef1e5db429df331f6dfbf43381d9",
+      "payload_sha256": "119e94562478e2e36865c882babd890725ba1870d214bff9c6c90dd5faa4d259"
+    },
+    {
+      "question_id": 27,
+      "order_clause": "margin_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "UnitCost",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "margin_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760",
+      "payload_sha256": "5bdf06a0fe60381ca8a22276faba8b2671be5f9ce994b9a87e3f54e15c41a5bc"
+    },
+    {
+      "question_id": 45,
+      "order_clause": "sales_per_sqft DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "total_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "SellingAreaSize",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "sales_per_sqft",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "13304b9df27d57409001e3a075b30e41128039c19906d3a63a6025aa67878019",
+      "payload_sha256": "ce4d7492afe2d7e7e615d77b3fb70d03d804e4795bfacc6040db7fda1897ba4c"
+    },
+    {
+      "question_id": 46,
+      "order_clause": "profit DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "segment",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "profit",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "490178d5bff1441bc276bb52817a554da1715626e831bba302c98a7398c73a0a",
+      "payload_sha256": "06866a1b00b64670820e38912bda396e5907a9a4ed361f4d2d21445f76eb698e"
+    },
+    {
+      "question_id": 67,
+      "order_clause": "avg_realized_price DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ColorName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "avg_realized_price",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "units",
+          "type": "Int64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "306417c69bf026fd629a0646a75e0ed38dc1487964e00858f47c4a296bf564a8",
+      "payload_sha256": "e27ba2c5677fcf2bc642de05dd3786cd426d5070465c454d811757a5502f0638"
+    },
+    {
+      "question_id": 69,
+      "order_clause": "revenue DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "PromotionCategory",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "total_discount",
+          "type": "Float64"
+        },
+        {
+          "name": "avg_discount_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "648b07f2a7b8c6494aa3ee2768f90fd133040b69832af164a2dc30c821e25ab5",
+      "payload_sha256": "b116523672c1c59a30ba2915bb0f9316ef828c22dd116c3b136a1b93c9f55e1d"
+    },
+    {
+      "question_id": 73,
+      "order_clause": "gap DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "total_on_hand",
+          "type": "Int64"
+        },
+        {
+          "name": "total_safety",
+          "type": "Int64"
+        },
+        {
+          "name": "gap",
+          "type": "Int64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "58c51aaa0a2caa00e722999b6fd0eb1a3f202c0867321bf4c2d0187667c1c9bb",
+      "payload_sha256": "f9ec38a44ce21e5959c4c09ad1643ec15bb97659a04a71332ecfe0a42b857e80"
+    },
+    {
+      "question_id": 74,
+      "order_clause": "s.StoreName, r.rn",
+      "order_by": [
+        {
+          "column": 0,
+          "descending": false
+        },
+        {
+          "column": 2,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "product_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "pct_of_store",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "existing explicit selection.output_order",
+      "sql_sha256": "55ad2b090492d0b38b7be885c00c18c9eb1af53a874462c74414d83bacbad4b4",
+      "payload_sha256": "9c36fc1816741fa2f20e5b38487e83e17a6a5c9858bc33ab97600bf1d32400c0"
+    },
+    {
+      "question_id": 78,
+      "order_clause": "rnk",
+      "order_by": [
+        {
+          "column": 2,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "category",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "discount_total",
+          "type": "Float64"
+        },
+        {
+          "name": "rnk",
+          "type": "UInt64"
+        },
+        {
+          "name": "pct_of_total",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa",
+      "payload_sha256": "9658e589d6d95d9272793128a2974adb4ae16c1a7996c81f5608a156d6d58630"
+    },
+    {
+      "question_id": 79,
+      "order_clause": "attainment_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "actual_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "quota",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "957a8736ce31ab675f57c38803dce44baa07bb4fdbc06a6b475673d2ed60f02a",
+      "payload_sha256": "a8d687e08308e5d36c8b17c6021eb2a969580a63831c9dd307d67532081f6e95"
+    },
+    {
+      "question_id": 85,
+      "order_clause": "bucket, attainment_pct DESC",
+      "order_by": [
+        {
+          "column": 0,
+          "descending": false
+        },
+        {
+          "column": 4,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "bucket",
+          "type": "String"
+        },
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "actual_amt",
+          "type": "Float64"
+        },
+        {
+          "name": "quota_amt",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "attainment_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "758e47981378caa606abd15456f4766a51ff66ce311f1151a2c3eb1e44b6fa57",
+      "payload_sha256": "432a59e3717f33a535f5311f2acc023f4134fe53f574c126b8dc4a583b287088"
+    },
+    {
+      "question_id": 87,
+      "order_clause": "days_of_coverage ASC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "on_hand",
+          "type": "Int64"
+        },
+        {
+          "name": "avg_daily_qty",
+          "type": "Float64"
+        },
+        {
+          "name": "days_of_coverage",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "432b98fe1d530f55b556e79a38b7d47b4a1d34744e8ad4f0a0ba43fe582f89e9",
+      "payload_sha256": "a31983fc183a131d4c84bb27e359e711e1062bea9bb6461a62a8a1557b31bb24"
+    },
+    {
+      "question_id": 88,
+      "order_clause": "s.spend_2009 DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "customer_name",
+          "type": "String"
+        },
+        {
+          "name": "total_spend_2009",
+          "type": "Float64"
+        }
+      ],
+      "source": "outer ORDER BY uses projected ROUND value under the existing reference/tie precision contract",
+      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528",
+      "payload_sha256": "b632b8f7846632c4bb8bacabe83fb2848d97d24cbb365688d51fb820a17e3e15"
+    },
+    {
+      "question_id": 92,
+      "order_clause": "gross_margin_dollars DESC",
+      "order_by": [
+        {
+          "column": 2,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "BrandName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "gross_margin_dollars",
+          "type": "Float64"
+        },
+        {
+          "name": "gross_margin_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "877a4dcf8487889f74fd922318c92e42fa500509835d760f2dc95d3603717547",
+      "payload_sha256": "ab2a0c152f3843834fc48bd4b215ebd861c6003285b215be5880a4f90ec94203"
+    },
+    {
+      "question_id": 94,
+      "order_clause": "qoq_pct_change ASC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": false
+        }
+      ],
+      "columns": [
+        {
+          "name": "StoreName",
+          "type": "String"
+        },
+        {
+          "name": "q3_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "q4_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "qoq_pct_change",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "eddf2057c45231965efe07744f1050eb3f89edc31cbcfd6dee1d379d4961f73e",
+      "payload_sha256": "0a60a66b7a70bb5d2e39c2ac7fd5de19a36fc8441a94f7510727204fc23936fc"
+    },
+    {
+      "question_id": 97,
+      "order_clause": "h2_vs_h1_pct DESC",
+      "order_by": [
+        {
+          "column": 3,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductName",
+          "type": "String"
+        },
+        {
+          "name": "h1_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "h2_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "h2_vs_h1_pct",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "55ff427a6fa22282b329d98bd8bca581fdb4b1d09df5fcf593c3a1fe4715bf9b",
+      "payload_sha256": "68cbffc324c88bba6adfd8c5309b3abe996557fbedb4b9dd4ff825267e858d56"
+    },
+    {
+      "question_id": 98,
+      "order_clause": "peak_quarter_share_pct DESC",
+      "order_by": [
+        {
+          "column": 1,
+          "descending": true
+        }
+      ],
+      "columns": [
+        {
+          "name": "ProductCategoryName",
+          "type": "String"
+        },
+        {
+          "name": "peak_quarter_share_pct",
+          "type": "Float64"
+        },
+        {
+          "name": "peak_quarter",
+          "type": "UInt8"
+        }
+      ],
+      "source": "outer ORDER BY resolved to projected reference columns/aliases",
+      "sql_sha256": "ef087e63ff9aa1dae1547f4d1dc489260efa302ceff886ad83419a263aad48b7",
+      "payload_sha256": "b9daf125e71cdffd6a1f1090bd71de5b5429e47c877f6c9b4cb120de638306fa"
+    }
+  ]
+}

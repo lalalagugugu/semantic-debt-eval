@@ -86,6 +86,9 @@ def main():
         expected=score_detailed(candidate,[[['a',10],['b',10]]],top)
         assert (actual.outcome,actual.reason)==(expected.outcome,expected.reason)
     policy, _ = load_unit_policy()
+    from backfill_order_keys import reference_order
+    assert reference_order('SELECT round(s.amount,2) AS total_amount FROM x ORDER BY s.amount DESC',[{'name':'total_amount','type':'Float64'}])[0]==[{'column':0,'descending':True}]
+    expect_error(lambda:reference_order('SELECT a FROM x ORDER BY hidden',[{'name':'a','type':'Int32'}]))
     from snapshot_q79_boundary import boundary_members, compare_members
     stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}
     independent={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['b',2.002],['a',1.003]]}
@@ -138,6 +141,8 @@ def main():
         assert before['questions_scanned']==after['questions_scanned']==22 and not after['hits']
         assert set(before['hits'])==set(changed)==set(rewrites['rewritten_questions'])
         assert after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
+        assert not rewrites['post_rewrite_audit_required'] and rewrites['after_hits']==[]
+        assert rewrites['after_audit_sha256']==hashlib.sha256((REPO/'audit/T05-degeneracy-after.json').read_bytes()).hexdigest()
     else:
         assert expected_total==(optional['final_references'] if optional['applied'] else purchase['final_references'])
     if optional['applied']:
@@ -172,6 +177,13 @@ def main():
                 assert comparison['positive_maps_to'] in records
             if comparison['quantized_equal']:
                 assert not comparison['new_reference']
+    ordering=json.loads((REPO/'audit/ordered-rules-review.json').read_text())
+    current_ordered={r['reference']:r for r in ordering['current_records']}
+    expected_ordered={ref['result_path'] for q in old+new for ref in q['refs'] if effective_rules(q,ref)['ordered']}
+    assert current_ordered.keys()==expected_ordered
+    for path,item in current_ordered.items():
+        assert item['order_by']==records[path]['rules']['order_by']
+        assert item['columns']==records[path]['columns'] and item['sql_sha256']==records[path]['sql_sha256']
     warnings = []
     for q in new:
         assert q['split'] is None and q['scoring'] == 'deterministic'

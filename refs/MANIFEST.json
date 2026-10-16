@@ -288,6 +288,12 @@
         "value_types": [
           "String",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -1787,6 +1793,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -1943,6 +1955,12 @@
           "Nullable(Float64)",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -2251,6 +2269,20 @@
           "Nullable(String)",
           "Nullable(String)",
           "UInt64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          },
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 1,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -2321,6 +2353,20 @@
           "Nullable(String)",
           "Nullable(String)",
           "UInt64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          },
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 1,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -3177,6 +3223,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -3225,6 +3277,12 @@
         "value_types": [
           "Nullable(String)",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -3273,6 +3331,12 @@
         "value_types": [
           "Nullable(String)",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4423,6 +4487,12 @@
           "Nullable(String)",
           "Nullable(Float64)",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4477,6 +4547,12 @@
           "Nullable(String)",
           "Nullable(Float64)",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4593,6 +4669,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4655,6 +4737,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -5156,6 +5244,12 @@
           "Int64",
           "Int64",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -8348,6 +8442,12 @@
           "Float64",
           "UInt64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -8412,6 +8512,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -8893,7 +8999,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -9096,6 +9212,12 @@
           "Float64",
           "Float64",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -9144,6 +9266,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9532,6 +9660,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9648,6 +9782,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -9920,6 +10060,12 @@
           "Float64",
           "Nullable(Float64)",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9990,6 +10136,12 @@
           "Float64",
           "Float64",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -10072,7 +10224,13 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -10251,7 +10409,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 1,
+            "descending": false
+          },
+          {
+            "column": 2,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -11908,7 +12076,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
