@@ -42,7 +42,18 @@ NULL_GROUP_COLUMNS = {"category", "ProductCategoryName", "subcategory", "Product
                       "brand", "BrandName", "color", "ColorName"}
 # Ranked lists the pandas side truncates (judge examples without a fixed N):
 # compare the reference against the same-length pandas prefix.
-TRUNCATED = {("Q33", 1), ("Q97", 1)}
+TRUNCATED = {"Q33", "Q97"}
+# Interpretation suffix of the bank's "no empty product-attribute group" variant refs.
+NULL_GROUP_VARIANT = "按产品属性分组时不展示空属性组"
+EVENT_TAG = "购买事件="
+
+
+def event_mode(interp):
+    """Pandas mode a ref's purchase-event tag selects (None = either / untagged)."""
+    if EVENT_TAG not in interp or "结果相同" in interp.split(EVENT_TAG)[1].split("；")[0]:
+        return None
+    tag = interp.split(EVENT_TAG)[1]
+    return "qty_pos" if tag.startswith("SalesQuantity>0") else "all" if tag.startswith("全部行") else None
 
 
 def load_questions(eval_root=ROOT):
@@ -175,18 +186,40 @@ def main(argv=None):
             continue
         entries = []
         for i, ref in enumerate(qd["refs"], 1):
-            refdf = pd.read_csv(eval_root / ref["path"], dtype=str, keep_default_na=False)
-            files = [f for f in manifest.get(qid, {}).get("files", []) if f["ref"] == i]
+            # The reference CSVs write NULL as \N; the pandas CSVs write it as an empty field.
+            refdf = pd.read_csv(eval_root / ref["path"], dtype=str, keep_default_na=False).replace("\\N", "")
+            allfiles = manifest.get(qid, {}).get("files", [])
+            files = [f for f in allfiles if f["ref"] == i]
+            interp = ref["interpretation"]
+            base = None
+            if not files and NULL_GROUP_VARIANT in interp:
+                # "No empty group row" variant: the pandas side keeps the row everywhere,
+                # so compare its base interpretation's output (null-group rule applies).
+                stem = interp.split(NULL_GROUP_VARIANT)[0].rstrip("；")
+                base = next(k for k, r in enumerate(qd["refs"], 1) if r["interpretation"] == stem)
+                files = [f for f in allfiles if f["ref"] == base]
+            if not files and EVENT_TAG in interp:
+                # The bank splits purchase-event algorithms into separate refs; the pandas side
+                # keeps both modes under one ref. Find the ref with the same interpretation stem.
+                stem = interp.split("；" + EVENT_TAG)[0]
+                base = next(k for k, r in enumerate(qd["refs"], 1)
+                            if r["interpretation"].split("；" + EVENT_TAG)[0] == stem
+                            and any(f["ref"] == k for f in allfiles))
+                files = [f for f in allfiles if f["ref"] == base]
+            mode = event_mode(interp)
+            if mode and any(f["mode"] for f in files):
+                files = [f for f in files if f["mode"] in (None, mode)]
             results = {}
             for f in files:
                 mine = pd.read_csv(PANDAS / f["path"], dtype=str, keep_default_na=False)
-                if (qid, i) in TRUNCATED and len(mine) > len(refdf):
+                if qid in TRUNCATED and len(mine) > len(refdf):
                     mine = mine.head(len(refdf))
                 results[f["mode"] or "-"] = compare_with_null_group(refdf, mine, ref["rules"])
             ok = any(r["ok"] for r in results.values())
             if not files:
                 results["-"] = {"ok": False, "why": "no pandas output for this reference"}
-            entries.append({"ref": ref["path"], "interpretation": ref["interpretation"], "match": ok, "by_mode": results})
+            entries.append({"ref": ref["path"], "interpretation": ref["interpretation"], "match": ok,
+                            "pandas_ref": base or i, "by_mode": results})
             print(f"{qid}-{i} [{qd['scoring']}] {'MATCH' if ok else 'DIFF '} "
                   + "; ".join(f"{k}: {('ok ' + v.get('note', '')).strip() if v['ok'] else v['why']}" for k, v in results.items()))
         report[qid] = entries
