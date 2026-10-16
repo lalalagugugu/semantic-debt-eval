@@ -15,7 +15,7 @@ Rulings applied (main repo decisions/, 2026-10-16):
     here (strict prefix + complete boundary on quantized keys).
 
 Usage:
-  uv run python scripts/recheck_pandas.py              # all questions
+  uv run python scripts/recheck_pandas.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-dd5853d"
   uv run python scripts/recheck_pandas.py --only Q74,Q79
 Outputs go to reports/T05b/pandas/: one CSV per question/interpretation
 (Qxx-k.csv, or Qxx-k.all.csv + Qxx-k.qty_pos.csv when the two purchase-event
@@ -381,7 +381,7 @@ def _():
     cur = current_inventory()
     return [pd.DataFrame({"StoreName": cur.StoreKey.map(stores().StoreName),
                           "ProductName": cur.ProductKey.map(prod().ProductName),
-                          "OnHand": cur.OnHandQuantity})]
+                          "ProductKey": cur.ProductKey, "OnHand": cur.OnHandQuantity})]
 
 
 @Q("Q22")
@@ -519,6 +519,7 @@ def _():
     d["turnover"] = d.cogs / d.avg_inventory
     d["turnover"] = d.turnover.where(np.isfinite(d.turnover))
     d.insert(0, "ProductName", d.index.map(prod().ProductName))
+    d["ProductKey"] = d.index
     return [d.reset_index(drop=True)]
 
 
@@ -747,7 +748,7 @@ def _():
 @Q("Q61")
 def _():
     f = attach_product(fos().loc[lambda d: d.year == 2009, ["ProductKey", "SalesAmount"]].copy(), ("ProductSubcategoryName",))
-    g = f.groupby("ProductSubcategoryName").SalesAmount.sum()
+    g = f.groupby("ProductSubcategoryName", dropna=False).SalesAmount.sum()
     return [g[g > 1_000_000].reset_index()]
 
 
@@ -840,7 +841,7 @@ def _():
 def _():
     f = attach_product(fos().loc[lambda d: d.year == 2009, ["ProductKey", "SalesAmount"]].copy(),
                        ("ProductCategoryName", "ProductSubcategoryName"))
-    g = f.groupby(["ProductCategoryName", "ProductSubcategoryName"]).SalesAmount.sum().reset_index()
+    g = f.groupby(["ProductCategoryName", "ProductSubcategoryName"], dropna=False).SalesAmount.sum().reset_index()
     return [select_top(g, ["ProductCategoryName"], [("SalesAmount", "amount", True)], 1)]
 
 
@@ -1010,7 +1011,7 @@ def _():
                        ("ProductSubcategoryName",))
     f["disc"] = f.PromotionKey.map(T("DimPromotion").set_index("PromotionKey").DiscountPercent)
     rows = []
-    for sc, g in f.groupby("ProductSubcategoryName"):
+    for sc, g in f.groupby("ProductSubcategoryName", dropna=False):
         rows.append([sc, g.disc.corr(g.SalesQuantity), len(g)])
     return [df_(rows, ["subcategory", "corr", "n"])]
 
@@ -1148,8 +1149,8 @@ def _():
 @Q("Q98")
 def _():
     f = attach_product(fos()[["ProductKey", "year", "quarter", "SalesAmount"]].copy())
-    g = f.groupby(["ProductCategoryName", "year", "quarter"]).SalesAmount.sum().reset_index()
-    g["share_pct"] = pct(g.SalesAmount, g.groupby(["ProductCategoryName", "year"]).SalesAmount.transform("sum"))
+    g = f.groupby(["ProductCategoryName", "year", "quarter"], dropna=False).SalesAmount.sum().reset_index()
+    g["share_pct"] = pct(g.SalesAmount, g.groupby(["ProductCategoryName", "year"], dropna=False).SalesAmount.transform("sum"))
     r1 = select_top(g[g.year == 2009], ["ProductCategoryName"], [("share_pct", "percentage", True)], 1)
     r1 = r1[["ProductCategoryName", "share_pct", "quarter"]].sort_values("share_pct", ascending=False)
     r2 = select_top(g, ["ProductCategoryName", "year"], [("share_pct", "percentage", True)], 1)
@@ -1186,7 +1187,7 @@ def _():
 
 
 # --------------------------------------------------------------------------
-# Q101-Q122 (new)
+# Q101-Q122 (new; second-round approved wording, eval main dd5853d)
 # --------------------------------------------------------------------------
 @Q("Q101")
 def _():
@@ -1205,37 +1206,49 @@ def _():
 def _():
     f = fos()
     f = f[f.year == 2009]
-    return [df_([[f.SalesAmount.sum() / f.order.nunique()]], ["sales_per_order"])]
+    orders = f.groupby("order").SalesAmount.sum()
+    big = orders[orders > 1000]
+    return [df_([[len(big), pct(big.sum(), f.SalesAmount.sum())]], ["orders_over_1000", "sales_share_pct"])]
 
 
 @Q("Q104")
 def _():
-    return QS["Q64"]()
+    f = attach_product(fos().loc[lambda d: d.year.isin([2008, 2009]), ["ProductKey", "year", "SalesAmount", "TotalCost"]].copy())
+    f["gp"] = f.SalesAmount - f.TotalCost
+    g = f.groupby(["ProductCategoryName", "year"], dropna=False)[["SalesAmount", "gp"]].sum().unstack(fill_value=0)
+    drev = g["SalesAmount"][2009] - g["SalesAmount"][2008]
+    dgp = g["gp"][2009] - g["gp"][2008]
+    sel = (drev > 0) & (dgp < 0)
+    return [pd.DataFrame({"category": g.index[sel], "revenue_change": drev[sel].values, "gross_profit_change": dgp[sel].values})]
 
 
-def _store_month(name, year, months):
-    f = fs()
-    sk = T("DimStore").set_index("StoreName").StoreKey[name]
-    f = f[(f.StoreKey == sk) & (f.year == year) & f.month.isin(months)]
-    return f
+def _store_keys_in_city(city):
+    s = T("DimStore").merge(T("DimGeography"), on="GeographyKey", how="left")
+    return s.loc[s.CityName == city, "StoreKey"]
 
 
 @Q("Q105")
 def _():
-    rows = [[n, _store_month(n, 2009, [11]).SalesAmount.sum()] for n in ("Contoso Miami No.1 Store", "Contoso Miami No.2 Store")]
-    return [df_(rows, ["StoreName", "sales"])]
+    f = fs()
+    sk = T("DimStore").set_index("StoreName").StoreKey["Contoso Seattle No.2 Store"]
+    return [df_([[f.loc[(f.StoreKey == sk) & (f.year == 2009), "SalesAmount"].sum()]], ["sales_2009"])]
 
 
 @Q("Q106")
 def _():
-    rows = [[n, _store_month(n, 2009, [12]).SalesAmount.sum()] for n in ("Contoso Seattle No.1 Store", "Contoso Seattle No.2 Store")]
-    return [df_(rows, ["StoreName", "sales"])]
+    f = fs()
+    f = f[f.StoreKey.isin(_store_keys_in_city("Miami"))]
+    a, b = (f.loc[f.year == y, "SalesAmount"].sum() for y in (2008, 2009))
+    return [df_([[pct(b - a, a)]], ["growth_pct"])]
 
 
 @Q("Q107")
 def _():
-    g = _store_month("Contoso New York No.2 Store", 2009, range(1, 13)).groupby("month").SalesAmount.sum()
-    return [g.reset_index()]
+    f = fs()
+    f = f[(f.year == 2009) & f.StoreKey.isin(_store_keys_in_city("New York"))]
+    net = (f.SalesAmount - f.ReturnAmount).groupby(f.StoreKey).sum()
+    sk = T("DimStore").set_index("StoreName").StoreKey["Contoso New York No.2 Store"]
+    return [df_([[pct(net.get(sk, 0.0), net.sum())]], ["share_pct"])]
 
 
 @Q("Q108")
@@ -1243,7 +1256,7 @@ def _():
     f = fos()
     f = f[f.year == 2009]
     country = f.CustomerKey.map(cust().RegionCountryName)
-    g = f.groupby(country).agg(revenue=("SalesAmount", "sum"), orders=("order", "nunique"))
+    g = f.groupby(country, dropna=False).agg(revenue=("SalesAmount", "sum"), orders=("order", "nunique"))
     return [g.rename_axis("country").reset_index()]
 
 
@@ -1251,39 +1264,93 @@ def _():
 def _():
     f = fos()
     d = dates()
-    days = d[d.index.year == 2009]
-    daily = f[f.year == 2009].groupby("DateKey").SalesAmount.sum().reindex(days.index, fill_value=0)
-    m = daily.groupby(days.IsHoliday).mean()
-    return [df_([[(m["Yes"] / m["No"] - 1) * 100]], ["pct_higher"])]
+    out = {}
+    for y in (2008, 2009):
+        days = d[d.index.year == y]
+        daily = f[f.year == y].groupby("DateKey").SalesAmount.sum().reindex(days.index, fill_value=0)
+        out[y] = daily.groupby(days.IsHoliday).mean()
+    rows = [[lab, pct(out[2009][lab] - out[2008][lab], out[2008][lab])] for lab in ("Yes", "No")]
+    return [df_(rows, ["is_holiday", "growth_pct"])]
 
 
 @Q("Q110")
 def _():
-    f = fos()
-    f = f[(f.year == 2009) & (f.PromotionKey != 1)]
-    lab = f.PromotionKey.map(T("DimPromotion").set_index("PromotionKey").PromotionType)
-    return [f.groupby(lab).DiscountAmount.sum().reset_index()]
+    f = fs()
+    ch = f.channelKey.map(T("DimChannel").set_index("ChannelKey").ChannelName)
+    share = {}
+    for y in (2008, 2009):
+        m = f.year == y
+        share[y] = pct(f.loc[m & (ch == "Online"), "SalesAmount"].sum(), f.loc[m, "SalesAmount"].sum())
+    return [df_([[share[2008], share[2009], share[2009] - share[2008]]], ["share_2008_pct", "share_2009_pct", "change_pp"])]
+
+
+@lru_cache(None)
+def _quota_budget_2009():
+    qt = pd.read_parquet(DATA / "FactSalesQuota.parquet", columns=["StoreKey", "DateKey", "ScenarioKey", "SalesAmountQuota"])
+    qt["DateKey"] = pd.to_datetime(qt["DateKey"])
+    qt = qt[(qt.ScenarioKey == 2) & (qt.DateKey.dt.year == 2009)]
+    return qt.groupby(["StoreKey", qt.DateKey.dt.month.rename("month")]).SalesAmountQuota.sum().unstack(fill_value=0.0)
+
+
+def _actual_by_month_2009():
+    f = fs()
+    return f[f.year == 2009].groupby(["StoreKey", "month"]).SalesAmount.sum().unstack(fill_value=0.0)
+
+
+def _nz_pct(a, b):
+    return pct(a, b.where(b != 0))
 
 
 @Q("Q111")
 def _():
-    sp = _plan(2009)
-    g = sp.pivot_table(index="category", columns="ScenarioKey", values="Amount", aggfunc="sum")
-    return [pd.DataFrame({"category": g.index, "actual": g[1].values, "budget": g[2].values, "att_pct": pct(g[1], g[2]).values})]
+    qm = _quota_budget_2009()
+    am = _actual_by_month_2009()
+    keys = qm.index.union(am.index)
+    qm = qm.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
+    am = am.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
+    ytd_a = am.loc[:, 1:9].sum(axis=1)
+    return [pd.DataFrame({"StoreName": keys.map(stores().StoreName),
+                          "ytd_pct": _nz_pct(ytd_a, qm.loc[:, 1:9].sum(axis=1)).values,
+                          "annual_pct": _nz_pct(ytd_a, qm.sum(axis=1)).values})]
 
 
 @Q("Q112")
 def _():
-    d = _attainment()
-    return [d[["StoreName", "actual", "quota", "att_pct"]]]
+    quota = _quota_budget_2009().sum(axis=1)
+    actual = _actual_by_month_2009().sum(axis=1)
+    s = T("DimStore").set_index("StoreKey")
+    d = pd.DataFrame({"quota": quota}).join(actual.rename("actual")).fillna({"actual": 0.0})
+    d = d[d.quota > 0]
+    d["missed"] = d.actual < d.quota
+    d["gap"] = (d.quota - d.actual).where(d.missed)
+    d["mgr"] = d.index.map(s.EmployeeKey)
+    g = d.groupby("mgr", dropna=False).agg(stores=("missed", "sum"), shortfall=("gap", "sum"))
+    g.loc[g.stores == 0, "shortfall"] = np.nan
+    e = T("DimEmployee").set_index("EmployeeKey")
+    names = [full_name(e, int(k)) if pd.notna(k) else None for k in g.index]
+    return [pd.DataFrame({"EmployeeKey": g.index, "manager": names, "missed_stores": g.stores.astype(int).values,
+                          "shortfall": g.shortfall.values})]
 
 
 @Q("Q113")
 def _():
-    sp = _plan(2009)
-    sp = sp.assign(quarter=sp.DateKey.dt.quarter)
-    g = sp.pivot_table(index=["quarter", "category"], columns="ScenarioKey", values="Amount", aggfunc="sum").reset_index()
-    return [pd.DataFrame({"quarter": g.quarter, "category": g.category, "actual": g[1], "budget": g[2], "variance": g[1] - g[2]})]
+    qm = _quota_budget_2009()
+    am = _actual_by_month_2009()
+    keys = qm.index.union(am.index)
+    qm = qm.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
+    am = am.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
+    below = am < qm
+    rows = []
+    for sk, r in below.iterrows():
+        run = []
+        for m in list(range(1, 13)) + [13]:
+            if m <= 12 and r[m]:
+                run.append(m)
+                continue
+            if len(run) >= 3:
+                rows.append([stores().StoreName[sk], run[0], run[-1], len(run)])
+            run = []
+    return [df_(rows, ["StoreName", "start_month", "end_month", "months"])]
 
 
 MONTH_ENDS = pd.date_range("2009-01-31", "2009-12-31", freq="ME")
@@ -1310,119 +1377,138 @@ def _():
 
 @Q("Q115", event=True)
 def _():
-    first = first_last()["first"]
-    f = fos()
-    f9 = f[f.year == 2009]
-    month_total = f9.groupby("month").SalesAmount.sum()
-    out = []
-    for inclusive in (True, False):
-        rows = []
-        for t in MONTH_ENDS:
-            new = first.index[_in_window(first, t, inclusive)]
-            m = f9[(f9.month == t.month) & f9.CustomerKey.isin(new)].SalesAmount.sum()
-            rows.append([t.date(), m, pct(m, month_total[t.month])])
-        out.append(df_(rows, ["month_end", "new_customer_sales", "share_pct"]))
-    return out
+    b = buys()
+    t0, t1 = pd.Timestamp("2008-12-31"), TODAY
+    last0 = b[b.DateKey <= t0].groupby("CustomerKey").DateKey.max()
+    last1 = b.groupby("CustomerKey").DateKey.max().reindex(last0.index)
+    s0 = segment(months_between(pd.Series(t0, index=last0.index), last0))
+    s1 = segment(months_between(pd.Series(t1, index=last1.index), last1))
+    m = pd.crosstab(pd.Series(s0, name="from"), pd.Series(s1, name="to"))
+    states = ["Active", "At Risk", "Churned"]
+    m = m.reindex(index=states, columns=states, fill_value=0)
+    rows = [[a, c, int(m.loc[a, c])] for a in states for c in states]
+    return [df_(rows, ["state_2008", "state_2009", "customers"])]
 
 
 @Q("Q116", event=True)
 def _():
     b = buys()
-    rows = []
-    for t in MONTH_ENDS:
-        last = b[b.DateKey <= t].groupby("CustomerKey").DateKey.max()
-        seg = pd.Series(segment(months_between(pd.Series(t, index=last.index), last)))
-        vc = seg.value_counts()
-        rows.append([t.date(), int(vc.get("Active", 0)), int(vc.get("At Risk", 0)), int(vc.get("Churned", 0))])
-    return [df_(rows, ["month_end", "active", "at_risk", "churned"])]
+    first = b.groupby("CustomerKey").DateKey.min()
+    end = fos().DateKey.max()
+    orders = b[["CustomerKey", "order", "DateKey"]].drop_duplicates(["CustomerKey", "order", "DateKey"])
+    orders = orders.assign(first=orders.CustomerKey.map(first))
+    orders["day"] = (orders.DateKey - orders["first"]).dt.days
+    cohort = first.dt.to_period("M").dt.to_timestamp()
+    # interp 1: any order on days 1..90 after the first purchase day; follow-up needs first+90 <= end
+    c1 = first[first + pd.Timedelta(days=90) <= end].index
+    rep1 = set(orders.loc[(orders.day >= 1) & (orders.day <= 90), "CustomerKey"])
+    # interp 2: window includes the first day (days 0..89) and needs >= 2 distinct orders; first+89 <= end
+    c2 = first[first + pd.Timedelta(days=89) <= end].index
+    n2 = orders[(orders.day >= 0) & (orders.day <= 89)].groupby("CustomerKey").order.nunique()
+    rep2 = set(n2[n2 >= 2].index)
+    out = []
+    for keys, rep in ((c1, rep1), (c2, rep2)):
+        flag = pd.Series(keys.isin(list(rep)), index=keys)
+        g = flag.groupby(cohort.reindex(keys)).agg(["size", "sum"])
+        out.append(pd.DataFrame({"first_month": g.index.date, "repurchase_pct": pct(g["sum"], g["size"]).values}))
+    return out
 
 
 @Q("Q117")
 def _():
     f = fs()
     f = attach_product(f.loc[f.year.isin([2008, 2009]), ["StoreKey", "ProductKey", "year", "SalesAmount"]].copy())
-    st = f.groupby(["StoreKey", "year"]).SalesAmount.sum().unstack()
-    st = st.dropna()  # same store: sales in both years
-    declining = st[st[2009] < st[2008]]
-    ff = f[f.StoreKey.isin(declining.index)]
-    c = ff.groupby(["StoreKey", "ProductCategoryName", "year"], dropna=False).SalesAmount.sum().unstack(fill_value=0)
-    for y in (2008, 2009):
-        if y not in c.columns:
-            c[y] = 0.0
-    c = c[c[2009] < c[2008]].reset_index()
-    c["decline"] = c[2008] - c[2009]
-    store_decline = c.StoreKey.map(declining[2008] - declining[2009])
-    return [pd.DataFrame({"StoreName": c.StoreKey.map(stores().StoreName), "category": c.ProductCategoryName,
-                          "decline": c.decline, "share_pct": pct(c.decline, store_decline)})]
+    st = f.groupby(["StoreKey", "year"]).SalesAmount.sum().unstack().dropna()  # same store: sales both years
+    st = st[st[2009] < st[2008]]
+    st["decline_pct"] = pct(st[2008] - st[2009], st[2008])
+    st = st.rename_axis("StoreKey").reset_index()
+    top_stores = select_top(st, [], [("decline_pct", "percentage", True)], 3)
+    c = f[f.StoreKey.isin(top_stores.StoreKey)].groupby(["StoreKey", "ProductCategoryName", "year"], dropna=False).SalesAmount.sum().unstack(fill_value=0)
+    c = c.reset_index()
+    c["cat_decline"] = c[2008] - c[2009]
+    sd = top_stores.set_index("StoreKey")
+    c["share_pct"] = pct(c.cat_decline, c.StoreKey.map(sd[2008] - sd[2009]))
+    worst = select_top(c, ["StoreKey"], [("cat_decline", "amount", True)], 1)
+    out = pd.DataFrame({"StoreKey": worst.StoreKey, "StoreName": worst.StoreKey.map(stores().StoreName),
+                        "store_decline_pct": worst.StoreKey.map(sd.decline_pct), "category": worst.ProductCategoryName,
+                        "category_decline": worst.cat_decline, "share_pct": worst.share_pct})
+    return [out.sort_values(["store_decline_pct", "category_decline"], ascending=False)]
 
 
-@Q("Q118", event=True)
+@Q("Q118")
 def _():
-    first = first_last()["first"]
-    cohort = set(first[first.dt.year == 2008].index)
     f = fos()
+    s8 = f[f.year == 2008].groupby("ProductKey").SalesAmount.sum()
+    qv = s8.map(lambda v: float(q(v, "amount")))
+    thr = np.quantile(qv.values, 0.9, method="linear")
+    members = qv.index[qv >= thr]
     f9 = f[f.year == 2009]
-    country = f9.CustomerKey.map(cust().RegionCountryName)
-    tot = f9.groupby(country).SalesAmount.sum()
-    coh = f9[f9.CustomerKey.isin(cohort)].groupby(country[f9.CustomerKey.isin(cohort)]).SalesAmount.sum().reindex(tot.index, fill_value=0)
-    return [pd.DataFrame({"country": tot.index, "cohort_sales": coh.values, "share_pct": pct(coh, tot).values})]
+    m = f9.loc[f9.ProductKey.isin(members), "SalesAmount"].sum()
+    return [df_([[m, pct(m, f9.SalesAmount.sum())]], ["top_decile_sales_2009", "share_pct"])]
 
 
-@Q("Q119", event=True)
+@Q("Q119")
 def _():
-    b = buys()
-    f = fos()
-    first_order_date = b.groupby(["CustomerKey", "order"]).DateKey.min().reset_index()
-    rows = []
-    for m in range(1, 13):
-        start = pd.Timestamp(2009, m, 1)
-        n = first_order_date[first_order_date.DateKey < start].groupby("CustomerKey").size()
-        elig = n[n >= 2].index
-        fm = f[(f.year == 2009) & (f.month == m)]
-        s = fm[fm.CustomerKey.isin(elig)].SalesAmount.sum()
-        rows.append([start.date(), s, pct(s, fm.SalesAmount.sum())])
-    return [df_(rows, ["month", "repeat_sales", "share_pct"])]
+    f = fs()
+    f = f[f.year == 2009]
+    company = f.groupby("ProductKey").SalesAmount.sum()
+    cq = company.map(lambda v: q(v, "amount"))
+    comp_rank = cq.rank(method="min", ascending=False).astype(int)
+    dense_rank = cq.rank(method="dense", ascending=False).astype(int)
+    g = f.groupby(["StoreKey", "ProductKey"]).SalesAmount.sum().reset_index()
+    top = select_top(g, ["StoreKey"], [("SalesAmount", "amount", True)], 1)
+    base = pd.DataFrame({"StoreKey": top.StoreKey, "StoreName": top.StoreKey.map(stores().StoreName),
+                         "ProductKey": top.ProductKey, "ProductName": top.ProductKey.map(prod().ProductName),
+                         "store_sales": top.SalesAmount})
+    return [base.assign(company_rank=top.ProductKey.map(comp_rank)), base.assign(company_rank=top.ProductKey.map(dense_rank))]
 
 
 @Q("Q120", event=True)
 def _():
     b = buys()
-    b9 = attach_product(b.loc[b.year == 2009, ["CustomerKey", "ProductKey"]].copy(), ("BrandName",))
-    brands = b9.groupby("CustomerKey").BrandName.nunique()
+    buyers = b.loc[b.year == 2009, "CustomerKey"].unique()
+    f = fos()
+    spend = f[f.year == 2009].groupby("CustomerKey").SalesAmount.sum().reindex(buyers, fill_value=0.0)
     c = cust()
-    d = pd.DataFrame({"brands": brands, "income": brands.index.map(c.YearlyIncome), "gender": brands.index.map(c.Gender)})
+    d = pd.DataFrame({"spend": spend, "income": spend.index.map(c.YearlyIncome), "occ": spend.index.map(c.Occupation)})
     d = d.dropna(subset=["income"])
-    rows = [[g, len(x), x.income.corr(x.brands)] for g, x in d.groupby("gender")]
-    return [df_(rows, ["gender", "customers", "corr"])]
+    rows = [["overall", None, len(d), d.income.corr(d.spend)]]
+    rows += [["occupation", o, len(x), x.income.corr(x.spend)] for o, x in d.groupby("occ", dropna=False)]
+    return [df_(rows, ["scope", "occupation", "customers", "corr"])]
 
 
-@Q("Q121", event=True)
+@Q("Q121")
 def _():
-    b = buys()
-    b = attach_product(b.loc[(b.year == 2009) & (b.PromotionKey != 1), ["ProductKey", "DateKey", "SalesAmount",
-                                                                          "DiscountAmount", "SalesQuantity"]].copy())
-    g = b.groupby(["ProductCategoryName", "DateKey"])[["SalesAmount", "DiscountAmount", "SalesQuantity"]].sum()
-    g["gross"] = g.SalesAmount + g.DiscountAmount
-    g = g[g.gross != 0]
-    g["ratio"] = g.DiscountAmount / g.gross
-    rows = [[c, len(x), x.ratio.corr(x.SalesQuantity)] for c, x in g.groupby(level=0)]
-    return [df_(rows, ["category", "days", "corr"])]
+    f = attach_product(fos().loc[lambda d: d.year == 2009, ["ProductKey", "month", "SalesAmount"]].copy())
+    m = f.groupby(["ProductCategoryName", "month"], dropna=False).SalesAmount.sum().unstack(fill_value=0.0)
+    m = m.reindex(columns=range(1, 13), fill_value=0.0)
+    mean = m.mean(axis=1)
+    out = []
+    for ddof in (0, 1):
+        cv = m.std(axis=1, ddof=ddof) / mean.where(mean != 0)
+        out.append(pd.DataFrame({"category": m.index, "monthly_mean": mean.values, "cv": cv.values}))
+    return out
 
 
 @Q("Q122", event=True)
 def _():
+    f = fos()
+    n_orders = f.loc[f.year == 2009, "order"].nunique()  # all 2009 order numbers (ruling 2)
     b = buys()
-    b = attach_product(b.loc[b.year == 2009, ["order", "ProductKey"]].copy())
-    oc = b[["order", "ProductCategoryName"]].dropna().drop_duplicates()
-    cats = sorted(oc.ProductCategoryName.unique())
-    sets = {c: set(oc.loc[oc.ProductCategoryName == c, "order"]) for c in cats}
-    rows = []
-    for i, a in enumerate(cats):
-        for bb in cats[i + 1:]:
-            inter = len(sets[a] & sets[bb])
-            union = len(sets[a] | sets[bb])
-            rows.append([a, bb, inter, union, inter / union if union else np.nan])
-    return [df_(rows, ["category_a", "category_b", "intersection", "union", "jaccard"])]
+    brand = b.ProductKey.map(prod().BrandName)
+    rows = b.loc[(b.year == 2009) & (brand == "Contoso"), ["order", "ProductKey"]].drop_duplicates()
+    cnt = rows.groupby("ProductKey").size()
+    keys = np.sort(cnt.index.values)
+    pos = {k: i for i, k in enumerate(keys)}
+    rows = rows.assign(p=rows.ProductKey.map(pos).astype(np.int64)).sort_values(["order", "p"])
+    m = rows.merge(rows, on="order")
+    m = m[m.p_x < m.p_y]
+    co = (m.p_x * len(keys) + m.p_y).value_counts()
+    i, j = np.triu_indices(len(keys), k=1)
+    cov = pd.Series(0, index=i * len(keys) + j).add(co, fill_value=0).loc[i * len(keys) + j].values
+    ca, cb = cnt.loc[keys[i]].values, cnt.loc[keys[j]].values
+    return [pd.DataFrame({"product_a": keys[i], "product_b": keys[j], "support": cov / n_orders,
+                          "conf_a_to_b": cov / ca, "conf_b_to_a": cov / cb, "lift": cov * n_orders / (ca * cb)})]
 
 
 # --------------------------------------------------------------------------
@@ -1455,6 +1541,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--eval-dir", default=os.environ.get("SEMDEBT_EVAL_RO", ""),
+                    help="read-only checkout of the question bank whose wording these computations follow")
     args = ap.parse_args(argv)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -1462,6 +1550,10 @@ def main(argv=None):
     ids = only or sorted(QS, key=lambda s: int(s[1:]))
     manifest_path = out / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() and only else {}
+    if args.eval_dir:
+        import subprocess
+        sha = subprocess.run(["git", "-C", args.eval_dir, "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+        manifest["_source"] = {"eval_dir": args.eval_dir, "eval_commit": sha}
     for qid in ids:
         t0 = time.time()
         for old in out.glob(f"{qid}-*.csv"):

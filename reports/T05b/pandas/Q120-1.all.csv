@@ -1,3 +1,7 @@
-gender,customers,corr
-F,8808,0.30839878394092085
-M,9002,0.30021222134129283
+scope,occupation,customers,corr
+overall,,17810,0.6739480930448857
+occupation,Clerical,2657,0.6829851805388564
+occupation,Management,3116,0.6960452699170483
+occupation,Manual,2361,0.6446699885861377
+occupation,Professional,5497,0.6958196417870881
+occupation,Skilled Manual,4179,0.6840288858455426

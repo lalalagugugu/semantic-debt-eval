@@ -10,7 +10,15 @@ count and other 0. Identity strings compare exactly after strip. Columns are
 mapped by value multiset (the pandas column order is not assumed to equal the
 reference); percentage columns also try the fraction<->percent equivalence.
 
-Usage: uv run python scripts/recheck_compare.py [--only Q74,Q79]
+Questions and refs are read from a read-only checkout of the finalized bank
+(git worktree of origin/main), never from the shared $SEMDEBT_EVAL_DIR workspace.
+
+Empty product-attribute group row (main decisions/2026-10-16-orphan-product-
+group-row-and-scorer-early-reject.md section 1): when the only difference is
+the NULL category/subcategory/brand/colour row, the result is reported as
+"match_modulo_null_group" and counts as a match.
+
+Usage: uv run python scripts/recheck_compare.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-<sha>" [--only Q74,Q79]
 Writes reports/T05b/compare.json and prints one line per reference.
 """
 
@@ -30,10 +38,17 @@ PANDAS = ROOT / "reports" / "T05b" / "pandas"
 ATOL = {"percentage": 0.01, "ratio": 1e-4, "amount": 0.01}
 
 
-def load_questions():
+NULL_GROUP_COLUMNS = {"category", "ProductCategoryName", "subcategory", "ProductSubcategoryName",
+                      "brand", "BrandName", "color", "ColorName"}
+# Ranked lists the pandas side truncates (judge examples without a fixed N):
+# compare the reference against the same-length pandas prefix.
+TRUNCATED = {("Q33", 1), ("Q97", 1)}
+
+
+def load_questions(eval_root=ROOT):
     out = {}
     for f in ("questions/cube_100.yaml", "questions/new.yaml"):
-        for qd in yaml.safe_load((ROOT / f).read_text())["questions"]:
+        for qd in yaml.safe_load((Path(eval_root) / f).read_text())["questions"]:
             refs = []
             for r in qd["refs"]:
                 refs.append({"path": r["result_path"], "interpretation": r["interpretation"],
@@ -127,29 +142,53 @@ def match_rows(ref, combo, kinds):
             "ref_rows": r[bad].head(5).astype(str).values.tolist(), "pandas_rows": m[bad].head(5).astype(str).values.tolist()}
 
 
+def compare_with_null_group(ref, mine, rules):
+    res = compare_frames(ref, mine, rules)
+    if res["ok"]:
+        return res
+    cols = [c for c in mine.columns if c in NULL_GROUP_COLUMNS]
+    if cols:
+        keep = ~(mine[cols] == "").any(axis=1)
+        if (~keep).any():
+            alt = compare_frames(ref, mine[keep].reset_index(drop=True), rules)
+            if alt["ok"]:
+                alt["note"] = "match_modulo_null_group"
+                return alt
+    return res
+
+
 def main(argv=None):
+    import subprocess
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
+    ap.add_argument("--eval-dir", required=True, help="read-only checkout of the finalized question bank")
     args = ap.parse_args(argv)
+    eval_root = Path(args.eval_dir)
+    sha = subprocess.run(["git", "-C", str(eval_root), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
     only = {s.strip() for s in args.only.split(",") if s.strip()}
-    qs = load_questions()
+    qs = load_questions(eval_root)
     manifest = json.loads((PANDAS / "manifest.json").read_text())
-    report = {}
+    report = {"_source": {"eval_dir": str(eval_root), "eval_commit": sha,
+                          "pandas_source": manifest.get("_source")}}
     for qid, qd in qs.items():
         if only and qid not in only:
             continue
         entries = []
         for i, ref in enumerate(qd["refs"], 1):
-            refdf = pd.read_csv(ROOT / ref["path"], dtype=str, keep_default_na=False)
+            refdf = pd.read_csv(eval_root / ref["path"], dtype=str, keep_default_na=False)
             files = [f for f in manifest.get(qid, {}).get("files", []) if f["ref"] == i]
             results = {}
             for f in files:
                 mine = pd.read_csv(PANDAS / f["path"], dtype=str, keep_default_na=False)
-                results[f["mode"] or "-"] = compare_frames(refdf, mine, ref["rules"])
+                if (qid, i) in TRUNCATED and len(mine) > len(refdf):
+                    mine = mine.head(len(refdf))
+                results[f["mode"] or "-"] = compare_with_null_group(refdf, mine, ref["rules"])
             ok = any(r["ok"] for r in results.values())
+            if not files:
+                results["-"] = {"ok": False, "why": "no pandas output for this reference"}
             entries.append({"ref": ref["path"], "interpretation": ref["interpretation"], "match": ok, "by_mode": results})
             print(f"{qid}-{i} [{qd['scoring']}] {'MATCH' if ok else 'DIFF '} "
-                  + "; ".join(f"{k}: {'ok' if v['ok'] else v['why']}" for k, v in results.items()))
+                  + "; ".join(f"{k}: {('ok ' + v.get('note', '')).strip() if v['ok'] else v['why']}" for k, v in results.items()))
         report[qid] = entries
     out = ROOT / "reports" / "T05b" / "compare.json"
     out.write_text(json.dumps(report, ensure_ascii=False, indent=1, default=str))
