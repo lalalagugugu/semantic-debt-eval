@@ -1445,10 +1445,11 @@
     "ref": 1,
     "mode": null,
     "path": "Q109-1.csv",
-    "rows": 2
+    "rows": 4
    }
   ],
-  "seconds": 0.2
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 2.8
  },
  "Q110": {
   "event_sensitive": false,
@@ -1484,7 +1485,8 @@
     "rows": 262
    }
   ],
-  "seconds": 0.0
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.7
  },
  "Q113": {
   "event_sensitive": false,
@@ -1493,9 +1495,10 @@
     "ref": 1,
     "mode": null,
     "path": "Q113-1.csv",
-    "rows": 0
+    "rows": 33
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q114": {
@@ -1503,19 +1506,32 @@
   "files": [
    {
     "ref": 1,
-    "mode": "both",
-    "path": "Q114-1.csv",
-    "rows": 12
+    "mode": "all",
+    "path": "Q114-1.all.csv",
+    "rows": 6
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q114-1.qty_pos.csv",
+    "rows": 6
    },
    {
     "ref": 2,
-    "mode": "both",
-    "path": "Q114-2.csv",
-    "rows": 12
+    "mode": "all",
+    "path": "Q114-2.all.csv",
+    "rows": 6
+   },
+   {
+    "ref": 2,
+    "mode": "qty_pos",
+    "path": "Q114-2.qty_pos.csv",
+    "rows": 6
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.4
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "modes_identical": false,
+  "seconds": 0.7
  },
  "Q115": {
   "event_sensitive": true,
@@ -1550,22 +1566,11 @@
     "mode": "qty_pos",
     "path": "Q116-1.qty_pos.csv",
     "rows": 5
-   },
-   {
-    "ref": 2,
-    "mode": "all",
-    "path": "Q116-2.all.csv",
-    "rows": 4
-   },
-   {
-    "ref": 2,
-    "mode": "qty_pos",
-    "path": "Q116-2.qty_pos.csv",
-    "rows": 5
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "modes_identical": false,
-  "seconds": 0.8
+  "seconds": 1.1
  },
  "Q117": {
   "event_sensitive": false,
@@ -1664,5 +1669,18 @@
   ],
   "modes_identical": false,
   "seconds": 1.4
- }
+ },
+ "_reruns": [
+  {
+   "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-bf8e095",
+   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+   "questions": [
+    "Q109",
+    "Q112",
+    "Q113",
+    "Q114",
+    "Q116"
+   ]
+  }
+ ]
 }

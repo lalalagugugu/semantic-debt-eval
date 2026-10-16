@@ -1268,9 +1268,9 @@ def _():
     for y in (2008, 2009):
         days = d[d.index.year == y]
         daily = f[f.year == y].groupby("DateKey").SalesAmount.sum().reindex(days.index, fill_value=0)
-        out[y] = daily.groupby(days.IsHoliday).mean()
-    rows = [[lab, pct(out[2009][lab] - out[2008][lab], out[2008][lab])] for lab in ("Yes", "No")]
-    return [df_(rows, ["is_holiday", "growth_pct"])]
+        out[y] = daily.groupby(days.index.quarter).mean()
+    rows = [[qtr, pct(out[2009][qtr] - out[2008][qtr], out[2008][qtr])] for qtr in (1, 2, 3, 4)]
+    return [df_(rows, ["quarter", "growth_pct"])]
 
 
 @Q("Q110")
@@ -1314,6 +1314,9 @@ def _():
                           "annual_pct": _nz_pct(ytd_a, qm.sum(axis=1)).values})]
 
 
+STRETCH = 1.2
+
+
 @Q("Q112")
 def _():
     quota = _quota_budget_2009().sum(axis=1)
@@ -1321,8 +1324,9 @@ def _():
     s = T("DimStore").set_index("StoreKey")
     d = pd.DataFrame({"quota": quota}).join(actual.rename("actual")).fillna({"actual": 0.0})
     d = d[d.quota > 0]
-    d["missed"] = d.actual < d.quota
-    d["gap"] = (d.quota - d.actual).where(d.missed)
+    line = STRETCH * d.quota
+    d["missed"] = d.actual < line
+    d["gap"] = (line - d.actual).where(d.missed)
     d["mgr"] = d.index.map(s.EmployeeKey)
     g = d.groupby("mgr", dropna=False).agg(stores=("missed", "sum"), shortfall=("gap", "sum"))
     g.loc[g.stores == 0, "shortfall"] = np.nan
@@ -1334,12 +1338,10 @@ def _():
 
 @Q("Q113")
 def _():
-    qm = _quota_budget_2009()
-    am = _actual_by_month_2009()
-    keys = qm.index.union(am.index)
-    qm = qm.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
-    am = am.reindex(index=keys, columns=range(1, 13), fill_value=0.0)
-    below = am < qm
+    annual = _quota_budget_2009().sum(axis=1)
+    annual = annual[annual > 0]
+    am = _actual_by_month_2009().reindex(index=annual.index, columns=range(1, 13), fill_value=0.0)
+    below = am.lt(annual / 12, axis=0)
     rows = []
     for sk, r in below.iterrows():
         run = []
@@ -1353,7 +1355,7 @@ def _():
     return [df_(rows, ["StoreName", "start_month", "end_month", "months"])]
 
 
-MONTH_ENDS = pd.date_range("2009-01-31", "2009-12-31", freq="ME")
+MONTH_ENDS = pd.date_range("2007-01-31", "2007-06-30", freq="ME")
 
 
 def _window(T_, inclusive):
@@ -1394,24 +1396,14 @@ def _():
 def _():
     b = buys()
     first = b.groupby("CustomerKey").DateKey.min()
-    end = fos().DateKey.max()
-    orders = b[["CustomerKey", "order", "DateKey"]].drop_duplicates(["CustomerKey", "order", "DateKey"])
-    orders = orders.assign(first=orders.CustomerKey.map(first))
-    orders["day"] = (orders.DateKey - orders["first"]).dt.days
-    cohort = first.dt.to_period("M").dt.to_timestamp()
-    # interp 1: any order on days 1..90 after the first purchase day; follow-up needs first+90 <= end
-    c1 = first[first + pd.Timedelta(days=90) <= end].index
-    rep1 = set(orders.loc[(orders.day >= 1) & (orders.day <= 90), "CustomerKey"])
-    # interp 2: window includes the first day (days 0..89) and needs >= 2 distinct orders; first+89 <= end
-    c2 = first[first + pd.Timedelta(days=89) <= end].index
-    n2 = orders[(orders.day >= 0) & (orders.day <= 89)].groupby("CustomerKey").order.nunique()
-    rep2 = set(n2[n2 >= 2].index)
-    out = []
-    for keys, rep in ((c1, rep1), (c2, rep2)):
-        flag = pd.Series(keys.isin(list(rep)), index=keys)
-        g = flag.groupby(cohort.reindex(keys)).agg(["size", "sum"])
-        out.append(pd.DataFrame({"first_month": g.index.date, "repurchase_pct": pct(g["sum"], g["size"]).values}))
-    return out
+    # Days 1..7 after the first purchase day; customers need all 7 days observed by TODAY.
+    keys = first[first + pd.Timedelta(days=7) <= TODAY].index
+    day = (b.DateKey - b.CustomerKey.map(first)).dt.days
+    rep = set(b.loc[(day >= 1) & (day <= 7), "CustomerKey"])
+    flag = pd.Series(keys.isin(list(rep)), index=keys)
+    cohort = first.reindex(keys).dt.to_period("M").dt.to_timestamp()
+    g = flag.groupby(cohort).agg(["size", "sum"])
+    return [pd.DataFrame({"first_month": g.index.date, "repurchase_pct": pct(g["sum"], g["size"]).values})]
 
 
 @Q("Q117")
@@ -1550,10 +1542,15 @@ def main(argv=None):
     ids = only or sorted(QS, key=lambda s: int(s[1:]))
     manifest_path = out / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() and only else {}
+    sha = None
     if args.eval_dir:
         import subprocess
         sha = subprocess.run(["git", "-C", args.eval_dir, "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
-        manifest["_source"] = {"eval_dir": args.eval_dir, "eval_commit": sha}
+        if only:
+            # Partial rerun: the other questions still follow the full run's bank commit.
+            manifest.setdefault("_reruns", []).append({"eval_dir": args.eval_dir, "eval_commit": sha, "questions": only})
+        else:
+            manifest["_source"] = {"eval_dir": args.eval_dir, "eval_commit": sha}
     for qid in ids:
         t0 = time.time()
         for old in out.glob(f"{qid}-*.csv"):
@@ -1561,6 +1558,8 @@ def main(argv=None):
         MODE = "all"
         res_all = QS[qid]()
         entry = {"event_sensitive": qid in EVENT, "files": []}
+        if sha:
+            entry["eval_commit"] = sha
         if qid in EVENT:
             MODE = "qty_pos"
             res_pos = QS[qid]()

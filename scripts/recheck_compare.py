@@ -208,7 +208,7 @@ def main(argv=None):
                 files = [f for f in allfiles if f["ref"] == base]
             mode = event_mode(interp)
             if mode and any(f["mode"] for f in files):
-                files = [f for f in files if f["mode"] in (None, mode)]
+                files = [f for f in files if f["mode"] in (None, "both", mode)]
             results = {}
             for f in files:
                 mine = pd.read_csv(PANDAS / f["path"], dtype=str, keep_default_na=False)
