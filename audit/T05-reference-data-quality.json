@@ -1,0 +1,6155 @@
+{
+  "date": "2026-10-16",
+  "scope": "100 active SQL questions; 22 approved designs pending SQL; legacy 22 SQL inspected separately",
+  "source_sha256": "ea05adc863f1f4442117c38e7b5993b9638807c3a7bb0cd02e342ed1c2c4a515",
+  "cube_sha256": "7cee44fd7ccf6227540e713909b26f0dfe5b76a22d18aab5a55ccfe3553c6c7e",
+  "legacy_sha256": "b5a80a8c8a5e7152c4053f2d5e78f97c1fe5c4c284918d3c0d2ae0b01224684d",
+  "draft_sha256": "56aa429d60eeeff54e36e1e1db4619e680d304a733a0798bb3cccc58c08381bb",
+  "quantization_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "checklist": [
+    {
+      "id": "missing-products",
+      "title": "产品维度缺 284 行，四张事实表都引用了缺失的键",
+      "severity": "高",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "已实测四张事实的孤儿规模；Q74/Q87/Q97保键修复，其余逐题未知分类策略未批量改。",
+      "active_question_ids": [
+        "Q01",
+        "Q04",
+        "Q05",
+        "Q07",
+        "Q09",
+        "Q11",
+        "Q20",
+        "Q21",
+        "Q24",
+        "Q27",
+        "Q33",
+        "Q34",
+        "Q39",
+        "Q42",
+        "Q52",
+        "Q57",
+        "Q61",
+        "Q62",
+        "Q67",
+        "Q71",
+        "Q73",
+        "Q74",
+        "Q76",
+        "Q86",
+        "Q87",
+        "Q90",
+        "Q92",
+        "Q95",
+        "Q97",
+        "Q98",
+        "Q99"
+      ],
+      "legacy_question_ids": [
+        "Q102",
+        "Q117",
+        "Q120",
+        "Q121",
+        "Q122"
+      ]
+    },
+    {
+      "id": "inventory-weekly",
+      "title": "库存快照是每周一次，不是约定 11 说的每日",
+      "severity": "中",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "既有库存题用每店×产品最近快照，Q34用观察快照平均；未将多个周快照直接当销售流量相加。新SQL仍须复核。",
+      "active_question_ids": [
+        "Q20",
+        "Q21",
+        "Q34",
+        "Q73",
+        "Q87"
+      ],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "holiday-equals-weekend",
+      "title": "「节假日」在数据里就是周末",
+      "severity": "中",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "两种标签是相同数据划分，不改题造差异；Q109日历归一的新版SQL尚未写。",
+      "active_question_ids": [
+        "Q17",
+        "Q29",
+        "Q59",
+        "Q68",
+        "Q99"
+      ],
+      "legacy_question_ids": [
+        "Q109"
+      ]
+    },
+    {
+      "id": "new-customer-degenerate",
+      "title": "约定 14 的「新客」在这个库里几乎恒为空",
+      "severity": "中",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "0/1不是坏题理由；原首购题与新版Q114均不因值低换窗口。",
+      "active_question_ids": [
+        "Q26",
+        "Q81"
+      ],
+      "legacy_question_ids": [
+        "Q114",
+        "Q115",
+        "Q118"
+      ]
+    },
+    {
+      "id": "online-sales-mismatch",
+      "title": "两张销售表的线上口径对不上",
+      "severity": "高",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "按已批准选表裁决核对；Q74已用FactSales。新Q110要求同源分子分母，不能跨表拼接。",
+      "active_question_ids": [
+        "Q02",
+        "Q03",
+        "Q06",
+        "Q100",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16",
+        "Q17",
+        "Q18",
+        "Q19",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q32",
+        "Q33",
+        "Q34",
+        "Q36",
+        "Q37",
+        "Q39",
+        "Q40",
+        "Q41",
+        "Q42",
+        "Q43",
+        "Q44",
+        "Q45",
+        "Q46",
+        "Q48",
+        "Q50",
+        "Q53",
+        "Q54",
+        "Q58",
+        "Q61",
+        "Q62",
+        "Q63",
+        "Q64",
+        "Q65",
+        "Q66",
+        "Q67",
+        "Q68",
+        "Q69",
+        "Q70",
+        "Q71",
+        "Q72",
+        "Q74",
+        "Q75",
+        "Q76",
+        "Q77",
+        "Q78",
+        "Q79",
+        "Q80",
+        "Q81",
+        "Q83",
+        "Q84",
+        "Q85",
+        "Q86",
+        "Q87",
+        "Q88",
+        "Q89",
+        "Q90",
+        "Q91",
+        "Q92",
+        "Q93",
+        "Q94",
+        "Q95",
+        "Q96",
+        "Q97",
+        "Q98",
+        "Q99"
+      ],
+      "legacy_question_ids": [
+        "Q101",
+        "Q102",
+        "Q103",
+        "Q104",
+        "Q105",
+        "Q106",
+        "Q107",
+        "Q108",
+        "Q109",
+        "Q110",
+        "Q112",
+        "Q114",
+        "Q115",
+        "Q116",
+        "Q117",
+        "Q118",
+        "Q119",
+        "Q120",
+        "Q121",
+        "Q122"
+      ]
+    },
+    {
+      "id": "promotion-vs-discount-amount",
+      "title": "全渠道销售里「挂了促销」与「有折扣金额」不一致",
+      "severity": "中",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "当前命中的促销参考使用FactOnlineSales；全渠道存在两种筛选不等价，不可推广该等价关系。",
+      "active_question_ids": [
+        "Q18",
+        "Q66",
+        "Q69",
+        "Q78",
+        "Q86",
+        "Q93",
+        "Q95"
+      ],
+      "legacy_question_ids": [
+        "Q110",
+        "Q121"
+      ]
+    },
+    {
+      "id": "store-manager-is-id",
+      "title": "DimStore.StoreManager 存的是员工号，不是姓名",
+      "severity": "中",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "Q65返回经理ID；按姓名作答与ID参考的身份等价尚需契约处理，不据此自动删除ID或改judge。",
+      "active_question_ids": [
+        "Q65"
+      ],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "orphan-store-employee",
+      "title": "1 家门店的经理在员工表里不存在",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "实测StoreKey 227→245缺行；原参考无事实聚合＋员工内连，新Q112必须保门店和员工键。",
+      "active_question_ids": [
+        "Q08",
+        "Q35",
+        "Q60",
+        "Q82"
+      ],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "sentinel-close-date",
+      "title": "DimStore.CloseDate 用 2090-12-31 当「未关店」的哨兵值",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "Q10已有在营／时点等批准解读；未来2090关闭日不是已关闭，不因哨兵值重写定义。",
+      "active_question_ids": [
+        "Q10"
+      ],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "mislabeled-stylename",
+      "title": "DimProduct.StyleName 装的是产品编码，不是款式名",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "当前参考与第二轮问句均未用StyleName定义款式；不把未命中扩张为其他列已验证。",
+      "active_question_ids": [],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "dirty-enum-values",
+      "title": "几个低基数字段里有大小写或拼写不一致的取值",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "Q67颜色分组需审blue／Blue；Q60限定Production不受Human Resources脏名影响，不能全部机械归一。",
+      "active_question_ids": [
+        "Q15",
+        "Q22",
+        "Q43",
+        "Q60",
+        "Q67",
+        "Q80"
+      ],
+      "legacy_question_ids": [
+        "Q108",
+        "Q118"
+      ]
+    },
+    {
+      "id": "outlier-values",
+      "title": "几个数值字段有量级异常的离群值",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "收入、面积等原值不按结果方向删去；已有统计题可声明稳健定义，但不为改善相关性清洗。",
+      "active_question_ids": [
+        "Q45",
+        "Q56",
+        "Q70",
+        "Q91"
+      ],
+      "legacy_question_ids": [
+        "Q120"
+      ]
+    },
+    {
+      "id": "no-fact-on-employee-or-territory",
+      "title": "员工和销售辖区上没有挂任何事实表",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "原员工题是维度／层级查询；新经理绩效题需经门店，不推断员工直接销售归属。",
+      "active_question_ids": [
+        "Q08",
+        "Q35",
+        "Q60",
+        "Q82"
+      ],
+      "legacy_question_ids": []
+    },
+    {
+      "id": "date-dim-wider-than-facts",
+      "title": "日期维度比事实宽 1,460 天",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "原Q59问日历本身，不能限成销售日期；日均类走事实日期／限定期间，新Q109/Q121须限定观察年份。",
+      "active_question_ids": [
+        "Q17",
+        "Q25",
+        "Q29",
+        "Q59",
+        "Q68",
+        "Q99"
+      ],
+      "legacy_question_ids": [
+        "Q109"
+      ]
+    },
+    {
+      "id": "country-name-mismatch",
+      "title": "两张表的国家名写法不一致",
+      "severity": "低",
+      "review_mode": "candidate routing, not a passed assertion",
+      "manual_review": "当前参考未按辖区国家名直接连接地理国家名；新题连接仍需SQL落地后复核。",
+      "active_question_ids": [],
+      "legacy_question_ids": []
+    }
+  ],
+  "references": [
+    {
+      "question_id": "Q01",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q01-1.csv",
+      "sql_sha256": "7475ef1a93b1299e1a59bed9c57e0d11eb670a76329fa7a16e34e6632100f2b8",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q02",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q02-1.csv",
+      "sql_sha256": "c767d5ee977f960566113eacf8efb31ab18ae460ff3eeddc819b4ad662471d61",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q03",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q03-1.csv",
+      "sql_sha256": "51472307cc6376a211b9508104d7b1c6e3d532acf1d86d3f21e03ee273d02621",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q04",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q04-1.csv",
+      "sql_sha256": "f6bbfc9675c4cd50f1f18f30cfa6be69313ab7b8446a122e636965f4aaaf9e4d",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q05",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q05-1.csv",
+      "sql_sha256": "26a0350e5f276491404f3b753bf46f541d35c81ba11ac272fbc0f66a585939f9",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q06",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q06-1.csv",
+      "sql_sha256": "1798cab9d75605b6aff2180a094a54742c8606bf61e35e1cb5cc583acb4d6f07",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q07",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q07-1.csv",
+      "sql_sha256": "13f331aa61aac68bf16a9e45847a99e3a2cf511ba2affb180d8e2632d694e333",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q08",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q08-1.csv",
+      "sql_sha256": "eaf4c193f84d5808534cdef98b6fc40569f6c5f8fb61e79081e126b5e78d5038",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q09",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q09-1.csv",
+      "sql_sha256": "ef28c4b6fd74bd23887b100aa540c04e7fd1be023a0cd266dea36ef84f775554",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-1.csv",
+      "sql_sha256": "5a647eb59674cacf0b223fd81e4fb879cb666be98ec7e6bc6c10adf6a65e4f18",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-2.csv",
+      "sql_sha256": "daebc6d5c11d26bdd99bab1d47f93098730e4660fd99b391da95ba5397f11582",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q10",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q10-3.csv",
+      "sql_sha256": "4ef7575fd5ac474195c67b104bfab6ee0e64fbfae9aea40608a76a288280d7f4",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q11",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q11-1.csv",
+      "sql_sha256": "345ef42745def0c7b40d3b016c2ac1cd7f605ab2f23ba4fb76d0428d8d29e8e4",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "全品类销售内连接后缺未分类销售；建议单列未分类额，核对已分类＋未分类与事实总额守恒。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q12",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q12-1.csv",
+      "sql_sha256": "f727c4e87c28652359392563efc40e0554856f4671df2ba8e38fde5a8734b62f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q13",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q13-1.csv",
+      "sql_sha256": "4627286a3473e9bf5f1395b9955952557888c5b0a743f57930dce38831c46dff",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q14",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q14-1.csv",
+      "sql_sha256": "bce32a8ea87b1a1b0c28dccd1633aa91ebd44ea57da466711ea7ad4bfc3f9a89",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q15",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q15-1.csv",
+      "sql_sha256": "bb62fa657cdf4c2c4a20fae8737c68f69d1158cc880c9ce431eb4b0f56584f99",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q16",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q16-1.csv",
+      "sql_sha256": "d25de5a1fca644d1206801ef6837b4a0a14a60fee830118294d5a10be0e5d3cc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q17",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q17-1.csv",
+      "sql_sha256": "39db3fe433939955402f7f56f2b3f8279f46ecf68e311e07c830d74b157c2d0e",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q18",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q18-1.csv",
+      "sql_sha256": "23073211db731011ee627224521ddf2b34bc935d685e2a8ccaf9e29f4e9bbe09",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q19",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q19-1.csv",
+      "sql_sha256": "ba25fa16780262c51588a18eae569b95ba99a6aa5bdd5be05331de77d5d2e1fc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q20",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q20-1.csv",
+      "sql_sha256": "1a77359e2864f72474c50b73726aff4ae25bdb30a3f7788891670c97f0aa87f9",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "最近门店×产品库存已经从事实取得；再连名称不应删掉孤儿，两个输出层级均须保事实ProductKey。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q20",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q20-2.csv",
+      "sql_sha256": "62961266a32f27579da2fc77c3b987d50ec37e92bbb5fc1f4ede3aa5346227ef",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "最近门店×产品库存已经从事实取得；再连名称不应删掉孤儿，两个输出层级均须保事实ProductKey。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q21",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q21-1.csv",
+      "sql_sha256": "afa6a35774d75fd5bc43c8b51327d04010f939921d250ddd5750d073f031891d",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "逐店逐产品的最近库存丢孤儿；建议左连名称并增加事实产品键，不能把多个缺名产品合并。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q22",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q22-1.csv",
+      "sql_sha256": "cd71118a2ead197927a08da37f70f8dda72e0de212694966040aa51a41f7d766",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q23",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q23-1.csv",
+      "sql_sha256": "46d21e44441e2a4568c0632f27fc6103351c440b077382eedd927326da122ee5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q24",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q24-1.csv",
+      "sql_sha256": "d798ac1d27e40a54613498ba4f2adaa785f59d41230a36719260eded91f15daf",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "已知品类比率未必改变，但未知品类的退货量／销量整组消失；须处理未分类组及分子分母同域。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q25",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q25-1.csv",
+      "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q26",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q26-1.csv",
+      "sql_sha256": "a8ba0ae98862ee37c9bb28c4c7529e64e574321e069fa76b78d3d57224b35781",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q27",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q27-1.csv",
+      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q28",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q28-1.csv",
+      "sql_sha256": "c96768dc686256a8292bcc5eee67d7ea1f479052d05c6fb37b4a98a6fd42f7cd",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q29",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q29-1.csv",
+      "sql_sha256": "27b484639ba13a7e1149b9899880b4f22bb075b7ae5d531fa2843278a9e3ce03",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q30",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q30-1.csv",
+      "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q31",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q31-1.csv",
+      "sql_sha256": "011944191b49d5d4369900390fcc4d2dd54e7f013d63e8cbddc47dc2256712b0",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q32",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q32-1.csv",
+      "sql_sha256": "47011f5cc278adb6b2b25d59892f0030fc914917afe14e407d69e1a5a95252f6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q33",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q33-1.csv",
+      "sql_sha256": "7a5296b32b07c7f6742ce845065f0332d176a3f8e0bb33eb5f43b0af386b8e8a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        },
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "两端产品名称内连接会删共购对；须以两个事实产品键保身份。完整域探查超时，入选数未验证。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q34",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q34-1.csv",
+      "sql_sha256": "bd99a1eb861ea1aa7c038145cefcda69018a885d7c60cb65dfa35718506cdc77",
+      "fact_tables": [
+        "FactInventory",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "成本与库存先按产品汇总后仍因名字缺失而删行；建议保产品键，另核成本／库存相交域，不补造库存。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q35",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q35-1.csv",
+      "sql_sha256": "76f4157cb3c3187987201aba019a70b09f1e803c78c03f92b64edf8f6a9d13df",
+      "fact_tables": [],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimEmployee"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q36",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q36-1.csv",
+      "sql_sha256": "1fa53532f3253ea3ad2c8cd3a5bd124ecd237e071ccdf0209d091f84b4235d43",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q37",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q37-1.csv",
+      "sql_sha256": "d4e2ae306e8fd20f079eccb0306a212e284ce939949c7ad81516bd9a25353497",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q38",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q38-1.csv",
+      "sql_sha256": "011e927206f30e8321efa151548cfc9ac0dd473920ab34db26876a5bdf99cfd1",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q39",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q39-1.csv",
+      "sql_sha256": "56f06e82ad345d1111ecc8475e2f266fb43e816a05fc275d14d82b24bd48e605",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "新旧产品识别需要上市日期；缺维度产品无法判定新旧，须披露可分类范围，不编造日期。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q40",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q40-1.csv",
+      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
+      "fact_tables": [
+        "FactExchangeRate",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q41",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q41-1.csv",
+      "sql_sha256": "d91d81eeaafb4a292a8b82c228b4bf3121de3eadfe5e8bbeb17b2dff52043e5a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q42",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q42-1.csv",
+      "sql_sha256": "006ddd0185cf61a4d16796d66d78e4e9a12817d530108af43617bf886d070ef4",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "题干限定相机品类；孤儿产品无法归类，不应凭空归入相机，须披露分类缺失。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q42",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q42-2.csv",
+      "sql_sha256": "748060c29f5d07aadf8e056bd21df4a7226f87379b87f11f63bfa8054ebe2d3a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "题干限定相机品类；孤儿产品无法归类，不应凭空归入相机，须披露分类缺失。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q43",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q43-1.csv",
+      "sql_sha256": "65df53f0336d75237f56fda5111501cbc4420590e50bd01d2e6eb0b2d57cf942",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q43",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q43-2.csv",
+      "sql_sha256": "86ee42e9c70de5a491c3510df239dee50e8472aff85191421a3cc1f71db4dd3a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q44",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q44-1.csv",
+      "sql_sha256": "79b03b8b38d60605e90e897492d88c11e72feb79a40eeabb341c3681d8a5c340",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q44",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q44-2.csv",
+      "sql_sha256": "eb12c3514a0f64777fc448f742ad4a506c57cd355b1b77a868cebf63a4fbc145",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q45",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q45-1.csv",
+      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q46",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q46-1.csv",
+      "sql_sha256": "490178d5bff1441bc276bb52817a554da1715626e831bba302c98a7398c73a0a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q46",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q46-2.csv",
+      "sql_sha256": "5c1d939d2bf75c5137e6154274935cb87d745ce2e40c6bcfb9c4e05dba9226e6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q47",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q47-1.csv",
+      "sql_sha256": "9cd5f2ff40b0d640f61253989deb0de1f57b3a2746cd7b726cc01c786fac0264",
+      "fact_tables": [
+        "FactITSLA"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q48",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q48-1.csv",
+      "sql_sha256": "6f8b5042be0f7754a83ab2368874be03f0dc9dbf0fecabe9fd1a691562963473",
+      "fact_tables": [
+        "FactITSLA",
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q48",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q48-2.csv",
+      "sql_sha256": "b52d90932128204330f5674c1923f6ce0cd868ef7799920850136564423dd5bc",
+      "fact_tables": [
+        "FactITSLA",
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q49",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q49-1.csv",
+      "sql_sha256": "a6b5c77843581c564fd37a1293ba15e53a2d462f4cb8f8857b5f35c4ea607dc4",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q49",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q49-2.csv",
+      "sql_sha256": "0be93beab6d6601bb00c86f1dfc9983189d51ec3e34bbd28c0da51b7bdfe8520",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q50",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q50-1.csv",
+      "sql_sha256": "c11a09e2ffd17683e413e41f69425cb95bda1e47a6ed5efd11bafbc480bbcd88",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q51",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q51-1.csv",
+      "sql_sha256": "61cb319fc7aebf0db90e147141d20765fabc4539cedd94dafe5841fa87d25593",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q52",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q52-1.csv",
+      "sql_sha256": "bdcfc99340f39ac5f1132f2a9502fdc320dc0a182d6a44c2b5dc480b0cf528ed",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q53",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q53-1.csv",
+      "sql_sha256": "b163d900915879a0084ee11414efb6bbadc569013fb8c32ef775306177bf5525",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q54",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q54-1.csv",
+      "sql_sha256": "c9e21151a6b551fe4cfd9033f5ba36b064091ccf13433b6dfeb2ad6bee6e1074",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q55",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q55-1.csv",
+      "sql_sha256": "452452d252ae5d083a49c3043bf4ecc5cf40167b445df911389d89717ced8949",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q56",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q56-1.csv",
+      "sql_sha256": "f9b1301ccc99820cfb9ab24fd6e0b01bd7c4b1e77803c8c35c67007bef65ea96",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q57",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q57-1.csv",
+      "sql_sha256": "21ce3d08797dfeb0dd23ae2be436adb0f8a6ec019b9148e6a33e380a5fe52770",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q58",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q58-1.csv",
+      "sql_sha256": "263508f2236de652fac4c4f2a5ef4c54a118994364231676946b8b94295e9a47",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q59",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q59-1.csv",
+      "sql_sha256": "ca594c40be55494d411faad1a6179c7554580aae305f36bdfb6a60831859e693",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q60",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q60-1.csv",
+      "sql_sha256": "23e4d6d8b35f8527e2373c750ed1b252e73d1815cc9f5daaed54f3c97838c7ce",
+      "fact_tables": [],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q61",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q61-1.csv",
+      "sql_sha256": "7afedeff3acf09f1dc52b7e6536a9ffc6a6fc66048fc974ee6daeef8df5f6c75",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "子品类金额阈值前删掉不可分类事实；建议披露未分类金额，不能编造其真实子品类。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q62",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q62-1.csv",
+      "sql_sha256": "110926904969675f1b597d81bb2329e023c966a8c9e7436e8e53941837928e34",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "全品牌聚合丢失品牌未知销售；未分类合计并非一个真实品牌，须明确报告范围与数量门槛。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q63",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q63-1.csv",
+      "sql_sha256": "a5babb8a345f8593eeca4f875f8e333afa08bd5abcbb632b304a840393bb4cfb",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q64",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q64-1.csv",
+      "sql_sha256": "61349ebce63bf1699d765b0b0b3cccde1afaa1762f6b45fca016a9ae52ca04da",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q65",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q65-1.csv",
+      "sql_sha256": "5cbfdf8db80944a7c35fe2f8e476c87f959b3da4b98ba2072517361a0f60f6b3",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q66",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q66-1.csv",
+      "sql_sha256": "5ad683444c9e6d545b231cebd25b586d610c97cc6aeccf7a5e8b8313f24a7ac5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q67",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q67-1.csv",
+      "sql_sha256": "e217df1c69e652563099f9ac0d131c4930ef4470e9c30e3ccfd7d290edef7df1",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "颜色未知组消失，另有blue／Blue同码异写；需分别处理缺分类与颜色归一，不能把左连当作已解决。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q68",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q68-1.csv",
+      "sql_sha256": "94eba87889513422b2da2a837f8286511f45f079a38f5661530f07ff8e2c6f01",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q69",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q69-1.csv",
+      "sql_sha256": "648b07f2a7b8c6494aa3ee2768f90fd133040b69832af164a2dc30c821e25ab5",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q69",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q69-2.csv",
+      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q70",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q70-1.csv",
+      "sql_sha256": "6dfa3daa4f832880a8d3e0f3af321b6d38cf8d499ef0162935bfd9633ab6f6dc",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q71",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q71-1.csv",
+      "sql_sha256": "095a6b4ecf49520faca66a85a714c3482a0c82db5bb770116fce813aa59e8961",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "已知品类内赢家可算，但未知品类／子品类组被删；需审定未分类组，不为孤儿猜品类。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q72",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q72-1.csv",
+      "sql_sha256": "0d6bfd9653a6712c36c71b3eae5b71b6afa12653b98d453cf80ca26aa9cbab6b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q73",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q73-1.csv",
+      "sql_sha256": "58c51aaa0a2caa00e722999b6fd0eb1a3f202c0867321bf4c2d0187667c1c9bb",
+      "fact_tables": [
+        "FactInventory"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "库存差额先因产品内连接缩域；完整事实键域前10此次无孤儿入选，仍保留风险记录，未改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q74",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q74-1.csv",
+      "sql_sha256": "6aceda07e88353e22604bbb672863c37c5aa2cbb3d54864f7b9bf70ef6bcac83",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "已批准修复：完整事实分母、左连产品、按ProductKey保留孤儿；结果见清单。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q75",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q75-1.csv",
+      "sql_sha256": "4d96fb928a90e776ee90c3a94d09332c617a54512f80670427f1eb9a5bd8d83b",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q76",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q76-1.csv",
+      "sql_sha256": "9c2ec67b8a090e40d2a5e157eda494decf2472e3d4d80328c81946bdd7f0d3db",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "两种复购粒度均丢未知品类；品类内订单计数域亦受分类缺失影响，须分别审阅，不混成一个修复。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q76",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q76-2.csv",
+      "sql_sha256": "cf6a6ceac571476fc24b143a51e8e318a5b742121eab73c5eaf5e7976fe12a52",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "两种复购粒度均丢未知品类；品类内订单计数域亦受分类缺失影响，须分别审阅，不混成一个修复。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q77",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q77-1.csv",
+      "sql_sha256": "1da942dacf58a1e5b79c5322127814f22fb11c0039abc4c0f901f024e20c0f62",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q78",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q78-1.csv",
+      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q79",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q79-1.csv",
+      "sql_sha256": "b77e29f25761f205d396500aa185d7d6fff1ec199ab782847d68d8b1ceae461d",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q80",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q80-1.csv",
+      "sql_sha256": "b8ff395acfb5195fd4e837f3524b979593c2c704c099c1ac7a6060e91f0776a6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q81",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q81-1.csv",
+      "sql_sha256": "df19eb5b19d1345dad58ff92e25a9946ac63a2f8fa47c7b67181b84c95a9eb2f",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q82",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q82-1.csv",
+      "sql_sha256": "95c444eaa75496b9961c6733eb06d058ac596f924cf22f9d24c462a9413d89e3",
+      "fact_tables": [],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimEmployee"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "仅查维度目录／员工层级；不是事实销售总额被维表内连接丢失的情形。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q83",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q83-1.csv",
+      "sql_sha256": "990978a9a4c55a1ed4a488b6cc7be32519c7e1ec0759d77e290665f92ece81ed",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q84",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q84-1.csv",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q85",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q85-1.csv",
+      "sql_sha256": "d97ca6ac17e67ba2aeac6a6d22bbab9d78e00f7a5c7e1951dae4d4bf249d7245",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q86",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q86-1.csv",
+      "sql_sha256": "9bdac599d47b76ad3118a1233ea7a7ed2d036045c0d47cc4b5fbedef4ca5e7b4",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "相关性观察样本因缺子品类而减少；未知观察可单列但不可分配到已知子品类，应披露样本范围。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q87",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q87-1.csv",
+      "sql_sha256": "e30510dbb8363ecfb58df56742ab4325898833c34775ab6c153c76eb086ab555",
+      "fact_tables": [
+        "FactInventory",
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q88",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q88-1.csv",
+      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q89",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q89-1.csv",
+      "sql_sha256": "48aa0fb677e8c97a918d3b129efeec3678c6c9e84a0f4db05f3ca43e09371369",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q90",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q90-1.csv",
+      "sql_sha256": "aefd1390f86f3a5b63f319d77cecaf924773cec4094264d5b8eac69bd6a86bcf",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "各年未知品类毛利率组消失；已知组数值不一定变，不能把全额缺失率直接套作每个比率误差。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q91",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q91-1.csv",
+      "sql_sha256": "253eca2c0bf56c1dab0d9fea31950bd6bdac2ac323091e0a0c6925e0f9ee77ec",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q92",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q92-1.csv",
+      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "原SQL同时内连和BrandName IS NOT NULL；只改LEFT仍会删未知组，须先确认是否要求全品牌含未知。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q93",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q93-1.csv",
+      "sql_sha256": "af04582a21b68acda10283b0d89c9e88d455f94121a8079ec06868ba36684b63",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q94",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q94-1.csv",
+      "sql_sha256": "e67a00a108c52fd38dab04dab68782e9b1976deac443916fdb275893af8da285",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q95",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q95-1.csv",
+      "sql_sha256": "6d1927e988e7125aba1d264c2406a19056f7e25b2cec3643e3fcfefd2640b145",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未知品类的促销／原价金额被删；未分类需保持两类分子分母一致，比例不是促销因果增量。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q96",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q96-1.csv",
+      "sql_sha256": "85857ec1f4f9a007618424df9680409e92e4575b7fcbf182069c6f2517ba5f25",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q97",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q97-1.csv",
+      "sql_sha256": "5aa2f2c03998d8c5f92728d3a87f5c3b2a74fc19b016161c91b5100f6efe1d94",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q97",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q97-2.csv",
+      "sql_sha256": "19552767953f367f1d4020eeef383a7260d90fa71facf412be5cfafff4342307",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "LEFT",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "按用户第3条修复排名参考：事实ProductKey保身份、左连名称、NULL披露；不改变既有计算及评分路径。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q98",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q98-1.csv",
+      "sql_sha256": "b8ab622b703b50b5e3b9ea22511476c09f740a590a27d65efa45969f6ce0f7c2",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "两种年度解读都缺未分类季度序列；不能把多个未知真实品类假装成一个已知品类，须说明可分类域。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q98",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q98-2.csv",
+      "sql_sha256": "cf92c8d75230efde8d79b62b944789c6367c8f03e4852ccecbcd19cfa086a164",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "两种年度解读都缺未分类季度序列；不能把多个未知真实品类假装成一个已知品类，须说明可分类域。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q99",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q99-1.csv",
+      "sql_sha256": "85417ca39fb13c6180bb383a9715bfa1fe9c729581e69338135342c033e41077",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未分类品类的日销售序列被删；处理未知组时还要保持对应日类型分母和年度范围一致。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q100",
+      "generation": "active_original",
+      "result_path": "refs/cube/Q100-1.csv",
+      "sql_sha256": "32383d97b91ce7c7663e2b8f999fbc6fcd38dd692e5cc3f780fad25e7bf0069c",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q101",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q101-1.csv",
+      "sql_sha256": "8b529c5642acba890fcf5b11a421e330e5ce09b1606308c2369da7d677aa37e4",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q102",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q102-1.csv",
+      "sql_sha256": "a61fd238164a7d152cc92d5aa32aa580200d835fabbe8674115e4993a147deec",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "存在事实／事实派生量的内连接丢失路径；未知组、范围及输出键待逐题处理，尚未修改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q103",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q103-1.csv",
+      "sql_sha256": "4b670295d83a7f7894e26606c6c1c4fc54225b677d77e0da1a9f40ccb90d85c6",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q104",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q104-1.csv",
+      "sql_sha256": "cffcd00dd364cd57d85ddf99159cc24c14ca0e68faf111b00fd27c4d4db77725",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q105",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q105-1.csv",
+      "sql_sha256": "e89147adbbae89ed5227ea1feba0092f0e80f968184c65543080bf08455535c3",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q106",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q106-1.csv",
+      "sql_sha256": "7869674e8c4c3da1a2c22d3c810daa0c61b0744378b0ec72bf6008a3d5d175f8",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q107",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q107-1.csv",
+      "sql_sha256": "682a263b879eb5ea3350cee6d4043bbbd91cce7704cf1c42db555817af276e9b",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q108",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q108-1.csv",
+      "sql_sha256": "e259c5cd7a8c28182ee50a7e77503ef2f40a584f4945573c4d0920ba66fedc23",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q109",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q109-1.csv",
+      "sql_sha256": "6af14227b862099c8c96e5aca4dbb3dfbbd78b9161e44c05b56aa90594e50870",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q110",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q110-1.csv",
+      "sql_sha256": "e89200e25daa7416b82241164d717074392903c41540e6ff90c2d712dc697832",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q111",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q111-1.csv",
+      "sql_sha256": "bf607af3c733e770c2f27cc4cadf526afd1d1d188bc7dfaddfefeabb4cc463cc",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q112",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q112-1.csv",
+      "sql_sha256": "b366f7b834375da4f16532dba341f965fe24258108897c174cdb1423ad9102ee",
+      "fact_tables": [
+        "FactSales",
+        "FactSalesQuota"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q113",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q113-1.csv",
+      "sql_sha256": "24a31e346c1d2446022a06992e3d1cc73c3775cf1b09d038c475ae155a11dd20",
+      "fact_tables": [
+        "FactStrategyPlan"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q114",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q114-1.csv",
+      "sql_sha256": "29f54d244b2e41acf71cb301a6ff922561c69a977f16cc2aa05cecda89466b9d",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q114",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q114-2.csv",
+      "sql_sha256": "bddcdd448ee32cff7bb675088779e5a2b939b001e4353b77a5fe94b7b6d1ddcf",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q115",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q115-1.csv",
+      "sql_sha256": "3ef0974b08664ada9dfe3a7471b8a144c29d5049be4173a7468130a3eec9219a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q115",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q115-2.csv",
+      "sql_sha256": "8713b48c293ed070ac8420f27e54da0642788c5ae3ae44bbc2744f3f3d8e5bab",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q116",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q116-1.csv",
+      "sql_sha256": "0402705cf69588645af18e68b340afdfab2b56fb38a109635432f6694b160a18",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q117",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q117-1.csv",
+      "sql_sha256": "0b5d4e6a7147c4dd17eab2bfdf8f90bb8a63849ce7874ab06ff8398212401cb3",
+      "fact_tables": [
+        "FactSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "存在事实／事实派生量的内连接丢失路径；未知组、范围及输出键待逐题处理，尚未修改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q118",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q118-1.csv",
+      "sql_sha256": "c4fddcb26f80cc4cadc50bd8674c48752efeedd1a22fcd12879a8fb5e8929d03",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q119",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q119-1.csv",
+      "sql_sha256": "ca5f850d57dc46239bff669d6833757450dce239ae36d126af68a9c1d1b94e88",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [],
+      "fact_product_inner_exposure": false,
+      "fact_employee_inner_exposure": false,
+      "assessment": "未命中这两个事实内连接模式；不等于全部数据质量条目已验证通过。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q120",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q120-1.csv",
+      "sql_sha256": "7a38caf41494feeb4357fe476e133ad1a66f4b603d41b3e8ddb2985402e40b4a",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "存在事实／事实派生量的内连接丢失路径；未知组、范围及输出键待逐题处理，尚未修改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q121",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q121-1.csv",
+      "sql_sha256": "d89ea1d04fcfe980d0b326793002fec47d0ddde049ef4d08771f8df479735bf7",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "存在事实／事实派生量的内连接丢失路径；未知组、范围及输出键待逐题处理，尚未修改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    },
+    {
+      "question_id": "Q122",
+      "generation": "superseded_first_round",
+      "result_path": "refs/new/Q122-1.csv",
+      "sql_sha256": "1814768cb98d207076bda8cd132c36e0732a89281a14b7bdc834057d4c3a64ad",
+      "fact_tables": [
+        "FactOnlineSales"
+      ],
+      "dimension_joins": [
+        {
+          "kind": "INNER",
+          "table": "DimProduct"
+        }
+      ],
+      "fact_product_inner_exposure": true,
+      "fact_employee_inner_exposure": false,
+      "assessment": "存在事实／事实派生量的内连接丢失路径；未知组、范围及输出键待逐题处理，尚未修改参考。",
+      "result_recompute_status": "current_sql",
+      "csv_sha256_matches_manifest": true
+    }
+  ],
+  "approved_new_questions": [
+    {
+      "question_id": "Q101",
+      "design_id": "D01",
+      "text_zh": "上季度的GMV是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q102",
+      "design_id": "D02",
+      "text_zh": "今年各产品品类的净销售额是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "品类净额：保留无法分类的事实金额，审查未知组及合计守恒。"
+    },
+    {
+      "question_id": "Q103",
+      "design_id": "D03",
+      "text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q104",
+      "design_id": "D04",
+      "text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "品类两期收入／毛利：两年均保留未知组，不让维表连接改变符号筛选。"
+    },
+    {
+      "question_id": "Q105",
+      "design_id": "D05",
+      "text_zh": "西雅图2号店2009年卖了多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q106",
+      "design_id": "D06",
+      "text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q107",
+      "design_id": "D07",
+      "text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q108",
+      "design_id": "D08",
+      "text_zh": "2009年各国家的营收和订单数是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "客户地理路径及空国家标签；不按名称连接地理表。"
+    },
+    {
+      "question_id": "Q109",
+      "design_id": "D09",
+      "text_zh": "今年节假日和平日的日均销售额，各比去年增长了百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "节假日=周末；完整年内日历分母，不能延伸到事实范围之外。"
+    },
+    {
+      "question_id": "Q110",
+      "design_id": "D10",
+      "text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q111",
+      "design_id": "D11",
+      "text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q112",
+      "design_id": "D12",
+      "text_zh": "2009年，每位门店经理手下有多少家门店未完成销售目标？这些门店的目标缺口合计是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "经理经门店关联员工必须左连接；StoreKey 227／EmployeeKey 245保留键、披露缺姓名。"
+    },
+    {
+      "question_id": "Q113",
+      "design_id": "D13",
+      "text_zh": "2009年各门店有哪些连续至少3个月未完成销售目标的时段？列出起止月份和连续月数。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q114",
+      "design_id": "D14",
+      "text_zh": "以2009年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "首购新客0/1是数据事实；不改90天窗口筛出非零结果。"
+    },
+    {
+      "question_id": "Q115",
+      "design_id": "D15",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q116",
+      "design_id": "D16",
+      "text_zh": "按首购月份比较，客户在首购后90天内的复购率分别是多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q117",
+      "design_id": "D17",
+      "text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "先在完整事实域选门店；品类缺失不能改变店总降幅，未知贡献须单列。"
+    },
+    {
+      "question_id": "Q118",
+      "design_id": "D18",
+      "text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "尚无第二轮SQL，不能宣称已排除不必要维表关联。"
+    },
+    {
+      "question_id": "Q119",
+      "design_id": "D19",
+      "text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "门店局部赢家和公司全局排名都保留事实ProductKey；逐题列出孤儿入选者。"
+    },
+    {
+      "question_id": "Q120",
+      "design_id": "D20",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "收入离群值保留；不依据相关方向或显著性删客户。"
+    },
+    {
+      "question_id": "Q121",
+      "design_id": "D21",
+      "text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "品类未知组、完整12个月和0销售月份需一致，不由日期表引入额外年份。"
+    },
+    {
+      "question_id": "Q122",
+      "design_id": "D22",
+      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "sql_status": "missing_second_round_SQL",
+      "review_note": "Contoso域只可由已知品牌判定；全部订单分母先算，不因品牌／产品内连接缩小总体。"
+    }
+  ],
+  "probes": [
+    {
+      "id": "FactSales",
+      "status": "measured",
+      "rows": [
+        {
+          "year": 2007,
+          "total_rows": 1469728,
+          "orphan_rows": 141307,
+          "orphan_keys": 201,
+          "total_sales": 4561940955.017498,
+          "orphan_sales": 285081829.5726884
+        },
+        {
+          "year": 2008,
+          "total_rows": 1051538,
+          "orphan_rows": 105794,
+          "orphan_keys": 245,
+          "total_sales": 4111233534.6880736,
+          "orphan_sales": 240428074.70000827
+        },
+        {
+          "year": 2009,
+          "total_rows": 884823,
+          "orphan_rows": 91797,
+          "orphan_keys": 284,
+          "total_sales": 3740483119.185369,
+          "orphan_sales": 200619904.05099994
+        }
+      ],
+      "sql": "SELECT toYear(f.DateKey) AS year,count() AS total_rows,countIf(p.ProductKey=0) AS orphan_rows,uniqExactIf(f.ProductKey,p.ProductKey=0) AS orphan_keys,sum(f.SalesAmount) AS total_sales,sumIf(f.SalesAmount,p.ProductKey=0) AS orphan_sales FROM retail.FactSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey GROUP BY year ORDER BY year",
+      "scope": "whole fact table by year; NOT the exact filtered loss of each reference"
+    },
+    {
+      "id": "FactOnlineSales",
+      "status": "measured",
+      "rows": [
+        {
+          "year": 2007,
+          "total_rows": 4000025,
+          "orphan_rows": 560340,
+          "orphan_keys": 201,
+          "total_sales": 1010803395.0538636,
+          "orphan_sales": 55523069.60206654
+        },
+        {
+          "year": 2008,
+          "total_rows": 3626523,
+          "orphan_rows": 404952,
+          "orphan_keys": 245,
+          "total_sales": 849671203.4333403,
+          "orphan_sales": 47332883.577374294
+        },
+        {
+          "year": 2009,
+          "total_rows": 5001060,
+          "orphan_rows": 750088,
+          "orphan_keys": 284,
+          "total_sales": 857728031.3596349,
+          "orphan_sales": 49265904.89900433
+        }
+      ],
+      "sql": "SELECT toYear(f.DateKey) AS year,count() AS total_rows,countIf(p.ProductKey=0) AS orphan_rows,uniqExactIf(f.ProductKey,p.ProductKey=0) AS orphan_keys,sum(f.SalesAmount) AS total_sales,sumIf(f.SalesAmount,p.ProductKey=0) AS orphan_sales FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey GROUP BY year ORDER BY year",
+      "scope": "whole fact table by year; NOT the exact filtered loss of each reference"
+    },
+    {
+      "id": "FactSalesQuota",
+      "status": "measured",
+      "rows": [
+        {
+          "year": 2007,
+          "total_rows": 3170250,
+          "orphan_rows": 201576,
+          "orphan_keys": 201
+        },
+        {
+          "year": 2008,
+          "total_rows": 2321646,
+          "orphan_rows": 167616,
+          "orphan_keys": 245
+        },
+        {
+          "year": 2009,
+          "total_rows": 1974015,
+          "orphan_rows": 151929,
+          "orphan_keys": 284
+        }
+      ],
+      "sql": "SELECT toYear(f.DateKey) AS year,count() AS total_rows,countIf(p.ProductKey=0) AS orphan_rows,uniqExactIf(f.ProductKey,p.ProductKey=0) AS orphan_keys FROM retail.FactSalesQuota f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey GROUP BY year ORDER BY year",
+      "scope": "whole fact table by year; NOT the exact filtered loss of each reference"
+    },
+    {
+      "id": "FactInventory",
+      "status": "measured",
+      "rows": [
+        {
+          "year": 2007,
+          "total_rows": 3832903,
+          "orphan_rows": 239169,
+          "orphan_keys": 201
+        },
+        {
+          "year": 2008,
+          "total_rows": 2632309,
+          "orphan_rows": 182058,
+          "orphan_keys": 245
+        },
+        {
+          "year": 2009,
+          "total_rows": 1547887,
+          "orphan_rows": 112131,
+          "orphan_keys": 284
+        }
+      ],
+      "sql": "SELECT toYear(f.DateKey) AS year,count() AS total_rows,countIf(p.ProductKey=0) AS orphan_rows,uniqExactIf(f.ProductKey,p.ProductKey=0) AS orphan_keys FROM retail.FactInventory f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey GROUP BY year ORDER BY year",
+      "scope": "whole fact table by year; NOT the exact filtered loss of each reference"
+    },
+    {
+      "id": "orphan-store-employee",
+      "status": "measured",
+      "rows": [
+        {
+          "StoreKey": 227,
+          "StoreName": "Contoso Naples Store",
+          "EmployeeKey": 245
+        }
+      ],
+      "sql": "SELECT s.StoreKey AS StoreKey,s.StoreName AS StoreName,s.EmployeeKey AS EmployeeKey FROM retail.DimStore s LEFT JOIN retail.DimEmployee e ON s.EmployeeKey=e.EmployeeKey WHERE e.EmployeeKey=0 ORDER BY s.StoreKey"
+    },
+    {
+      "id": "Q73",
+      "n": 10,
+      "column": "gap",
+      "kind": "other",
+      "ascending": false,
+      "sql": "WITH current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey) l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date) SELECT i.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,sum(i.OnHandQuantity)-sum(i.SafetyStockQuantity) AS gap FROM current_stock i LEFT JOIN retail.DimProduct p ON i.ProductKey=p.ProductKey GROUP BY i.ProductKey,p.ProductKey,p.ProductName",
+      "status": "measured_diagnostic_not_adopted_reference",
+      "domain_rows": 2516,
+      "complete_boundary_rows": 10,
+      "boundary": "31729.000000",
+      "orphan_topn_members": [],
+      "note": "Q97 is judge-scored; 15 is its existing example cutoff, not a new question requirement. Diagnostic retains the existing arithmetic, not independent verification."
+    },
+    {
+      "id": "Q87",
+      "n": 20,
+      "column": "days_of_coverage",
+      "kind": "other",
+      "ascending": true,
+      "sql": "WITH current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey) l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date), inv AS (SELECT ProductKey,sum(OnHandQuantity) AS on_hand FROM current_stock GROUP BY ProductKey), recent AS (SELECT ProductKey,sum(SalesQuantity)/90.0 AS daily_qty FROM retail.FactOnlineSales WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31') GROUP BY ProductKey HAVING daily_qty>0) SELECT i.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,round(i.on_hand/r.daily_qty,1) AS days_of_coverage FROM inv i JOIN recent r ON i.ProductKey=r.ProductKey LEFT JOIN retail.DimProduct p ON i.ProductKey=p.ProductKey",
+      "status": "measured_diagnostic_not_adopted_reference",
+      "domain_rows": 2504,
+      "complete_boundary_rows": 20,
+      "boundary": "38.500000",
+      "orphan_topn_members": [
+        {
+          "ProductKey": 1710,
+          "ProductName": null,
+          "days_of_coverage": 24.7
+        },
+        {
+          "ProductKey": 1774,
+          "ProductName": null,
+          "days_of_coverage": 27.6
+        },
+        {
+          "ProductKey": 1821,
+          "ProductName": null,
+          "days_of_coverage": 29
+        },
+        {
+          "ProductKey": 1799,
+          "ProductName": null,
+          "days_of_coverage": 31.4
+        },
+        {
+          "ProductKey": 1811,
+          "ProductName": null,
+          "days_of_coverage": 32.3
+        },
+        {
+          "ProductKey": 1738,
+          "ProductName": null,
+          "days_of_coverage": 32.6
+        },
+        {
+          "ProductKey": 1795,
+          "ProductName": null,
+          "days_of_coverage": 32.8
+        },
+        {
+          "ProductKey": 1777,
+          "ProductName": null,
+          "days_of_coverage": 34.7
+        },
+        {
+          "ProductKey": 1797,
+          "ProductName": null,
+          "days_of_coverage": 35.3
+        },
+        {
+          "ProductKey": 1739,
+          "ProductName": null,
+          "days_of_coverage": 35.8
+        },
+        {
+          "ProductKey": 1809,
+          "ProductName": null,
+          "days_of_coverage": 35.8
+        },
+        {
+          "ProductKey": 1805,
+          "ProductName": null,
+          "days_of_coverage": 36
+        },
+        {
+          "ProductKey": 1770,
+          "ProductName": null,
+          "days_of_coverage": 36.8
+        },
+        {
+          "ProductKey": 1794,
+          "ProductName": null,
+          "days_of_coverage": 37.1
+        },
+        {
+          "ProductKey": 1766,
+          "ProductName": null,
+          "days_of_coverage": 37.7
+        },
+        {
+          "ProductKey": 1808,
+          "ProductName": null,
+          "days_of_coverage": 37.8
+        },
+        {
+          "ProductKey": 1822,
+          "ProductName": null,
+          "days_of_coverage": 37.8
+        },
+        {
+          "ProductKey": 1773,
+          "ProductName": null,
+          "days_of_coverage": 38.1
+        },
+        {
+          "ProductKey": 1726,
+          "ProductName": null,
+          "days_of_coverage": 38.4
+        },
+        {
+          "ProductKey": 1807,
+          "ProductName": null,
+          "days_of_coverage": 38.5
+        }
+      ],
+      "note": "Q97 is judge-scored; 15 is its existing example cutoff, not a new question requirement. Diagnostic retains the existing arithmetic, not independent verification."
+    },
+    {
+      "id": "Q97-1",
+      "n": 15,
+      "column": "h2_vs_h1_pct",
+      "kind": "percentage",
+      "ascending": false,
+      "sql": "WITH amounts AS (SELECT ProductKey,sumIf(SalesAmount,toMonth(DateKey)<=6) AS h1_sales,sumIf(SalesAmount,toMonth(DateKey)>=7) AS h2_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey HAVING h1_sales>=1000 AND h2_sales>h1_sales) SELECT a.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,(a.h2_sales-a.h1_sales)*100.0/a.h1_sales AS h2_vs_h1_pct FROM amounts a LEFT JOIN retail.DimProduct p ON a.ProductKey=p.ProductKey",
+      "status": "measured_diagnostic_not_adopted_reference",
+      "domain_rows": 1506,
+      "complete_boundary_rows": 15,
+      "boundary": "3.869780",
+      "orphan_topn_members": [
+        {
+          "ProductKey": 1312,
+          "ProductName": null,
+          "h2_vs_h1_pct": 5395
+        },
+        {
+          "ProductKey": 875,
+          "ProductName": null,
+          "h2_vs_h1_pct": 1594
+        },
+        {
+          "ProductKey": 1313,
+          "ProductName": null,
+          "h2_vs_h1_pct": 1494
+        },
+        {
+          "ProductKey": 878,
+          "ProductName": null,
+          "h2_vs_h1_pct": 1129.1139240506286
+        },
+        {
+          "ProductKey": 874,
+          "ProductName": null,
+          "h2_vs_h1_pct": 917.6795580110462
+        },
+        {
+          "ProductKey": 877,
+          "ProductName": null,
+          "h2_vs_h1_pct": 598.0176211453747
+        },
+        {
+          "ProductKey": 1315,
+          "ProductName": null,
+          "h2_vs_h1_pct": 510.92557251908397
+        },
+        {
+          "ProductKey": 876,
+          "ProductName": null,
+          "h2_vs_h1_pct": 396.0526315789479
+        }
+      ],
+      "note": "Q97 is judge-scored; 15 is its existing example cutoff, not a new question requirement. Diagnostic retains the existing arithmetic, not independent verification."
+    },
+    {
+      "id": "Q97-2",
+      "n": 15,
+      "column": "sales_increase",
+      "kind": "amount",
+      "ascending": false,
+      "sql": "WITH amounts AS (SELECT ProductKey,sumIf(SalesAmount,toMonth(DateKey)<=6) AS h1_sales,sumIf(SalesAmount,toMonth(DateKey)>=7) AS h2_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey HAVING h2_sales>h1_sales) SELECT a.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,a.h2_sales-a.h1_sales AS sales_increase FROM amounts a LEFT JOIN retail.DimProduct p ON a.ProductKey=p.ProductKey",
+      "status": "measured_diagnostic_not_adopted_reference",
+      "domain_rows": 1513,
+      "complete_boundary_rows": 15,
+      "boundary": "353086.90",
+      "orphan_topn_members": [],
+      "note": "Q97 is judge-scored; 15 is its existing example cutoff, not a new question requirement. Diagnostic retains the existing arithmetic, not independent verification."
+    },
+    {
+      "id": "Q33",
+      "status": "exec_error",
+      "error": "Code: 159. DB::Exception: Timeout exceeded: elapsed 30000.064 ms, maximum: 30000.000 ms. (TIMEOUT_EXCEEDED)",
+      "sql": "WITH pairs AS (SELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,count() AS times_together FROM retail.FactOnlineSales a JOIN retail.FactOnlineSales b ON a.SalesOrderNumber=b.SalesOrderNumber AND a.ProductKey<b.ProductKey GROUP BY a.ProductKey,b.ProductKey) SELECT x.product1_key AS product1_key,x.product2_key AS product2_key,if(p1.ProductKey=0,NULL,p1.ProductName) AS product1,if(p2.ProductKey=0,NULL,p2.ProductName) AS product2,x.times_together AS times_together FROM pairs x LEFT JOIN retail.DimProduct p1 ON x.product1_key=p1.ProductKey LEFT JOIN retail.DimProduct p2 ON x.product2_key=p2.ProductKey"
+    }
+  ],
+  "probe_execution": "saved evidence reused; no rerun",
+  "ranked_corrected_references": [
+    {
+      "question_id": "Q74",
+      "result_path": "refs/cube/Q74-1.csv",
+      "row_count": 925,
+      "sha256": "1e0d98f0cafd70d359b185991da1d30ecb97193d72863fcd3889697e501b047d",
+      "recompute_status": "current_sql",
+      "orphan_topn_members": []
+    },
+    {
+      "question_id": "Q87",
+      "result_path": "refs/cube/Q87-1.csv",
+      "row_count": 20,
+      "sha256": "583928c6a84301183a640fa433ebca9526ea492f4d01ce7bb34d7bbb33a8d94f",
+      "recompute_status": "current_sql",
+      "orphan_topn_members": [
+        {
+          "ProductName": "\\N",
+          "on_hand": "211",
+          "avg_daily_qty": "8.56",
+          "days_of_coverage": "24.7",
+          "ProductKey": "1710"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "431",
+          "avg_daily_qty": "15.62",
+          "days_of_coverage": "27.6",
+          "ProductKey": "1774"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "455",
+          "avg_daily_qty": "15.69",
+          "days_of_coverage": "29",
+          "ProductKey": "1821"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "433",
+          "avg_daily_qty": "13.8",
+          "days_of_coverage": "31.4",
+          "ProductKey": "1799"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "294",
+          "avg_daily_qty": "9.11",
+          "days_of_coverage": "32.3",
+          "ProductKey": "1811"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "433",
+          "avg_daily_qty": "13.29",
+          "days_of_coverage": "32.6",
+          "ProductKey": "1738"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "423",
+          "avg_daily_qty": "12.89",
+          "days_of_coverage": "32.8",
+          "ProductKey": "1795"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "427",
+          "avg_daily_qty": "12.29",
+          "days_of_coverage": "34.7",
+          "ProductKey": "1777"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "345",
+          "avg_daily_qty": "9.78",
+          "days_of_coverage": "35.3",
+          "ProductKey": "1797"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "321",
+          "avg_daily_qty": "8.98",
+          "days_of_coverage": "35.8",
+          "ProductKey": "1809"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "530",
+          "avg_daily_qty": "14.8",
+          "days_of_coverage": "35.8",
+          "ProductKey": "1739"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "517",
+          "avg_daily_qty": "14.38",
+          "days_of_coverage": "36",
+          "ProductKey": "1805"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "554",
+          "avg_daily_qty": "15.04",
+          "days_of_coverage": "36.8",
+          "ProductKey": "1770"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "443",
+          "avg_daily_qty": "11.93",
+          "days_of_coverage": "37.1",
+          "ProductKey": "1794"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "192",
+          "avg_daily_qty": "5.09",
+          "days_of_coverage": "37.7",
+          "ProductKey": "1766"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "366",
+          "avg_daily_qty": "9.69",
+          "days_of_coverage": "37.8",
+          "ProductKey": "1808"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "454",
+          "avg_daily_qty": "12",
+          "days_of_coverage": "37.8",
+          "ProductKey": "1822"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "429",
+          "avg_daily_qty": "11.27",
+          "days_of_coverage": "38.1",
+          "ProductKey": "1773"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "427",
+          "avg_daily_qty": "11.11",
+          "days_of_coverage": "38.4",
+          "ProductKey": "1726"
+        },
+        {
+          "ProductName": "\\N",
+          "on_hand": "385",
+          "avg_daily_qty": "10",
+          "days_of_coverage": "38.5",
+          "ProductKey": "1807"
+        }
+      ]
+    },
+    {
+      "question_id": "Q97",
+      "result_path": "refs/cube/Q97-1.csv",
+      "row_count": 15,
+      "sha256": "ed54159c212864d74f2aa4b735e81c4251e7a7f6bc3c19405b3198f7c0ea0a3c",
+      "recompute_status": "current_sql",
+      "orphan_topn_members": [
+        {
+          "ProductName": "\\N",
+          "h1_sales": "2050",
+          "h2_sales": "112647.5",
+          "h2_vs_h1_pct": "5395",
+          "ProductKey": "1312"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "2598.9999999999995",
+          "h2_sales": "44027.05999999999",
+          "h2_vs_h1_pct": "1594",
+          "ProductKey": "875"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "8200",
+          "h2_sales": "130708",
+          "h2_vs_h1_pct": "1494",
+          "ProductKey": "1313"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "4106.419999999997",
+          "h2_sales": "50472.5799999998",
+          "h2_vs_h1_pct": "1129.1139240506286",
+          "ProductKey": "878"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "4704.189999999999",
+          "h2_sales": "47873.57999999982",
+          "h2_vs_h1_pct": "917.6795580110462",
+          "ProductKey": "874"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "5899.729999999996",
+          "h2_sales": "41181.154999999984",
+          "h2_vs_h1_pct": "598.0176211453747",
+          "ProductKey": "877"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "21484",
+          "h2_sales": "131251.25",
+          "h2_vs_h1_pct": "510.92557251908397",
+          "ProductKey": "1315"
+        },
+        {
+          "ProductName": "\\N",
+          "h1_sales": "7900.959999999993",
+          "h2_sales": "39192.920000000006",
+          "h2_vs_h1_pct": "396.0526315789479",
+          "ProductKey": "876"
+        }
+      ]
+    },
+    {
+      "question_id": "Q97",
+      "result_path": "refs/cube/Q97-2.csv",
+      "row_count": 15,
+      "sha256": "14d4a38668602893076058280661b7e249cfa6973229b0b630f05fcdfdd63e40",
+      "recompute_status": "current_sql",
+      "orphan_topn_members": []
+    }
+  ],
+  "Q74_reference": {
+    "question_id": "Q74",
+    "result_path": "refs/cube/Q74-1.csv",
+    "sql_sha256": "6aceda07e88353e22604bbb672863c37c5aa2cbb3d54864f7b9bf70ef6bcac83",
+    "row_count": 925,
+    "columns": [
+      {
+        "name": "StoreName",
+        "type": "String"
+      },
+      {
+        "name": "ProductName",
+        "type": "Nullable(String)"
+      },
+      {
+        "name": "product_sales",
+        "type": "Float64"
+      },
+      {
+        "name": "pct_of_store",
+        "type": "Nullable(Float64)"
+      },
+      {
+        "name": "ProductKey",
+        "type": "Int32"
+      }
+    ],
+    "value_kinds": [
+      "other",
+      "other",
+      "amount",
+      "percentage",
+      "other"
+    ],
+    "ordered": false,
+    "top_n": null,
+    "tie_column": null,
+    "postprocess": "store_top3",
+    "postprocess_details": {
+      "domain_rows": 358107,
+      "groups": 306,
+      "top_n_per_store": 3,
+      "complete_boundary": true,
+      "product_identity": "ProductKey",
+      "missing_product_name": "NULL; retain and disclose ProductKey",
+      "orphan_topn_members": [],
+      "orphan_topn_member_count": 0,
+      "stores_with_orphan_topn_members": 0
+    },
+    "sha256": "1e0d98f0cafd70d359b185991da1d30ecb97193d72863fcd3889697e501b047d",
+    "value_types": [
+      "String",
+      "Nullable(String)",
+      "Float64",
+      "Nullable(Float64)",
+      "Int32"
+    ],
+    "value_kind_source": "inferred",
+    "value_kind_warnings": [],
+    "rules": {
+      "ordered": false,
+      "top_n": null,
+      "tie_columns": [],
+      "value_kinds": [
+        "other",
+        "other",
+        "amount",
+        "percentage",
+        "other"
+      ],
+      "value_types": [
+        "String",
+        "Nullable(String)",
+        "Float64",
+        "Nullable(Float64)",
+        "Int32"
+      ],
+      "selection": {
+        "version": 1,
+        "stages": [
+          {
+            "parent": null,
+            "where": [],
+            "group_columns": [
+              0
+            ],
+            "object_columns": [
+              4
+            ],
+            "order_by": [
+              {
+                "column": 2,
+                "descending": true
+              }
+            ],
+            "n": 3
+          }
+        ],
+        "output_order": []
+      }
+    },
+    "selection_checks": [
+      [
+        {
+          "group": [
+            "Contoso Albany Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Alexandria Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Amsterdam Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Anchorage Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Annapolis Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Appleton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Arlington Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ashgabat  No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ashgabat No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Asia Online Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Asia Reseller"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Athens Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Atlantic City Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Attleboro Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Aurora Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Austin Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Back River Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bacliff Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Baildon Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Baltimore Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bangkok No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bangkok No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bangor Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bar Harbor Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Baumholder Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bayonne Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Baytown Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Beaumont No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Beaumont No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Beijing Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bellevue Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Berlin Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Berne Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Berthoud Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bishkek Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Boston Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Boulder Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bridgeport Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Brooklyn Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Bucharest Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Buffalo Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Burlington Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Busan Store"
+          ],
+          "objects": 4,
+          "required": 3,
+          "strict": 2,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Calgary  Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cambridge Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Canberra Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cape Canaveral Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cape May Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Carlisle Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Castle Rock Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Catalog Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cedar Park Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Charleston Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Charlottesville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cheney Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cheshire Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Cle Elum Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Clifton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Copenhagen Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Dallas Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Damascus No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Damascus No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Darien Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Denton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Denver No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Denver No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Denver No.3 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Desoto Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Dublin Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Dusseldorf Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso East Orange Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso East Troy Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Edgerton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Edinburgh Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Elmira Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Englewood Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Europe Online Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Europe Reseller"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Everett Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fall City Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Falmouth Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Firenze Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fond du Lac Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fort Atkinson Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fort Collins Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fort Lauderdale Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fort Worth Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Framingham Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Fredericksburg Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Georgetown Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Germantown Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Giebelstadt Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Glasgow Store"
+          ],
+          "objects": 4,
+          "required": 3,
+          "strict": 2,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Grand Junction Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Grand Prairie Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Granger Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Greeley  No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Greeley No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 1,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Green Bay Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Greenville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Guangzhou Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hackensack Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hartford Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Haverhill Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hillsboro Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hingham Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hoboken Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hofheim Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Holyoke Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hong Kong No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Hong Kong No.2 Store"
+          ],
+          "objects": 4,
+          "required": 3,
+          "strict": 2,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Houston No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Houston No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Houston No.3 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Houston No.4 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Howard Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Humble Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Islamabad  No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Islamabad No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ithaca Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Jacksonville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Jersey City Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Kennebunkport Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Kennewick Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Key West Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Knotty Ash Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Kolkata Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Kyoto Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso La Porte Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lafayette Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lakeland Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lancashire Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Landstuhl Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Leeds Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Leominster Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lewiston Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lewisville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lisbon Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Litchfield County Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Littleton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Liverpool Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ljubljana Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso London Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Longview Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Loveland Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lowell Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lynn Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Lyon Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Madison Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Madrid Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Manchester Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Manitowoc Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Marseille Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Marshall Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Martinsville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Menasha Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Miami No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Miami No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Midland Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Milan Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Milliken Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Milwaukee No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Milwaukee No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Milwaukee No.3 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Minden Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Montclair Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Montreal No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Montreal No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Morristown Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Moscow  No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Moscow  No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Mumbai Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Munich Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Nagoya Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Nantes Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Nantucket Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Naples Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New Bedford Store"
+          ],
+          "objects": 5,
+          "required": 3,
+          "strict": 2,
+          "boundary": 3
+        },
+        {
+          "group": [
+            "Contoso New Brunswick Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New Castle Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New Delhi Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New Haven Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New London Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New York No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso New York No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 1,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Newark No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Newark No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Nice Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Nizhny Novgorod Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Norfolk Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso North America Online Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso North America Reseller"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso North Bend Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso North Harford Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Northampton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Old Saybrook Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Orange Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Oregon Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Orlando Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Orono Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Osaka No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Osaka No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Oshkosh Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Oswego Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ottawa No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ottawa No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Paris Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Parker Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Parkville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Pasadena Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Passaic Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 1,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Paterson Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Pittsfield Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Plano Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Plattsburgh Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Poestenkill Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Port Washington Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Provincetown Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Queen Anne's County Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Queens Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Quincy Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Racine No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Racine No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ramstein Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Redmond Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Renton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Richardson Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Ridgely Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Roanoke Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Rochester No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Rochester No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Roma Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Round Rock Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Russellville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Saint Petersburg Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso San Antonio Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sapporo Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Seattle No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Seattle No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sebring Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sedalia Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Seoul Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Shanghai No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Shanghai No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sheboygan Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Shreveport Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Singapore Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Snoqualmie Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Somerville Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso South Portland Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Spokane Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Spring Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Stockholm Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Stockport Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Stoughton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Strasbourg Store"
+          ],
+          "objects": 4,
+          "required": 3,
+          "strict": 2,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Sunnyside Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sydney  No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Sydney No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Syracuse Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Taipei  Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tallahassee No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tallahassee No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tampa Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tehran No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tehran No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Texas City Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Thimphu No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Thimphu No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Thornton Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tokyo No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Tokyo No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Toppenish Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Torino Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Toronto No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Toronto No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Toronto No.3 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Toulouse Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Trenton No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Trenton No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Urumqi Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Valletta Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Vancouver  No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Vancouver  No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 1,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Venezia Store"
+          ],
+          "objects": 4,
+          "required": 3,
+          "strict": 2,
+          "boundary": 2
+        },
+        {
+          "group": [
+            "Contoso Veradale Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Vineland Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Virginia Beach Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Wapato Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Warsaw Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Waterbury Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Waukesha No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Waukesha No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso West Yorkshire Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Westminster Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Wheat Ridge Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Winchester Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Worcester No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Worcester No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Yakima Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Yerevan Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso Yokohama Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso York Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso koln No.1 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso koln No.2 Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        },
+        {
+          "group": [
+            "Contoso obamberg Store"
+          ],
+          "objects": 3,
+          "required": 3,
+          "strict": 2,
+          "boundary": 1
+        }
+      ]
+    ]
+  },
+  "execution_notes": [
+    "Q74 was built and targeted-check verified before the concurrent rules backfill.",
+    "A targeted Q87/Q97 build failed at session creation with CANNOT_OPEN_FILE while another validation owned chdb-eval; no processes were terminated.",
+    "The concurrent rules-backfill build subsequently generated Q87/Q97 from the corrected SQL; this audit checked current SQL/CSV hashes and exact orphan key sets against its earlier probes.",
+    "The full T04 offline validator passed using the T02 working-branch selection dependency; this is not an independent pandas recomputation."
+  ],
+  "limitations": [
+    "static SQL screening is not an AST proof and does not assign unknown catalog attributes",
+    "per-table/year orphan amounts are not per-question filtered losses",
+    "no production scorer changes or 600-candidate verdict claims",
+    "second-round references have not been generated or independently verified"
+  ]
+}

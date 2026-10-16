@@ -1,0 +1,4209 @@
+{
+  "executed_candidates": 600,
+  "session_resets": 43,
+  "strict_agreements": 521,
+  "strict_comparable": 594,
+  "changes": [],
+  "records": [
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 8,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 10,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 11,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 13,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 15,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 17,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 18,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 19,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 20,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 21,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 22,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 23,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 24,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 25,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 26,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 29,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 34,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 35,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 36,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 37,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 39,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 40,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 41,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 44,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 48,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 49,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 50,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 53,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 59,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 64,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 67,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 68,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 69,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 72,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 73,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 74,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 77,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 78,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 80,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 81,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 85,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 87,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 89,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 90,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 91,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 93,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 95,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 96,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 98,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 99,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 8,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 10,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 11,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 13,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 15,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 17,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 18,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 19,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 20,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 21,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 22,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 23,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 24,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 25,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 26,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 29,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 34,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 35,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 36,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 37,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 39,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 40,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 41,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 44,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 48,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 49,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 50,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 53,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 59,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 64,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 67,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 68,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 69,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 72,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 73,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 74,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 77,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 78,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 80,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 81,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 85,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 87,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 89,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 90,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 91,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 93,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 95,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 96,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 98,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 99,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_opus_4_7_semantic",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 8,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 10,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 11,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 13,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 15,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 17,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 18,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 19,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 20,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 21,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 22,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 23,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 24,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 25,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 26,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 29,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 34,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 35,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 36,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 37,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 39,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 40,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 41,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 44,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 48,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 49,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 50,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 53,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 59,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 64,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 67,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 68,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 69,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 72,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 73,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 74,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 77,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 78,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 80,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 81,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 85,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 87,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 89,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 90,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 91,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 93,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 95,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 96,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 98,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 99,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 8,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 10,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 11,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 13,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 15,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 17,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 18,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 19,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 20,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 21,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 22,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 23,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 24,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 25,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 26,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 29,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 34,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 35,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 36,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 37,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 39,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 40,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 41,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 44,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 48,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 49,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 50,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 53,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 59,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 64,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 67,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 68,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 69,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 72,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 73,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 74,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 77,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 78,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 80,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 81,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 85,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 87,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 89,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 90,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 91,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 93,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 95,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 96,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 98,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 99,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_semantic",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 8,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 10,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 11,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 13,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 15,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 17,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 18,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 19,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 20,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 21,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 22,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 23,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 24,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 25,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 26,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 29,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 34,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 35,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 36,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 37,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 39,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 40,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 41,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 44,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 48,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 49,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 50,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 53,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 59,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 64,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 67,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 68,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 69,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 72,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 73,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 74,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 77,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 78,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 80,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 81,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 85,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 87,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 89,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 90,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 91,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 93,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 95,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 96,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 98,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 99,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_raw",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 1,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 2,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 3,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 4,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 5,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 6,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 7,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 8,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 9,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 10,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 11,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 12,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 13,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 14,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 15,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 16,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 17,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 18,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 19,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 20,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 21,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 22,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 23,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 24,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 25,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 26,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 27,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 28,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 29,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 30,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 31,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 32,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 33,
+      "old": "excluded",
+      "new": "excluded",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 34,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 35,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 36,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 37,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 38,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 39,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 40,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 41,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 42,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 43,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 44,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 45,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 46,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 47,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 48,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 49,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 50,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 51,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 52,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 53,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 54,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 55,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 56,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 57,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 58,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 59,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 60,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 61,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 62,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 63,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 64,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 65,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 66,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 67,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 68,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 69,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 70,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 71,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 72,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 73,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 74,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 75,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 76,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 77,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 78,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 79,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 80,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 81,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 82,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 83,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 84,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 85,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 86,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 87,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 88,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 89,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 90,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 91,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 92,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 93,
+      "old": "exec_error",
+      "new": "exec_error",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 94,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 95,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 96,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": true
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 97,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 98,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 99,
+      "old": "correct",
+      "new": "correct",
+      "intentional_broader": false
+    },
+    {
+      "system": "codex_gpt_5_4_semantic",
+      "question_id": 100,
+      "old": "wrong",
+      "new": "wrong",
+      "intentional_broader": false
+    }
+  ]
+}

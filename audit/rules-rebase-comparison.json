@@ -1,0 +1,68 @@
+{
+  "eval_base": "ab3b4cecd46f38710476ba6706db55afa2e4644f",
+  "eval_tested_head": "ceed33a7540a54ea21e74c982ab60652cb92c214",
+  "main_base": "9fd1e6d24e32639ee1d567c3d77d5447fb588d0a",
+  "main_tested_head": "5075d9562d0a079a4b1967b8b83da73bb6597076",
+  "archive_relative_to_SEMDEBT_DATA_DIR": "rules-backfill/20261016T035612Z",
+  "previous_impact_sha256": "eeff4bd3f251641ce9c4e4fba751538b57ba7709dcefe2fe602b5dcbd0558dfb",
+  "rebased_official_sha256": "a5cafd9aeba5976d2296879d7796c75876f1e8567a929f839327da7f2829b250",
+  "rebased_impact_sha256": "ecbb3f3315926fbb769b95ec8593684f4fb3c268405e2d323d7667dc3d6c06fb",
+  "cohort_size": 600,
+  "official_counts": {
+    "correct": 251,
+    "wrong": 304,
+    "excluded": 6,
+    "exec_error": 39
+  },
+  "official_session_resets": 43,
+  "official_strict_agreements": 521,
+  "official_strict_comparable": 594,
+  "official_analytical_agreements": 487,
+  "official_rebase_changes": [],
+  "impact_counts": {
+    "correct": 251,
+    "wrong": 304,
+    "excluded": 6,
+    "exec_error": 39
+  },
+  "impact_session_resets": 43,
+  "impact_strict_agreements": 521,
+  "impact_strict_comparable": 594,
+  "impact_analytical_agreements": 487,
+  "wider_excluded_agreements": 521,
+  "wider_excluded_comparable": 583,
+  "impact_rebase_changes": {
+    "baseline": [],
+    "contract": [],
+    "reference_only": [],
+    "combined": [],
+    "intentional_broader": []
+  },
+  "within_run_changes": {
+    "contract_changed": 0,
+    "reference_changed": 34,
+    "combined_changed": 35,
+    "baseline_reexecution_changed": 0
+  },
+  "persisted_impact_sha256": "b65aa6c1fa7a0f8dcdc875e25a87456985973c978c2f17bbf7cd7d167907959e",
+  "diagnostic_only_changes": [
+    {
+      "system": "claude_claude_opus_4_7_raw",
+      "question_id": 85,
+      "fields": [
+        "combined_reason",
+        "contract_reason"
+      ],
+      "change": "execution_error_text_only"
+    },
+    {
+      "system": "claude_claude_sonnet_4_6_raw",
+      "question_id": 34,
+      "fields": [
+        "combined_reason",
+        "contract_reason"
+      ],
+      "change": "execution_error_text_only"
+    }
+  ]
+}

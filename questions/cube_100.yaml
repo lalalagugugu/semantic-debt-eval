@@ -32,7 +32,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q02",
@@ -66,7 +77,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q03",
@@ -100,7 +122,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q04",
@@ -135,7 +168,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other"
+        ],
+        "value_types": [
+          "String"
+        ]
+      }
     },
     {
       "id": "Q05",
@@ -170,7 +214,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q06",
@@ -205,7 +262,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q07",
@@ -239,7 +307,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          1
+        ],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q08",
@@ -274,7 +357,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "String"
+        ]
+      }
     },
     {
       "id": "Q09",
@@ -308,7 +404,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q10",
@@ -352,7 +459,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q11",
@@ -388,7 +506,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q12",
@@ -423,7 +554,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q13",
@@ -459,7 +603,26 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "Int32",
+          "String",
+          "Float64",
+          "Float64",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q14",
@@ -495,7 +658,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Int32",
+          "String",
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q15",
@@ -530,7 +710,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q16",
@@ -565,7 +758,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "UInt16",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q17",
@@ -601,7 +807,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q18",
@@ -637,7 +858,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q19",
@@ -673,7 +907,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q20",
@@ -690,7 +937,24 @@
         {
           "interpretation": "每个门店×产品最近快照后按产品汇总",
           "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey), current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date) SELECT i.ProductKey,p.ProductName,sum(i.OnHandQuantity) AS on_hand_units,sum(i.SafetyStockQuantity) AS safety_stock_units FROM current_stock i JOIN retail.DimProduct p ON i.ProductKey=p.ProductKey GROUP BY i.ProductKey,p.ProductName HAVING on_hand_units<safety_stock_units",
-          "result_path": "refs/cube/Q20-2.csv"
+          "result_path": "refs/cube/Q20-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "count",
+              "count"
+            ],
+            "value_types": [
+              "Int32",
+              "String",
+              "Int64",
+              "Int64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -715,7 +979,28 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "Int32",
+          "String",
+          "Int32",
+          "String",
+          "Int32",
+          "Int32"
+        ]
+      }
     },
     {
       "id": "Q21",
@@ -751,7 +1036,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Int32"
+        ]
+      }
     },
     {
       "id": "Q22",
@@ -762,8 +1062,9 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH customer_sales AS (SELECT c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName, sum(s.SalesAmount) as total_spent, ROW_NUMBER() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(s.SalesAmount) DESC) as rn FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName) SELECT * FROM customer_sales WHERE rn <= 5",
-          "result_path": "refs/cube/Q22-1.csv"
+          "sql": "WITH customer_sales AS (SELECT c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName, sum(s.SalesAmount) as total_spent, ROW_NUMBER() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(s.SalesAmount) DESC) as rn FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName) SELECT * FROM customer_sales",
+          "result_path": "refs/cube/Q22-1.csv",
+          "postprocess": "selection"
         }
       ],
       "scoring": "deterministic",
@@ -788,7 +1089,51 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "amount",
+          "other"
+        ],
+        "value_types": [
+          "Int32",
+          "String",
+          "String",
+          "String",
+          "Float64",
+          "UInt64"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                3
+              ],
+              "object_columns": [
+                0
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 5
+            }
+          ],
+          "output_order": []
+        }
+      }
     },
     {
       "id": "Q23",
@@ -824,7 +1169,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q24",
@@ -860,7 +1220,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "count",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Int64",
+          "Int64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q25",
@@ -896,7 +1273,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 1,
+        "tie_columns": [
+          1
+        ],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q26",
@@ -932,7 +1324,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "UInt8",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q27",
@@ -969,7 +1374,26 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          3
+        ],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q28",
@@ -1006,7 +1430,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q29",
@@ -1043,7 +1480,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "percentage"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q30",
@@ -1078,7 +1526,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other"
+        ],
+        "value_types": [
+          "Date",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q31",
@@ -1115,7 +1578,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q32",
@@ -1151,7 +1629,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count",
+          "amount"
+        ],
+        "value_types": [
+          "UInt64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q33",
@@ -1187,7 +1678,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q34",
@@ -1225,7 +1731,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other",
+          "ratio"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q35",
@@ -1259,7 +1782,26 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Nullable(String)",
+          "String",
+          "String"
+        ]
+      }
     },
     {
       "id": "Q36",
@@ -1294,7 +1836,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q37",
@@ -1330,7 +1885,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q38",
@@ -1368,7 +1938,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q39",
@@ -1405,7 +1992,28 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Int32)",
+          "String",
+          "Nullable(Date)",
+          "Nullable(Int64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q40",
@@ -1441,7 +2049,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q41",
@@ -1476,7 +2095,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q42",
@@ -1493,7 +2123,20 @@
         {
           "interpretation": "示例：年度线上毛利；需声明指标和时间范围",
           "sql": "SELECT toYear(s.DateKey) AS year,sum(s.SalesAmount-s.TotalCost) AS gross_margin FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE pc.ProductCategoryName='Cameras and camcorders' GROUP BY year ORDER BY year",
-          "result_path": "refs/cube/Q42-2.csv"
+          "result_path": "refs/cube/Q42-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "UInt16",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -1518,7 +2161,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other"
+        ],
+        "value_types": [
+          "UInt16",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q43",
@@ -1558,7 +2216,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q44",
@@ -1575,7 +2246,20 @@
         {
           "interpretation": "示例：逐月线上销售趋势；声明年度/月度即可，不强制唯一粒度",
           "sql": "SELECT toStartOfMonth(DateKey) AS month,sum(SalesAmount) AS sales FROM retail.FactOnlineSales GROUP BY month ORDER BY month",
-          "result_path": "refs/cube/Q44-2.csv"
+          "result_path": "refs/cube/Q44-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "Date",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -1599,7 +2283,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "UInt16",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q45",
@@ -1638,7 +2337,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q46",
@@ -1681,7 +2397,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 1,
+        "tie_columns": [
+          1
+        ],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q47",
@@ -1716,7 +2447,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q48",
@@ -1733,7 +2477,18 @@
         {
           "interpretation": "门店停机总时长与全渠道销售额的相关系数",
           "sql": "WITH outages AS (SELECT StoreKey,sum(DownTime) AS downtime FROM retail.FactITSLA GROUP BY StoreKey), sales AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales GROUP BY StoreKey) SELECT corr(o.downtime,s.sales_amount) AS correlation FROM outages o JOIN sales s ON o.StoreKey=s.StoreKey",
-          "result_path": "refs/cube/Q48-2.csv"
+          "result_path": "refs/cube/Q48-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "ratio"
+            ],
+            "value_types": [
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -1759,7 +2514,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q49",
@@ -1801,7 +2571,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Int32",
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q50",
@@ -1838,7 +2623,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Float64",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q51",
@@ -1872,7 +2672,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q52",
@@ -1906,7 +2717,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q53",
@@ -1942,7 +2764,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q54",
@@ -1976,7 +2809,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q55",
@@ -2011,7 +2855,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q56",
@@ -2045,7 +2900,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q57",
@@ -2079,7 +2945,18 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q58",
@@ -2113,7 +2990,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "amount"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q59",
@@ -2148,7 +3036,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q60",
@@ -2183,7 +3082,18 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count"
+        ],
+        "value_types": [
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q61",
@@ -2218,7 +3128,20 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q62",
@@ -2253,7 +3176,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Int64"
+        ]
+      }
     },
     {
       "id": "Q63",
@@ -2289,7 +3227,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q64",
@@ -2325,7 +3278,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q65",
@@ -2361,7 +3329,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q66",
@@ -2396,7 +3379,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q67",
@@ -2433,7 +3431,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Nullable(Float64)",
+          "Int64"
+        ]
+      }
     },
     {
       "id": "Q68",
@@ -2469,7 +3482,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q69",
@@ -2511,7 +3539,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q70",
@@ -2547,7 +3592,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q71",
@@ -2558,8 +3620,9 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n  JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked WHERE rn = 1\nORDER BY sales_amount DESC",
-          "result_path": "refs/cube/Q71-1.csv"
+          "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON f.ProductKey = p.ProductKey\n  JOIN retail.DimProductSubcategory psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked\nORDER BY sales_amount DESC",
+          "result_path": "refs/cube/Q71-1.csv",
+          "postprocess": "selection"
         }
       ],
       "scoring": "deterministic",
@@ -2583,7 +3646,45 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Float64"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": []
+        }
+      }
     },
     {
       "id": "Q72",
@@ -2617,7 +3718,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "UInt16",
+          "UInt8",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q73",
@@ -2654,7 +3772,26 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          3
+        ],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Int64",
+          "Int64",
+          "Int64"
+        ]
+      }
     },
     {
       "id": "Q74",
@@ -2664,14 +3801,14 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "全渠道每店前3产品，完整边界并列；SQL取排序域，按全局量化键生成参考",
-          "sql": "WITH sales AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey) SELECT f.StoreKey AS StoreKey,s.StoreName AS StoreName,p.ProductName AS ProductName,f.product_sales AS product_sales,f.product_sales*100.0/sum(f.product_sales) OVER (PARTITION BY f.StoreKey) AS pct_of_store FROM sales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey",
+          "interpretation": "全渠道每店前3产品，完整事实门店总额作分母；缺名产品按键保留，完整量化边界",
+          "sql": "WITH sales AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), totals AS (SELECT StoreKey,sum(product_sales) AS store_total FROM sales GROUP BY StoreKey) SELECT f.StoreKey AS StoreKey,s.StoreName AS StoreName,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,f.product_sales AS product_sales,f.product_sales*100.0/nullIf(t.store_total,0) AS pct_of_store,f.ProductKey AS ProductKey FROM sales f JOIN totals t ON f.StoreKey=t.StoreKey JOIN retail.DimStore s ON f.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey",
           "result_path": "refs/cube/Q74-1.csv",
           "postprocess": "store_top3"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：全渠道、每店前三名，移除全局LIMIT50。参考由完整门店×产品排序域按全局金额量化键取严格前缀和完整边界，每店候选仍应恰好3行；分组Top-N契约留T06冻结前核对，不得误用全局Top-N。",
+      "scoring_notes": "2026-10-16用户批准更正外部基准参考：分母为完整FactSales门店总额，不因缺产品维表而缩水；按ProductKey保留全部排名对象，缺ProductName输出NULL并披露，不合并不同孤儿产品。每店前三，保存全局金额量化后的严格前缀及完整边界，候选仍每店恰好3个不同产品；分组契约须在冻结前落实。偏离原参考的原因及孤儿入选明细见decisions/2026-10-16-q74-orphan-products-reference-correction.md和audit/T05-reference-data-quality.md；600条按契约变化／参考修复分别归因，T19披露。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2694,7 +3831,49 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "percentage",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(String)",
+          "Float64",
+          "Nullable(Float64)",
+          "Int32"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                4
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            }
+          ],
+          "output_order": []
+        }
+      }
     },
     {
       "id": "Q75",
@@ -2731,7 +3910,26 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q76",
@@ -2773,7 +3971,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q77",
@@ -2809,7 +4020,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "UInt8",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q78",
@@ -2847,7 +4075,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other",
+          "percentage"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "UInt64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q79",
@@ -2886,7 +4131,26 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          3
+        ],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q80",
@@ -2923,7 +4187,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q81",
@@ -2959,7 +4238,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "UInt16",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q82",
@@ -2996,7 +4292,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "count",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(String)",
+          "UInt64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q83",
@@ -3034,7 +4347,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "count",
+          "count",
+          "count"
+        ],
+        "value_types": [
+          "UInt64",
+          "UInt64",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q84",
@@ -3072,7 +4400,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q85",
@@ -3083,8 +4428,9 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC LIMIT 5)\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC LIMIT 5)\n) ORDER BY bucket, attainment_pct DESC",
-          "result_path": "refs/cube/Q85-1.csv"
+          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC )\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC )\n) ORDER BY bucket, attainment_pct DESC",
+          "result_path": "refs/cube/Q85-1.csv",
+          "postprocess": "selection"
         }
       ],
       "scoring": "deterministic",
@@ -3111,7 +4457,85 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "String",
+          "Float64",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [
+                {
+                  "column": 0,
+                  "equals": "TOP"
+                }
+              ],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 5
+            },
+            {
+              "parent": null,
+              "where": [
+                {
+                  "column": 0,
+                  "equals": "BOTTOM"
+                }
+              ],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": false
+                }
+              ],
+              "n": 5
+            }
+          ],
+          "output_order": [
+            {
+              "column": 0,
+              "descending": false
+            },
+            {
+              "column": 4,
+              "descending": true
+            }
+          ]
+        }
+      }
     },
     {
       "id": "Q86",
@@ -3148,7 +4572,22 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q87",
@@ -3159,12 +4598,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / 90.0 AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT p.ProductName,\n       c.on_hand,\n       round(r.avg_daily_qty, 2) AS avg_daily_qty,\n       round(c.on_hand / r.avg_daily_qty, 1) AS days_of_coverage\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nJOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / 90.0 AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\n       c.on_hand,\n       round(r.avg_daily_qty, 2) AS avg_daily_qty,\n       round(c.on_hand / r.avg_daily_qty, 1) AS days_of_coverage,c.ProductKey AS ProductKey\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nLEFT JOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
           "result_path": "refs/cube/Q87-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "2026-10-16按用户批准的孤儿保键规则更正外部参考：从完整事实产品键域取前20，名称LEFT JOIN，缺名称输出NULL并保留ProductKey。原库存、90天日均销量及可售天数计算不变。按全局量化保留完整边界，候选仍恰好20个对象；产品键身份须精确匹配。入选孤儿键及偏离原因见audit/T05-reference-data-quality.md与decisions/2026-10-16-orphan-key-audit-and-ranked-refs.md，T19披露，600条按参考修复另列影响。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -3187,7 +4626,28 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 20,
+        "tie_columns": [
+          3
+        ],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "other"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Int64",
+          "Float64",
+          "Float64",
+          "Int32"
+        ]
+      }
     },
     {
       "id": "Q88",
@@ -3225,7 +4685,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": 20,
+        "tie_columns": [
+          1
+        ],
+        "value_kinds": [
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q89",
@@ -3260,7 +4735,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q90",
@@ -3297,7 +4789,28 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "percentage",
+          "percentage",
+          "percentage",
+          "percentage",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q91",
@@ -3334,7 +4847,20 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q92",
@@ -3371,7 +4897,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q93",
@@ -3408,7 +4951,22 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio",
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      }
     },
     {
       "id": "Q94",
@@ -3445,7 +5003,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q95",
@@ -3482,7 +5057,26 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "ratio",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q96",
@@ -3519,7 +5113,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "count",
+          "percentage"
+        ],
+        "value_types": [
+          "UInt16",
+          "UInt64",
+          "UInt64",
+          "Float64"
+        ]
+      }
     },
     {
       "id": "Q97",
@@ -3530,13 +5141,32 @@
       "refs": [
         {
           "interpretation": "示例：原参考解读",
-          "sql": "SELECT p.ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY p.ProductKey, p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
+          "sql": "SELECT if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct,f.ProductKey AS ProductKey\nFROM retail.FactOnlineSales f\nLEFT JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY f.ProductKey,p.ProductKey,p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
           "result_path": "refs/cube/Q97-1.csv"
         },
         {
           "interpretation": "示例：按H2较H1的增加额排序，取前15名，不设H1下限",
-          "sql": "SELECT p.ProductKey,p.ProductName,sumIf(f.SalesAmount,toMonth(f.DateKey)<=6) AS h1_sales,sumIf(f.SalesAmount,toMonth(f.DateKey)>=7) AS h2_sales,h2_sales-h1_sales AS sales_increase FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey WHERE toYear(f.DateKey)=2009 GROUP BY p.ProductKey,p.ProductName HAVING sales_increase>0 ORDER BY sales_increase DESC LIMIT 15",
-          "result_path": "refs/cube/Q97-2.csv"
+          "sql": "SELECT f.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,sumIf(f.SalesAmount,toMonth(f.DateKey)<=6) AS h1_sales,sumIf(f.SalesAmount,toMonth(f.DateKey)>=7) AS h2_sales,h2_sales-h1_sales AS sales_increase FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey WHERE toYear(f.DateKey)=2009 GROUP BY f.ProductKey,p.ProductKey,p.ProductName HAVING sales_increase>0 ORDER BY sales_increase DESC LIMIT 15",
+          "result_path": "refs/cube/Q97-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "amount",
+              "amount",
+              "amount"
+            ],
+            "value_types": [
+              "Int32",
+              "Nullable(String)",
+              "Float64",
+              "Float64",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -3562,7 +5192,26 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage",
+          "other"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)",
+          "Int32"
+        ]
+      }
     },
     {
       "id": "Q98",
@@ -3573,13 +5222,65 @@
       "refs": [
         {
           "interpretation": "仅分析2009年度，须声明年份",
-          "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n)\nSELECT ProductCategoryName,\n       max(q_sales) / sum(q_sales) * 100 AS peak_quarter_share_pct,\n       argMax(q, q_sales) AS peak_quarter\nFROM cat_q\nGROUP BY ProductCategoryName\nORDER BY peak_quarter_share_pct DESC",
-          "result_path": "refs/cube/Q98-1.csv"
+          "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\n  JOIN retail.DimProductSubcategory ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  JOIN retail.DimProductCategory pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n) SELECT ProductCategoryName,q_sales*100.0/sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS peak_quarter_share_pct,q AS peak_quarter FROM cat_q ORDER BY peak_quarter_share_pct DESC",
+          "result_path": "refs/cube/Q98-1.csv",
+          "postprocess": "selection"
         },
         {
           "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
-          "sql": "WITH cat_q AS (SELECT pc.ProductCategoryName,toYear(f.DateKey) AS year,toQuarter(f.DateKey) AS quarter,sum(f.SalesAmount) AS quarter_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) BETWEEN 2007 AND 2009 GROUP BY pc.ProductCategoryName,year,quarter) SELECT ProductCategoryName,year,max(quarter_sales)*100.0/sum(quarter_sales) AS peak_quarter_share_pct,argMax(quarter,quarter_sales) AS peak_quarter FROM cat_q GROUP BY ProductCategoryName,year ORDER BY year,peak_quarter_share_pct DESC",
-          "result_path": "refs/cube/Q98-2.csv"
+          "sql": "WITH cat_q AS (SELECT pc.ProductCategoryName,toYear(f.DateKey) AS year,toQuarter(f.DateKey) AS quarter,sum(f.SalesAmount) AS quarter_sales FROM retail.FactOnlineSales f JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) BETWEEN 2007 AND 2009 GROUP BY pc.ProductCategoryName,year,quarter) SELECT ProductCategoryName,year,quarter_sales*100.0/sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS peak_quarter_share_pct,quarter AS peak_quarter FROM cat_q ORDER BY year,peak_quarter_share_pct DESC",
+          "result_path": "refs/cube/Q98-2.csv",
+          "postprocess": "selection",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "percentage",
+              "other"
+            ],
+            "value_types": [
+              "String",
+              "UInt16",
+              "Float64",
+              "UInt8"
+            ],
+            "selection": {
+              "version": 1,
+              "stages": [
+                {
+                  "parent": null,
+                  "where": [],
+                  "group_columns": [
+                    0,
+                    1
+                  ],
+                  "object_columns": [
+                    3
+                  ],
+                  "order_by": [
+                    {
+                      "column": 2,
+                      "descending": true
+                    }
+                  ],
+                  "n": 1
+                }
+              ],
+              "output_order": [
+                {
+                  "column": 1,
+                  "descending": false
+                },
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ]
+            }
+          }
         }
       ],
       "scoring": "deterministic",
@@ -3606,7 +5307,50 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": true,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "percentage",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "UInt8"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                2
+              ],
+              "order_by": [
+                {
+                  "column": 1,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ]
+        }
+      }
     },
     {
       "id": "Q99",
@@ -3643,7 +5387,24 @@
         },
         "persona": "分析师"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "Float64",
+          "Float64",
+          "Nullable(Float64)"
+        ]
+      }
     },
     {
       "id": "Q100",
@@ -3684,7 +5445,24 @@
         },
         "persona": "管理层"
       },
-      "split": null
+      "split": null,
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      }
     }
   ]
 }
