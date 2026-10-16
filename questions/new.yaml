@@ -418,18 +418,31 @@
     {
       "id": "Q109",
       "source": "new",
-      "text_en": "How did holiday and non-holiday average daily sales each grow this year versus last year?",
-      "text_zh": "今年节假日和平日的日均销售额，各比去年增长了百分之多少？",
+      "text_en": "For each quarter this year, how much did average daily sales grow year over year?",
+      "text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径",
-          "sql": "WITH daily AS (\nSELECT d.DateKey AS day,d.IsHoliday AS holiday,toYear(d.DateKey) AS y,sum(f.SalesAmount) AS day_sales\nFROM retail.DimDate d LEFT JOIN retail.FactOnlineSales f ON d.DateKey=f.DateKey\nWHERE toYear(d.DateKey) IN (2008,2009) GROUP BY day,holiday,y)\nSELECT holiday,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct\nFROM daily GROUP BY holiday",
-          "result_path": "refs/new/Q109-1.csv"
+          "interpretation": "完整季度日历，含零销售日；先逐日汇总再按季度计算日均值",
+          "sql": "WITH daily AS (\nSELECT d.DateKey AS day,toQuarter(d.DateKey) AS quarter,toYear(d.DateKey) AS y,sum(f.SalesAmount) AS day_sales\nFROM retail.DimDate d LEFT JOIN retail.FactOnlineSales f ON d.DateKey=f.DateKey\nWHERE toYear(d.DateKey) IN (2008,2009) GROUP BY day,quarter,y)\nSELECT quarter,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct\nFROM daily GROUP BY quarter",
+          "result_path": "refs/new/Q109-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "UInt8",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整两个日历年，零销售日期保留；节假日与周末重合是数据事实，不修改日期分类。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留日粒度聚合、完整日历分母及同比增长；移除与周末重合的节假日分类。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -461,7 +474,7 @@
           "percentage"
         ],
         "value_types": [
-          "String",
+          "UInt8",
           "Nullable(Float64)"
         ]
       }
@@ -575,18 +588,35 @@
     {
       "id": "Q112",
       "source": "new",
-      "text_en": "For each store manager, how many stores missed their 2009 sales target and what was their total shortfall?",
-      "text_zh": "2009年，每位门店经理手下有多少家门店未完成销售目标？这些门店的目标缺口合计是多少？",
+      "text_en": "In 2009, using 120% of the official sales target as a stretch line, how many stores under each manager fell short, and what was their total shortfall?",
+      "text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径",
-          "sql": "WITH actual AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\ngaps AS (SELECT s.StoreKey AS StoreKey,s.EmployeeKey AS EmployeeKey,if(e.EmployeeKey=0,NULL,concat(e.FirstName,' ',e.LastName)) AS manager,\nt.quota_amount-a.sales_amount AS gap FROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey LEFT JOIN retail.DimEmployee e ON s.EmployeeKey=e.EmployeeKey)\nSELECT EmployeeKey,manager,countIf(gap>0) AS under_target_stores,sumIf(gap,gap>0) AS shortfall_amount\nFROM gaps GROUP BY EmployeeKey,manager",
-          "result_path": "refs/new/Q112-1.csv"
+          "interpretation": "正式目标ScenarioKey=2；挑战缺口=max(1.2×目标−实际,0)；按经理汇总",
+          "sql": "WITH actual AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\ngaps AS (SELECT s.StoreKey AS StoreKey,s.EmployeeKey AS EmployeeKey,if(e.EmployeeKey=0,NULL,concat(e.FirstName,' ',e.LastName)) AS manager,\n1.2*t.quota_amount-a.sales_amount AS gap FROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey LEFT JOIN retail.DimEmployee e ON s.EmployeeKey=e.EmployeeKey)\nSELECT EmployeeKey,manager,countIf(gap>0) AS under_target_stores,sumIf(gap,gap>0) AS shortfall_amount\nFROM gaps GROUP BY EmployeeKey,manager",
+          "result_path": "refs/new/Q112-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "count",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(Float64)",
+              "Nullable(String)",
+              "UInt64",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n先判店再汇总经理；超额不抵消缺口；按员工键保留缺姓名的245，不用StoreManager字符串冒充姓名。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留逐店实际与正式目标对齐、实体派生缺口、按经理二次汇总；120%是题干挑战线，不改正式目标定义。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -631,18 +661,35 @@
     {
       "id": "Q113",
       "source": "new",
-      "text_en": "Which store periods lasted at least three consecutive months below sales target in 2009?",
-      "text_zh": "2009年各门店有哪些连续至少3个月未完成销售目标的时段？列出起止月份和连续月数。",
+      "text_en": "After spreading each store’s official 2009 annual sales target evenly across 12 months, find periods of at least three consecutive months below that monthly target; report the store, start month, end month and duration.",
+      "text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径",
-          "sql": "WITH actual AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,m),\ntargets AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey,m),\nmonthly AS (SELECT s.StoreKey AS StoreKey,s.StoreName AS StoreName,toUInt8(n.number+1) AS m,a.sales_amount AS sales_amount,t.quota_amount AS quota_amount\nFROM retail.DimStore s CROSS JOIN numbers(12) n LEFT JOIN actual a ON s.StoreKey=a.StoreKey AND n.number+1=a.m\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey AND n.number+1=t.m),\nunder AS (SELECT StoreKey,StoreName,m,toInt64(m)-toInt64(row_number() OVER (PARTITION BY StoreKey ORDER BY m)) AS island\nFROM monthly WHERE sales_amount<quota_amount)\nSELECT StoreName,min(m) AS start_month,max(m) AS end_month,count() AS months\nFROM under GROUP BY StoreKey,StoreName,island HAVING months>=3",
-          "result_path": "refs/new/Q113-1.csv"
+          "interpretation": "全年正式目标除以12；完整12月日历；无销售月份按0；无正式目标的门店不参与",
+          "sql": "WITH actual AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,m),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS annual_quota FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\nmonthly AS (SELECT s.StoreKey AS StoreKey,s.StoreName AS StoreName,toUInt8(n.number+1) AS m,ifNull(a.sales_amount,0) AS sales_amount,t.annual_quota/12 AS monthly_target\nFROM retail.DimStore s CROSS JOIN numbers(12) n LEFT JOIN actual a ON s.StoreKey=a.StoreKey AND n.number+1=a.m\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey WHERE t.annual_quota>0),\nunder AS (SELECT StoreKey,StoreName,m,toInt64(m)-toInt64(row_number() OVER (PARTITION BY StoreKey ORDER BY m)) AS island\nFROM monthly WHERE sales_amount<monthly_target)\nSELECT StoreName,min(m) AS start_month,max(m) AS end_month,count() AS months\nFROM under GROUP BY StoreKey,StoreName,island HAVING months>=3",
+          "result_path": "refs/new/Q113-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "String",
+              "UInt8",
+              "UInt8",
+              "UInt64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月对齐，分别聚合销售和预算目标；返回最大连续区间，不枚举重叠子区间。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留计划与实际的月粒度对齐和连续区间识别；改为题干明确的年度目标均摊，避免固定月度达成率使区间为空或整年恒定。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -686,23 +733,85 @@
     {
       "id": "Q114",
       "source": "new",
-      "text_en": "At each 2009 month-end, how many customers first purchased within the last 90 days?",
-      "text_zh": "以2009年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "text_en": "At each month end in the first half of 2007, how many customers made their first-ever purchase within the preceding 90 days?",
+      "text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "90个日历日，包含截止日：[T-89,T]；购买事件=全部行／正销量（结果相同）",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
-          "result_path": "refs/new/Q114-1.csv"
+          "interpretation": "含截止日[T-89,T]；购买事件=全部行",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "result_path": "refs/new/Q114-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Date",
+              "UInt64"
+            ]
+          }
         },
         {
-          "interpretation": "截止日前90个完整日，不含截止日：[T-90,T)；购买事件=全部行／正销量（结果相同）",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
-          "result_path": "refs/new/Q114-2.csv"
+          "interpretation": "不含截止日[T-90,T)；购买事件=全部行",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "result_path": "refs/new/Q114-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Date",
+              "UInt64"
+            ]
+          }
+        },
+        {
+          "interpretation": "含截止日[T-89,T]；购买事件=SalesQuantity>0",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "result_path": "refs/new/Q114-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Date",
+              "UInt64"
+            ]
+          }
+        },
+        {
+          "interpretation": "不含截止日[T-90,T)；购买事件=SalesQuantity>0",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "result_path": "refs/new/Q114-4.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Date",
+              "UInt64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n全历史首购；不因0或满值改窗口。\n全历史首购；不因0或满值改窗口。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购、滚动90日窗与逐月截止日；改用实际存在首购分布的时期，不用活跃客户替代新客。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -813,24 +922,32 @@
     {
       "id": "Q116",
       "source": "new",
-      "text_en": "What was the 90-day repurchase rate by lifetime first-purchase month?",
-      "text_zh": "按首购月份比较，客户在首购后90天内的复购率分别是多少？",
+      "text_en": "As of December 31, 2009, by true first-purchase month, what share of customers purchased again during the seven calendar days starting the day after their first purchase? Exclude customers without seven full days of follow-up.",
+      "text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "首购日后第1至90天，出现订单即复购；完整随访；购买事件=全部行",
-          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,90)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
-          "result_path": "refs/new/Q116-1.csv"
+          "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=全部行",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,7)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,7)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "result_path": "refs/new/Q116-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "Date",
+              "Float64"
+            ]
+          }
         },
         {
-          "interpretation": "首购日计入90日窗；去重订单数至少2才复购；完整随访；购买事件=全部行",
-          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,89)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>=c.first_date AND f.DateKey<=addDays(c.first_date,89)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>1)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
-          "result_path": "refs/new/Q116-2.csv"
-        },
-        {
-          "interpretation": "首购日后第1至90天，出现订单即复购；完整随访；购买事件=SalesQuantity>0；亦覆盖：首购日计入90日窗；去重订单数至少2才复购；完整随访（正销量结果相同）",
-          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey\nHAVING addDays(first_date,90)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
-          "result_path": "refs/new/Q116-3.csv",
+          "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=SalesQuantity>0",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey\nHAVING addDays(first_date,7)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,7)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "result_path": "refs/new/Q116-2.csv",
           "rules": {
             "ordered": false,
             "top_n": null,
@@ -847,7 +964,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n仅完整随访；不完整观察者排除，不直接判未复购；首购当日订单是否计入须声明。\n仅完整随访；不完整观察者排除，不直接判未复购；首购当日订单是否计入须声明。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购分群、客户级复购事件、完整随访和分组比率；缩短明确观察窗，避免90天复购率全满。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {

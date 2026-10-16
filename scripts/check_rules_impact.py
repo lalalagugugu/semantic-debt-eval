@@ -144,6 +144,8 @@ def main():
     previous_outcomes={(r['system'],r['question_id']):r['combined'] for r in json.loads(args.previous_impact.read_text())['records']} if args.previous_impact else {}
     regression_keys={(r['system'],r['question_id']) for r in json.loads((REPO/'audit/T05-final-reference-delta.json').read_text())['records']}
     for rec in previous_records.values():
+        if rec['question_id'] not in {q['id'] for q in previous_questions.values()}:
+            continue  # This 600-candidate audit only consumes external references.
         if hashlib.sha256((REPO/rec['result_path']).read_bytes()).hexdigest()!=rec['sha256']:
             raise ValueError('pre-ruling reference CSV changed: '+rec['result_path'])
     clean = json.loads(args.clean_baseline.read_text())

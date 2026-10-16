@@ -1,0 +1,1641 @@
+{
+  "scope": "Q101-Q122 only; data and reference inputs, no model outputs or published system answers",
+  "revision": "5402622",
+  "questions_scanned": 22,
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "question_sha256": "1069ca83ff78b3609e2a505b6200e9eff5101e3136999c19e2bc5464ce4fcda0",
+  "hits": [
+    "Q109",
+    "Q112",
+    "Q113",
+    "Q114",
+    "Q116"
+  ],
+  "records": [
+    {
+      "question_id": "Q101",
+      "question": "上季度的GMV是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q101-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "GMV",
+              "kind": "amount",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 210717984.69820136,
+              "maximum": 210717984.69820136
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q102",
+      "question": "今年各产品品类的净销售额是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q102-1.csv",
+          "row_count": 9,
+          "measure_profile": [
+            {
+              "column": "net_sales_amount",
+              "kind": "amount",
+              "distinct": 9,
+              "non_null": 9,
+              "minimum": 2052669.3716962954,
+              "maximum": 278141919.86599535
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q102-2.csv",
+          "row_count": 8,
+          "measure_profile": [
+            {
+              "column": "net_sales_amount",
+              "kind": "amount",
+              "distinct": 8,
+              "non_null": 8,
+              "minimum": 2052669.3716962954,
+              "maximum": 278141919.86599535
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q103",
+      "question": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q103-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "orders",
+              "kind": "count",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 29138,
+              "maximum": 29138
+            },
+            {
+              "column": "sales_share_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 96.70503602086413,
+              "maximum": 96.70503602086413
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q104",
+      "question": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q104-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "sales_change_amount",
+              "kind": "amount",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 60227.75399908982,
+              "maximum": 60227.75399908982
+            },
+            {
+              "column": "margin_change_amount",
+              "kind": "amount",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": -39676.86599991168,
+              "maximum": -39676.86599991168
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q105",
+      "question": "西雅图2号店2009年卖了多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q105-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "sales_amount",
+              "kind": "amount",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 5829718.989499999,
+              "maximum": 5829718.989499999
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q106",
+      "question": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q106-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "growth_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": -21.224444248449437,
+              "maximum": -21.224444248449437
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q107",
+      "question": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q107-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "net_sales_share_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 49.95951985907235,
+              "maximum": 49.95951985907235
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q108",
+      "question": "2009年各国家的营收和订单数是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q108-1.csv",
+          "row_count": 29,
+          "measure_profile": [
+            {
+              "column": "sales_amount",
+              "kind": "amount",
+              "distinct": 29,
+              "non_null": 29,
+              "minimum": 5951657.930501459,
+              "maximum": 302075029.7062163
+            },
+            {
+              "column": "orders",
+              "kind": "count",
+              "distinct": 29,
+              "non_null": 29,
+              "minimum": 97,
+              "maximum": 80606
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q109",
+      "question": "今年节假日和平日的日均销售额，各比去年增长了百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q109-1.csv",
+          "row_count": 2,
+          "measure_profile": [
+            {
+              "column": "daily_sales_growth_pct",
+              "kind": "percentage",
+              "distinct": 2,
+              "non_null": 2,
+              "minimum": 0.9538099213382445,
+              "maximum": 1.332778131982315
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": [
+        {
+          "reference": "refs/new/Q109-1.csv",
+          "replacement": "holiday replaced by weekend",
+          "replacement_sql": "WITH daily AS (\nSELECT d.DateKey AS day,if(d.IsWorkDay='WeekEnd','Yes','No') AS holiday,toYear(d.DateKey) AS y,sum(f.SalesAmount) AS day_sales\nFROM retail.DimDate d LEFT JOIN retail.FactOnlineSales f ON d.DateKey=f.DateKey\nWHERE toYear(d.DateKey) IN (2008,2009) GROUP BY day,holiday,y)\nSELECT holiday,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct\nFROM daily GROUP BY holiday",
+          "equal": true,
+          "original_rows": [
+            [
+              "No",
+              1.332778131982315
+            ],
+            [
+              "Yes",
+              0.9538099213382445
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "Yes",
+              0.9538099213382445
+            ],
+            [
+              "No",
+              1.332778131982315
+            ]
+          ]
+        }
+      ],
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": [
+        "B"
+      ]
+    },
+    {
+      "question_id": "Q110",
+      "question": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "A": [
+        {
+          "reference": "refs/new/Q110-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "share_2008_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 22.792894225619065,
+              "maximum": 22.792894225619065
+            },
+            {
+              "column": "share_2009_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 25.428536064057486,
+              "maximum": 25.428536064057486
+            },
+            {
+              "column": "change_pp",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 2.6356418384384206,
+              "maximum": 2.6356418384384206
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q111",
+      "question": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q111-1.csv",
+          "row_count": 306,
+          "measure_profile": [
+            {
+              "column": "ytd_attainment_pct",
+              "kind": "percentage",
+              "distinct": 3,
+              "non_null": 306,
+              "minimum": 118.4497917264121,
+              "maximum": 122.03886895221822
+            },
+            {
+              "column": "annual_attainment_pct",
+              "kind": "percentage",
+              "distinct": 304,
+              "non_null": 306,
+              "minimum": 29.50385843603598,
+              "maximum": 95.88152806304885
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q112",
+      "question": "2009年，每位门店经理手下有多少家门店未完成销售目标？这些门店的目标缺口合计是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q112-1.csv",
+          "row_count": 262,
+          "measure_profile": [
+            {
+              "column": "under_target_stores",
+              "kind": "count",
+              "distinct": 1,
+              "non_null": 262,
+              "minimum": 0,
+              "maximum": 0
+            },
+            {
+              "column": "shortfall_amount",
+              "kind": "amount",
+              "distinct": 0,
+              "non_null": 0,
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "hits": [
+            "all_zero_measures",
+            "constant_measure_vector"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "Q113",
+      "question": "2009年各门店有哪些连续至少3个月未完成销售目标的时段？列出起止月份和连续月数。",
+      "A": [
+        {
+          "reference": "refs/new/Q113-1.csv",
+          "row_count": 0,
+          "measure_profile": [
+            {
+              "column": "months",
+              "kind": "count",
+              "distinct": 0,
+              "non_null": 0,
+              "minimum": null,
+              "maximum": null
+            }
+          ],
+          "hits": [
+            "empty"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "Q114",
+      "question": "以2009年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q114-1.csv",
+          "row_count": 12,
+          "measure_profile": [
+            {
+              "column": "new_customers",
+              "kind": "count",
+              "distinct": 2,
+              "non_null": 12,
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q114-2.csv",
+          "row_count": 12,
+          "measure_profile": [
+            {
+              "column": "new_customers",
+              "kind": "count",
+              "distinct": 1,
+              "non_null": 12,
+              "minimum": 0,
+              "maximum": 0
+            }
+          ],
+          "hits": [
+            "all_zero_measures",
+            "constant_measure_vector"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": [
+        {
+          "reference": "refs/new/Q114-1.csv",
+          "replacement": "new means active in the window",
+          "replacement_sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countDistinctIf(f.CustomerKey,f.DateKey>=addDays(c.cutoff,-89) AND f.DateKey<=c.cutoff) AS new_customers FROM retail.FactOnlineSales f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "equal": false,
+          "original_rows": [
+            [
+              "2009-01-31",
+              0
+            ],
+            [
+              "2009-02-28",
+              0
+            ],
+            [
+              "2009-03-31",
+              0
+            ],
+            [
+              "2009-04-30",
+              0
+            ],
+            [
+              "2009-05-31",
+              0
+            ],
+            [
+              "2009-06-30",
+              0
+            ],
+            [
+              "2009-07-31",
+              0
+            ],
+            [
+              "2009-08-31",
+              0
+            ],
+            [
+              "2009-09-30",
+              0
+            ],
+            [
+              "2009-10-31",
+              0
+            ],
+            [
+              "2009-11-30",
+              0
+            ],
+            [
+              "2009-12-31",
+              1
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "2009-01-31",
+              18620
+            ],
+            [
+              "2009-02-28",
+              18613
+            ],
+            [
+              "2009-03-31",
+              17701
+            ],
+            [
+              "2009-04-30",
+              16857
+            ],
+            [
+              "2009-05-31",
+              16328
+            ],
+            [
+              "2009-06-30",
+              16092
+            ],
+            [
+              "2009-07-31",
+              15911
+            ],
+            [
+              "2009-08-31",
+              16839
+            ],
+            [
+              "2009-09-30",
+              16836
+            ],
+            [
+              "2009-10-31",
+              16824
+            ],
+            [
+              "2009-11-30",
+              16819
+            ],
+            [
+              "2009-12-31",
+              16814
+            ]
+          ]
+        },
+        {
+          "reference": "refs/new/Q114-2.csv",
+          "replacement": "new means active in the window",
+          "replacement_sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countDistinctIf(f.CustomerKey,f.DateKey>=addDays(c.cutoff,-90) AND f.DateKey<c.cutoff) AS new_customers FROM retail.FactOnlineSales f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "equal": false,
+          "original_rows": [
+            [
+              "2009-01-31",
+              0
+            ],
+            [
+              "2009-02-28",
+              0
+            ],
+            [
+              "2009-03-31",
+              0
+            ],
+            [
+              "2009-04-30",
+              0
+            ],
+            [
+              "2009-05-31",
+              0
+            ],
+            [
+              "2009-06-30",
+              0
+            ],
+            [
+              "2009-07-31",
+              0
+            ],
+            [
+              "2009-08-31",
+              0
+            ],
+            [
+              "2009-09-30",
+              0
+            ],
+            [
+              "2009-10-31",
+              0
+            ],
+            [
+              "2009-11-30",
+              0
+            ],
+            [
+              "2009-12-31",
+              0
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "2009-01-31",
+              18620
+            ],
+            [
+              "2009-02-28",
+              18611
+            ],
+            [
+              "2009-03-31",
+              17702
+            ],
+            [
+              "2009-04-30",
+              16858
+            ],
+            [
+              "2009-05-31",
+              16329
+            ],
+            [
+              "2009-06-30",
+              16062
+            ],
+            [
+              "2009-07-31",
+              15882
+            ],
+            [
+              "2009-08-31",
+              16839
+            ],
+            [
+              "2009-09-30",
+              16836
+            ],
+            [
+              "2009-10-31",
+              16825
+            ],
+            [
+              "2009-11-30",
+              16819
+            ],
+            [
+              "2009-12-31",
+              16812
+            ]
+          ]
+        }
+      ],
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "Q115",
+      "question": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "A": [
+        {
+          "reference": "refs/new/Q115-1.csv",
+          "row_count": 9,
+          "measure_profile": [
+            {
+              "column": "customers",
+              "kind": "count",
+              "distinct": 7,
+              "non_null": 9,
+              "minimum": 0,
+              "maximum": 16751
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q115-2.csv",
+          "row_count": 9,
+          "measure_profile": [
+            {
+              "column": "customers",
+              "kind": "count",
+              "distinct": 7,
+              "non_null": 9,
+              "minimum": 0,
+              "maximum": 16750
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": [
+        {
+          "reference": "refs/new/Q115-1.csv",
+          "replacement": "cohort means active during 2008",
+          "replacement_sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM retail.FactOnlineSales GROUP BY CustomerKey HAVING countIf(DateKey>=toDate('2008-01-01') AND DateKey<=toDate('2008-12-31'))>0),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
+          "equal": false,
+          "original_rows": [
+            [
+              "已流失",
+              "已流失",
+              5
+            ],
+            [
+              "已流失",
+              "有流失风险",
+              0
+            ],
+            [
+              "已流失",
+              "活跃",
+              138
+            ],
+            [
+              "有流失风险",
+              "已流失",
+              45
+            ],
+            [
+              "有流失风险",
+              "有流失风险",
+              0
+            ],
+            [
+              "有流失风险",
+              "活跃",
+              0
+            ],
+            [
+              "活跃",
+              "已流失",
+              88
+            ],
+            [
+              "活跃",
+              "有流失风险",
+              1841
+            ],
+            [
+              "活跃",
+              "活跃",
+              16751
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "已流失",
+              "有流失风险",
+              0
+            ],
+            [
+              "已流失",
+              "活跃",
+              0
+            ],
+            [
+              "已流失",
+              "已流失",
+              0
+            ],
+            [
+              "有流失风险",
+              "活跃",
+              0
+            ],
+            [
+              "活跃",
+              "有流失风险",
+              1841
+            ],
+            [
+              "活跃",
+              "已流失",
+              88
+            ],
+            [
+              "有流失风险",
+              "有流失风险",
+              0
+            ],
+            [
+              "活跃",
+              "活跃",
+              16751
+            ],
+            [
+              "有流失风险",
+              "已流失",
+              43
+            ]
+          ]
+        },
+        {
+          "reference": "refs/new/Q115-2.csv",
+          "replacement": "cohort means active during 2008",
+          "replacement_sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey HAVING countIf(DateKey>=toDate('2008-01-01') AND DateKey<=toDate('2008-12-31'))>0),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
+          "equal": false,
+          "original_rows": [
+            [
+              "已流失",
+              "已流失",
+              5
+            ],
+            [
+              "已流失",
+              "有流失风险",
+              0
+            ],
+            [
+              "已流失",
+              "活跃",
+              138
+            ],
+            [
+              "有流失风险",
+              "已流失",
+              45
+            ],
+            [
+              "有流失风险",
+              "有流失风险",
+              0
+            ],
+            [
+              "有流失风险",
+              "活跃",
+              0
+            ],
+            [
+              "活跃",
+              "已流失",
+              89
+            ],
+            [
+              "活跃",
+              "有流失风险",
+              1841
+            ],
+            [
+              "活跃",
+              "活跃",
+              16750
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "已流失",
+              "有流失风险",
+              0
+            ],
+            [
+              "已流失",
+              "活跃",
+              0
+            ],
+            [
+              "已流失",
+              "已流失",
+              0
+            ],
+            [
+              "有流失风险",
+              "活跃",
+              0
+            ],
+            [
+              "活跃",
+              "有流失风险",
+              1841
+            ],
+            [
+              "活跃",
+              "已流失",
+              89
+            ],
+            [
+              "有流失风险",
+              "有流失风险",
+              0
+            ],
+            [
+              "活跃",
+              "活跃",
+              16750
+            ],
+            [
+              "有流失风险",
+              "已流失",
+              43
+            ]
+          ]
+        }
+      ],
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q116",
+      "question": "按首购月份比较，客户在首购后90天内的复购率分别是多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q116-1.csv",
+          "row_count": 4,
+          "measure_profile": [
+            {
+              "column": "repurchase_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 4,
+              "minimum": 100.0,
+              "maximum": 100.0
+            }
+          ],
+          "hits": [
+            "all_full_ratios",
+            "constant_measure_vector"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q116-2.csv",
+          "row_count": 4,
+          "measure_profile": [
+            {
+              "column": "repurchase_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 4,
+              "minimum": 100.0,
+              "maximum": 100.0
+            }
+          ],
+          "hits": [
+            "all_full_ratios",
+            "constant_measure_vector"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q116-3.csv",
+          "row_count": 5,
+          "measure_profile": [
+            {
+              "column": "repurchase_pct",
+              "kind": "percentage",
+              "distinct": 2,
+              "non_null": 5,
+              "minimum": 99.99238733252132,
+              "maximum": 100.0
+            }
+          ],
+          "hits": [
+            "all_full_ratios"
+          ],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": [
+        {
+          "reference": "refs/new/Q116-1.csv",
+          "replacement": "first means first activity within each displayed month",
+          "replacement_sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey,toStartOfMonth(DateKey) HAVING addDays(first_date,90)<=toDate('2009-12-31') AND toStartOfMonth(first_date) IN ('2007-01-01','2007-02-01','2007-03-01','2007-04-01')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "equal": false,
+          "original_rows": [
+            [
+              "2007-01-01",
+              100.0
+            ],
+            [
+              "2007-02-01",
+              100.0
+            ],
+            [
+              "2007-03-01",
+              100.0
+            ],
+            [
+              "2007-04-01",
+              100.0
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "2007-01-01",
+              100
+            ],
+            [
+              "2007-02-01",
+              99.88985357004017
+            ],
+            [
+              "2007-03-01",
+              99.8369153707263
+            ],
+            [
+              "2007-04-01",
+              100
+            ]
+          ]
+        },
+        {
+          "reference": "refs/new/Q116-2.csv",
+          "replacement": "first means first activity within each displayed month",
+          "replacement_sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey,toStartOfMonth(DateKey) HAVING addDays(first_date,89)<=toDate('2009-12-31') AND toStartOfMonth(first_date) IN ('2007-01-01','2007-02-01','2007-03-01','2007-04-01')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>=c.first_date AND f.DateKey<=addDays(c.first_date,89)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>1)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "equal": false,
+          "original_rows": [
+            [
+              "2007-01-01",
+              100.0
+            ],
+            [
+              "2007-02-01",
+              100.0
+            ],
+            [
+              "2007-03-01",
+              100.0
+            ],
+            [
+              "2007-04-01",
+              100.0
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "2007-01-01",
+              100
+            ],
+            [
+              "2007-02-01",
+              99.88985357004017
+            ],
+            [
+              "2007-03-01",
+              99.8369153707263
+            ],
+            [
+              "2007-04-01",
+              100
+            ]
+          ]
+        },
+        {
+          "reference": "refs/new/Q116-3.csv",
+          "replacement": "first means first activity within each displayed month",
+          "replacement_sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey,toStartOfMonth(DateKey) HAVING addDays(first_date,90)<=toDate('2009-12-31') AND toStartOfMonth(first_date) IN ('2007-01-01','2007-02-01','2007-03-01','2007-04-01','2007-05-01')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "equal": false,
+          "original_rows": [
+            [
+              "2007-01-01",
+              99.99238733252132
+            ],
+            [
+              "2007-02-01",
+              100.0
+            ],
+            [
+              "2007-03-01",
+              100.0
+            ],
+            [
+              "2007-04-01",
+              100.0
+            ],
+            [
+              "2007-05-01",
+              100.0
+            ]
+          ],
+          "replacement_rows": [
+            [
+              "2007-01-01",
+              99.99238733252132
+            ],
+            [
+              "2007-02-01",
+              99.88333657398405
+            ],
+            [
+              "2007-03-01",
+              99.84262065749591
+            ],
+            [
+              "2007-04-01",
+              99.99420289855072
+            ],
+            [
+              "2007-05-01",
+              99.75208838587982
+            ]
+          ]
+        }
+      ],
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": [
+        "A"
+      ]
+    },
+    {
+      "question_id": "Q117",
+      "question": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "A": [
+        {
+          "reference": "refs/new/Q117-1.csv",
+          "row_count": 3,
+          "measure_profile": [
+            {
+              "column": "decline_pct",
+              "kind": "percentage",
+              "distinct": 3,
+              "non_null": 3,
+              "minimum": 35.10773394186971,
+              "maximum": 38.46518884040412
+            },
+            {
+              "column": "decline_amount",
+              "kind": "amount",
+              "distinct": 3,
+              "non_null": 3,
+              "minimum": 803528.9124999995,
+              "maximum": 978662.5744999966
+            },
+            {
+              "column": "contribution_pct",
+              "kind": "percentage",
+              "distinct": 3,
+              "non_null": 3,
+              "minimum": 28.024726612510754,
+              "maximum": 34.02666888536682
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": [
+        {
+          "stage": 0,
+          "groups_checked": 1,
+          "n": 3,
+          "maximum_boundary_members": 1,
+          "minimum_distinct_sort_keys_in_full_domain": 266,
+          "maximum_distinct_sort_keys_in_full_domain": 266
+        },
+        {
+          "stage": 1,
+          "groups_checked": 3,
+          "n": 1,
+          "maximum_boundary_members": 1,
+          "minimum_distinct_sort_keys_in_full_domain": 9,
+          "maximum_distinct_sort_keys_in_full_domain": 9
+        }
+      ],
+      "hits": []
+    },
+    {
+      "question_id": "Q118",
+      "question": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "A": [
+        {
+          "reference": "refs/new/Q118-1.csv",
+          "row_count": 1,
+          "measure_profile": [
+            {
+              "column": "sales_amount",
+              "kind": "amount",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 225348067.62009943,
+              "maximum": 225348067.62009943
+            },
+            {
+              "column": "share_pct",
+              "kind": "percentage",
+              "distinct": 1,
+              "non_null": 1,
+              "minimum": 26.272671451170382,
+              "maximum": 26.272671451170382
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": [
+        {
+          "n": 225,
+          "domain_products": 2244,
+          "distinct_sort_keys": 2244,
+          "boundary_members": 1,
+          "nth_key": "902946.76"
+        }
+      ],
+      "hits": []
+    },
+    {
+      "question_id": "Q119",
+      "question": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "A": [
+        {
+          "reference": "refs/new/Q119-1.csv",
+          "row_count": 310,
+          "measure_profile": [
+            {
+              "column": "product_sales",
+              "kind": "amount",
+              "distinct": 249,
+              "non_null": 310,
+              "minimum": 37485.0,
+              "maximum": 1415835.5755
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q119-2.csv",
+          "row_count": 310,
+          "measure_profile": [
+            {
+              "column": "product_sales",
+              "kind": "amount",
+              "distinct": 249,
+              "non_null": 310,
+              "minimum": 37485.0,
+              "maximum": 1415835.5755
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": [
+        {
+          "stage": 0,
+          "groups_checked": 306,
+          "n": 1,
+          "maximum_boundary_members": 2,
+          "minimum_distinct_sort_keys_in_full_domain": 480,
+          "maximum_distinct_sort_keys_in_full_domain": 2504
+        }
+      ],
+      "hits": []
+    },
+    {
+      "question_id": "Q120",
+      "question": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "A": [
+        {
+          "reference": "refs/new/Q120-1.csv",
+          "row_count": 6,
+          "measure_profile": [
+            {
+              "column": "customers",
+              "kind": "count",
+              "distinct": 6,
+              "non_null": 6,
+              "minimum": 2361,
+              "maximum": 17810
+            },
+            {
+              "column": "income_sales_corr",
+              "kind": "ratio",
+              "distinct": 6,
+              "non_null": 6,
+              "minimum": 0.6446699885861029,
+              "maximum": 0.6960452699170914
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q121",
+      "question": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "A": [
+        {
+          "reference": "refs/new/Q121-1.csv",
+          "row_count": 9,
+          "measure_profile": [
+            {
+              "column": "monthly_sales_amount",
+              "kind": "amount",
+              "distinct": 9,
+              "non_null": 9,
+              "minimum": 171433.15708333877,
+              "maximum": 23517620.6369926
+            },
+            {
+              "column": "coefficient_ratio",
+              "kind": "ratio",
+              "distinct": 9,
+              "non_null": 9,
+              "minimum": 0.110087847962973,
+              "maximum": 0.2633818684431201
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q121-2.csv",
+          "row_count": 9,
+          "measure_profile": [
+            {
+              "column": "monthly_sales_amount",
+              "kind": "amount",
+              "distinct": 9,
+              "non_null": 9,
+              "minimum": 171433.15708333877,
+              "maximum": 23517620.6369926
+            },
+            {
+              "column": "coefficient_ratio",
+              "kind": "ratio",
+              "distinct": 9,
+              "non_null": 9,
+              "minimum": 0.11498300713560951,
+              "maximum": 0.27509338967886204
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q121-3.csv",
+          "row_count": 8,
+          "measure_profile": [
+            {
+              "column": "monthly_sales_amount",
+              "kind": "amount",
+              "distinct": 8,
+              "non_null": 8,
+              "minimum": 171433.15708333877,
+              "maximum": 23517620.6369926
+            },
+            {
+              "column": "coefficient_ratio",
+              "kind": "ratio",
+              "distinct": 8,
+              "non_null": 8,
+              "minimum": 0.110087847962973,
+              "maximum": 0.2633818684431201
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q121-4.csv",
+          "row_count": 8,
+          "measure_profile": [
+            {
+              "column": "monthly_sales_amount",
+              "kind": "amount",
+              "distinct": 8,
+              "non_null": 8,
+              "minimum": 171433.15708333877,
+              "maximum": 23517620.6369926
+            },
+            {
+              "column": "coefficient_ratio",
+              "kind": "ratio",
+              "distinct": 8,
+              "non_null": 8,
+              "minimum": 0.11498300713560951,
+              "maximum": 0.27509338967886204
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    },
+    {
+      "question_id": "Q122",
+      "question": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "A": [
+        {
+          "reference": "refs/new/Q122-1.csv",
+          "row_count": 207046,
+          "measure_profile": [
+            {
+              "column": "support_ratio",
+              "kind": "ratio",
+              "distinct": 18,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 4.496521808130769e-05
+            },
+            {
+              "column": "confidence_1_to_2_ratio",
+              "kind": "ratio",
+              "distinct": 896,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 0.21621621621621623
+            },
+            {
+              "column": "confidence_2_to_1_ratio",
+              "kind": "ratio",
+              "distinct": 834,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 0.2073170731707317
+            },
+            {
+              "column": "lift_ratio",
+              "kind": "ratio",
+              "distinct": 8305,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 1004.9707602339181
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        },
+        {
+          "reference": "refs/new/Q122-2.csv",
+          "row_count": 207046,
+          "measure_profile": [
+            {
+              "column": "support_ratio",
+              "kind": "ratio",
+              "distinct": 18,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 4.496521808130769e-05
+            },
+            {
+              "column": "confidence_1_to_2_ratio",
+              "kind": "ratio",
+              "distinct": 913,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 0.21621621621621623
+            },
+            {
+              "column": "confidence_2_to_1_ratio",
+              "kind": "ratio",
+              "distinct": 862,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 0.2073170731707317
+            },
+            {
+              "column": "lift_ratio",
+              "kind": "ratio",
+              "distinct": 8565,
+              "non_null": 207046,
+              "minimum": 0.0,
+              "maximum": 1004.9707602339181
+            }
+          ],
+          "hits": [],
+          "note": "A tests data-induced empty/zero/full/constant measure vectors; a computed single scalar is not called constant merely because it has one cell"
+        }
+      ],
+      "B": {
+        "applicable": false,
+        "reason": "no first-purchase or holiday/weekend definition in the question"
+      },
+      "C": {
+        "applicable": false,
+        "reason": "not a Top-N/quantile selection question"
+      },
+      "hits": []
+    }
+  ]
+}
