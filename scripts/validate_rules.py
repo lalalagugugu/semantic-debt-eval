@@ -36,7 +36,7 @@ def main():
              '状态：自动推断结果供用户过目；不是人工批准或T05b独立重算结论。', '',
              '逐参考rules整份覆盖题级rules；没有ref.rules时沿用题级。下表每列依次为列名、查询返回类型、量纲；[整数守卫]仅标记count且返回整数类型的列。other不享受额外atol，不因数值外观猜单位。', '',
              f'量纲策略SHA256：`{policy_hash}`。并列使用Decimal ROUND_HALF_EVEN，amount两位、percentage先除100再六位、ratio/其他数值六位。', '',
-             'Q101–Q122的现行文件仍是第一轮工件；本次规则覆盖不代表已接受的第二轮新题已经落地。第二轮需重新声明并全量重算。', '',
+             'Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新计算；这不是T05b独立pandas核验或eval-v1冻结结论。', '',
              '| 题号／参考 | ordered | 选择约束 | 列名／返回类型／推断量纲 |',
              '|---|---|---|---|']
     ordered = selected = count_guards = 0
@@ -79,7 +79,7 @@ def main():
     lines += ['', f'合计：100题、{len([r for r in records.values() if r["question_id"] in {q["id"] for q in groups[0]}])}份参考；ordered=true共{ordered}份；分组选择{selected}份参考；整数计数守卫{count_guards}列。', '',
              'Q33/Q45/Q97等judge题的示例截断不自动成为题干固定N；维持已批准的声明口径与非封闭示例，不将示例LIMIT伪装成新增的题意限制。', '',
               '类型来源：直接查询列取引擎返回元数据；Q74等后处理保留对应投影类型。Q84的abc_groups会生成新输出列，表中类型沿用T04已批准的正式后处理schema，不是原始聚合域的列类型；T05b须同时独立核对这一输出schema。', '',
-              '冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序与完整边界；第二轮新题正式落地及重算；解决数据质量审计和Q79历史证据缺口。']
+              '冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序、完整边界及已披露的参考修复；Q79按已存306成员快照独立复现成员集合，不再以历史原始行哈希追溯为门槛。']
     review = '\n'.join(lines) + '\n'
     path = REPO / 'audit/rules-backfill-review.md'
     if args.write_review:

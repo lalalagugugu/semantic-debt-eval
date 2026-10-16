@@ -1,21 +1,21 @@
-product1,product2,times_together
-Reusable Phone Screen Protector E120,Contoso Original K1m Li-Ion Standard Battery E170 Silver,7428281
-Contoso Touch Stylus Pen E150 Red,Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink,5151480
-Reusable Phone Screen Protector E120,Contoso In-Line Coupler E180 Black,4960520
-Contoso Rubberized Skin BlackBerry E100 Silver,Contoso Original K1m Li-Ion Standard Battery E170 Silver,4897921
-Contoso Touch Stylus Pen E150 Silver,Contoso Touch Stylus Pen E150 White,4376001
-Contoso Original K1m Li-Ion Standard Battery E170 Silver,Contoso In-Line Coupler E180 Silver,4051002
-Contoso Original K1m Li-Ion Standard Battery E170 White,Contoso Original K1m Li-Ion Standard Battery E170 Silver,3958500
-Cigarette Lighter Adapter for Contoso Phones E110 Black,Contoso In-Line Coupler E180 Silver,3926341
-Contoso Original K1m Li-Ion Standard Battery E170 Black,Contoso Original K1m Li-Ion Standard Battery E170 Silver,3852560
-Contoso Touch Stylus Pen E150 White,Contoso Touch Stylus Pen E150 Red,3812062
-Cigarette Lighter Adapter for Contoso Phones E110 Red,Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White,3803600
-Contoso Touch Stylus Pen E150 Black,Contoso Touch Stylus Pen E150 White,3762880
-Cigarette Lighter Adapter for Contoso Phones E110 White,Contoso In-Line Coupler E180 Silver,3717900
-Contoso Rubberized Skin BlackBerry E100 Black,Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink,3687920
-Cigarette Lighter Adapter for Contoso Phones E110 Black,Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White,3637080
-Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White,Contoso In-Line Coupler E180 White,3603602
-Contoso Touch Stylus Pen E150 Red,Contoso In-Line Coupler E180 Silver,3598540
-Contoso Touch Stylus Pen E150 Black,Contoso Original K1m Li-Ion Standard Battery E170 Black,3548044
-Cigarette Lighter Adapter for Contoso Phones E110 Black,Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver,3497100
-Cigarette Lighter Adapter for Contoso Phones E110 Black,Contoso In-Line Coupler E180 Black,3468860
+product1_key,product2_key,product1,product2,co_order_count
+153,176,"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV 16xDVD M360 Black,269201
+1052,1293,A. Datum SLR Camera X137 Grey,Contoso Telephoto Conversion Lens X400 Silver,112247
+176,864,SV 16xDVD M360 Black,\N,89887
+153,864,"Adventure Works 26"" 720p LCD HDTV M140 Silver",\N,89883
+864,896,\N,\N,89882
+176,896,SV 16xDVD M360 Black,\N,89819
+153,896,"Adventure Works 26"" 720p LCD HDTV M140 Silver",\N,89815
+66,1052,NT Bluetooth Stereo Headphones E52 Blue,A. Datum SLR Camera X137 Grey,73566
+8,1052,Contoso 4G MP3 Player E400 Silver,A. Datum SLR Camera X137 Grey,73550
+66,1293,NT Bluetooth Stereo Headphones E52 Blue,Contoso Telephoto Conversion Lens X400 Silver,73535
+8,1293,Contoso 4G MP3 Player E400 Silver,Contoso Telephoto Conversion Lens X400 Silver,73519
+8,66,Contoso 4G MP3 Player E400 Silver,NT Bluetooth Stereo Headphones E52 Blue,73505
+904,1297,\N,\N,47543
+176,1052,SV 16xDVD M360 Black,A. Datum SLR Camera X137 Grey,37572
+153,1052,"Adventure Works 26"" 720p LCD HDTV M140 Silver",A. Datum SLR Camera X137 Grey,37569
+176,1293,SV 16xDVD M360 Black,Contoso Telephoto Conversion Lens X400 Silver,37455
+153,1293,"Adventure Works 26"" 720p LCD HDTV M140 Silver",Contoso Telephoto Conversion Lens X400 Silver,37452
+66,153,NT Bluetooth Stereo Headphones E52 Blue,"Adventure Works 26"" 720p LCD HDTV M140 Silver",24678
+66,176,NT Bluetooth Stereo Headphones E52 Blue,SV 16xDVD M360 Black,24677
+8,153,Contoso 4G MP3 Player E400 Silver,"Adventure Works 26"" 720p LCD HDTV M140 Silver",24615

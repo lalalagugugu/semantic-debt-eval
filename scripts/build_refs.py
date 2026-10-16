@@ -104,7 +104,7 @@ def validate_questions(questions, source="cube"):
                 raise ValueError(f"{question['id']}: ordered result requires final SQL ordering")
             if not isinstance(rules["value_kinds"], list) or not rules["value_kinds"] or len(rules["value_types"]) != len(rules["value_kinds"]):
                 raise ValueError(f"{question['id']}: references require complete kinds/types")
-            if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3", "selection"}:
+            if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3", "selection", "baseline_top_decile", "product_rank_competition", "product_rank_dense"}:
                 raise ValueError(f"{question['id']}: invalid postprocess")
             if not re.fullmatch(r"refs/[A-Za-z0-9/_-]+\.csv", ref["result_path"]):
                 raise ValueError("invalid reference path")
@@ -171,6 +171,37 @@ def postprocess_reference(method, meta, rows, policy):
     def quantized(row, name):
         column = meta[positions[name]]
         return policy.quantize_tie(value(row, name), policy.infer_value_kind(name, column["type"]))
+    if method == "baseline_top_decile":
+        boundary = exact_percentile([quantized(row, "base_sales") for row in rows])
+        selected = [row for row in rows if quantized(row, "base_sales") >= boundary]
+        amount = sum(value(row, "sales_amount") for row in selected)
+        total = value(rows[0], "total_sales")
+        output = [[amount, amount * 100.0 / total if total else None]]
+        return [meta[positions[name]] for name in ("sales_amount", "share_pct")], output, {"domain_rows": len(rows), "selected_products": len(selected), "base_sales_p90": str(boundary), "percentile_method": "exact linear interpolation at (n-1)*0.9", "selected_product_keys": [value(row, "ProductKey") for row in selected]}
+    if method in {"product_rank_competition", "product_rank_dense"}:
+        amounts = {}
+        for row in rows:
+            key = value(row, "ProductKey")
+            amount = quantized(row, "global_sales")
+            if key in amounts and amounts[key] != amount:
+                raise ValueError("product global sales inconsistent across stores")
+            amounts[key] = amount
+        groups = defaultdict(list)
+        for key, amount in amounts.items():
+            groups[amount].append(key)
+        ranks = {}
+        offset = 1
+        for dense_rank, (_, keys) in enumerate(sorted(groups.items(), reverse=True), 1):
+            for key in keys:
+                ranks[key] = dense_rank if method == "product_rank_dense" else offset
+            offset += len(keys)
+        keep = [i for i, column in enumerate(meta) if column["name"] != "global_sales"]
+        output = []
+        for row in rows:
+            row = list(row)
+            row[positions["global_rank"]] = ranks[value(row, "ProductKey")]
+            output.append([row[i] for i in keep])
+        return [meta[i] for i in keep], output, {"domain_rows": len(rows), "products": len(amounts), "rank_method": method, "quantized_ranking": True}
     if method == "abc_groups":
         groups = defaultdict(list)
         for row in rows:

@@ -8,13 +8,13 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT sum(SalesAmount) AS GMV FROM retail.FactOnlineSales WHERE DateKey >= '2009-10-01' AND DateKey < '2010-01-01'",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT sum(SalesAmount) AS GMV FROM retail.FactOnlineSales WHERE DateKey>='2009-10-01' AND DateKey<'2010-01-01'",
           "result_path": "refs/new/Q101-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "今天为2009-12-31，上季度为2009Q4；未说明渠道默认线上。GMV为销售额，不扣退货。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\nGMV、默认线上及相对季度按企业约定，不在问句解释。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -50,18 +50,18 @@
     {
       "id": "Q102",
       "source": "new",
-      "text_en": "What is net sales by product category this year?",
+      "text_en": "What was net sales by product category this year?",
       "text_zh": "今年各产品品类的净销售额是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount-s.ReturnAmount) AS `净销售额` FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory sc ON p.ProductSubcategoryKey=sc.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON sc.ProductCategoryKey=pc.ProductCategoryKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY pc.ProductCategoryName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category",
           "result_path": "refs/new/Q102-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "今年为2009；净销售额=销售额-退货金额。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -92,7 +92,7 @@
           "amount"
         ],
         "value_types": [
-          "String",
+          "Nullable(String)",
           "Float64"
         ]
       }
@@ -100,24 +100,26 @@
     {
       "id": "Q103",
       "source": "new",
-      "text_en": "What was sales revenue per distinct order in 2009?",
-      "text_zh": "2009年平均每张订单贡献多少销售额？",
+      "text_en": "How many 2009 orders exceeded USD 1,000, and what percentage of annual sales did they contribute?",
+      "text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT sum(SalesAmount)/nullIf(uniqExact(SalesOrderNumber),0) AS avg_order_amount FROM retail.FactOnlineSales WHERE DateKey >= '2009-01-01' AND DateKey < '2010-01-01'",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH orders AS (\nSELECT SalesOrderNumber,sum(SalesAmount) AS order_sales FROM retail.FactOnlineSales\nWHERE toYear(DateKey)=2009 GROUP BY SalesOrderNumber)\nSELECT countIf(order_sales>1000) AS orders,\nsumIf(order_sales,order_sales>1000)*100.0/nullIf(sum(order_sales),0) AS sales_share_pct FROM orders",
           "result_path": "refs/new/Q103-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "订单按SalesOrderNumber去重；不是销售记录均值。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n先聚成订单再筛1000美元；分母包含全年全部订单，不能筛单条销售记录。",
       "labels": {
-        "q_level": "Q2",
+        "q_level": "Q3",
         "complexity_source": {
-          "primary": "组合比率",
+          "primary": "多步依赖",
           "items": [
+            "多步依赖",
             "组合比率",
+            "实体级派生属性",
             "筛选"
           ]
         },
@@ -137,9 +139,11 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "amount"
+          "count",
+          "percentage"
         ],
         "value_types": [
+          "UInt64",
           "Nullable(Float64)"
         ]
       }
@@ -147,24 +151,26 @@
     {
       "id": "Q104",
       "source": "new",
-      "text_en": "What were monthly gross profit and gross margin percentage this year?",
-      "text_zh": "今年每个月卖货的毛利额和毛利率各是多少？",
+      "text_en": "Which categories increased revenue but decreased gross profit from 2008 to 2009, and by how much?",
+      "text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT toMonth(s.DateKey) AS month, sum(s.SalesAmount-s.TotalCost) AS profit, sum(s.SalesAmount-s.TotalCost)*100/nullIf(sum(s.SalesAmount),0) AS margin_pct FROM retail.FactOnlineSales s WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY month",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS sales_change_amount,\nsumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2008) AS margin_change_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009)\nGROUP BY category HAVING sales_change_amount>0 AND margin_change_amount<0",
           "result_path": "refs/new/Q104-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "毛利=销售额-总成本；毛利率输出百分点，不用退货替代成本。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
-          "primary": "组合比率",
+          "primary": "组合增长累计占比排名",
           "items": [
+            "组合增长累计占比排名",
             "组合比率",
+            "关联路径",
             "筛选"
           ]
         },
@@ -186,30 +192,30 @@
         "value_kinds": [
           "other",
           "amount",
-          "percentage"
+          "amount"
         ],
         "value_types": [
-          "UInt8",
+          "Nullable(String)",
           "Float64",
-          "Nullable(Float64)"
+          "Float64"
         ]
       }
     },
     {
       "id": "Q105",
       "source": "new",
-      "text_en": "What were last-month sales for Contoso Miami No.1 and No.2 stores, separately?",
-      "text_zh": "迈阿密的Contoso 1号店和2号店上个月各卖了多少？请分别列出门店全名和销售额。",
+      "text_en": "What were 2009 sales at Seattle No.2 Store?",
+      "text_zh": "西雅图2号店2009年卖了多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT d.StoreName,sum(s.SalesAmount) AS sales_amount FROM retail.FactSales s JOIN retail.DimStore d ON s.StoreKey=d.StoreKey WHERE d.StoreName IN ('Contoso Miami No.1 Store','Contoso Miami No.2 Store') AND s.DateKey >= '2009-11-01' AND s.DateKey < '2009-12-01' GROUP BY d.StoreName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT sum(f.SalesAmount) AS sales_amount FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey WHERE s.StoreName='Contoso Seattle No.2 Store' AND toYear(f.DateKey)=2009",
           "result_path": "refs/new/Q105-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "今天2009-12-31，上一完整月份为11月；门店对象用全渠道，不合并同城两店。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n指定唯一门店，全渠道。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -235,11 +241,9 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
           "amount"
         ],
         "value_types": [
-          "String",
           "Float64"
         ]
       }
@@ -247,25 +251,27 @@
     {
       "id": "Q106",
       "source": "new",
-      "text_en": "What were December 2009 sales for Contoso Seattle No.1 and No.2 stores?",
-      "text_zh": "2009年12月，Contoso西雅图1号店和2号店各有多少销售额？",
+      "text_en": "By what percentage did total sales for all Miami stores grow from 2008 to 2009?",
+      "text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT d.StoreName,sum(s.SalesAmount) AS sales_amount FROM retail.FactSales s JOIN retail.DimStore d ON s.StoreKey=d.StoreKey WHERE d.StoreName IN ('Contoso Seattle No.1 Store','Contoso Seattle No.2 Store') AND s.DateKey >= '2009-12-01' AND s.DateKey < '2010-01-01' GROUP BY d.StoreName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT (sumIf(f.SalesAmount,toYear(f.DateKey)=2009)/nullIf(sumIf(f.SalesAmount,toYear(f.DateKey)=2008),0)-1)*100 AS growth_pct\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='Miami' AND toYear(f.DateKey) IN (2008,2009)",
           "result_path": "refs/new/Q106-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "精确门店名，不以Seattle城市筛选带入North America Reseller。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n按门店地理的CityName确定完整同城集合；先合计再算增长，不平均各店增长率。",
       "labels": {
-        "q_level": "Q1",
+        "q_level": "Q2",
         "complexity_source": {
-          "primary": "筛选",
+          "primary": "组合增长累计占比排名",
           "items": [
-            "筛选",
-            "关联路径"
+            "组合增长累计占比排名",
+            "组合比率",
+            "关联路径",
+            "筛选"
           ]
         },
         "semantic_dependency": {
@@ -284,37 +290,36 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "amount"
+          "percentage"
         ],
         "value_types": [
-          "String",
-          "Float64"
+          "Nullable(Float64)"
         ]
       }
     },
     {
       "id": "Q107",
       "source": "new",
-      "text_en": "What were monthly 2009 sales for Contoso New York No.2 Store only?",
-      "text_zh": "Contoso纽约2号店2009年每个月的销售额是多少？不要混入纽约1号店。",
+      "text_en": "What share of all New York stores net sales came from New York No.2 Store in 2009?",
+      "text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT toMonth(s.DateKey) AS month,sum(s.SalesAmount) AS sales_amount FROM retail.FactSales s JOIN retail.DimStore d ON s.StoreKey=d.StoreKey WHERE d.StoreName='Contoso New York No.2 Store' AND s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY month",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT sumIf(f.SalesAmount-f.ReturnAmount,s.StoreName='Contoso New York No.2 Store')*100.0/nullIf(sum(f.SalesAmount-f.ReturnAmount),0) AS net_sales_share_pct\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='New York' AND toYear(f.DateKey)=2009",
           "result_path": "refs/new/Q107-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "门店对象用全渠道；只匹配No.2。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n分子和分母均用全渠道净额；城市按门店地理，不从店名猜集合。",
       "labels": {
-        "q_level": "Q1",
+        "q_level": "Q2",
         "complexity_source": {
-          "primary": "筛选",
+          "primary": "组合比率",
           "items": [
-            "筛选",
-            "关联路径"
+            "组合比率",
+            "关联路径",
+            "筛选"
           ]
         },
         "semantic_dependency": {
@@ -333,36 +338,35 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "amount"
+          "percentage"
         ],
         "value_types": [
-          "UInt8",
-          "Float64"
+          "Nullable(Float64)"
         ]
       }
     },
     {
       "id": "Q108",
       "source": "new",
-      "text_en": "What were revenue and order counts by country in 2009?",
+      "text_en": "What were 2009 revenue and order counts by country?",
       "text_zh": "2009年各国家的营收和订单数是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT g.RegionCountryName,sum(s.SalesAmount) AS revenue,uniqExact(s.SalesOrderNumber) AS orders FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY g.RegionCountryName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "SELECT if(g.GeographyKey=0,NULL,g.RegionCountryName) AS country,\nsum(f.SalesAmount) AS sales_amount,countDistinct(f.SalesOrderNumber) AS orders\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey\nLEFT JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey\nWHERE toYear(f.DateKey)=2009 GROUP BY country",
           "result_path": "refs/new/Q108-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "默认线上；地理路径经客户而非门店；订单去重。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n默认线上、客户所在地，订单去重；保留无法匹配国家的事实。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
           "primary": "关联路径",
           "items": [
             "关联路径",
+            "直接汇总",
             "筛选"
           ]
         },
@@ -387,7 +391,7 @@
           "count"
         ],
         "value_types": [
-          "String",
+          "Nullable(String)",
           "Float64",
           "UInt64"
         ]
@@ -396,18 +400,18 @@
     {
       "id": "Q109",
       "source": "new",
-      "text_en": "How much higher was average daily sales on holidays than non-holidays in 2009?",
-      "text_zh": "2009年节假日平均每天的销售额比非节假日高百分之多少？",
+      "text_en": "How did holiday and non-holiday average daily sales each grow this year versus last year?",
+      "text_zh": "今年节假日和平日的日均销售额，各比去年增长了百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH daily AS (SELECT s.DateKey AS day,d.IsHoliday AS holiday,sum(s.SalesAmount) AS daily_sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey=d.DateKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY day,holiday) SELECT (avgIf(daily_sales,holiday='Yes')/nullIf(avgIf(daily_sales,holiday='No'),0)-1)*100 AS uplift_pct FROM daily",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH daily AS (\nSELECT d.DateKey AS day,d.IsHoliday AS holiday,toYear(d.DateKey) AS y,sum(f.SalesAmount) AS day_sales\nFROM retail.DimDate d LEFT JOIN retail.FactOnlineSales f ON d.DateKey=f.DateKey\nWHERE toYear(d.DateKey) IN (2008,2009) GROUP BY day,holiday,y)\nSELECT holiday,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct\nFROM daily GROUP BY holiday",
           "result_path": "refs/new/Q109-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "先按交易日期汇总，再比较日均；2009全年销售日期须完整覆盖日期表，避免无销售日被遗漏。IsHoliday枚举在探查中核对。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整两个日历年，零销售日期保留；节假日与周末重合是数据事实，不修改日期分类。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -415,6 +419,7 @@
           "items": [
             "粒度对齐与半可加",
             "组合比率",
+            "关联路径",
             "筛选"
           ]
         },
@@ -434,9 +439,11 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
+          "other",
           "percentage"
         ],
         "value_types": [
+          "String",
           "Nullable(Float64)"
         ]
       }
@@ -444,26 +451,27 @@
     {
       "id": "Q110",
       "source": "new",
-      "text_en": "What was total discount by promotion type in 2009?",
-      "text_zh": "2009年各促销类型累计让利多少？",
+      "text_en": "What were online shares of company sales in 2008 and 2009, and the percentage-point change?",
+      "text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT p.PromotionType,sum(s.DiscountAmount) AS discount_amount FROM retail.FactOnlineSales s JOIN retail.DimPromotion p ON s.PromotionKey=p.PromotionKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' AND s.PromotionKey!=1 GROUP BY p.PromotionType",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH shares AS (\nSELECT toYear(f.DateKey) AS y,sumIf(f.SalesAmount,c.ChannelName='Online')*100.0/nullIf(sum(f.SalesAmount),0) AS online_share_pct\nFROM retail.FactSales f LEFT JOIN retail.DimChannel c ON f.channelKey=c.ChannelKey\nWHERE toYear(f.DateKey) IN (2008,2009) GROUP BY y)\nSELECT anyIf(online_share_pct,y=2008) AS share_2008_pct,\nanyIf(online_share_pct,y=2009) AS share_2009_pct,\nanyIf(online_share_pct,y=2009)-anyIf(online_share_pct,y=2008) AS change_pp FROM shares",
           "result_path": "refs/new/Q110-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "让利=折扣金额，排除PromotionKey=1；默认线上。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n混合渠道同源：分子分母均来自FactSales；不拼接线上独立事实表。",
       "labels": {
-        "q_level": "Q1",
+        "q_level": "Q2",
         "complexity_source": {
-          "primary": "直接汇总",
+          "primary": "组合比率",
           "items": [
-            "直接汇总",
-            "筛选",
-            "关联路径"
+            "组合比率",
+            "组合增长累计占比排名",
+            "关联路径",
+            "筛选"
           ]
         },
         "semantic_dependency": {
@@ -482,30 +490,32 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "amount"
+          "percentage",
+          "percentage",
+          "percentage"
         ],
         "value_types": [
-          "Nullable(String)",
-          "Float64"
+          "Nullable(Float64)",
+          "Nullable(Float64)",
+          "Nullable(Float64)"
         ]
       }
     },
     {
       "id": "Q111",
       "source": "new",
-      "text_en": "Compare strategy-plan actual revenue, budget and attainment by category in 2009.",
-      "text_zh": "按战略计划表，比较2009年各产品品类销售收入的实际数、预算数和预算达成率。",
+      "text_en": "At September 2009 month-end, what percentage of year-to-date and annual sales targets had each store achieved?",
+      "text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT pc.ProductCategoryName,sumIf(sp.Amount,sp.ScenarioKey=1) AS actual_amount,sumIf(sp.Amount,sp.ScenarioKey=2) AS budget_amount,sumIf(sp.Amount,sp.ScenarioKey=1)*100/nullIf(sumIf(sp.Amount,sp.ScenarioKey=2),0) AS attainment_pct FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey=pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey=a.AccountKey WHERE a.AccountName='Sale Revenue' AND sp.DateKey >= '2009-01-01' AND sp.DateKey < '2010-01-01' GROUP BY pc.ProductCategoryName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH actual AS (\nSELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE DateKey>='2009-01-01' AND DateKey<'2009-10-01' GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sumIf(SalesAmountQuota,DateKey<'2009-10-01') AS quota_ytd,sum(SalesAmountQuota) AS quota_year\nFROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey)\nSELECT s.StoreName,a.sales_amount*100.0/nullIf(t.quota_ytd,0) AS ytd_attainment_pct,\na.sales_amount*100.0/nullIf(t.quota_year,0) AS annual_attainment_pct\nFROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey LEFT JOIN targets t ON s.StoreKey=t.StoreKey",
           "result_path": "refs/new/Q111-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "题干明确战略计划口径：Sale Revenue，实际1、预算2；不将默认线上销售或quota替代战略计划金额。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n事实先分别聚合；同一个1至9月实际额分别除同期和全年ScenarioKey=2正式目标，零目标返回NULL。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -534,14 +544,12 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "amount",
-          "amount",
+          "percentage",
           "percentage"
         ],
         "value_types": [
           "String",
-          "Float64",
-          "Float64",
+          "Nullable(Float64)",
           "Nullable(Float64)"
         ]
       }
@@ -549,24 +557,25 @@
     {
       "id": "Q112",
       "source": "new",
-      "text_en": "Show actual sales, official sales quota and attainment by store in 2009.",
-      "text_zh": "列出各门店2009年的实际销售额、正式销售目标金额和目标达成率。",
+      "text_en": "For each store manager, how many stores missed their 2009 sales target and what was their total shortfall?",
+      "text_zh": "2009年，每位门店经理手下有多少家门店未完成销售目标？这些门店的目标缺口合计是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH actuals AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE DateKey >= '2009-01-01' AND DateKey < '2010-01-01' GROUP BY StoreKey), targets AS (SELECT StoreKey,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND DateKey >= '2009-01-01' AND DateKey < '2010-01-01' GROUP BY StoreKey) SELECT d.StoreName,a.sales_amount,t.quota_amount,a.sales_amount*100/nullIf(t.quota_amount,0) AS attainment_pct FROM actuals a JOIN targets t ON a.StoreKey=t.StoreKey JOIN retail.DimStore d ON a.StoreKey=d.StoreKey",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH actual AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\ngaps AS (SELECT s.StoreKey AS StoreKey,s.EmployeeKey AS EmployeeKey,if(e.EmployeeKey=0,NULL,concat(e.FirstName,' ',e.LastName)) AS manager,\nt.quota_amount-a.sales_amount AS gap FROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey LEFT JOIN retail.DimEmployee e ON s.EmployeeKey=e.EmployeeKey)\nSELECT EmployeeKey,manager,countIf(gap>0) AS under_target_stores,sumIf(gap,gap>0) AS shortfall_amount\nFROM gaps GROUP BY EmployeeKey,manager",
           "result_path": "refs/new/Q112-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "按门店先分别聚合actual和quota再连接，禁止事实表原粒度互连扇出；正式目标ScenarioKey=2，全渠道。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n先判店再汇总经理；超额不抵消缺口；按员工键保留缺姓名的245，不用StoreManager字符串冒充姓名。",
       "labels": {
-        "q_level": "Q2",
+        "q_level": "Q3",
         "complexity_source": {
-          "primary": "粒度对齐与半可加",
+          "primary": "多步依赖",
           "items": [
-            "粒度对齐与半可加",
+            "多步依赖",
+            "实体级派生属性",
             "组合比率",
             "关联路径",
             "筛选"
@@ -589,14 +598,14 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "amount",
-          "amount",
-          "percentage"
+          "other",
+          "count",
+          "amount"
         ],
         "value_types": [
-          "String",
-          "Float64",
           "Nullable(Float64)",
+          "Nullable(String)",
+          "UInt64",
           "Nullable(Float64)"
         ]
       }
@@ -604,23 +613,24 @@
     {
       "id": "Q113",
       "source": "new",
-      "text_en": "Show quarterly strategy-plan actual revenue, budget and variance by category in 2009.",
-      "text_zh": "按战略计划表列出2009年各季度各产品品类的实际销售收入、预算，以及实际减预算的差额。",
+      "text_en": "Which store periods lasted at least three consecutive months below sales target in 2009?",
+      "text_zh": "2009年各门店有哪些连续至少3个月未完成销售目标的时段？列出起止月份和连续月数。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "SELECT toQuarter(sp.DateKey) AS quarter,pc.ProductCategoryName,sumIf(sp.Amount,sp.ScenarioKey=1) AS actual_amount,sumIf(sp.Amount,sp.ScenarioKey=2) AS budget_amount,sumIf(sp.Amount,sp.ScenarioKey=1)-sumIf(sp.Amount,sp.ScenarioKey=2) AS variance_amount FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey=pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey=a.AccountKey WHERE a.AccountName='Sale Revenue' AND sp.DateKey >= '2009-01-01' AND sp.DateKey < '2010-01-01' GROUP BY quarter,pc.ProductCategoryName",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH actual AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,m),\ntargets AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey,m),\nmonthly AS (SELECT s.StoreKey AS StoreKey,s.StoreName AS StoreName,toUInt8(n.number+1) AS m,a.sales_amount AS sales_amount,t.quota_amount AS quota_amount\nFROM retail.DimStore s CROSS JOIN numbers(12) n LEFT JOIN actual a ON s.StoreKey=a.StoreKey AND n.number+1=a.m\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey AND n.number+1=t.m),\nunder AS (SELECT StoreKey,StoreName,m,toInt64(m)-toInt64(row_number() OVER (PARTITION BY StoreKey ORDER BY m)) AS island\nFROM monthly WHERE sales_amount<quota_amount)\nSELECT StoreName,min(m) AS start_month,max(m) AS end_month,count() AS months\nFROM under GROUP BY StoreKey,StoreName,island HAVING months>=3",
           "result_path": "refs/new/Q113-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "Sale Revenue及实际1预算2；季度内汇总金额，不对重复维度连接。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月对齐，分别聚合销售和预算目标；返回最大连续区间，不枚举重叠子区间。",
       "labels": {
-        "q_level": "Q2",
+        "q_level": "Q3",
         "complexity_source": {
-          "primary": "粒度对齐与半可加",
+          "primary": "多步依赖",
           "items": [
+            "多步依赖",
             "粒度对齐与半可加",
             "关联路径",
             "筛选"
@@ -644,39 +654,37 @@
         "value_kinds": [
           "other",
           "other",
-          "amount",
-          "amount",
-          "amount"
+          "other",
+          "count"
         ],
         "value_types": [
-          "UInt8",
           "String",
-          "Float64",
-          "Float64",
-          "Float64"
+          "UInt8",
+          "UInt8",
+          "UInt64"
         ]
       }
     },
     {
       "id": "Q114",
       "source": "new",
-      "text_en": "At each 2009 month-end, how many new customers first purchased in the last 90 days?",
+      "text_en": "At each 2009 month-end, how many customers first purchased within the last 90 days?",
       "text_zh": "以2009年每个月末为截止日，近90天内首次购买的新客各有多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "90个日历日，包含截止日：[T-89,T]",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey), cutoffs AS (SELECT addDays(addMonths(toDate('2009-01-01'),number+1),-1) AS cutoff FROM numbers(12)) SELECT c.cutoff,countIf(f.first_date BETWEEN addDays(c.cutoff,-89) AND c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "interpretation": "90个日历日，包含截止日：[T-89,T]；购买事件=全部行／正销量（结果相同）",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
           "result_path": "refs/new/Q114-1.csv"
         },
         {
-          "interpretation": "截止日前90个完整日，不含截止日：[T-90,T)",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey), cutoffs AS (SELECT addDays(addMonths(toDate('2009-01-01'),number+1),-1) AS cutoff FROM numbers(12)) SELECT c.cutoff,countIf(f.first_date >=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "interpretation": "截止日前90个完整日，不含截止日：[T-90,T)；购买事件=全部行／正销量（结果相同）",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2009-01-01'),number)) AS cutoff FROM numbers(12))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
           "result_path": "refs/new/Q114-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "近90天端点未明示，中文不补充消歧提示；拟接受两种恰为90天的窗口，待用户审阅确认。全历史计算首购；按对应截止日识别新客。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n全历史首购；不因0或满值改窗口。\n全历史首购；不因0或满值改窗口。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -715,23 +723,38 @@
     {
       "id": "Q115",
       "source": "new",
-      "text_en": "For each month of 2009, show sales from customers whose lifetime first purchase was in the last 90 days ending at month-end and their share of monthly sales.",
-      "text_zh": "2009年每个月的销售额中，有多少来自截至该月末近90天内首次购买的新客？列出新客销售额及其占该月销售额的百分比。",
+      "text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end?",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "90个日历日，包含截止日：[T-89,T]",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey), monthly AS (SELECT toStartOfMonth(s.DateKey) AS month,sum(s.SalesAmount) AS sales_amount,sumIf(s.SalesAmount,f.first_date BETWEEN addDays(toLastDayOfMonth(s.DateKey),-89) AND toLastDayOfMonth(s.DateKey)) AS new_customer_amount FROM retail.FactOnlineSales s JOIN firsts f ON s.CustomerKey=f.CustomerKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY month) SELECT month,new_customer_amount,new_customer_amount*100/nullIf(sales_amount,0) AS share_pct FROM monthly",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
+          "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM retail.FactOnlineSales GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
           "result_path": "refs/new/Q115-1.csv"
         },
         {
-          "interpretation": "截止日前90个完整日，不含截止日：[T-90,T)",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey), monthly AS (SELECT toStartOfMonth(s.DateKey) AS month,sum(s.SalesAmount) AS sales_amount,sumIf(s.SalesAmount,f.first_date >=addDays(toLastDayOfMonth(s.DateKey),-90) AND f.first_date<toLastDayOfMonth(s.DateKey)) AS new_customer_amount FROM retail.FactOnlineSales s JOIN firsts f ON s.CustomerKey=f.CustomerKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY month) SELECT month,new_customer_amount,new_customer_amount*100/nullIf(sales_amount,0) AS share_pct FROM monthly",
-          "result_path": "refs/new/Q115-2.csv"
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+          "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
+          "result_path": "refs/new/Q115-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "String",
+              "String",
+              "UInt64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "近90天端点未明示，中文不补充消歧提示；拟接受两种恰为90天的窗口，待用户审阅确认。全历史计算首购；按对应截止日识别新客。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n固定2008年末已购人群；全历史末购、各时点按月差分层；完整3×3迁移矩阵包含0格。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -739,7 +762,6 @@
           "items": [
             "实体级派生属性",
             "多步依赖",
-            "组合比率",
             "筛选"
           ]
         },
@@ -760,31 +782,54 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "amount",
-          "percentage"
+          "other",
+          "count"
         ],
         "value_types": [
-          "Date",
-          "Float64",
-          "Nullable(Float64)"
+          "String",
+          "String",
+          "UInt64"
         ]
       }
     },
     {
       "id": "Q116",
       "source": "new",
-      "text_en": "At each 2009 month-end, count purchasing customers by Active, At Risk and Churned status.",
-      "text_zh": "在2009年每个月末，把截至当时已购买过的客户按活跃、有流失风险、已流失分组，分别有多少人？",
+      "text_en": "What was the 90-day repurchase rate by lifetime first-purchase month?",
+      "text_zh": "按首购月份比较，客户在首购后90天内的复购率分别是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH cutoffs AS (SELECT addDays(addMonths(toDate('2009-01-01'),number+1),-1) AS cutoff FROM numbers(12)), recency AS (SELECT c.cutoff AS cutoff,s.CustomerKey AS customer_id,maxIf(s.DateKey,s.DateKey<=c.cutoff) AS last_date,countIf(s.DateKey<=c.cutoff) AS purchases FROM retail.FactOnlineSales s CROSS JOIN cutoffs c GROUP BY cutoff,customer_id HAVING purchases>0) SELECT cutoff,countIf(dateDiff('month',last_date,cutoff)<=6) AS active_customers,countIf(dateDiff('month',last_date,cutoff) BETWEEN 7 AND 12) AS at_risk_customers,countIf(dateDiff('month',last_date,cutoff)>12) AS churned_customers FROM recency GROUP BY cutoff",
+          "interpretation": "首购日后第1至90天，出现订单即复购；完整随访；购买事件=全部行",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,90)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
           "result_path": "refs/new/Q116-1.csv"
+        },
+        {
+          "interpretation": "首购日计入90日窗；去重订单数至少2才复购；完整随访；购买事件=全部行",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,89)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>=c.first_date AND f.DateKey<=addDays(c.first_date,89)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>1)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "result_path": "refs/new/Q116-2.csv"
+        },
+        {
+          "interpretation": "首购日后第1至90天，出现订单即复购；完整随访；购买事件=SalesQuantity>0；亦覆盖：首购日计入90日窗；去重订单数至少2才复购；完整随访（正销量结果相同）",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey\nHAVING addDays(first_date,90)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,90)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
+          "result_path": "refs/new/Q116-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "Date",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "按约定13，月差0–6、7–12、>12；只看每个截止日前购买记录，不得用未来购买判当时状态。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n仅完整随访；不完整观察者排除，不直接判未复购；首购当日订单是否计入须声明。\n仅完整随访；不完整观察者排除，不直接判未复购；首购当日订单是否计入须声明。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -792,6 +837,7 @@
           "items": [
             "实体级派生属性",
             "多步依赖",
+            "组合比率",
             "筛选"
           ]
         },
@@ -812,33 +858,29 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "count",
-          "count",
-          "count"
+          "percentage"
         ],
         "value_types": [
           "Date",
-          "UInt64",
-          "UInt64",
-          "UInt64"
+          "Float64"
         ]
       }
     },
     {
       "id": "Q117",
       "source": "new",
-      "text_en": "For same stores with declining 2009 total sales, show declining categories and their contribution to the store decline.",
-      "text_zh": "在2009年同店销售额下降的门店中，列出各店销售额也下降的产品品类、下降金额，以及该金额占门店总下降金额的百分比。",
+      "text_en": "For the three comparable stores with the greatest 2009 decline, which category contributed most to each decline?",
+      "text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH categories AS (SELECT s.StoreKey AS store_id,pc.ProductCategoryName AS category,sumIf(s.SalesAmount,toYear(s.DateKey)=2008) AS sales_2008,sumIf(s.SalesAmount,toYear(s.DateKey)=2009) AS sales_2009,countIf(toYear(s.DateKey)=2008) AS rows_2008,countIf(toYear(s.DateKey)=2009) AS rows_2009 FROM retail.FactSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory sc ON p.ProductSubcategoryKey=sc.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON sc.ProductCategoryKey=pc.ProductCategoryKey WHERE s.DateKey >= '2008-01-01' AND s.DateKey < '2010-01-01' GROUP BY store_id,category), stores AS (SELECT store_id,sum(sales_2008) AS total_2008,sum(sales_2009) AS total_2009 FROM categories GROUP BY store_id HAVING sum(rows_2008)>0 AND sum(rows_2009)>0 AND total_2009<total_2008) SELECT d.StoreName,c.category,c.sales_2008-c.sales_2009 AS decline_amount,(c.sales_2008-c.sales_2009)*100/nullIf(t.total_2008-t.total_2009,0) AS contribution_pct FROM categories c JOIN stores t ON c.store_id=t.store_id JOIN retail.DimStore d ON c.store_id=d.StoreKey WHERE c.sales_2009<c.sales_2008",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH totals AS (\nSELECT StoreKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS sales_2008,sumIf(SalesAmount,toYear(DateKey)=2009) AS sales_2009\nFROM retail.FactSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY StoreKey HAVING sales_2008>0 AND sales_2009>0 AND sales_2009<sales_2008),\ncategories AS (SELECT f.StoreKey AS StoreKey,if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2008)-sumIf(f.SalesAmount,toYear(f.DateKey)=2009) AS decline_amount\nFROM retail.FactSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009) GROUP BY f.StoreKey,category)\nSELECT t.StoreKey,s.StoreName,(t.sales_2008-t.sales_2009)*100.0/t.sales_2008 AS decline_pct,\nc.category,c.decline_amount,c.decline_amount*100.0/(t.sales_2008-t.sales_2009) AS contribution_pct\nFROM totals t JOIN categories c ON t.StoreKey=c.StoreKey LEFT JOIN retail.DimStore s ON t.StoreKey=s.StoreKey\nORDER BY decline_pct DESC,decline_amount DESC",
           "result_path": "refs/new/Q117-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "同店为两年均有销售，不要求每品类两年均有销售；缺一年品类用0。下降贡献可超过100%，因为其他品类可抵消下降。不隐含Top-N截断。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实门店分母；先按降幅选3店，再每店选下降金额最大品类，两个层级保存完整量化边界。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -847,8 +889,9 @@
             "多步依赖",
             "实体级派生属性",
             "组合比率",
-            "筛选",
-            "关联路径"
+            "关联路径",
+            "组合增长累计占比排名",
+            "筛选"
           ]
         },
         "semantic_dependency": {
@@ -863,38 +906,90 @@
       },
       "split": null,
       "rules": {
-        "ordered": false,
+        "ordered": true,
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
           "other",
           "other",
+          "percentage",
+          "other",
           "amount",
           "percentage"
         ],
         "value_types": [
-          "String",
+          "Int32",
           "String",
           "Float64",
-          "Nullable(Float64)"
-        ]
+          "Nullable(String)",
+          "Float64",
+          "Float64"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [],
+              "object_columns": [
+                0
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            },
+            {
+              "parent": 0,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 2,
+              "descending": true
+            },
+            {
+              "column": 4,
+              "descending": true
+            }
+          ]
+        }
       }
     },
     {
       "id": "Q118",
       "source": "new",
-      "text_en": "By customer country, show 2009 revenue from the 2008 acquisition cohort and its share of country revenue.",
-      "text_zh": "按客户所在国家，2009年销售额中有多少来自2008年首次购买的客户？列出这批客户的销售额及其占该国2009年销售额的百分比。",
+      "text_en": "How much 2009 sales came from the products in the top decile of 2008 sales, and what share was that?",
+      "text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT g.RegionCountryName,sumIf(s.SalesAmount,toYear(f.first_date)=2008) AS cohort_amount,sumIf(s.SalesAmount,toYear(f.first_date)=2008)*100/nullIf(sum(s.SalesAmount),0) AS cohort_share_pct FROM retail.FactOnlineSales s JOIN firsts f ON s.CustomerKey=f.CustomerKey JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY g.RegionCountryName",
-          "result_path": "refs/new/Q118-1.csv"
+          "interpretation": "遵守企业约定及题干限定口径",
+          "sql": "WITH products AS (\nSELECT ProductKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS base_sales,\nsumIf(SalesAmount,toYear(DateKey)=2009) AS future_sales,countIf(toYear(DateKey)=2008) AS base_rows\nFROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY ProductKey),\ntotal AS (SELECT sum(SalesAmount) AS total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009)\nSELECT p.ProductKey AS ProductKey,p.base_sales AS base_sales,p.future_sales AS sales_amount,t.total_sales AS total_sales,\np.future_sales*100.0/nullIf(t.total_sales,0) AS share_pct FROM products p CROSS JOIN total t WHERE p.base_rows>0",
+          "result_path": "refs/new/Q118-1.csv",
+          "postprocess": "baseline_top_decile"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "首购用全历史；按客户所在地。分母包括该国所有首购年份客户的2009销售，不是队列总额。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n基期完整产品键域，金额统一量化后精确线性插值P90，包含阈值同额；次期零销售成员保留，分母为2009全部事实。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -902,8 +997,8 @@
           "items": [
             "多步依赖",
             "实体级派生属性",
-            "关联路径",
             "组合比率",
+            "组合增长累计占比排名",
             "筛选"
           ]
         },
@@ -923,12 +1018,10 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
           "amount",
           "percentage"
         ],
         "value_types": [
-          "String",
           "Float64",
           "Nullable(Float64)"
         ]
@@ -937,26 +1030,33 @@
     {
       "id": "Q119",
       "source": "new",
-      "text_en": "For each month of 2009, show revenue from customers with at least two lifetime orders before month-start and its share.",
-      "text_zh": "2009年每个月的销售额中，有多少来自在该月开始前已经累计下过至少2笔订单的客户？列出这类客户当月销售额和占比。",
+      "text_en": "For each store, list its best-selling 2009 product and that products company-wide sales rank.",
+      "text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH starts AS (SELECT addMonths(toDate('2009-01-01'),number) AS month FROM numbers(12)), prior AS (SELECT m.month AS month,s.CustomerKey AS customer_id,uniqExactIf(s.SalesOrderNumber,s.DateKey<m.month) AS prior_orders FROM retail.FactOnlineSales s CROSS JOIN starts m GROUP BY month,customer_id), current AS (SELECT toStartOfMonth(DateKey) AS month,CustomerKey AS customer_id,sum(SalesAmount) AS sales_amount FROM retail.FactOnlineSales WHERE DateKey >= '2009-01-01' AND DateKey < '2010-01-01' GROUP BY month,customer_id) SELECT c.month,sumIf(c.sales_amount,p.prior_orders>=2) AS repeat_amount,sumIf(c.sales_amount,p.prior_orders>=2)*100/nullIf(sum(c.sales_amount),0) AS repeat_share_pct FROM current c JOIN prior p ON c.month=p.month AND c.customer_id=p.customer_id GROUP BY c.month",
-          "result_path": "refs/new/Q119-1.csv"
+          "interpretation": "声明竞赛排名1、1、3",
+          "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
+          "result_path": "refs/new/Q119-1.csv",
+          "postprocess": "product_rank_competition"
+        },
+        {
+          "interpretation": "声明稠密排名1、1、2",
+          "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
+          "result_path": "refs/new/Q119-2.csv",
+          "postprocess": "product_rank_dense"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "历史去重订单数严格在月初之前；不将本月或未来订单用于资格判定。分母为当月全部线上销售。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
           "primary": "多步依赖",
           "items": [
             "多步依赖",
-            "实体级派生属性",
-            "组合比率",
+            "关联路径",
+            "组合增长累计占比排名",
             "筛选"
           ]
         },
@@ -977,31 +1077,60 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
+          "other",
+          "other",
+          "other",
           "amount",
-          "percentage"
+          "other"
         ],
         "value_types": [
-          "Date",
+          "Int32",
+          "String",
+          "Int32",
+          "Nullable(String)",
           "Float64",
-          "Nullable(Float64)"
-        ]
+          "UInt64"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                2
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": []
+        }
       }
     },
     {
       "id": "Q120",
       "source": "new",
-      "text_en": "By gender, compute Pearson correlation of annual income with distinct brands purchased in 2009 among buyers with non-null income.",
-      "text_zh": "对2009年购买过商品且年收入不为空的客户，按性别分别计算年收入与当年购买品牌数的Pearson相关系数，并列出参与客户数。每位客户权重相同。",
+      "text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts?",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH brands AS (SELECT s.CustomerKey AS customer_id,uniqExact(p.BrandName) AS brands FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY customer_id) SELECT c.Gender,count() AS customers,corr(c.YearlyIncome,b.brands) AS correlation FROM brands b JOIN retail.DimCustomer c ON b.customer_id=c.CustomerKey WHERE c.YearlyIncome IS NOT NULL GROUP BY c.Gender",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行／正销量（结果相同）",
+          "sql": "WITH spend AS (SELECT CustomerKey,sum(SalesAmount) AS annual_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY CustomerKey),\ncustomers AS (SELECT f.CustomerKey,c.YearlyIncome AS income,c.Occupation AS occupation,f.annual_sales\nFROM spend f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey WHERE c.YearlyIncome IS NOT NULL)\nSELECT '全体' AS scope,CAST(NULL,'Nullable(String)') AS occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers\nUNION ALL SELECT '职业内',occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers GROUP BY occupation",
           "result_path": "refs/new/Q120-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "客户等权，先客户内去重品牌，再按性别计算Pearson；不是按交易行加权；只报告相关，不推断因果。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n每客户一行、等权；缺收入不参与相关，收入离群值不删除；不预设辛普森反转，不平均组内系数。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1030,10 +1159,12 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
+          "other",
           "count",
           "ratio"
         ],
         "value_types": [
+          "String",
           "Nullable(String)",
           "UInt64",
           "Nullable(Float64)"
@@ -1043,18 +1174,23 @@
     {
       "id": "Q121",
       "source": "new",
-      "text_en": "By category, correlate daily realized promotion discount ratio with daily units sold in 2009, excluding no-discount transactions.",
-      "text_zh": "按产品品类，用2009年每日促销交易计算折扣力度与销量的Pearson相关系数及观察日数。每日折扣力度=折扣金额÷（销售额+折扣金额），销量为每日销售数量；排除无折扣交易，不把相关性解释为因果。",
+      "text_en": "Compare category operating volatility using the coefficient of variation of twelve monthly sales totals in 2009.",
+      "text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH daily AS (SELECT pc.ProductCategoryName AS category,s.DateKey AS day,sum(s.DiscountAmount)/nullIf(sum(s.SalesAmount+s.DiscountAmount),0) AS discount_ratio,sum(s.SalesQuantity) AS units FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory sc ON p.ProductSubcategoryKey=sc.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON sc.ProductCategoryKey=pc.ProductCategoryKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' AND s.PromotionKey!=1 GROUP BY category,day) SELECT category,count() AS observations,corr(discount_ratio,units) AS correlation FROM daily WHERE discount_ratio IS NOT NULL GROUP BY category",
+          "interpretation": "声明总体标准差（除以12）",
+          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevPop(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
           "result_path": "refs/new/Q121-1.csv"
+        },
+        {
+          "interpretation": "声明样本标准差（除以11）",
+          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
+          "result_path": "refs/new/Q121-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "每日品类等权，只含该品类当日有促销交易且折前金额非零的日期；不填补无促销日为零，不按促销记录数加权，不声称价格弹性或因果增量。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1083,12 +1219,12 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "count",
+          "amount",
           "ratio"
         ],
         "value_types": [
-          "String",
-          "UInt64",
+          "Nullable(String)",
+          "Float64",
           "Nullable(Float64)"
         ]
       }
@@ -1096,18 +1232,44 @@
     {
       "id": "Q122",
       "source": "new",
-      "text_en": "For all unordered pairs of categories appearing in 2009 orders, show basket Jaccard similarity and intersection/union order counts.",
-      "text_zh": "对2009年的订单，按产品品类两两计算购物篮Jaccard相似度：同时含两品类的订单数÷至少含其中一品类的订单数。每个无序品类对仅一行，并列出交集、并集订单数；只纳入当年至少出现过一次的品类。",
+      "text_en": "For all pairs of Contoso products sold in 2009, report co-purchase support, both directional confidences and lift over all 2009 orders.",
+      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "题干限定口径",
-          "sql": "WITH baskets AS (SELECT s.SalesOrderNumber AS order_id,groupUniqArray(pc.ProductCategoryKey) AS cats FROM retail.FactOnlineSales s JOIN retail.DimProduct p ON s.ProductKey=p.ProductKey JOIN retail.DimProductSubcategory sc ON p.ProductSubcategoryKey=sc.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON sc.ProductCategoryKey=pc.ProductCategoryKey WHERE s.DateKey >= '2009-01-01' AND s.DateKey < '2010-01-01' GROUP BY order_id), marginal AS (SELECT cat,count() AS orders FROM (SELECT arrayJoin(cats) AS cat FROM baskets) GROUP BY cat), pairs AS (SELECT a AS category_a,b AS category_b,count() AS intersection_orders FROM (SELECT cats,arrayJoin(cats) AS a FROM baskets) ARRAY JOIN cats AS b WHERE a<b GROUP BY a,b) SELECT ca.ProductCategoryName AS category_a,cb.ProductCategoryName AS category_b,ifNull(p.intersection_orders,0) AS intersection_orders,ma.orders+mb.orders-ifNull(p.intersection_orders,0) AS union_orders,ifNull(p.intersection_orders,0)/nullIf(ma.orders+mb.orders-ifNull(p.intersection_orders,0),0) AS jaccard_ratio FROM marginal ma CROSS JOIN marginal mb LEFT JOIN pairs p ON ma.cat=p.category_a AND mb.cat=p.category_b JOIN retail.DimProductCategory ca ON ma.cat=ca.ProductCategoryKey JOIN retail.DimProductCategory cb ON mb.cat=cb.ProductCategoryKey WHERE ma.cat<mb.cat",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
           "result_path": "refs/new/Q122-1.csv"
+        },
+        {
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso' AND f.SalesQuantity>0) AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
+          "result_path": "refs/new/Q122-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "ratio",
+              "ratio",
+              "ratio",
+              "ratio"
+            ],
+            "value_types": [
+              "Int32",
+              "Int32",
+              "Float64",
+              "Float64",
+              "Float64",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "一单内重复行/重复品类只计一次；同一SalesOrderNumber为同一订单，零交集品类对也保留，分母为并集而非全部订单；不隐含Top-N。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n产品域事先限定Contoso，订单内产品去重；全体2009订单为支持度／lift分母，零共购对保留；不按结果挑产品。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1138,16 +1300,18 @@
         "value_kinds": [
           "other",
           "other",
-          "count",
-          "count",
+          "ratio",
+          "ratio",
+          "ratio",
           "ratio"
         ],
         "value_types": [
-          "String",
-          "String",
-          "UInt64",
-          "Int64",
-          "Nullable(Float64)"
+          "Int32",
+          "Int32",
+          "Float64",
+          "Float64",
+          "Float64",
+          "Float64"
         ]
       }
     }
