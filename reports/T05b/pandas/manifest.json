@@ -1,0 +1,1649 @@
+{
+ "Q01": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q01-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q02": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q02-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 1.4
+ },
+ "Q03": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q03-1.csv",
+    "rows": 1
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.6
+ },
+ "Q04": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q04-1.csv",
+    "rows": 644
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q05": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q05-1.csv",
+    "rows": 8
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q06": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q06-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q07": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q07-1.csv",
+    "rows": 14
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q08": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q08-1.csv",
+    "rows": 17
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q09": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q09-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q10": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q10-1.csv",
+    "rows": 1
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q10-2.csv",
+    "rows": 1
+   },
+   {
+    "ref": 3,
+    "mode": null,
+    "path": "Q10-3.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q11": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q11-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q12": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q12-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q13": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q13-1.csv",
+    "rows": 306
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q14": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q14-1.csv",
+    "rows": 18869
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q15": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q15-1.csv",
+    "rows": 29
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q16": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q16-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q17": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q17-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q18": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q18-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q19": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q19-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q20": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q20-1.csv",
+    "rows": 89591
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q20-2.csv",
+    "rows": 429
+   }
+  ],
+  "seconds": 0.5
+ },
+ "Q21": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q21-1.csv",
+    "rows": 600241
+   }
+  ],
+  "seconds": 0.5
+ },
+ "Q22": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q22-1.csv",
+    "rows": 65
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q23": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q23-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q24": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q24-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q25": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q25-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q26": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q26-1.all.csv",
+    "rows": 2
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q26-1.qty_pos.csv",
+    "rows": 2
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.3
+ },
+ "Q27": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q27-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q28": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q28-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q29": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q29-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q30": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q30-1.csv",
+    "rows": 31
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q31": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q31-1.csv",
+    "rows": 8
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q32": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q32-1.csv",
+    "rows": 1
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.6
+ },
+ "Q33": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q33-1.all.csv",
+    "rows": 101
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q33-1.qty_pos.csv",
+    "rows": 101
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 2.7
+ },
+ "Q34": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q34-1.csv",
+    "rows": 2504
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q35": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q35-1.csv",
+    "rows": 293
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q36": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q36-1.all.csv",
+    "rows": 3
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q36-1.qty_pos.csv",
+    "rows": 3
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.4
+ },
+ "Q37": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q37-1.csv",
+    "rows": 306
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q38": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q38-1.csv",
+    "rows": 8
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q39": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q39-1.csv",
+    "rows": 30
+   }
+  ],
+  "seconds": 1.2
+ },
+ "Q40": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q40-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q41": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q41-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q42": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q42-1.csv",
+    "rows": 3
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q42-2.csv",
+    "rows": 3
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q43": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q43-1.csv",
+    "rows": 3
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q43-2.csv",
+    "rows": 29
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q44": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q44-1.csv",
+    "rows": 3
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q44-2.csv",
+    "rows": 36
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q45": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q45-1.csv",
+    "rows": 306
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q46": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q46-1.csv",
+    "rows": 1
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q46-2.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q47": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q47-1.csv",
+    "rows": 299
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q48": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q48-1.csv",
+    "rows": 2
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q48-2.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q49": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q49-1.csv",
+    "rows": 3
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q49-2.csv",
+    "rows": 420
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q50": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q50-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q51": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q51-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q52": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q52-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q53": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q53-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q54": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q54-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q55": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q55-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q56": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q56-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q57": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q57-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q58": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q58-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q59": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q59-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q60": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q60-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q61": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q61-1.csv",
+    "rows": 30
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q62": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q62-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q63": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q63-1.csv",
+    "rows": 5
+   }
+  ],
+  "seconds": 0.5
+ },
+ "Q64": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q64-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q65": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q65-1.csv",
+    "rows": 303
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q66": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q66-1.csv",
+    "rows": 4
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q67": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q67-1.csv",
+    "rows": 18
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q68": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q68-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q69": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q69-1.csv",
+    "rows": 1
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q69-2.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.8
+ },
+ "Q70": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q70-1.csv",
+    "rows": 4
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q71": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q71-1.csv",
+    "rows": 8
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q72": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q72-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q73": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q73-1.csv",
+    "rows": 10
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q74": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q74-1.csv",
+    "rows": 925
+   }
+  ],
+  "seconds": 0.8
+ },
+ "Q75": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q75-1.csv",
+    "rows": 1470
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q76": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q76-1.all.csv",
+    "rows": 9
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q76-1.qty_pos.csv",
+    "rows": 9
+   },
+   {
+    "ref": 2,
+    "mode": "all",
+    "path": "Q76-2.all.csv",
+    "rows": 9
+   },
+   {
+    "ref": 2,
+    "mode": "qty_pos",
+    "path": "Q76-2.qty_pos.csv",
+    "rows": 9
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 3.5
+ },
+ "Q77": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q77-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q78": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q78-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q79": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q79-1.csv",
+    "rows": 42
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q80": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q80-1.all.csv",
+    "rows": 29
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q80-1.qty_pos.csv",
+    "rows": 29
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.6
+ },
+ "Q81": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q81-1.csv",
+    "rows": 2
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.6
+ },
+ "Q82": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q82-1.csv",
+    "rows": 11
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q83": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q83-1.csv",
+    "rows": 1
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 1.7
+ },
+ "Q84": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q84-1.csv",
+    "rows": 3
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q85": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q85-1.csv",
+    "rows": 97
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q86": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q86-1.csv",
+    "rows": 30
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q87": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q87-1.csv",
+    "rows": 20
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q88": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q88-1.csv",
+    "rows": 26
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.6
+ },
+ "Q89": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q89-1.all.csv",
+    "rows": 3
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q89-1.qty_pos.csv",
+    "rows": 3
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 1.2
+ },
+ "Q90": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q90-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q91": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q91-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q92": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q92-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q93": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q93-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q94": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q94-1.csv",
+    "rows": 99
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q95": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q95-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.5
+ },
+ "Q96": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q96-1.csv",
+    "rows": 2
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.8
+ },
+ "Q97": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q97-1.csv",
+    "rows": 50
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q97-2.csv",
+    "rows": 15
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q98": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q98-1.csv",
+    "rows": 8
+   },
+   {
+    "ref": 2,
+    "mode": null,
+    "path": "Q98-2.csv",
+    "rows": 24
+   }
+  ],
+  "seconds": 0.5
+ },
+ "Q99": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q99-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.4
+ },
+ "Q100": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q100-1.all.csv",
+    "rows": 108
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q100-1.qty_pos.csv",
+    "rows": 109
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.9
+ },
+ "Q101": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q101-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q102": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q102-1.csv",
+    "rows": 9
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q103": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q103-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q104": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q104-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q105": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q105-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q106": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q106-1.csv",
+    "rows": 2
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q107": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q107-1.csv",
+    "rows": 12
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q108": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q108-1.csv",
+    "rows": 29
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q109": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q109-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q110": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q110-1.csv",
+    "rows": 1
+   }
+  ],
+  "seconds": 0.1
+ },
+ "Q111": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q111-1.csv",
+    "rows": 8
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q112": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q112-1.csv",
+    "rows": 306
+   }
+  ],
+  "seconds": 0.3
+ },
+ "Q113": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q113-1.csv",
+    "rows": 32
+   }
+  ],
+  "seconds": 0.0
+ },
+ "Q114": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q114-1.csv",
+    "rows": 12
+   },
+   {
+    "ref": 2,
+    "mode": "both",
+    "path": "Q114-2.csv",
+    "rows": 12
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.4
+ },
+ "Q115": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q115-1.csv",
+    "rows": 12
+   },
+   {
+    "ref": 2,
+    "mode": "both",
+    "path": "Q115-2.csv",
+    "rows": 12
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.6
+ },
+ "Q116": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q116-1.all.csv",
+    "rows": 12
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q116-1.qty_pos.csv",
+    "rows": 12
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 6.2
+ },
+ "Q117": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q117-1.csv",
+    "rows": 1879
+   }
+  ],
+  "seconds": 0.2
+ },
+ "Q118": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q118-1.csv",
+    "rows": 29
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 0.8
+ },
+ "Q119": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "both",
+    "path": "Q119-1.csv",
+    "rows": 12
+   }
+  ],
+  "modes_identical": true,
+  "seconds": 1.7
+ },
+ "Q120": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q120-1.all.csv",
+    "rows": 2
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q120-1.qty_pos.csv",
+    "rows": 2
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.4
+ },
+ "Q121": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q121-1.all.csv",
+    "rows": 8
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q121-1.qty_pos.csv",
+    "rows": 8
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.4
+ },
+ "Q122": {
+  "event_sensitive": true,
+  "files": [
+   {
+    "ref": 1,
+    "mode": "all",
+    "path": "Q122-1.all.csv",
+    "rows": 28
+   },
+   {
+    "ref": 1,
+    "mode": "qty_pos",
+    "path": "Q122-1.qty_pos.csv",
+    "rows": 28
+   }
+  ],
+  "modes_identical": false,
+  "seconds": 0.6
+ }
+}

@@ -1,0 +1,3 @@
+grp,avg_sales,stores
+High downtime (>1000 min),56203048.91365357,112
+Low downtime (<=1000 min),31540804.796692785,194

@@ -1,0 +1,1880 @@
+StoreName,category,decline,share_pct
+Contoso Seattle No.1 Store,Cameras and camcorders,844048.8990000001,61.45404317587818
+Contoso Seattle No.1 Store,Cell phones,85308.27299999999,6.211178402593475
+Contoso Seattle No.1 Store,Home Appliances,790853.0725,57.580927977954644
+Contoso Seattle No.1 Store,"Music, Movies and Audio Books",35830.240999999995,2.608750725254035
+Contoso Seattle No.1 Store,TV and Video,51954.36899999995,3.7827263793415637
+Contoso Seattle No.1 Store,,136991.3855,9.97415496805283
+Contoso Seattle No.2 Store,Cameras and camcorders,210911.72100000014,14.472528219232967
+Contoso Seattle No.2 Store,Cell phones,56211.161500000046,3.8571475173947856
+Contoso Seattle No.2 Store,Games and Toys,8357.677,0.5734945201539284
+Contoso Seattle No.2 Store,Home Appliances,745225.3365,51.13653551849603
+Contoso Seattle No.2 Store,"Music, Movies and Audio Books",38529.93949999999,2.6438816868745216
+Contoso Seattle No.2 Store,TV and Video,428537.973,29.405800103709694
+Contoso Seattle No.2 Store,,168169.22400000002,11.53958551192377
+Contoso Kennewick Store,Audio,19173.20199999999,1.0783092450356635
+Contoso Kennewick Store,Cameras and camcorders,590704.6825000001,33.221489046305706
+Contoso Kennewick Store,Cell phones,40802.94249999995,2.294775287007801
+Contoso Kennewick Store,Games and Toys,5505.672500000001,0.3096414233203519
+Contoso Kennewick Store,Home Appliances,713356.8420000002,40.11950000516584
+Contoso Kennewick Store,"Music, Movies and Audio Books",35606.014,2.002497760940989
+Contoso Kennewick Store,TV and Video,290011.8585,16.31039344343865
+Contoso Kennewick Store,,240227.279,13.51048697319633
+Contoso Bellevue Store,Cameras and camcorders,641478.4085,38.05022867039746
+Contoso Bellevue Store,Cell phones,42682.363500000036,2.5317667279958456
+Contoso Bellevue Store,Computers,17830.097499999916,1.0576182738198567
+Contoso Bellevue Store,Games and Toys,5010.451999999999,0.2972022780748828
+Contoso Bellevue Store,Home Appliances,515416.0185,30.572653895194673
+Contoso Bellevue Store,"Music, Movies and Audio Books",86552.88750000001,5.134010931340936
+Contoso Bellevue Store,TV and Video,334329.49950000003,19.83124254638811
+Contoso Bellevue Store,,64896.736999999994,3.8494447359293207
+Contoso Redmond Store,Cameras and camcorders,601692.6355,38.25793549140734
+Contoso Redmond Store,Cell phones,10281.467999999993,0.6537353397621377
+Contoso Redmond Store,Home Appliances,860946.2039999999,54.742276024091396
+Contoso Redmond Store,"Music, Movies and Audio Books",47856.587,3.042906145533043
+Contoso Redmond Store,TV and Video,97840.48549999995,6.221074950662202
+Contoso Redmond Store,,151229.341,9.6157440377813
+Contoso Yakima Store,Cameras and camcorders,641665.038,41.381966417780234
+Contoso Yakima Store,Cell phones,154259.95250000007,9.948461885753197
+Contoso Yakima Store,Games and Toys,3002.3045,0.1936232405340284
+Contoso Yakima Store,Home Appliances,784864.6609999998,50.61713062198109
+Contoso Yakima Store,"Music, Movies and Audio Books",25431.595499999996,1.640122756589351
+Contoso Yakima Store,TV and Video,104119.90950000007,6.714853300689448
+Contoso Yakima Store,,51504.490499999985,3.3216039054879603
+Contoso Granger Store,Cameras and camcorders,597013.892,32.667542379014655
+Contoso Granger Store,Cell phones,23869.613000000012,1.3061029310992642
+Contoso Granger Store,Games and Toys,4467.715500000002,0.2444654762466243
+Contoso Granger Store,Home Appliances,970641.879,53.111803832328434
+Contoso Granger Store,"Music, Movies and Audio Books",39479.14750000001,2.160229001913444
+Contoso Granger Store,TV and Video,284626.79000000004,15.574273646094497
+Contoso Granger Store,,161541.888,8.839285890898564
+Contoso Sunnyside Store,Audio,24672.995500000005,1.429803025479575
+Contoso Sunnyside Store,Cameras and camcorders,695265.0470000001,40.29069221492781
+Contoso Sunnyside Store,Cell phones,185955.01850000006,10.776115451989215
+Contoso Sunnyside Store,Games and Toys,10757.766,0.6234138199474524
+Contoso Sunnyside Store,Home Appliances,770540.7749999999,44.65292961085232
+Contoso Sunnyside Store,"Music, Movies and Audio Books",56874.556,3.29588728865968
+Contoso Sunnyside Store,TV and Video,299028.74900000007,17.328751591008576
+Contoso Sunnyside Store,,208094.0985,12.059077772690577
+Contoso Toppenish Store,Cameras and camcorders,572983.7869999999,30.995605043696163
+Contoso Toppenish Store,Cell phones,48992.095499999996,2.650231432082465
+Contoso Toppenish Store,Games and Toys,7038.1055,0.3807268953909611
+Contoso Toppenish Store,Home Appliances,760292.1645000002,41.12806711694773
+Contoso Toppenish Store,"Music, Movies and Audio Books",76173.5085,4.12061220199697
+Contoso Toppenish Store,TV and Video,362024.9275,19.583768203135456
+Contoso Toppenish Store,,177591.85799999998,9.6068461524273
+Contoso Wapato Store,Audio,5475.858500000002,0.3871084140623456
+Contoso Wapato Store,Cameras and camcorders,453503.95149999997,32.05984877735095
+Contoso Wapato Store,Cell phones,34639.76549999998,2.4488113939022607
+Contoso Wapato Store,Games and Toys,2855.6569999999992,0.20187681116596326
+Contoso Wapato Store,Home Appliances,806535.6355000001,57.01694642824883
+Contoso Wapato Store,"Music, Movies and Audio Books",20851.358500000002,1.4740586010358754
+Contoso Wapato Store,TV and Video,103910.4595,7.345809461938174
+Contoso Wapato Store,,244468.82550000004,17.282393131047723
+Contoso Cle Elum Store,Audio,47985.47899999999,3.1772755538059334
+Contoso Cle Elum Store,Cameras and camcorders,607787.56,40.24360278440395
+Contoso Cle Elum Store,Cell phones,11967.555999999982,0.792411035796964
+Contoso Cle Elum Store,Games and Toys,3966.5409999999993,0.26263765653915716
+Contoso Cle Elum Store,Home Appliances,719298.6874999998,47.62711935580434
+Contoso Cle Elum Store,"Music, Movies and Audio Books",33520.86050000001,2.2195258404983096
+Contoso Cle Elum Store,TV and Video,52246.73800000001,3.4594274533240266
+Contoso Cle Elum Store,,200137.79849999998,13.25177840918474
+Contoso North Bend Store,Cameras and camcorders,219857.66149999993,14.465785167220446
+Contoso North Bend Store,Cell phones,118510.67300000001,7.797544665691413
+Contoso North Bend Store,Games and Toys,2707.5344999999998,0.17814531521266835
+Contoso North Bend Store,Home Appliances,1123626.0975000001,73.9302584400376
+Contoso North Bend Store,"Music, Movies and Audio Books",25238.578999999998,1.6606010418241512
+Contoso North Bend Store,TV and Video,68008.88300000003,4.474721891557241
+Contoso North Bend Store,,261288.0345,17.19174373116984
+Contoso Snoqualmie Store,Cameras and camcorders,375251.698,22.266747366334418
+Contoso Snoqualmie Store,Cell phones,41209.40849999996,2.445290702416951
+Contoso Snoqualmie Store,Games and Toys,2648.2970000000005,0.15714508572329328
+Contoso Snoqualmie Store,Home Appliances,1090103.662,64.68475152608106
+Contoso Snoqualmie Store,"Music, Movies and Audio Books",49929.306,2.9627134235603254
+Contoso Snoqualmie Store,TV and Video,221574.23549999995,13.147808660328
+Contoso Snoqualmie Store,,177312.148,10.521377586139794
+Contoso Fall City Store,Cameras and camcorders,395716.59849999996,35.07499992813781
+Contoso Fall City Store,Cell phones,46266.80900000001,4.100935691102091
+Contoso Fall City Store,Games and Toys,2436.8325000000023,0.21599270813095284
+Contoso Fall City Store,Home Appliances,667617.5505000001,59.17539376557399
+Contoso Fall City Store,"Music, Movies and Audio Books",31976.146499999995,2.8342590137512866
+Contoso Fall City Store,TV and Video,190677.9219999999,16.901055264800736
+Contoso Fall City Store,,225339.6865,19.97335850392461
+Contoso Renton Store,Audio,10680.06199999999,0.6525695019841091
+Contoso Renton Store,Cameras and camcorders,598451.526,36.56638082095876
+Contoso Renton Store,Cell phones,85186.28100000002,5.205023057735848
+Contoso Renton Store,Home Appliances,820457.0665000002,50.13128756043258
+Contoso Renton Store,"Music, Movies and Audio Books",15903.278999999995,0.9717167238302874
+Contoso Renton Store,TV and Video,332074.6490000001,20.29031182772891
+Contoso Renton Store,,145550.3645,8.893368678512413
+Contoso Everett Store,Audio,9800.806500000006,0.5235887373197964
+Contoso Everett Store,Cameras and camcorders,323292.6695000001,17.27127258437876
+Contoso Everett Store,Cell phones,66841.44900000002,3.570872446317102
+Contoso Everett Store,Games and Toys,5008.4935000000005,0.2675688768612467
+Contoso Everett Store,Home Appliances,1144875.6060000001,61.1627188980597
+Contoso Everett Store,"Music, Movies and Audio Books",28807.8335,1.5390016288132942
+Contoso Everett Store,TV and Video,332703.5155000001,17.774028451893447
+Contoso Everett Store,,103157.39399999997,5.510980108592153
+Contoso Spokane Store,Cameras and camcorders,501231.2350000001,26.484354332782058
+Contoso Spokane Store,Cell phones,182044.51549999998,9.618976464708219
+Contoso Spokane Store,Home Appliances,1119070.3525,59.130105367278865
+Contoso Spokane Store,"Music, Movies and Audio Books",69100.42800000001,3.6511695439309455
+Contoso Spokane Store,TV and Video,90317.05150000006,4.772226124770787
+Contoso Spokane Store,,127083.27000000002,6.714901461495335
+Contoso Veradale Store,Cameras and camcorders,434090.8089999999,25.265396330835593
+Contoso Veradale Store,Cell phones,122515.62350000005,7.130779367519244
+Contoso Veradale Store,Games and Toys,6861.0779999999995,0.39933546468332815
+Contoso Veradale Store,Home Appliances,1000472.3590000002,58.23051339513857
+Contoso Veradale Store,"Music, Movies and Audio Books",22896.59700000001,1.3326511085665986
+Contoso Veradale Store,TV and Video,343533.8439999999,19.994707424721003
+Contoso Veradale Store,,154267.51750000002,8.97883551045564
+Contoso Cheney Store,Audio,17037.72,1.2229534879217623
+Contoso Cheney Store,Cameras and camcorders,458415.54500000004,32.904689692946334
+Contoso Cheney Store,Cell phones,75737.67949999997,5.436388161774317
+Contoso Cheney Store,Games and Toys,5997.9925,0.4305309541654383
+Contoso Cheney Store,Home Appliances,841372.4849999999,60.39302296153185
+Contoso Cheney Store,"Music, Movies and Audio Books",39097.0985,2.8063574808246465
+Contoso Cheney Store,TV and Video,167393.25699999998,12.015349912003128
+Contoso Cheney Store,,212819.90000000002,15.276036876070313
+Contoso Englewood Store,Cameras and camcorders,725270.6414999999,40.2227223398043
+Contoso Englewood Store,Cell phones,60907.95449999999,3.377889027842214
+Contoso Englewood Store,Games and Toys,2311.9570000000003,0.12821862509178508
+Contoso Englewood Store,Home Appliances,837875.487,46.467664814375794
+Contoso Englewood Store,"Music, Movies and Audio Books",27952.534499999994,1.5502172148619922
+Contoso Englewood Store,TV and Video,295916.711,16.41121951061508
+Contoso Englewood Store,,266292.24549999996,14.768278817734966
+Contoso Wheat Ridge Store,Cameras and camcorders,503954.6415,35.93567171121326
+Contoso Wheat Ridge Store,Cell phones,21615.337499999965,1.5413325096383221
+Contoso Wheat Ridge Store,Games and Toys,5893.697499999998,0.4202639703740049
+Contoso Wheat Ridge Store,Home Appliances,960506.6270000001,68.49118547966935
+Contoso Wheat Ridge Store,"Music, Movies and Audio Books",4541.4905,0.3238416679759735
+Contoso Wheat Ridge Store,TV and Video,134701.10849999997,9.60517954509705
+Contoso Wheat Ridge Store,,228478.2675,16.292180561307056
+Contoso Westminster Store,Audio,52308.19,3.2908339114057807
+Contoso Westminster Store,Cameras and camcorders,600535.9295000001,37.781158205171906
+Contoso Westminster Store,Cell phones,22707.18200000003,1.4285633771320136
+Contoso Westminster Store,Games and Toys,10131.971500000001,0.637426670691471
+Contoso Westminster Store,Home Appliances,967719.0635000002,60.88153137930492
+Contoso Westminster Store,"Music, Movies and Audio Books",77416.7965,4.870476673626067
+Contoso Westminster Store,TV and Video,188106.30649999995,11.834219696370479
+Contoso Westminster Store,,158289.644,9.95838181935847
+Contoso Grand Junction Store,Audio,567.4860000000044,0.03026337964349154
+Contoso Grand Junction Store,Cameras and camcorders,651735.5235,34.756310419693264
+Contoso Grand Junction Store,Cell phones,131258.887,6.999886391669794
+Contoso Grand Junction Store,Games and Toys,6862.472000000002,0.3659677867450988
+Contoso Grand Junction Store,Home Appliances,826258.6669999999,44.06343015183821
+Contoso Grand Junction Store,"Music, Movies and Audio Books",35797.614499999996,1.9090458583028465
+Contoso Grand Junction Store,TV and Video,363949.46900000004,19.40900912338643
+Contoso Grand Junction Store,,152034.364,8.107818830048226
+Contoso New Castle Store,Audio,34959.7965,2.4220960017416573
+Contoso New Castle Store,Cameras and camcorders,369834.47199999983,25.622992283076833
+Contoso New Castle Store,Cell phones,15802.422499999986,1.0948285798826767
+Contoso New Castle Store,Games and Toys,4282.362999999999,0.2966920674239739
+Contoso New Castle Store,Home Appliances,1038804.5075000001,71.97079205558195
+Contoso New Castle Store,"Music, Movies and Audio Books",49003.65900000001,3.395087455231943
+Contoso New Castle Store,TV and Video,205096.74600000004,14.209579522490195
+Contoso New Castle Store,,176449.31,12.224818535802239
+Contoso Greeley  No.1 Store,Cameras and camcorders,487816.45699999994,43.595599775199055
+Contoso Greeley  No.1 Store,Cell phones,83666.47450000001,7.477177296017093
+Contoso Greeley  No.1 Store,Games and Toys,4497.879499999999,0.40197035525407143
+Contoso Greeley  No.1 Store,Home Appliances,752161.8889999997,67.21984920447588
+Contoso Greeley  No.1 Store,"Music, Movies and Audio Books",48071.799999999996,4.296121877809903
+Contoso Greeley  No.1 Store,TV and Video,280845.3694999999,25.0988300040888
+Contoso Greeley  No.1 Store,,171989.063,15.370466183881732
+Contoso Loveland Store,Cameras and camcorders,688343.8005,32.40441195472468
+Contoso Loveland Store,Cell phones,68239.12450000003,3.212418997776311
+Contoso Loveland Store,Computers,347080.7050000001,16.339140612854656
+Contoso Loveland Store,Games and Toys,2226.189500000002,0.10479990027495371
+Contoso Loveland Store,Home Appliances,583420.5700000001,27.465055222997233
+Contoso Loveland Store,"Music, Movies and Audio Books",19240.1985,0.9057498852053304
+Contoso Loveland Store,TV and Video,171704.45050000004,8.08314354603043
+Contoso Loveland Store,,246083.2335,11.58459256507055
+Contoso Lafayette Store,Cameras and camcorders,634188.221,51.06793560222732
+Contoso Lafayette Store,Home Appliances,630461.3264999997,50.76782783923197
+Contoso Lafayette Store,"Music, Movies and Audio Books",34293.234,2.7614588343231183
+Contoso Lafayette Store,TV and Video,152567.28949999996,12.285463931996256
+Contoso Lafayette Store,,174477.86950000003,14.0498109371852
+Contoso Castle Rock Store,Cameras and camcorders,568947.5025,52.282466258832294
+Contoso Castle Rock Store,Games and Toys,4438.318499999999,0.4078517546919035
+Contoso Castle Rock Store,Home Appliances,754477.8284999998,69.33146105442005
+Contoso Castle Rock Store,"Music, Movies and Audio Books",46527.736,4.275587425607615
+Contoso Castle Rock Store,TV and Video,177001.914,16.265290832265734
+Contoso Castle Rock Store,,130400.58400000003,11.982940610785137
+Contoso Sedalia Store,Cameras and camcorders,514302.9630000001,38.111899759039666
+Contoso Sedalia Store,Cell phones,88028.1165,6.523234345093722
+Contoso Sedalia Store,Games and Toys,5761.7145,0.4269660127628029
+Contoso Sedalia Store,Home Appliances,708104.3444999999,52.4733546917646
+Contoso Sedalia Store,"Music, Movies and Audio Books",37268.6915,2.7617586068594617
+Contoso Sedalia Store,TV and Video,199373.19700000004,14.774348672580501
+Contoso Sedalia Store,,118769.45299999998,8.80128992601579
+Contoso Fort Collins Store,Cameras and camcorders,346230.42500000005,24.195386816341333
+Contoso Fort Collins Store,Cell phones,45408.353,3.1732412468603046
+Contoso Fort Collins Store,Games and Toys,6008.521000000001,0.4198894126335374
+Contoso Fort Collins Store,Home Appliances,952086.2255,66.53399830035987
+Contoso Fort Collins Store,"Music, Movies and Audio Books",84928.555,5.935004816454011
+Contoso Fort Collins Store,TV and Video,119493.09549999994,8.35045524235634
+Contoso Fort Collins Store,,193966.26949999997,13.55481373387451
+Contoso Greeley No.2 Store,Audio,10201.857999999993,0.6802334361743759
+Contoso Greeley No.2 Store,Cameras and camcorders,532854.4585,35.5293535046549
+Contoso Greeley No.2 Store,Cell phones,99126.28599999996,6.609483698065975
+Contoso Greeley No.2 Store,Games and Toys,1326.003499999999,0.08841447481274971
+Contoso Greeley No.2 Store,Home Appliances,451168.79649999994,30.082765388211925
+Contoso Greeley No.2 Store,"Music, Movies and Audio Books",80161.34049999999,5.344950311664719
+Contoso Greeley No.2 Store,TV and Video,320183.2215,21.348986916532898
+Contoso Greeley No.2 Store,,174511.26350000003,11.635958510865086
+Contoso Milliken Store,Cameras and camcorders,602213.3475,36.284567439399154
+Contoso Milliken Store,Cell phones,71363.41900000005,4.299789767465426
+Contoso Milliken Store,Computers,61585.0149999999,3.7106212263485325
+Contoso Milliken Store,Games and Toys,2211.0474999999988,0.13322006637434228
+Contoso Milliken Store,Home Appliances,748852.2999999998,45.11985975451858
+Contoso Milliken Store,"Music, Movies and Audio Books",79834.81,4.81020814215118
+Contoso Milliken Store,TV and Video,70665.50549999997,4.257739073035044
+Contoso Milliken Store,,37789.729500000016,2.27690733566712
+Contoso Berthoud Store,Audio,28408.569500000005,2.2554917676204806
+Contoso Berthoud Store,Cameras and camcorders,444048.79850000003,35.25515107117645
+Contoso Berthoud Store,Cell phones,27853.387499999953,2.2114132218657856
+Contoso Berthoud Store,Games and Toys,3991.8385,0.31693108920603996
+Contoso Berthoud Store,Home Appliances,717363.1415000001,56.95487976075726
+Contoso Berthoud Store,"Music, Movies and Audio Books",55928.7565,4.440450613291191
+Contoso Berthoud Store,TV and Video,109466.53700000001,8.691070243203296
+Contoso Berthoud Store,,146273.8425,11.61337770199815
+Contoso Denver No.1 Store,Cameras and camcorders,694630.9665000001,35.574939349737065
+Contoso Denver No.1 Store,Cell phones,69690.98600000003,3.5691650959148182
+Contoso Denver No.1 Store,Games and Toys,3393.737500000001,0.17380740501644237
+Contoso Denver No.1 Store,Home Appliances,814254.6800000002,41.70136698943087
+Contoso Denver No.1 Store,"Music, Movies and Audio Books",37993.06050000001,1.9457825639542532
+Contoso Denver No.1 Store,TV and Video,320873.70050000004,16.433276062726744
+Contoso Denver No.1 Store,,202394.80200000003,10.365479158136612
+Contoso Denver No.2 Store,Audio,5211.2665000000125,0.41491218864658586
+Contoso Denver No.2 Store,Cameras and camcorders,525897.9640000002,41.87110278240865
+Contoso Denver No.2 Store,Cell phones,147213.24949999998,11.720868918874281
+Contoso Denver No.2 Store,Games and Toys,6465.868499999999,0.5148014692466812
+Contoso Denver No.2 Store,Home Appliances,799921.8309999998,63.68841770928305
+Contoso Denver No.2 Store,"Music, Movies and Audio Books",69030.842,5.496118407749171
+Contoso Denver No.2 Store,TV and Video,202466.6925,16.12005421584371
+Contoso Denver No.2 Store,,189512.67849999998,15.088677620442475
+Contoso Denver No.3 Store,Audio,7373.628499999992,0.4753167246822832
+Contoso Denver No.3 Store,Cameras and camcorders,665784.0240000001,42.91757872443276
+Contoso Denver No.3 Store,Cell phones,91061.04449999996,5.869950922790275
+Contoso Denver No.3 Store,Games and Toys,5137.355000000001,0.3311627039699863
+Contoso Denver No.3 Store,Home Appliances,509129.2525000002,32.81934379230517
+Contoso Denver No.3 Store,"Music, Movies and Audio Books",50061.4925,3.227049565598092
+Contoso Denver No.3 Store,TV and Video,233290.86849999998,15.03832902806337
+Contoso Denver No.3 Store,,121767.214,7.849323210705113
+Contoso Boulder Store,Audio,5139.595000000001,0.3094144338033563
+Contoso Boulder Store,Cameras and camcorders,566745.7035000001,34.11928390445888
+Contoso Boulder Store,Cell phones,97878.54949999996,5.892494637230417
+Contoso Boulder Store,Games and Toys,658.9084999999995,0.03966767818392667
+Contoso Boulder Store,Home Appliances,654898.436,39.42626389309732
+Contoso Boulder Store,"Music, Movies and Audio Books",17110.783000000003,1.030105141334501
+Contoso Boulder Store,TV and Video,266079.25749999995,16.0185311889711
+Contoso Boulder Store,,144890.47950000002,8.722711746351473
+Contoso Thornton Store,Audio,31405.623999999996,2.0548976355824333
+Contoso Thornton Store,Cameras and camcorders,368366.373,24.102536186059435
+Contoso Thornton Store,Games and Toys,4857.985499999999,0.31786226943440904
+Contoso Thornton Store,Home Appliances,977926.5425,63.98659488366013
+Contoso Thornton Store,"Music, Movies and Audio Books",10910.555500000002,0.7138872547108415
+Contoso Thornton Store,TV and Video,188649.919,12.343530334118423
+Contoso Thornton Store,,216738.3765,14.181382844353777
+Contoso Littleton Store,Audio,15879.916000000012,0.745442325261007
+Contoso Littleton Store,Cameras and camcorders,693338.645,32.54702176775466
+Contoso Littleton Store,Cell phones,85127.27999999997,3.9960839557554806
+Contoso Littleton Store,Games and Toys,8449.483499999998,0.3966395431496304
+Contoso Littleton Store,Home Appliances,1073487.7645,50.392156690760814
+Contoso Littleton Store,"Music, Movies and Audio Books",40981.3315,1.9237645240473646
+Contoso Littleton Store,TV and Video,289008.2515,13.566758351730435
+Contoso Littleton Store,,141943.8185,6.6631920546095
+Contoso Aurora Store,Cameras and camcorders,597232.7635,49.91919387211453
+Contoso Aurora Store,Games and Toys,7140.940500000001,0.5968694536443235
+Contoso Aurora Store,Home Appliances,482870.3895000003,40.36031186114586
+Contoso Aurora Store,"Music, Movies and Audio Books",36255.340000000004,3.030371836523381
+Contoso Aurora Store,TV and Video,234221.33499999996,19.577191583278708
+Contoso Aurora Store,,140949.57599999997,11.781150734769327
+Contoso Parker Store,Audio,15258.252499999988,0.9928521624993275
+Contoso Parker Store,Cameras and camcorders,551427.702,35.88131644778688
+Contoso Parker Store,Cell phones,55085.45749999996,3.584402316132847
+Contoso Parker Store,Games and Toys,7544.832499999999,0.4909410997963372
+Contoso Parker Store,Home Appliances,908669.6749999998,59.12699713294898
+Contoso Parker Store,"Music, Movies and Audio Books",46719.633499999996,3.0400394246753395
+Contoso Parker Store,TV and Video,300727.0555,19.568263624896137
+Contoso Parker Store,,160388.33299999998,10.436444360762307
+Contoso Green Bay Store,Cameras and camcorders,677958.7675,36.50185322942097
+Contoso Green Bay Store,Cell phones,123701.27850000001,6.660177769732477
+Contoso Green Bay Store,Games and Toys,1019.9615000000013,0.054915559407763104
+Contoso Green Bay Store,Home Appliances,949503.4864999999,51.12204247000389
+Contoso Green Bay Store,"Music, Movies and Audio Books",21792.880999999994,1.1733464951586996
+Contoso Green Bay Store,TV and Video,149773.137,8.06390790496556
+Contoso Green Bay Store,,127900.95100000003,6.886291563897158
+Contoso Appleton Store,Cameras and camcorders,544128.2644999999,26.146326792411976
+Contoso Appleton Store,Cell phones,69921.85400000005,3.3598689204194434
+Contoso Appleton Store,Games and Toys,1074.714,0.05164191108175791
+Contoso Appleton Store,Home Appliances,1156494.5119999999,55.57160952145873
+Contoso Appleton Store,"Music, Movies and Audio Books",59468.314999999995,2.8575578576365155
+Contoso Appleton Store,TV and Video,256438.31149999995,12.322315034920113
+Contoso Appleton Store,,165748.45,7.964506572761867
+Contoso Menasha Store,Audio,16649.524999999994,1.1204856082780315
+Contoso Menasha Store,Cameras and camcorders,706172.321,47.52423403339102
+Contoso Menasha Store,Cell phones,40307.966000000015,2.7126597186382337
+Contoso Menasha Store,Games and Toys,3397.231999999998,0.22862811785811263
+Contoso Menasha Store,Home Appliances,913517.2855,61.47820861651992
+Contoso Menasha Store,"Music, Movies and Audio Books",57718.495,3.884359642630498
+Contoso Menasha Store,TV and Video,146319.2805,9.847046568226208
+Contoso Menasha Store,,194196.0885,13.069076886465952
+Contoso Oshkosh Store,Cameras and camcorders,423690.83200000005,16.014508985869856
+Contoso Oshkosh Store,Cell phones,175190.10249999998,6.621770543106089
+Contoso Oshkosh Store,Computers,668567.2000000001,25.27025515637744
+Contoso Oshkosh Store,Games and Toys,4547.361500000001,0.17187948405678183
+Contoso Oshkosh Store,Home Appliances,900232.8865,34.02666888536735
+Contoso Oshkosh Store,"Music, Movies and Audio Books",57336.3225,2.167177060590685
+Contoso Oshkosh Store,TV and Video,273158.7195,10.3247520069102
+Contoso Oshkosh Store,,159952.916,6.045841016918878
+Contoso Fond du Lac Store,Cameras and camcorders,346594.1910000001,11.536390234210367
+Contoso Fond du Lac Store,Cell phones,141450.48450000002,4.7081804322857925
+Contoso Fond du Lac Store,Computers,915043.0000000001,30.457213084343227
+Contoso Fond du Lac Store,Games and Toys,7521.0380000000005,0.2503378059626079
+Contoso Fond du Lac Store,Home Appliances,978662.5744999999,32.57479109639483
+Contoso Fond du Lac Store,"Music, Movies and Audio Books",45745.7875,1.522648878357175
+Contoso Fond du Lac Store,TV and Video,363711.60399999993,12.106143453669672
+Contoso Fond du Lac Store,,208639.30800000002,6.944560923941187
+Contoso Milwaukee No.1 Store,Cameras and camcorders,737954.8755000001,40.88618513485771
+Contoso Milwaukee No.1 Store,Cell phones,15447.48099999997,0.8558633989717379
+Contoso Milwaukee No.1 Store,Games and Toys,514.1154999999999,0.02848442663849564
+Contoso Milwaukee No.1 Store,Home Appliances,750887.3380000002,41.602704631617385
+Contoso Milwaukee No.1 Store,"Music, Movies and Audio Books",10127.732999999993,0.5611242369715973
+Contoso Milwaukee No.1 Store,TV and Video,198313.33849999995,10.987495498459786
+Contoso Milwaukee No.1 Store,,228049.556,12.635022378869154
+Contoso Milwaukee No.2 Store,Audio,34573.0465,2.0539600755932574
+Contoso Milwaukee No.2 Store,Cameras and camcorders,423577.0384999999,25.16441025863972
+Contoso Milwaukee No.2 Store,Games and Toys,3010.9395000000004,0.17887777182224096
+Contoso Milwaukee No.2 Store,Home Appliances,925667.1710000001,54.99322752831044
+Contoso Milwaukee No.2 Store,"Music, Movies and Audio Books",30250.3315,1.7971506553366972
+Contoso Milwaukee No.2 Store,TV and Video,420260.042,24.96734985836859
+Contoso Milwaukee No.2 Store,,212426.08949999997,12.620082723904591
+Contoso Milwaukee No.3 Store,Cameras and camcorders,519467.7799999999,23.605672060758987
+Contoso Milwaukee No.3 Store,Cell phones,92011.32949999999,4.181181882062905
+Contoso Milwaukee No.3 Store,Computers,76489.54000000004,3.475840209605123
+Contoso Milwaukee No.3 Store,Games and Toys,12141.210500000001,0.5517212895930595
+Contoso Milwaukee No.3 Store,Home Appliances,1135897.6915,51.61750051200901
+Contoso Milwaukee No.3 Store,"Music, Movies and Audio Books",69953.4315,3.17882615070711
+Contoso Milwaukee No.3 Store,TV and Video,135844.89950000006,6.173068421536682
+Contoso Milwaukee No.3 Store,,177120.7265,8.04872591890566
+Contoso Waukesha No.1 Store,Cameras and camcorders,532012.274,32.6104774594399
+Contoso Waukesha No.1 Store,Games and Toys,6395.5645,0.39202556437193037
+Contoso Waukesha No.1 Store,Home Appliances,813725.4324999999,49.878501251860655
+Contoso Waukesha No.1 Store,"Music, Movies and Audio Books",30915.264000000003,1.8949967305164732
+Contoso Waukesha No.1 Store,TV and Video,431361.13099999994,26.44091711191235
+Contoso Waukesha No.1 Store,,97938.6225,6.003292400439701
+Contoso Racine No.1 Store,Cameras and camcorders,453566.8395000001,25.547431460426694
+Contoso Racine No.1 Store,Cell phones,121065.18800000002,6.8190712444569535
+Contoso Racine No.1 Store,Games and Toys,58.847999999999956,0.00331464982810585
+Contoso Racine No.1 Store,Home Appliances,1041582.919,58.667799133723186
+Contoso Racine No.1 Store,"Music, Movies and Audio Books",44186.727,2.488844600583031
+Contoso Racine No.1 Store,TV and Video,284970.13,16.051118006046124
+Contoso Racine No.1 Store,,197707.16950000002,11.135978034911462
+Contoso Burlington Store,Audio,16750.603499999997,0.9872718130217744
+Contoso Burlington Store,Cameras and camcorders,706390.2299999999,41.634270853164665
+Contoso Burlington Store,Cell phones,29714.685999999987,1.7513680579086435
+Contoso Burlington Store,Games and Toys,2154.893500000002,0.12700829630489666
+Contoso Burlington Store,Home Appliances,702806.7444999998,41.42306209125216
+Contoso Burlington Store,"Music, Movies and Audio Books",33052.419499999996,1.948092325421066
+Contoso Burlington Store,TV and Video,360974.6390000001,21.275656503982717
+Contoso Burlington Store,,198602.6525,11.705536508258252
+Contoso East Troy Store,Audio,15834.515499999994,0.8914420524168356
+Contoso East Troy Store,Cameras and camcorders,616096.7960000001,34.68464774395382
+Contoso East Troy Store,Cell phones,63452.6275,3.572217949443478
+Contoso East Troy Store,Games and Toys,5418.672500000001,0.3050571730328388
+Contoso East Troy Store,Home Appliances,954634.5340000002,53.74344218469772
+Contoso East Troy Store,"Music, Movies and Audio Books",49386.988000000005,2.780359016693984
+Contoso East Troy Store,TV and Video,155604.9225,8.76015255910815
+Contoso East Troy Store,,77079.97249999997,4.3394020414223125
+Contoso Waukesha No.2 Store,Audio,11646.95749999999,0.6777046630353737
+Contoso Waukesha No.2 Store,Cameras and camcorders,682749.3425,39.72732046945186
+Contoso Waukesha No.2 Store,Cell phones,139664.25300000003,8.12668162629187
+Contoso Waukesha No.2 Store,Games and Toys,3515.8894999999993,0.20458001232228334
+Contoso Waukesha No.2 Store,Home Appliances,787523.3335,45.823832993475946
+Contoso Waukesha No.2 Store,"Music, Movies and Audio Books",25883.583,1.5060950377094742
+Contoso Waukesha No.2 Store,,197432.749,11.488072711967279
+Contoso Germantown Store,Audio,8224.771000000008,0.4814485824137056
+Contoso Germantown Store,Cameras and camcorders,542078.8415,31.7313503070953
+Contoso Germantown Store,Cell phones,46930.022,2.7471150946991707
+Contoso Germantown Store,Games and Toys,5050.442500000001,0.29563478207319444
+Contoso Germantown Store,Home Appliances,852205.6045000001,49.88505822369276
+Contoso Germantown Store,"Music, Movies and Audio Books",27420.146500000003,1.6050769877971216
+Contoso Germantown Store,TV and Video,278813.184,16.320723360571563
+Contoso Germantown Store,,206106.49349999998,12.064734583106876
+Contoso Port Washington Store,Cameras and camcorders,685737.155,50.48716050996248
+Contoso Port Washington Store,Games and Toys,5380.8135,0.39616053012130137
+Contoso Port Washington Store,Home Appliances,611272.2250000003,45.004705832013606
+Contoso Port Washington Store,"Music, Movies and Audio Books",2578.474000000002,0.18983925511337518
+Contoso Port Washington Store,TV and Video,188929.6165,13.909877573020172
+Contoso Port Washington Store,,225247.9875,16.5838050578702
+Contoso Sheboygan Store,Cameras and camcorders,485110.22399999993,32.283722535148236
+Contoso Sheboygan Store,Cell phones,101088.88300000003,6.72738954716416
+Contoso Sheboygan Store,Games and Toys,3282.4485000000022,0.21844449233853624
+Contoso Sheboygan Store,Home Appliances,957016.8175000001,63.688753337098504
+Contoso Sheboygan Store,"Music, Movies and Audio Books",58124.806,3.868162360794357
+Contoso Sheboygan Store,TV and Video,259975.691,17.301187769086134
+Contoso Sheboygan Store,,337779.1015,22.47894653936973
+Contoso Manitowoc Store,Cameras and camcorders,583960.029,39.385074195482616
+Contoso Manitowoc Store,Cell phones,29252.43949999998,1.9729252738056247
+Contoso Manitowoc Store,Games and Toys,4398.861000000001,0.29668035183383223
+Contoso Manitowoc Store,Home Appliances,668809.4695000001,45.10772873274666
+Contoso Manitowoc Store,"Music, Movies and Audio Books",22795.911000000007,1.5374659248957236
+Contoso Manitowoc Store,TV and Video,292820.48900000006,19.749222742131387
+Contoso Manitowoc Store,,117641.23850000004,7.934291178636419
+Contoso Madison Store,Cameras and camcorders,606094.6545000001,35.87411778005505
+Contoso Madison Store,Cell phones,12364.10950000002,0.7318188952093757
+Contoso Madison Store,Games and Toys,7546.251,0.44665481729942924
+Contoso Madison Store,Home Appliances,876588.3835,51.88436274899875
+Contoso Madison Store,"Music, Movies and Audio Books",38850.97099999999,2.299548922227795
+Contoso Madison Store,TV and Video,266238.044,15.758355360957035
+Contoso Madison Store,,114838.95300000001,6.79719924119576
+Contoso Oregon Store,Cameras and camcorders,777486.002,48.914001537055945
+Contoso Oregon Store,Cell phones,54572.06099999999,3.4332938069209256
+Contoso Oregon Store,Games and Toys,939.1165000000001,0.05908266619117164
+Contoso Oregon Store,Home Appliances,794343.8905000002,49.97458241166895
+Contoso Oregon Store,"Music, Movies and Audio Books",33894.59450000001,2.1324117002827894
+Contoso Oregon Store,TV and Video,144086.363,9.064909931652764
+Contoso Oregon Store,,270189.3625,16.998431944272053
+Contoso Stoughton Store,Cameras and camcorders,326777.6365,20.422501693487636
+Contoso Stoughton Store,Cell phones,80425.44,5.026319126950073
+Contoso Stoughton Store,Games and Toys,706.7384999999995,0.0441687759532556
+Contoso Stoughton Store,Home Appliances,960785.4115000002,60.04585229147701
+Contoso Stoughton Store,"Music, Movies and Audio Books",12604.815000000002,0.7877584844567489
+Contoso Stoughton Store,TV and Video,232384.70000000007,14.523261077844957
+Contoso Stoughton Store,,186828.26549999998,11.676137355761513
+Contoso Edgerton Store,Cameras and camcorders,606565.095,34.99944692094655
+Contoso Edgerton Store,Cell phones,82849.50700000004,4.780504098530582
+Contoso Edgerton Store,Games and Toys,10812.744499999999,0.6239067831582146
+Contoso Edgerton Store,Home Appliances,1060709.6495,61.20406759675328
+Contoso Edgerton Store,"Music, Movies and Audio Books",51688.109,2.9824585066003504
+Contoso Edgerton Store,TV and Video,159318.5035,9.192845999113892
+Contoso Edgerton Store,,199246.0985,11.49671042092595
+Contoso Fort Atkinson Store,Audio,7292.470499999996,0.39417037744557265
+Contoso Fort Atkinson Store,Cameras and camcorders,675453.1030000001,36.50938383038964
+Contoso Fort Atkinson Store,Games and Toys,2606.1839999999993,0.14086865774398574
+Contoso Fort Atkinson Store,Home Appliances,1132628.887,61.22050900234003
+Contoso Fort Atkinson Store,"Music, Movies and Audio Books",15665.448500000006,0.8467440146791386
+Contoso Fort Atkinson Store,TV and Video,213651.09349999996,11.548203337477245
+Contoso Fort Atkinson Store,,325890.5415,17.614935535083358
+Contoso Houston No.1 Store,Cameras and camcorders,398712.44299999997,37.389410092935265
+Contoso Houston No.1 Store,Cell phones,58307.07449999999,5.467767956767349
+Contoso Houston No.1 Store,Games and Toys,9445.7955,0.8857830444070254
+Contoso Houston No.1 Store,Home Appliances,692214.5605000001,64.91268213276066
+Contoso Houston No.1 Store,"Music, Movies and Audio Books",50872.823000000004,4.770618211512174
+Contoso Houston No.1 Store,TV and Video,423432.5979999999,39.707551974591865
+Contoso Houston No.1 Store,,121197.28300000002,11.365321037238191
+Contoso Houston No.2 Store,Audio,4357.704500000007,0.275881305646534
+Contoso Houston No.2 Store,Cameras and camcorders,650827.2735000001,41.20313297139667
+Contoso Houston No.2 Store,Cell phones,105467.75150000001,6.67704315137113
+Contoso Houston No.2 Store,Games and Toys,1449.978500000001,0.09179648637015259
+Contoso Houston No.2 Store,Home Appliances,1132340.404,71.68718050795856
+Contoso Houston No.2 Store,"Music, Movies and Audio Books",12235.440000000002,0.7746117623073853
+Contoso Houston No.2 Store,TV and Video,112422.93299999996,7.117367765678639
+Contoso Houston No.2 Store,,59364.39400000003,3.758292129637347
+Contoso Houston No.3 Store,Audio,2813.1770000000106,0.2047153609369105
+Contoso Houston No.3 Store,Cameras and camcorders,660265.8659999999,48.04765753186211
+Contoso Houston No.3 Store,Cell phones,128327.61050000001,9.33842168540361
+Contoso Houston No.3 Store,Home Appliances,756497.0745000001,55.05041867397033
+Contoso Houston No.3 Store,"Music, Movies and Audio Books",88509.008,6.440815319792473
+Contoso Houston No.3 Store,,170517.168,12.408562843027536
+Contoso Houston No.4 Store,Cameras and camcorders,496666.4944999999,31.851037990806773
+Contoso Houston No.4 Store,Cell phones,130213.02849999996,8.350513198654081
+Contoso Houston No.4 Store,Games and Toys,2292.544,0.1470199960098096
+Contoso Houston No.4 Store,Home Appliances,890791.9025000001,57.12615415500019
+Contoso Houston No.4 Store,"Music, Movies and Audio Books",50433.00199999999,3.2342497037364257
+Contoso Houston No.4 Store,TV and Video,216308.02650000004,13.871753472526505
+Contoso Houston No.4 Store,,181512.12400000004,11.640305157158195
+Contoso Midland Store,Cameras and camcorders,767027.1844999999,46.85046464046938
+Contoso Midland Store,Cell phones,52380.2745,3.1994175016365802
+Contoso Midland Store,Home Appliances,946802.8679999998,57.83126750278692
+Contoso Midland Store,"Music, Movies and Audio Books",32502.026000000005,1.9852425710951016
+Contoso Midland Store,TV and Video,64168.288500000024,3.9194362235914855
+Contoso Midland Store,,257572.325,15.73266677978607
+Contoso Russellville Store,Cameras and camcorders,621531.2154999999,21.67718189671144
+Contoso Russellville Store,Cell phones,108528.00199999998,3.7851377076018515
+Contoso Russellville Store,Computers,803528.9125000001,28.02472661251112
+Contoso Russellville Store,Games and Toys,3844.630000000001,0.13408939367350847
+Contoso Russellville Store,Home Appliances,698394.0234999999,24.357930712790825
+Contoso Russellville Store,"Music, Movies and Audio Books",64035.342000000004,2.2333645064559526
+Contoso Russellville Store,TV and Video,342501.5845,11.945448534142665
+Contoso Russellville Store,,229329.58800000002,7.998341948722112
+Contoso Minden Store,Cameras and camcorders,736013.0084999999,45.644065406204255
+Contoso Minden Store,Cell phones,24327.28199999995,1.5086636213484443
+Contoso Minden Store,Games and Toys,11453.884,0.7103160194363283
+Contoso Minden Store,Home Appliances,783821.2319999998,48.60890659132908
+Contoso Minden Store,"Music, Movies and Audio Books",31451.2085,1.9504560399059405
+Contoso Minden Store,TV and Video,136462.24899999995,8.462746917378336
+Contoso Minden Store,,178172.21949999998,11.049403130796133
+Contoso Shreveport Store,Audio,4240.541500000007,0.5156768418103921
+Contoso Shreveport Store,Cameras and camcorders,308293.95649999985,37.49050771868406
+Contoso Shreveport Store,Cell phones,107334.9645,13.052614980702456
+Contoso Shreveport Store,Games and Toys,11359.3405,1.3813681186916509
+Contoso Shreveport Store,Home Appliances,878536.7915,106.8356666371392
+Contoso Shreveport Store,"Music, Movies and Audio Books",16053.878499999999,1.9522538250569512
+Contoso Shreveport Store,TV and Video,129927.83550000004,15.800051921175648
+Contoso Shreveport Store,,105455.12199999997,12.824014165570482
+Contoso Marshall Store,Cameras and camcorders,558471.4365,36.086034453435786
+Contoso Marshall Store,Cell phones,123412.02100000001,7.974356700647735
+Contoso Marshall Store,Games and Toys,2546.2484999999997,0.16452768233565546
+Contoso Marshall Store,Home Appliances,701987.7150000001,45.35944224495475
+Contoso Marshall Store,"Music, Movies and Audio Books",35919.591,2.320970265735913
+Contoso Marshall Store,TV and Video,169548.0995,10.955472670931416
+Contoso Marshall Store,,98979.85450000004,6.395654649891952
+Contoso Longview Store,Cameras and camcorders,544650.6349999999,34.321345606431805
+Contoso Longview Store,Cell phones,66266.05849999998,4.175778287221731
+Contoso Longview Store,Home Appliances,815082.9389999998,51.362729518024295
+Contoso Longview Store,"Music, Movies and Audio Books",49640.7965,3.128131729535302
+Contoso Longview Store,TV and Video,351614.75249999994,22.157123604331215
+Contoso Longview Store,,120489.75850000003,7.592703244556039
+Contoso Beaumont No.1 Store,Cameras and camcorders,595565.529,37.60071737936897
+Contoso Beaumont No.1 Store,Home Appliances,900729.587,56.86709016367995
+Contoso Beaumont No.1 Store,"Music, Movies and Audio Books",58331.6155,3.682735957502871
+Contoso Beaumont No.1 Store,TV and Video,277233.96349999995,17.503020913632817
+Contoso Beaumont No.1 Store,,103706.674,6.547466482782875
+Contoso Orange Store,Audio,26242.467000000004,1.774422657865465
+Contoso Orange Store,Cameras and camcorders,286946.97550000006,19.402338009348224
+Contoso Orange Store,Cell phones,238548.48550000007,16.12980356117782
+Contoso Orange Store,Games and Toys,5133.071499999998,0.347080111562814
+Contoso Orange Store,Home Appliances,556625.5295000002,37.63704652810126
+Contoso Orange Store,"Music, Movies and Audio Books",48908.08150000001,3.3069912202359166
+Contoso Orange Store,TV and Video,199417.78350000002,13.48392410758142
+Contoso Orange Store,,247870.3725,16.76011653849285
+Contoso Beaumont No.2 Store,Cameras and camcorders,576565.8575,41.55291099889884
+Contoso Beaumont No.2 Store,Cell phones,170597.84000000003,12.294930006542028
+Contoso Beaumont No.2 Store,Home Appliances,758642.8775,54.675141718231224
+Contoso Beaumont No.2 Store,"Music, Movies and Audio Books",46988.132000000005,3.3864191602786864
+Contoso Beaumont No.2 Store,TV and Video,217638.08900000004,15.685105221804477
+Contoso Beaumont No.2 Store,,238822.06350000002,17.211827270207145
+Contoso Baytown Store,Cameras and camcorders,531315.8695,44.73296393512209
+Contoso Baytown Store,Cell phones,47755.06349999999,4.020631898827491
+Contoso Baytown Store,Games and Toys,15533.478,1.3078068076809295
+Contoso Baytown Store,Home Appliances,615912.0945000001,51.855355904203826
+Contoso Baytown Store,"Music, Movies and Audio Books",54534.60249999999,4.591420183147228
+Contoso Baytown Store,TV and Video,145374.5680000001,12.239490067457806
+Contoso Baytown Store,,122001.92249999999,10.271681898648916
+Contoso La Porte Store,Cameras and camcorders,507568.659,42.13186418077001
+Contoso La Porte Store,Cell phones,64356.35800000001,5.34204247316423
+Contoso La Porte Store,Games and Toys,7246.9175,0.6015464872098127
+Contoso La Porte Store,Home Appliances,777784.1264999998,64.56169938510098
+Contoso La Porte Store,"Music, Movies and Audio Books",32684.282499999994,2.7130314819850168
+Contoso La Porte Store,TV and Video,220511.37599999993,18.3040366642234
+Contoso La Porte Store,,146480.8755,12.158970500277245
+Contoso Bacliff Store,Cameras and camcorders,571936.7080000001,38.83644214275851
+Contoso Bacliff Store,Cell phones,73302.22249999997,4.9774695053440405
+Contoso Bacliff Store,Games and Toys,4562.201499999999,0.30978895412734375
+Contoso Bacliff Store,Home Appliances,654999.6195,44.476695533661356
+Contoso Bacliff Store,"Music, Movies and Audio Books",61618.28800000001,4.18409072782898
+Contoso Bacliff Store,TV and Video,52007.664000000106,3.5314967647015028
+Contoso Bacliff Store,,110051.5815,7.472875613439069
+Contoso Texas City Store,Audio,36642.9005,1.5291864167327185
+Contoso Texas City Store,Cameras and camcorders,641184.8285000001,26.758010882825655
+Contoso Texas City Store,Cell phones,114599.55550000002,4.7824839530431635
+Contoso Texas City Store,Computers,237524.29499999993,9.912395596467999
+Contoso Texas City Store,Games and Toys,3347.3279999999995,0.13969113907751643
+Contoso Texas City Store,Home Appliances,1106102.7364999999,46.16002710174892
+Contoso Texas City Store,"Music, Movies and Audio Books",31912.8565,1.3317915889038436
+Contoso Texas City Store,TV and Video,147587.9325,6.159159307071374
+Contoso Texas City Store,,77332.59100000001,3.2272540141287913
+Contoso Pasadena Store,Cameras and camcorders,556724.9475000001,32.99356639706764
+Contoso Pasadena Store,Cell phones,77751.65950000001,4.607849085468628
+Contoso Pasadena Store,Games and Toys,12256.021,0.7263368463065961
+Contoso Pasadena Store,Home Appliances,976484.5349999997,57.87006220200362
+Contoso Pasadena Store,"Music, Movies and Audio Books",44673.3425,2.647506454617239
+Contoso Pasadena Store,TV and Video,215133.23899999994,12.74958637480983
+Contoso Pasadena Store,,157409.9855,9.328694234877455
+Contoso Humble Store,Cameras and camcorders,569374.4515000001,35.01952417004173
+Contoso Humble Store,Games and Toys,9440.609999999999,0.5806471807858024
+Contoso Humble Store,Home Appliances,980586.0119999999,60.31119846978034
+Contoso Humble Store,"Music, Movies and Audio Books",30509.112,1.876470892355292
+Contoso Humble Store,TV and Video,228030.33299999998,14.025065116565319
+Contoso Humble Store,,181072.80550000002,11.136930138047322
+Contoso Spring Store,Cameras and camcorders,493777.7899999999,31.22730132213815
+Contoso Spring Store,Cell phones,67427.80199999997,4.264242607071227
+Contoso Spring Store,Games and Toys,4348.154999999999,0.27498431304567506
+Contoso Spring Store,Home Appliances,837438.1365,52.96093416258225
+Contoso Spring Store,"Music, Movies and Audio Books",14717.150500000003,0.9307362594554048
+Contoso Spring Store,TV and Video,147826.63,9.348793752846252
+Contoso Spring Store,,199523.76850000003,12.618203908843368
+Contoso Austin Store,Audio,15911.303,0.8659201506272479
+Contoso Austin Store,Cameras and camcorders,810286.1270000001,44.09714811810254
+Contoso Austin Store,Cell phones,917.6205000000191,0.04993846711225768
+Contoso Austin Store,Home Appliances,905485.1600000001,49.278041285364104
+Contoso Austin Store,"Music, Movies and Audio Books",62919.47149999999,3.424184571098094
+Contoso Austin Store,TV and Video,104340.94050000003,5.678411310145293
+Contoso Austin Store,,165956.48549999998,9.031633985081463
+Contoso San Antonio Store,Cameras and camcorders,764098.9665000001,38.34265504076955
+Contoso San Antonio Store,Cell phones,47775.42300000001,2.397381286754885
+Contoso San Antonio Store,Games and Toys,11398.835000000001,0.5719960599785084
+Contoso San Antonio Store,Home Appliances,1071479.2854999998,53.76706739369307
+Contoso San Antonio Store,"Music, Movies and Audio Books",39738.1885,1.9940710829381487
+Contoso San Antonio Store,TV and Video,136394.2735,6.844294793777705
+Contoso San Antonio Store,,189275.41350000002,9.49788208819612
+Contoso Cedar Park Store,Audio,8099.062499999985,0.7025308881121529
+Contoso Cedar Park Store,Cameras and camcorders,589788.2004999999,51.159554367599235
+Contoso Cedar Park Store,Cell phones,135048.27049999998,11.714390574510992
+Contoso Cedar Park Store,Games and Toys,9397.097999999998,0.8151254053931485
+Contoso Cedar Park Store,Home Appliances,539488.5745000001,46.79645173374636
+Contoso Cedar Park Store,"Music, Movies and Audio Books",53538.759000000005,4.64407231191173
+Contoso Cedar Park Store,TV and Video,57481.30550000002,4.986057658248848
+Contoso Cedar Park Store,,48038.01450000002,4.166925368192868
+Contoso Round Rock Store,Audio,12043.212,0.7508009327048951
+Contoso Round Rock Store,Cameras and camcorders,508424.89450000005,31.696351853723737
+Contoso Round Rock Store,Cell phones,91308.14149999997,5.692354979863389
+Contoso Round Rock Store,Games and Toys,7624.700499999999,0.4753409843649252
+Contoso Round Rock Store,Home Appliances,995177.5734999997,62.041609031776076
+Contoso Round Rock Store,"Music, Movies and Audio Books",43048.797000000006,2.68375886262101
+Contoso Round Rock Store,TV and Video,145489.43000000005,9.070138410143706
+Contoso Round Rock Store,,178769.01100000003,11.144862367077128
+Contoso Georgetown Store,Audio,18071.16249999999,1.0199109456153028
+Contoso Georgetown Store,Cameras and camcorders,455199.22699999996,25.690802905066295
+Contoso Georgetown Store,Cell phones,53007.15299999999,2.9916490176326542
+Contoso Georgetown Store,Home Appliances,1079087.782,60.902193765428215
+Contoso Georgetown Store,"Music, Movies and Audio Books",38707.440500000004,2.184593395289489
+Contoso Georgetown Store,TV and Video,184403.84700000007,10.407493262753285
+Contoso Georgetown Store,,230910.83,13.032281845626398
+Contoso Hillsboro Store,Audio,1297.3634999999922,0.08163636534311308
+Contoso Hillsboro Store,Cameras and camcorders,450309.58900000004,28.33565005113164
+Contoso Hillsboro Store,Cell phones,5431.435999999987,0.3417721352833946
+Contoso Hillsboro Store,Games and Toys,1494.515000000003,0.09404208808923917
+Contoso Hillsboro Store,Home Appliances,891557.9935000001,56.101126694206584
+Contoso Hillsboro Store,"Music, Movies and Audio Books",52283.666,3.289940297421136
+Contoso Hillsboro Store,TV and Video,160766.7045,10.116216020853354
+Contoso Hillsboro Store,,213120.42050000004,13.410564201949565
+Contoso Arlington Store,Cameras and camcorders,710057.9275,34.039844008745185
+Contoso Arlington Store,Cell phones,157846.68099999998,7.567095852948085
+Contoso Arlington Store,Games and Toys,728.3230000000003,0.03491546301760194
+Contoso Arlington Store,Home Appliances,879706.905,42.172736420319765
+Contoso Arlington Store,"Music, Movies and Audio Books",50560.334,2.4238386978505435
+Contoso Arlington Store,TV and Video,233431.3330000001,11.19058861866373
+Contoso Arlington Store,,258554.8345,12.394997496999183
+Contoso Grand Prairie Store,Audio,7590.005499999999,0.3480005312015642
+Contoso Grand Prairie Store,Cameras and camcorders,639689.9295000001,29.32968036324759
+Contoso Grand Prairie Store,Cell phones,221051.84749999997,10.135191648159827
+Contoso Grand Prairie Store,Games and Toys,4174.1985,0.19138632973859804
+Contoso Grand Prairie Store,Home Appliances,1046820.3880000003,47.996546392045126
+Contoso Grand Prairie Store,"Music, Movies and Audio Books",51280.94900000001,2.351223262291487
+Contoso Grand Prairie Store,TV and Video,264495.4255,12.127072710867438
+Contoso Grand Prairie Store,,164857.023,7.5586679846685865
+Contoso Desoto Store,Audio,25847.780499999993,1.7413180440511162
+Contoso Desoto Store,Cameras and camcorders,820304.7224999999,55.262439841192325
+Contoso Desoto Store,Cell phones,96211.41249999998,6.481588182393266
+Contoso Desoto Store,Games and Toys,3869.1809999999987,0.26065969923412735
+Contoso Desoto Store,Home Appliances,714239.2655,48.11700257145739
+Contoso Desoto Store,"Music, Movies and Audio Books",42657.629499999995,2.873767051867266
+Contoso Desoto Store,TV and Video,77471.755,5.21913147961804
+Contoso Desoto Store,,235302.027,15.851870353700315
+Contoso Richardson Store,Cameras and camcorders,545650.1765000001,42.626735285670556
+Contoso Richardson Store,Cell phones,119667.61050000001,9.348552927760723
+Contoso Richardson Store,Games and Toys,9441.4835,0.7375780952551865
+Contoso Richardson Store,Home Appliances,769455.5235000001,60.110631915706094
+Contoso Richardson Store,"Music, Movies and Audio Books",64181.4425,5.013918216335417
+Contoso Richardson Store,TV and Video,85142.91349999991,6.651449209629718
+Contoso Richardson Store,,45262.46799999999,3.5359490840595997
+Contoso Lewisville Store,Audio,7644.667000000001,0.5307518398103317
+Contoso Lewisville Store,Cameras and camcorders,409593.0924999999,28.437116674667223
+Contoso Lewisville Store,Cell phones,154059.0575,10.695969910471007
+Contoso Lewisville Store,Games and Toys,3842.3284999999996,0.2667641272707721
+Contoso Lewisville Store,Home Appliances,724610.9269999999,50.30808832509249
+Contoso Lewisville Store,"Music, Movies and Audio Books",34178.284,2.372920509756673
+Contoso Lewisville Store,TV and Video,190069.68849999993,13.19610610423601
+Contoso Lewisville Store,,135589.286,9.413655690047614
+Contoso Denton Store,Cameras and camcorders,762975.0634999999,51.884645259801765
+Contoso Denton Store,Games and Toys,5560.121999999998,0.3781053554330474
+Contoso Denton Store,Home Appliances,690714.8025,46.970725804601
+Contoso Denton Store,"Music, Movies and Audio Books",28004.277000000002,1.9043767580514455
+Contoso Denton Store,TV and Video,221951.13549999997,15.093358199153903
+Contoso Denton Store,,263562.681,17.9230709647004
+Contoso Fort Worth Store,Cameras and camcorders,538072.5845,32.029917947407895
+Contoso Fort Worth Store,Cell phones,58265.08050000004,3.468353157870502
+Contoso Fort Worth Store,Games and Toys,10489.2065,0.6243923834934162
+Contoso Fort Worth Store,Home Appliances,934406.5045000003,55.62253965507369
+Contoso Fort Worth Store,"Music, Movies and Audio Books",1195.4104999999981,0.07115935903712595
+Contoso Fort Worth Store,TV and Video,270317.5305000001,16.091227412573993
+Contoso Fort Worth Store,,122194.13650000002,7.273866534914234
+Contoso Plano Store,Cameras and camcorders,480782.41500000004,30.347361845106345
+Contoso Plano Store,Cell phones,105467.14299999998,6.657168506029019
+Contoso Plano Store,Games and Toys,5048.2415,0.31864894950865125
+Contoso Plano Store,Home Appliances,794558.8150000002,50.153173480822744
+Contoso Plano Store,"Music, Movies and Audio Books",37723.625499999995,2.3811447287600576
+Contoso Plano Store,TV and Video,331424.3879999999,20.9197664330733
+Contoso Plano Store,,231562.225,14.616388645855382
+Contoso Miami No.1 Store,Cameras and camcorders,780882.0590000001,42.78597702297453
+Contoso Miami No.1 Store,Cell phones,3842.827500000014,0.2105556495033461
+Contoso Miami No.1 Store,Games and Toys,7167.8449999999975,0.39273952825473063
+Contoso Miami No.1 Store,Home Appliances,1176568.1494999998,64.46635215942469
+Contoso Miami No.1 Store,"Music, Movies and Audio Books",49254.74399999999,2.69875882121719
+Contoso Miami No.1 Store,TV and Video,213950.13800000004,11.722725068434734
+Contoso Miami No.1 Store,,148673.14950000003,8.146077740070421
+Contoso Miami No.2 Store,Audio,24598.758,2.0456533963493806
+Contoso Miami No.2 Store,Cameras and camcorders,286516.39500000014,23.826944292940766
+Contoso Miami No.2 Store,Cell phones,73487.87449999998,6.111313427345478
+Contoso Miami No.2 Store,Games and Toys,6028.3485,0.5013225295115589
+Contoso Miami No.2 Store,Home Appliances,1055920.9030000002,87.81127004453865
+Contoso Miami No.2 Store,"Music, Movies and Audio Books",14656.7065,1.2188640349655477
+Contoso Miami No.2 Store,TV and Video,98955.03649999993,8.229184030433641
+Contoso Miami No.2 Store,,135781.54350000003,11.291707313935778
+Contoso Jacksonville Store,Audio,11394.930500000002,0.8888661360998451
+Contoso Jacksonville Store,Cameras and camcorders,509807.0545000001,39.7677043041077
+Contoso Jacksonville Store,Cell phones,112664.41849999997,8.788433272851542
+Contoso Jacksonville Store,Games and Toys,8012.07,0.6249847423871067
+Contoso Jacksonville Store,Home Appliances,596118.6839999997,46.50047767329552
+Contoso Jacksonville Store,"Music, Movies and Audio Books",28082.339499999995,2.190574185951292
+Contoso Jacksonville Store,TV and Video,145630.32849999995,11.359952339572942
+Contoso Jacksonville Store,,157848.7625,12.313056197360494
+Contoso Tallahassee No.1 Store,Cameras and camcorders,814556.0109999999,48.088899399249534
+Contoso Tallahassee No.1 Store,Games and Toys,14609.216499999999,0.8624835285517971
+Contoso Tallahassee No.1 Store,Home Appliances,543032.662,32.05899005197407
+Contoso Tallahassee No.1 Store,"Music, Movies and Audio Books",60515.3215,3.572639779742222
+Contoso Tallahassee No.1 Store,TV and Video,367834.782,21.715842235854407
+Contoso Tallahassee No.1 Store,,182905.197,10.798164275204051
+Contoso Tallahassee No.2 Store,Audio,4481.906999999992,0.2779812834853448
+Contoso Tallahassee No.2 Store,Cameras and camcorders,670415.0009999999,41.58114446502549
+Contoso Tallahassee No.2 Store,Cell phones,96232.28350000002,5.9686141814311675
+Contoso Tallahassee No.2 Store,Games and Toys,4569.512000000001,0.28341480772842614
+Contoso Tallahassee No.2 Store,Home Appliances,916574.4834999999,56.84869216011117
+Contoso Tallahassee No.2 Store,TV and Video,66823.44449999998,4.144589985696207
+Contoso Tallahassee No.2 Store,,130994.41649999999,8.124665689869042
+Contoso Sebring Store,Cameras and camcorders,526579.1085000001,31.77732543715527
+Contoso Sebring Store,Cell phones,27783.554999999993,1.6766465945659559
+Contoso Sebring Store,Games and Toys,6140.182000000001,0.3705398837663209
+Contoso Sebring Store,Home Appliances,963808.2550000001,58.16267315540819
+Contoso Sebring Store,"Music, Movies and Audio Books",5446.387000000002,0.32867162665966615
+Contoso Sebring Store,TV and Video,115249.26800000004,6.954916054422097
+Contoso Sebring Store,,186771.60949999996,11.271055235004217
+Contoso Lakeland Store,Cameras and camcorders,615153.641,37.57245322428814
+Contoso Lakeland Store,Cell phones,34750.43650000001,2.122492760991145
+Contoso Lakeland Store,Games and Toys,1440.936499999998,0.08800975177097163
+Contoso Lakeland Store,Home Appliances,823050.9484999999,50.27043847688489
+Contoso Lakeland Store,"Music, Movies and Audio Books",41750.8365,2.5500643203884605
+Contoso Lakeland Store,TV and Video,164584.48849999998,10.052517913341324
+Contoso Lakeland Store,,282095.91299999994,17.229899637309234
+Contoso Fort Lauderdale Store,Audio,21114.943,2.0606752107234563
+Contoso Fort Lauderdale Store,Cameras and camcorders,481735.5590000001,47.01412286811795
+Contoso Fort Lauderdale Store,Cell phones,104893.87,10.236930199899133
+Contoso Fort Lauderdale Store,Games and Toys,9877.632000000001,0.9639898816231118
+Contoso Fort Lauderdale Store,Home Appliances,600745.314,58.62866769368398
+Contoso Fort Lauderdale Store,"Music, Movies and Audio Books",31587.629499999995,3.082738375195564
+Contoso Fort Lauderdale Store,TV and Video,171073.79149999993,16.69564162917811
+Contoso Fort Lauderdale Store,,217093.001,21.186804320630294
+Contoso Orlando Store,Audio,35585.337,2.09248314953199
+Contoso Orlando Store,Cameras and camcorders,594607.8224999999,34.96403165048453
+Contoso Orlando Store,Games and Toys,7941.553999999998,0.46697795572649403
+Contoso Orlando Store,Home Appliances,1013530.7325000002,59.597467892156395
+Contoso Orlando Store,"Music, Movies and Audio Books",20545.95049999999,1.2081396113339702
+Contoso Orlando Store,TV and Video,161673.95649999997,9.506725472191478
+Contoso Orlando Store,,136956.80950000003,8.053311848428269
+Contoso Tampa Store,Audio,4640.2409999999945,0.26426284782794507
+Contoso Tampa Store,Cameras and camcorders,594138.8085,33.83634891793601
+Contoso Tampa Store,Cell phones,99057.71449999994,5.641360811453014
+Contoso Tampa Store,Games and Toys,2039.1180000000004,0.11612826354002398
+Contoso Tampa Store,Home Appliances,883297.3779999998,50.30399942357242
+Contoso Tampa Store,"Music, Movies and Audio Books",27846.078499999996,1.5858409089636767
+Contoso Tampa Store,TV and Video,205911.42349999992,11.72670539621026
+Contoso Tampa Store,,217232.46050000002,12.371441192903916
+Contoso Key West Store,Cameras and camcorders,641907.1159999999,36.694106069035406
+Contoso Key West Store,Cell phones,16745.706000000006,0.9572548688880446
+Contoso Key West Store,Games and Toys,4635.0244999999995,0.26495746253041663
+Contoso Key West Store,Home Appliances,723424.2690000001,41.353968818754154
+Contoso Key West Store,"Music, Movies and Audio Books",5445.963999999993,0.3113141694228361
+Contoso Key West Store,TV and Video,243198.25400000007,13.902233369352798
+Contoso Key West Store,,222233.35900000003,12.70379194117553
+Contoso Cape Canaveral Store,Audio,9178.016499999998,0.5943193901531211
+Contoso Cape Canaveral Store,Cameras and camcorders,580938.7054999999,37.618491660927354
+Contoso Cape Canaveral Store,Cell phones,80876.46049999993,5.237128161853159
+Contoso Cape Canaveral Store,Games and Toys,9977.457499999999,0.6460869248468539
+Contoso Cape Canaveral Store,Home Appliances,790302.1344999999,51.17575051349602
+Contoso Cape Canaveral Store,"Music, Movies and Audio Books",41702.15099999999,2.7004088465512535
+Contoso Cape Canaveral Store,TV and Video,99290.38650000002,6.429515784020187
+Contoso Cape Canaveral Store,,176231.518,11.411813032098909
+Contoso Albany Store,Audio,754.7474999999977,0.06483630854823567
+Contoso Albany Store,Cameras and camcorders,521760.2655,44.82162519540305
+Contoso Albany Store,Cell phones,9564.114499999967,0.8216017657728638
+Contoso Albany Store,Games and Toys,11633.248500000002,0.9993499669284127
+Contoso Albany Store,Home Appliances,594063.0505000001,51.03276955448576
+Contoso Albany Store,"Music, Movies and Audio Books",43874.2935,3.76900517153334
+Contoso Albany Store,TV and Video,43720.060499999905,3.755755841954473
+Contoso Albany Store,,202447.22600000002,17.391155067980275
+Contoso New York No.1 Store,Audio,13620.8165,0.8026741945174758
+Contoso New York No.1 Store,Cameras and camcorders,788059.8405,46.44033620927996
+Contoso New York No.1 Store,Cell phones,36367.28700000001,2.1431228296417384
+Contoso New York No.1 Store,Games and Toys,7001.939499999999,0.4126240264834781
+Contoso New York No.1 Store,Home Appliances,1041899.4040000001,61.399091961479556
+Contoso New York No.1 Store,"Music, Movies and Audio Books",14714.526500000007,0.8671264829163184
+Contoso New York No.1 Store,TV and Video,242575.76549999998,14.29498056758731
+Contoso New York No.1 Store,,147205.223,8.674798151806128
+Contoso Rochester No.1 Store,Cameras and camcorders,566642.8285,28.605900182961406
+Contoso Rochester No.1 Store,Cell phones,98854.84049999999,4.990501172372238
+Contoso Rochester No.1 Store,Computers,5084.782499999972,0.2566957055330811
+Contoso Rochester No.1 Store,Games and Toys,165.5570000000007,0.008357834562430297
+Contoso Rochester No.1 Store,Home Appliances,966239.179,48.77877230090204
+Contoso Rochester No.1 Store,"Music, Movies and Audio Books",48282.84300000001,2.437468750930459
+Contoso Rochester No.1 Store,TV and Video,269799.96349999995,13.62034501641563
+Contoso Rochester No.1 Store,,41329.79999999999,2.0864574188849163
+Contoso New York No.2 Store,Cameras and camcorders,650339.1259999999,36.25438368979122
+Contoso New York No.2 Store,Cell phones,98423.27350000001,5.486791396700099
+Contoso New York No.2 Store,Home Appliances,800054.8724999998,44.600570934282054
+Contoso New York No.2 Store,"Music, Movies and Audio Books",57773.599,3.220698465689636
+Contoso New York No.2 Store,TV and Video,354707.0795,19.773816526730517
+Contoso New York No.2 Store,,369340.57249999995,20.58958825064164
+Contoso Syracuse Store,Cameras and camcorders,396054.8700000001,25.09080713440628
+Contoso Syracuse Store,Cell phones,74691.935,4.731871964055408
+Contoso Syracuse Store,Games and Toys,2476.372000000001,0.15688273759907043
+Contoso Syracuse Store,Home Appliances,1035825.9855,65.62148832303666
+Contoso Syracuse Store,"Music, Movies and Audio Books",52043.24600000001,3.297035706275903
+Contoso Syracuse Store,TV and Video,128740.33050000004,8.155937592675535
+Contoso Syracuse Store,,142331.80699999997,9.016982718905933
+Contoso Buffalo Store,Cameras and camcorders,461698.0655,24.956111956814272
+Contoso Buffalo Store,Cell phones,181263.12099999998,9.797794444771334
+Contoso Buffalo Store,Games and Toys,2148.1594999999998,0.11611421617077179
+Contoso Buffalo Store,Home Appliances,946298.952,51.15018743938838
+Contoso Buffalo Store,"Music, Movies and Audio Books",62579.11000000001,3.3825813708500276
+Contoso Buffalo Store,TV and Video,294230.69000000006,15.904017342629984
+Contoso Buffalo Store,,235066.81300000002,12.706039164808944
+Contoso Plattsburgh Store,Audio,12936.9905,0.6594240929192384
+Contoso Plattsburgh Store,Cameras and camcorders,669942.985,34.148324155546995
+Contoso Plattsburgh Store,Cell phones,147472.56199999998,7.516969300342775
+Contoso Plattsburgh Store,Games and Toys,2391.111999999999,0.12187972632957453
+Contoso Plattsburgh Store,Home Appliances,931846.723,47.498077706251685
+Contoso Plattsburgh Store,"Music, Movies and Audio Books",25391.21650000001,1.2942407207169633
+Contoso Plattsburgh Store,TV and Video,292283.85349999997,14.89828835919583
+Contoso Plattsburgh Store,,221338.98,11.28208729179862
+Contoso Brooklyn Store,Audio,19730.263000000006,1.3533225504800988
+Contoso Brooklyn Store,Cameras and camcorders,440288.1930000001,30.19989851615429
+Contoso Brooklyn Store,Cell phones,151881.21149999998,10.417715593410346
+Contoso Brooklyn Store,Games and Toys,4030.876500000002,0.2764826837660651
+Contoso Brooklyn Store,Home Appliances,869182.3919999998,59.61826923309802
+Contoso Brooklyn Store,"Music, Movies and Audio Books",54754.458000000006,3.7556743541997104
+Contoso Brooklyn Store,TV and Video,139486.55799999996,9.5675513514569
+Contoso Brooklyn Store,,280691.03599999996,19.25293690897182
+Contoso Oswego Store,Cameras and camcorders,644652.0715000001,35.889817602987975
+Contoso Oswego Store,Cell phones,14384.435500000021,0.8008269720063186
+Contoso Oswego Store,Games and Toys,4189.065500000001,0.23321851176579927
+Contoso Oswego Store,Home Appliances,901756.817,50.20365110915649
+Contoso Oswego Store,"Music, Movies and Audio Books",23807.472,1.3254371861089151
+Contoso Oswego Store,TV and Video,133522.1185000001,7.433598200932097
+Contoso Oswego Store,,199544.28949999998,11.109261057998209
+Contoso Ithaca Store,Cameras and camcorders,488579.62049999996,32.27794303857854
+Contoso Ithaca Store,Home Appliances,943926.1705,62.360348008053236
+Contoso Ithaca Store,"Music, Movies and Audio Books",71485.53099999999,4.722681423632038
+Contoso Ithaca Store,TV and Video,204149.48399999994,13.487106582881307
+Contoso Ithaca Store,,201054.059,13.282607771146301
+Contoso Rochester No.2 Store,Cameras and camcorders,818379.5244999999,53.524228159684284
+Contoso Rochester No.2 Store,Cell phones,26708.924500000023,1.746835699135069
+Contoso Rochester No.2 Store,Home Appliances,709401.3394999998,46.39676093482669
+Contoso Rochester No.2 Store,"Music, Movies and Audio Books",64080.78099999999,4.1910559101418
+Contoso Rochester No.2 Store,,159471.60150000002,10.429872850119494
+Contoso Queens Store,Cameras and camcorders,594283.3015000001,30.754190339819598
+Contoso Queens Store,Cell phones,90411.06550000003,4.678777125648208
+Contoso Queens Store,Games and Toys,1264.5954999999994,0.06544287987179682
+Contoso Queens Store,Home Appliances,1009685.5,52.251274723652855
+Contoso Queens Store,"Music, Movies and Audio Books",52185.01000000001,2.7005768568198434
+Contoso Queens Store,TV and Video,348170.58999999997,18.01784530805513
+Contoso Queens Store,,205628.2315,10.641271183002416
+Contoso Elmira Store,Cameras and camcorders,397379.2359999999,26.871820487863175
+Contoso Elmira Store,Cell phones,61411.77549999999,4.152824449732833
+Contoso Elmira Store,Home Appliances,778696.8014999998,52.657508920222554
+Contoso Elmira Store,"Music, Movies and Audio Books",53853.031,3.641682429927796
+Contoso Elmira Store,TV and Video,449782.463,30.415463389549025
+Contoso Elmira Store,,143445.779,9.700177749170805
+Contoso Poestenkill Store,Audio,44097.03749999999,2.650352308495828
+Contoso Poestenkill Store,Cameras and camcorders,494303.802,29.709007611428884
+Contoso Poestenkill Store,Cell phones,196141.09850000002,11.788615350869833
+Contoso Poestenkill Store,Games and Toys,3717.574499999999,0.22343637388521215
+Contoso Poestenkill Store,Home Appliances,875521.8905000002,52.62125519487125
+Contoso Poestenkill Store,"Music, Movies and Audio Books",30923.42850000001,1.858582452655254
+Contoso Poestenkill Store,TV and Video,247821.78249999997,14.894765512182673
+Contoso Poestenkill Store,,123477.27549999999,7.421321266041972
+Contoso Trenton No.1 Store,Cameras and camcorders,609207.9564999999,40.19729465981273
+Contoso Trenton No.1 Store,Cell phones,96406.45850000001,6.361175651246617
+Contoso Trenton No.1 Store,Games and Toys,4625.892,0.30522967043433624
+Contoso Trenton No.1 Store,Home Appliances,719485.156,47.47370173109899
+Contoso Trenton No.1 Store,"Music, Movies and Audio Books",78237.95850000001,5.162365720689173
+Contoso Trenton No.1 Store,TV and Video,244697.01599999995,16.14581351011772
+Contoso Trenton No.1 Store,,143422.67200000002,9.463440760694782
+Contoso Trenton No.2 Store,Cameras and camcorders,570860.966,45.39173759038124
+Contoso Trenton No.2 Store,Cell phones,62811.754000000015,4.994446677861628
+Contoso Trenton No.2 Store,Games and Toys,5171.838500000002,0.4112362729874072
+Contoso Trenton No.2 Store,Home Appliances,760826.9159999997,60.49678955062943
+Contoso Trenton No.2 Store,"Music, Movies and Audio Books",45148.7525,3.589981533284707
+Contoso Trenton No.2 Store,TV and Video,174078.20199999993,13.841745251486289
+Contoso Trenton No.2 Store,,181043.7445,14.395607043001126
+Contoso Newark No.1 Store,Cameras and camcorders,457488.3635,31.210235724210488
+Contoso Newark No.1 Store,Games and Toys,5583.235999999999,0.380892992186233
+Contoso Newark No.1 Store,Home Appliances,738654.1580000003,50.39159950097447
+Contoso Newark No.1 Store,"Music, Movies and Audio Books",42490.4135,2.898731262165045
+Contoso Newark No.1 Store,TV and Video,329042.2145,22.447532870989036
+Contoso Newark No.1 Store,,204892.90999999997,13.977964314538122
+Contoso Newark No.2 Store,Cameras and camcorders,589686.0194999999,34.614813055104705
+Contoso Newark No.2 Store,Cell phones,174893.8275,10.266339955858884
+Contoso Newark No.2 Store,Games and Toys,4233.872500000001,0.24853006556084523
+Contoso Newark No.2 Store,Home Appliances,602156.0300000003,35.34680782516675
+Contoso Newark No.2 Store,"Music, Movies and Audio Books",43158.7955,2.533439132884164
+Contoso Newark No.2 Store,TV and Video,217970.25800000003,12.794944229202542
+Contoso Newark No.2 Store,,177563.07700000002,10.423026004679027
+Contoso Jersey City Store,Audio,38235.36200000001,1.9503680381439594
+Contoso Jersey City Store,Cameras and camcorders,545147.397,27.807715255479366
+Contoso Jersey City Store,Cell phones,32988.40850000002,1.6827233796723708
+Contoso Jersey City Store,Games and Toys,4373.982,0.22311478814342048
+Contoso Jersey City Store,Home Appliances,1179822.367,60.18219038397367
+Contoso Jersey City Store,"Music, Movies and Audio Books",42775.597499999996,2.181963340023056
+Contoso Jersey City Store,TV and Video,169744.72850000008,8.658599678219971
+Contoso Jersey City Store,,235950.678,12.035734379854885
+Contoso Clifton Store,Cameras and camcorders,625716.3064999998,35.172167558100334
+Contoso Clifton Store,Cell phones,63086.8775,3.5461793197607046
+Contoso Clifton Store,Games and Toys,3320.068000000001,0.18662449226147365
+Contoso Clifton Store,Home Appliances,1123345.3790000002,63.14441782220956
+Contoso Clifton Store,"Music, Movies and Audio Books",64428.096000000005,3.6215706134252303
+Contoso Clifton Store,TV and Video,166478.87899999996,9.35795178461233
+Contoso Clifton Store,,30564.48100000003,1.7180614215915042
+Contoso East Orange Store,Audio,17495.665500000003,1.2959979861868496
+Contoso East Orange Store,Cameras and camcorders,541171.8505000001,40.087507870392855
+Contoso East Orange Store,Cell phones,90462.05699999997,6.7010108131251105
+Contoso East Orange Store,Games and Toys,4371.844499999999,0.32384602162873155
+Contoso East Orange Store,Home Appliances,697209.5050000001,51.6460556719223
+Contoso East Orange Store,"Music, Movies and Audio Books",3746.2004999999917,0.27750120759065483
+Contoso East Orange Store,TV and Video,290544.9675,21.522227478384497
+Contoso East Orange Store,,106288.52449999997,7.87336233118835
+Contoso Passaic Store,Audio,6670.644500000009,0.40163071361915953
+Contoso Passaic Store,Cameras and camcorders,625620.8185,37.66780493086648
+Contoso Passaic Store,Cell phones,90411.84650000004,5.443578117439908
+Contoso Passaic Store,Games and Toys,4875.650500000002,0.29355649063184375
+Contoso Passaic Store,Home Appliances,730743.4095000001,43.99709758629505
+Contoso Passaic Store,"Music, Movies and Audio Books",24263.46549999999,1.4608712791753242
+Contoso Passaic Store,TV and Video,148253.1235000001,8.926125172398912
+Contoso Passaic Store,,209703.21649999998,12.625954282397748
+Contoso Bayonne Store,Cameras and camcorders,534360.1179999999,34.83005814255944
+Contoso Bayonne Store,Games and Toys,9233.026,0.6018166805101333
+Contoso Bayonne Store,Home Appliances,881457.7040000001,57.454181265314716
+Contoso Bayonne Store,"Music, Movies and Audio Books",44707.17999999999,2.91405295106599
+Contoso Bayonne Store,TV and Video,260352.7884999999,16.970021630679554
+Contoso Bayonne Store,,212658.98750000002,13.86129812023663
+Contoso Vineland Store,Cameras and camcorders,468648.0924999999,41.568592204279895
+Contoso Vineland Store,Cell phones,8235.24350000004,0.7304574247348471
+Contoso Vineland Store,Games and Toys,1207.5794999999998,0.10711102977496534
+Contoso Vineland Store,Home Appliances,522469.29150000005,46.3424758687619
+Contoso Vineland Store,"Music, Movies and Audio Books",62515.877,5.545092445470524
+Contoso Vineland Store,TV and Video,238494.4375,21.154205413578246
+Contoso Vineland Store,,196138.77749999997,17.397302982393956
+Contoso New Brunswick Store,Cameras and camcorders,474089.1755000001,50.39582444361596
+Contoso New Brunswick Store,Cell phones,74007.33650000003,7.867002518798517
+Contoso New Brunswick Store,Home Appliances,657201.473,69.86071770667078
+Contoso New Brunswick Store,"Music, Movies and Audio Books",40335.80299999999,4.287708203074712
+Contoso New Brunswick Store,TV and Video,281399.887,29.91289410636494
+Contoso New Brunswick Store,,101855.14049999998,10.827232606406207
+Contoso Hackensack Store,Cameras and camcorders,475758.27249999996,26.926777899120896
+Contoso Hackensack Store,Cell phones,79615.84850000002,4.506066197324101
+Contoso Hackensack Store,Games and Toys,9293.726499999999,0.5260026441698377
+Contoso Hackensack Store,Home Appliances,1031701.3175000001,58.39182173033662
+Contoso Hackensack Store,"Music, Movies and Audio Books",33514.89549999999,1.8968627548998556
+Contoso Hackensack Store,TV and Video,242661.6270000001,13.734066463065698
+Contoso Hackensack Store,,206353.665,11.67912283884585
+Contoso Atlantic City Store,Cameras and camcorders,759870.6655000001,38.26075376361054
+Contoso Atlantic City Store,Cell phones,95613.58299999998,4.814303172517373
+Contoso Atlantic City Store,Games and Toys,7869.5875,0.39624683940202365
+Contoso Atlantic City Store,Home Appliances,816813.5860000001,41.12792466353963
+Contoso Atlantic City Store,"Music, Movies and Audio Books",49746.623499999994,2.504825358736711
+Contoso Atlantic City Store,TV and Video,178872.6265,9.006534701617293
+Contoso Atlantic City Store,,226422.34149999998,11.400742057875418
+Contoso Montclair Store,Cameras and camcorders,699059.2544999999,42.72658556570905
+Contoso Montclair Store,Cell phones,78657.2145,4.807538394006886
+Contoso Montclair Store,Games and Toys,5437.4275,0.3323362216301072
+Contoso Montclair Store,Home Appliances,692376.2930000001,42.318122156457264
+Contoso Montclair Store,"Music, Movies and Audio Books",43096.626500000006,2.63407098596054
+Contoso Montclair Store,TV and Video,371214.4865,22.688673983748828
+Contoso Montclair Store,,239388.14250000002,14.631432011093423
+Contoso Hoboken Store,Cameras and camcorders,365032.69200000004,27.999577547993066
+Contoso Hoboken Store,Cell phones,170230.63050000003,13.057421552063353
+Contoso Hoboken Store,Games and Toys,12254.893000000002,0.9400030036100367
+Contoso Hoboken Store,Home Appliances,890171.4329999997,68.27997769934426
+Contoso Hoboken Store,"Music, Movies and Audio Books",32889.48849999999,2.5227652315852738
+Contoso Hoboken Store,TV and Video,121289.57299999997,9.30343193747826
+Contoso Hoboken Store,,86789.20349999997,6.657105204502615
+Contoso Morristown Store,Audio,14094.921499999997,0.9191976980644159
+Contoso Morristown Store,Cameras and camcorders,479825.33850000007,31.291720682671365
+Contoso Morristown Store,Cell phones,150314.40599999996,9.802726179150415
+Contoso Morristown Store,Games and Toys,10543.4405,0.687588521672798
+Contoso Morristown Store,Home Appliances,894906.3435000002,58.36115163383094
+Contoso Morristown Store,"Music, Movies and Audio Books",58675.49850000001,3.826511779720242
+Contoso Morristown Store,TV and Video,110582.75299999991,7.211633779104469
+Contoso Morristown Store,,171809.29600000003,11.204511453949419
+Contoso Cape May Store,Audio,14402.210500000001,1.1249641858372899
+Contoso Cape May Store,Cameras and camcorders,521335.8105,40.721812502806856
+Contoso Cape May Store,Cell phones,24202.611000000034,1.8904785885994146
+Contoso Cape May Store,Games and Toys,14953.459499999999,1.1680225331985241
+Contoso Cape May Store,Home Appliances,425250.5175000001,33.216540071836455
+Contoso Cape May Store,"Music, Movies and Audio Books",69652.02350000001,5.4405559416450195
+Contoso Cape May Store,TV and Video,212617.80449999997,16.60768778055664
+Contoso Cape May Store,,308491.67799999996,24.096446123936968
+Contoso Boston Store,Cameras and camcorders,633400.6869999999,37.99496377481362
+Contoso Boston Store,Cell phones,124025.619,7.439759693620029
+Contoso Boston Store,Games and Toys,6409.907499999999,0.38450258779464525
+Contoso Boston Store,Home Appliances,936708.9165,56.1891107484107
+Contoso Boston Store,"Music, Movies and Audio Books",38349.101,2.300396468139083
+Contoso Boston Store,TV and Video,21703.03649999993,1.301871157618361
+Contoso Boston Store,,215120.62600000002,12.904154605195794
+Contoso Worcester No.1 Store,Audio,16962.684500000003,1.0869933222498733
+Contoso Worcester No.1 Store,Cameras and camcorders,523974.155,33.57702063706485
+Contoso Worcester No.1 Store,Cell phones,46697.42200000002,2.9924382476302225
+Contoso Worcester No.1 Store,Games and Toys,8772.070499999998,0.5621269472886266
+Contoso Worcester No.1 Store,Home Appliances,683787.172,43.81806958704711
+Contoso Worcester No.1 Store,"Music, Movies and Audio Books",39714.4195,2.5449573617625294
+Contoso Worcester No.1 Store,TV and Video,273538.633,17.528750679077877
+Contoso Worcester No.1 Store,,260215.67149999997,16.67499606358101
+Contoso Worcester No.2 Store,Cameras and camcorders,456155.488,30.571581084447864
+Contoso Worcester No.2 Store,Cell phones,105965.27150000003,7.101801852700242
+Contoso Worcester No.2 Store,Games and Toys,408.27150000000074,0.027362391980515155
+Contoso Worcester No.2 Store,Home Appliances,980934.0285,65.74228520688507
+Contoso Worcester No.2 Store,"Music, Movies and Audio Books",58945.3355,3.9505215901035764
+Contoso Worcester No.2 Store,TV and Video,206316.6755,13.827361809844033
+Contoso Worcester No.2 Store,,150274.7,10.07142366330815
+Contoso New Bedford Store,Audio,13086.974499999997,0.916331548721243
+Contoso New Bedford Store,Cameras and camcorders,651305.0945,45.603466709071725
+Contoso New Bedford Store,Games and Toys,14624.810000000001,1.024008627590275
+Contoso New Bedford Store,Home Appliances,624545.2954999998,43.72978321857976
+Contoso New Bedford Store,"Music, Movies and Audio Books",86168.0075,6.033362696832541
+Contoso New Bedford Store,TV and Video,185160.41149999993,12.964671600120992
+Contoso New Bedford Store,,82689.35249999998,5.789792166178804
+Contoso Attleboro Store,Cameras and camcorders,685182.584,48.155853530448226
+Contoso Attleboro Store,Cell phones,77398.72700000001,5.439720518137321
+Contoso Attleboro Store,Games and Toys,1113.5330000000013,0.07826108441968319
+Contoso Attleboro Store,Home Appliances,663993.8185,46.66666931628989
+Contoso Attleboro Store,"Music, Movies and Audio Books",43492.7985,3.0567514164885687
+Contoso Attleboro Store,TV and Video,194441.4375,13.665690872988975
+Contoso Attleboro Store,,214902.6,15.103737851154285
+Contoso Lowell Store,Audio,6253.2225000000035,0.3858278450722503
+Contoso Lowell Store,Cameras and camcorders,523498.4835000001,32.30019270662381
+Contoso Lowell Store,Cell phones,28090.181500000006,1.7331822425690737
+Contoso Lowell Store,Games and Toys,11956.708499999999,0.7377365949655647
+Contoso Lowell Store,Home Appliances,843600.3129999998,52.05068120749991
+Contoso Lowell Store,"Music, Movies and Audio Books",52595.9175,3.2452018952824484
+Contoso Lowell Store,TV and Video,208574.93949999998,12.869207747423017
+Contoso Lowell Store,,174998.386,10.797512828226058
+Contoso Leominster Store,Cameras and camcorders,486356.25650000013,26.92892261501007
+Contoso Leominster Store,Games and Toys,2521.4349999999977,0.13960862451407127
+Contoso Leominster Store,Home Appliances,1016768.1625000001,56.2971500817292
+Contoso Leominster Store,"Music, Movies and Audio Books",5941.380499999999,0.32896662389461784
+Contoso Leominster Store,TV and Video,149659.53150000004,8.28645645758679
+Contoso Leominster Store,,332789.41599999997,18.426123465645993
+Contoso Hingham Store,Audio,23153.5815,1.4683312876765742
+Contoso Hingham Store,Cameras and camcorders,453212.1015,28.741363775021213
+Contoso Hingham Store,Cell phones,28041.404500000004,1.778302487576045
+Contoso Hingham Store,Computers,22329.09999999986,1.416045122680428
+Contoso Hingham Store,Games and Toys,1368.7415,0.08680151574784946
+Contoso Hingham Store,Home Appliances,695831.7784999998,44.12758222010644
+Contoso Hingham Store,"Music, Movies and Audio Books",52102.7065,3.304198710103645
+Contoso Hingham Store,TV and Video,134355.18349999993,8.520406209923822
+Contoso Hingham Store,,166468.99550000002,10.556968671163936
+Contoso Quincy Store,Audio,35847.633499999996,2.096347334265008
+Contoso Quincy Store,Cameras and camcorders,653109.9045,38.193461425581944
+Contoso Quincy Store,Cell phones,22555.592999999993,1.3190370644220202
+Contoso Quincy Store,Games and Toys,6386.607500000002,0.37348483847955855
+Contoso Quincy Store,Home Appliances,737294.8284999998,43.116543475411035
+Contoso Quincy Store,"Music, Movies and Audio Books",64452.923500000004,3.7691669204554747
+Contoso Quincy Store,TV and Video,178658.8345,10.447857637435629
+Contoso Quincy Store,,218938.34050000002,12.803378121894148
+Contoso Framingham Store,Cameras and camcorders,672014.9164999999,40.08827325943838
+Contoso Framingham Store,Home Appliances,768255.3500000001,45.82938510387289
+Contoso Framingham Store,"Music, Movies and Audio Books",31596.358499999995,1.8848442533807637
+Contoso Framingham Store,TV and Video,297014.50049999997,17.718056795633043
+Contoso Framingham Store,,249909.89199999996,14.908085809926714
+Contoso Cambridge Store,Audio,5795.974499999997,0.3771928420523109
+Contoso Cambridge Store,Cameras and camcorders,578801.9569999999,37.667514780520435
+Contoso Cambridge Store,Games and Toys,5916.6044999999995,0.3850432514246729
+Contoso Cambridge Store,Home Appliances,874346.0739999998,56.90105789618989
+Contoso Cambridge Store,"Music, Movies and Audio Books",65685.4295,4.274703733519138
+Contoso Cambridge Store,TV and Video,103642.7365,6.744905164526482
+Contoso Cambridge Store,,166749.23,10.851775827125275
+Contoso Somerville Store,Cameras and camcorders,744782.5050000001,65.24928289568291
+Contoso Somerville Store,Games and Toys,5238.522000000001,0.4589390884433551
+Contoso Somerville Store,Home Appliances,863465.7035000001,75.64694065738205
+Contoso Somerville Store,"Music, Movies and Audio Books",42946.7025,3.762496463124133
+Contoso Somerville Store,TV and Video,172080.0035,15.075672097133378
+Contoso Somerville Store,,185814.502,16.278930997605045
+Contoso Haverhill Store,Cameras and camcorders,681219.38,45.840791324645046
+Contoso Haverhill Store,Games and Toys,6964.074500000001,0.46862830873041483
+Contoso Haverhill Store,Home Appliances,700584.7164999999,47.14392857453953
+Contoso Haverhill Store,"Music, Movies and Audio Books",26693.001000000004,1.7962323512721288
+Contoso Haverhill Store,TV and Video,109414.3550000001,7.3627391743840835
+Contoso Haverhill Store,,139086.8535,9.359468644733766
+Contoso Lynn Store,Cameras and camcorders,625529.3565000001,36.21443661073883
+Contoso Lynn Store,Cell phones,99731.52799999999,5.773863466707055
+Contoso Lynn Store,Games and Toys,6377.211000000001,0.36920266189426454
+Contoso Lynn Store,Home Appliances,832811.4985,48.21484220960405
+Contoso Lynn Store,"Music, Movies and Audio Books",35902.712,2.078553906970171
+Contoso Lynn Store,TV and Video,428243.3304999999,24.792746791515167
+Contoso Lynn Store,,89155.43049999999,5.16157020097486
+Contoso Northampton Store,Cameras and camcorders,589260.7224999999,37.561477661734685
+Contoso Northampton Store,Cell phones,108767.54249999998,6.933212179156448
+Contoso Northampton Store,Games and Toys,6108.685499999998,0.38938833896367925
+Contoso Northampton Store,Home Appliances,894485.0824999998,57.01751391563121
+Contoso Northampton Store,"Music, Movies and Audio Books",35000.168000000005,2.2310294548589424
+Contoso Northampton Store,TV and Video,269978.6684999999,17.209356298149707
+Contoso Northampton Store,,154653.6325,9.858147235419846
+Contoso Holyoke Store,Audio,5942.282999999996,0.3270417218606643
+Contoso Holyoke Store,Cameras and camcorders,488526.54949999996,26.88673089503296
+Contoso Holyoke Store,Cell phones,73474.011,4.0437433002516725
+Contoso Holyoke Store,Games and Toys,943.6384999999991,0.05193444335350814
+Contoso Holyoke Store,Home Appliances,867032.8,47.71834323974022
+Contoso Holyoke Store,"Music, Movies and Audio Books",33845.695,1.8627443981329879
+Contoso Holyoke Store,TV and Video,301641.50750000007,16.601255442974793
+Contoso Holyoke Store,,189318.94150000002,10.419428460239681
+Contoso Pittsfield Store,Cameras and camcorders,737634.3875,39.35705978748731
+Contoso Pittsfield Store,Cell phones,58882.10449999996,3.1417007483528883
+Contoso Pittsfield Store,Home Appliances,829069.8559999999,44.23567073816158
+Contoso Pittsfield Store,"Music, Movies and Audio Books",40485.4565,2.1601332028385363
+Contoso Pittsfield Store,TV and Video,358917.54650000005,19.15032647034607
+Contoso Pittsfield Store,,114983.42749999999,6.135030724401677
+Contoso Falmouth Store,Audio,1549.9860000000044,0.08429280796792352
+Contoso Falmouth Store,Cameras and camcorders,461496.89449999994,25.097561594673394
+Contoso Falmouth Store,Cell phones,62545.9975,3.401435726793474
+Contoso Falmouth Store,Computers,5230.962499999907,0.28447516138848994
+Contoso Falmouth Store,Games and Toys,4193.7415,0.2280680257283682
+Contoso Falmouth Store,Home Appliances,808913.1959999998,43.99108423762993
+Contoso Falmouth Store,"Music, Movies and Audio Books",18772.821500000005,1.0209213745902233
+Contoso Falmouth Store,TV and Video,331086.9675,18.005485321905848
+Contoso Falmouth Store,,145021.115,7.886675749322328
+Contoso Provincetown Store,Audio,708.7680000000109,0.0529669898388309
+Contoso Provincetown Store,Cameras and camcorders,684347.895,51.14204930342476
+Contoso Provincetown Store,Cell phones,23364.706999999995,1.7460695153509214
+Contoso Provincetown Store,Games and Toys,8381.945500000002,0.626391741907264
+Contoso Provincetown Store,Home Appliances,625925.0234999999,46.7760457012647
+Contoso Provincetown Store,"Music, Movies and Audio Books",19899.788,1.4871324168005229
+Contoso Provincetown Store,TV and Video,261997.46399999992,19.57935038473414
+Contoso Provincetown Store,,234035.37,17.48971322734215
+Contoso Nantucket Store,Audio,28318.06700000001,1.630651678298332
+Contoso Nantucket Store,Cameras and camcorders,656060.2494999999,37.77820523244037
+Contoso Nantucket Store,Cell phones,72537.1935,4.176941043321418
+Contoso Nantucket Store,Games and Toys,2953.799500000001,0.17008993276383497
+Contoso Nantucket Store,Home Appliances,946228.7249999999,54.48710388584574
+Contoso Nantucket Store,"Music, Movies and Audio Books",49299.725999999995,2.838847755447004
+Contoso Nantucket Store,TV and Video,170356.72600000002,9.809726107410828
+Contoso Nantucket Store,,144124.541,8.29918668762337
+Contoso Bangor Store,Audio,10608.173999999999,0.6170712760545465
+Contoso Bangor Store,Cameras and camcorders,496241.3025,28.866066277254237
+Contoso Bangor Store,Cell phones,100489.84350000002,5.845435412264796
+Contoso Bangor Store,Home Appliances,711683.1455000001,41.398192256292035
+Contoso Bangor Store,"Music, Movies and Audio Books",35618.903999999995,2.0719308094818567
+Contoso Bangor Store,TV and Video,252086.0375000001,14.66369733713449
+Contoso Bangor Store,,194360.232,11.30582099940081
+Contoso Bar Harbor Store,Cameras and camcorders,596788.722,30.288848287322377
+Contoso Bar Harbor Store,Cell phones,95423.45049999998,4.843031224787985
+Contoso Bar Harbor Store,Games and Toys,3706.525499999998,0.18811747676188773
+Contoso Bar Harbor Store,Home Appliances,932788.4205,47.34185803312747
+Contoso Bar Harbor Store,"Music, Movies and Audio Books",75902.4785,3.8522823424237713
+Contoso Bar Harbor Store,TV and Video,221812.19999999995,11.257645840829426
+Contoso Bar Harbor Store,,143011.8625,7.258288313548104
+Contoso Kennebunkport Store,Audio,22265.368499999997,1.8631544203913288
+Contoso Kennebunkport Store,Cameras and camcorders,434646.1379999999,36.370962075957536
+Contoso Kennebunkport Store,Cell phones,136097.332,11.388553740723685
+Contoso Kennebunkport Store,Games and Toys,7298.1005000000005,0.6107012424714718
+Contoso Kennebunkport Store,Home Appliances,811112.6429999999,67.87348281438702
+Contoso Kennebunkport Store,"Music, Movies and Audio Books",33307.1125,2.7871217979098932
+Contoso Kennebunkport Store,TV and Video,271638.13800000004,22.730537676103136
+Contoso Kennebunkport Store,,133833.9235,11.199152898248238
+Contoso Lewiston Store,Cameras and camcorders,444907.51450000005,20.769860202397616
+Contoso Lewiston Store,Cell phones,129762.93649999995,6.05779395204528
+Contoso Lewiston Store,Home Appliances,966064.3155,45.099307441479375
+Contoso Lewiston Store,"Music, Movies and Audio Books",51605.801,2.409141759737014
+Contoso Lewiston Store,TV and Video,443691.2634999999,20.713081293483437
+Contoso Lewiston Store,,205950.72850000003,9.614510207439858
+Contoso Orono Store,Cameras and camcorders,390515.5754999999,38.38812446277938
+Contoso Orono Store,Cell phones,100965.657,9.925038719441021
+Contoso Orono Store,Home Appliances,578403.1340000001,56.85768479074061
+Contoso Orono Store,"Music, Movies and Audio Books",46271.377,4.548528895591228
+Contoso Orono Store,TV and Video,221769.51899999997,21.80019551466704
+Contoso Orono Store,,275099.27249999996,27.042570834284334
+Contoso South Portland Store,Audio,16801.8925,1.1679185110028363
+Contoso South Portland Store,Cameras and camcorders,658208.1425,45.75279086677543
+Contoso South Portland Store,Cell phones,32477.808499999985,2.2575691246658813
+Contoso South Portland Store,Games and Toys,6814.423500000001,0.4736782685321154
+Contoso South Portland Store,Home Appliances,592921.577,41.214648013686165
+Contoso South Portland Store,"Music, Movies and Audio Books",35246.947,2.4500550671679324
+Contoso South Portland Store,TV and Video,171335.44149999996,11.909719915104414
+Contoso South Portland Store,,205335.47549999997,14.2731006523235
+Contoso Hartford Store,Audio,38258.07650000001,2.150315448208975
+Contoso Hartford Store,Cameras and camcorders,403742.9970000001,22.69258893753557
+Contoso Hartford Store,Games and Toys,19.68449999999939,0.0011063777458929027
+Contoso Hartford Store,Home Appliances,928155.078,52.167447638330835
+Contoso Hartford Store,"Music, Movies and Audio Books",63085.777,3.545769501646702
+Contoso Hartford Store,TV and Video,339355.2840000001,19.073643433603984
+Contoso Hartford Store,,137423.8795,7.723981916384598
+Contoso Bridgeport Store,Cameras and camcorders,554331.4720000001,33.53240794303829
+Contoso Bridgeport Store,Cell phones,50608.33399999997,3.061380034734044
+Contoso Bridgeport Store,Games and Toys,2944.9354999999996,0.1781439148595471
+Contoso Bridgeport Store,Home Appliances,882735.4890000001,53.39809846290918
+Contoso Bridgeport Store,"Music, Movies and Audio Books",41558.224500000004,2.513924263211179
+Contoso Bridgeport Store,TV and Video,203551.58349999995,12.31316474012758
+Contoso Bridgeport Store,,200006.2405,12.098701203815875
+Contoso Waterbury Store,Cameras and camcorders,633108.1715,41.67846287939307
+Contoso Waterbury Store,Cell phones,20488.94299999997,1.3488179251268742
+Contoso Waterbury Store,Games and Toys,9671.598,0.6366958386785128
+Contoso Waterbury Store,Home Appliances,850633.5794999998,55.998487562020024
+Contoso Waterbury Store,"Music, Movies and Audio Books",24191.230999999992,1.5925451109744877
+Contoso Waterbury Store,TV and Video,55873.994000000064,3.6782690378723593
+Contoso Waterbury Store,,154874.65000000002,10.195631081005553
+Contoso Old Saybrook Store,Audio,3444.025999999998,0.21279913564312886
+Contoso Old Saybrook Store,Cameras and camcorders,364545.51800000004,22.524502176515718
+Contoso Old Saybrook Store,Games and Toys,6397.737499999999,0.3953027677699393
+Contoso Old Saybrook Store,Home Appliances,979100.5160000003,60.496565215402455
+Contoso Old Saybrook Store,"Music, Movies and Audio Books",37781.33150000001,2.334429149677303
+Contoso Old Saybrook Store,TV and Video,292991.48899999994,18.103328955702807
+Contoso Old Saybrook Store,,216859.126,13.399270089460533
+Contoso Darien Store,Cameras and camcorders,818412.8255000002,47.733103005590344
+Contoso Darien Store,Games and Toys,3592.6405000000013,0.20953713542280705
+Contoso Darien Store,Home Appliances,721926.6684999999,42.105645166228115
+Contoso Darien Store,"Music, Movies and Audio Books",58820.1515,3.4306260396623376
+Contoso Darien Store,TV and Video,247088.09999999998,14.411164343068576
+Contoso Darien Store,,253316.82799999998,14.774448624489953
+Contoso New Haven Store,Cameras and camcorders,604862.1945,40.75070399523159
+Contoso New Haven Store,Cell phones,31217.15750000003,2.103158630878897
+Contoso New Haven Store,Computers,1190.6650000000373,0.08021734109633454
+Contoso New Haven Store,Games and Toys,7272.435500000001,0.48995766156271836
+Contoso New Haven Store,Home Appliances,575312.1910000001,38.759864665817105
+Contoso New Haven Store,"Music, Movies and Audio Books",48506.734500000006,3.2679899609509953
+Contoso New Haven Store,,251624.046,16.95238536953815
+Contoso Litchfield County Store,Cameras and camcorders,633604.0415,39.981233505446575
+Contoso Litchfield County Store,Cell phones,173300.7145,10.935498954018636
+Contoso Litchfield County Store,Games and Toys,6037.155000000001,0.3809522792691566
+Contoso Litchfield County Store,Home Appliances,920217.7265000001,58.06692727519112
+Contoso Litchfield County Store,"Music, Movies and Audio Books",40607.844000000005,2.562407413426746
+Contoso Litchfield County Store,TV and Video,105859.5859999999,6.679876625527961
+Contoso Litchfield County Store,,127776.7905,8.06288054202228
+Contoso New London Store,Audio,13833.333499999993,0.8220318992719217
+Contoso New London Store,Cameras and camcorders,567994.3634999999,33.75249251408935
+Contoso New London Store,Cell phones,173325.23549999995,10.29967740818351
+Contoso New London Store,Games and Toys,3109.9735,0.18480704039198845
+Contoso New London Store,Home Appliances,820379.298,48.750212843368956
+Contoso New London Store,"Music, Movies and Audio Books",64501.116,3.832913801336356
+Contoso New London Store,TV and Video,41412.91650000005,2.460920818896223
+Contoso New London Store,,108053.61049999998,6.420976886193301
+Contoso Norfolk Store,Audio,20172.73000000001,1.3592738342735196
+Contoso Norfolk Store,Cameras and camcorders,444768.1590000001,29.96925655807142
+Contoso Norfolk Store,Games and Toys,3740.7749999999996,0.2520599629997785
+Contoso Norfolk Store,Home Appliances,853328.5674999999,57.49877155153784
+Contoso Norfolk Store,"Music, Movies and Audio Books",41147.46149999999,2.7725879325072498
+Contoso Norfolk Store,TV and Video,231279.17299999995,15.583995238686999
+Contoso Norfolk Store,,128759.54800000001,8.67604357512767
+Contoso Virginia Beach Store,Audio,11052.662500000006,0.5847342112050397
+Contoso Virginia Beach Store,Cameras and camcorders,525400.8034999999,27.796001587949178
+Contoso Virginia Beach Store,Cell phones,97962.32249999995,5.1826355301133225
+Contoso Virginia Beach Store,Games and Toys,659.4749999999985,0.03488911327333504
+Contoso Virginia Beach Store,Home Appliances,921818.2595000002,48.76821967947857
+Contoso Virginia Beach Store,"Music, Movies and Audio Books",32810.6675,1.7358278857898104
+Contoso Virginia Beach Store,TV and Video,132466.74699999997,7.008070572854503
+Contoso Virginia Beach Store,,212501.9815,11.242284701257308
+Contoso Winchester Store,Cameras and camcorders,484502.7444999999,29.39432005820151
+Contoso Winchester Store,Cell phones,117127.44199999998,7.106010351498503
+Contoso Winchester Store,Games and Toys,3508.892499999998,0.21288116603191462
+Contoso Winchester Store,Home Appliances,764818.8395000002,46.40083056290151
+Contoso Winchester Store,"Music, Movies and Audio Books",24774.358,1.5030367042398975
+Contoso Winchester Store,TV and Video,302688.9915,18.363852826937368
+Contoso Winchester Store,,194139.63749999998,11.778266904447268
+Contoso Anchorage Store,Cameras and camcorders,357620.4685000001,32.48270899988353
+Contoso Anchorage Store,Cell phones,6678.383499999996,0.6065983547586665
+Contoso Anchorage Store,Games and Toys,8242.75,0.748689947003942
+Contoso Anchorage Store,Home Appliances,805112.662,73.12847729762308
+Contoso Anchorage Store,"Music, Movies and Audio Books",51748.632,4.700334299791513
+Contoso Anchorage Store,TV and Video,171380.9475,15.566551515120604
+Contoso Anchorage Store,,292791.31350000005,26.594269265418653
+Contoso Alexandria Store,Cameras and camcorders,603226.408,44.11034466112568
+Contoso Alexandria Store,Cell phones,101804.92350000003,7.444386061733117
+Contoso Alexandria Store,Games and Toys,3822.2065000000002,0.27949513457142094
+Contoso Alexandria Store,Home Appliances,574611.6430000002,42.01791778821744
+Contoso Alexandria Store,"Music, Movies and Audio Books",42425.1025,3.1022943769374645
+Contoso Alexandria Store,TV and Video,293045.953,21.42870042980286
+Contoso Alexandria Store,,243956.82900000003,17.839105959076814
+Contoso Roanoke Store,Cameras and camcorders,647589.29,38.474948314251776
+Contoso Roanoke Store,Cell phones,37398.95549999998,2.2219683093732163
+Contoso Roanoke Store,Games and Toys,3663.0554999999986,0.2176315655787569
+Contoso Roanoke Store,Home Appliances,846586.0345000001,50.297857645167156
+Contoso Roanoke Store,"Music, Movies and Audio Books",53534.669499999996,3.1806326538121885
+Contoso Roanoke Store,TV and Video,129368.68550000002,7.686126940263625
+Contoso Roanoke Store,,104985.06150000001,6.237433010945941
+Contoso Charlottesville Store,Cameras and camcorders,602583.9905,38.09400406218043
+Contoso Charlottesville Store,Cell phones,135074.713,8.53911943702702
+Contoso Charlottesville Store,Games and Toys,3095.802999999998,0.195709700086548
+Contoso Charlottesville Store,Home Appliances,875277.9810000001,55.333104578640636
+Contoso Charlottesville Store,"Music, Movies and Audio Books",46677.9135,2.9508726659127977
+Contoso Charlottesville Store,TV and Video,240067.89,15.176551851752334
+Contoso Charlottesville Store,,71055.0355,4.491939470096782
+Contoso Fredericksburg Store,Cameras and camcorders,636940.1345,34.76478731240256
+Contoso Fredericksburg Store,Cell phones,57813.2965,3.1555037087262825
+Contoso Fredericksburg Store,Games and Toys,8782.4155,0.4793524389640225
+Contoso Fredericksburg Store,Home Appliances,952195.0415,51.97169451985888
+Contoso Fredericksburg Store,"Music, Movies and Audio Books",31038.680999999997,1.6941201927392604
+Contoso Fredericksburg Store,TV and Video,315559.17000000004,17.22351416611553
+Contoso Fredericksburg Store,,168011.1375,9.1702047726784
+Contoso Martinsville Store,Audio,22550.6915,1.364139950662319
+Contoso Martinsville Store,Cameras and camcorders,556226.396,33.647333980712716
+Contoso Martinsville Store,Games and Toys,3841.0735000000022,0.23235481780150036
+Contoso Martinsville Store,Home Appliances,875453.0550000002,52.95804287220533
+Contoso Martinsville Store,"Music, Movies and Audio Books",50246.381499999996,3.0395119537851
+Contoso Martinsville Store,TV and Video,228877.62300000002,13.845300901168766
+Contoso Martinsville Store,,153980.95799999998,9.314640149684838
+Contoso Greenville Store,Cameras and camcorders,422148.1215,39.1353584545802
+Contoso Greenville Store,Cell phones,120586.60449999996,11.179014548636792
+Contoso Greenville Store,Games and Toys,6559.620999999999,0.6081114805131066
+Contoso Greenville Store,Home Appliances,771283.4224999999,71.50204317470337
+Contoso Greenville Store,"Music, Movies and Audio Books",45278.66,4.197570708467697
+Contoso Greenville Store,TV and Video,193110.72950000002,17.90238363149503
+Contoso Greenville Store,,124139.03150000001,11.508343276986306
+Contoso Charleston Store,Cameras and camcorders,600685.7005,28.099655549244584
+Contoso Charleston Store,Cell phones,39273.06599999999,1.8371664683280546
+Contoso Charleston Store,Computers,131439.08499999996,6.148628161338893
+Contoso Charleston Store,Games and Toys,3730.530499999999,0.17451159895881546
+Contoso Charleston Store,Home Appliances,866753.1684999999,40.54610499433114
+Contoso Charleston Store,"Music, Movies and Audio Books",23301.057499999995,1.0900071187613398
+Contoso Charleston Store,TV and Video,288836.309,13.511559849451043
+Contoso Charleston Store,,191443.9125,8.955611884504515
+Contoso Annapolis Store,Cameras and camcorders,409940.61199999996,27.2321121123377
+Contoso Annapolis Store,Cell phones,116888.65099999995,7.764843871316446
+Contoso Annapolis Store,Games and Toys,2574.2379999999994,0.17100510602701632
+Contoso Annapolis Store,Home Appliances,915430.2385,60.811488679379835
+Contoso Annapolis Store,"Music, Movies and Audio Books",39544.4535,2.626914630095554
+Contoso Annapolis Store,TV and Video,395320.05299999996,26.260877035406487
+Contoso Annapolis Store,,60551.38100000002,4.0223923848483585
+Contoso Baltimore Store,Audio,7085.564500000008,0.35487635943344475
+Contoso Baltimore Store,Cameras and camcorders,692059.0415,34.6613728744575
+Contoso Baltimore Store,Cell phones,31932.511999999988,1.599321212321865
+Contoso Baltimore Store,Computers,87427.06749999989,4.37873361118115
+Contoso Baltimore Store,Home Appliances,739295.9805000001,37.02720737403755
+Contoso Baltimore Store,"Music, Movies and Audio Books",76894.036,3.8511928806553386
+Contoso Baltimore Store,TV and Video,276630.0375000001,13.854853853625526
+Contoso Baltimore Store,,87532.23550000001,4.384000889034445
+Contoso Howard Store,Audio,3611.767000000007,0.2162850953989936
+Contoso Howard Store,Cameras and camcorders,507232.6155000001,30.374842738443075
+Contoso Howard Store,Cell phones,116988.30200000003,7.005664002865143
+Contoso Howard Store,Games and Toys,8929.228000000001,0.5347130448390943
+Contoso Howard Store,Home Appliances,1018374.3720000002,60.98377835555555
+Contoso Howard Store,"Music, Movies and Audio Books",44533.381499999996,2.666812855360619
+Contoso Howard Store,TV and Video,79210.55700000003,4.7434020182786965
+Contoso Howard Store,,9433.587499999965,0.5649158354877937
+Contoso Ridgely Store,Audio,13548.695000000007,0.8309234322252961
+Contoso Ridgely Store,Cameras and camcorders,432050.7024999999,26.497094562734645
+Contoso Ridgely Store,Cell phones,42278.455000000016,2.5928813762345913
+Contoso Ridgely Store,Games and Toys,7706.569499999998,0.47263365066692986
+Contoso Ridgely Store,Home Appliances,1125536.8465,69.02767680502187
+Contoso Ridgely Store,"Music, Movies and Audio Books",32227.733499999988,1.9764840032683688
+Contoso Ridgely Store,TV and Video,198033.34499999997,12.145121483837084
+Contoso Ridgely Store,,84342.663,5.172623269103147
+Contoso Queen Anne's County Store,Cameras and camcorders,646641.5105000001,38.42662938206829
+Contoso Queen Anne's County Store,Cell phones,46238.385499999975,2.7477130279802835
+Contoso Queen Anne's County Store,Games and Toys,13088.645999999999,0.777791930750308
+Contoso Queen Anne's County Store,Home Appliances,942424.585,56.00351919928981
+Contoso Queen Anne's County Store,"Music, Movies and Audio Books",26031.909999999996,1.546944545678617
+Contoso Queen Anne's County Store,TV and Video,201528.108,11.975794610212287
+Contoso Queen Anne's County Store,,105174.55249999999,6.249990889414736
+Contoso Parkville Store,Cameras and camcorders,486984.3400000001,25.01919691722017
+Contoso Parkville Store,Cell phones,93699.58649999998,4.813888688300745
+Contoso Parkville Store,Games and Toys,3387.724,0.17404693928595893
+Contoso Parkville Store,Home Appliances,949520.7889999999,48.78236453555213
+Contoso Parkville Store,"Music, Movies and Audio Books",35677.773,1.832973167586623
+Contoso Parkville Store,TV and Video,463303.9730000001,23.802599757145085
+Contoso Parkville Store,,230403.24550000002,11.837144844392988
+Contoso Back River Store,Cameras and camcorders,514770.14150000014,42.99563422456772
+Contoso Back River Store,Cell phones,127541.63100000005,10.652780479655673
+Contoso Back River Store,Games and Toys,5523.8375000000015,0.4613727128265279
+Contoso Back River Store,Home Appliances,517680.574,43.238725035624974
+Contoso Back River Store,"Music, Movies and Audio Books",67348.15049999999,5.625183380219688
+Contoso Back River Store,TV and Video,188490.73250000004,15.743490027754145
+Contoso Back River Store,,190610.309,15.920525423862076
+Contoso North Harford Store,Cameras and camcorders,633714.0530000001,59.8003355990809
+Contoso North Harford Store,Cell phones,136144.66299999994,12.847271571274065
+Contoso North Harford Store,Games and Toys,6914.675499999998,0.6525023604908795
+Contoso North Harford Store,Home Appliances,431707.7145,40.738036478121465
+Contoso North Harford Store,"Music, Movies and Audio Books",43561.689,4.110692526275396
+Contoso North Harford Store,TV and Video,61130.46900000004,5.768567927795682
+Contoso North Harford Store,,125650.913,11.8570303596075
+Contoso North America Online Store,Cameras and camcorders,7182913.090499997,80.20594302041799
+Contoso North America Online Store,Home Appliances,16305090.598499998,182.0661270725484
+Contoso North America Online Store,"Music, Movies and Audio Books",823948.7225000001,9.200387566429686
+Contoso North America Online Store,,1908478.8299000002,21.310482579704754
+Contoso Catalog Store,Cameras and camcorders,10201217.604000002,32.67005301243812
+Contoso Catalog Store,Home Appliances,30111970.57249999,96.43551516113223
+Contoso Catalog Store,"Music, Movies and Audio Books",1224939.6935,3.9229478555572523
+Contoso Catalog Store,TV and Video,117660.37249999493,0.3768148819343673
+Contoso Catalog Store,,4722502.963800002,15.124118332525882
+Contoso London Store,Audio,40262.841199999995,3.74544528619267
+Contoso London Store,Cameras and camcorders,309805.7203999999,28.819634693532358
+Contoso London Store,Cell phones,77905.11599999998,7.247112742070799
+Contoso London Store,Games and Toys,9183.439600000002,0.8542882105611342
+Contoso London Store,Home Appliances,846156.5834000001,78.71360023833653
+Contoso London Store,"Music, Movies and Audio Books",29380.930799999995,2.7331570621700942
+Contoso London Store,TV and Video,179736.89390000002,16.719999929182027
+Contoso London Store,,139229.8891,12.951841357552366
+Contoso Edinburgh Store,Cameras and camcorders,450826.92720000003,41.780563277540224
+Contoso Edinburgh Store,Cell phones,78073.1484,7.235459818831753
+Contoso Edinburgh Store,Home Appliances,835084.0179000001,77.39174070331238
+Contoso Edinburgh Store,"Music, Movies and Audio Books",38287.1704,3.548278616697421
+Contoso Edinburgh Store,TV and Video,290503.73000000004,26.922547748000753
+Contoso Edinburgh Store,,39781.3364,3.686751040023756
+Contoso Glasgow Store,Audio,5189.176900000006,0.3298857707666233
+Contoso Glasgow Store,Cameras and camcorders,561411.0307,35.68995895656471
+Contoso Glasgow Store,Cell phones,41149.465200000035,2.6159491776309145
+Contoso Glasgow Store,Computers,91070.76799999992,5.78954062945672
+Contoso Glasgow Store,Games and Toys,3548.2289999999994,0.2255676152650497
+Contoso Glasgow Store,Home Appliances,696973.388,44.307913901375095
+Contoso Glasgow Store,"Music, Movies and Audio Books",28826.942300000002,1.8325831365433827
+Contoso Glasgow Store,TV and Video,50076.460300000035,3.183455106980397
+Contoso Glasgow Store,,94776.88850000003,6.025145705417132
+Contoso York Store,Cameras and camcorders,516516.67480000004,49.04198195336779
+Contoso York Store,Cell phones,66703.86700000003,6.3333673455954145
+Contoso York Store,Games and Toys,289.5501999999997,0.027492076007986446
+Contoso York Store,Home Appliances,648199.7774,61.54496715471346
+Contoso York Store,"Music, Movies and Audio Books",41616.0607,3.951342129680376
+Contoso York Store,TV and Video,192774.49400000006,18.303461857215552
+Contoso York Store,,92468.48260000002,8.77965393214156
+Contoso Carlisle Store,Audio,7611.713699999993,1.0048086497536703
+Contoso Carlisle Store,Cameras and camcorders,543491.5490000001,71.74534290526738
+Contoso Carlisle Store,Cell phones,75254.97080000001,9.934273486508035
+Contoso Carlisle Store,Games and Toys,7431.1316,0.9809703311801966
+Contoso Carlisle Store,Home Appliances,596066.7516999999,78.68570095308942
+Contoso Carlisle Store,"Music, Movies and Audio Books",48772.749299999996,6.4384030062648465
+Contoso Carlisle Store,TV and Video,52106.106499999994,6.878433501273963
+Contoso Carlisle Store,,87489.16279999996,11.549287191548876
+Contoso Manchester Store,Cameras and camcorders,578756.7749,55.13070292154136
+Contoso Manchester Store,Cell phones,26530.12359999999,2.527183138229512
+Contoso Manchester Store,Games and Toys,2829.551699999998,0.26953494272407563
+Contoso Manchester Store,Home Appliances,996568.5449000001,94.93024837476449
+Contoso Manchester Store,"Music, Movies and Audio Books",34035.9468,3.2421662312435187
+Contoso Manchester Store,TV and Video,69308.35700000008,6.602114403597864
+Contoso Manchester Store,,65994.63330000004,6.286458631101138
+Contoso Lancashire Store,Audio,14166.414400000001,1.3957104675493726
+Contoso Lancashire Store,Cameras and camcorders,245130.79410000006,24.150897014848024
+Contoso Lancashire Store,Cell phones,132549.5643,13.059113558235216
+Contoso Lancashire Store,Games and Toys,6544.829499999998,0.6448129204434344
+Contoso Lancashire Store,Home Appliances,794101.1018000001,78.23682046705834
+Contoso Lancashire Store,"Music, Movies and Audio Books",36630.19470000001,3.6088981112370653
+Contoso Lancashire Store,TV and Video,167484.08770000003,16.500949905210113
+Contoso Lancashire Store,,124313.98810000002,12.247724057400026
+Contoso West Yorkshire Store,Audio,3706.7877000000008,0.3995417222269004
+Contoso West Yorkshire Store,Cameras and camcorders,538970.5333,58.093754628632475
+Contoso West Yorkshire Store,Cell phones,125300.0649,13.505657128755546
+Contoso West Yorkshire Store,Games and Toys,764.8235999999997,0.08243766923683754
+Contoso West Yorkshire Store,Home Appliances,604140.1786999998,65.1181634880965
+Contoso West Yorkshire Store,"Music, Movies and Audio Books",68184.6353,7.349384108826923
+Contoso West Yorkshire Store,TV and Video,123294.57429999998,13.289492289254792
+Contoso West Yorkshire Store,,162695.2305,17.536351648105587
+Contoso Baildon Store,Cameras and camcorders,355008.2472,35.11494585314045
+Contoso Baildon Store,Cell phones,83069.85479999997,8.216692080640312
+Contoso Baildon Store,Games and Toys,1622.3814999999995,0.16047469030639683
+Contoso Baildon Store,Home Appliances,450887.0366,44.59860862661096
+Contoso Baildon Store,TV and Video,247353.586,24.466495771510406
+Contoso Baildon Store,,205670.0127,20.34344671296191
+Contoso Cheshire Store,Audio,254.95300000000861,0.022861573654038538
+Contoso Cheshire Store,Cameras and camcorders,535196.1257,47.9909067437771
+Contoso Cheshire Store,Cell phones,144456.6114,12.953389296591183
+Contoso Cheshire Store,Games and Toys,7208.4658,0.6463813793887982
+Contoso Cheshire Store,Home Appliances,668321.0827000001,59.92818933957365
+Contoso Cheshire Store,"Music, Movies and Audio Books",19185.898400000005,1.7203948547006136
+Contoso Cheshire Store,TV and Video,124944.4266,11.203736419565237
+Contoso Cheshire Store,,214064.55270000003,19.195116504884037
+Contoso Stockport Store,Cameras and camcorders,427091.8154000001,50.981968267882536
+Contoso Stockport Store,Cell phones,26937.949599999993,3.2155841956905324
+Contoso Stockport Store,Games and Toys,2611.8824999999997,0.31178052571605813
+Contoso Stockport Store,Home Appliances,518511.5050000001,61.89474052478416
+Contoso Stockport Store,"Music, Movies and Audio Books",28124.260700000006,3.357194202427359
+Contoso Stockport Store,TV and Video,188948.92080000002,22.554840755855537
+Contoso Stockport Store,,203892.6342,24.338672463446557
+Contoso Liverpool Store,Audio,25067.148900000015,1.930969656371127
+Contoso Liverpool Store,Cameras and camcorders,603444.3653,46.484455146888806
+Contoso Liverpool Store,Cell phones,141293.57649999997,10.884110113601803
+Contoso Liverpool Store,Games and Toys,5948.985600000001,0.4582615568134586
+Contoso Liverpool Store,Home Appliances,849483.5685999999,65.43731802512488
+Contoso Liverpool Store,"Music, Movies and Audio Books",11072.551599999999,0.8529394883916597
+Contoso Liverpool Store,TV and Video,106428.99970000004,8.198426147244522
+Contoso Liverpool Store,,105797.40659999999,8.14977334208751
+Contoso Knotty Ash Store,Cameras and camcorders,417145.137,42.47053986655537
+Contoso Knotty Ash Store,Cell phones,150000.59240000002,15.271917552118374
+Contoso Knotty Ash Store,Games and Toys,6360.469699999998,0.6475745681864856
+Contoso Knotty Ash Store,Home Appliances,461908.5501000001,47.0280095623525
+Contoso Knotty Ash Store,"Music, Movies and Audio Books",6230.222699999998,0.6343138109215646
+Contoso Knotty Ash Store,TV and Video,237974.64160000003,24.228765019264813
+Contoso Knotty Ash Store,,121387.5478,12.358755336858442
+Contoso Leeds Store,Cameras and camcorders,575859.9387,80.96254949594521
+Contoso Leeds Store,Cell phones,137953.73940000002,19.39549134037239
+Contoso Leeds Store,Games and Toys,965.9848000000002,0.1358118301455144
+Contoso Leeds Store,Home Appliances,427082.24419999984,60.04527318385908
+Contoso Leeds Store,"Music, Movies and Audio Books",69222.43779999999,9.732271113118998
+Contoso Leeds Store,TV and Video,26400.668900000048,3.711780102932024
+Contoso Leeds Store,,188211.9579,26.46150380178809
+Contoso Paris Store,Audio,39090.9684,4.748090860306822
+Contoso Paris Store,Cameras and camcorders,618473.1434,75.1213592222691
+Contoso Paris Store,Cell phones,58695.19219999999,7.129270955302612
+Contoso Paris Store,Games and Toys,10773.4145,1.3085669916979337
+Contoso Paris Store,Home Appliances,731885.9326,88.89677205758848
+Contoso Paris Store,"Music, Movies and Audio Books",47704.546899999994,5.794318544714489
+Contoso Paris Store,TV and Video,46037.62819999992,5.591850256813367
+Contoso Paris Store,,100665.60770000002,12.227106961811723
+Contoso Lyon Store,Cameras and camcorders,631865.9227000001,78.4521623178777
+Contoso Lyon Store,Cell phones,24483.283599999966,3.039832455047239
+Contoso Lyon Store,Games and Toys,598.6761000000006,0.0743313302485746
+Contoso Lyon Store,Home Appliances,605898.2035999999,75.22802308094418
+Contoso Lyon Store,"Music, Movies and Audio Books",19226.820999999996,2.387192642868536
+Contoso Lyon Store,TV and Video,144936.18219999998,17.995205126905464
+Contoso Lyon Store,,108015.37839999999,13.411136278490396
+Contoso Toulouse Store,Cameras and camcorders,482523.13320000004,49.57227258117675
+Contoso Toulouse Store,Cell phones,123196.65649999998,12.656674503056964
+Contoso Toulouse Store,Games and Toys,3049.7336000000014,0.3133160151650394
+Contoso Toulouse Store,Home Appliances,708261.3888000001,72.76361320020625
+Contoso Toulouse Store,"Music, Movies and Audio Books",41507.7098,4.26431680234721
+Contoso Toulouse Store,TV and Video,253642.20080000005,26.05806737753971
+Contoso Toulouse Store,,50982.4779,5.237712178817086
+Contoso Nice Store,Cameras and camcorders,479404.1259000001,69.35657184158686
+Contoso Nice Store,Cell phones,9052.783900000039,1.3096884715958454
+Contoso Nice Store,Games and Toys,2808.0744000000013,0.406251017332183
+Contoso Nice Store,Home Appliances,702026.7455,101.56393276252808
+Contoso Nice Store,"Music, Movies and Audio Books",42276.3469,6.116222895381003
+Contoso Nice Store,TV and Video,133285.43430000008,19.28273099884278
+Contoso Nice Store,,128132.75739999997,18.53728058178507
+Contoso Nantes Store,Cameras and camcorders,555460.5181,60.412320270415165
+Contoso Nantes Store,Cell phones,91590.49059999996,9.961453373461014
+Contoso Nantes Store,Games and Toys,11082.373,1.2053275529326983
+Contoso Nantes Store,Home Appliances,632755.0471999999,68.81893369293651
+Contoso Nantes Store,"Music, Movies and Audio Books",31741.113900000004,3.4521883665569693
+Contoso Nantes Store,TV and Video,72498.78749999998,7.885024816252139
+Contoso Nantes Store,,173037.004,18.81963985494131
+Contoso Strasbourg Store,Cameras and camcorders,527528.7456,59.56306419637903
+Contoso Strasbourg Store,Games and Toys,6192.468299999999,0.6991891720846957
+Contoso Strasbourg Store,Home Appliances,629986.4440000001,71.1315228218353
+Contoso Strasbourg Store,"Music, Movies and Audio Books",21748.137800000004,2.455573727000892
+Contoso Strasbourg Store,TV and Video,61917.423100000015,6.991072008379409
+Contoso Strasbourg Store,,161892.80699999997,18.279253475192988
+Contoso Roma Store,Audio,2859.661699999997,0.1757573790573693
+Contoso Roma Store,Cameras and camcorders,503232.22659999994,30.929105077156592
+Contoso Roma Store,Cell phones,123057.4289,7.56322021482562
+Contoso Roma Store,Computers,282712.47149999987,17.375762670693266
+Contoso Roma Store,Games and Toys,3811.5913,0.2342638281045173
+Contoso Roma Store,Home Appliances,479495.1416999998,29.470202498405307
+Contoso Roma Store,"Music, Movies and Audio Books",33081.3981,2.033212469016682
+Contoso Roma Store,TV and Video,124671.27469999995,7.662408628619717
+Contoso Roma Store,,74129.52470000001,4.556067234120923
+Contoso Firenze Store,Audio,11040.309299999994,1.034220575641516
+Contoso Firenze Store,Cameras and camcorders,445887.8620000001,41.769337142502444
+Contoso Firenze Store,Cell phones,34518.640799999994,3.2335949644579913
+Contoso Firenze Store,Games and Toys,2511.6247999999996,0.23528091250591215
+Contoso Firenze Store,Home Appliances,790612.615,74.0620404352933
+Contoso Firenze Store,"Music, Movies and Audio Books",34557.79830000001,3.2372631127942615
+Contoso Firenze Store,TV and Video,228845.6394,21.437521584048273
+Contoso Firenze Store,,106170.9055,9.945748078144065
+Contoso Torino Store,Cameras and camcorders,389604.0493999999,43.61412820480058
+Contoso Torino Store,Cell phones,47162.37599999999,5.27958042652472
+Contoso Torino Store,Games and Toys,5751.689,0.6438713915485841
+Contoso Torino Store,Home Appliances,678234.3184999998,75.92477174071833
+Contoso Torino Store,"Music, Movies and Audio Books",49964.6546,5.5932808059591475
+Contoso Torino Store,TV and Video,301784.65040000004,33.78320747193581
+Contoso Torino Store,,110625.52750000003,12.383947103576215
+Contoso Milan Store,Audio,837.5948000000062,0.11735520985520059
+Contoso Milan Store,Cameras and camcorders,483372.6717999999,67.72523102741035
+Contoso Milan Store,Games and Toys,5625.8789000000015,0.7882405656403793
+Contoso Milan Store,Home Appliances,711104.2268999999,99.63264549489686
+Contoso Milan Store,"Music, Movies and Audio Books",44244.4857,6.199084454988119
+Contoso Milan Store,TV and Video,192124.90559999994,26.918575204977905
+Contoso Milan Store,,87562.2015,12.26831939789476
+Contoso Naples Store,Cameras and camcorders,288368.015,19.58387972577681
+Contoso Naples Store,Cell phones,145046.536,9.850516589589715
+Contoso Naples Store,Games and Toys,5768.750500000001,0.39177200689200864
+Contoso Naples Store,Home Appliances,759467.5305000001,51.57756755007913
+Contoso Naples Store,"Music, Movies and Audio Books",17016.826999999997,1.1556603920942872
+Contoso Naples Store,TV and Video,219884.56699999998,14.932976924235206
+Contoso Naples Store,,133694.5225,9.079569551550858
+Contoso koln No.2 Store,Cameras and camcorders,353327.6926999999,40.75842950564137
+Contoso koln No.2 Store,Cell phones,16506.04759999999,1.9040697670210118
+Contoso koln No.2 Store,Games and Toys,3937.7826000000005,0.4542464058907354
+Contoso koln No.2 Store,Home Appliances,669020.5761,77.17546219041503
+Contoso koln No.2 Store,"Music, Movies and Audio Books",3228.914399999994,0.37247428568779745
+Contoso koln No.2 Store,TV and Video,222696.10769999993,25.68930710613153
+Contoso koln No.2 Store,,151989.68870000003,17.532905403265975
+Contoso Hofheim Store,Cameras and camcorders,558373.9729,86.46413572320337
+Contoso Hofheim Store,Cell phones,90236.79139999999,13.973155192592232
+Contoso Hofheim Store,Games and Toys,4830.1394,0.7479464461327726
+Contoso Hofheim Store,Home Appliances,628930.0434999999,97.38973390746341
+Contoso Hofheim Store,"Music, Movies and Audio Books",34113.031299999995,5.28239837708432
+Contoso Hofheim Store,TV and Video,158619.20869999996,24.562163451340048
+Contoso Hofheim Store,,41714.91589999999,6.459549200201652
+Contoso koln No.1 Store,Audio,21695.771699999998,4.474833495898624
+Contoso koln No.1 Store,Cameras and camcorders,520972.82350000006,107.45257985226135
+Contoso koln No.1 Store,Cell phones,84375.32570000002,17.402724313775668
+Contoso koln No.1 Store,Games and Toys,3773.6826,0.7783360525207689
+Contoso koln No.1 Store,Home Appliances,404023.4023999998,83.33132737502247
+Contoso koln No.1 Store,"Music, Movies and Audio Books",38077.489100000006,7.853623554878888
+Contoso koln No.1 Store,TV and Video,197485.53599999996,40.73212530385787
+Contoso koln No.1 Store,,79838.9282,16.46707548024232
+Contoso Landstuhl Store,Cameras and camcorders,329395.7635,35.92463154647621
+Contoso Landstuhl Store,Cell phones,111026.3983,12.108784911132634
+Contoso Landstuhl Store,Games and Toys,1933.4352999999992,0.2108647361867199
+Contoso Landstuhl Store,Home Appliances,747333.9638999999,81.50589737404152
+Contoso Landstuhl Store,"Music, Movies and Audio Books",45228.8577,4.9327593982261515
+Contoso Landstuhl Store,TV and Video,304920.71119999996,33.25532813280849
+Contoso Landstuhl Store,,133070.08550000002,14.512918261760182
+Contoso Dusseldorf Store,Cameras and camcorders,467115.6691999999,26.550038757087023
+Contoso Dusseldorf Store,Cell phones,43517.00660000002,2.4734306468484717
+Contoso Dusseldorf Store,Computers,122104.9879999999,6.9402342451620855
+Contoso Dusseldorf Store,Games and Toys,8040.1075,0.4569856671726184
+Contoso Dusseldorf Store,Home Appliances,649017.6509999998,36.88902968636185
+Contoso Dusseldorf Store,"Music, Movies and Audio Books",43241.81,2.4577889527722863
+Contoso Dusseldorf Store,TV and Video,339882.3039,19.318316503592538
+Contoso Dusseldorf Store,,122029.2517,6.935929526153709
+Contoso Ramstein Store,Cameras and camcorders,489187.0521000001,51.54071997017524
+Contoso Ramstein Store,Cell phones,100157.18660000002,10.552555480344013
+Contoso Ramstein Store,Home Appliances,716025.1614999999,75.44037026745947
+Contoso Ramstein Store,"Music, Movies and Audio Books",26887.054600000003,2.8328185425441927
+Contoso Ramstein Store,TV and Video,287279.06669999997,30.26770611878587
+Contoso Ramstein Store,,147953.02550000002,15.588322346840988
+Contoso Baumholder Store,Audio,26137.252500000002,4.483425763244763
+Contoso Baumholder Store,Cameras and camcorders,492753.2391,84.52390193281587
+Contoso Baumholder Store,Cell phones,132195.91979999997,22.676086272922465
+Contoso Baumholder Store,Home Appliances,602442.3684,103.33930987408691
+Contoso Baumholder Store,"Music, Movies and Audio Books",38298.2247,6.56944517433563
+Contoso Baumholder Store,,154822.6381,26.55733629198632
+Contoso Giebelstadt Store,Cameras and camcorders,553455.4978,77.16345248885003
+Contoso Giebelstadt Store,Cell phones,70661.7131,9.851743750394453
+Contoso Giebelstadt Store,Games and Toys,7899.795400000001,1.1013992804166088
+Contoso Giebelstadt Store,Home Appliances,622842.7644,86.83751132628717
+Contoso Giebelstadt Store,"Music, Movies and Audio Books",34887.238900000004,4.8640221517866555
+Contoso Giebelstadt Store,TV and Video,258638.5782,36.05971161195577
+Contoso Giebelstadt Store,,60897.24179999996,8.490369041440768
+Contoso obamberg Store,Audio,7529.082499999997,0.9164969421343381
+Contoso obamberg Store,Cameras and camcorders,270781.7862999999,32.96160974854823
+Contoso obamberg Store,Cell phones,44586.57649999997,5.427415760484591
+Contoso obamberg Store,Games and Toys,3917.1646999999994,0.47682695326908325
+Contoso obamberg Store,Home Appliances,511678.4297,62.28537357322755
+Contoso obamberg Store,"Music, Movies and Audio Books",20611.942800000004,2.509041778682582
+Contoso obamberg Store,TV and Video,70527.49439999997,8.585140746431806
+Contoso obamberg Store,,185278.78489999997,22.55353687560414
+Contoso Munich Store,Cameras and camcorders,348106.0179000001,49.016455476160374
+Contoso Munich Store,Cell phones,21593.79800000001,3.040600804931391
+Contoso Munich Store,Games and Toys,5749.814699999999,0.8096255788364016
+Contoso Munich Store,Home Appliances,467189.8854,65.78453413350647
+Contoso Munich Store,"Music, Movies and Audio Books",31801.489499999996,4.477935496651266
+Contoso Munich Store,TV and Video,309351.3751,43.559453512332205
+Contoso Munich Store,,62001.91810000004,8.730427231103588
+Contoso Amsterdam Store,Audio,3358.8666999999987,0.2959414820507764
+Contoso Amsterdam Store,Cameras and camcorders,575431.9138999999,50.699890358519085
+Contoso Amsterdam Store,Cell phones,67274.12019999995,5.927357235001337
+Contoso Amsterdam Store,Home Appliances,470634.0406000002,41.46640754713766
+Contoso Amsterdam Store,"Music, Movies and Audio Books",27213.765,2.3977378876874007
+Contoso Amsterdam Store,TV and Video,220662.71950000006,19.442049379984265
+Contoso Amsterdam Store,,158636.99539999999,13.977115414183663
+Contoso Copenhagen Store,Cameras and camcorders,505189.0225999999,89.69082785157165
+Contoso Copenhagen Store,Cell phones,95371.70130000002,16.93221044112572
+Contoso Copenhagen Store,Games and Toys,2706.4910999999993,0.48050811967882767
+Contoso Copenhagen Store,Home Appliances,544156.5463,96.60908874724844
+Contoso Copenhagen Store,"Music, Movies and Audio Books",34491.418000000005,6.123576910427113
+Contoso Copenhagen Store,TV and Video,209619.3445,37.21563949499166
+Contoso Copenhagen Store,,152541.04450000002,27.082006834066224
+Contoso Stockholm Store,Cameras and camcorders,474751.04110000015,54.510619993870115
+Contoso Stockholm Store,Cell phones,102467.83399999997,11.765293126745206
+Contoso Stockholm Store,Games and Toys,9482.339,1.0887562809434232
+Contoso Stockholm Store,Home Appliances,506934.17409999995,58.20586735785778
+Contoso Stockholm Store,"Music, Movies and Audio Books",16436.4343,1.8872211888268198
+Contoso Stockholm Store,TV and Video,47893.05169999995,5.4990504823675925
+Contoso Stockholm Store,,244288.0487,28.049002190444554
+Contoso Madrid Store,Audio,15527.916299999997,1.9008757860967567
+Contoso Madrid Store,Cameras and camcorders,381417.8202999999,46.69189896355081
+Contoso Madrid Store,Cell phones,102421.7439,12.538128695948291
+Contoso Madrid Store,Games and Toys,6275.9962,0.7682865479005228
+Contoso Madrid Store,Home Appliances,563466.9200000002,68.9777432980186
+Contoso Madrid Store,"Music, Movies and Audio Books",40105.7213,4.909608799418564
+Contoso Madrid Store,TV and Video,59815.69449999998,7.322438059742177
+Contoso Madrid Store,,197997.45290000003,24.238188605282676
+Contoso Ljubljana Store,Cameras and camcorders,357577.8186,42.556603552474606
+Contoso Ljubljana Store,Cell phones,49885.15629999997,5.9370092589192
+Contoso Ljubljana Store,Games and Toys,6721.5298,0.7999530845752074
+Contoso Ljubljana Store,Home Appliances,670077.6052999999,79.7483107587358
+Contoso Ljubljana Store,"Music, Movies and Audio Books",42944.42160000001,5.110967822268401
+Contoso Ljubljana Store,TV and Video,259217.42200000002,30.85038413495291
+Contoso Ljubljana Store,,149400.3216,17.780661792267583
+Contoso Bucharest Store,Cameras and camcorders,460073.64690000005,52.47225753247376
+Contoso Bucharest Store,Cell phones,97655.27039999998,11.13776573024609
+Contoso Bucharest Store,Games and Toys,5929.484700000001,0.6762687893768665
+Contoso Bucharest Store,Home Appliances,616061.1512,70.2629233370216
+Contoso Bucharest Store,"Music, Movies and Audio Books",18952.8338,2.161606044651225
+Contoso Bucharest Store,TV and Video,80440.1303999999,9.174346904533746
+Contoso Bucharest Store,,221886.0699,25.306520121531594
+Contoso Berne Store,Audio,3539.4697000000015,0.49798537388411146
+Contoso Berne Store,Cameras and camcorders,261736.23009999993,36.82495555912408
+Contoso Berne Store,Cell phones,78966.32310000001,11.110159788401926
+Contoso Berne Store,Home Appliances,545246.2124999999,76.71336725688258
+Contoso Berne Store,"Music, Movies and Audio Books",47042.41650000001,6.618628595454451
+Contoso Berne Store,TV and Video,99160.60869999998,13.951393000495397
+Contoso Berne Store,,144150.24150000003,20.281205376291943
+Contoso Warsaw Store,Cameras and camcorders,697134.5648999999,52.41613418896982
+Contoso Warsaw Store,Cell phones,81385.84780000005,6.119236850606886
+Contoso Warsaw Store,Games and Toys,2659.5231000000003,0.19996414854033445
+Contoso Warsaw Store,Home Appliances,610467.0695,45.89978096617423
+Contoso Warsaw Store,"Music, Movies and Audio Books",20779.365600000005,1.5623583601933433
+Contoso Warsaw Store,TV and Video,276187.0504,20.76594422928774
+Contoso Warsaw Store,,131855.96079999997,9.913982296803404
+Contoso Valletta Store,Cameras and camcorders,586869.9656,68.23660784089986
+Contoso Valletta Store,Cell phones,57033.52550000005,6.631408218937598
+Contoso Valletta Store,Games and Toys,1930.4094999999998,0.22445278127187154
+Contoso Valletta Store,Home Appliances,766350.8400999999,89.10522740925192
+Contoso Valletta Store,"Music, Movies and Audio Books",23638.6331,2.7485136934729772
+Contoso Valletta Store,TV and Video,32215.23569999996,3.745733354603715
+Contoso Valletta Store,,73423.8492,8.537145701275549
+Contoso Dublin Store,Cameras and camcorders,339036.76280000014,35.54151963449728
+Contoso Dublin Store,Cell phones,112809.1348,11.825880020598309
+Contoso Dublin Store,Games and Toys,979.7615999999998,0.1027092633139265
+Contoso Dublin Store,Home Appliances,817610.9978999998,85.71087422866268
+Contoso Dublin Store,"Music, Movies and Audio Books",39098.781,4.09875932367889
+Contoso Dublin Store,TV and Video,192310.31829999993,20.160058447136237
+Contoso Dublin Store,,72295.88050000003,7.578840226833414
+Contoso Athens Store,Audio,4408.233999999997,0.634913650930285
+Contoso Athens Store,Cameras and camcorders,371267.1211,53.47324196673257
+Contoso Athens Store,Cell phones,141883.6383,20.435362278936434
+Contoso Athens Store,Games and Toys,6464.034799999999,0.9310086385179227
+Contoso Athens Store,Home Appliances,719872.2307,103.68249648205283
+Contoso Athens Store,"Music, Movies and Audio Books",28860.896400000005,4.156806807997201
+Contoso Athens Store,TV and Video,13660.990100000054,1.9675791030407004
+Contoso Athens Store,,82595.1758,11.896102751443493
+Contoso Kolkata Store,Cameras and camcorders,236791.46449999977,69.45081869401334
+Contoso Kolkata Store,Home Appliances,702037.3505000002,205.90720551923044
+Contoso Kolkata Store,"Music, Movies and Audio Books",24039.905,7.050892172577894
+Contoso Kolkata Store,,104429.03949999996,30.628985314225552
+Contoso Tehran No.1 Store,Cameras and camcorders,166322.42350000003,57.83067251964889
+Contoso Tehran No.1 Store,Games and Toys,10262.721499999996,3.568370841030101
+Contoso Tehran No.1 Store,Home Appliances,452477.5115,157.3274260885344
+Contoso Tehran No.1 Store,"Music, Movies and Audio Books",37810.52600000001,13.14680306412004
+Contoso Tehran No.1 Store,,163060.97100000002,56.69665831100017
+Contoso Damascus No.1 Store,Cameras and camcorders,270213.17749999976,53.26381896984692
+Contoso Damascus No.1 Store,Computers,351835.5499999998,69.35303901807872
+Contoso Damascus No.1 Store,Home Appliances,30943.18200000003,6.099451032135651
+Contoso Damascus No.1 Store,"Music, Movies and Audio Books",26428.89300000001,5.209604451379712
+Contoso Damascus No.1 Store,,180149.39300000004,35.510646612635384
+Contoso Moscow  No.1 Store,Audio,1711.7235999999975,0.1514925987493448
+Contoso Moscow  No.1 Store,Cameras and camcorders,510040.41300000006,45.14008431767794
+Contoso Moscow  No.1 Store,Games and Toys,2503.4130999999998,0.2215594598696623
+Contoso Moscow  No.1 Store,Home Appliances,892741.4686999999,79.01025907726576
+Contoso Moscow  No.1 Store,"Music, Movies and Audio Books",48724.5492,4.312266642347117
+Contoso Moscow  No.1 Store,TV and Video,162632.34570000006,14.393443363633518
+Contoso Moscow  No.1 Store,,109227.88050000003,9.666990320649846
+Contoso Sapporo Store,Cameras and camcorders,247900.35199999996,85.0356344939262
+Contoso Sapporo Store,Home Appliances,473764.3445000001,162.5122808827498
+Contoso Sapporo Store,"Music, Movies and Audio Books",55452.39649999999,19.02147246885019
+Contoso Sapporo Store,,127905.25100000005,43.874500726364005
+Contoso Urumqi Store,Cameras and camcorders,339373.4915,54410.233177552676
+Contoso Urumqi Store,Games and Toys,2381.8805000000066,381.8762415215512
+Contoso Urumqi Store,Home Appliances,580366.6950000003,93047.59503714982
+Contoso Urumqi Store,"Music, Movies and Audio Books",50783.82149999999,8141.9428407601845
+Contoso Urumqi Store,,22081.630000000005,3540.248921417136
+Contoso Ottawa No.1 Store,Cameras and camcorders,578926.4475,40.11995767704844
+Contoso Ottawa No.1 Store,Cell phones,98890.04800000001,6.853140943161503
+Contoso Ottawa No.1 Store,Games and Toys,7798.7695,0.5404595067718965
+Contoso Ottawa No.1 Store,Home Appliances,710146.1159999999,49.21356113798952
+Contoso Ottawa No.1 Store,"Music, Movies and Audio Books",27805.658500000005,1.9269491781207015
+Contoso Ottawa No.1 Store,TV and Video,283041.495,19.614949099813785
+Contoso Ottawa No.1 Store,,145034.71850000002,10.050994894170273
+Contoso Ottawa No.2 Store,Cameras and camcorders,740594.4155,51.346332891627554
+Contoso Ottawa No.2 Store,Cell phones,73522.51500000001,5.097407502959602
+Contoso Ottawa No.2 Store,Games and Toys,8029.7305,0.5567112128501528
+Contoso Ottawa No.2 Store,Home Appliances,626109.9475,43.40898218816566
+Contoso Ottawa No.2 Store,"Music, Movies and Audio Books",47349.39050000001,3.2827921949523096
+Contoso Ottawa No.2 Store,TV and Video,181090.157,12.555206048159972
+Contoso Ottawa No.2 Store,,169596.26,11.75831985886075
+Contoso Toronto No.1 Store,Cameras and camcorders,495720.275,32.09675050507808
+Contoso Toronto No.1 Store,Games and Toys,2809.4824999999983,0.18190754624850264
+Contoso Toronto No.1 Store,Home Appliances,1125554.7045000002,72.87708482400357
+Contoso Toronto No.1 Store,"Music, Movies and Audio Books",17868.970999999998,1.1569748765460024
+Contoso Toronto No.1 Store,TV and Video,127000.83199999994,8.223012501639827
+Contoso Toronto No.1 Store,,266137.5085,17.231793092117513
+Contoso Toronto No.2 Store,Cameras and camcorders,549650.4035,41.89138509107171
+Contoso Toronto No.2 Store,Cell phones,84147.6715,6.413281039870099
+Contoso Toronto No.2 Store,Home Appliances,505359.9499999997,38.51580593819165
+Contoso Toronto No.2 Store,"Music, Movies and Audio Books",29610.034999999996,2.2567169438002814
+Contoso Toronto No.2 Store,TV and Video,221835.7585,16.90712337718403
+Contoso Toronto No.2 Store,,240779.31900000002,18.350899244259356
+Contoso Toronto No.3 Store,Audio,8726.713499999998,0.5008685286302255
+Contoso Toronto No.3 Store,Cameras and camcorders,627614.3269999999,36.02183852050823
+Contoso Toronto No.3 Store,Cell phones,111770.64250000002,6.415060750307656
+Contoso Toronto No.3 Store,Games and Toys,2572.0910000000003,0.1476248114107385
+Contoso Toronto No.3 Store,Home Appliances,956073.2710000002,54.87369472006351
+Contoso Toronto No.3 Store,"Music, Movies and Audio Books",33717.06399999999,1.9351862800825466
+Contoso Toronto No.3 Store,TV and Video,158402.70900000003,9.09150183375125
+Contoso Toronto No.3 Store,,294238.209,16.887761791265724
+Contoso Montreal No.1 Store,Audio,14863.336500000005,0.8365647059381337
+Contoso Montreal No.1 Store,Cameras and camcorders,842181.3729999999,47.401147962324494
+Contoso Montreal No.1 Store,Cell phones,31229.663,1.7577233647466706
+Contoso Montreal No.1 Store,Games and Toys,7424.970500000001,0.41790537830666863
+Contoso Montreal No.1 Store,Home Appliances,841326.987,47.353059891866856
+Contoso Montreal No.1 Store,"Music, Movies and Audio Books",45150.27500000001,2.541227975858641
+Contoso Montreal No.1 Store,TV and Video,151108.04449999996,8.504931366657065
+Contoso Montreal No.1 Store,,189448.565,10.662880643900268
+Contoso Montreal No.2 Store,Cameras and camcorders,599551.465,38.31208136551134
+Contoso Montreal No.2 Store,Games and Toys,4157.5965,0.26567556697232847
+Contoso Montreal No.2 Store,Home Appliances,940291.2619999999,60.08577651798972
+Contoso Montreal No.2 Store,"Music, Movies and Audio Books",43684.76649999999,2.791510698053859
+Contoso Montreal No.2 Store,TV and Video,198718.6705,12.698369226805639
+Contoso Montreal No.2 Store,,169200.79949999996,10.812140701805422
+Contoso Vancouver  No.1 Store,Cameras and camcorders,729332.1564999999,52.34286744102196
+Contoso Vancouver  No.1 Store,Cell phones,74603.28349999996,5.354144533603159
+Contoso Vancouver  No.1 Store,Games and Toys,2597.369499999999,0.18640857423081883
+Contoso Vancouver  No.1 Store,Home Appliances,726913.9904999998,52.169319982212784
+Contoso Vancouver  No.1 Store,"Music, Movies and Audio Books",53785.187,3.860066895914492
+Contoso Vancouver  No.1 Store,TV and Video,10443.133999999962,0.7494850922987206
+Contoso Vancouver  No.1 Store,,188086.473,13.498630542952558
+Contoso Vancouver  No.2 Store,Audio,31009.694499999998,2.2838082809476967
+Contoso Vancouver  No.2 Store,Cameras and camcorders,540465.2999999999,39.80429822373391
+Contoso Vancouver  No.2 Store,Cell phones,155894.864,11.481376617896542
+Contoso Vancouver  No.2 Store,Games and Toys,12163.003499999999,0.8957833529929106
+Contoso Vancouver  No.2 Store,Home Appliances,663887.0,48.89408466160554
+Contoso Vancouver  No.2 Store,"Music, Movies and Audio Books",59429.8,4.376897985082228
+Contoso Vancouver  No.2 Store,TV and Video,378295.71499999997,27.860799678759484
+Contoso Vancouver  No.2 Store,,106743.85599999997,7.861493194429518
+Contoso Calgary  Store,Cameras and camcorders,488663.1020000001,34.87485172956274
+Contoso Calgary  Store,Games and Toys,5219.649500000001,0.3725153416489922
+Contoso Calgary  Store,Home Appliances,998288.2054999997,71.24571715706037
+Contoso Calgary  Store,"Music, Movies and Audio Books",68291.3485,4.873809059046566
+Contoso Calgary  Store,TV and Video,194636.15600000008,13.890770663736435
+Contoso Calgary  Store,,28529.02000000002,2.0360557988062102
+Contoso Moscow  No.2 Store,Cameras and camcorders,435538.78829999967,243.34933972529052
+Contoso Moscow  No.2 Store,Home Appliances,306328.5979000004,171.15550678942634
+Contoso Moscow  No.2 Store,"Music, Movies and Audio Books",14490.590899999981,8.09635289088281
+Contoso Moscow  No.2 Store,,115003.53900000005,64.25612605241693
+Contoso Islamabad  No.2 Store,Cameras and camcorders,251983.29300000006,138.6209328895783
+Contoso Islamabad  No.2 Store,Computers,270317.03,148.70667982952392
+Contoso Islamabad  No.2 Store,Home Appliances,313645.05950000044,172.5422754281465
+Contoso Islamabad  No.2 Store,"Music, Movies and Audio Books",62983.36749999999,34.64838107095118
+Contoso Lisbon Store,Audio,4227.835000000006,0.4227206766902811
+Contoso Lisbon Store,Cameras and camcorders,305399.60919999995,30.53542284927656
+Contoso Lisbon Store,Cell phones,27940.29019999999,2.7936138426089965
+Contoso Lisbon Store,Games and Toys,9494.715100000001,0.9493304237401471
+Contoso Lisbon Store,Home Appliances,816853.7783000001,81.67323983078535
+Contoso Lisbon Store,"Music, Movies and Audio Books",30905.862299999993,3.0901269858337956
+Contoso Lisbon Store,TV and Video,83827.66469999996,8.381520836870388
+Contoso Lisbon Store,,76639.87480000002,7.662848653486804
+Contoso Saint Petersburg Store,Audio,20793.167700000005,2.718237819515245
+Contoso Saint Petersburg Store,Cameras and camcorders,345741.2945000001,45.19787826642971
+Contoso Saint Petersburg Store,Cell phones,47306.77659999998,6.184294337869392
+Contoso Saint Petersburg Store,Games and Toys,1766.2505,0.23089742636172314
+Contoso Saint Petersburg Store,Home Appliances,703240.0530999999,91.9327798493314
+Contoso Saint Petersburg Store,"Music, Movies and Audio Books",31352.4237,4.098622444852694
+Contoso Saint Petersburg Store,TV and Video,195030.32770000002,25.49581768181438
+Contoso Saint Petersburg Store,,113582.95959999997,14.848410828581546
+Contoso Nizhny Novgorod Store,Audio,9950.56150000001,0.7396205547031254
+Contoso Nizhny Novgorod Store,Cameras and camcorders,545426.9332999999,40.5413273368915
+Contoso Nizhny Novgorod Store,Games and Toys,4868.672699999999,0.3618861511525715
+Contoso Nizhny Novgorod Store,Home Appliances,729276.4743000001,54.20677722093422
+Contoso Nizhny Novgorod Store,"Music, Movies and Audio Books",37992.304299999996,2.823950103802273
+Contoso Nizhny Novgorod Store,TV and Video,359345.0601,26.709949250702046
+Contoso Nizhny Novgorod Store,,203421.117,15.120195919985942
+Contoso Europe Online Store,Cameras and camcorders,7225885.309900001,117.98860630203683
+Contoso Europe Online Store,Games and Toys,14618.411699999939,0.23869822850208663
+Contoso Europe Online Store,Home Appliances,16137544.696799994,263.5035467977289
+Contoso Europe Online Store,"Music, Movies and Audio Books",561620.1236999999,9.170471551181809
+Contoso North America Reseller,Cameras and camcorders,8578161.8525,31.80239290548126
+Contoso North America Reseller,Games and Toys,62249.98250000004,0.2307835216757277
+Contoso North America Reseller,Home Appliances,20377496.659500003,75.54685564794792
+Contoso North America Reseller,"Music, Movies and Audio Books",725665.331,2.6903075940007293
+Contoso North America Reseller,TV and Video,407721.944000002,1.511574820134194
+Contoso North America Reseller,,2524475.7007,9.359157532170324
+Contoso Europe Reseller,Cameras and camcorders,8835274.68,40.060212907782244
+Contoso Europe Reseller,Games and Toys,72031.94420000003,0.3266016196808826
+Contoso Europe Reseller,Home Appliances,16266228.730499998,73.75306481705381
+Contoso Europe Reseller,"Music, Movies and Audio Books",681704.4093000002,3.090930929238743
+Contoso Europe Reseller,TV and Video,962671.0874000005,4.364868113122463
+Contoso Europe Reseller,,1160462.7098999992,5.261679451276088
+Contoso Asia Reseller,Cameras and camcorders,3877483.520999998,52.90020488013073
+Contoso Asia Reseller,Home Appliances,13072101.324499995,178.34165755565525
+Contoso Asia Reseller,"Music, Movies and Audio Books",577684.5734999999,7.881305524248791

@@ -1,0 +1,421 @@
+EntityKey,EntityName,revenue
+1,Contoso North America,7309491105.089902
+2,Contoso Europe,2403962517.6447
+3,Contoso Asia,2700203986.1530004
+4,Contoso United States,7081080470.554903
+5,Contoso UK,291869567.7865
+6,Contoso France,658922522.1687
+7,Contoso Italy,78490594.5201
+8,Contoso Germany,1017318431.4228001
+9,Contoso the Netherlands,21398002.4558
+10,Contoso Denmark,21535956.8587
+11,Contoso Sweden,21017382.4823
+12,Contoso Spain,21386046.7229
+13,Contoso Slovenia,21116855.5835
+14,Contoso Romania,21677572.0895
+15,Contoso Canada,228410634.535
+16,Contoso Poland,21450381.8807
+17,Contoso Malta,21276135.0245
+18,Contoso Ireland,21449079.0478
+19,Contoso Greece,21456075.942
+20,Contoso Singapore,36263091.3035
+21,Contoso India,111919078.7865
+22,Contoso Bhutan,43873813.3115
+23,Contoso China,1660605327.2705002
+24,Contoso Iran,75216959.31549999
+25,Contoso Syria,66716074.0855
+26,Contoso Thailand,52876127.61049999
+27,Contoso Russia,101349233.3308
+28,Contoso Turkmenistan,73812484.6665
+29,Contoso Pakistan,64315958.198
+30,Contoso Japan,236424498.106
+31,Contoso South Korea,53140847.6215
+32,Contoso Kyrgyzstan,37599400.743
+33,Contoso Washington,430179755.39649993
+34,Contoso Colorado,501582079.91700006
+35,Contoso Wisconsin,465269258.846
+36,Contoso Texas,769424994.6640002
+37,Contoso Florida,291138194.3719999
+38,Contoso New York,317099887.748
+39,Contoso New Jersey,391396628.182
+40,Contoso Massachusetts,454137649.639
+41,Contoso Maine,136784555.293
+42,Contoso Connecticut,179553290.06499997
+43,Contoso Virginia,178943325.512
+44,Contoso South Carolina,46289981.998500004
+45,Contoso Maryland,206068272.47800002
+46,Contoso England,256899954.3167
+47,Contoso Scotland,34969613.4698
+48,Contoso Xinjiang,37523589.5895
+49,Contoso Shanghai,73616965.3235
+50,Contoso Beijing,19431783.9435
+51,Contoso Guangdong,6460684.5309999995
+52,Contoso Australia,149830268.75599998
+53,Contoso Switzerland,20797430.7454
+54,Contoso Alaska,22786936.4405
+58,Contoso Catalog Store,1078007547.2267
+59,Contoso North America Online Store,984249404.2534
+60,Contoso Ontario,113325266.132
+61,Contoso Quebec,45093522.8535
+62,Contoso British Columbia,46498731.116500005
+63,Contoso Alberta,23493114.433
+571,Contoso Ile-del-France,21207333.2638
+572,Contoso Provence-Alpes-Cote d'Azur,7514886.2431
+573,Contoso Rhone-Alpes,21253119.69
+574,Contoso Midi-Pyrenees,21377469.3988
+575,Contoso Provence-Alpes-Côte d'Azur,21484387.7285
+576,Contoso Pays de la Loire,21409974.0163
+577,Contoso Alsace,21587408.5994
+578,Contoso Roma,12264100.2604
+579,Contoso Venice,1773000.183
+580,Contoso Province of Florence,21694875.8521
+581,Contoso Province of Turin,21583682.325
+582,Contoso Lombardy,21174935.8996
+584,Contoso Berlin,5084164.121499999
+587,Contoso Hesse,21161395.2645
+590,Contoso North Rhine-Westphalia,55643732.560200006
+592,Contoso Rhineland-Palatinate,64824810.299600005
+594,Contoso Bavaria,64303872.7891
+596,Contoso North Holland,21398002.4558
+597,Contoso Copenhagen,21535956.8587
+598,Contoso Stockholm,21017382.4823
+599,Contoso Madrid,21386046.7229
+600,Contoso Ljubljana,21116855.5835
+601,Contoso Bucharest,21677572.0895
+602,Contoso Bern,20797430.7454
+603,Contoso Warszawa,21450381.8807
+604,Contoso Valletta,21276135.0245
+605,Contoso Leinster,21449079.0478
+606,Contoso Central Greece and Evvoia,21456075.942
+607,Contoso Singapore,36263091.3035
+608,Contoso India Capital Territory,37417079.491
+609,Contoso Maharashtra,36852710.2835
+610,Contoso West Bengal,37649289.012
+611,Contoso Thimphu District,43873813.3115
+612,Contoso Hong Kong,72581949.7595
+613,Contoso Tehran,75216959.31549999
+614,Contoso Damascus,66716074.0855
+615,Contoso Bangkok,52876127.61049999
+616,Contoso Central Federal District,58870901.9094
+617,Contoso Ahal Province,73812484.6665
+618,Contoso Islamabad Capital Territory,64315958.198
+620,Contoso Kanto,110764401.9465
+625,Contoso Hokkaido,31217723.4485
+626,Contoso Kansai,76265025.029
+627,Contoso Chubu,18177347.682
+628,Contoso Seoul,16567667.516
+629,Contoso Busan,36573180.1055
+630,Contoso Chui Province,37599400.743
+631,Contoso Armenia,37267993.47
+632,Contoso New South Wales,75648671.59549999
+633,Contoso Australian Capital Territory,36913603.6905
+635,Contoso Seattle No.1 Store,22994925.1695
+636,Contoso Seattle No.2 Store,22668671.159
+638,Contoso Bellevue Store,21237087.116
+639,Contoso Redmond Store,22642835.091
+640,Contoso Yakima Store,22903891.261
+641,Contoso Granger Store,22127419.7615
+642,Contoso Sunnyside Store,22273861.1955
+643,Contoso Toppenish Store,23001652.789
+644,Contoso Wapato Store,23038106.4665
+645,Contoso Cle Elum Store,23092694.339
+646,Contoso North Bend Store,23216442.862
+647,Contoso Snoqualmie Store,22877189.1725
+648,Contoso Fall City Store,22314891.133
+649,Contoso Renton Store,22856635.2115
+650,Contoso Everett Store,22745221.8975
+651,Contoso Spokane Store,22598548.465
+652,Contoso Veradale Store,22507907.9575
+653,Contoso Cheney Store,22611028.226
+654,Contoso Englewood Store,22514748.192
+655,Contoso Wheat Ridge Store,22816231.823
+656,Contoso Westminster Store,22238424.413
+657,Contoso Grand Junction Store,22929282.372
+658,Contoso New Castle Store,22382953.243499998
+659,Contoso Greeley No.1 Store,22463731.9295
+660,Contoso Loveland Store,23277716.327
+661,Contoso Lafayette Store,21925370.068
+662,Contoso Castle Rock Store,22851184.749
+663,Contoso Sedalia Store,23204157.962
+664,Contoso Fort Collins Store,23397040.109
+665,Contoso Greeley No.2 Store,22975399.041
+666,Contoso Milliken Store,22972604.726
+667,Contoso Berthoud Store,23031618.491
+668,Contoso Denver No.1 Store,22861756.6975
+669,Contoso Denver No.2 Store,22688007.184
+670,Contoso Denver No.3 Store,23111475.5885
+671,Contoso Boulder Store,23113009.595
+672,Contoso Thornton Store,23254190.6235
+673,Contoso Littleton Store,21839154.618
+674,Contoso Aurora Store,22858139.075
+675,Contoso Parker Store,22875883.0895
+676,Contoso Green Bay Store,22550730.5855
+677,Contoso Appleton Store,22827472.7635
+678,Contoso Menasha Store,22802672.0315
+679,Contoso Oshkosh Store,14543787.2705
+680,Contoso Fond du Lac Store,13547747.0405
+681,Contoso Milwaukee No.1 Store,23169860.7145
+682,Contoso Milwaukee No.2 Store,22716823.3605
+683,Contoso Milwaukee No.3 Store,22879743.064
+684,Contoso Waukesha No.1 Store,22636487.4695
+685,Contoso Racine  No.1 Store,22577151.6765
+686,Contoso Burlington Store,22768866.422
+687,Contoso East Troy Store,23434287.786
+688,Contoso Waukesha No.2 Store,23094079.1495
+689,Contoso Germantown Store,22541583.5445
+691,Contoso Port Washington Store,23120183.0
+692,Contoso Sheboygan Store,23714383.066
+693,Contoso Manitowoc Store,22714123.5015
+694,Contoso Madison Store,21993962.662
+695,Contoso Oregon Store,22837464.917
+696,Contoso Stoughton Store,23061108.657
+697,Contoso Edgerton Store,22545232.2655
+698,Contoso Fort Atkinson Store,23091486.971
+699,Contoso Racine  No.2 Store,2641604.472
+700,Contoso Houston No.1 Store,22817707.637
+701,Contoso Houston No.2 Store,22645082.3295
+702,Contoso Houston No.3 Store,22785534.249
+703,Contoso Houston No.4 Store,22424107.9225
+704,Contoso Midland Store,23273211.9405
+705,Contoso Russellville Store,13980055.1655
+706,Contoso Minden Store,22523580.665
+707,Contoso Shreveport Store,22555876.2815
+708,Contoso Marshall Store,22919012.718
+709,Contoso Longview Store,22815495.76
+710,Contoso Beaumont No.1 Store,23112373.888
+711,Contoso Orange Store,22327693.536
+712,Contoso Beaumont No.2 Store,22986908.8445
+713,Contoso Baytown Store,22744961.735
+714,Contoso La Porte Store,22879630.299
+715,Contoso Bacliff Store,23112797.983
+716,Contoso Texas City Store,22421351.9595
+717,Contoso Pasadena Store,22611306.6055
+718,Contoso Humble Store,22252770.7875
+719,Contoso Spring Store,22450468.2175
+720,Contoso Austin Store,23092451.725
+721,Contoso San Antonio Store,22678286.033
+722,Contoso Cedar Park Store,22608694.5745
+723,Contoso Round Rock Store,22729291.7595
+724,Contoso Dallas Store,5492546.02
+725,Contoso Georgetown Store,23000135.4315
+726,Contoso Hillsboro Store,22827419.951
+727,Contoso Arlington Store,22404669.3825
+728,Contoso Grand Prairie Store,21863765.096
+729,Contoso Desoto Store,23195677.5455
+730,Contoso Richardson Store,23060800.865
+731,Contoso Lewisville Store,22394625.117
+732,Contoso Denton Store,23349814.3185
+733,Contoso Fort Worth Store,23019433.7895
+734,Contoso Plano Store,22067454.5315
+735,Contoso Miami No.1 Store,22276437.5595
+736,Contoso Miami No.2 Store,22636377.946
+737,Contoso Jacksonville Store,22890669.209
+738,Contoso Tallahassee No.1 Store,22348738.845
+739,Contoso Tallahassee No.2 Store,22422338.841000002
+741,Contoso Sebring Store,23555460.4835
+742,Contoso Lakeland Store,22450191.1575
+743,Contoso Fort Lauderdale Store,22797483.966
+744,Contoso Orlando Store,22346945.1145
+745,Contoso Tampa Store,22840811.201
+746,Contoso Key West Store,22883845.1585
+747,Contoso Cape Canaveral Store,22992894.7545
+748,Contoso Albany Store,22395039.800499998
+749,Contoso New York No.1 Store,22967683.9355
+750,Contoso Rochester No.1 Store,23244748.6275
+751,Contoso New York No.2 Store,22838945.8725
+752,Contoso Syracuse Store,22558036.087
+753,Contoso Buffalo Store,22351101.178
+754,Contoso Plattsburgh Store,22969249.3065
+755,Contoso Brooklyn Store,22654110.2945
+756,Contoso Oswego Store,22840628.453
+757,Contoso Ithaca Store,21988879.6105
+758,Contoso Rochester No.2 Store,22401156.5995
+759,Contoso Queens Store,22776111.823
+760,Contoso Elmira Store,22502251.563
+761,Contoso Poestenkill Store,22611944.597
+762,Contoso Trenton No.1 Store,22048188.96
+763,Contoso Trenton No.2 Store,22754956.4175
+764,Contoso Newark No.1 Store,23069439.141
+765,Contoso Newark No.2 Store,23248998.2665
+766,Contoso Jersey City Store,22785694.402
+767,Contoso Paterson Store,5560507.959
+768,Contoso Clifton Store,22771283.5745
+769,Contoso East Orange Store,22508608.176
+770,Contoso Passaic Store,22871947.698
+771,Contoso Bayonne Store,22617321.226
+772,Contoso Vineland Store,22443022.4405
+773,Contoso New Brunswick Store,22347439.537
+774,Contoso Hackensack Store,23075662.5825
+775,Contoso Atlantic City Store,22289885.1495
+776,Contoso Montclair Store,22584512.5405
+777,Contoso Hoboken Store,22607247.927
+778,Contoso Morristown Store,23191297.162
+779,Contoso Cape May Store,22620615.0225
+780,Contoso Boston Store,22865828.187
+781,Contoso Worcester No.1 Store,21981924.947
+782,Contoso Worcester No.2 Store,22449064.4245
+783,Contoso New Bedford Store,22537308.4785
+784,Contoso Attleboro Store,21964170.8765
+785,Contoso Lowell Store,23429062.9075
+786,Contoso Leominster Store,22643738.608
+787,Contoso Hingham Store,22622817.6045
+788,Contoso Quincy Store,22882255.6435
+789,Contoso Framingham Store,23239851.722
+790,Contoso Cambridge Store,22185588.658999998
+791,Contoso Somerville Store,22417607.8035
+792,Contoso Haverhill Store,22810668.6085
+793,Contoso Lynn Store,22439523.5695
+794,Contoso Northampton Store,23230910.276
+795,Contoso Holyoke Store,22713458.638
+796,Contoso Pittsfield Store,22770052.1135
+797,Contoso Falmouth Store,22840085.6475
+798,Contoso Provincetown Store,22943490.1495
+799,Contoso Nantucket Store,23170240.775
+800,Contoso Bangor Store,22741300.252
+801,Contoso Bar Harbor Store,22723318.2475
+802,Contoso Kennebunkport Store,22488046.9945
+803,Contoso Lewiston Store,22749932.216000002
+804,Contoso Orono Store,23153727.461
+805,Contoso South Portland Store,22928230.122
+806,Contoso Hartford Store,22700450.9605
+807,Contoso Bridgeport Store,22103844.555
+808,Contoso Waterbury Store,21832023.253
+809,Contoso Old Saybrook Store,22443204.8755
+810,Contoso Darien Store,22690823.232
+811,Contoso New Haven Store,22440258.2815
+812,Contoso Litchfield County Store,22884961.976
+813,Contoso New London Store,22457722.9315
+814,Contoso Norfolk Store,22362075.8515
+815,Contoso Virginia Beach Store,22227300.951
+816,Contoso Winchester Store,22207212.4495
+817,Contoso Anchorage Store,22786936.4405
+818,Contoso Alexandria Store,22303674.8295
+819,Contoso Roanoke Store,22484023.163
+820,Contoso Charlottesville Store,22538269.6575
+821,Contoso Fredericksburg Store,22315929.6975
+822,Contoso Martinsville Store,22504838.9125
+823,Contoso Greenville Store,22917396.1245
+824,Contoso Charleston Store,23372585.874
+825,Contoso Annapolis Store,23220581.8605
+826,Contoso Baltimore Store,22624458.3085
+827,Contoso Howard Store,22642909.4235
+828,Contoso Ridgely Store,23776552.145
+829,Contoso Queen Anne's County Store,22656142.7505
+830,Contoso Parkville Store,22848060.5875
+831,Contoso Back River Store,22272111.006
+832,Contoso North Harford Store,23485872.851999998
+833,Contoso London Store,21793846.0772
+834,Contoso Edinburgh Store,21347226.4213
+835,Contoso Glasgow Store,13622387.0485
+836,Contoso York Store,21267630.9451
+837,Contoso Carlisle Store,21071609.6106
+838,Contoso Manchester Store,21444225.0295
+839,Contoso Lancashire Store,21600150.2924
+840,Contoso West Yorkshire Store,21536956.1147
+841,Contoso Baildon Store,21545276.9508
+842,Contoso Cheshire Store,21376867.3651
+843,Contoso Stockport Store,20889856.1059
+844,Contoso Liverpool Store,21391579.720399998
+845,Contoso Knotty Ash Store,21365723.8925
+846,Contoso Leeds Store,21616232.2125
+847,Contoso Paris Store,21207333.2638
+848,Contoso Singapore Store,36263091.3035
+849,Contoso Shanghai No.1 Store,36834657.191
+850,Contoso Urumqi Store,37523589.5895
+851,Contoso Beijing Store,19431783.9435
+852,Contoso Guangzhou Store,6460684.5309999995
+853,Contoso Shanghai No.2 Store,36782308.1325
+854,Contoso Marseille Store,7514886.2431
+855,Contoso Lyon Store,21253119.69
+856,Contoso Toulouse Store,21377469.3988
+857,Contoso Nice Store,21484387.7285
+858,Contoso Nantes Store,21409974.0163
+859,Contoso Strasbourg Store,21587408.5994
+860,Contoso Roma Store,12264100.2604
+861,Contoso Venezia Store,1773000.183
+862,Contoso Firenze Store,21694875.8521
+863,Contoso Torino Store,21583682.325
+864,Contoso Milan Store,21174935.8996
+865,Contoso Naples Store,18696000.136
+866,Contoso Berlin Store,5084164.121499999
+868,Contoso koln No.2 Store,21341284.6885
+869,Contoso Hofheim Store,21161395.2645
+870,Contoso koln No.1 Store,21329402.7324
+871,Contoso Landstuhl Store,21178911.5909
+872,Contoso Dusseldorf Store,12973045.1393
+873,Contoso Ramstein Store,21965573.9788
+874,Contoso Baumholder Store,21680324.7299
+875,Contoso Giebelstadt Store,21303929.4474
+876,Contoso obamberg Store,21411171.6044
+877,Contoso Munich Store,21588771.7373
+878,Contoso Amsterdam Store,21398002.4558
+879,Contoso Copenhagen Store,21535956.8587
+880,Contoso Stockholm Store,21017382.4823
+881,Contoso Madrid Store,21386046.7229
+882,Contoso Ljubljana Store,21116855.5835
+883,Contoso Bucharest Store,21677572.0895
+884,Contoso Berne Store,20797430.7454
+885,Contoso Warsaw Store,21450381.8807
+886,Contoso Valletta Store,21276135.0245
+887,Contoso Dublin Store,21449079.0478
+888,Contoso Athens Store,21456075.942
+889,Contoso Canberra Store,36913603.6905
+890,Contoso Sydney No.1 Store,37929553.4305
+891,Contoso Yerevan Store,37267993.47
+892,Contoso New Delhi Store,37417079.491
+893,Contoso Mumbai Store,36852710.2835
+894,Contoso Kolkata Store,37649289.012
+895,Contoso Thimphu No.1 Store,6986780.585
+896,Contoso Hong Kong No.1 Store,36915837.5575
+897,Contoso Tehran No.1 Store,37483598.3595
+898,Contoso Damascus No.1 Store,29213300.337
+899,Contoso Bangkok No.1 Store,15459414.487
+900,Contoso Moscow  No.1 Store,21444124.272
+901,Contoso Ashgabat No.1 Store,37053783.246
+902,Contoso Islamabad No.1 Store,37016662.7455
+904,Contoso Tokyo No.1 Store,37382717.1475
+905,Contoso Tokyo No.2 Store,36945141.564
+906,Contoso Yokohama Store,36436543.235
+907,Contoso Osaka No.1 Store,37080959.85
+908,Contoso Nagoya Store,18177347.682
+909,Contoso Sapporo Store,31217723.4485
+910,Contoso Kyoto Store,4694285.3605
+911,Contoso Seoul Store,16567667.516
+912,Contoso Busan Store,36573180.1055
+913,Contoso Bishkek Store,37599400.743
+914,Contoso Ottawa No.1 Store,22333610.625
+915,Contoso Ottawa No.2 Store,22982409.601
+916,Contoso Toronto No.1 Store,23027554.895
+917,Contoso Toronto No.2 Store,22444208.65
+918,Contoso Toronto No.3 Store,22537482.361
+919,Contoso Montreal No.1 Store,22544106.28
+920,Contoso Montreal No.2 Store,22549416.5735
+921,Contoso Vancouver  No.1 Store,23440233.2615
+922,Contoso Vancouver  No.2 Store,23058497.855
+923,Contoso Calgary  Store,23493114.433
+924,Contoso Thimphu No.2 Store,36887032.7265
+925,Contoso Hong Kong No.2 Store,35666112.202
+926,Contoso Tehran No.2 Store,37733360.956
+927,Contoso Damascus No.2 Store,37502773.7485
+928,Contoso Bangkok No.2 Store,37416713.1235
+929,Contoso Moscow  No.2 Store,37426777.6374
+930,Contoso Ashgabat  No.2 Store,36758701.4205
+931,Contoso Islamabad  No.2 Store,27299295.4525
+932,Contoso Sydney  No.2 Store,37719118.165
+933,Contoso Osaka No.2 Store,34489779.8185
+934,Contoso Kennewick Store,22470746.1235
+935,Contoso Taipei  Store,37610056.3785
+936,Contoso Lisbon Store,21451249.5827
+937,Contoso Taiwan,37610056.3785
+938,Contoso Lisboa Region,21451249.5827
+939,Contoso Portugal,21451249.5827
+940,Contoso Taiwan,37610056.3785
+941,Contoso Northwestern,21129080.2105
+942,Contoso Saint Petersburg Store,21129080.2105
+943,Contoso Nizhny Novgorod Oblast,21349251.2109
+944,Contoso Nizhny Novgorod Store,21349251.2109
+945,Contoso Europe Online Store,806300456.3879
+946,Contoso Asia Online Store,887049174.4335
+947,Contoso North America Reseller,628168708.5233
+948,Contoso Europe Reseller,523087943.2288
+949,Contoso Asia Reseller,563941179.69
