@@ -39,12 +39,30 @@ def load_unit_policy():
     return module, hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def validate_questions(questions):
+def has_final_order_by(sql):
+    # Ignore nested queries, quoted identifiers/literals and SQL comments.
+    tokens = re.findall(r"--[^\n]*|/\*[\s\S]*?\*/|'(?:''|\\.|[^'])*'|\"(?:\"\"|[^\"])*\"|`(?:``|[^`])*`|[()]|[A-Za-z_]+", sql)
+    depth = 0
+    previous = None
+    for token in tokens:
+        if token.startswith(("--", "/*")):
+            continue
+        if token == "(":
+            depth += 1
+        elif token == ")":
+            depth -= 1
+        elif depth == 0 and previous == "ORDER" and token.upper() == "BY":
+            return True
+        previous = token.upper() if depth == 0 else None
+    return False
+
+
+def validate_questions(questions, source="cube"):
     required = set(json.loads((REPO / "questions/schema.json").read_text())["properties"]["questions"]["items"]["required"])
     ids = []
     paths = []
     for question in questions:
-        if set(question) != required:
+        if set(question) != required | ({"rules"} if source == "new" else set()):
             raise ValueError(f"{question.get('id')}: unexpected/missing question fields")
         ids.append(question["id"])
         if question["source"] not in {"cube", "new"} or question["scoring"] not in {"deterministic", "judge"}:
@@ -60,6 +78,18 @@ def validate_questions(questions):
         for ref in question["refs"]:
             if not {"interpretation", "sql", "result_path"} <= set(ref) or set(ref) - {"interpretation", "sql", "result_path", "postprocess"} or not all(ref.values()):
                 raise ValueError(f"{question['id']}: invalid reference")
+            if question["source"] != source:
+                raise ValueError(f"{question['id']}: wrong source file")
+            if source == "new":
+                rules = question["rules"]
+                if set(rules) != {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} or not isinstance(rules["ordered"], bool):
+                    raise ValueError(f"{question['id']}: invalid scoring rules")
+                if rules["top_n"] is not None or rules["tie_columns"]:
+                    raise ValueError(f"{question['id']}: new Top-N requires a complete-boundary implementation before use")
+                if rules["ordered"] and not has_final_order_by(ref["sql"]):
+                    raise ValueError(f"{question['id']}: ordered result requires final SQL ordering")
+                if not isinstance(rules["value_kinds"], list) or not rules["value_kinds"] or any(kind not in {"percentage", "ratio", "amount", "count", "other"} for kind in rules["value_kinds"]):
+                    raise ValueError(f"{question['id']}: new references require declared value_kinds")
             if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3"}:
                 raise ValueError(f"{question['id']}: invalid postprocess")
             if not re.fullmatch(r"refs/[A-Za-z0-9/_-]+\.csv", ref["result_path"]):
@@ -67,8 +97,27 @@ def validate_questions(questions):
             paths.append(ref["result_path"])
     if len(set(ids)) != len(ids) or len(set(paths)) != len(paths):
         raise ValueError("duplicate question ID or result path")
-    if [f"Q{i:02d}" for i in range(1, 101)] != ids:
-        raise ValueError("expected ordered Q01–Q100")
+    start = 1 if source == "cube" else 101
+    expected = 100 if source == "cube" else len(questions)
+    if not questions or [f"Q{i:02d}" for i in range(start, start + expected)] != ids:
+        raise ValueError(f"expected ordered {source} question IDs starting at Q{start:02d}")
+
+
+def reference_value_kinds(question, ref, meta, inferred):
+    if question["source"] != "new":
+        return inferred, []
+    declared = question["rules"]["value_kinds"]
+    if len(declared) != len(meta):
+        raise ValueError(f"{question['id']}: value_kinds length differs from output columns")
+    if question["rules"]["value_types"] != [column["type"] for column in meta]:
+        raise ValueError(f"{question['id']}: value_types differ from query output types")
+    mismatches = []
+    for position, (column, explicit, heuristic) in enumerate(zip(meta, declared, inferred, strict=True), 1):
+        if explicit != heuristic:
+            warning = {"question_id": question["id"], "column_position": position, "column_name": column["name"], "declared": explicit, "inferred": heuristic}
+            print("VALUE_KIND_MISMATCH " + json.dumps(warning, ensure_ascii=False), file=sys.stderr, flush=True)
+            mismatches.append(warning)
+    return declared, mismatches
 
 
 def csv_bytes(meta, rows):
@@ -155,6 +204,11 @@ def main():
     policy, policy_hash = load_unit_policy()
     questions = yaml.safe_load((REPO / "questions/cube_100.yaml").read_text())["questions"]
     validate_questions(questions)
+    new_path = REPO / "questions/new.yaml"
+    if new_path.exists():
+        new_questions = yaml.safe_load(new_path.read_text())["questions"]
+        validate_questions(new_questions, "new")
+        questions += new_questions
     records = []
     sess = session.Session(str(db))
     try:
@@ -176,6 +230,7 @@ def main():
                 meta, rows, postprocess_details = postprocess_reference(ref.get("postprocess"), meta, rows, policy)
                 count_aliases = {m.group(1).lower() for m in re.finditer(r"(?:\bSELECT\s+|,)\s*(?:count|countDistinct|countIf|uniqExact)\s*\([^)]*\)\s+(?:AS\s+)?([A-Za-z_]\w*)", sql, re.I)}
                 kinds = ["count" if c["name"].lower() in count_aliases else policy.infer_value_kind(c["name"], c["type"]) for c in meta]
+                kinds, kind_warnings = reference_value_kinds(question, ref, meta, kinds)
                 if boundary:
                     n, column = boundary
                     key = lambda row: policy.quantize_tie(row[column], kinds[column])
@@ -190,7 +245,8 @@ def main():
                 else:
                     # Store canonical row sets. Ordering requirements are separately
                     # retained in the source SQL; physical group order is not truth.
-                    rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
+                    if not (question["source"] == "new" and question["rules"]["ordered"]):
+                        rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
                 contents = csv_bytes(meta, rows)
                 path = REPO / ref["result_path"]
                 if args.check:
@@ -200,6 +256,8 @@ def main():
                     path.parent.mkdir(parents=True, exist_ok=True)
                     path.write_bytes(contents)
                 records.append({"question_id": question["id"], "result_path": ref["result_path"], "sql_sha256": hashlib.sha256(ref["sql"].encode()).hexdigest(), "row_count": len(rows), "columns": meta, "value_kinds": kinds, "top_n": boundary[0] if boundary else None, "tie_column": boundary[1] if boundary else None, "postprocess": ref.get("postprocess"), "postprocess_details": postprocess_details, "sha256": hashlib.sha256(contents).hexdigest()})
+                if question["source"] == "new":
+                    records[-1].update(value_kind_source="declared", value_kind_warnings=kind_warnings, rules=question["rules"])
                 print(f"{question['id']} {ref['result_path']} {len(rows)} rows", flush=True)
     finally:
         sess.close()
