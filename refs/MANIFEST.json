@@ -288,6 +288,12 @@
         "value_types": [
           "String",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -1787,6 +1793,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -1943,6 +1955,12 @@
           "Nullable(Float64)",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -2251,6 +2269,20 @@
           "Nullable(String)",
           "Nullable(String)",
           "UInt64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          },
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 1,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -2321,6 +2353,20 @@
           "Nullable(String)",
           "Nullable(String)",
           "UInt64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          },
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 1,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -3177,6 +3223,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -3225,6 +3277,12 @@
         "value_types": [
           "Nullable(String)",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -3273,6 +3331,12 @@
         "value_types": [
           "Nullable(String)",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4423,6 +4487,12 @@
           "Nullable(String)",
           "Nullable(Float64)",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4477,6 +4547,12 @@
           "Nullable(String)",
           "Nullable(Float64)",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4593,6 +4669,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -4655,6 +4737,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -5156,6 +5244,12 @@
           "Int64",
           "Int64",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -8348,6 +8442,12 @@
           "Float64",
           "UInt64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -8412,6 +8512,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -8893,7 +8999,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -9096,6 +9212,12 @@
           "Float64",
           "Float64",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -9144,6 +9266,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9532,6 +9660,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9648,6 +9782,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       },
       "selection_checks": null
@@ -9920,6 +10060,12 @@
           "Float64",
           "Nullable(Float64)",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -9990,6 +10136,12 @@
           "Float64",
           "Float64",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null
@@ -10072,7 +10224,13 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -10251,7 +10409,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 1,
+            "descending": false
+          },
+          {
+            "column": 2,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [
@@ -11128,12 +11296,12 @@
     {
       "question_id": "Q109",
       "result_path": "refs/new/Q109-1.csv",
-      "sql_sha256": "6ca6eb8819f116a54346c4a0effb33c1f14df607920a0a57fe800506ad4446b6",
-      "row_count": 2,
+      "sql_sha256": "3d005abf9f9f4a6add90bb82378191fa5e2bf12faed6c39bbc181bcd09ce1b91",
+      "row_count": 4,
       "columns": [
         {
-          "name": "holiday",
-          "type": "String"
+          "name": "quarter",
+          "type": "UInt8"
         },
         {
           "name": "daily_sales_growth_pct",
@@ -11149,9 +11317,9 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "a6887a97cd23cc27343a1b7e1ada9853181938bf65eddfa9adad8304d446c284",
+      "sha256": "50c5ca7dd48811bdcb9c4eb4060ded06fb9c4213b26895b2cfda413dab67b3dd",
       "value_types": [
-        "String",
+        "UInt8",
         "Nullable(Float64)"
       ],
       "value_kind_source": "declared",
@@ -11165,7 +11333,7 @@
           "percentage"
         ],
         "value_types": [
-          "String",
+          "UInt8",
           "Nullable(Float64)"
         ]
       },
@@ -11282,7 +11450,7 @@
     {
       "question_id": "Q112",
       "result_path": "refs/new/Q112-1.csv",
-      "sql_sha256": "002bb3454e5fea8ad2bf3f3699e0bf12612dc7e54905bd8f2dd0b455d64aa605",
+      "sql_sha256": "9f36c2ab73ad2c5b64283ff08e8e7ca929d006119fc163ea435e0276b1683a07",
       "row_count": 262,
       "columns": [
         {
@@ -11313,7 +11481,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "7784bc9514fabb5d2e12f1d9737c54bd866704c99cbc12d6cb80ef62a7203482",
+      "sha256": "80d774bac666287f3afd37e12585135d225d2b03b45901a72a33cd8b3e86bec8",
       "value_types": [
         "Nullable(Float64)",
         "Nullable(String)",
@@ -11344,8 +11512,8 @@
     {
       "question_id": "Q113",
       "result_path": "refs/new/Q113-1.csv",
-      "sql_sha256": "34e7ffe320f9fe88f4255b9a6e9457fe40a37fa05046db883a047024ee232d55",
-      "row_count": 0,
+      "sql_sha256": "bae10ca1cb2ba3a08091fe729338599216d2cb9cbe73aca17e569688e022335f",
+      "row_count": 33,
       "columns": [
         {
           "name": "StoreName",
@@ -11375,7 +11543,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "950e44c89d33071535cdf79979018727b83ce252a3d9c7b235fa5eac9b6e4a75",
+      "sha256": "603b4d4140c57e35742e8bb3397d88708c0f7d5e4fe90926b1ec3a324286fa9f",
       "value_types": [
         "String",
         "UInt8",
@@ -11406,8 +11574,8 @@
     {
       "question_id": "Q114",
       "result_path": "refs/new/Q114-1.csv",
-      "sql_sha256": "facccf8b85b8cbfcab055cd44be943dc38f06a964d65910750da49a11ab22c32",
-      "row_count": 12,
+      "sql_sha256": "637561baf1285523a8d0213d61aecb8cad3a0eb5b7868de34a94f68637eb869b",
+      "row_count": 6,
       "columns": [
         {
           "name": "cutoff",
@@ -11427,7 +11595,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "294c0f093aaa38eb82234c5c9b0acb24a583363d08259130fee244c28b76c97c",
+      "sha256": "f24809781f4270f662ecf7b6e78c7beece518188bb489f1c6d6243f326f60ffe",
       "value_types": [
         "Date",
         "UInt64"
@@ -11452,8 +11620,8 @@
     {
       "question_id": "Q114",
       "result_path": "refs/new/Q114-2.csv",
-      "sql_sha256": "5a720ce7eecb94231ef807cb42f5cb494f473e4caa1c832cd62e473d80047575",
-      "row_count": 12,
+      "sql_sha256": "3620e8b3777f7fac8786d394121a3ce5e11d301caa59a6cddf19709140e3e94e",
+      "row_count": 6,
       "columns": [
         {
           "name": "cutoff",
@@ -11473,7 +11641,99 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6680258378de378d2893171d0c0a7fa489ee4744d541bbb28926caca34f19f02",
+      "sha256": "092132f66eb58bfb1025e5516fc613979a41c362a1f3a8ff2b15393052a840dc",
+      "value_types": [
+        "Date",
+        "UInt64"
+      ],
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Date",
+          "UInt64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q114",
+      "result_path": "refs/new/Q114-3.csv",
+      "sql_sha256": "e3a49f46b61129d894993446bd90cbe116e757ba442ef103d874d2e5f6e5aedb",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "cutoff",
+          "type": "Date"
+        },
+        {
+          "name": "new_customers",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "30f817afa9f56d497168fe6b19e76b3119f0b8b029d5f6f71841284dbba5bad3",
+      "value_types": [
+        "Date",
+        "UInt64"
+      ],
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count"
+        ],
+        "value_types": [
+          "Date",
+          "UInt64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q114",
+      "result_path": "refs/new/Q114-4.csv",
+      "sql_sha256": "c0d834858a376a714ee005f9054467c4718cb280a304d2ad29342923402304d6",
+      "row_count": 6,
+      "columns": [
+        {
+          "name": "cutoff",
+          "type": "Date"
+        },
+        {
+          "name": "new_customers",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "623f30b446090a9af984be01743d4b80371398d245f1c3ac0ba0b58bdcaa8f03",
       "value_types": [
         "Date",
         "UInt64"
@@ -11606,7 +11866,7 @@
     {
       "question_id": "Q116",
       "result_path": "refs/new/Q116-1.csv",
-      "sql_sha256": "4579b53adda68d7f460155d229fd09b01186b562274516f304193591b44b6dc0",
+      "sql_sha256": "93272fc9c6b680e1989321cede2d834f747ef7111ad7db88974932bb9428fbe7",
       "row_count": 4,
       "columns": [
         {
@@ -11627,7 +11887,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "73b28bac98d20ac0a9953bb75deeca97bd31b632107356fcd255fbed1aa6f67f",
+      "sha256": "bf80a8cf05706d7774e794363eff200dbedd4350ca8c4457523e513fe103e2ca",
       "value_types": [
         "Date",
         "Float64"
@@ -11652,53 +11912,7 @@
     {
       "question_id": "Q116",
       "result_path": "refs/new/Q116-2.csv",
-      "sql_sha256": "86d35ec2246f955c91bd347dff6e343c5ea9d60c0a9bc3657f3ca202a717ba1b",
-      "row_count": 4,
-      "columns": [
-        {
-          "name": "cohort_month",
-          "type": "Date"
-        },
-        {
-          "name": "repurchase_pct",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "73b28bac98d20ac0a9953bb75deeca97bd31b632107356fcd255fbed1aa6f67f",
-      "value_types": [
-        "Date",
-        "Float64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "percentage"
-        ],
-        "value_types": [
-          "Date",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q116",
-      "result_path": "refs/new/Q116-3.csv",
-      "sql_sha256": "2fb1a69a1a2604657a39f36d74aa930602c18bad19ece0f12b27c24b6c513a27",
+      "sql_sha256": "d6653afc624653381eb2a73219ede3024baf75b496d25219138e36a460ec8709",
       "row_count": 5,
       "columns": [
         {
@@ -11719,7 +11933,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "fc47b7f5240ced89137b6bb2b45e9e6ab1dd5c877b7aca68b16fb56437c7bf79",
+      "sha256": "2ea3022daccf544d2fd9e4d21251896f63cbe68ba17fe7a591eedcec2e93fb94",
       "value_types": [
         "Date",
         "Float64"
@@ -11862,7 +12076,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       },
       "selection_checks": [
         [

@@ -285,7 +285,28 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT ProductName, UnitPrice FROM retail.DimProduct ORDER BY UnitPrice DESC LIMIT 10",
-          "result_path": "refs/cube/Q07-1.csv"
+          "result_path": "refs/cube/Q07-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 10,
+            "tie_columns": [
+              1
+            ],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "String",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -321,6 +342,12 @@
         "value_types": [
           "String",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -1261,7 +1288,28 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT d.NorthAmericaSeason,avg(s.daily_sales) AS avg_daily_sales FROM (SELECT f.DateKey,sum(f.SalesAmount) AS daily_sales FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey WHERE g.ContinentName='North America' GROUP BY f.DateKey) s JOIN retail.DimDate d ON s.DateKey=d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
-          "result_path": "refs/cube/Q25-1.csv"
+          "result_path": "refs/cube/Q25-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 1,
+            "tie_columns": [
+              1
+            ],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "String",
+              "Float64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -1299,6 +1347,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -1366,7 +1420,32 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT ProductName, UnitPrice, UnitCost, round((UnitPrice - UnitCost) * 100.0 / nullIf(UnitPrice, 0), 2) as margin_pct FROM retail.DimProduct WHERE UnitPrice > 0 ORDER BY margin_pct DESC LIMIT 10",
-          "result_path": "refs/cube/Q27-1.csv"
+          "result_path": "refs/cube/Q27-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 10,
+            "tie_columns": [
+              3
+            ],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "String",
+              "Nullable(Float64)",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -1409,6 +1488,12 @@
           "Nullable(Float64)",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       }
     },
@@ -1671,12 +1756,78 @@
         {
           "interpretation": "共购按不同订单计数：每订单内产品去重；保留产品键与缺失名称。前20仅是judge示例，不是题干固定N。；购买事件=全部行",
           "sql": "WITH baskets AS (\n  SELECT SalesOrderNumber,arraySort(groupUniqArray(ProductKey)) AS products\n  FROM retail.FactOnlineSales GROUP BY SalesOrderNumber\n), first_product AS (\n  SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets\n), pairs AS (\n  SELECT product1_key,product2_key,count() AS co_order_count\n  FROM first_product ARRAY JOIN products AS product2_key\n  WHERE product1_key<product2_key GROUP BY product1_key,product2_key\n)\nSELECT x.product1_key,x.product2_key,\n       if(p1.ProductKey=0,NULL,p1.ProductName) AS product1,\n       if(p2.ProductKey=0,NULL,p2.ProductName) AS product2,\n       x.co_order_count\nFROM pairs x\nLEFT JOIN retail.DimProduct p1 ON x.product1_key=p1.ProductKey\nLEFT JOIN retail.DimProduct p2 ON x.product2_key=p2.ProductKey\nORDER BY co_order_count DESC,product1_key,product2_key LIMIT 20",
-          "result_path": "refs/cube/Q33-1.csv"
+          "result_path": "refs/cube/Q33-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Int32",
+              "Int32",
+              "Nullable(String)",
+              "Nullable(String)",
+              "UInt64"
+            ],
+            "order_by": [
+              {
+                "column": 4,
+                "descending": true
+              },
+              {
+                "column": 0,
+                "descending": false
+              },
+              {
+                "column": 1,
+                "descending": false
+              }
+            ]
+          }
         },
         {
           "interpretation": "共购按不同订单计数：每订单内产品去重；保留产品键与缺失名称。前20仅是judge示例，不是题干固定N。；购买事件=SalesQuantity>0",
           "sql": "WITH baskets AS (\n  SELECT SalesOrderNumber,arraySort(groupUniqArray(ProductKey)) AS products\n  FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY SalesOrderNumber\n), first_product AS (\n  SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets\n), pairs AS (\n  SELECT product1_key,product2_key,count() AS co_order_count\n  FROM first_product ARRAY JOIN products AS product2_key\n  WHERE product1_key<product2_key GROUP BY product1_key,product2_key\n)\nSELECT x.product1_key,x.product2_key,\n       if(p1.ProductKey=0,NULL,p1.ProductName) AS product1,\n       if(p2.ProductKey=0,NULL,p2.ProductName) AS product2,\n       x.co_order_count\nFROM pairs x\nLEFT JOIN retail.DimProduct p1 ON x.product1_key=p1.ProductKey\nLEFT JOIN retail.DimProduct p2 ON x.product2_key=p2.ProductKey\nORDER BY co_order_count DESC,product1_key,product2_key LIMIT 20",
-          "result_path": "refs/cube/Q33-2.csv"
+          "result_path": "refs/cube/Q33-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "count"
+            ],
+            "value_types": [
+              "Int32",
+              "Int32",
+              "Nullable(String)",
+              "Nullable(String)",
+              "UInt64"
+            ],
+            "order_by": [
+              {
+                "column": 4,
+                "descending": true
+              },
+              {
+                "column": 0,
+                "descending": false
+              },
+              {
+                "column": 1,
+                "descending": false
+              }
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -1718,6 +1869,20 @@
           "Nullable(String)",
           "Nullable(String)",
           "UInt64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          },
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 1,
+            "descending": false
+          }
         ]
       }
     },
@@ -2343,7 +2508,30 @@
         {
           "interpretation": "完整销售平效排序域；允许声明正整数Top-N或返回完整排名",
           "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, s.SellingAreaSize, round(sum(f.SalesAmount) / nullIf(s.SellingAreaSize, 0), 2) as sales_per_sqft FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey WHERE s.SellingAreaSize IS NOT NULL AND s.SellingAreaSize > 0 GROUP BY s.StoreKey, s.StoreName, s.SellingAreaSize ORDER BY sales_per_sqft DESC",
-          "result_path": "refs/cube/Q45-1.csv"
+          "result_path": "refs/cube/Q45-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "String",
+              "Float64",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -2386,6 +2574,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       }
     },
@@ -2399,12 +2593,54 @@
         {
           "interpretation": "示例：按学历，毛利最高的客户群体",
           "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Education as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Education IS NOT NULL GROUP BY c.Education ORDER BY profit DESC LIMIT 1",
-          "result_path": "refs/cube/Q46-1.csv"
+          "result_path": "refs/cube/Q46-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 1,
+            "tie_columns": [
+              1
+            ],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         },
         {
           "interpretation": "示例：按职业，毛利最高的客户群体",
           "sql": "-- Interpreting segment as education level, profitable as total profit\nSELECT c.Occupation as segment, sum(s.SalesAmount - s.TotalCost) as profit FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey WHERE c.Occupation IS NOT NULL GROUP BY c.Occupation ORDER BY profit DESC LIMIT 1",
-          "result_path": "refs/cube/Q46-2.csv"
+          "result_path": "refs/cube/Q46-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 1,
+            "tie_columns": [
+              1
+            ],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -2444,6 +2680,12 @@
         "value_types": [
           "Nullable(String)",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -3449,12 +3691,54 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC",
-          "result_path": "refs/cube/Q67-1.csv"
+          "result_path": "refs/cube/Q67-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "count"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Nullable(Float64)",
+              "Int64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         },
         {
           "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
           "sql": "SELECT * FROM (\nSELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC\n) AS named_product_groups\nWHERE (`ColorName` IS NOT NULL AND `ColorName` != '')\nORDER BY avg_realized_price DESC",
-          "result_path": "refs/cube/Q67-2.csv"
+          "result_path": "refs/cube/Q67-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "count"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Nullable(Float64)",
+              "Int64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -3493,6 +3777,12 @@
           "Nullable(String)",
           "Nullable(Float64)",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -3557,12 +3847,58 @@
         {
           "interpretation": "折前金额加权实际折扣率，须声明权重",
           "sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
-          "result_path": "refs/cube/Q69-1.csv"
+          "result_path": "refs/cube/Q69-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Float64",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         },
         {
           "interpretation": "成交记录的实际折扣率简单平均，须声明权重",
           "sql": "SELECT pr.PromotionCategory,sum(f.SalesAmount) AS revenue,sum(f.DiscountAmount) AS total_discount,avg(f.DiscountAmount*100.0/nullIf(f.SalesAmount+f.DiscountAmount,0)) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey=pr.PromotionKey WHERE f.PromotionKey<>1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
-          "result_path": "refs/cube/Q69-2.csv"
+          "result_path": "refs/cube/Q69-2.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Float64",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -3603,6 +3939,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -3801,7 +4143,32 @@
         {
           "interpretation": "原参考解读",
           "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey = p.ProductKey\nGROUP BY i.ProductKey,p.ProductName\nORDER BY gap DESC\nLIMIT 10",
-          "result_path": "refs/cube/Q73-1.csv"
+          "result_path": "refs/cube/Q73-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 10,
+            "tie_columns": [
+              3
+            ],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Int64",
+              "Int64",
+              "Int64"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -3844,6 +4211,12 @@
           "Int64",
           "Int64",
           "Int64"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       }
     },
@@ -4108,7 +4481,30 @@
         {
           "interpretation": "原参考解读",
           "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       round(disc, 2) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       round(disc * 100.0 / nullif(sum(disc) OVER (), 0), 2) AS pct_of_total\nFROM promo\nORDER BY rnk",
-          "result_path": "refs/cube/Q78-1.csv"
+          "result_path": "refs/cube/Q78-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "other",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "UInt64",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 2,
+                "descending": false
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4150,6 +4546,12 @@
           "Float64",
           "UInt64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": false
+          }
         ]
       }
     },
@@ -4163,7 +4565,32 @@
         {
           "interpretation": "预算场景目标达成率，取前10名并保留边界并列",
           "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       round(a.actual_sales, 2) AS actual_sales,\n       round(q.quota, 2) AS quota,\n       round(a.actual_sales * 100.0 / nullif(q.quota, 0), 2) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
-          "result_path": "refs/cube/Q79-1.csv"
+          "result_path": "refs/cube/Q79-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 10,
+            "tie_columns": [
+              3
+            ],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "String",
+              "Float64",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4208,6 +4635,12 @@
           "Float64",
           "Nullable(Float64)",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       }
     },
@@ -4494,7 +4927,95 @@
           "interpretation": "原参考解读",
           "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         round(a.actual_amt * 100.0 / nullif(q.quota_amt, 0), 2) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC )\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC )\n) ORDER BY bucket, attainment_pct DESC",
           "result_path": "refs/cube/Q85-1.csv",
-          "postprocess": "selection"
+          "postprocess": "selection",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "String",
+              "String",
+              "Float64",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ],
+            "selection": {
+              "version": 1,
+              "stages": [
+                {
+                  "parent": null,
+                  "where": [
+                    {
+                      "column": 0,
+                      "equals": "TOP"
+                    }
+                  ],
+                  "group_columns": [
+                    0
+                  ],
+                  "object_columns": [
+                    1
+                  ],
+                  "order_by": [
+                    {
+                      "column": 4,
+                      "descending": true
+                    }
+                  ],
+                  "n": 5
+                },
+                {
+                  "parent": null,
+                  "where": [
+                    {
+                      "column": 0,
+                      "equals": "BOTTOM"
+                    }
+                  ],
+                  "group_columns": [
+                    0
+                  ],
+                  "object_columns": [
+                    1
+                  ],
+                  "order_by": [
+                    {
+                      "column": 4,
+                      "descending": false
+                    }
+                  ],
+                  "n": 5
+                }
+              ],
+              "output_order": [
+                {
+                  "column": 0,
+                  "descending": false
+                },
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ]
+            },
+            "order_by": [
+              {
+                "column": 0,
+                "descending": false
+              },
+              {
+                "column": 4,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4598,7 +5119,17 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 0,
+            "descending": false
+          },
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
       }
     },
     {
@@ -4668,7 +5199,34 @@
         {
           "interpretation": "原参考解读",
           "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / 90.0 AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\n       c.on_hand,\n       round(r.avg_daily_qty, 2) AS avg_daily_qty,\n       round(c.on_hand / r.avg_daily_qty, 1) AS days_of_coverage,c.ProductKey AS ProductKey\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nLEFT JOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
-          "result_path": "refs/cube/Q87-1.csv"
+          "result_path": "refs/cube/Q87-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 20,
+            "tie_columns": [
+              3
+            ],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "other"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Int64",
+              "Float64",
+              "Float64",
+              "Int32"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": false
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4715,6 +5273,12 @@
           "Float64",
           "Float64",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       }
     },
@@ -4728,7 +5292,28 @@
         {
           "interpretation": "原参考解读；购买事件=全部行／正销量（结果相同）",
           "sql": "WITH cust_q AS (\n  SELECT CustomerKey, toQuarter(DateKey) AS q\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY CustomerKey, q\n),\nloyal AS (\n  SELECT CustomerKey\n  FROM cust_q GROUP BY CustomerKey HAVING count(distinct q) = 4\n),\nspend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS spend_2009\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009 AND CustomerKey IN (SELECT CustomerKey FROM loyal)\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       round(s.spend_2009, 2) AS total_spend_2009\nFROM spend s\nJOIN retail.DimCustomer c ON c.CustomerKey = s.CustomerKey\nORDER BY s.spend_2009 DESC\nLIMIT 20",
-          "result_path": "refs/cube/Q88-1.csv"
+          "result_path": "refs/cube/Q88-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": 20,
+            "tie_columns": [
+              1
+            ],
+            "value_kinds": [
+              "other",
+              "amount"
+            ],
+            "value_types": [
+              "String",
+              "Float64"
+            ],
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4768,6 +5353,12 @@
         "value_types": [
           "String",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
         ]
       }
     },
@@ -4951,7 +5542,30 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC",
-          "result_path": "refs/cube/Q92-1.csv"
+          "result_path": "refs/cube/Q92-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Float64",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 2,
+                "descending": true
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -4992,6 +5606,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 2,
+            "descending": true
+          }
         ]
       }
     },
@@ -5057,7 +5677,30 @@
         {
           "interpretation": "原参考解读",
           "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC",
-          "result_path": "refs/cube/Q94-1.csv"
+          "result_path": "refs/cube/Q94-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "String",
+              "Float64",
+              "Float64",
+              "Nullable(Float64)"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": false
+              }
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
@@ -5098,6 +5741,12 @@
           "Float64",
           "Float64",
           "Nullable(Float64)"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": false
+          }
         ]
       }
     },
@@ -5226,7 +5875,32 @@
         {
           "interpretation": "示例：原参考解读",
           "sql": "SELECT if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6) AS h1_sales,\n       sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) AS h2_sales,\n       (sumIf(f.SalesAmount, toMonth(f.DateKey) >= 7) - sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toMonth(f.DateKey) <= 6), 0) AS h2_vs_h1_pct,f.ProductKey AS ProductKey\nFROM retail.FactOnlineSales f\nLEFT JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY f.ProductKey,p.ProductKey,p.ProductName\nHAVING h1_sales >= 1000 AND h2_sales > h1_sales\nORDER BY h2_vs_h1_pct DESC\nLIMIT 15",
-          "result_path": "refs/cube/Q97-1.csv"
+          "result_path": "refs/cube/Q97-1.csv",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount",
+              "percentage",
+              "other"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Float64",
+              "Nullable(Float64)",
+              "Int32"
+            ],
+            "order_by": [
+              {
+                "column": 3,
+                "descending": true
+              }
+            ]
+          }
         },
         {
           "interpretation": "示例：按H2较H1的增加额排序，取前15名，不设H1下限",
@@ -5249,6 +5923,12 @@
               "Float64",
               "Float64",
               "Float64"
+            ],
+            "order_by": [
+              {
+                "column": 4,
+                "descending": true
+              }
             ]
           }
         }
@@ -5294,6 +5974,12 @@
           "Float64",
           "Nullable(Float64)",
           "Int32"
+        ],
+        "order_by": [
+          {
+            "column": 3,
+            "descending": true
+          }
         ]
       }
     },
@@ -5308,7 +5994,56 @@
           "interpretation": "仅分析2009年度，须声明年份",
           "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n) SELECT ProductCategoryName,q_sales*100.0/sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS peak_quarter_share_pct,q AS peak_quarter FROM cat_q ORDER BY peak_quarter_share_pct DESC",
           "result_path": "refs/cube/Q98-1.csv",
-          "postprocess": "selection"
+          "postprocess": "selection",
+          "rules": {
+            "ordered": true,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage",
+              "other"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "UInt8"
+            ],
+            "selection": {
+              "version": 1,
+              "stages": [
+                {
+                  "parent": null,
+                  "where": [],
+                  "group_columns": [
+                    0
+                  ],
+                  "object_columns": [
+                    2
+                  ],
+                  "order_by": [
+                    {
+                      "column": 1,
+                      "descending": true
+                    }
+                  ],
+                  "n": 1
+                }
+              ],
+              "output_order": [
+                {
+                  "column": 1,
+                  "descending": true
+                }
+              ]
+            },
+            "order_by": [
+              {
+                "column": 1,
+                "descending": true
+              }
+            ]
+          }
         },
         {
           "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
@@ -5363,7 +6098,17 @@
                   "descending": true
                 }
               ]
-            }
+            },
+            "order_by": [
+              {
+                "column": 1,
+                "descending": false
+              },
+              {
+                "column": 2,
+                "descending": true
+              }
+            ]
           }
         }
       ],
@@ -5433,7 +6178,13 @@
               "descending": true
             }
           ]
-        }
+        },
+        "order_by": [
+          {
+            "column": 1,
+            "descending": true
+          }
+        ]
       }
     },
     {

@@ -31,6 +31,8 @@ def main():
     questions={int(q['id'][1:]):q for q in bank['questions'] if q['source']=='cube'}
     manifest={r['result_path']:r for r in bank['manifest']['records']}
     for rec in manifest.values():
+        if rec['question_id'] not in {q['id'] for q in questions.values()}:
+            continue  # New-question rewrites are outside this external cohort.
         if hashlib.sha256((ROOT/rec['result_path']).read_bytes()).hexdigest()!=rec['sha256']:
             raise ValueError('original reference changed: '+rec['result_path'])
     targets={(r['system'],r['question_id']):r for r in delta}

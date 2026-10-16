@@ -86,6 +86,9 @@ def main():
         expected=score_detailed(candidate,[[['a',10],['b',10]]],top)
         assert (actual.outcome,actual.reason)==(expected.outcome,expected.reason)
     policy, _ = load_unit_policy()
+    from backfill_order_keys import reference_order
+    assert reference_order('SELECT round(s.amount,2) AS total_amount FROM x ORDER BY s.amount DESC',[{'name':'total_amount','type':'Float64'}])[0]==[{'column':0,'descending':True}]
+    expect_error(lambda:reference_order('SELECT a FROM x ORDER BY hidden',[{'name':'a','type':'Int32'}]))
     from snapshot_q79_boundary import boundary_members, compare_members
     stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}
     independent={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['b',2.002],['a',1.003]]}
@@ -114,24 +117,44 @@ def main():
     expect_error(lambda: postprocess_reference('product_rank_dense',rank_meta,rank_domain+[[3,'s3',1,'a',1,100.02,0]],policy))
     draft = (REPO / 'audit/T05-rewrite-draft.md').read_text()
     approved = {f'Q{m[1]}':m[2] for m in re.finditer(r'\| D\d+→Q(\d+) \| ([^|]+?) \|',draft)}
-    assert len(approved) == 22 and all(q['text_zh'] == approved[q['id']] for q in new)
+    rewrite_path=REPO/'audit/T05-degeneracy-rewrites.json'
+    rewrites=json.loads(rewrite_path.read_text()) if rewrite_path.exists() else None
+    changed={r['question_id']:r for r in rewrites['records'] if r['changed']} if rewrites else {}
+    assert len(approved)==22
+    for q in new:
+        if q['id'] in changed:
+            assert changed[q['id']]['original_question']==approved[q['id']]
+            assert q['text_zh']==changed[q['id']]['new_question']
+        else:
+            assert q['text_zh']==approved[q['id']]
     assert {q['id'] for q in old+new if any(effective_rules(q,r).get('selection') for r in q['refs'])} == {'Q22','Q71','Q74','Q85','Q98','Q117','Q119'}
     purchase = json.loads((REPO/'audit/T05-purchase-events.json').read_text())
     assert purchase['scanned_questions']==122 and len(purchase['records'])==122
     assert purchase['compared_questions']==18 and purchase['different_questions']==9
     assert purchase['added_references']==9 and purchase['final_references']==148
     optional=json.loads((REPO/'audit/optional-product-group-refs.json').read_text())
-    assert len(records)==(optional['final_references'] if optional['applied'] else purchase['final_references'])
+    expected_total=sum(len(q['refs']) for q in old+new)
+    assert len(records)==expected_total
+    if rewrites:
+        before=json.loads((REPO/'audit/T05-degeneracy-before.json').read_text())
+        after=json.loads((REPO/'audit/T05-degeneracy-after.json').read_text())
+        assert before['questions_scanned']==after['questions_scanned']==22 and not after['hits']
+        assert set(before['hits'])==set(changed)==set(rewrites['rewritten_questions'])
+        assert after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
+        assert not rewrites['post_rewrite_audit_required'] and rewrites['after_hits']==[]
+        assert rewrites['after_audit_sha256']==hashlib.sha256((REPO/'audit/T05-degeneracy-after.json').read_bytes()).hexdigest()
+    else:
+        assert expected_total==(optional['final_references'] if optional['applied'] else purchase['final_references'])
     if optional['applied']:
         from audit_orphan_group_rows import GROUP_COLUMNS
-        archive=json.loads((REPO/'audit/reviews/2026-10-16-before-empty-group-refs.json').read_text())
-        baseline_paths={r['result_path'] for r in archive['manifest']['records']}
+        optional_paths={r['result_path'] for item in optional['records'] for r in item['additions']}
+        optional_paths.update(path for item in optional['records'] for path in item.get('existing_optional_references',[]))
         checked=0
         for q in old+new:
             for ref in q['refs']:
-                if ref['result_path'] in baseline_paths:
+                if ref['result_path'] not in optional_paths:
                     continue
-                source=next(r for r in q['refs'] if r['result_path'] in baseline_paths and ref['sql'].startswith('SELECT * FROM (\n'+r['sql'].rstrip().rstrip(';')+'\n)'))
+                source=next(r for r in q['refs'] if r['result_path'] not in optional_paths and ref['sql'].startswith('SELECT * FROM (\n'+r['sql'].rstrip().rstrip(';')+'\n)'))
                 assert effective_rules(q,ref)==effective_rules(q,source)
                 assert records[ref['result_path']]['columns']==records[source['result_path']]['columns']
                 with (REPO/source['result_path']).open(newline='') as stream:
@@ -150,9 +173,33 @@ def main():
     assert {r['question_id'] for r in purchase['records'] if any(not x['quantized_equal'] for x in r['references'])}==expected_different
     for item in purchase['records']:
         for comparison in item['references']:
-            assert comparison['positive_maps_to'] in records
+            if item['question_id'] not in changed:
+                assert comparison['positive_maps_to'] in records
             if comparison['quantized_equal']:
                 assert not comparison['new_reference']
+    ordering=json.loads((REPO/'audit/ordered-rules-review.json').read_text())
+    current_ordered={r['reference']:r for r in ordering['current_records']}
+    expected_ordered={ref['result_path'] for q in old+new for ref in q['refs'] if effective_rules(q,ref)['ordered']}
+    assert current_ordered.keys()==expected_ordered
+    for path,item in current_ordered.items():
+        assert item['order_by']==records[path]['rules']['order_by']
+        assert item['columns']==records[path]['columns'] and item['sql_sha256']==records[path]['sql_sha256']
+    from harness.scorer import _boundary_start, score
+    from check_rules_impact import csv_rows
+    def tied_prefix_swap(reference,rules):
+        n=rules['top_n']
+        end=n if len(reference)==n else _boundary_start(reference,n,tuple(rules['tie_columns']),tuple(rules['value_kinds']))
+        key=lambda row:tuple(policy.quantize_tie(row[k['column']],rules['value_kinds'][k['column']]) for k in rules['order_by'])
+        position=next(i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1])
+        candidate=deepcopy(reference[:n]);candidate[position],candidate[position+1]=candidate[position+1],candidate[position]
+        assert score(candidate,[reference],rules)=='correct'
+    for qid in ('Q27','Q87','Q88'):
+        question=next(q for q in old if q['id']==qid);ref=question['refs'][0]
+        tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+    from harness.questions import load_questions
+    for anchor in load_questions(REPO,lang='en'):
+        if anchor.qid in ('EN27','EN88'):
+            tied_prefix_swap(anchor.refs[0],anchor.rules)
     warnings = []
     for q in new:
         assert q['split'] is None and q['scoring'] == 'deterministic'

@@ -96,8 +96,10 @@ def validate_questions(questions, source="cube"):
             if question["source"] != source:
                 raise ValueError(f"{question['id']}: wrong source file")
             rules = effective_rules(question, ref)
-            if set(rules) - {"ordered", "top_n", "tie_columns", "value_kinds", "value_types", "selection"} or not {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} <= set(rules):
+            if set(rules) - {"ordered", "top_n", "tie_columns", "value_kinds", "value_types", "selection", "order_by"} or not {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} <= set(rules):
                 raise ValueError(f"{question['id']}: invalid scoring rules")
+            if rules['ordered'] and not rules.get('order_by'):
+                raise ValueError(f"{question['id']}: ordered bank references require explicit order_by")
             _, parse_rules = load_selection_policy()
             parse_rules(rules)
             if rules["ordered"] and not has_final_order_by(ref["sql"]):

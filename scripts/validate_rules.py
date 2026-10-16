@@ -47,6 +47,8 @@ def main():
                 record = records[ref['result_path']]
                 assert record['rules'] == rules, (q['id'], position, 'rules')
                 assert record['ordered'] == rules['ordered']
+                if rules['ordered']:
+                    assert rules['order_by'] and all(0<=key['column']<len(record['columns']) for key in rules['order_by'])
                 assert record['value_kinds'] == rules['value_kinds']
                 assert record['value_types'] == rules['value_types'] == [column['type'] for column in record['columns']]
                 assert record['sql_sha256'] == hashlib.sha256(ref['sql'].encode()).hexdigest()

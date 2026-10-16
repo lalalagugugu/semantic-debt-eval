@@ -1,6 +1,6 @@
 # T05 补题与参考答案
 
-- 状态：第二轮22题正式SQL与122题161份参考已从头重算并严格复算；购买事件双解及13份无空产品属性组参考已按裁决落地。T05b独立核对进行中、结果待交；T06冻结未执行（2026-10-16）
+- 状态：22道新题已按A/B/C逐道自查，Q109/Q112/Q113/Q114/Q116五题改写，复查0题命中；122题162份参考从头重算并严格复算通过。T05b须按新题意重算后比对；T06冻结未执行（2026-10-16）
 - 负责：Codex（出题并用 SQL 算参考答案）；独立重算在 T05b 由 Claude Code 做
 - 模式：题库（`cd ~/semdebt/semantic-debt-eval && codex "执行任务卡 T05"`）
 - 限制：不得读取主仓库 `semantic/` 下除 `conventions.md` 以外的文件（避免对着 L1 文档出题）
@@ -63,5 +63,12 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 - 购买事件双解：audit/T05-purchase-events.md及decisions/open-questions.md的已裁决记录。
 - Q79：主仓库decisions/2026-10-16-q79-release-and-anchor-refs.md第四节；题库tasks/T06-split-freeze.md要求T05b独立成员集合一致才放行，不写死成员数。
 - 空产品属性组与组内比率：主仓库decisions/2026-10-16-orphan-product-group-row-and-scorer-early-reject.md第一、三节。
+- 新题退化必须改写：主仓库decisions/2026-10-16-tie-order-and-degenerate-new-questions.md第二节；逐题原意、证据、新意和不再退化的原因见audit/T05-degeneracy-review.md及配套before/after/rewrites.json。外部100题不改写。
 
 参考SQL一条命令重算：`uv run --locked python scripts/build_refs.py`；严格复算：加`--check`。两个命令都需要SEMDEBT_MAIN_DIR和SEMDEBT_DATA_DIR，串行使用chdb-eval。
+
+## 最终追加验收（题库PR #14）
+
+22题A/B/C数据自查及五题改写已完成，0题复查命中；当前122题162份全部重新计算并严格复算。19道有序题25份逐参考显式排序键及18份公开原参考审阅已落盘；validate_t05另用Q27/Q87/Q88及EN27/EN88实际参考核对前缀内并列换序。最终同批600条分轴契约3／参考43／联合47（复执行0），逐条及方向见audit/rules-order-final-impact.*；原43条回归队列补空组恢复30，与参考轴43不是同一集合。
+
+T05b必须按新题意重新独立计算、核对双解及Q79成员；实际T06标注与eval-v1冻结仍未完成。旧轮报告保留，不以600条外部候选证明新题质量。

@@ -40,9 +40,15 @@
       "Float64",
       "Nullable(Float64)",
       "Nullable(Float64)"
+    ],
+    "order_by": [
+      {
+        "column": 3,
+        "descending": true
+      }
     ]
   },
-  "rules_sha256": "a8fa0a3b8f9f5ecfa839e5f5e57350dbed5ea1991bc7bc08351f3c6c17f40466",
+  "rules_sha256": "b324ed617a41b208a01aec802e5b8442b33135e6be285c7ee524a9520e145e94",
   "value_kinds": [
     "other",
     "amount",
