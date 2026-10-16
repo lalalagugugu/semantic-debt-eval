@@ -86,10 +86,15 @@ def main():
         expected=score_detailed(candidate,[[['a',10],['b',10]]],top)
         assert (actual.outcome,actual.reason)==(expected.outcome,expected.reason)
     policy, _ = load_unit_policy()
-    from snapshot_q79_boundary import compare_members
+    from snapshot_q79_boundary import boundary_members, compare_members
     stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}
     independent={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['b',2.002],['a',1.003]]}
     compare_members(stored,independent,policy)
+    dynamic={'top_n':2,'tie_columns':[1],'value_kinds':['other','amount']}
+    members,counts=boundary_members([['a',20],['b',10],['c',10],['d',5]],dynamic,policy)
+    assert len(members)==3 and counts['strict_prefix_count']==1 and counts['boundary_group_count']==2
+    dynamic['top_n']=1
+    assert len(boundary_members([['a',20],['b',10]],dynamic,policy)[0])==1
     invalid=deepcopy(independent)
     invalid['rows'][0][0]='another-member'
     expect_error(lambda:compare_members(stored,invalid,policy))
@@ -114,7 +119,33 @@ def main():
     purchase = json.loads((REPO/'audit/T05-purchase-events.json').read_text())
     assert purchase['scanned_questions']==122 and len(purchase['records'])==122
     assert purchase['compared_questions']==18 and purchase['different_questions']==9
-    assert purchase['added_references']==9 and purchase['final_references']==len(records)==148
+    assert purchase['added_references']==9 and purchase['final_references']==148
+    optional=json.loads((REPO/'audit/optional-product-group-refs.json').read_text())
+    assert len(records)==(optional['final_references'] if optional['applied'] else purchase['final_references'])
+    if optional['applied']:
+        from audit_orphan_group_rows import GROUP_COLUMNS
+        archive=json.loads((REPO/'audit/reviews/2026-10-16-before-empty-group-refs.json').read_text())
+        baseline_paths={r['result_path'] for r in archive['manifest']['records']}
+        checked=0
+        for q in old+new:
+            for ref in q['refs']:
+                if ref['result_path'] in baseline_paths:
+                    continue
+                source=next(r for r in q['refs'] if r['result_path'] in baseline_paths and ref['sql'].startswith('SELECT * FROM (\n'+r['sql'].rstrip().rstrip(';')+'\n)'))
+                assert effective_rules(q,ref)==effective_rules(q,source)
+                assert records[ref['result_path']]['columns']==records[source['result_path']]['columns']
+                with (REPO/source['result_path']).open(newline='') as stream:
+                    original=list(csv.reader(stream))
+                with (REPO/ref['result_path']).open(newline='') as stream:
+                    named=list(csv.reader(stream))
+                indices=[i for i,name in enumerate(original[0]) if name in GROUP_COLUMNS]
+                assert indices and original[0]==named[0]
+                expected=[row for row in original[1:] if all(row[i] not in ('\\N','') for i in indices)]
+                assert Counter(map(tuple,expected))==Counter(map(tuple,named[1:])), ref['result_path']
+                if effective_rules(q,ref)['ordered']:
+                    assert expected==named[1:]
+                checked+=1
+        assert checked==optional['added_references']
     expected_different={'Q26','Q33','Q36','Q76','Q80','Q89','Q115','Q116','Q122'}
     assert {r['question_id'] for r in purchase['records'] if any(not x['quantized_equal'] for x in r['references'])}==expected_different
     for item in purchase['records']:

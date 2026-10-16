@@ -483,10 +483,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC",
           "result_path": "refs/cube/Q11-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC\n) AS named_product_groups\nWHERE (`ProductCategoryName` IS NOT NULL AND `ProductCategoryName` != '')",
+          "result_path": "refs/cube/Q11-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1199,10 +1204,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
           "result_path": "refs/cube/Q24-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName\n) AS named_product_groups\nWHERE (`ProductCategoryName` IS NOT NULL AND `ProductCategoryName` != '')",
+          "result_path": "refs/cube/Q24-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3129,10 +3139,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC",
           "result_path": "refs/cube/Q61-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC\n) AS named_product_groups\nWHERE (`ProductSubcategoryName` IS NOT NULL AND `ProductSubcategoryName` != '')",
+          "result_path": "refs/cube/Q61-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -3177,10 +3192,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT p.BrandName, sum(f.SalesAmount) AS revenue, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey WHERE toYear(f.DateKey) = 2008 GROUP BY p.BrandName HAVING units >= 500 ORDER BY revenue DESC",
           "result_path": "refs/cube/Q62-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT p.BrandName, sum(f.SalesAmount) AS revenue, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey WHERE toYear(f.DateKey) = 2008 GROUP BY p.BrandName HAVING units >= 500 ORDER BY revenue DESC\n) AS named_product_groups\nWHERE (`BrandName` IS NOT NULL AND `BrandName` != '')",
+          "result_path": "refs/cube/Q62-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -3430,10 +3450,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC",
           "result_path": "refs/cube/Q67-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC\n) AS named_product_groups\nWHERE (`ColorName` IS NOT NULL AND `ColorName` != '')\nORDER BY avg_realized_price DESC",
+          "result_path": "refs/cube/Q67-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -3646,10 +3671,16 @@
           "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked\nORDER BY sales_amount DESC",
           "result_path": "refs/cube/Q71-1.csv",
           "postprocess": "selection"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, round(sales, 2) AS sales_amount\nFROM ranked\nORDER BY sales_amount DESC\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '') AND (`subcategory` IS NOT NULL AND `subcategory` != '')",
+          "result_path": "refs/cube/Q71-2.csv",
+          "postprocess": "selection"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -4581,10 +4612,15 @@
           "interpretation": "原参考解读",
           "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC\nLIMIT 20",
           "result_path": "refs/cube/Q86-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC\nLIMIT 20\n) AS named_product_groups\nWHERE (`ProductSubcategoryName` IS NOT NULL AND `ProductSubcategoryName` != '')",
+          "result_path": "refs/cube/Q86-2.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "须声明是否含无折扣、样本下限和前N；按子品类计算折扣百分比与销量相关系数；现有参考是示例而非唯一判据。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "须声明是否含无折扣、样本下限和前N；按子品类计算折扣百分比与销量相关系数；现有参考是示例而非唯一判据。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -4803,10 +4839,15 @@
           "interpretation": "原参考解读",
           "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
           "result_path": "refs/cube/Q90-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
+          "result_path": "refs/cube/Q90-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -5071,10 +5112,15 @@
           "interpretation": "原参考解读",
           "sql": "SELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC",
           "result_path": "refs/cube/Q95-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nSELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC\n) AS named_product_groups\nWHERE (`ProductCategoryName` IS NOT NULL AND `ProductCategoryName` != '')",
+          "result_path": "refs/cube/Q95-2.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -5401,10 +5447,15 @@
           "interpretation": "原参考解读",
           "sql": "WITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC",
           "result_path": "refs/cube/Q99-1.csv"
+        },
+        {
+          "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+          "sql": "SELECT * FROM (\nWITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC\n) AS named_product_groups\nWHERE (`ProductCategoryName` IS NOT NULL AND `ProductCategoryName` != '')",
+          "result_path": "refs/cube/Q99-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {

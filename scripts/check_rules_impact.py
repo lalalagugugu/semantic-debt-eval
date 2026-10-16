@@ -119,7 +119,11 @@ def main():
     parser.add_argument('--clean-baseline', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=REPO / 'audit/rules-impact.json')
     parser.add_argument('--report', type=Path, default=REPO / 'audit/rules-impact.md')
+    parser.add_argument('--previous-bank', type=Path, help='fixed pre-ruling questions/manifest archive')
+    parser.add_argument('--previous-impact', type=Path, help='completed pre-ruling 600 outcomes')
     args = parser.parse_args()
+    if bool(args.previous_bank) != bool(args.previous_impact):
+        parser.error('--previous-bank and --previous-impact must be supplied together')
     main_dir = Path(os.environ['SEMDEBT_MAIN_DIR'])
     data_dir = Path(os.environ['SEMDEBT_DATA_DIR'])
     selection, _ = load_selection_policy()
@@ -134,6 +138,14 @@ def main():
     public = {int(q['id']): q for q in json.loads((REPO / 'vendor/cube/text_to_sql_benchmark.json').read_text())['questions']}
     manifest = json.loads((REPO / 'refs/MANIFEST.json').read_text())
     records_by_path = {r['result_path']: r for r in manifest['records']}
+    previous_bank=json.loads(args.previous_bank.read_text()) if args.previous_bank else None
+    previous_questions={int(q['id'][1:]):q for q in previous_bank['questions'] if q['source']=='cube'} if previous_bank else {}
+    previous_records={r['result_path']:r for r in previous_bank['manifest']['records']} if previous_bank else {}
+    previous_outcomes={(r['system'],r['question_id']):r['combined'] for r in json.loads(args.previous_impact.read_text())['records']} if args.previous_impact else {}
+    regression_keys={(r['system'],r['question_id']) for r in json.loads((REPO/'audit/T05-final-reference-delta.json').read_text())['records']}
+    for rec in previous_records.values():
+        if hashlib.sha256((REPO/rec['result_path']).read_bytes()).hexdigest()!=rec['sha256']:
+            raise ValueError('pre-ruling reference CSV changed: '+rec['result_path'])
     clean = json.loads(args.clean_baseline.read_text())
     clean_outcomes = {(r['system'], r['question_id']): r.get('our_outcome', r.get('new')) for r in clean['records']}
     clean_records = {(r['system'], r['question_id']): r for r in clean['records']}
@@ -190,6 +202,20 @@ def main():
                             row.update(reference_only=reference_only.outcome, combined=combined.outcome, combined_reason=combined.reason)
                         else:
                             row.update(reference_only=None, combined=None, combined_reason='judge_examples_are_not_closed_answer_sets')
+                    if previous_bank:
+                        if qid in adapter.EXCLUDED_QUESTION_IDS:
+                            fixed='excluded'
+                        elif previous_questions[qid]['scoring']=='judge':
+                            fixed=None
+                        else:
+                            prior_q=previous_questions[qid]
+                            prior_refs=[csv_rows(previous_records[ref['result_path']]) for ref in prior_q['refs']]
+                            fixed=verdict_only(candidate,prior_refs,prior_q['rules'],reference_rules=[ref.get('rules') for ref in prior_q['refs']]).outcome
+                        row['pre_ruling_reference_new_scorer']=fixed
+                        row['pre_ruling_reference_old_scorer']=previous_outcomes[system,qid]
+                        row['fixed_reference_scorer_changed']=fixed!=previous_outcomes[system,qid]
+                        row['optional_group_reference_changed']=fixed is not None and fixed!=row['combined']
+                        row['recovered_original_43']=(system,qid) in regression_keys and fixed=='wrong' and row['combined']=='correct'
                     row['contract_changed'] = row['baseline'] != row['contract']
                     row['reference_changed'] = row['reference_only'] is not None and row['baseline'] != row['reference_only']
                     row['combined_changed'] = row['combined'] is not None and row['baseline'] != row['combined']
@@ -214,19 +240,27 @@ def main():
               'contract_counts': dict(Counter(r['contract'] for r in output)), 'reference_counts': dict(Counter(r['reference_only'] for r in output if r['reference_only'] is not None)), 'combined_counts': dict(Counter(r['combined'] for r in output if r['combined'] is not None)),
               'reference_manifest_sha256': hashlib.sha256((REPO / 'refs/MANIFEST.json').read_bytes()).hexdigest(), 'baseline_input_sha256': hashlib.sha256(args.clean_baseline.read_bytes()).hexdigest(), 'strict_agreements': agreements, 'strict_comparable': len(comparable), 'analytical_agreements': analytical,
               'wider_excluded_agreements': agreements, 'wider_excluded_comparable': len(comparable) - wider, 'records': output}
+    if previous_bank:
+        result['fixed_reference_scorer_changes']=sum(r['fixed_reference_scorer_changed'] for r in output)
+        result['optional_group_reference_changes']=sum(r['optional_group_reference_changed'] for r in output)
+        result['recovered_original_43']=sum(r['recovered_original_43'] for r in output)
+        result['previous_bank_sha256']=hashlib.sha256(args.previous_bank.read_bytes()).hexdigest()
+        result['previous_impact_sha256']=hashlib.sha256(args.previous_impact.read_bytes()).hexdigest()
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     lines = ['# 评分规则补齐：600条影响复验', '', '本报告仅题号及汇总，不含题干、SQL或结果行。会话污染复验另存；本次固定全局量化与容差。', '',
              f'执行600条；Q33的6条历史excluded保留（当前题库Q33已完整复算；该题仍为judge，不能凭示例替代开放评分），可比较分母{len(comparable)}。执行失败即关闭并重建会话，共{resets}次。', '',
              f'原公开参考＋新分组契约：strict一致{agreements}/{len(comparable)}；analytical一致{analytical}/{len(comparable)}；排除有意更宽后的描述性分母为{agreements}/{len(comparable)-wider}。', '',
              '历史strict一致521/594（87.7%）、排除11条有意更宽后521/583（89.4%）保留，不覆盖。', '',
              'reference_only固定旧扁平比较，combined为当前题库参考＋新契约；二者只在确定性题记录。judge参考仅是示例，不能用“与例子不同”代替judge结论。参考修复轴同时包含T04既有修订及本次孤儿修复，不将其全部归为Q74或模型改善。', '',
-             '仅调用未改动评分核心取得判定／原因，不执行未写入本报告的numeric sensitivity投影；大行集该诊断会出现平方级匹配。NULL必要条件早拒绝和判定均与正式score_detailed合成对照一致。每条四轴判定保存在配套JSON。下表逐条列出任何判定变化；historical_clean差异是复执行稳定性轴，不能直接归为新契约。', '',
+             '调用生产评分核心取得判定／原因，代码版本由scorer_sha256记录，不执行未写入本报告的numeric sensitivity投影；大行集该诊断会出现平方级匹配。NULL必要条件早拒绝和判定均与正式score_detailed合成对照一致。每条四轴判定保存在配套JSON。下表逐条列出任何判定变化；historical_clean差异是复执行稳定性轴，不能直接归为新契约。', '',
              '| 系统 | 题号 | 干净历史 | 本轮旧契约 | 仅契约 | 仅参考 | 联合 |', '|---|---|---|---|---|---|---|']
     for r in output:
         if any(r[k] for k in ('contract_changed', 'reference_changed', 'combined_changed', 'baseline_reexecution_changed')):
             lines.append(f"| {adapter.SYSTEM_LABELS[r['system']]} | Q{r['question_id']:02d} | {r['historical_clean']} | {r['baseline']} | {r['contract']} | {r['reference_only'] or 'judge'} | {r['combined'] or 'judge'} |")
     lines += ['', '汇总：' + '；'.join(f"{key}={sum(r[key] for r in output)}" for key in ('contract_changed', 'reference_changed', 'combined_changed', 'baseline_reexecution_changed')), '',
-              'G0已通过的历史事实保留；新的契约／参考影响交用户评估，不能自动撤销或重批G0。第二轮22题已正式落地、全部148份参考已重算。T05b跨引擎核对及Q79独立成员复现仍为冻结前置。']
+              f'G0已通过的历史事实保留；新的契约／参考影响交用户评估，不能自动撤销或重批G0。第二轮22题已正式落地，当前{len(manifest["records"])}份参考已重算。T05b跨引擎核对及Q79独立成员复现仍为冻结前置。']
+    if previous_bank:
+        lines+=['','固定旧参考下评分器变化：'+str(result['fixed_reference_scorer_changes'])+'；可选空组参考变化：'+str(result['optional_group_reference_changes'])+'；原43条恢复：'+str(result['recovered_original_43'])+'。此600对照只核对判定，未执行数值敏感性投影；完整score_detailed耗时单独测试。']
     args.report.write_text('\n'.join(lines) + '\n')
     print(json.dumps({k: v for k, v in result.items() if k.endswith('agreements') or k.endswith('comparable') or k == 'contract_counts'}, ensure_ascii=False), flush=True)
 
