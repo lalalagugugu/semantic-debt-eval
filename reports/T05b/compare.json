@@ -588,18 +588,17 @@
   {
    "ref": "refs/cube/Q34-1.csv",
    "interpretation": "公司产品粒度：每个快照日先跨店汇总库存金额，再平均；同年公司产品销货成本除以平均库存",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 1 (total_cogs, amount)",
-     "ref_head": [
-      "330077.43999999977",
-      "346026.55999999936",
-      "424731.9999999993",
-      "319589.1599999997",
-      "373764.1599999989"
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "total_cogs<-cogs(num)",
+      "avg_inventory<-avg_inventory(num)",
+      "turnover_ratio<-turnover(num)",
+      "ProductKey<-ProductKey(num)"
      ]
     }
    }
@@ -725,14 +724,13 @@
   {
    "ref": "refs/cube/Q40-1.csv",
    "interpretation": "缺失报价日沿用此前最近EUR收盘价；覆盖全部线上销售日",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 0 (sales_eur, amount)",
-     "ref_head": [
-      "1935245135.5097272"
+     "ok": true,
+     "mapping": [
+      "sales_eur<-sales_eur(num)"
      ]
     }
    }
@@ -1690,18 +1688,15 @@
   {
    "ref": "refs/cube/Q86-3.csv",
    "interpretation": "问法歧义：Spearman相关，按全部促销观察的精确频数计算并列中秩，样本域同Pearson",
-   "match": false,
+   "match": true,
    "pandas_ref": 2,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 1 (corr_discount_vs_qty, ratio)",
-     "ref_head": [
-      "-0.0002623333864039248",
-      "0.002968694281978217",
-      "0.0033630424839493954",
-      "-0.0016739516410022273",
-      "-0.0052826893489993365"
+     "ok": true,
+     "mapping": [
+      "ProductSubcategoryName<-subcategory(str)",
+      "corr_discount_vs_qty<-spearman(num)",
+      "observations<-n(num)"
      ]
     }
    }
@@ -1711,19 +1706,19 @@
   {
    "ref": "refs/cube/Q87-1.csv",
    "interpretation": "原参考解读",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 1 (on_hand, other)",
-     "ref_head": [
-      "433",
-      "413",
-      "211",
-      "433",
-      "321"
-     ]
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "on_hand<-onhand(num)",
+      "avg_daily_qty<-avg_daily(num)",
+      "days_of_coverage<-coverage(num)",
+      "ProductKey<-ProductKey(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
     }
    }
   }

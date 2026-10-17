@@ -4,7 +4,8 @@ finalizes the references).
 For every question reference it takes the effective rules (ref.rules replaces
 the question rules wholesale), loads the reference CSV and every pandas
 candidate for that reference (both purchase-event algorithms when they differ),
-and checks result-set equality with the scorer tolerance:
+and checks result-set equality with the scorer quantization (amount 2 dp, others
+6 dp) and tolerance:
 max(0.005*|ref|, atol(kind)), atol = percentage 0.01 / ratio 1e-4 / amount 0.01 /
 count and other 0. Identity strings compare exactly after strip. Columns are
 mapped by value multiset (the pandas column order is not assumed to equal the
@@ -70,10 +71,15 @@ def numeric(s):
     return pd.to_numeric(s.replace({"": np.nan, "\\N": np.nan}), errors="coerce")
 
 
+def quantize(x, kind):
+    """Scorer quantization before the tolerance check: amount 2 dp, others 6 dp (half-even)."""
+    return np.round(x, 2 if kind == "amount" else 6)
+
+
 def close(a, b, kind):
-    """Elementwise scorer tolerance; NULL equals NULL only."""
-    a = np.asarray(a, float)
-    b = np.asarray(b, float)
+    """Elementwise scorer tolerance on quantized values; NULL equals NULL only."""
+    a = quantize(np.asarray(a, float), kind)
+    b = quantize(np.asarray(b, float), kind)
     both_nan = np.isnan(a) & np.isnan(b)
     tol = np.maximum(0.005 * np.abs(b), ATOL.get(kind, 0.0))
     with np.errstate(invalid="ignore"):
@@ -137,6 +143,10 @@ def match_rows(ref, combo, kinds):
     r = pd.DataFrame({j: (ref.iloc[:, j].fillna("").astype(str).str.strip() if j in str_idx else numeric(ref.iloc[:, j]))
                       for j in range(len(combo))})
     m = pd.DataFrame({j: combo[j][2].reset_index(drop=True) for j in range(len(combo))})
+    # Sort on quantized values so float noise cannot reorder rows that tie on the earlier keys.
+    for j in num_idx:
+        r[j] = quantize(r[j].values.astype(float), kinds[j])
+        m[j] = quantize(m[j].values.astype(float), kinds[j])
     keys = str_idx + num_idx
     r = r.sort_values(keys, na_position="last").reset_index(drop=True)
     m = m.sort_values(keys, na_position="last").reset_index(drop=True)
