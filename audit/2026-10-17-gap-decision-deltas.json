@@ -1,0 +1,213 @@
+{
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "semantic_source_sha256": {
+    "semantic/summary/summary.sql": "ce4100dd4e66ee8769fb17464d8bfa0afb561e045ac32fac6881d0ccb2e007cc",
+    "render/measures.py": "a0833bd2a3843a3b6890541ca2d701184bf68f69220ec91148ef0a5f7c9f4d10",
+    "semantic/metrics.yaml": "23d66cb74869a2bf6482f9b9f93d432430dcb3cf56408515525f9ebdc24f4028"
+  },
+  "semantic_v1_revision": "ff4dfc2516e9144c298040ac1ee583b154ffcd62",
+  "accepted_reference_changes": false,
+  "entries": {
+    "G01": {
+      "stores": 306,
+      "fact_rows": 3406089,
+      "real_order_delta": null,
+      "reason": "FactSales has no order identifier; real order interpretation cannot be reconstructed"
+    },
+    "G05": {
+      "sales_EUR": [
+        53934387.92781146,
+        1935245135.5097272
+      ],
+      "absolute_difference_EUR": "1881310747.58191574",
+      "covered_days": [
+        31,
+        1096
+      ]
+    },
+    "G08": {
+      "members_each": 108,
+      "changed_members": 0,
+      "thresholds": [
+        [
+          "129.0000000",
+          "651.334"
+        ],
+        [
+          "129.000000",
+          "651.35"
+        ]
+      ]
+    },
+    "G09": {
+      "members_each": 225,
+      "changed_members": 0,
+      "thresholds": [
+        [
+          "901871.842"
+        ],
+        [
+          "902946.76"
+        ]
+      ]
+    },
+    "G12": {
+      "members_each": 3,
+      "common_members": 0
+    },
+    "G13": {
+      "brands": 11,
+      "different_positions": 7
+    },
+    "G03": {
+      "groups": 8,
+      "different_groups_at_global_precision": 8,
+      "max_absolute_differences": [
+        "99.58"
+      ]
+    },
+    "G15": {
+      "groups": 9,
+      "different_groups_at_global_precision": 9,
+      "max_absolute_differences": [
+        "0.01171152123574194"
+      ]
+    },
+    "G10": {
+      "rows_each": 15,
+      "common_products": 2,
+      "replaced_products": 13,
+      "symmetric_difference": 26
+    },
+    "G11": {
+      "single_year_rows": 9,
+      "all_year_rows": 27,
+      "shared_2009": {
+        "groups": 9,
+        "different_groups_at_global_precision": 0,
+        "max_absolute_differences": [
+          "8E-15"
+        ]
+      }
+    },
+    "G14": {
+      "rows_each": 310,
+      "exact_rows_equal": true
+    },
+    "G17": {
+      "Q48": {
+        "question_id": "Q48",
+        "observations": 306,
+        "pearson": 0.7096406904249098,
+        "spearman": 0.09782619508051292,
+        "results_equal": false,
+        "absolute_difference": 0.6118144953443969
+      },
+      "Q91": {
+        "question_id": "Q91",
+        "observations": 18869,
+        "pearson": 0.7349257619515496,
+        "spearman": 0.49634598109460387,
+        "results_equal": false,
+        "absolute_difference": 0.2385797808569457
+      },
+      "Q86": {
+        "groups": 31,
+        "different_groups": 31,
+        "max_absolute_difference": 0.001193081840067731,
+        "sample_cutoff_review": {
+          "interpretations": [
+            0,
+            100
+          ],
+          "no_cutoff_groups": 31,
+          "over_100_groups": 31,
+          "results_equal": true,
+          "rule": "题面及L1未给样本下限；100只是当前judge示例的声明，不自行设为企业默认"
+        }
+      }
+    },
+    "G02": {
+      "groups": 299,
+      "different_groups_at_global_precision": 290,
+      "max_absolute_differences": [
+        "818.07619047619048"
+      ]
+    },
+    "G04": {
+      "groups": 30,
+      "different_groups_at_global_precision": 30,
+      "max_absolute_differences": [
+        "160458.10566473162",
+        "46856.58002502092"
+      ],
+      "original_window_days": [
+        364,
+        366,
+        368,
+        372,
+        379,
+        380,
+        385,
+        386,
+        387,
+        394,
+        396,
+        400,
+        404,
+        430,
+        432,
+        433,
+        460,
+        500,
+        511,
+        518
+      ]
+    },
+    "G06": {
+      "groups": 9,
+      "different_groups_at_global_precision": 6,
+      "max_absolute_differences": [
+        "0.77533742317745"
+      ],
+      "left_range_pct": [
+        99.99999999999999,
+        100
+      ],
+      "right_range_pct": [
+        99.22466257682255,
+        100
+      ]
+    },
+    "G07": {
+      "before_counts": {
+        "A": 1132,
+        "B": 666,
+        "C": 706
+      },
+      "after_counts": {
+        "A": 1131,
+        "B": 666,
+        "C": 707
+      },
+      "changed_products": 2,
+      "transitions": {
+        "A->B": 1,
+        "B->C": 1
+      }
+    },
+    "G16": {
+      "groups": 9,
+      "total_difference_USD_range": [
+        2053864.1435168562,
+        240930842.018353
+      ],
+      "per_row_difference_USD_range": [
+        -75.9348737439413,
+        -1.0593900334370865
+      ],
+      "sign_changed_groups": 9,
+      "cross_method_subtraction": "Not meaningful: USD versus USD per fact row"
+    }
+  }
+}
