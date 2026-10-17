@@ -1,10 +1,10 @@
 state_2008,state_2009,customers
-Active,Active,16751
-Active,At Risk,1841
-Active,Churned,88
-At Risk,Active,0
-At Risk,At Risk,0
-At Risk,Churned,45
-Churned,Active,138
-Churned,At Risk,0
-Churned,Churned,5
+活跃,活跃,16751
+活跃,有流失风险,1841
+活跃,已流失,88
+有流失风险,活跃,0
+有流失风险,有流失风险,0
+有流失风险,已流失,45
+已流失,活跃,138
+已流失,有流失风险,0
+已流失,已流失,5
