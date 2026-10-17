@@ -1,0 +1,5166 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "approved_second_round_22_draft_questions_not_first_round_questions_new_yaml",
+  "source": {
+    "draft_path": "audit/T05-rewrite-draft.md",
+    "draft_sha256": "56aa429d60eeeff54e36e1e1db4619e680d304a733a0798bb3cccc58c08381bb",
+    "cube_path": "questions/cube_100.yaml",
+    "cube_sha256": "f7fe0b4b04e2aeece318c30e7548af16a9d3fdb09a9437b912db92f29df70a95",
+    "conventions_sha256": "3a78360782c5c83eab76f8d7d43fbf70000832dacf5347df5b099d448cb55d4e"
+  },
+  "G1": {
+    "local_tag_present": false,
+    "remote_tag_present": false,
+    "remote_lookup_exit_code": 0,
+    "semantic_files_read": [
+      "conventions.md"
+    ],
+    "summary_or_metrics_read": false
+  },
+  "limitations": [
+    "所有结构为题意/已知源表结构的设计级估计，不是第二轮SQL实测",
+    "未读取semantic/summary或metrics.yaml，22题覆盖与指标调用均未核实，不能报告可/不可比例",
+    "逻辑签名由人工标注，脚本只检查一致性和碰撞，不能自动证明语义不重复",
+    "现有分组/嵌套Top-N评分契约缺口仍未解决"
+  ],
+  "convention_coverage": [
+    {
+      "id": 1,
+      "name": "默认线上渠道",
+      "existing_witnesses": [
+        "Q11",
+        "Q18",
+        "Q41",
+        "Q84"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q101",
+        "Q102",
+        "Q103",
+        "Q104",
+        "Q108",
+        "Q109",
+        "Q114",
+        "Q115",
+        "Q116",
+        "Q118",
+        "Q120",
+        "Q121",
+        "Q122"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 2,
+      "name": "门店/渠道对比采用全渠道",
+      "existing_witnesses": [
+        "Q13",
+        "Q28",
+        "Q37",
+        "Q74",
+        "Q79"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q105",
+        "Q106",
+        "Q107",
+        "Q110",
+        "Q111",
+        "Q112",
+        "Q113",
+        "Q117",
+        "Q119"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 3,
+      "name": "固定数据截至日与相对时间",
+      "existing_witnesses": [
+        "Q41",
+        "Q82",
+        "Q92"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q101",
+        "Q102",
+        "Q109",
+        "Q116"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 4,
+      "name": "不同日类型按日均比较",
+      "existing_witnesses": [
+        "Q25",
+        "Q29",
+        "Q99"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [],
+      "new_prompt_disclosed": [
+        "Q109"
+      ],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "原Q29需要隐含日均约定；Q25/Q99以及新Q109题干已明确日均，只有操作覆盖，不能都当作隐含约定效应测量。"
+    },
+    {
+      "id": 5,
+      "name": "默认客户地理路径",
+      "existing_witnesses": [
+        "Q15",
+        "Q22",
+        "Q43",
+        "Q80"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q108"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 6,
+      "name": "美元且线上无需换汇",
+      "existing_witnesses": [
+        "Q40"
+      ],
+      "existing_status": "weak_case_needs_causal_discrimination_check",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [
+        "Q101",
+        "Q102",
+        "Q103",
+        "Q104",
+        "Q105",
+        "Q106",
+        "Q107",
+        "Q108",
+        "Q109",
+        "Q110",
+        "Q111",
+        "Q112",
+        "Q113",
+        "Q117",
+        "Q118",
+        "Q119",
+        "Q120",
+        "Q121"
+      ],
+      "notes": "Q40使用USD源币到EUR目标换算，有可核参考；但多数金额题仅背景满足该条，不能据此断言独立测到不需要重复换汇的优势。"
+    },
+    {
+      "id": 7,
+      "name": "销售/净额/毛利/退货率定义",
+      "existing_witnesses": [
+        "Q24",
+        "Q43",
+        "Q64",
+        "Q90"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q101",
+        "Q102",
+        "Q103",
+        "Q104",
+        "Q105",
+        "Q106",
+        "Q107",
+        "Q108",
+        "Q109",
+        "Q110",
+        "Q111",
+        "Q112",
+        "Q113",
+        "Q117",
+        "Q118",
+        "Q119",
+        "Q120",
+        "Q121"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 8,
+      "name": "订单去重与客单价",
+      "existing_witnesses": [
+        "Q19",
+        "Q53",
+        "Q63",
+        "Q76",
+        "Q100"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q103",
+        "Q108",
+        "Q116",
+        "Q122"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 9,
+      "name": "产品标价/成本口径",
+      "existing_witnesses": [
+        "Q07",
+        "Q27"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 10,
+      "name": "促销排除无折扣键1",
+      "existing_witnesses": [
+        "Q18",
+        "Q66",
+        "Q69",
+        "Q93"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 11,
+      "name": "库存最近快照与不可跨期加总",
+      "existing_witnesses": [
+        "Q20",
+        "Q21",
+        "Q87"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 12,
+      "name": "战略计划/正式目标与场景",
+      "existing_witnesses": [
+        "Q31",
+        "Q38",
+        "Q49",
+        "Q79",
+        "Q85"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q111",
+        "Q112",
+        "Q113"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "原题覆盖战略计划实际/预算/预测及quota；新题Q111–Q113主要补quota时间分母/门店层判定/连续状态，不能声称新增覆盖了战略计划全部子条款。"
+    },
+    {
+      "id": 13,
+      "name": "客户活跃/风险/流失",
+      "existing_witnesses": [
+        "Q36",
+        "Q89"
+      ],
+      "existing_status": "reference_witnessed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q115"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "不能将条款出现数等同独立试验数或实际效应大小。"
+    },
+    {
+      "id": 14,
+      "name": "全历史首购+截止日90天新客",
+      "existing_witnesses": [],
+      "existing_status": "partial_only",
+      "existing_partial_witnesses": [
+        "Q26",
+        "Q81"
+      ],
+      "new_required_unstated": [
+        "Q114"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [
+        "Q116"
+      ],
+      "new_background_only": [],
+      "notes": "原题首购年份/季度只覆盖全历史首购部分；第二轮Q114计划补动态90天完整要求，尚未落成SQL。"
+    },
+    {
+      "id": 15,
+      "name": "同店为两期均有销售",
+      "existing_witnesses": [
+        "Q50"
+      ],
+      "existing_status": "prompt_disclosed",
+      "existing_partial_witnesses": [],
+      "new_required_unstated": [
+        "Q117"
+      ],
+      "new_prompt_disclosed": [],
+      "new_partial": [],
+      "new_background_only": [],
+      "notes": "原Q50中文已明确“两年均有销售”，因此是操作覆盖而非隐含同店约定测试；第二轮Q117只说同店，重新检验约定15是否被正确应用。"
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q101",
+      "design_id": "D01",
+      "text_zh": "上季度的GMV是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          3,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [],
+        "time_window_types": [
+          "relative_quarter"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q02",
+        "Q06",
+        "Q41"
+      ],
+      "coverage_delta": "有意语义对照：GMV+相对期间+默认渠道；不声称增加计算机制",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "scalar"
+        ],
+        "operators": [
+          "sum"
+        ],
+        "measure_semantics": [
+          "sales_amount"
+        ],
+        "scope_roles": [
+          "whole_population"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "单次求和；相对时间值不进入同质化签名。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q102",
+      "design_id": "D02",
+      "text_zh": "今年各产品品类的净销售额是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          3,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 3,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [],
+        "time_window_types": [
+          "relative_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q11",
+        "Q24",
+        "Q54"
+      ],
+      "coverage_delta": "净销售额未被原题直接询问；区分销售额/净额/毛利",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "dimension_group"
+        ],
+        "operators": [
+          "row_subtraction",
+          "sum"
+        ],
+        "measure_semantics": [
+          "sales_less_returns"
+        ],
+        "scope_roles": [
+          "all_dimension_members"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "事实→产品→子品类→品类3跳；净额是核心量而非新增分组名称。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q103",
+      "design_id": "D03",
+      "text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          7,
+          8
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "required",
+        "entity_uniqueness": [
+          "order"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q19",
+        "Q33",
+        "Q53",
+        "Q63"
+      ],
+      "coverage_delta": "先聚订单金额，再筛大额订单，再统计订单数及贡献",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "order",
+          "scalar"
+        ],
+        "operators": [
+          "sum_per_entity",
+          "threshold_filter",
+          "count_entities",
+          "share_of_unfiltered_total"
+        ],
+        "measure_semantics": [
+          "order_sales",
+          "orders",
+          "sales_share"
+        ],
+        "scope_roles": [
+          "selected_entities_vs_all"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "订单级唯一化必需；不要求一定写COUNT DISTINCT，先按订单聚合后COUNT同样合法。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q104",
+      "design_id": "D04",
+      "text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 3,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [],
+        "time_window_types": [
+          "year_over_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q64",
+        "Q90",
+        "Q97"
+      ],
+      "coverage_delta": "收入增加与毛利额减少的交叉条件，不是单指标增长排名",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "dimension_group"
+        ],
+        "operators": [
+          "period_conditional_sums",
+          "difference",
+          "cross_metric_sign_filter"
+        ],
+        "measure_semantics": [
+          "sales_delta",
+          "gross_profit_delta"
+        ],
+        "scope_roles": [
+          "groups_meeting_two_conditions"
+        ],
+        "temporal_flow": "two_period_comparison"
+      },
+      "structural_rationale": "两期条件聚合后HAVING即可；不因写了WITH就称必须子查询。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q105",
+      "design_id": "D05",
+      "text_zh": "西雅图2号店2009年卖了多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "named_store_resolution"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q13",
+        "Q37"
+      ],
+      "coverage_delta": "城市+编号简称唯一识别；有意的简单实体语义测试",
+      "structural_signature": {
+        "source_semantics": "omnichannel",
+        "grain_flow": [
+          "rows",
+          "scalar"
+        ],
+        "operators": [
+          "resolve_named_entity",
+          "sum"
+        ],
+        "measure_semantics": [
+          "sales_amount"
+        ],
+        "scope_roles": [
+          "single_named_entity"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "全渠道事实→门店1跳；名称定位与GMV对照不同，但都是简单金额题，列为近邻风险。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q106",
+      "design_id": "D06",
+      "text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 2,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "city_store_set"
+        ],
+        "time_window_types": [
+          "year_over_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q16",
+        "Q50",
+        "Q94"
+      ],
+      "coverage_delta": "同城完整实体集合的合计增长，防止平均各店增长率",
+      "structural_signature": {
+        "source_semantics": "omnichannel",
+        "grain_flow": [
+          "rows",
+          "entity_set_scalar"
+        ],
+        "operators": [
+          "resolve_entity_set",
+          "period_conditional_sums",
+          "growth_ratio"
+        ],
+        "measure_semantics": [
+          "sales_growth"
+        ],
+        "scope_roles": [
+          "whole_entity_set"
+        ],
+        "temporal_flow": "two_period_comparison"
+      },
+      "structural_rationale": "事实→门店→地理2跳；非同店题，不能额外套两年都有销售的资格。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q107",
+      "design_id": "D07",
+      "text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 2,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "named_store_resolution",
+          "city_store_set"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q37",
+        "Q74"
+      ],
+      "coverage_delta": "指定店/同城全部门店的净额份额，区分两层筛选范围",
+      "structural_signature": {
+        "source_semantics": "omnichannel",
+        "grain_flow": [
+          "rows",
+          "scalar"
+        ],
+        "operators": [
+          "resolve_nested_entity_scopes",
+          "row_subtraction",
+          "conditional_share"
+        ],
+        "measure_semantics": [
+          "net_sales_share"
+        ],
+        "scope_roles": [
+          "single_entity_over_parent_set"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "同城筛选后SUM IF指定店与SUM全体可单层完成，不强制CTE。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q108",
+      "design_id": "D08",
+      "text_zh": "2009年各国家的营收和订单数是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          5,
+          7,
+          8
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 2,
+        "dedup_count": "required",
+        "entity_uniqueness": [
+          "order"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q15",
+        "Q43"
+      ],
+      "coverage_delta": "有意语义对照：不提示线上/客户所在地；国别粒度明确",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "dimension_group"
+        ],
+        "operators": [
+          "sum",
+          "distinct_order_count"
+        ],
+        "measure_semantics": [
+          "sales_amount",
+          "orders"
+        ],
+        "scope_roles": [
+          "all_dimension_members"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "事实→客户→地理2跳；按国家直接汇总同时去重订单，不必子查询。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q109",
+      "design_id": "D09",
+      "text_zh": "今年节假日和平日的日均销售额，各比去年增长了百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          3,
+          7
+        ],
+        "explicit_in_prompt": [
+          4
+        ],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "conditional",
+        "entity_uniqueness": [
+          "calendar_date_if_direct_formula"
+        ],
+        "time_window_types": [
+          "relative_year_over_year",
+          "day_type_normalization"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q29",
+        "Q99"
+      ],
+      "coverage_delta": "两类日期×两期归一化比较；第4条已被“日均”显式给出，不能宣称新增隐含约定测量",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "calendar_day_type_group"
+        ],
+        "operators": [
+          "sum_per_calendar_day_normalization",
+          "period_growth_ratio"
+        ],
+        "measure_semantics": [
+          "daily_sales_growth"
+        ],
+        "scope_roles": [
+          "calendar_type_groups"
+        ],
+        "temporal_flow": "two_period_comparison"
+      },
+      "structural_rationale": "日期1跳；可用金额和/对应日历天数直算，或先按日聚合再平均。前者可能日期去重计数，后者可多阶段但非唯一实现。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q110",
+      "design_id": "D10",
+      "text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [],
+        "time_window_types": [
+          "annual_share_change"
+        ],
+        "staged_logic": false,
+        "sql_subquery_requirement": "不必：可单层条件聚合/汇总，CTE写法不构成必需"
+      },
+      "nearest_existing_questions": [
+        "Q28"
+      ],
+      "coverage_delta": "混合渠道同源分子分母，以及跨期份额百分点变化",
+      "structural_signature": {
+        "source_semantics": "omnichannel_same_source_channel_subset",
+        "grain_flow": [
+          "rows",
+          "scalar"
+        ],
+        "operators": [
+          "conditional_share_by_period",
+          "percentage_point_difference"
+        ],
+        "measure_semantics": [
+          "channel_sales_share"
+        ],
+        "scope_roles": [
+          "channel_subset_over_all_channels"
+        ],
+        "temporal_flow": "two_period_share_comparison"
+      },
+      "structural_rationale": "事实→渠道1跳；不能以FactOnlineSales金额除FactSales金额，按选表裁决执行。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q111",
+      "design_id": "D11",
+      "text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7,
+          12
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "store_before_fact_alignment"
+        ],
+        "time_window_types": [
+          "fixed_asof",
+          "year_to_date",
+          "full_year_denominator"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q31",
+        "Q79",
+        "Q85"
+      ],
+      "coverage_delta": "同一个截至日实际额，分别对应同期和全年目标分母",
+      "structural_signature": {
+        "source_semantics": "two_fact_domains_omnichannel_and_budget_quota",
+        "grain_flow": [
+          "fact_rows",
+          "store_period_aggregates",
+          "store_output"
+        ],
+        "operators": [
+          "aggregate_each_fact_before_join",
+          "two_temporal_denominators"
+        ],
+        "measure_semantics": [
+          "sales_amount",
+          "quota_amount",
+          "attainment_ratios"
+        ],
+        "scope_roles": [
+          "same_entities_different_target_horizons"
+        ],
+        "temporal_flow": "asof_vs_ytd_and_annual_targets"
+      },
+      "structural_rationale": "分别聚合实际/目标再连；维度路径1跳不等于SQL只含一次JOIN。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q112",
+      "design_id": "D12",
+      "text_zh": "2009年，每位门店经理手下有多少家门店未完成销售目标？这些门店的目标缺口合计是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7,
+          12
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "store_before_manager_rollup"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q65",
+        "Q79",
+        "Q85"
+      ],
+      "coverage_delta": "先判门店是否达标，再按经理统计未达标门店和缺口",
+      "structural_signature": {
+        "source_semantics": "two_fact_domains_omnichannel_and_budget_quota",
+        "grain_flow": [
+          "fact_rows",
+          "store",
+          "manager"
+        ],
+        "operators": [
+          "aggregate_each_fact_before_join",
+          "entity_deficit_filter",
+          "count_entities",
+          "sum_positive_deficits"
+        ],
+        "measure_semantics": [
+          "under_target_store_count",
+          "quota_shortfall"
+        ],
+        "scope_roles": [
+          "selected_entities_under_parent"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "店级资格不能在经理汇总后判定，门店COUNT在一店一行后无需额外DISTINCT。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q113",
+      "design_id": "D13",
+      "text_zh": "2009年各门店有哪些连续至少3个月未完成销售目标的时段？列出起止月份和连续月数。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7,
+          12
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "store_month"
+        ],
+        "time_window_types": [
+          "complete_monthly_calendar",
+          "consecutive_month_runs"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q79",
+        "Q85",
+        "Q94"
+      ],
+      "coverage_delta": "月度状态形成连续区间，区别未达标月数和连续时段",
+      "structural_signature": {
+        "source_semantics": "two_fact_domains_omnichannel_and_budget_quota",
+        "grain_flow": [
+          "fact_rows",
+          "entity_month",
+          "entity_run"
+        ],
+        "operators": [
+          "align_monthly_facts",
+          "derive_monthly_boolean",
+          "contiguous_run_detection",
+          "minimum_run_length_filter"
+        ],
+        "measure_semantics": [
+          "target_failure_run_start_end_length"
+        ],
+        "scope_roles": [
+          "entities_and_maximal_runs"
+        ],
+        "temporal_flow": "monthly_state_sequence"
+      },
+      "structural_rationale": "需月度对齐/状态/区间多阶段；门店维1跳之外还有月历和中间层，待SQL验证。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q114",
+      "design_id": "D14",
+      "text_zh": "以2009年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          14
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": []
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "customer_before_count"
+        ],
+        "time_window_types": [
+          "month_end_asof",
+          "rolling_backward_90_days",
+          "lifetime_first_purchase"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q26",
+        "Q81",
+        "Q96"
+      ],
+      "coverage_delta": "原100题没有完整的逐月末近90天新客窗口，第14条由部分覆盖补到完整设计覆盖",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "customer_first_date",
+          "report_cutoff"
+        ],
+        "operators": [
+          "lifetime_min_date",
+          "rolling_backward_membership",
+          "count_entities"
+        ],
+        "measure_semantics": [
+          "new_customer_count"
+        ],
+        "scope_roles": [
+          "all_customers_at_each_cutoff"
+        ],
+        "temporal_flow": "repeated_asof_backward_window"
+      },
+      "structural_rationale": "先客户级首购唯一化后数人；不要求原始行COUNT DISTINCT，不能把复购90天误当新客90天。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q115",
+      "design_id": "D15",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          13
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": []
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "customer_paired_asof_state"
+        ],
+        "time_window_types": [
+          "paired_historical_asof",
+          "recency_calendar_months"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q36",
+        "Q89"
+      ],
+      "coverage_delta": "同一客户两个时点状态的迁移矩阵，不是重复单时点分布",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "customer_asof_pair",
+          "transition_group"
+        ],
+        "operators": [
+          "max_purchase_asof_each_cutoff",
+          "derive_recency_states",
+          "pair_same_entity",
+          "count_transitions"
+        ],
+        "measure_semantics": [
+          "customer_transition_count"
+        ],
+        "scope_roles": [
+          "fixed_start_population"
+        ],
+        "temporal_flow": "two_historical_snapshots"
+      },
+      "structural_rationale": "无需客户描述维度；历史末购与客户配对使未来信息不能泄入过去。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q116",
+      "design_id": "D16",
+      "text_zh": "按首购月份比较，客户在首购后90天内的复购率分别是多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          3,
+          8
+        ],
+        "explicit_in_prompt": [],
+        "partial": [
+          {
+            "id": 14,
+            "scope": "仅全历史首购锚点；不是新客90天定义的完整覆盖"
+          }
+        ],
+        "background_only": []
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "conditional",
+        "entity_uniqueness": [
+          "customer",
+          "order_if_same_day_repeat_allowed"
+        ],
+        "time_window_types": [
+          "lifetime_first_purchase",
+          "forward_90_day_followup",
+          "acquisition_month_cohort",
+          "right_censoring"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q83",
+        "Q96"
+      ],
+      "coverage_delta": "首购后等长复购观察与观察不完整处理，不同于自然年回购",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "customer_first_date",
+          "customer_followup",
+          "acquisition_cohort"
+        ],
+        "operators": [
+          "lifetime_min_date",
+          "forward_event_window",
+          "followup_completeness_guard",
+          "count_entities",
+          "cohort_return_ratio"
+        ],
+        "measure_semantics": [
+          "repeat_purchase_rate"
+        ],
+        "scope_roles": [
+          "cohorts_with_declared_observation_population"
+        ],
+        "temporal_flow": "entity_anchored_forward_window"
+      },
+      "structural_rationale": "客户级再队列级汇总；含首购日的第二单需订单去重，跨日复购可用客户级存在性。不得把未观察完当未复购。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q117",
+      "design_id": "D17",
+      "text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7,
+          15
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 3,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "store_top3",
+          "category_top1_within_selected_store"
+        ],
+        "time_window_types": [
+          "year_over_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q50",
+        "Q74",
+        "Q94"
+      ],
+      "coverage_delta": "先按同店整体选差店再追品类贡献；原Q50已在中文展开同店定义，本题另补未展开的同店业务词。",
+      "structural_signature": {
+        "source_semantics": "omnichannel",
+        "grain_flow": [
+          "rows",
+          "store_period",
+          "selected_store_set",
+          "store_category"
+        ],
+        "operators": [
+          "same_store_eligibility",
+          "store_growth_rank_select",
+          "conditional_drilldown",
+          "local_max_decline",
+          "contribution_ratio"
+        ],
+        "measure_semantics": [
+          "store_decline",
+          "category_decline",
+          "decline_contribution"
+        ],
+        "scope_roles": [
+          "nested_selected_groups"
+        ],
+        "temporal_flow": "two_period_selection_then_drilldown"
+      },
+      "structural_rationale": "维度深度3；此处对象唯一性属于嵌套排名约束，不是COUNT DISTINCT。评分承载缺口仍未解除。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q118",
+      "design_id": "D18",
+      "text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 0,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "base_period_product_cohort"
+        ],
+        "time_window_types": [
+          "base_period_selection_then_future_evaluation"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q71",
+        "Q74",
+        "Q75",
+        "Q100"
+      ],
+      "coverage_delta": "基期P90群体固定后评价次期，不在后期重选赢家",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "base_entity_aggregate",
+          "quantile_selected_set",
+          "evaluation_scalar"
+        ],
+        "operators": [
+          "base_period_sum",
+          "quantized_exact_percentile",
+          "fixed_cohort_filter",
+          "future_period_sum",
+          "share_of_all_evaluation_sales"
+        ],
+        "measure_semantics": [
+          "future_sales_of_base_cohort",
+          "future_sales_share"
+        ],
+        "scope_roles": [
+          "base_selected_entities_vs_all_future"
+        ],
+        "temporal_flow": "fixed_base_cohort_future_evaluation"
+      },
+      "structural_rationale": "仅ProductKey即可定义产品域并输出总贡献；不用产品名称维，最小维度连接深度0，但多阶段必需。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q119",
+      "design_id": "D19",
+      "text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          2,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "store_product",
+          "one_winner_per_store",
+          "company_product_rank"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q71",
+        "Q74"
+      ],
+      "coverage_delta": "局部赢家映射整体排名，两个排名域不能混用",
+      "structural_signature": {
+        "source_semantics": "omnichannel",
+        "grain_flow": [
+          "rows",
+          "local_entity_product",
+          "local_winner_set",
+          "company_product_rank"
+        ],
+        "operators": [
+          "local_aggregate",
+          "local_winner_selection",
+          "global_aggregate",
+          "global_rank",
+          "map_selected_entities"
+        ],
+        "measure_semantics": [
+          "local_best_product",
+          "company_sales_rank"
+        ],
+        "scope_roles": [
+          "all_groups_one_local_winner_each"
+        ],
+        "temporal_flow": "one_period_two_ranking_scopes"
+      },
+      "structural_rationale": "门店/产品各1跳；局部和整体中间层互联另计，评分契约缺口已复现。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q120",
+      "design_id": "D20",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "customer_before_statistics"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q86",
+        "Q91"
+      ],
+      "coverage_delta": "相同客户级观察域内整体与职业组内相关结构对照",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "customer_amount",
+          "pooled_and_stratified_stats"
+        ],
+        "operators": [
+          "aggregate_per_customer",
+          "pearson_same_observation_unit",
+          "pooled_vs_stratified_comparison"
+        ],
+        "measure_semantics": [
+          "income_spend_correlation",
+          "sample_count"
+        ],
+        "scope_roles": [
+          "whole_population_and_partition"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "事实→客户1跳；先一客户一行后count样本数，不能按交易行加权。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q121",
+      "design_id": "D21",
+      "text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          7
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": [
+          6
+        ]
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 3,
+        "dedup_count": "not_required",
+        "entity_uniqueness": [
+          "category_calendar_month"
+        ],
+        "time_window_types": [
+          "complete_monthly_calendar",
+          "annual_monthly_dispersion"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q30",
+        "Q98"
+      ],
+      "coverage_delta": "完整月序列的相对离散，不是移动平均或旺季峰值份额",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "dimension_month",
+          "dimension_statistics"
+        ],
+        "operators": [
+          "calendar_complete",
+          "monthly_sum",
+          "standard_deviation_over_months",
+          "normalize_by_mean"
+        ],
+        "measure_semantics": [
+          "monthly_mean_sales",
+          "coefficient_of_variation"
+        ],
+        "scope_roles": [
+          "all_dimension_groups_full_month_sequence"
+        ],
+        "temporal_flow": "within_year_monthly_distribution"
+      },
+      "structural_rationale": "品类路径3跳；std基于12个月，不是事实行，样本/总体定义须与声明一致。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    },
+    {
+      "id": "Q122",
+      "design_id": "D22",
+      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "analysis_stage": "design_only_not_SQL_verified",
+      "conventions": {
+        "required_unstated": [
+          1,
+          8
+        ],
+        "explicit_in_prompt": [],
+        "partial": [],
+        "background_only": []
+      },
+      "structure": {
+        "estimated_min_dimension_join_depth": 1,
+        "dedup_count": "required",
+        "entity_uniqueness": [
+          "order_product_membership",
+          "unordered_product_pair"
+        ],
+        "time_window_types": [
+          "fixed_year"
+        ],
+        "staged_logic": true,
+        "sql_subquery_requirement": "通常需分阶段表达，实际SQL待核"
+      },
+      "nearest_existing_questions": [
+        "Q33"
+      ],
+      "coverage_delta": "共购次数按边际基数归一化为支持度/双向置信度/lift；不按零共购筛对",
+      "structural_signature": {
+        "source_semantics": "online",
+        "grain_flow": [
+          "rows",
+          "order_product_set",
+          "product_pair_counts",
+          "association_statistics"
+        ],
+        "operators": [
+          "deduplicate_membership",
+          "pair_intersection_count",
+          "marginal_counts",
+          "directional_conditional_probabilities",
+          "independence_normalized_lift"
+        ],
+        "measure_semantics": [
+          "support",
+          "confidence_both_directions",
+          "lift"
+        ],
+        "scope_roles": [
+          "predeclared_product_domain_all_pairs"
+        ],
+        "temporal_flow": "one_period"
+      },
+      "structural_rationale": "品牌/产品维1跳；同订单产品重复行必须去重，商品对和边际频数均按订单计数。",
+      "summary_coverage": {
+        "status": "blocked_pre_G1",
+        "evidence": null,
+        "matched_interpretation": null
+      },
+      "metric_callability": {
+        "status": "blocked_pre_G1",
+        "metric_ids": [],
+        "interface_evidence": null
+      }
+    }
+  ],
+  "pairwise_checks": [
+    {
+      "a": "Q101",
+      "b": "Q102",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q103",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q104",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q105",
+      "design_check": "manual_review_required_simple_sum_family",
+      "different_fields": [
+        "source_semantics",
+        "operators",
+        "scope_roles"
+      ],
+      "near_neighbor_note": "近邻：均为简单金额题，但默认线上GMV控制与指定编号全渠道门店识别不同；保留为语义对照风险，不包装为两个新计算机制。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q106",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q101",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q103",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q104",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q105",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q106",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": "同净额口径，但后者新增子实体/同城分母份额，前者只是按维度净额。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "operators",
+        "measure_semantics"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q102",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q104",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q105",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q106",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "均含选群贡献，但订单固定金额门槛/同一期与产品P90/基期到后期不同，不是替换实体名。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q103",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q105",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q106",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": "均跨年，但前者双指标正负交叉筛选，后者完整实体集合总增长率。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q104",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q106",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q105",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q107",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": "均增长率，但后者日历归一化和两类日期比较，不是把城市名改成节假日。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q106",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q108",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "均为子集份额，但净额单期实体范围与原额跨年渠道结构百分点变化不同；仍是相近比率家族。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q107",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q109",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q108",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q110",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q109",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q111",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q110",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q112",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "同目标事实域，前者双时间分母；后者先门店资格后经理计数/缺口汇总。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q111",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q113",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "都先筛店，但经理级汇总缺口和按店内品类嵌套追因不同。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q112",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q114",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q113",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q115",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "都含截止日客户属性，但首购回溯窗口计数与同一批客户的成对状态迁移不同。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "都用首购日和90天，但截止日向后回看新客与首购后向前随访复购不是同一窗口替换。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q114",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q116",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q115",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q117",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q116",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q117",
+      "b": "Q118",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q117",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "两级排名近邻：选少数差店再店内选品类，与每店赢家映射全公司名次不同；仍需通用排名契约。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q117",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q117",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q117",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q118",
+      "b": "Q119",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q118",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q118",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q118",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q119",
+      "b": "Q120",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q119",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q119",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "source_semantics",
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    },
+    {
+      "a": "Q120",
+      "b": "Q121",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": "都统计，但双变量相关的整体/组内结构与单变量月序列标准差/均值不同。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q120",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles"
+      ],
+      "near_neighbor_note": "客户级双变量相关与订单集合上的条件概率/独立性基数归一化不同。",
+      "sql_verified": false
+    },
+    {
+      "a": "Q121",
+      "b": "Q122",
+      "design_check": "distinct_annotated_operator_signature",
+      "different_fields": [
+        "grain_flow",
+        "operators",
+        "measure_semantics",
+        "scope_roles",
+        "temporal_flow"
+      ],
+      "near_neighbor_note": null,
+      "sql_verified": false
+    }
+  ]
+}
