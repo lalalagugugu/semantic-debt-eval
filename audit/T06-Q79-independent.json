@@ -1,0 +1,364 @@
+{
+  "question_id": 79,
+  "scope": "current_reference_boundary",
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "sql_sha256": "22c600048b08bf1561ef48d0e9bc71e237ff5ee3cd8eaa81cd2ee86b6c028ed0",
+  "reference_sha256": "7c19c66c2e61693203693eaf3353fa606337e646c1e03cfc801cb10e7876ee6f",
+  "serialization_version": "json-compact-utf8-v1",
+  "columns": [
+    {
+      "name": "StoreName",
+      "type": "String"
+    },
+    {
+      "name": "actual_sales",
+      "type": "Float64"
+    },
+    {
+      "name": "quota",
+      "type": "Nullable(Float64)"
+    },
+    {
+      "name": "attainment_pct",
+      "type": "Nullable(Float64)"
+    }
+  ],
+  "rules": {
+    "ordered": true,
+    "top_n": 10,
+    "tie_columns": [
+      3
+    ],
+    "value_kinds": [
+      "other",
+      "amount",
+      "amount",
+      "percentage"
+    ],
+    "value_types": [
+      "String",
+      "Float64",
+      "Nullable(Float64)",
+      "Nullable(Float64)"
+    ],
+    "order_by": [
+      {
+        "column": 3,
+        "descending": true
+      }
+    ]
+  },
+  "rules_sha256": "b324ed617a41b208a01aec802e5b8442b33135e6be285c7ee524a9520e145e94",
+  "value_kinds": [
+    "other",
+    "amount",
+    "amount",
+    "percentage"
+  ],
+  "row_count": 42,
+  "strict_prefix_count": 0,
+  "boundary_group_count": 42,
+  "nth_quantized_key": [
+    "1.220389"
+  ],
+  "rows": [
+    [
+      "Contoso Ashgabat  No.2 Store",
+      13497199.954,
+      11059755.0397,
+      122.03886890397273
+    ],
+    [
+      "Contoso Ashgabat No.1 Store",
+      13743661.3395,
+      11261708.2272,
+      122.03886890183702
+    ],
+    [
+      "Contoso Asia Online Store",
+      339364204.3653,
+      278078785.3216,
+      122.03886893882357
+    ],
+    [
+      "Contoso Asia Reseller",
+      191594222.9926,
+      156994426.9895,
+      122.03886893731209
+    ],
+    [
+      "Contoso Bangkok No.1 Store",
+      12252554.357,
+      10039878.6602,
+      122.0388689115484
+    ],
+    [
+      "Contoso Bangkok No.2 Store",
+      13717801.8135,
+      11240518.6452,
+      122.03886890359696
+    ],
+    [
+      "Contoso Beijing Store",
+      12395725.74,
+      10157194.8793,
+      122.03886887374826
+    ],
+    [
+      "Contoso Bishkek Store",
+      13804578.1125,
+      11311624.1042,
+      122.03886891338944
+    ],
+    [
+      "Contoso Busan Store",
+      13359692.688,
+      10947080.064,
+      122.03886890289579
+    ],
+    [
+      "Contoso Canberra Store",
+      13657731.1495,
+      11191296.0772,
+      122.03886891460999
+    ],
+    [
+      "Contoso Damascus No.1 Store",
+      12575283.638,
+      10304326.605,
+      122.0388689145204
+    ],
+    [
+      "Contoso Damascus No.2 Store",
+      13724559.6475,
+      11246056.0894,
+      122.03886890121525
+    ],
+    [
+      "Contoso Guangzhou Store",
+      6168400.621,
+      5054455.7481,
+      122.03886884000792
+    ],
+    [
+      "Contoso Hong Kong No.1 Store",
+      13669915.376,
+      11201279.9686,
+      122.03886889998469
+    ],
+    [
+      "Contoso Hong Kong No.2 Store",
+      13721965.759,
+      11243930.6273,
+      122.03886891371766
+    ],
+    [
+      "Contoso Islamabad  No.2 Store",
+      12714265.407,
+      10418209.8061,
+      122.03886890006407
+    ],
+    [
+      "Contoso Islamabad No.1 Store",
+      13565079.1725,
+      11115376.0261,
+      122.03886886640501
+    ],
+    [
+      "Contoso Kolkata Store",
+      13285310.855,
+      10886130.7664,
+      122.03886890652701
+    ],
+    [
+      "Contoso Kyoto Store",
+      4431766.163,
+      3631438.2484,
+      122.03886889588777
+    ],
+    [
+      "Contoso Moscow  No.2 Store",
+      13260170.9494,
+      10865530.8472,
+      122.03886893218004
+    ],
+    [
+      "Contoso Mumbai Store",
+      13469958.0175,
+      11037432.696,
+      122.03886889730757
+    ],
+    [
+      "Contoso Nagoya Store",
+      12439048.3865,
+      10192693.934,
+      122.03886889026249
+    ],
+    [
+      "Contoso New Delhi Store",
+      13707108.436,
+      11231756.3693,
+      122.03886894721055
+    ],
+    [
+      "Contoso Osaka No.1 Store",
+      13592892.525,
+      11138166.5913,
+      122.0388689070011
+    ],
+    [
+      "Contoso Osaka No.2 Store",
+      13393145.6,
+      10974491.7507,
+      122.03886889928846
+    ],
+    [
+      "Contoso Sapporo Store",
+      13063561.668,
+      10704427.0296,
+      122.0388688892595
+    ],
+    [
+      "Contoso Seoul Store",
+      12449907.3925,
+      10201591.9214,
+      122.03886891793508
+    ],
+    [
+      "Contoso Shanghai No.1 Store",
+      13428894.1925,
+      11003784.5411,
+      122.03886892134273
+    ],
+    [
+      "Contoso Shanghai No.2 Store",
+      13415202.3625,
+      10992565.3057,
+      122.03886890300106
+    ],
+    [
+      "Contoso Singapore Store",
+      13167637.068,
+      10789707.561,
+      122.038868927228
+    ],
+    [
+      "Contoso Sydney  No.2 Store",
+      13589444.6635,
+      11135341.3756,
+      122.03886890506548
+    ],
+    [
+      "Contoso Sydney No.1 Store",
+      13881637.5565,
+      11374767.4667,
+      122.03886890117923
+    ],
+    [
+      "Contoso Taipei  Store",
+      13663685.18,
+      11196174.8768,
+      122.03886890256615
+    ],
+    [
+      "Contoso Tehran No.1 Store",
+      13351954.9345,
+      10940739.6638,
+      122.03886889547395
+    ],
+    [
+      "Contoso Tehran No.2 Store",
+      13746525.8865,
+      11264055.4672,
+      122.03886891829279
+    ],
+    [
+      "Contoso Thimphu No.1 Store",
+      6622523.0975,
+      5426568.7308,
+      122.038868869605
+    ],
+    [
+      "Contoso Thimphu No.2 Store",
+      13339734.637,
+      10930726.2155,
+      122.03886890958786
+    ],
+    [
+      "Contoso Tokyo No.1 Store",
+      13444452.439,
+      11016533.1434,
+      122.03886888911657
+    ],
+    [
+      "Contoso Tokyo No.2 Store",
+      13166377.976,
+      10788675.8476,
+      122.0388689213323
+    ],
+    [
+      "Contoso Urumqi Store",
+      13367659.618,
+      10953608.2569,
+      122.03886887756205
+    ],
+    [
+      "Contoso Yerevan Store",
+      13768349.8985,
+      11281938.3071,
+      122.03886888687595
+    ],
+    [
+      "Contoso Yokohama Store",
+      13287001.207,
+      10887515.8601,
+      122.03886890023747
+    ]
+  ],
+  "independent_source": {
+    "tool": "Claude Code pandas",
+    "commit": "c8afbc1d429cc8a052958b302e767c1d2dd71a8e",
+    "path": "reports/T05b/pandas/Q79-1.csv",
+    "csv_sha256": "eeed3e857e48417fe0072c0dafb114203b8c371ca1a69176329b5350f147ce2d",
+    "header": [
+      "StoreName",
+      "actual",
+      "quota",
+      "att_pct"
+    ],
+    "note": "Imported committed pandas output; no SQL-based recomputation or changes to independent values"
+  },
+  "freeze_gate_observation": {
+    "passed": false,
+    "store_names_equal": true,
+    "removed": [
+      [
+        "Contoso Damascus No.1 Store",
+        "12575283.64",
+        "10304326.61",
+        "1.220389"
+      ],
+      [
+        "Contoso Osaka No.1 Store",
+        "13592892.53",
+        "11138166.59",
+        "1.220389"
+      ]
+    ],
+    "added": [
+      [
+        "Contoso Damascus No.1 Store",
+        "12575283.64",
+        "10304326.60",
+        "1.220389"
+      ],
+      [
+        "Contoso Osaka No.1 Store",
+        "13592892.52",
+        "11138166.59",
+        "1.220389"
+      ]
+    ],
+    "decision_required": "T06-1 in decisions/open-questions.md; existing full-row gate unchanged"
+  }
+}

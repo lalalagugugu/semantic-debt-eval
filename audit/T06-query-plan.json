@@ -1,0 +1,791 @@
+{
+  "version": 1,
+  "questions": {
+    "Q01": {
+      "queries": [
+        {
+          "sql": "SELECT count() FROM ads.dim_product",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q02": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`销售额`) FROM ads.ads_online_week_total",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q03": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q04": {
+      "queries": [
+        {
+          "sql": "SELECT `产品名` FROM ads.dim_product WHERE `品牌`='Contoso'",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q05": {
+      "queries": [
+        {
+          "sql": "SELECT `品类`,count() FROM ads.dim_product GROUP BY `品类`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q06": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`销售额`) FROM ads.ads_online_week_total WHERE `年`=2009",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q07": {
+      "queries": [
+        {
+          "sql": "SELECT `产品名`,`产品标价` FROM ads.dim_product ORDER BY `产品标价` DESC LIMIT 10",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q08": {
+      "queries": [],
+      "reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
+    },
+    "Q09": {
+      "queries": [
+        {
+          "sql": "SELECT avg(`产品单位成本`) FROM ads.dim_product",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q10": {
+      "queries": [
+        {
+          "sql": "SELECT count() FROM ads.dim_store WHERE `门店状态`='On'",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q11": {
+      "queries": [
+        {
+          "sql": "SELECT nullIf(`品类`,'未知（产品维度缺行）'),sum(`销售额`) FROM ads.ads_sales_month_product WHERE `渠道`='Online' GROUP BY `品类` ORDER BY sum(`销售额`) DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用产品汇总：FactSales 的 Online 切片不能替代 FactOnlineSales；保存实际查询不匹配证据。"
+    },
+    "Q12": {
+      "queries": [
+        {
+          "sql": "SELECT `月`,sum(`销售额`) FROM ads.ads_online_customer_month_tier WHERE `年`=2008 GROUP BY `月` ORDER BY `月`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q13": {
+      "queries": [
+        {
+          "sql": "SELECT d.`门店键`,f.`门店名`,sum(f.`销售额`),sum(f.`销售额`)/nullIf(sum(f.`销售数量`),0),sum(f.`销售数量`) FROM ads.ads_sales_month_store f JOIN ads.dim_store d ON f.`门店名`=d.`门店名` GROUP BY d.`门店键`,f.`门店名`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q14": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q15": {
+      "queries": [
+        {
+          "sql": "SELECT `客户国家`,sum(`销售额`) FROM ads.ads_online_customer_profile_quarter GROUP BY `客户国家` ORDER BY sum(`销售额`) DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q16": {
+      "queries": [
+        {
+          "sql": "SELECT `年`,sum(`销售额`) FROM ads.ads_online_week_total WHERE `年` IN (2008,2009) GROUP BY `年` ORDER BY `年`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q17": {
+      "queries": [
+        {
+          "sql": "SELECT if(`是否工作日`='WeekEnd','WeekEnd','WorkDay') AS kind,sum(`销售额`) AS sales,sales*100/(SELECT sum(`销售额`) FROM ads.ads_sales_day_store WHERE `渠道`='Online') FROM ads.ads_sales_day_store WHERE `渠道`='Online' GROUP BY kind",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用日汇总；全渠道日表 Online 切片不能替代线上事实。"
+    },
+    "Q18": {
+      "queries": [
+        {
+          "sql": "SELECT `促销类型`,sum(`折扣金额`) FROM ads.ads_promotion_month_channel WHERE `渠道`='Online' AND `是否打折促销` GROUP BY `促销类型`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用促销汇总；全渠道促销表 Online 切片不能替代线上事实。"
+    },
+    "Q19": {
+      "queries": [
+        {
+          "sql": "SELECT `客户性别`,sum(`销售额`)/sum(`订单数`) FROM ads.ads_online_customer_profile_quarter GROUP BY `客户性别`",
+          "reference_index": 0,
+          "semantically_valid": false
+        }
+      ],
+      "reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
+    },
+    "Q20": {
+      "queries": [],
+      "reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
+    },
+    "Q21": {
+      "queries": [
+        {
+          "sql": "SELECT d.`门店键`,i.`门店名`,sum(i.`在手数量`) FROM ads.ads_inventory_current_store_category i JOIN ads.dim_store d ON i.`门店名`=d.`门店名` GROUP BY d.`门店键`,i.`门店名`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q22": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q23": {
+      "queries": [
+        {
+          "sql": "SELECT `月`,sum(`销售额`) AS sales,sum(sum(`销售额`)) OVER (ORDER BY `月`) FROM ads.ads_online_customer_month_tier WHERE `年`=2009 GROUP BY `月` ORDER BY `月`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q24": {
+      "queries": [
+        {
+          "sql": "SELECT nullIf(`品类`,'未知（产品维度缺行）'),sum(`退货数量`),sum(`销售数量`),sum(`退货数量`)*100/nullIf(sum(`销售数量`),0) FROM ads.ads_sales_month_product WHERE `渠道`='Online' GROUP BY `品类`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用品类退货汇总；全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q25": {
+      "queries": [],
+      "reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
+    },
+    "Q26": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q27": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q28": {
+      "queries": [
+        {
+          "sql": "SELECT `渠道`,sum(`销售额`)/nullIf(sum(`销售数量`),0) FROM ads.ads_sales_month_channel WHERE `渠道` IN ('Store','Online') GROUP BY `渠道`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q29": {
+      "queries": [],
+      "reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
+    },
+    "Q30": {
+      "queries": [],
+      "reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
+    },
+    "Q31": {
+      "queries": [
+        {
+          "sql": "SELECT `品类`,sumIf(`计划金额`,`场景`='Actual'),sumIf(`计划金额`,`场景`='Budget') FROM ads.ads_plan_month_category_account WHERE `科目`='Sale Revenue' AND `年`=2009 GROUP BY `品类`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q32": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q33": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q34": {
+      "queries": [],
+      "reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
+    },
+    "Q35": {
+      "queries": [],
+      "reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
+    },
+    "Q36": {
+      "queries": [],
+      "reason": "缺跨月客户去重状态：月报客户数不能跨月相加，也没有按固定客户分层的全历史客户键集合。"
+    },
+    "Q37": {
+      "queries": [
+        {
+          "sql": "SELECT `门店名`,sum(`销售额`) AS sales,percent_rank() OVER (ORDER BY sum(`销售额`))*100 FROM ads.ads_sales_month_store GROUP BY `门店名` ORDER BY sales DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q38": {
+      "queries": [
+        {
+          "sql": "SELECT `品类`,sumIf(`计划金额`,`场景`='Actual') AS actual,sumIf(`计划金额`,`场景`='Forecast') AS forecast,100-abs(actual-forecast)*100/nullIf(actual,0) FROM ads.ads_plan_month_category_account WHERE `年`=2009 AND `月`>=10 AND `科目`=(SELECT `科目` FROM ads.dim_account WHERE `科目键`=4) GROUP BY `品类`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q39": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q40": {
+      "queries": [],
+      "reason": "缺汇率表与币种维度：ads 没有日收盘汇率或交易币种，不能做ASOF折算。"
+    },
+    "Q41": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`销售额`) FROM ads.ads_online_customer_month_tier WHERE `年`=2009 AND `月`>=10",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q42": {
+      "queries": [
+        {
+          "sql": "SELECT `年`,sum(`毛利`) FROM ads.ads_sales_month_product WHERE `渠道`='Online' AND `品类`='Cameras and camcorders' GROUP BY `年` ORDER BY `年`",
+          "reference_index": 1
+        }
+      ],
+      "reason": "缺线上专用品类汇总；全渠道 Online 切片不能复现任一参考。"
+    },
+    "Q43": {
+      "queries": [
+        {
+          "sql": "SELECT `客户大洲`,sum(`毛利`) FROM ads.ads_online_customer_profile_quarter GROUP BY `客户大洲`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q44": {
+      "queries": [
+        {
+          "sql": "WITH annual AS (SELECT `年` AS y,sum(`销售额`) AS sales FROM ads.ads_online_week_total GROUP BY y),compared AS (SELECT y,sales,lagInFrame(toNullable(sales)) OVER (ORDER BY y ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS previous FROM annual) SELECT y,sales,(sales-previous)*100/nullIf(previous,0) FROM compared ORDER BY y",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q45": {
+      "queries": [
+        {
+          "sql": "SELECT f.`门店名`,sum(f.`销售额`),d.`门店营业面积`,sum(f.`销售额`)/nullIf(d.`门店营业面积`,0) AS efficiency FROM ads.ads_sales_month_store f JOIN ads.dim_store d ON f.`门店名`=d.`门店名` WHERE d.`门店营业面积`>0 GROUP BY f.`门店名`,d.`门店营业面积` ORDER BY efficiency DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q46": {
+      "queries": [
+        {
+          "sql": "SELECT `客户学历`,sum(`毛利`) AS profit FROM ads.ads_online_customer_profile_quarter WHERE `客户学历`!='未填写' GROUP BY `客户学历` ORDER BY profit DESC LIMIT 1",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q47": {
+      "queries": [],
+      "reason": "缺IT故障事实及指标：ads 没有故障次数、停机时长或故障关联状态。"
+    },
+    "Q48": {
+      "queries": [],
+      "reason": "缺IT故障事实及指标：ads 没有故障次数、停机时长或故障关联状态。"
+    },
+    "Q49": {
+      "queries": [],
+      "reason": "缺组织维度与层级：计划汇总只留门店直属上级文字，无法恢复组织键及递归祖先关系。"
+    },
+    "Q50": {
+      "queries": [
+        {
+          "sql": "WITH pairs AS (SELECT `门店名`,sumIf(`销售额`,`年`=2008) AS s8,sumIf(`销售额`,`年`=2009) AS s9 FROM ads.ads_sales_year_store WHERE `年` IN (2008,2009) GROUP BY `门店名` HAVING countIf(`年`=2008)>0 AND countIf(`年`=2009)>0) SELECT sum(s9),sum(s8),(sum(s9)-sum(s8))*100/sum(s8) FROM pairs",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q51": {
+      "queries": [
+        {
+          "sql": "SELECT count() FROM ads.dim_store",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q52": {
+      "queries": [
+        {
+          "sql": "SELECT max(`产品标价`) FROM ads.dim_product",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q53": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`订单数`) FROM ads.ads_online_week_total WHERE `年`=2009",
+          "reference_index": 0
+        }
+      ],
+      "reason": "全站周粒度保留订单数；仅当本数据跨周无重复导致该查询复现参考时标 covered，不宣称订单数一般可加。"
+    },
+    "Q54": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`退货金额`) FROM ads.ads_online_week_total",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q55": {
+      "queries": [
+        {
+          "sql": "SELECT count() FROM ads.dim_customer WHERE `客户性别`='F'",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q56": {
+      "queries": [
+        {
+          "sql": "SELECT avg(`客户年收入档`) FROM ads.dim_customer",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q57": {
+      "queries": [
+        {
+          "sql": "SELECT uniqExact(`品牌`) FROM ads.dim_product",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q58": {
+      "queries": [],
+      "reason": "需要订单行明细：线上汇总没有单行销售额最大值，不能由合计推回最大单行金额。"
+    },
+    "Q59": {
+      "queries": [
+        {
+          "sql": "SELECT count() FROM ads.dim_date WHERE `是否节假日`='Yes'",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q60": {
+      "queries": [],
+      "reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
+    },
+    "Q61": {
+      "queries": [
+        {
+          "sql": "SELECT nullIf(`子类`,'未知（产品维度缺行）'),sum(`销售额`) AS sales FROM ads.ads_sales_month_product WHERE `渠道`='Online' AND `年`=2009 GROUP BY `子类` HAVING sales>1000000 ORDER BY sales DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用子品类汇总；全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q62": {
+      "queries": [
+        {
+          "sql": "SELECT nullIf(`品牌`,'未知（产品维度缺行）'),sum(`销售额`) AS sales,sum(`销售数量`) AS units FROM ads.ads_sales_month_product WHERE `渠道`='Online' AND `年`=2008 GROUP BY `品牌` HAVING units>=500 ORDER BY sales DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "缺线上专用品牌汇总；全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q63": {
+      "queries": [
+        {
+          "sql": "SELECT `客户职业`,sum(`销售额`)/nullIf(sum(`订单数`),0) AS aov,sum(`订单数`) FROM ads.ads_online_customer_profile_quarter GROUP BY `客户职业` ORDER BY aov DESC",
+          "reference_index": 0,
+          "semantically_valid": false
+        }
+      ],
+      "reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
+    },
+    "Q64": {
+      "queries": [
+        {
+          "sql": "SELECT `月`,sum(`毛利`),sum(`毛利`)*100/nullIf(sum(`销售额`),0) FROM ads.ads_online_customer_month_tier WHERE `年`=2009 GROUP BY `月` ORDER BY `月`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q65": {
+      "queries": [
+        {
+          "sql": "WITH stores AS (SELECT `门店名`,sum(`销售额`) AS sales FROM ads.ads_sales_month_store GROUP BY `门店名` HAVING sales>5000000) SELECT if(trim(d.`门店经理`)='',NULL,d.`门店经理`),s.`门店名`,s.sales FROM stores s JOIN ads.dim_store d ON s.`门店名`=d.`门店名` ORDER BY sales DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q66": {
+      "queries": [],
+      "reason": "缺线上专用促销季度折扣汇总：全渠道促销表的 Online 切片与线上事实不是同一来源。"
+    },
+    "Q67": {
+      "queries": [],
+      "reason": "缺线上颜色事实粒度：产品汇总未保留颜色，维度有颜色却无法再关联产品键。"
+    },
+    "Q68": {
+      "queries": [],
+      "reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
+    },
+    "Q69": {
+      "queries": [],
+      "reason": "缺促销类别：ads 促销维度/汇总保留促销类型与名称，没有 PromotionCategory；且无线上专用促销汇总。"
+    },
+    "Q70": {
+      "queries": [
+        {
+          "sql": "WITH sales AS (SELECT `门店名`,sum(`销售额`) AS revenue FROM ads.ads_sales_month_store GROUP BY `门店名`) SELECT d.`门店类型`,sum(coalesce(f.revenue,0)),avg(d.`门店营业面积`),count() FROM ads.dim_store d LEFT JOIN sales f ON d.`门店名`=f.`门店名` GROUP BY d.`门店类型` ORDER BY sum(coalesce(f.revenue,0)) DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q71": {
+      "queries": [],
+      "reason": "缺线上专用品类×子品类销售额；全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q72": {
+      "queries": [
+        {
+          "sql": "SELECT `年`,toQuarter(`月起始日`) AS q,sum(`销售额`) AS sales,sum(sum(`销售额`)) OVER (ORDER BY `年`,q ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM ads.ads_online_customer_month_tier GROUP BY `年`,q ORDER BY `年`,q",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q73": {
+      "queries": [],
+      "reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
+    },
+    "Q74": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q75": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q76": {
+      "queries": [],
+      "reason": "需要客户订单次数及品类关系：线上汇总没有客户键和订单明细，无法按全目录/品类判定回头客。"
+    },
+    "Q77": {
+      "queries": [
+        {
+          "sql": "WITH monthly AS (SELECT `月起始日` AS m,sum(`销售额`) AS sales FROM ads.ads_online_customer_month_tier WHERE `月起始日`>=toDate('2008-12-01') AND `月起始日`<toDate('2010-01-01') GROUP BY m),growth AS (SELECT m,sales,lagInFrame(sales) OVER (ORDER BY m ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS prev FROM monthly) SELECT toMonth(m),sales,prev,(sales-prev)*100/nullIf(prev,0) FROM growth WHERE toYear(m)=2009 ORDER BY m",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q78": {
+      "queries": [],
+      "reason": "缺促销类别：ads 促销维度/汇总保留促销类型与名称，没有 PromotionCategory；且无线上专用促销汇总。"
+    },
+    "Q79": {
+      "queries": [
+        {
+          "sql": "SELECT `门店名`,actual,quota,rate FROM (SELECT `门店名`,sum(`销售额`) AS actual,sum(`目标销售额`) AS quota,actual*100/nullIf(quota,0) AS rate FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY `门店名` HAVING quota>0) ORDER BY rate DESC LIMIT 10",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q80": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q81": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q82": {
+      "queries": [],
+      "reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
+    },
+    "Q83": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q84": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q85": {
+      "queries": [
+        {
+          "sql": "SELECT * FROM ((SELECT '最高',`门店名`,actual,quota,rate FROM (SELECT `门店名`,sum(`销售额`) AS actual,sum(`目标销售额`) AS quota,actual*100/nullIf(quota,0) AS rate FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY `门店名` HAVING quota>0)) UNION ALL (SELECT '最低',`门店名`,actual,quota,rate FROM (SELECT `门店名`,sum(`销售额`) AS actual,sum(`目标销售额`) AS quota,actual*100/nullIf(quota,0) AS rate FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY `门店名` HAVING quota>0))) ORDER BY 1,5 DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q86": {
+      "queries": [],
+      "reason": "需要促销行级联合分布：汇总没有折扣比例与销量的协方差、秩或弹性所需明细。"
+    },
+    "Q87": {
+      "queries": [],
+      "reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
+    },
+    "Q88": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q89": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q90": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q91": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q92": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q93": {
+      "queries": [],
+      "reason": "需要促销行级联合分布：汇总没有折扣比例与销量的协方差、秩或弹性所需明细。"
+    },
+    "Q94": {
+      "queries": [
+        {
+          "sql": "SELECT `门店名`,sumIf(`销售额`,`月` BETWEEN 7 AND 9) AS q3,sumIf(`销售额`,`月` BETWEEN 10 AND 12) AS q4,(q4-q3)*100/nullIf(q3,0) AS growth FROM ads.ads_sales_month_store WHERE `年`=2009 GROUP BY `门店名` HAVING q3>0 AND growth<0 ORDER BY growth ASC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q95": {
+      "queries": [],
+      "reason": "缺线上品类×促销及订单行数联合粒度，无法重算促销/原价行均销售差。"
+    },
+    "Q96": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q97": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q98": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q99": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q100": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q101": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`销售额`) FROM ads.ads_online_customer_month_tier WHERE `年`=2009 AND `月`>=10",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q102": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q103": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q104": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q105": {
+      "queries": [
+        {
+          "sql": "SELECT sum(`销售额`) FROM ads.ads_sales_month_store WHERE `年`=2009 AND `门店名`='Contoso Seattle No.2 Store'",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q106": {
+      "queries": [
+        {
+          "sql": "SELECT (sumIf(`销售额`,`年`=2009)/nullIf(sumIf(`销售额`,`年`=2008),0)-1)*100 FROM ads.ads_sales_month_store WHERE `门店城市`='Miami' AND `年` IN (2008,2009)",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q107": {
+      "queries": [
+        {
+          "sql": "SELECT sumIf(`净销售额`,`门店名`='Contoso New York No.2 Store')*100/nullIf(sum(`净销售额`),0) FROM ads.ads_sales_month_store WHERE `门店城市`='New York' AND `年`=2009",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q108": {
+      "queries": [
+        {
+          "sql": "SELECT `客户国家`,sum(`销售额`),sum(`订单数`) FROM ads.ads_online_customer_profile_quarter WHERE `年`=2009 GROUP BY `客户国家`",
+          "reference_index": 0,
+          "semantically_valid": false
+        }
+      ],
+      "reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
+    },
+    "Q109": {
+      "queries": [
+        {
+          "sql": "WITH sales AS (SELECT `年` AS y,toQuarter(`月起始日`) AS q,sum(`销售额`) AS sales FROM ads.ads_online_customer_month_tier WHERE `年` IN (2008,2009) GROUP BY y,q),days AS (SELECT `年` AS y,toQuarter(`日期`) AS q,count() AS days FROM ads.dim_date WHERE `年` IN (2008,2009) GROUP BY y,q),daily AS (SELECT s.y,s.q,s.sales/d.days AS average FROM sales s JOIN days d ON s.y=d.y AND s.q=d.q) SELECT q,(anyIf(average,y=2009)/nullIf(anyIf(average,y=2008),0)-1)*100 FROM daily GROUP BY q",
+          "reference_index": 0
+        }
+      ],
+      "reason": "按季度销售额与维度日历天数重算日均，无需日级销售明细。"
+    },
+    "Q110": {
+      "queries": [
+        {
+          "sql": "WITH shares AS (SELECT `年` AS y,sumIf(`销售额`,`渠道`='Online')*100/nullIf(sum(`销售额`),0) AS share FROM ads.ads_sales_month_channel WHERE `年` IN (2008,2009) GROUP BY y) SELECT anyIf(share,y=2008),anyIf(share,y=2009),anyIf(share,y=2009)-anyIf(share,y=2008) FROM shares",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q111": {
+      "queries": [
+        {
+          "sql": "SELECT `门店名`,sumIf(`销售额`,`月`<=9)*100/nullIf(sumIf(`目标销售额`,`月`<=9),0),sumIf(`销售额`,`月`<=9)*100/nullIf(sum(`目标销售额`),0) FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY `门店名`",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q112": {
+      "queries": [],
+      "reason": "缺门店经理员工键：ads.dim_store 只有经理姓名和职级，参考要求按 EmployeeKey 分组并输出该键。"
+    },
+    "Q113": {
+      "queries": [
+        {
+          "sql": "WITH annual AS (SELECT `门店名` AS store,sum(`目标销售额`) AS quota FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY store),\nactual AS (SELECT `门店名` AS store,`月` AS m,sum(`销售额`) AS sales FROM ads.ads_quota_month_channel_store_category WHERE `年`=2009 GROUP BY store,m),\nmonths AS (SELECT DISTINCT `月` AS m FROM ads.dim_date WHERE `年`=2009),\nmonthly AS (SELECT a.store AS store,n.m AS m,coalesce(x.sales,0) AS sales,a.quota/12 AS target FROM annual a CROSS JOIN months n LEFT JOIN actual x ON a.store=x.store AND n.m=x.m WHERE a.quota>0),\nunder AS (SELECT store,m,toInt64(m)-toInt64(row_number() OVER (PARTITION BY store ORDER BY m)) AS island FROM monthly WHERE sales<target)\nSELECT store,min(m),max(m),count() AS months FROM under GROUP BY store,island HAVING months>=3",
+          "reference_index": 0
+        }
+      ],
+      "reason": "月×门店实际额与年度目标保留；由ads.dim_date补齐无销售月份后识别连续时段。"
+    },
+    "Q114": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q115": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q116": {
+      "queries": [],
+      "reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
+    },
+    "Q117": {
+      "queries": [
+        {
+          "sql": "WITH totals AS (SELECT `门店名` AS store,sumIf(`销售额`,`年`=2008) AS s8,sumIf(`销售额`,`年`=2009) AS s9 FROM ads.ads_sales_year_store WHERE `年` IN (2008,2009) GROUP BY store HAVING s8>0 AND s9>0 AND s9<s8),categories AS (SELECT `门店名` AS store,nullIf(`品类`,'未知（产品维度缺行）') AS category,sumIf(`销售额`,`年`=2008)-sumIf(`销售额`,`年`=2009) AS decline FROM ads.ads_quota_month_channel_store_category WHERE `年` IN (2008,2009) GROUP BY store,category) SELECT d.`门店键`,t.store,(t.s8-t.s9)*100/t.s8,c.category,c.decline,c.decline*100/(t.s8-t.s9) FROM totals t JOIN categories c ON t.store=c.store JOIN ads.dim_store d ON t.store=d.`门店名` ORDER BY 3 DESC,5 DESC",
+          "reference_index": 0
+        }
+      ],
+      "reason": "现有汇总表/维度表保留所需粒度与指标。"
+    },
+    "Q118": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q119": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    },
+    "Q120": {
+      "queries": [],
+      "reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
+    },
+    "Q121": {
+      "queries": [],
+      "reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
+    },
+    "Q122": {
+      "queries": [],
+      "reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
+    }
+  }
+}

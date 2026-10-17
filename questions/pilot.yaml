@@ -1,0 +1,302 @@
+{
+  "seed": 20261017,
+  "stratification": [
+    "q_level",
+    "persona",
+    "type"
+  ],
+  "split_algorithm": "sorted strata; Random(seed) shuffle; half per stratum; odd member to cumulative smaller side, random tie",
+  "sampling_algorithm": "8 per Q level; tuning metric/dimension only; maximize new complexity items, then balance primary/persona/type, seeded tie order",
+  "questions": [
+    "Q102",
+    "Q28",
+    "Q66",
+    "Q40",
+    "Q08",
+    "Q15",
+    "Q68",
+    "Q51",
+    "Q74",
+    "Q73",
+    "Q82",
+    "Q17",
+    "Q71",
+    "Q70",
+    "Q69",
+    "Q75",
+    "Q100",
+    "Q34",
+    "Q76",
+    "Q81",
+    "Q117",
+    "Q50",
+    "Q80",
+    "Q49"
+  ],
+  "selection_trace": [
+    {
+      "q_level": "Q1",
+      "question_id": "Q102",
+      "priority": [
+        3,
+        0,
+        0,
+        0,
+        -7
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q28",
+      "priority": [
+        1,
+        0,
+        -1,
+        -1,
+        -9
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q66",
+      "priority": [
+        0,
+        0,
+        0,
+        -2,
+        -2
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q40",
+      "priority": [
+        0,
+        0,
+        -1,
+        -3,
+        -14
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q08",
+      "priority": [
+        0,
+        -1,
+        -2,
+        0,
+        -1
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q15",
+      "priority": [
+        0,
+        -1,
+        -2,
+        -4,
+        -8
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q68",
+      "priority": [
+        0,
+        -1,
+        -3,
+        -5,
+        -10
+      ]
+    },
+    {
+      "q_level": "Q1",
+      "question_id": "Q51",
+      "priority": [
+        0,
+        -2,
+        -3,
+        -6,
+        0
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q74",
+      "priority": [
+        5,
+        0,
+        0,
+        0,
+        -4
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q73",
+      "priority": [
+        1,
+        0,
+        0,
+        -1,
+        -1
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q82",
+      "priority": [
+        1,
+        0,
+        -1,
+        -2,
+        -2
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q17",
+      "priority": [
+        0,
+        0,
+        -1,
+        -3,
+        -6
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q71",
+      "priority": [
+        0,
+        0,
+        -2,
+        -4,
+        0
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q70",
+      "priority": [
+        0,
+        -1,
+        -2,
+        -5,
+        -7
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q69",
+      "priority": [
+        0,
+        -1,
+        -3,
+        -6,
+        -3
+      ]
+    },
+    {
+      "q_level": "Q2",
+      "question_id": "Q75",
+      "priority": [
+        0,
+        -1,
+        -3,
+        -7,
+        -15
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q100",
+      "priority": [
+        6,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q34",
+      "priority": [
+        1,
+        0,
+        0,
+        -1,
+        -6
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q76",
+      "priority": [
+        0,
+        0,
+        -1,
+        -2,
+        -1
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q81",
+      "priority": [
+        0,
+        -1,
+        -1,
+        -3,
+        -2
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q117",
+      "priority": [
+        0,
+        -1,
+        -2,
+        -4,
+        -5
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q50",
+      "priority": [
+        0,
+        -1,
+        -2,
+        -5,
+        -12
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q80",
+      "priority": [
+        0,
+        -2,
+        -3,
+        -6,
+        -3
+      ]
+    },
+    {
+      "q_level": "Q3",
+      "question_id": "Q49",
+      "priority": [
+        0,
+        -2,
+        -3,
+        -7,
+        -9
+      ]
+    }
+  ]
+}

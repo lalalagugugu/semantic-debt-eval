@@ -1,0 +1,80 @@
+{
+  "Q79_freeze_gate": {
+    "passed": false,
+    "reason": "boundary members differ: removed=2, added=2",
+    "question": "T06-1"
+  },
+  "freeze_ready": false,
+  "base_revision": "e3aaed630aed48ff0069c5ec24d8d7d2a0765f9d",
+  "questions": 122,
+  "references": 136,
+  "split": {
+    "heldout": 61,
+    "tuning": 61
+  },
+  "low_discrimination": {
+    "Q07": [
+      "A"
+    ],
+    "Q17": [
+      "B"
+    ],
+    "Q29": [
+      "B"
+    ],
+    "Q59": [
+      "B"
+    ],
+    "Q68": [
+      "B"
+    ],
+    "Q76": [
+      "A",
+      "B"
+    ],
+    "Q79": [
+      "C"
+    ],
+    "Q83": [
+      "B"
+    ],
+    "Q85": [
+      "C"
+    ],
+    "Q99": [
+      "B"
+    ]
+  },
+  "pilot": [
+    "Q102",
+    "Q28",
+    "Q66",
+    "Q40",
+    "Q08",
+    "Q15",
+    "Q68",
+    "Q51",
+    "Q74",
+    "Q73",
+    "Q82",
+    "Q17",
+    "Q71",
+    "Q70",
+    "Q69",
+    "Q75",
+    "Q100",
+    "Q34",
+    "Q76",
+    "Q81",
+    "Q117",
+    "Q50",
+    "Q80",
+    "Q49"
+  ],
+  "coverage": {
+    "covered": 49,
+    "not_covered": 73
+  },
+  "strata_max_difference": 1,
+  "checks": "all 122 annotations, split and pilot reproducible; metadata only; references byte-identical to base; hashes consistent"
+}

@@ -43,9 +43,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/100",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/100"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -56,7 +61,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q102",
@@ -104,9 +111,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/101",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/101"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -119,7 +131,9 @@
           "Nullable(String)",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q103",
@@ -168,9 +182,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/102",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/102"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -183,7 +202,9 @@
           "UInt64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q104",
@@ -234,9 +255,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/103",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/103"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -251,7 +277,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q105",
@@ -296,9 +324,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/104",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/104"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -309,7 +342,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q106",
@@ -356,9 +391,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/105",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/105"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -369,7 +409,9 @@
         "value_types": [
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q107",
@@ -415,9 +457,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/106",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/106"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -428,7 +475,9 @@
         "value_types": [
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q108",
@@ -478,9 +527,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/107",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/107"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -495,7 +549,9 @@
           "Float64",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
     },
     {
       "id": "Q109",
@@ -544,9 +600,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/108",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/108"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -559,7 +620,9 @@
           "UInt8",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q110",
@@ -610,9 +673,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/109",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/109"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -627,7 +695,9 @@
           "Nullable(Float64)",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q111",
@@ -678,9 +748,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/110",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/110"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -695,7 +770,9 @@
           "Nullable(Float64)",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q112",
@@ -749,9 +826,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/111",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/111"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -768,7 +850,9 @@
           "UInt64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺门店经理员工键：ads.dim_store 只有经理姓名和职级，参考要求按 EmployeeKey 分组并输出该键。"
     },
     {
       "id": "Q113",
@@ -821,9 +905,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/112",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/112"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -840,7 +929,9 @@
           "UInt8",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q114",
@@ -888,9 +979,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/113",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/113"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -903,7 +999,9 @@
           "Date",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q115",
@@ -953,9 +1051,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/114",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/114"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -970,7 +1073,9 @@
           "String",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q116",
@@ -1019,9 +1124,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/115",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/115"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1034,7 +1144,9 @@
           "Date",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q117",
@@ -1150,9 +1262,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/116",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/116"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -1230,7 +1347,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q118",
@@ -1281,9 +1400,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/117",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/117"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1296,7 +1420,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q119",
@@ -1377,9 +1503,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/118",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/118"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1423,7 +1554,9 @@
           ],
           "output_order": []
         }
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q120",
@@ -1476,9 +1609,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/119",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/119"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1495,7 +1633,9 @@
           "UInt64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q121",
@@ -1566,9 +1706,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/120",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/120"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1583,7 +1728,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q122",
@@ -1620,9 +1767,14 @@
           ],
           "notes": "遵守冻结企业约定；题干补充的时间、对象及统计定义优先，不增设企业规则。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/121",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/121"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": 10,
@@ -1651,7 +1803,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     }
   ]
 }
