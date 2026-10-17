@@ -1,6 +1,6 @@
 {
   "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
-  "current_ordered_references": 25,
+  "current_ordered_references": 22,
   "original_ordered_validation_references": 18,
   "current_records": [
     {
@@ -78,7 +78,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760"
+      "sql_sha256": "412ea5733b01c1c9d94101a6a3a03f33b98277c842b2a0b13ec39830cb0b3467"
     },
     {
       "question_id": "Q33",
@@ -124,49 +124,6 @@
       "sql_sha256": "3338a6c5414633be6d4712f8210fe531ca2bd7b73eb8e42f5d85f2fe73c803f4"
     },
     {
-      "question_id": "Q33",
-      "reference": "refs/cube/Q33-2.csv",
-      "order_clause": "co_order_count DESC,product1_key,product2_key",
-      "order_by": [
-        {
-          "column": 4,
-          "descending": true
-        },
-        {
-          "column": 0,
-          "descending": false
-        },
-        {
-          "column": 1,
-          "descending": false
-        }
-      ],
-      "columns": [
-        {
-          "name": "product1_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product2_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product1",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "product2",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "co_order_count",
-          "type": "UInt64"
-        }
-      ],
-      "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "27b963c97b6222099165029784146109ce133abdb61fe519f02e58aebee45803"
-    },
-    {
       "question_id": "Q45",
       "reference": "refs/cube/Q45-1.csv",
       "order_clause": "sales_per_sqft DESC",
@@ -195,7 +152,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5"
+      "sql_sha256": "9583c3f0d1df5bbc81685e966b77955f4cd7f8794596e119cf1a4763ddc19a1f"
     },
     {
       "question_id": "Q46",
@@ -271,33 +228,6 @@
       "sql_sha256": "f6a9ab1cb3438e754434bf3658a3df749fe5fc2f40999eac676fac1951940991"
     },
     {
-      "question_id": "Q67",
-      "reference": "refs/cube/Q67-2.csv",
-      "order_clause": "avg_realized_price DESC",
-      "order_by": [
-        {
-          "column": 1,
-          "descending": true
-        }
-      ],
-      "columns": [
-        {
-          "name": "ColorName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "avg_realized_price",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "units",
-          "type": "Int64"
-        }
-      ],
-      "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "d976feae9173889f4241e7a4f92cd155220cb22e38e3da3db25965eb5757725a"
-    },
-    {
       "question_id": "Q69",
       "reference": "refs/cube/Q69-1.csv",
       "order_clause": "revenue DESC",
@@ -327,37 +257,6 @@
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
       "sql_sha256": "648b07f2a7b8c6494aa3ee2768f90fd133040b69832af164a2dc30c821e25ab5"
-    },
-    {
-      "question_id": "Q69",
-      "reference": "refs/cube/Q69-2.csv",
-      "order_clause": "revenue DESC",
-      "order_by": [
-        {
-          "column": 1,
-          "descending": true
-        }
-      ],
-      "columns": [
-        {
-          "name": "PromotionCategory",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "revenue",
-          "type": "Float64"
-        },
-        {
-          "name": "total_discount",
-          "type": "Float64"
-        },
-        {
-          "name": "avg_discount_pct",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc"
     },
     {
       "question_id": "Q73",
@@ -450,7 +349,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "b77e29f25761f205d396500aa185d7d6fff1ec199ab782847d68d8b1ceae461d"
+      "sql_sha256": "fea2a333c2aca94a73f0e57d608a139f6849202a0cfaf31b4d8fcd5fcaf71790"
     },
     {
       "question_id": "Q85",
@@ -489,7 +388,7 @@
         }
       ],
       "source": "existing explicit selection.output_order",
-      "sql_sha256": "d97ca6ac17e67ba2aeac6a6d22bbab9d78e00f7a5c7e1951dae4d4bf249d7245"
+      "sql_sha256": "fabe6437b34fbaddcdd6fa7ac19762521e72ddf19ad8700a877dfba22368f742"
     },
     {
       "question_id": "Q87",
@@ -524,7 +423,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "e30510dbb8363ecfb58df56742ab4325898833c34775ab6c153c76eb086ab555"
+      "sql_sha256": "8fa3caf32d462e28184172a8b76a30deabf7b25c848941496315e02aef23e817"
     },
     {
       "question_id": "Q88",

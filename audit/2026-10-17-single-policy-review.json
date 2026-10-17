@@ -1,0 +1,1758 @@
+{
+  "decision": "user 2026-10-17; supersedes prior business-policy alternatives",
+  "baseline_questions": 122,
+  "baseline_references": 165,
+  "final_references": 133,
+  "source_sha256": {
+    "conventions.md": "3a78360782c5c83eab76f8d7d43fbf70000832dacf5347df5b099d448cb55d4e",
+    "source.yaml": "ea05adc863f1f4442117c38e7b5993b9638807c3a7bb0cd02e342ed1c2c4a515"
+  },
+  "removed_references": [
+    {
+      "question_id": "Q10",
+      "reference": "refs/cube/Q10-2.csv",
+      "reason": "口径歧义：L1 DimStore.Status定义On营业，CloseDate未关店为2090哨兵而非NULL"
+    },
+    {
+      "question_id": "Q10",
+      "reference": "refs/cube/Q10-3.csv",
+      "reason": "口径歧义：同上，不用NULL或On并集替代已定义营业状态"
+    },
+    {
+      "question_id": "Q11",
+      "reference": "refs/cube/Q11-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q20",
+      "reference": "refs/cube/Q20-1.csv",
+      "reason": "口径歧义：题面按产品，L1当前库存及安全库存跨店可加，保留产品汇总后比较；不混入门店产品预警清单"
+    },
+    {
+      "question_id": "Q24",
+      "reference": "refs/cube/Q24-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q26",
+      "reference": "refs/cube/Q26-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q33",
+      "reference": "refs/cube/Q33-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q36",
+      "reference": "refs/cube/Q36-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q49",
+      "reference": "refs/cube/Q49-1.csv",
+      "reason": "展示方式：只留覆盖各级组织的完整层级展示，不另留仅顶层的示例"
+    },
+    {
+      "question_id": "Q61",
+      "reference": "refs/cube/Q61-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q62",
+      "reference": "refs/cube/Q62-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q65",
+      "reference": "refs/cube/Q65-1.csv",
+      "reason": "展示方式：用户指定只留姓名标识"
+    },
+    {
+      "question_id": "Q67",
+      "reference": "refs/cube/Q67-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q69",
+      "reference": "refs/cube/Q69-2.csv",
+      "reason": "口径歧义：L1折扣率为折扣金额/折扣前原价；不保留行折扣率简单平均"
+    },
+    {
+      "question_id": "Q71",
+      "reference": "refs/cube/Q71-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q76",
+      "reference": "refs/cube/Q76-3.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q80",
+      "reference": "refs/cube/Q80-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q86",
+      "reference": "refs/cube/Q86-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q89",
+      "reference": "refs/cube/Q89-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q90",
+      "reference": "refs/cube/Q90-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q95",
+      "reference": "refs/cube/Q95-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q99",
+      "reference": "refs/cube/Q99-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q100",
+      "reference": "refs/cube/Q100-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q102",
+      "reference": "refs/new/Q102-2.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-2.csv",
+      "reason": "口径歧义：L1新客数已明确[T-89,T]，删另一端点"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-3.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-4.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q115",
+      "reference": "refs/new/Q115-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q116",
+      "reference": "refs/new/Q116-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    },
+    {
+      "question_id": "Q121",
+      "reference": "refs/new/Q121-3.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q121",
+      "reference": "refs/new/Q121-4.csv",
+      "reason": "口径歧义：左连接孤儿关系，只保留含空品类行的参考"
+    },
+    {
+      "question_id": "Q122",
+      "reference": "refs/new/Q122-2.csv",
+      "reason": "口径歧义：所有行均算交易，删除正销量购买事件参考"
+    }
+  ],
+  "extra_reference_inventory": [
+    {
+      "question_id": "Q10",
+      "reference": "refs/cube/Q10-2.csv",
+      "interpretation": "关店日期为 SQL NULL",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q10",
+      "reference": "refs/cube/Q10-3.csv",
+      "interpretation": "状态为 On 或关店日期为 SQL NULL",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q11",
+      "reference": "refs/cube/Q11-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q20",
+      "reference": "refs/cube/Q20-2.csv",
+      "interpretation": "每个门店×产品最近快照后按产品汇总",
+      "category": "口径歧义",
+      "retained": true,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q24",
+      "reference": "refs/cube/Q24-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q26",
+      "reference": "refs/cube/Q26-2.csv",
+      "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q33",
+      "reference": "refs/cube/Q33-2.csv",
+      "interpretation": "共购按不同订单计数：每订单内产品去重；保留产品键与缺失名称。前20仅是judge示例，不是题干固定N。；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q36",
+      "reference": "refs/cube/Q36-2.csv",
+      "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q38",
+      "reference": "refs/cube/Q38-2.csv",
+      "interpretation": "准确率=100%-绝对百分比误差；题面未点名误差率或准确率，保留互补解读",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q42",
+      "reference": "refs/cube/Q42-2.csv",
+      "interpretation": "示例：年度线上毛利；需声明指标和时间范围",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q43",
+      "reference": "refs/cube/Q43-2.csv",
+      "interpretation": "按客户所在国家的毛利",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q44",
+      "reference": "refs/cube/Q44-2.csv",
+      "interpretation": "示例：逐月线上销售趋势；声明年度/月度即可，不强制唯一粒度",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q46",
+      "reference": "refs/cube/Q46-2.csv",
+      "interpretation": "示例：按职业，毛利最高的客户群体",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q48",
+      "reference": "refs/cube/Q48-2.csv",
+      "interpretation": "门店停机总时长与全渠道销售额的相关系数",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q49",
+      "reference": "refs/cube/Q49-2.csv",
+      "interpretation": "实际场景收入沿实体层级汇总，列出各级实体",
+      "category": "展示方式",
+      "retained": true,
+      "reason": "保留该完整／姓名展示，删除原第一份；该题仍仅一份"
+    },
+    {
+      "question_id": "Q61",
+      "reference": "refs/cube/Q61-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q62",
+      "reference": "refs/cube/Q62-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q65",
+      "reference": "refs/cube/Q65-2.csv",
+      "interpretation": "以经理姓名标识，同名经理不合并门店；无员工映射保留门店及NULL姓名",
+      "category": "展示方式",
+      "retained": true,
+      "reason": "保留该完整／姓名展示，删除原第一份；该题仍仅一份"
+    },
+    {
+      "question_id": "Q67",
+      "reference": "refs/cube/Q67-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q69",
+      "reference": "refs/cube/Q69-2.csv",
+      "interpretation": "成交记录的实际折扣率简单平均，须声明权重",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q71",
+      "reference": "refs/cube/Q71-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q76",
+      "reference": "refs/cube/Q76-2.csv",
+      "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度；购买事件=全部行",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q76",
+      "reference": "refs/cube/Q76-3.csv",
+      "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q80",
+      "reference": "refs/cube/Q80-2.csv",
+      "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q86",
+      "reference": "refs/cube/Q86-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）；按题面补全全部满足原样本下限的子品类，不截前20",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q89",
+      "reference": "refs/cube/Q89-2.csv",
+      "interpretation": "原参考解读；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q90",
+      "reference": "refs/cube/Q90-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q95",
+      "reference": "refs/cube/Q95-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q97",
+      "reference": "refs/cube/Q97-2.csv",
+      "interpretation": "示例：按H2较H1的增加额排序，取前15名，不设H1下限",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-2.csv",
+      "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q99",
+      "reference": "refs/cube/Q99-2.csv",
+      "interpretation": "原参考解读；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q100",
+      "reference": "refs/cube/Q100-2.csv",
+      "interpretation": "购买事件=SalesQuantity>0；正销量订单数及客单价的两个P90阈值交集，含阈值并列",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q102",
+      "reference": "refs/new/Q102-2.csv",
+      "interpretation": "遵守企业约定及题干限定口径；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-2.csv",
+      "interpretation": "不含截止日[T-90,T)；购买事件=全部行",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-3.csv",
+      "interpretation": "含截止日[T-89,T]；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q114",
+      "reference": "refs/new/Q114-4.csv",
+      "interpretation": "不含截止日[T-90,T)；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q115",
+      "reference": "refs/new/Q115-2.csv",
+      "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q116",
+      "reference": "refs/new/Q116-2.csv",
+      "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q119",
+      "reference": "refs/new/Q119-2.csv",
+      "interpretation": "声明稠密排名1、1、2",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q121",
+      "reference": "refs/new/Q121-2.csv",
+      "interpretation": "声明样本标准差（除以11）",
+      "category": "问法歧义",
+      "retained": true,
+      "reason": "问法未指定分析维度／范围／方法，不以额外业务定义伪造多解；未定默认另列缺口"
+    },
+    {
+      "question_id": "Q121",
+      "reference": "refs/new/Q121-3.csv",
+      "interpretation": "声明总体标准差（除以12）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q121",
+      "reference": "refs/new/Q121-4.csv",
+      "interpretation": "声明样本标准差（除以11）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    },
+    {
+      "question_id": "Q122",
+      "reference": "refs/new/Q122-2.csv",
+      "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
+      "category": "口径歧义",
+      "retained": false,
+      "reason": "遵守已定义L1／本轮裁决，只保留规范参考"
+    }
+  ],
+  "question_text_review": [
+    {
+      "question_id": "Q01",
+      "changed": false,
+      "old_text_zh": "产品目录中共有多少种产品？",
+      "new_text_zh": "产品目录中共有多少种产品？",
+      "old_text_en": "How many products are in the catalog?",
+      "new_text_en": "How many products are in the catalog?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q02",
+      "changed": false,
+      "old_text_zh": "线上销售额合计是多少？",
+      "new_text_zh": "线上销售额合计是多少？",
+      "old_text_en": "What is the total sales amount from online sales?",
+      "new_text_en": "What is the total sales amount from online sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q03",
+      "changed": false,
+      "old_text_zh": "有多少位客户在线上购买过商品？",
+      "new_text_zh": "有多少位客户在线上购买过商品？",
+      "old_text_en": "How many unique customers have made online purchases?",
+      "new_text_en": "How many unique customers have made online purchases?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q04",
+      "changed": false,
+      "old_text_zh": "列出 Contoso 品牌的所有产品。",
+      "new_text_zh": "列出 Contoso 品牌的所有产品。",
+      "old_text_en": "List all products from the brand Contoso",
+      "new_text_en": "List all products from the brand Contoso",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q05",
+      "changed": false,
+      "old_text_zh": "各产品品类分别有多少种产品？",
+      "new_text_zh": "各产品品类分别有多少种产品？",
+      "old_text_en": "How many products are there in each product category?",
+      "new_text_en": "How many products are there in each product category?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q06",
+      "changed": false,
+      "old_text_zh": "2009 年的线上销售额是多少？",
+      "new_text_zh": "2009 年的线上销售额是多少？",
+      "old_text_en": "What were the total online sales in 2009?",
+      "new_text_en": "What were the total online sales in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q07",
+      "changed": true,
+      "old_text_zh": "按产品单价，最贵的前 10 款产品是哪些？",
+      "new_text_zh": "最贵的前10款产品是哪些？",
+      "old_text_en": "What are the top 10 most expensive products by unit price?",
+      "new_text_en": "What are the top 10 most expensive products by unit price?",
+      "reason": "约定9；删除已定义的产品标价提示，保留前10参数",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q08",
+      "changed": false,
+      "old_text_zh": "列出所有销售人员。",
+      "new_text_zh": "列出所有销售人员。",
+      "old_text_en": "List all employees who are sales people",
+      "new_text_en": "List all employees who are sales people",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q09",
+      "changed": false,
+      "old_text_zh": "所有产品的平均单位成本是多少？",
+      "new_text_zh": "所有产品的平均单位成本是多少？",
+      "old_text_en": "What is the average unit cost across all products?",
+      "new_text_en": "What is the average unit cost across all products?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q10",
+      "changed": false,
+      "old_text_zh": "目前有多少家门店在营业？",
+      "new_text_zh": "目前有多少家门店在营业？",
+      "old_text_en": "How many stores are currently open?",
+      "new_text_en": "How many stores are currently open?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q11",
+      "changed": false,
+      "old_text_zh": "按产品品类汇总销售额。",
+      "new_text_zh": "按产品品类汇总销售额。",
+      "old_text_en": "Show total sales amount by product category",
+      "new_text_en": "Show total sales amount by product category",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q12",
+      "changed": false,
+      "old_text_zh": "2008 年各月的线上销售额分别是多少？",
+      "new_text_zh": "2008 年各月的线上销售额分别是多少？",
+      "old_text_en": "What were the monthly online sales for 2008?",
+      "new_text_en": "What were the monthly online sales for 2008?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q13",
+      "changed": false,
+      "old_text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
+      "new_text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
+      "old_text_en": "For each store, show total sales, average order value, and number of transactions",
+      "new_text_en": "For each store, show total sales, average order value, and number of transactions",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q14",
+      "changed": false,
+      "old_text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "new_text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "old_text_en": "Which customers have spent more than $10,000 in total?",
+      "new_text_en": "Which customers have spent more than $10,000 in total?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q15",
+      "changed": false,
+      "old_text_zh": "各国家的线上销售额是多少？",
+      "new_text_zh": "各国家的线上销售额是多少？",
+      "old_text_en": "What are the total online sales by country?",
+      "new_text_en": "What are the total online sales by country?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q16",
+      "changed": false,
+      "old_text_zh": "比较 2008 年和 2009 年的线上销售总额。",
+      "new_text_zh": "比较 2008 年和 2009 年的线上销售总额。",
+      "old_text_en": "Compare total online sales between 2008 and 2009",
+      "new_text_en": "Compare total online sales between 2008 and 2009",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q17",
+      "changed": false,
+      "old_text_zh": "周末和工作日的销售分别占多少比例？",
+      "new_text_zh": "周末和工作日的销售分别占多少比例？",
+      "old_text_en": "What percentage of sales occur on weekends vs weekdays?",
+      "new_text_en": "What percentage of sales occur on weekends vs weekdays?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q18",
+      "changed": false,
+      "old_text_zh": "各种促销类型分别提供了多少累计折扣金额？",
+      "new_text_zh": "各种促销类型分别提供了多少累计折扣金额？",
+      "old_text_en": "What is the total discount amount given by each promotion type?",
+      "new_text_en": "What is the total discount amount given by each promotion type?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q19",
+      "changed": false,
+      "old_text_zh": "不同性别客户的客单价分别是多少？",
+      "new_text_zh": "不同性别客户的客单价分别是多少？",
+      "old_text_en": "What is the average order value by customer gender?",
+      "new_text_en": "What is the average order value by customer gender?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q20",
+      "changed": false,
+      "old_text_zh": "哪些产品目前的库存低于安全库存水平？",
+      "new_text_zh": "哪些产品目前的库存低于安全库存水平？",
+      "old_text_en": "Which products currently have inventory below their safety stock level?",
+      "new_text_en": "Which products currently have inventory below their safety stock level?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q21",
+      "changed": false,
+      "old_text_zh": "各门店每种产品目前的库存是多少？",
+      "new_text_zh": "各门店每种产品目前的库存是多少？",
+      "old_text_en": "What is the current inventory level for each product in each store?",
+      "new_text_en": "What is the current inventory level for each product in each store?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q22",
+      "changed": false,
+      "old_text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
+      "new_text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
+      "old_text_en": "Rank the top 5 customers by total spend in each country",
+      "new_text_en": "Rank the top 5 customers by total spend in each country",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q23",
+      "changed": false,
+      "old_text_zh": "展示 2009 年逐月累计销售额。",
+      "new_text_zh": "展示 2009 年逐月累计销售额。",
+      "old_text_en": "Show cumulative monthly sales for 2009",
+      "new_text_en": "Show cumulative monthly sales for 2009",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q24",
+      "changed": false,
+      "old_text_zh": "各产品品类的退货率是多少？",
+      "new_text_zh": "各产品品类的退货率是多少？",
+      "old_text_en": "What is the return rate by product category?",
+      "new_text_en": "What is the return rate by product category?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q25",
+      "changed": false,
+      "old_text_zh": "在北美，哪个季节的日均销售额最高？",
+      "new_text_zh": "在北美，哪个季节的日均销售额最高？",
+      "old_text_en": "Which season has the highest average daily sales in North America?",
+      "new_text_en": "Which season has the highest average daily sales in North America?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q26",
+      "changed": false,
+      "old_text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
+      "new_text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
+      "old_text_en": "How many customers made their first purchase in each quarter of 2007?",
+      "new_text_en": "How many customers made their first purchase in each quarter of 2007?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q27",
+      "changed": false,
+      "old_text_zh": "按利润率排名，前 10 款产品是哪些？",
+      "new_text_zh": "按利润率排名，前 10 款产品是哪些？",
+      "old_text_en": "What are the top 10 products by profit margin percentage?",
+      "new_text_en": "What are the top 10 products by profit margin percentage?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q28",
+      "changed": false,
+      "old_text_zh": "比较门店渠道和线上渠道的平均交易金额。",
+      "new_text_zh": "比较门店渠道和线上渠道的平均交易金额。",
+      "old_text_en": "Compare average transaction value between Store and Online channels",
+      "new_text_en": "Compare average transaction value between Store and Online channels",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q29",
+      "changed": false,
+      "old_text_zh": "节假日相比普通日，销售多或少了百分之多少？",
+      "new_text_zh": "节假日相比普通日，销售多或少了百分之多少？",
+      "old_text_en": "What percentage more or less do we sell on holidays compared to regular days?",
+      "new_text_en": "What percentage more or less do we sell on holidays compared to regular days?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q30",
+      "changed": false,
+      "old_text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
+      "new_text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
+      "old_text_en": "Calculate a 7-day moving average of daily online sales for December 2009",
+      "new_text_en": "Calculate a 7-day moving average of daily online sales for December 2009",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q31",
+      "changed": false,
+      "old_text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
+      "new_text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
+      "old_text_en": "Compare actual sales revenue to budget for each product category in 2009",
+      "new_text_en": "Compare actual sales revenue to budget for each product category in 2009",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q32",
+      "changed": false,
+      "old_text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
+      "new_text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
+      "old_text_en": "What is the total lifetime value for customers who made purchases in all 3 years?",
+      "new_text_en": "What is the total lifetime value for customers who made purchases in all 3 years?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q33",
+      "changed": false,
+      "old_text_zh": "同一订单中，哪些产品最常被一起购买？",
+      "new_text_zh": "同一订单中，哪些产品最常被一起购买？",
+      "old_text_en": "Which products are most frequently purchased together in the same order?",
+      "new_text_en": "Which products are most frequently purchased together in the same order?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q34",
+      "changed": false,
+      "old_text_zh": "计算 2009 年各产品的库存周转率。",
+      "new_text_zh": "计算 2009 年各产品的库存周转率。",
+      "old_text_en": "Calculate inventory turnover ratio by product for 2009",
+      "new_text_en": "Calculate inventory turnover ratio by product for 2009",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q35",
+      "changed": false,
+      "old_text_zh": "列出所有员工及其上级经理的姓名。",
+      "new_text_zh": "列出所有员工及其上级经理的姓名。",
+      "old_text_en": "List all employees and their manager's name",
+      "new_text_en": "List all employees and their manager's name",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q36",
+      "changed": true,
+      "old_text_zh": "根据距最近一次购买的时间，将客户划分为活跃、有流失风险和已流失。",
+      "new_text_zh": "将客户划分为活跃、有流失风险和已流失。",
+      "old_text_en": "Classify customers into Active, At Risk, and Churned based on recency",
+      "new_text_en": "Classify customers into Active, At Risk, and Churned based on recency",
+      "reason": "约定13；删除按最近购买时间分层的定义提示",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q37",
+      "changed": false,
+      "old_text_zh": "展示各门店的销售总额及其百分位排名。",
+      "new_text_zh": "展示各门店的销售总额及其百分位排名。",
+      "old_text_en": "Show each store's total sales and its percentile rank",
+      "new_text_en": "Show each store's total sales and its percentile rank",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q38",
+      "changed": false,
+      "old_text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
+      "new_text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
+      "old_text_en": "How accurate were the sales forecasts compared to actuals for Q4 2009?",
+      "new_text_en": "How accurate were the sales forecasts compared to actuals for Q4 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q39",
+      "changed": false,
+      "old_text_zh": "按子品类分析，新产品上市是否影响了老产品的销售？",
+      "new_text_zh": "按子品类分析，新产品上市是否影响了老产品的销售？",
+      "old_text_en": "Analyze if new product introductions affected existing product sales by subcategory",
+      "new_text_en": "Analyze if new product introductions affected existing product sales by subcategory",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q40",
+      "changed": false,
+      "old_text_zh": "如果采用每日收盘汇率折算，线上销售额相当于多少欧元？",
+      "new_text_zh": "如果采用每日收盘汇率折算，线上销售额相当于多少欧元？",
+      "old_text_en": "What would online sales have been in EUR using end-of-day exchange rates?",
+      "new_text_en": "What would online sales have been in EUR using end-of-day exchange rates?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q41",
+      "changed": false,
+      "old_text_zh": "上季度销售额是多少？",
+      "new_text_zh": "上季度销售额是多少？",
+      "old_text_en": "What were last quarter's sales?",
+      "new_text_en": "What were last quarter's sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q42",
+      "changed": false,
+      "old_text_zh": "相机品类的经营表现如何？",
+      "new_text_zh": "相机品类的经营表现如何？",
+      "old_text_en": "How is the Cameras category performing?",
+      "new_text_en": "How is the Cameras category performing?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q43",
+      "changed": false,
+      "old_text_zh": "按地区展示毛利。",
+      "new_text_zh": "按地区展示毛利。",
+      "old_text_en": "Show me the gross margin by region",
+      "new_text_en": "Show me the gross margin by region",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q44",
+      "changed": false,
+      "old_text_zh": "线上销售在增长吗？",
+      "new_text_zh": "线上销售在增长吗？",
+      "old_text_en": "Are online sales growing?",
+      "new_text_en": "Are online sales growing?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q45",
+      "changed": true,
+      "old_text_zh": "哪些门店的销售平效最高（按每平方英尺销售额计算）？",
+      "new_text_zh": "哪些门店的销售坪效最高？",
+      "old_text_en": "Which stores have the best sales per square foot?",
+      "new_text_en": "Which stores have the best sales per square foot?",
+      "reason": "L1坪效；删除括号中销售额除以面积的定义",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q46",
+      "changed": false,
+      "old_text_zh": "哪个客户群体带来的利润最多？",
+      "new_text_zh": "哪个客户群体带来的利润最多？",
+      "old_text_en": "What's our most profitable customer segment?",
+      "new_text_en": "What's our most profitable customer segment?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q47",
+      "changed": false,
+      "old_text_zh": "各门店的机器平均停机时长是多少？",
+      "new_text_zh": "各门店的机器平均停机时长是多少？",
+      "old_text_en": "What's the average machine downtime per store?",
+      "new_text_en": "What's the average machine downtime per store?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q48",
+      "changed": false,
+      "old_text_zh": "IT 故障与销售表现之间有相关关系吗？",
+      "new_text_zh": "IT 故障与销售表现之间有相关关系吗？",
+      "old_text_en": "Is there a correlation between IT outages and sales performance?",
+      "new_text_en": "Is there a correlation between IT outages and sales performance?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q49",
+      "changed": false,
+      "old_text_zh": "按组织层级汇总销售收入。",
+      "new_text_zh": "按组织层级汇总销售收入。",
+      "old_text_en": "Roll up sales to the entity hierarchy level",
+      "new_text_en": "Roll up sales to the entity hierarchy level",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q50",
+      "changed": true,
+      "old_text_zh": "仅比较2008年和2009年均有销售的门店，其销售总额增长了多少？",
+      "new_text_zh": "2009年同店销售总额比2008年增长了多少？",
+      "old_text_en": "What's the same-store sales growth comparing 2009 to 2008?",
+      "new_text_en": "What's the same-store sales growth comparing 2009 to 2008?",
+      "reason": "约定15；用同店一词替代两年均有销售的定义，保留年份",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q51",
+      "changed": false,
+      "old_text_zh": "共有多少家门店？",
+      "new_text_zh": "共有多少家门店？",
+      "old_text_en": "How many stores are there in total?",
+      "new_text_en": "How many stores are there in total?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q52",
+      "changed": false,
+      "old_text_zh": "产品目录中的最高单价是多少？",
+      "new_text_zh": "产品目录中的最高单价是多少？",
+      "old_text_en": "What is the highest unit price in the product catalog?",
+      "new_text_en": "What is the highest unit price in the product catalog?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q53",
+      "changed": false,
+      "old_text_zh": "2009年总共有多少笔线上订单？",
+      "new_text_zh": "2009年总共有多少笔线上订单？",
+      "old_text_en": "How many online orders were placed in 2009?",
+      "new_text_en": "How many online orders were placed in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q54",
+      "changed": false,
+      "old_text_zh": "线上销售的退货金额合计是多少？",
+      "new_text_zh": "线上销售的退货金额合计是多少？",
+      "old_text_en": "What is the total return amount from online sales?",
+      "new_text_en": "What is the total return amount from online sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q55",
+      "changed": false,
+      "old_text_zh": "客户库中有多少位女性客户？",
+      "new_text_zh": "客户库中有多少位女性客户？",
+      "old_text_en": "How many female customers are in the database?",
+      "new_text_en": "How many female customers are in the database?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q56",
+      "changed": false,
+      "old_text_zh": "客户的平均年收入是多少？",
+      "new_text_zh": "客户的平均年收入是多少？",
+      "old_text_en": "What is the average yearly income of our customers?",
+      "new_text_en": "What is the average yearly income of our customers?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q57",
+      "changed": false,
+      "old_text_zh": "我们有多少个不同的产品品牌？",
+      "new_text_zh": "我们有多少个不同的产品品牌？",
+      "old_text_en": "How many distinct product brands do we carry?",
+      "new_text_en": "How many distinct product brands do we carry?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q58",
+      "changed": false,
+      "old_text_zh": "历史上金额最大的一笔线上销售是多少？",
+      "new_text_zh": "历史上金额最大的一笔线上销售是多少？",
+      "old_text_en": "What was the largest single online sale amount ever recorded?",
+      "new_text_en": "What was the largest single online sale amount ever recorded?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q59",
+      "changed": false,
+      "old_text_zh": "日历中共有多少个节假日？",
+      "new_text_zh": "日历中共有多少个节假日？",
+      "old_text_en": "How many holidays are on the calendar?",
+      "new_text_en": "How many holidays are on the calendar?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q60",
+      "changed": false,
+      "old_text_zh": "生产部门共有多少名员工？",
+      "new_text_zh": "生产部门共有多少名员工？",
+      "old_text_en": "How many employees work in the Production department?",
+      "new_text_en": "How many employees work in the Production department?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q61",
+      "changed": false,
+      "old_text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
+      "new_text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
+      "old_text_en": "Which product subcategories generated more than $1 million in online sales in 2009?",
+      "new_text_en": "Which product subcategories generated more than $1 million in online sales in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q62",
+      "changed": false,
+      "old_text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
+      "new_text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
+      "old_text_en": "For each product brand, show total online revenue and units sold in 2008, listing only brands with at least 500 units.",
+      "new_text_en": "For each product brand, show total online revenue and units sold in 2008, listing only brands with at least 500 units.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q63",
+      "changed": false,
+      "old_text_zh": "按客户职业统计线上客单价。",
+      "new_text_zh": "按客户职业统计线上客单价。",
+      "old_text_en": "What is the average online order value by customer occupation?",
+      "new_text_en": "What is the average online order value by customer occupation?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q64",
+      "changed": false,
+      "old_text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
+      "new_text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
+      "old_text_en": "Show monthly online gross margin dollars and margin percent for 2009.",
+      "new_text_en": "Show monthly online gross margin dollars and margin percent for 2009.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q65",
+      "changed": false,
+      "old_text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
+      "new_text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
+      "old_text_en": "Which store managers run stores with more than $5M in total all-channel sales?",
+      "new_text_en": "Which store managers run stores with more than $5M in total all-channel sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q66",
+      "changed": true,
+      "old_text_zh": "2009 年各季度累计提供了多少折扣金额？不计无折扣交易。",
+      "new_text_zh": "2009年各季度累计提供了多少折扣金额？",
+      "old_text_en": "What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?",
+      "new_text_en": "What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?",
+      "reason": "约定10；删除排除无折扣交易的定义提示",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q67",
+      "changed": false,
+      "old_text_zh": "哪些产品颜色的线上实际成交均价最高？仅考虑销量至少 1000 件的颜色。",
+      "new_text_zh": "哪些产品颜色的线上实际成交均价最高？仅考虑销量至少 1000 件的颜色。",
+      "old_text_en": "Which product colors have the highest average online unit price realized, among colors with at least 1000 units sold?",
+      "new_text_en": "Which product colors have the highest average online unit price realized, among colors with at least 1000 units sold?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q68",
+      "changed": false,
+      "old_text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
+      "new_text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
+      "old_text_en": "How many online orders were placed on holidays vs non-holidays in 2009, and the revenue for each?",
+      "new_text_en": "How many online orders were placed on holidays vs non-holidays in 2009, and the revenue for each?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q69",
+      "changed": false,
+      "old_text_zh": "哪些促销类别带来的线上促销营收最高？各自的平均折扣比例是多少？",
+      "new_text_zh": "哪些促销类别带来的线上促销营收最高？各自的平均折扣比例是多少？",
+      "old_text_en": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
+      "new_text_en": "Which promotion categories drove the most discounted online revenue, and what average discount percent did they achieve?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q70",
+      "changed": false,
+      "old_text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
+      "new_text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
+      "old_text_en": "For each store type, what are the total all-channel sales and average selling area size?",
+      "new_text_en": "For each store type, what are the total all-channel sales and average selling area size?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q71",
+      "changed": false,
+      "old_text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
+      "new_text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
+      "old_text_en": "For each product category, which subcategory had the highest online sales in 2009, and what was that amount?",
+      "new_text_en": "For each product category, which subcategory had the highest online sales in 2009, and what was that amount?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q72",
+      "changed": false,
+      "old_text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
+      "new_text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
+      "old_text_en": "Show the running cumulative total of online sales by quarter across 2007-2009.",
+      "new_text_en": "Show the running cumulative total of online sales by quarter across 2007-2009.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q73",
+      "changed": false,
+      "old_text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
+      "new_text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
+      "old_text_en": "Which 10 products have the largest gap between their current on-hand inventory and safety stock level?",
+      "new_text_en": "Which 10 products have the largest gap between their current on-hand inventory and safety stock level?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q74",
+      "changed": false,
+      "old_text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
+      "new_text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
+      "old_text_en": "For each store, rank the top 3 products by sales in 2009 and show each product's share of the store's total.",
+      "new_text_en": "For each store, rank the top 3 products by sales in 2009 and show each product's share of the store's total.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q75",
+      "changed": false,
+      "old_text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
+      "new_text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
+      "old_text_en": "Which customers increased their spending by more than 50% from 2008 to 2009?",
+      "new_text_en": "Which customers increased their spending by more than 50% from 2008 to 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q76",
+      "changed": false,
+      "old_text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
+      "new_text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
+      "old_text_en": "For each product category, what percentage of total online sales came from repeat customers (customers with 2+ orders)?",
+      "new_text_en": "For each product category, what percentage of total online sales came from repeat customers (customers with 2+ orders)?",
+      "reason": "至少2笔订单是题面明确阈值，L1没有回头客范围定义；保留阈值，全目录／品类内累计的问法歧义列缺口G06",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q77",
+      "changed": false,
+      "old_text_zh": "计算 2009 年各月线上销售额的环比增长率。",
+      "new_text_zh": "计算 2009 年各月线上销售额的环比增长率。",
+      "old_text_en": "For each month in 2009, what is the month-over-month growth rate of online sales?",
+      "new_text_en": "For each month in 2009, what is the month-over-month growth rate of online sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q78",
+      "changed": false,
+      "old_text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
+      "new_text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
+      "old_text_en": "Rank promotion categories by total discount amount given in 2009, and show each one's share of all discounts.",
+      "new_text_en": "Rank promotion categories by total discount amount given in 2009, and show each one's share of all discounts.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q79",
+      "changed": false,
+      "old_text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
+      "new_text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
+      "old_text_en": "Which 10 stores had the highest sales-to-quota attainment in 2009?",
+      "new_text_en": "Which 10 stores had the highest sales-to-quota attainment in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q80",
+      "changed": false,
+      "old_text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
+      "new_text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
+      "old_text_en": "For each country, what is the average days between a customer's first and most recent purchase?",
+      "new_text_en": "For each country, what is the average days between a customer's first and most recent purchase?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q81",
+      "changed": false,
+      "old_text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
+      "new_text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
+      "old_text_en": "Compute the average customer lifetime value broken down by the year each customer first made a purchase, and include how many customers fall into each cohort.",
+      "new_text_en": "Compute the average customer lifetime value broken down by the year each customer first made a purchase, and include how many customers fall into each cohort.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q82",
+      "changed": false,
+      "old_text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
+      "new_text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
+      "old_text_en": "For each manager with direct reports, show how many people they manage and the average hire tenure of their team in years.",
+      "new_text_en": "For each manager with direct reports, show how many people they manage and the average hire tenure of their team in years.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q83",
+      "changed": false,
+      "old_text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
+      "new_text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
+      "old_text_en": "Show the year-over-year retention: of customers who first bought in 2007, how many came back in 2008, and of those how many came back again in 2009?",
+      "new_text_en": "Show the year-over-year retention: of customers who first bought in 2007, how many came back in 2008, and of those how many came back again in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q84",
+      "changed": false,
+      "old_text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
+      "new_text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
+      "old_text_en": "Perform ABC analysis on products for 2009: identify the 'A' products (top 80% of revenue), 'B' (next 15%), and 'C' (remaining 5%), and report how many products fall in each class.",
+      "new_text_en": "Perform ABC analysis on products for 2009: identify the 'A' products (top 80% of revenue), 'B' (next 15%), and 'C' (remaining 5%), and report how many products fall in each class.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q85",
+      "changed": true,
+      "old_text_zh": "计算各门店 2009 年的销售目标达成率（实际销售额÷目标销售额），列出最高和最低的各 5 家门店。",
+      "new_text_zh": "2009年各门店的销售目标达成率是多少？列出最高和最低的各5家门店。",
+      "old_text_en": "Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.",
+      "new_text_en": "Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.",
+      "reason": "约定12；删除实际销售额除以目标销售额的公式，保留年份及两端前5",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q86",
+      "changed": false,
+      "old_text_zh": "分析折扣力度与销量的关系：按产品子品类展示 2009 年促销折扣比例与销售数量的相关系数。",
+      "new_text_zh": "分析折扣力度与销量的关系：按产品子品类展示 2009 年促销折扣比例与销售数量的相关系数。",
+      "old_text_en": "Analyze the relationship between discount depth and sales volume: for each product subcategory, show the correlation between promotion discount percent and sales quantity in 2009.",
+      "new_text_en": "Analyze the relationship between discount depth and sales volume: for each product subcategory, show the correlation between promotion discount percent and sales quantity in 2009.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q87",
+      "changed": false,
+      "old_text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
+      "new_text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
+      "old_text_en": "Calculate days-of-inventory-coverage per product: current on-hand quantity divided by average daily sales quantity in the last 90 days of 2009. Show the 20 products with the lowest coverage.",
+      "new_text_en": "Calculate days-of-inventory-coverage per product: current on-hand quantity divided by average daily sales quantity in the last 90 days of 2009. Show the 20 products with the lowest coverage.",
+      "reason": "库存可售天数未收录L1，其公式是题目明确提出的计算要求，保留；日均销量自身遵守L1，90天观察窗口和前20参数保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q88",
+      "changed": false,
+      "old_text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
+      "new_text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
+      "old_text_en": "Identify loyal customers who made at least one purchase in every quarter of 2009, and show their total spend ranked highest to lowest (top 20).",
+      "new_text_en": "Identify loyal customers who made at least one purchase in every quarter of 2009, and show their total spend ranked highest to lowest (top 20).",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q89",
+      "changed": true,
+      "old_text_zh": "按距最近一次购买的时间，将每位客户分为活跃、有流失风险和已流失，再计算各组客户的平均消费额和平均购买产品种类数（去重）。",
+      "new_text_zh": "将客户分为活跃、有流失风险和已流失，计算各组客户的平均消费额和平均购买产品种类数。",
+      "old_text_en": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
+      "new_text_en": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
+      "reason": "约定13及L1产品数；删除分层和去重的定义提示",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q90",
+      "changed": false,
+      "old_text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
+      "new_text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
+      "old_text_en": "Compute the gross margin percentage trend by product category across 2007, 2008, and 2009 and show the year-over-year change in margin in percentage points.",
+      "new_text_en": "Compute the gross margin percentage trend by product category across 2007, 2008, and 2009 and show the year-over-year change in margin in percentage points.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q91",
+      "changed": false,
+      "old_text_zh": "客户年收入与其线上消费额之间有关联吗？",
+      "new_text_zh": "客户年收入与其线上消费额之间有关联吗？",
+      "old_text_en": "Is there a relationship between a customer's yearly income and how much they spend online?",
+      "new_text_en": "Is there a relationship between a customer's yearly income and how much they spend online?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q92",
+      "changed": false,
+      "old_text_zh": "上季度哪些产品品牌的盈利能力最强？",
+      "new_text_zh": "上季度哪些产品品牌的盈利能力最强？",
+      "old_text_en": "Which product brands were our most profitable last quarter?",
+      "new_text_en": "Which product brands were our most profitable last quarter?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q93",
+      "changed": false,
+      "old_text_zh": "促销折扣比例越大，真的能带来更多销量吗？有价格弹性的证据吗？",
+      "new_text_zh": "促销折扣比例越大，真的能带来更多销量吗？有价格弹性的证据吗？",
+      "old_text_en": "Is there evidence of price elasticity — do bigger discount percentages actually move more units across our promotions?",
+      "new_text_en": "Is there evidence of price elasticity — do bigger discount percentages actually move more units across our promotions?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q94",
+      "changed": false,
+      "old_text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
+      "new_text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
+      "old_text_en": "Which of our stores look like they're losing momentum going into year-end — sales trending down from Q3 to Q4 2009?",
+      "new_text_en": "Which of our stores look like they're losing momentum going into year-end — sales trending down from Q3 to Q4 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q95",
+      "changed": false,
+      "old_text_zh": "与按原价销售相比，各产品品类的促销实际带来了多少增量营收？",
+      "new_text_zh": "与按原价销售相比，各产品品类的促销实际带来了多少增量营收？",
+      "old_text_en": "How much incremental revenue do our promotions actually drive per product category compared to what we sell at full price?",
+      "new_text_en": "How much incremental revenue do our promotions actually drive per product category compared to what we sell at full price?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q96",
+      "changed": false,
+      "old_text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
+      "new_text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
+      "old_text_en": "For each yearly customer cohort, what fraction actually came back and bought again in a later year?",
+      "new_text_en": "For each yearly customer cohort, what fraction actually came back and bought again in a later year?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q97",
+      "changed": false,
+      "old_text_zh": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
+      "new_text_zh": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
+      "old_text_en": "Which products had the biggest second-half comeback in 2009 — meaning H2 sales dramatically exceeded H1?",
+      "new_text_en": "Which products had the biggest second-half comeback in 2009 — meaning H2 sales dramatically exceeded H1?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q98",
+      "changed": false,
+      "old_text_zh": "哪些产品品类的全年销售最依赖某一个季度？",
+      "new_text_zh": "哪些产品品类的全年销售最依赖某一个季度？",
+      "old_text_en": "Which product categories depend most heavily on a single quarter for their annual sales?",
+      "new_text_en": "Which product categories depend most heavily on a single quarter for their annual sales?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q99",
+      "changed": false,
+      "old_text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
+      "new_text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
+      "old_text_en": "For each product category, how much bigger is an average weekend day compared to an average weekday?",
+      "new_text_en": "For each product category, how much bigger is an average weekend day compared to an average weekday?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q100",
+      "changed": false,
+      "old_text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
+      "new_text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
+      "old_text_en": "Who are our true power customers — people who are both in the top 10% by order count AND top 10% by average order size?",
+      "new_text_en": "Who are our true power customers — people who are both in the top 10% by order count AND top 10% by average order size?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留",
+      "english_anchor_identity_preserved": true
+    },
+    {
+      "question_id": "Q101",
+      "changed": false,
+      "old_text_zh": "上季度的GMV是多少？",
+      "new_text_zh": "上季度的GMV是多少？",
+      "old_text_en": "What was GMV last quarter?",
+      "new_text_en": "What was GMV last quarter?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q102",
+      "changed": false,
+      "old_text_zh": "今年各产品品类的净销售额是多少？",
+      "new_text_zh": "今年各产品品类的净销售额是多少？",
+      "old_text_en": "What was net sales by product category this year?",
+      "new_text_en": "What was net sales by product category this year?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q103",
+      "changed": false,
+      "old_text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "new_text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "old_text_en": "How many 2009 orders exceeded USD 1,000, and what percentage of annual sales did they contribute?",
+      "new_text_en": "How many 2009 orders exceeded USD 1,000, and what percentage of annual sales did they contribute?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q104",
+      "changed": false,
+      "old_text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "new_text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "old_text_en": "Which categories increased revenue but decreased gross profit from 2008 to 2009, and by how much?",
+      "new_text_en": "Which categories increased revenue but decreased gross profit from 2008 to 2009, and by how much?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q105",
+      "changed": false,
+      "old_text_zh": "西雅图2号店2009年卖了多少？",
+      "new_text_zh": "西雅图2号店2009年卖了多少？",
+      "old_text_en": "What were 2009 sales at Seattle No.2 Store?",
+      "new_text_en": "What were 2009 sales at Seattle No.2 Store?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q106",
+      "changed": false,
+      "old_text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "new_text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "old_text_en": "By what percentage did total sales for all Miami stores grow from 2008 to 2009?",
+      "new_text_en": "By what percentage did total sales for all Miami stores grow from 2008 to 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q107",
+      "changed": false,
+      "old_text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "new_text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "old_text_en": "What share of all New York stores net sales came from New York No.2 Store in 2009?",
+      "new_text_en": "What share of all New York stores net sales came from New York No.2 Store in 2009?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q108",
+      "changed": false,
+      "old_text_zh": "2009年各国家的营收和订单数是多少？",
+      "new_text_zh": "2009年各国家的营收和订单数是多少？",
+      "old_text_en": "What were 2009 revenue and order counts by country?",
+      "new_text_en": "What were 2009 revenue and order counts by country?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q109",
+      "changed": false,
+      "old_text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
+      "new_text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
+      "old_text_en": "For each quarter this year, how much did average daily sales grow year over year?",
+      "new_text_en": "For each quarter this year, how much did average daily sales grow year over year?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q110",
+      "changed": false,
+      "old_text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "new_text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "old_text_en": "What were online shares of company sales in 2008 and 2009, and the percentage-point change?",
+      "new_text_en": "What were online shares of company sales in 2008 and 2009, and the percentage-point change?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q111",
+      "changed": true,
+      "old_text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "new_text_zh": "截至2009年9月底，各门店同期销售目标达成率和全年销售目标完成率分别是多少？",
+      "old_text_en": "At September 2009 month-end, what percentage of year-to-date and annual sales targets had each store achieved?",
+      "new_text_en": "By September 2009, what were each store's year-to-date and full-year sales target attainment rates?",
+      "reason": "约定12及L1目标达成率；改用指标名，保留两种目标期间参数"
+    },
+    {
+      "question_id": "Q112",
+      "changed": false,
+      "old_text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
+      "new_text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
+      "old_text_en": "In 2009, using 120% of the official sales target as a stretch line, how many stores under each manager fell short, and what was their total shortfall?",
+      "new_text_en": "In 2009, using 120% of the official sales target as a stretch line, how many stores under each manager fell short, and what was their total shortfall?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q113",
+      "changed": false,
+      "old_text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
+      "new_text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
+      "old_text_en": "After spreading each store’s official 2009 annual sales target evenly across 12 months, find periods of at least three consecutive months below that monthly target; report the store, start month, end month and duration.",
+      "new_text_en": "After spreading each store’s official 2009 annual sales target evenly across 12 months, find periods of at least three consecutive months below that monthly target; report the store, start month, end month and duration.",
+      "reason": "全年目标均摊12月是新题明确设置的挑战目标参数，不是企业正式目标的新定义；保留"
+    },
+    {
+      "question_id": "Q114",
+      "changed": false,
+      "old_text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "new_text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "old_text_en": "At each month end in the first half of 2007, how many customers made their first-ever purchase within the preceding 90 days?",
+      "new_text_en": "At each month end in the first half of 2007, how many customers made their first-ever purchase within the preceding 90 days?",
+      "reason": "用户明确要求题面不改；保留截止日及90日首购措辞，参考仅[T-89,T]全部行"
+    },
+    {
+      "question_id": "Q115",
+      "changed": false,
+      "old_text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
+      "new_text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
+      "old_text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end? Use the exact labels 活跃, 有流失风险 and 已流失 for both initial and final states.",
+      "new_text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end? Use the exact labels 活跃, 有流失风险 and 已流失 for both initial and final states.",
+      "reason": "输出标签按用户明确要求保留；观察队列、范围及输出列是题目参数，不嵌入分层阈值或Pearson公式"
+    },
+    {
+      "question_id": "Q116",
+      "changed": false,
+      "old_text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
+      "new_text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
+      "old_text_en": "As of December 31, 2009, by true first-purchase month, what share of customers purchased again during the seven calendar days starting the day after their first purchase? Exclude customers without seven full days of follow-up.",
+      "new_text_en": "As of December 31, 2009, by true first-purchase month, what share of customers purchased again during the seven calendar days starting the day after their first purchase? Exclude customers without seven full days of follow-up.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q117",
+      "changed": false,
+      "old_text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "new_text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "old_text_en": "For the three comparable stores with the greatest 2009 decline, which category contributed most to each decline?",
+      "new_text_en": "For the three comparable stores with the greatest 2009 decline, which category contributed most to each decline?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q118",
+      "changed": false,
+      "old_text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "new_text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "old_text_en": "How much 2009 sales came from the products in the top decile of 2008 sales, and what share was that?",
+      "new_text_en": "How much 2009 sales came from the products in the top decile of 2008 sales, and what share was that?",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q119",
+      "changed": false,
+      "old_text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "new_text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "old_text_en": "For each store, list its best-selling 2009 product and that products company-wide sales rank.",
+      "new_text_en": "For each store, list its best-selling 2009 product and that products company-wide sales rank.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q120",
+      "changed": false,
+      "old_text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
+      "new_text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
+      "old_text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts? Use scope labels 全体 and 职业内; the overall occupation is NULL, while occupation rows use the recorded occupation names.",
+      "new_text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts? Use scope labels 全体 and 职业内; the overall occupation is NULL, while occupation rows use the recorded occupation names.",
+      "reason": "输出标签按用户明确要求保留；观察队列、范围及输出列是题目参数，不嵌入分层阈值或Pearson公式"
+    },
+    {
+      "question_id": "Q121",
+      "changed": false,
+      "old_text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "new_text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "old_text_en": "Compare category operating volatility using the coefficient of variation of twelve monthly sales totals in 2009.",
+      "new_text_en": "Compare category operating volatility using the coefficient of variation of twelve monthly sales totals in 2009.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    },
+    {
+      "question_id": "Q122",
+      "changed": false,
+      "old_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "new_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "old_text_en": "For all pairs of Contoso products sold in 2009, report co-purchase support, both directional confidences and lift over all 2009 orders.",
+      "new_text_en": "For all pairs of Contoso products sold in 2009, report co-purchase support, both directional confidences and lift over all 2009 orders.",
+      "reason": "仅指标名／题目参数／输出标签，无内嵌已定义业务公式；保留"
+    }
+  ],
+  "precision_questions": [
+    "Q27",
+    "Q45",
+    "Q79",
+    "Q85",
+    "Q87"
+  ],
+  "Q79_release": "recompute current members and bind updated reference hashes; do not hardcode count",
+  "explicit_L1_alignment": {
+    "Q34": "L1库存周转率明确分子取全渠道FactSales总成本，纠正原线上成本；分母仍为公司产品每快照日汇总后平均",
+    "Q65": "姓名关联用L1指定DimStore.EmployeeKey，不用StoreManager员工号字符串",
+    "Q87": "L1日均销售数量明确分母为有销售天数；在题目指定最后90日窗口内以countDistinct(DateKey)计算，不自行把有销售天数改成固定90",
+    "Q86": "促销相关性示例按约定10排除PromotionKey=1；不保留是否包含无折扣的业务双解"
+  },
+  "new_question_audit": "audit/2026-10-17-final-new-question-check.json",
+  "baseline_snapshot_sha256": "da6e6ec8f8bd8640f0a0bcf0ab0b91f84f2103520a583238782734f0f0ffdfaa",
+  "current_question_sha256": {
+    "cube_100": "ec9fe2e70c79e74c1d04abc6e035b34c77ce876d84a2f41ff1d1455139772854",
+    "new": "9cddabec72e9f373696a00bf5793b0d5340352404d479e4cfcc005f75a378f8d"
+  },
+  "Q79_boundary_check": {
+    "previous_members": 42,
+    "current_members": 42,
+    "same_store_member_set": true,
+    "snapshot_sha256": "c0d94a8377f4e05956a8809c27f2926bedb606a098cd73853f0277992093718b",
+    "nth_quantized_ratio": [
+      "1.220389"
+    ],
+    "release_note": "原42家门店成员集合未变；参考值及版本已更新，T05b仍应核对新精度数值，不用数量硬编码门禁"
+  },
+  "prompt_scope": "122 Chinese evaluation prompts reviewed; original external English text_en identities and vendor English anchors remain unchanged; new-question English wording follows Chinese edits",
+  "reference_manifest_sha256": "1db33777af9a9c9ebabd0797425beb19dd9d7a5f7be9f047effd73743b836bae",
+  "verification": {
+    "full_build_references": 133,
+    "strict_recomputed_references": 133,
+    "new_question_hits": [],
+    "new_question_audit": "audit/2026-10-17-final-new-question-check.json",
+    "candidate_600_reexecuted_this_revision": false,
+    "historical_600_attribution_not_current": true
+  }
+}

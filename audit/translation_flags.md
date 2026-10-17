@@ -1229,3 +1229,63 @@
 Q40已在 [T04-closeout.md](T04-closeout.md)勾选A，且对话确认乘法公式；不补值或外推，仅计算并明确披露31天部分答案。调查方向的旧勾选原样保留，以最终批复为准。
 
 所有本轮新写或修改参考仍须G1后T05b独立验证；T04本轮全部口径已获用户批准，落实与复验结果见收尾报告；本轮不启动T05。标签分布见 [label_distribution.md](../reports/label_distribution.md)。
+
+## 2026-10-17 删除已定义口径提示（原审阅保留）
+
+英文原文为锚点身份键，逐字保留；本节改中文题面。
+
+### Q07
+
+What are the top 10 most expensive products by unit price?
+
+最贵的前10款产品是哪些？
+
+依据：约定9；删除已定义的产品标价提示，保留前10参数。
+
+### Q36
+
+Classify customers into Active, At Risk, and Churned based on recency
+
+将客户划分为活跃、有流失风险和已流失。
+
+依据：约定13；删除按最近购买时间分层的定义提示。
+
+### Q45
+
+Which stores have the best sales per square foot?
+
+哪些门店的销售坪效最高？
+
+依据：L1坪效；删除括号中销售额除以面积的定义。
+
+### Q50
+
+What's the same-store sales growth comparing 2009 to 2008?
+
+2009年同店销售总额比2008年增长了多少？
+
+依据：约定15；用同店一词替代两年均有销售的定义，保留年份。
+
+### Q66
+
+What's the total discount amount given in each quarter of 2009 (excluding no-discount transactions)?
+
+2009年各季度累计提供了多少折扣金额？
+
+依据：约定10；删除排除无折扣交易的定义提示。
+
+### Q85
+
+Calculate each store's 2009 quota attainment: actual sales divided by sales amount quota, and list the top and bottom 5 performers.
+
+2009年各门店的销售目标达成率是多少？列出最高和最低的各5家门店。
+
+依据：约定12；删除实际销售额除以目标销售额的公式，保留年份及两端前5。
+
+### Q89
+
+For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.
+
+将客户分为活跃、有流失风险和已流失，计算各组客户的平均消费额和平均购买产品种类数。
+
+依据：约定13及L1产品数；删除分层和去重的定义提示。

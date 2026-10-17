@@ -1,0 +1,255 @@
+{
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "accepted_reference_changes": false,
+  "records": [
+    {
+      "question_id": "Q48",
+      "observations": 306,
+      "pearson": 0.7096406904249098,
+      "spearman": 0.09782619508051292,
+      "results_equal": false
+    },
+    {
+      "question_id": "Q91",
+      "observations": 18869,
+      "pearson": 0.7349257619515496,
+      "spearman": 0.49634598109460387,
+      "results_equal": false
+    },
+    {
+      "question_id": "Q86",
+      "groups": 31,
+      "different_groups": 31,
+      "results_equal": false,
+      "sample_cutoff_review": {
+        "interpretations": [
+          0,
+          100
+        ],
+        "no_cutoff_groups": 31,
+        "over_100_groups": 31,
+        "results_equal": true,
+        "rule": "题面及L1未给样本下限；100只是当前judge示例的声明，不自行设为企业默认"
+      },
+      "details": [
+        {
+          "subcategory": "Bluetooth Headphones",
+          "observations": 50446,
+          "pearson": 0.002933201389033643,
+          "spearman": 0.002968694281978217,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Camcorders",
+          "observations": 87673,
+          "pearson": -0.0016754911484337636,
+          "spearman": -0.0016739516410022273,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Touch Screen Phones",
+          "observations": 56489,
+          "pearson": -0.00300457965274918,
+          "spearman": -0.002178347661448972,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Monitors",
+          "observations": 80748,
+          "pearson": -0.005133832672963598,
+          "spearman": -0.004605882713622917,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Air Conditioners",
+          "observations": 56627,
+          "pearson": -0.0005977871306520722,
+          "spearman": -0.0002623333864039248,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Refrigerators",
+          "observations": 69971,
+          "pearson": -0.004200048684066769,
+          "spearman": -0.004140515667680307,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Printers, Scanners & Fax",
+          "observations": 86265,
+          "pearson": -0.002165880008875421,
+          "spearman": -0.0019189353138521041,
+          "results_equal": false
+        },
+        {
+          "subcategory": "MP4&MP3",
+          "observations": 41170,
+          "pearson": -0.0029683377124289302,
+          "spearman": -0.002806698027406837,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Smart phones & PDAs",
+          "observations": 67777,
+          "pearson": -0.006521738346772418,
+          "spearman": -0.00627018402727654,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Microwaves",
+          "observations": 100516,
+          "pearson": -0.002194958011071756,
+          "spearman": -0.0022370112658495786,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Cell phones Accessories",
+          "observations": 666275,
+          "pearson": 0.0007337476055711362,
+          "spearman": 0.0007294249651565558,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Boxed Games",
+          "observations": 218544,
+          "pearson": 0.0031087482837281136,
+          "spearman": 0.0033630424839493954,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Digital SLR Cameras",
+          "observations": 88739,
+          "pearson": -0.004651703417390278,
+          "spearman": -0.004072480845281922,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Water Heaters",
+          "observations": 26725,
+          "pearson": 0.0003032972199971075,
+          "spearman": -0.00011985355419391382,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Car Video",
+          "observations": 44100,
+          "pearson": 0.00025030276553962983,
+          "spearman": 0.00036126973943299373,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Fans",
+          "observations": 100865,
+          "pearson": -0.0021040717768886423,
+          "spearman": -0.0015854395494382658,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Home & Office Phones",
+          "observations": 75322,
+          "pearson": -0.0006280663972935906,
+          "spearman": -0.00033439898038171545,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Recording Pen",
+          "observations": 18516,
+          "pearson": -0.009843925328908262,
+          "spearman": -0.010392087431193893,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Home Theater System",
+          "observations": 86143,
+          "pearson": -0.002651017303569831,
+          "spearman": -0.002597048860583923,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Laptops",
+          "observations": 88742,
+          "pearson": 0.0030539411101749643,
+          "spearman": 0.0035807744096625796,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Digital Cameras",
+          "observations": 87799,
+          "pearson": -0.0009020690040041983,
+          "spearman": -0.0004714884901933118,
+          "results_equal": false
+        },
+        {
+          "subcategory": "VCD & DVD",
+          "observations": 25647,
+          "pearson": -0.011255698811611214,
+          "spearman": -0.010062616971543483,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Washers & Dryers",
+          "observations": 29696,
+          "pearson": -0.003566447071509067,
+          "spearman": -0.0031512462910687944,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Cameras & Camcorders Accessories",
+          "observations": 71199,
+          "pearson": -0.005215384250194751,
+          "spearman": -0.0052826893489993365,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Movie DVD",
+          "observations": 71184,
+          "pearson": -0.0015150589710315838,
+          "spearman": -0.001070285055104203,
+          "results_equal": false
+        },
+        {
+          "subcategory": null,
+          "observations": 517591,
+          "pearson": 0.0015644254550270717,
+          "spearman": 0.0016892520445303137,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Coffee Machines",
+          "observations": 79809,
+          "pearson": 0.002366342603145028,
+          "spearman": 0.0028508742596928386,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Lamps",
+          "observations": 174395,
+          "pearson": -0.003429050320336341,
+          "spearman": -0.003027670452473992,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Computers Accessories",
+          "observations": 113304,
+          "pearson": -7.927071950628881e-05,
+          "spearman": 0.0005571502823628632,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Televisions",
+          "observations": 45985,
+          "pearson": -0.0008377787347175625,
+          "spearman": -0.0005406387640713174,
+          "results_equal": false
+        },
+        {
+          "subcategory": "Projectors & Screens",
+          "observations": 88377,
+          "pearson": -0.0012291830571686021,
+          "spearman": -0.0009642506478860794,
+          "results_equal": false
+        }
+      ]
+    }
+  ]
+}

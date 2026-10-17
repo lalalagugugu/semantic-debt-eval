@@ -72,10 +72,18 @@ def main():
     questions = yaml.safe_load((REPO / "questions/cube_100.yaml").read_text())["questions"]
     validate_questions(questions)
     source = json.loads((REPO / "vendor/cube/text_to_sql_benchmark.json").read_text())["questions"]
+    policy_path = REPO / 'audit/2026-10-17-single-policy-review.json'
+    policy = json.loads(policy_path.read_text()) if policy_path.exists() else None
+    prompt_review = {r['question_id']:r for r in policy['question_text_review']} if policy else {}
     schema = json.loads((REPO / "questions/schema.json").read_text())
     pattern = schema["properties"]["questions"]["items"]["properties"]["refs"]["items"]["properties"]["result_path"]["pattern"]
     for q, original in zip(questions, source, strict=True):
-        assert q["text_en"] == original["question"], q["id"]
+        if q['id'] in prompt_review and prompt_review[q['id']]['changed']:
+            reviewed = prompt_review[q['id']]
+            assert reviewed['old_text_en'] == original['question']
+            assert q['text_en'] == reviewed['new_text_en'] and q['text_zh'] == reviewed['new_text_zh']
+        else:
+            assert q["text_en"] == original["question"], q["id"]
         assert q["text_zh"] and q["split"] is None
         assert q["labels"]["q_level"] in {"Q1", "Q2", "Q3"}
         assert q["labels"]["persona"] in {"管理层", "分析师"}
