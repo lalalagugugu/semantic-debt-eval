@@ -8,9 +8,9 @@ import json
 import os
 from pathlib import Path
 import re
+import sys
 
 from build_refs import effective_rules, load_unit_policy
-from check_q79_membership import member_counts
 from check_rules_impact import csv_rows
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,10 +22,42 @@ def compare_members(stored, independent, policy):
         raise ValueError('unit policy versions differ')
     if stored['value_kinds'] != independent['value_kinds']:
         raise ValueError('boundary column kinds differ')
-    expected = member_counts(stored['rows'], stored['value_kinds'], policy)
-    actual = member_counts(independent['rows'], independent['value_kinds'], policy)
-    if expected != actual:
-        raise ValueError(f'boundary members differ: removed={sum((expected-actual).values())}, added={sum((actual-expected).values())}')
+    # Membership and ranking are strict; amount columns use the unchanged
+    # scorer tolerance under the 2026-10-17 freeze-gate scope ruling.
+    sys.path.insert(0, os.environ['SEMDEBT_MAIN_DIR'])
+    from harness.scorer import _cells_equal
+
+    kinds = stored['value_kinds']
+    ranking = stored['rules']['tie_columns']
+    if not ranking or len(set(ranking)) != len(ranking) or any(i < 0 or i >= len(kinds) for i in ranking):
+        raise ValueError('snapshot requires explicit valid ranking columns')
+    if independent.get('rules', stored['rules']) != stored['rules']:
+        raise ValueError('boundary rules differ')
+    identity_columns = [i for i, kind in enumerate(kinds) if i not in ranking and kind != 'amount']
+    if not identity_columns:
+        raise ValueError('snapshot has no member identity columns')
+    indexed = []
+    for snapshot in (stored, independent):
+        rows = {}
+        for row in snapshot['rows']:
+            if len(row) != len(kinds):
+                raise ValueError('boundary row width differs')
+            identity = tuple(row[i] for i in identity_columns)
+            if identity in rows:
+                raise ValueError('duplicate boundary member identity')
+            rows[identity] = row
+        indexed.append(rows)
+    expected, actual = indexed
+    if expected.keys() != actual.keys():
+        raise ValueError(f'boundary members differ: removed={len(expected.keys()-actual.keys())}, added={len(actual.keys()-expected.keys())}')
+    for identity, reference in expected.items():
+        candidate = actual[identity]
+        for i in ranking:
+            if policy.quantize_tie(candidate[i], kinds[i]) != policy.quantize_tie(reference[i], kinds[i]):
+                raise ValueError(f'boundary ranking key differs: member={identity}, column={i}')
+        for i, kind in enumerate(kinds):
+            if kind == 'amount' and i not in ranking and not _cells_equal(candidate[i], reference[i], kind=kind, allow_percentage=False):
+                raise ValueError(f'boundary amount exceeds scorer tolerance: member={identity}, column={i}')
 
 
 def current_reference():
@@ -93,7 +125,7 @@ def main():
         if independent['question_id']!=stored['question_id']:
             raise ValueError('independent snapshot is not Q79')
         compare_members(stored,independent,policy)
-        print(f"PASS: T05b Q79 current boundary reproduced: {from_csv['row_count']} members; raw hashes are not compared")
+        print(f"PASS: T05b Q79 current boundary reproduced: {from_csv['row_count']} members; identities/ranking exact, other amounts within scorer tolerance")
         return
     main_dir=Path(os.environ['SEMDEBT_MAIN_DIR'])
     spec=importlib.util.spec_from_file_location('q79_current_adapter',main_dir/'scripts/validate_scorer.py')

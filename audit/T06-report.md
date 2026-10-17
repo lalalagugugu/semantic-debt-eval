@@ -39,7 +39,7 @@ Q101–Q122按基点全部复查，0题命中；没有自行改题。新题逐�
 | Q2 | Q74, Q73, Q82, Q17, Q71, Q70, Q69, Q75 |
 | Q3 | Q100, Q34, Q76, Q81, Q117, Q50, Q80, Q49 |
 
-全部来自tuning，且仅为指标分析/维度查找。固定种子分层后，用新增复杂度覆盖、primary/persona/type平衡与固定随机破同分规则抽样；轨迹在questions/pilot.yaml。
+24题不重抽；T12报告含/不含低区分度两列，选模型阈值使用不含的一列。全部来自tuning，且仅为指标分析/维度查找。固定种子分层后，用新增复杂度覆盖、primary/persona/type平衡与固定随机破同分规则抽样；轨迹在questions/pilot.yaml。
 
 ## L1.5S覆盖
 
@@ -71,17 +71,17 @@ uv run python scripts/validate_rules.py
 ```
 
 须设置SEMDEBT_MAIN_DIR、SEMDEBT_EVAL_DIR（本worktree）、SEMDEBT_DATA_DIR。all会重建可再生的chdb-eval/ads并更新T06工件；不要同时运行另一个打开chdb-eval的进程。check只检查已交付工件、基点、参考哈希、划分和统计，不重新执行SQL。
-运行条件与量纲策略哈希随JSON保存；每份参考的完整value_kinds/value_types沿用未改变的refs/MANIFEST.json。没有安装新依赖或读取模型输出。
+运行条件与量纲策略哈希随JSON保存；每份参考的完整value_kinds/value_types沿用未改变的refs/MANIFEST.json。没有安装新依赖或读取模型输出。门禁回归检查覆盖半分币差异与乱序通过，以及换成员、改量化排名键、金额超容差、重复成员和策略版本/量纲不符拒绝。
 
-## Q79门禁差异（T06-1，待用户裁决）
+## Q79门禁裁决已落实（T06-1）
 
-已提交pandas结果c8afbc1的42家店名集合和第N名量化键完全一致；现有门禁额外要求完整行所有量化值相等。Damascus No.1 Store的目标金额：参考10304326.61、pandas10304326.60；Osaka No.1 Store的实际金额：参考13592892.53、pandas13592892.52。均位于半分币舍入边界。当前完整行门禁失败，未修改门禁或宣布可冻结。
-独立结果来源、提交号、CSV哈希和42行值保存在audit/T06-Q79-independent.json；问题与选项记入decisions/open-questions.md。复现现有门禁：uv run python scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot audit/T06-Q79-independent.json。
+已提交pandas结果c8afbc1的42家店名集合和第N名量化键完全一致；原门禁额外要求完整行所有量化值相等。Damascus No.1 Store的目标金额：参考10304326.61、pandas10304326.60；Osaka No.1 Store的实际金额：参考13592892.53、pandas13592892.52。均位于半分币舍入边界。按主仓库decisions/2026-10-17-q79-freeze-gate-scope.md，仅严格核对成员与量化排名键，其余金额调用既有评分器容差；冻结检查现已通过，评分器未改。
+独立结果来源、提交号、CSV哈希和42行值保存在audit/T06-Q79-independent.json；原问题与最终裁决记入decisions/open-questions.md。复现当前门禁：uv run python scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot audit/T06-Q79-independent.json。
 
 ## G2待用户审定
 
-- [ ] 裁决T06-1的Q79成员比较范围。
+- [x] T06-1：已按主仓库裁决修正比较范围，Q79冻结检查通过。
 - [ ] 同意61/61划分与24题试跑样本。
 - [ ] 同意10道低区分度标注及49/73覆盖标注。
-- [ ] 按低区分度裁决，由Claude Code对B条首单组独立抽查被标与未标若干题；本卡未冒充独立抽查。
+- [ ] B条首单组独立抽查由Claude Code执行；按用户2026-10-18指令，本PR不等待该抽查。
 - [ ] 用户G2审定后另行决定eval-v1 tag；本PR不打tag。

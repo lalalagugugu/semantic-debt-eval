@@ -2,7 +2,7 @@
 
 # T06 划分、汇总层覆盖标注、冻结
 
-- 状态：冻结准备产出待审；Q79完整行门禁差异待用户裁决（T06-1）
+- 状态：冻结准备完成，Q79门禁通过；待G2用户审定
 - 负责：Codex
 - 模式：题库（`cd ~/semdebt/semantic-debt-eval && codex "执行任务卡 T06"`）
 - 依赖：G1（主仓库 `semantic-v1`）、T05b（参考答案已独立核对）
@@ -42,7 +42,7 @@
 
 ## 用户确认
 
-- [ ] Q79：按主仓库2026-10-16裁决，以 `audit/Q79-boundary-members.json` 当前修订参考边界及量纲规则版本为快照（当前42成员；数量从有效参考推导，不写死）。T05b必须用pandas独立复现同一成员集合；`scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot <T05b输出JSON>`通过才放行。无需追补历史原始行哈希；成员集合不一致不得带该Top-N并列进入eval-v1。
+- [x] Q79：按主仓库2026-10-16裁决，以 `audit/Q79-boundary-members.json` 当前修订参考边界及量纲规则版本为快照（当前42成员；数量从有效参考推导，不写死）。T05b必须用pandas独立复现同一成员集合；`scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot <T05b输出JSON>`通过才放行。无需追补历史原始行哈希；成员集合不一致不得带该Top-N并列进入eval-v1。
 - [ ] G2：同意划分、最小样本和覆盖标注，打 tag `eval-v1`。
 
 ## 不能做
@@ -58,7 +58,7 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 ## 记录（完成后填写）
 
 - 产出：questions/cube_100.yaml、questions/new.yaml、questions/schema.json（仅T06元数据）；questions/pilot.yaml；questions/MANIFEST.md；scripts/prepare_t06.py；audit/T06-*.json及T06-report.md、T06-summary-build.md。
-- 偏离与理由：按用户要求不打tag。主仓库build_summary.py默认打开chdb，本卡通过只读导入包装改用chdb-eval、报告写入题库，不改主仓库脚本或冻结语义层。Q79既有完整行冻结门禁报2行分币量化差异，已记T06-1，未自行放宽。
+- 偏离与理由：按用户要求不打tag。主仓库build_summary.py默认打开chdb，本卡通过只读导入包装改用chdb-eval、报告写入题库，不改主仓库脚本或冻结语义层。Q79原完整行门禁的2行分币差异按主仓库2026-10-17-q79-freeze-gate-scope.md处理；现严格比成员/量化排名键，其余金额用现有评分器容差，冻结检查通过。
 - 工时：本会话执行，未单独计时。
 
 ### Q79更正与低区分度（2026-10-16）
@@ -77,8 +77,8 @@ T05/T05b/T06 统一使用主仓库 `harness/value_units.py` 的量纲分类规�
 - 汇总覆盖：covered 49，not_covered 73。Q19/Q108的错误去重数累加虽然在评分容差内通过，仍不标覆盖；Q53另有本数据订单跨周不重复的探查证据。
 - 改写记录：labels.external_rewrite标出Q13/Q14/Q21/Q28/Q36/Q89；Q14同时记录10000→100000美元门槛变化；乙组现有多份参考保留。
 - 已验证：可复现划分/抽样/统计、元数据一致性、122题136份rules/types/hash；ads全部既有对账通过。
-- **待裁决T06-1**：42家店名及排序量化键一致，但Q79现有完整行冻结门禁因两行金额各差0.01美元而失败。独立pandas提交、CSV哈希、42行证据见audit/T06-Q79-independent.json。不更改门禁，不宣布可冻结。
+- **T06-1已解决**：按主仓库2026-10-17-q79-freeze-gate-scope.md严格核对42家成员与量化排名键，其余金额按现有评分器容差，冻结检查通过。独立pandas来源与原失败的历史证据保留。评分器及24题pilot不变。
 - 按低区分度裁决，B条首单组的跨厂商独立抽查仍须Claude Code执行，本卡未代替。
 - 复现：`uv run python scripts/prepare_t06.py all`；工件校验：`uv run python scripts/prepare_t06.py check`；规则校验：`uv run python scripts/validate_rules.py`。设置主仓库、本worktree和数据目录的对应SEMDEBT环境变量。
 
-G2、Q79门禁裁决及跨厂商抽查均不预先勾选；本PR不打eval-v1。
+Q79门禁已通过；G2仍由用户审定。本PR不打eval-v1。按用户2026-10-18指令，B条独立抽查由Claude Code负责，本PR不等待。T12按含/不含低区分度两列报告，选模型阈值用不含的一列。

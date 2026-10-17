@@ -1,10 +1,10 @@
 {
   "Q79_freeze_gate": {
-    "passed": false,
-    "reason": "boundary members differ: removed=2, added=2",
-    "question": "T06-1"
+    "passed": true,
+    "comparison": "exact member identity and quantized ranking; other amounts use unchanged scorer tolerance",
+    "decision": "decisions/2026-10-17-q79-freeze-gate-scope.md"
   },
-  "freeze_ready": false,
+  "freeze_ready": true,
   "base_revision": "e3aaed630aed48ff0069c5ec24d8d7d2a0765f9d",
   "questions": 122,
   "references": 136,

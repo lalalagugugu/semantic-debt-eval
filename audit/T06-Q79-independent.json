@@ -359,6 +359,8 @@
         "1.220389"
       ]
     ],
-    "decision_required": "T06-1 in decisions/open-questions.md; existing full-row gate unchanged"
+    "decision_required": "Resolved: exact identities/ranking, other amounts use existing scorer tolerance",
+    "scope": "Historical full-row equality gate before the 2026-10-17 scope ruling",
+    "superseded_by": "decisions/2026-10-17-q79-freeze-gate-scope.md"
   }
 }

@@ -93,7 +93,7 @@ def main():
     assert reference_order('SELECT round(s.amount,2) AS total_amount FROM x ORDER BY s.amount DESC',[{'name':'total_amount','type':'Float64'}])[0]==[{'column':0,'descending':True}]
     expect_error(lambda:reference_order('SELECT a FROM x ORDER BY hidden',[{'name':'a','type':'Int32'}]))
     from snapshot_q79_boundary import boundary_members, compare_members
-    stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['a',1.004],['b',2.001]]}
+    stored={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rules':{'tie_columns':[1]},'rows':[['a',1.004],['b',2.001]]}
     independent={'unit_policy_sha256':'fixture','value_kinds':['other','amount'],'rows':[['b',2.002],['a',1.003]]}
     compare_members(stored,independent,policy)
     dynamic={'top_n':2,'tie_columns':[1],'value_kinds':['other','amount']}

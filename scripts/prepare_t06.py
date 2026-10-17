@@ -419,7 +419,8 @@ def manifest_text(qs, pilot, strata):
     lines += [f"| {q['id']} | {'/'.join(q['labels']['low_discrimination']['criteria'])} |" for q in qs if q['labels']['low_discrimination']['criteria']]
     lines += ['', '逐题A/B/C证据见 `audit/T06-low-discrimination.json`，新题复查见 `audit/T06-new-degeneracy.json`。', '',
               '## 试跑样本', '', ', '.join(pilot), '',
-              '完整抽样参数与选择轨迹见 `questions/pilot.yaml`。Q1/Q2/Q3是难度等级，每级8题，共24题。', '',
+              '完整抽样参数与选择轨迹见 `questions/pilot.yaml`。Q1/Q2/Q3是难度等级，每级8题，共24题。',
+              '按主仓库Q79门禁裁决，24题不重抽；T12分别报告含/不含低区分度题的准确率，选模型阈值按不含的一列判定。', '',
               '## 改写与多份参考', '',
               '外部改写题：Q13、Q14、Q21、Q28、Q36、Q89；题级labels.external_rewrite记录主仓库裁决来源。Q14门槛由1万美元改为10万美元。英文锚点的修订参考敏感性列剔除这六题。',
               '参考与题意均保持基点不变；乙组保留Q39、Q76、Q84、Q48、Q86、Q91、Q121的现有多份参考。Q119两种排名当前等价，按裁决仅存一份；Q97/Q98等已有问法歧义照基点保留。', '',
@@ -509,11 +510,31 @@ def check():
         assert (r['summary_coverage'] == 'covered') == any(a['matched'] and a['semantically_valid'] for a in r['attempts'])
         assert r['reason']
     from snapshot_q79_boundary import compare_members
+    from validate_t05 import expect_error
+    fixture = {'unit_policy_sha256': 'fixture', 'value_kinds': ['other', 'amount', 'ratio'],
+               'rules': {'tie_columns': [2]}, 'rows': [['a', 100.005000001, 0.1], ['b', 200, 0.2]]}
+    reordered = deepcopy(fixture)
+    reordered['rows'] = [['b', 200.01, 0.2], ['a', 100.005, 0.1]]
+    assert POLICY.quantize_tie(fixture['rows'][0][1], 'amount') != POLICY.quantize_tie(reordered['rows'][1][1], 'amount')
+    compare_members(fixture, reordered, POLICY)
+    for column, value in [(0, 'different-member'), (1, 220), (2, 0.200002)]:
+        invalid = deepcopy(reordered)
+        invalid['rows'][0][column] = value
+        expect_error(lambda: compare_members(fixture, invalid, POLICY))
+    invalid = deepcopy(reordered)
+    invalid['rows'][0] = list(invalid['rows'][1])
+    expect_error(lambda: compare_members(fixture, invalid, POLICY))
+    invalid = deepcopy(reordered)
+    invalid['unit_policy_sha256'] = 'different-policy'
+    expect_error(lambda: compare_members(fixture, invalid, POLICY))
+    invalid = deepcopy(reordered)
+    invalid['value_kinds'][1] = 'other'
+    expect_error(lambda: compare_members(fixture, invalid, POLICY))
     independent = json.loads((ROOT / 'audit/T06-Q79-independent.json').read_text())
     current = json.loads((ROOT / 'audit/Q79-boundary-members.json').read_text())
     try:
         compare_members(current, independent, POLICY)
-        q79_gate = {'passed': True}
+        q79_gate = {'passed': True, 'comparison': 'exact member identity and quantized ranking; other amounts use unchanged scorer tolerance', 'decision': 'decisions/2026-10-17-q79-freeze-gate-scope.md'}
     except ValueError as error:
         q79_gate = {'passed': False, 'reason': str(error), 'question': 'T06-1'}
     report = {'Q79_freeze_gate': q79_gate, 'freeze_ready': q79_gate['passed'], 'base_revision': BASE, 'questions': len(actual), 'references': sum(len(q['refs']) for q in actual),
@@ -574,7 +595,7 @@ def write_report(qs, pilot, strata):
     for level in ['Q1', 'Q2', 'Q3']:
         ids = [qid for qid in pilot if by_id[qid]['labels']['q_level'] == level]
         lines.append(f"| {level} | {', '.join(ids)} |")
-    lines += ['', '全部来自tuning，且仅为指标分析/维度查找。固定种子分层后，用新增复杂度覆盖、primary/persona/type平衡与固定随机破同分规则抽样；轨迹在questions/pilot.yaml。', '',
+    lines += ['', '24题不重抽；T12报告含/不含低区分度两列，选模型阈值使用不含的一列。全部来自tuning，且仅为指标分析/维度查找。固定种子分层后，用新增复杂度覆盖、primary/persona/type平衡与固定随机破同分规则抽样；轨迹在questions/pilot.yaml。', '',
               '## L1.5S覆盖', '', '| 范围 | covered | not_covered |', '|---|---:|---:|']
     for name, subset in [('全部', qs), ('tuning', [q for q in qs if q['split']=='tuning']), ('heldout', [q for q in qs if q['split']=='heldout'])] + [(level, [q for q in qs if q['labels']['q_level']==level]) for level in ['Q1','Q2','Q3']]:
         counts = Counter(q['summary_coverage'] for q in subset)
@@ -588,12 +609,12 @@ def write_report(qs, pilot, strata):
               '乙组与其他已批准多解均保持基点内容，不撤回参考、不新增口径。所有136份CSV和refs/MANIFEST.json逐字节校验与基点一致；问句、SQL、rules逐题结构校验一致。', '',
               '## 验证与复现', '', '```sh', 'uv run python scripts/prepare_t06.py all', 'uv run python scripts/prepare_t06.py check', 'uv run python scripts/validate_rules.py', '```', '',
               '须设置SEMDEBT_MAIN_DIR、SEMDEBT_EVAL_DIR（本worktree）、SEMDEBT_DATA_DIR。all会重建可再生的chdb-eval/ads并更新T06工件；不要同时运行另一个打开chdb-eval的进程。check只检查已交付工件、基点、参考哈希、划分和统计，不重新执行SQL。',
-              '运行条件与量纲策略哈希随JSON保存；每份参考的完整value_kinds/value_types沿用未改变的refs/MANIFEST.json。没有安装新依赖或读取模型输出。', '',
-              '## Q79门禁差异（T06-1，待用户裁决）', '',
-              '已提交pandas结果c8afbc1的42家店名集合和第N名量化键完全一致；现有门禁额外要求完整行所有量化值相等。Damascus No.1 Store的目标金额：参考10304326.61、pandas10304326.60；Osaka No.1 Store的实际金额：参考13592892.53、pandas13592892.52。均位于半分币舍入边界。当前完整行门禁失败，未修改门禁或宣布可冻结。',
-              '独立结果来源、提交号、CSV哈希和42行值保存在audit/T06-Q79-independent.json；问题与选项记入decisions/open-questions.md。复现现有门禁：uv run python scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot audit/T06-Q79-independent.json。', '',
-              '## G2待用户审定', '', '- [ ] 裁决T06-1的Q79成员比较范围。', '- [ ] 同意61/61划分与24题试跑样本。', '- [ ] 同意10道低区分度标注及49/73覆盖标注。',
-              '- [ ] 按低区分度裁决，由Claude Code对B条首单组独立抽查被标与未标若干题；本卡未冒充独立抽查。', '- [ ] 用户G2审定后另行决定eval-v1 tag；本PR不打tag。', '']
+              '运行条件与量纲策略哈希随JSON保存；每份参考的完整value_kinds/value_types沿用未改变的refs/MANIFEST.json。没有安装新依赖或读取模型输出。门禁回归检查覆盖半分币差异与乱序通过，以及换成员、改量化排名键、金额超容差、重复成员和策略版本/量纲不符拒绝。', '',
+              '## Q79门禁裁决已落实（T06-1）', '',
+              '已提交pandas结果c8afbc1的42家店名集合和第N名量化键完全一致；原门禁额外要求完整行所有量化值相等。Damascus No.1 Store的目标金额：参考10304326.61、pandas10304326.60；Osaka No.1 Store的实际金额：参考13592892.53、pandas13592892.52。均位于半分币舍入边界。按主仓库decisions/2026-10-17-q79-freeze-gate-scope.md，仅严格核对成员与量化排名键，其余金额调用既有评分器容差；冻结检查现已通过，评分器未改。',
+              '独立结果来源、提交号、CSV哈希和42行值保存在audit/T06-Q79-independent.json；原问题与最终裁决记入decisions/open-questions.md。复现当前门禁：uv run python scripts/snapshot_q79_boundary.py --freeze-check --independent-snapshot audit/T06-Q79-independent.json。', '',
+              '## G2待用户审定', '', '- [x] T06-1：已按主仓库裁决修正比较范围，Q79冻结检查通过。', '- [ ] 同意61/61划分与24题试跑样本。', '- [ ] 同意10道低区分度标注及49/73覆盖标注。',
+              '- [ ] B条首单组独立抽查由Claude Code执行；按用户2026-10-18指令，本PR不等待该抽查。', '- [ ] 用户G2审定后另行决定eval-v1 tag；本PR不打tag。', '']
     (ROOT / 'audit/T06-report.md').write_text('\n'.join(lines))
 
 
