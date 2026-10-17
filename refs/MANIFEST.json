@@ -715,7 +715,7 @@
     {
       "question_id": "Q17",
       "result_path": "refs/cube/Q17-1.csv",
-      "sql_sha256": "39db3fe433939955402f7f56f2b3f8279f46ecf68e311e07c830d74b157c2d0e",
+      "sql_sha256": "923b6053be4f420ac5f51df1cb932c4cb406f5cd154ee4f8165ec2b8f186317e",
       "row_count": 2,
       "columns": [
         {
@@ -741,7 +741,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "69c6282a04e7d02f0c7d235e9d874b5957e9ab5b7c2ca0ffa33be409a6d8316c",
+      "sha256": "38289d0fe2d8f4c93a8043a5c77bd1136ccc841b27ad9ead87aca53533778b4d",
       "value_types": [
         "String",
         "Float64",
@@ -1396,7 +1396,7 @@
     {
       "question_id": "Q24",
       "result_path": "refs/cube/Q24-1.csv",
-      "sql_sha256": "6a8953b8a022e88b4dff024b7b645c8b6df7cbd6854572326dfde13bd8c47eeb",
+      "sql_sha256": "e30c19b3982d94b0c533071a3f6a37dc518111354705643109c29c98f0252643",
       "row_count": 9,
       "columns": [
         {
@@ -1427,7 +1427,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "dcaeaa498d7564a09a515921855e3c0310aacf92441d7178b88596500dd69e5a",
+      "sha256": "64c2ee644f464e068ef684a1b85afb5c4999622f50d8972edeb0e6700628d98f",
       "value_types": [
         "Nullable(String)",
         "Int64",
@@ -1674,7 +1674,7 @@
     {
       "question_id": "Q29",
       "result_path": "refs/cube/Q29-1.csv",
-      "sql_sha256": "27b484639ba13a7e1149b9899880b4f22bb075b7ae5d531fa2843278a9e3ce03",
+      "sql_sha256": "849579bef126a37577528e2404cd1fd36912b69ff9eb261d44a4d9df03e9d383",
       "row_count": 1,
       "columns": [
         {
@@ -1690,7 +1690,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "803f0a04ca8a57703b1dbb7d4dce95ae11fa8ee9a6ae6b4a7b7daa6b65fd033e",
+      "sha256": "36e3c05177b3b4ea4222bcacb344884f5cab5d54658488a87cec181a654125a3",
       "value_types": [
         "Float64"
       ],
@@ -1950,7 +1950,7 @@
     {
       "question_id": "Q34",
       "result_path": "refs/cube/Q34-1.csv",
-      "sql_sha256": "3866535f209a9afd3291451dadb5d9711f55ec72d1cae96da789117e36c15361",
+      "sql_sha256": "bde169e0a897407653df5eb7d3f1720d5bd6c81d90f84e868b69b25550eb959d",
       "row_count": 2504,
       "columns": [
         {
@@ -1986,7 +1986,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "f78d66bb88f0fcd89eec736033f8b392f1afbd3c77268c6a5844820bd643872e",
+      "sha256": "dc3206b3437e8ee3bb6c21fa6a768e31baa9f9c35149e348d16b17cf4d592b31",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -2090,7 +2090,7 @@
     {
       "question_id": "Q36",
       "result_path": "refs/cube/Q36-1.csv",
-      "sql_sha256": "1fa53532f3253ea3ad2c8cd3a5bd124ecd237e071ccdf0209d091f84b4235d43",
+      "sql_sha256": "101e80a3c8292d4817346278fa4f4817d10b06837d6275e2565200638cfd3339",
       "row_count": 3,
       "columns": [
         {
@@ -2111,7 +2111,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6be5ea6bbadafc511538d30f64ead443cf0830e626f71dacf92bfa2df5e4e94a",
+      "sha256": "0717562cf554b00df970ddcff90e574f864c29adad1451e934abaa97939195fd",
       "value_types": [
         "String",
         "UInt64"
@@ -2136,7 +2136,7 @@
     {
       "question_id": "Q37",
       "result_path": "refs/cube/Q37-1.csv",
-      "sql_sha256": "d4e2ae306e8fd20f079eccb0306a212e284ce939949c7ad81516bd9a25353497",
+      "sql_sha256": "263e02c7ecc4cfe1db7dbdc8a81b98787355216fe40380777138c48dc06fcd36",
       "row_count": 306,
       "columns": [
         {
@@ -2162,7 +2162,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "d2c672ed6f345a3bac7d1d0cb50e43e9dfea81f271256d75fea7e573b6f834f6",
+      "sha256": "36681fc9a8662d11718d9c787c6ccd3d43300644de9f326ebb625ee7231bf4e4",
       "value_types": [
         "String",
         "Float64",
@@ -2190,7 +2190,7 @@
     {
       "question_id": "Q38",
       "result_path": "refs/cube/Q38-2.csv",
-      "sql_sha256": "9ddf3f11a1970c9b26e070dc2222825905b4e94191bba0972fd6ddf07a299269",
+      "sql_sha256": "14bfe190c1667156db4803aa864d20b67afb016943c15d954fd90e5ef92dd90c",
       "row_count": 8,
       "columns": [
         {
@@ -2221,7 +2221,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "b112cfad106d7a47a1266bfccf7930db891acea2cf4ac3a64c7c10bd38e12067",
+      "sha256": "4634996eda82509b5f992c5732f53983129c7682543b9d3115a23290eb384972",
       "value_types": [
         "String",
         "Float64",
@@ -3182,7 +3182,7 @@
     {
       "question_id": "Q50",
       "result_path": "refs/cube/Q50-1.csv",
-      "sql_sha256": "c11a09e2ffd17683e413e41f69425cb95bda1e47a6ed5efd11bafbc480bbcd88",
+      "sql_sha256": "838f103d7cf62de9d42f268670b918467745fcac86f3df300e73875df93f40f7",
       "row_count": 1,
       "columns": [
         {
@@ -3208,7 +3208,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "8c97042b2d508272897aac9094daed4bab6ef060894b21bffb68f5a34d18db19",
+      "sha256": "567dafbf5bfdd08eaf386411acfcc4d90c01d5e57720cdb183a3d4105475bf4a",
       "value_types": [
         "Float64",
         "Float64",
@@ -4329,7 +4329,7 @@
     {
       "question_id": "Q72",
       "result_path": "refs/cube/Q72-1.csv",
-      "sql_sha256": "0d6bfd9653a6712c36c71b3eae5b71b6afa12653b98d453cf80ca26aa9cbab6b",
+      "sql_sha256": "352354a0c4daf20ec89c32901b23ce38e86fb938114b249f8a18b27cedba2072",
       "row_count": 12,
       "columns": [
         {
@@ -4360,7 +4360,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "3ed4d7163ed6716032d099368c37837ed0a65898950f603685af249a15e39801",
+      "sha256": "e5887fd5a8d5cf169d302d6dbf206b738a60af0d4198a14001a2f6d52b2dd412",
       "value_types": [
         "UInt16",
         "UInt8",
@@ -7321,7 +7321,7 @@
     {
       "question_id": "Q75",
       "result_path": "refs/cube/Q75-1.csv",
-      "sql_sha256": "f2c4d9b6360803137e803ef304f22842320b0905fe061a1ab7679d4974836bd4",
+      "sql_sha256": "223d2402b1bf00fac2e9bcafae9cefd99f47eb588b885f9cba1ca0988053bc27",
       "row_count": 1470,
       "columns": [
         {
@@ -7357,7 +7357,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "44f322faa1810e8157b6f3b540f390d26629dad3a7f5f4126eafb4b43cf508f8",
+      "sha256": "d4d860fcab24d79352546bc6af86d2f4af9e720e1d95d1bb34e4536111b9a8e4",
       "value_types": [
         "String",
         "String",
@@ -7391,7 +7391,7 @@
     {
       "question_id": "Q76",
       "result_path": "refs/cube/Q76-1.csv",
-      "sql_sha256": "0d4633fd4be84bb3f6ffc9ae1d824c74200b347f0c7f57a0fbb9f76f86c5fca3",
+      "sql_sha256": "af3aef659aa819c51cc48aec1049b61e4774763f65264b59e39025783bc4809f",
       "row_count": 9,
       "columns": [
         {
@@ -7412,7 +7412,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "879de0ab27819e001db638c20333d9f75951415a9c146e105cd754f4e40713d1",
+      "sha256": "8ebe7b945884a850c80c54892ed7b200ef004f332da6b019c16ff0da7ec95136",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)"
@@ -7483,7 +7483,7 @@
     {
       "question_id": "Q77",
       "result_path": "refs/cube/Q77-1.csv",
-      "sql_sha256": "4e80fc9a22179f8f9d7b88f79e911d11a9058c381f9293afe558dc99edc536d4",
+      "sql_sha256": "f4545a202bfb693f61aca568ce8f5756e64af88aa9e38a7e56788ead2b7edeff",
       "row_count": 12,
       "columns": [
         {
@@ -7514,7 +7514,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "d356465a94eabbfe7492d1dc6f2ca353f9fb08bef9b6631961281db469f73c69",
+      "sha256": "6e1650609f226ef181c1f31ef4e82443074750e68063b0d7e4ea2a5eea8ad3a6",
       "value_types": [
         "UInt8",
         "Float64",
@@ -7545,7 +7545,7 @@
     {
       "question_id": "Q78",
       "result_path": "refs/cube/Q78-1.csv",
-      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa",
+      "sql_sha256": "06ed04082d69e71a82d0b2e4a88683d6349e800a4995bc06ebb6588847ae485b",
       "row_count": 1,
       "columns": [
         {
@@ -7576,7 +7576,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "7597870ca147515c9148b321d33c584021e89b1a26a175ed3a0d31802bce97be",
+      "sha256": "2d55ba34b74f974c078410f82272fd5513ce4e6e897b901c1ab1c84e515a6901",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -7613,7 +7613,7 @@
     {
       "question_id": "Q79",
       "result_path": "refs/cube/Q79-1.csv",
-      "sql_sha256": "fea2a333c2aca94a73f0e57d608a139f6849202a0cfaf31b4d8fcd5fcaf71790",
+      "sql_sha256": "22c600048b08bf1561ef48d0e9bc71e237ff5ee3cd8eaa81cd2ee86b6c028ed0",
       "row_count": 42,
       "columns": [
         {
@@ -7644,7 +7644,7 @@
       "tie_column": 3,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "587696213039fe8c3e9832169bb924fa2bdc95da875ddd8982609cfe2edbbd21",
+      "sha256": "7c19c66c2e61693203693eaf3353fa606337e646c1e03cfc801cb10e7876ee6f",
       "value_types": [
         "String",
         "Float64",
@@ -7683,7 +7683,7 @@
     {
       "question_id": "Q80",
       "result_path": "refs/cube/Q80-1.csv",
-      "sql_sha256": "392e6879b896e2f503f4a645da66f9a318d48126b3d181907d66202e62827b22",
+      "sql_sha256": "8ebb02be6832a22f408fe31465fa536e7bdba78e65d6db0dd6b96eb63d5f7f67",
       "row_count": 29,
       "columns": [
         {
@@ -7709,7 +7709,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "f9d3d3da5917ca836251ba1851dc1875ac55a7f2f7880970ae3d7791ebce05c1",
+      "sha256": "43452500f4bcdd4365d29288dd59c4d837635c05fffdda3a6cabd1ce06ce880d",
       "value_types": [
         "String",
         "UInt64",
@@ -7737,7 +7737,7 @@
     {
       "question_id": "Q81",
       "result_path": "refs/cube/Q81-1.csv",
-      "sql_sha256": "df19eb5b19d1345dad58ff92e25a9946ac63a2f8fa47c7b67181b84c95a9eb2f",
+      "sql_sha256": "9814d5682f277b737cd81351673e58c9b82c44285dd89d4ce7057b96baaae8c4",
       "row_count": 2,
       "columns": [
         {
@@ -7768,7 +7768,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "55e7fe2f3cddd97d0d28faed5e319b667be967a862bbe9e1eae94b5aa5c79f70",
+      "sha256": "2c6dd1999c834c8379ac2d51c4b85dc2b88165afcc5144354101a21298e8983a",
       "value_types": [
         "UInt16",
         "UInt64",
@@ -7799,7 +7799,7 @@
     {
       "question_id": "Q82",
       "result_path": "refs/cube/Q82-1.csv",
-      "sql_sha256": "95c444eaa75496b9961c6733eb06d058ac596f924cf22f9d24c462a9413d89e3",
+      "sql_sha256": "959d4478561020a1ed5ab6058b6a1d4adfd5a412ea85c1ca46527906901744cd",
       "row_count": 11,
       "columns": [
         {
@@ -7830,7 +7830,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "62394b023cc7081765ad3abd7f8dc6ce5e4c134007a41d85560ecc6d64d97058",
+      "sha256": "cec18daedd830b001f9c2b2df4e0ab43b9b113b7b0fae616af2edccefa71fb25",
       "value_types": [
         "String",
         "Nullable(String)",
@@ -8047,7 +8047,7 @@
     {
       "question_id": "Q85",
       "result_path": "refs/cube/Q85-1.csv",
-      "sql_sha256": "fabe6437b34fbaddcdd6fa7ac19762521e72ddf19ad8700a877dfba22368f742",
+      "sql_sha256": "6a76d6e2370b6d21a25a6090e627c819a491949a723de812999426f3035e3d3c",
       "row_count": 97,
       "columns": [
         {
@@ -8083,7 +8083,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "fec3acb85dbf0666c6ebb0aaf49015f6ea403106bf01ec806482f4ea41ca24d6",
+      "sha256": "53619e2421da1cd6d13f66af6c24766a84016996a0b441789e0c02470af82606",
       "value_types": [
         "String",
         "String",
@@ -8119,7 +8119,7 @@
               "where": [
                 {
                   "column": 0,
-                  "equals": "TOP"
+                  "equals": "最高"
                 }
               ],
               "group_columns": [
@@ -8141,7 +8141,7 @@
               "where": [
                 {
                   "column": 0,
-                  "equals": "BOTTOM"
+                  "equals": "最低"
                 }
               ],
               "group_columns": [
@@ -8185,7 +8185,7 @@
         [
           {
             "group": [
-              "TOP"
+              "最高"
             ],
             "objects": 306,
             "required": 5,
@@ -8196,7 +8196,7 @@
         [
           {
             "group": [
-              "BOTTOM"
+              "最低"
             ],
             "objects": 306,
             "required": 5,
@@ -8209,7 +8209,7 @@
     {
       "question_id": "Q86",
       "result_path": "refs/cube/Q86-1.csv",
-      "sql_sha256": "5250636b8612800eacf5a51222f1482c859e54a64c228162ca69a373fdb3a34f",
+      "sql_sha256": "fe9078a00507c1ab480ed825d0d3daf3a18b5d2dcc82cff35c850238066619aa",
       "row_count": 31,
       "columns": [
         {
@@ -8235,7 +8235,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "8bf6ded4e1fbecc67f5e0aed3431c19d294fbdfbb5975b13dedd6f775edf6233",
+      "sha256": "ed8997fc28e73ab30b63ddf0e2cc253d3a2c1a953653cdd3cb4657fc1fb3db16",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -8449,7 +8449,7 @@
     {
       "question_id": "Q89",
       "result_path": "refs/cube/Q89-1.csv",
-      "sql_sha256": "48aa0fb677e8c97a918d3b129efeec3678c6c9e84a0f4db05f3ca43e09371369",
+      "sql_sha256": "3e5a60b21ead598684f7df7cddd3cfd1469b19dc8d64ac66129a9b72f2cfa141",
       "row_count": 3,
       "columns": [
         {
@@ -8480,7 +8480,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6440e687f275fb6ca7917711fff0589ab2510b980facb1cebe336120e9366dcc",
+      "sha256": "5d104670f579f120ed85cc97cf53465a48cfa3312df5f36461b656583cacb167",
       "value_types": [
         "String",
         "UInt64",
@@ -8511,7 +8511,7 @@
     {
       "question_id": "Q90",
       "result_path": "refs/cube/Q90-1.csv",
-      "sql_sha256": "f7882435ec74c1206e0f4aa054cbf75bb4edf17451431417f1925088d9c943b3",
+      "sql_sha256": "26741f40d961d1e5d3fbc5dea1253dded038fbba944d398bdb6343c9e695d046",
       "row_count": 9,
       "columns": [
         {
@@ -8552,7 +8552,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6517335a896b2b0050e1ea77bef23887d680827b2061d76da51607920041dcc4",
+      "sha256": "9c9758e0ff351fb8d31a6de85f11b6016020b220088ecc7d6c1d8f137e5eda37",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -8681,8 +8681,8 @@
     {
       "question_id": "Q92",
       "result_path": "refs/cube/Q92-1.csv",
-      "sql_sha256": "157ea93a73c3520ac835b261bf4cf074d20f0c37d236b97e97326d1fe05afa8b",
-      "row_count": 11,
+      "sql_sha256": "44e259fbb0f35e336bf18e178541b0ab62539af79fd162d3c86a5f0937f8046c",
+      "row_count": 12,
       "columns": [
         {
           "name": "BrandName",
@@ -8712,7 +8712,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "40b514b4779c9cb9cdf08008bb131d931798be23c7a4eadd04e1a5586820d7c3",
+      "sha256": "4e76ca7d177c4ac6c1547b918d16c428591c0f2f385004a879b75ccd2deac054",
       "value_types": [
         "Nullable(String)",
         "Float64",

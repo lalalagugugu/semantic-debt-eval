@@ -1,10 +1,11 @@
 # 英文原始参考rules交接：不含接线变更
 
-T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。此次Q66删除未问的第三列后，补EN66原始三列规则。下面9份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。
+本轮追加EN85：中文Q85标签改为最高/最低，英文原始参考仍为TOP/BOTTOM；显式保存原始选择条件，避免同结构规则复用造成标签域不一致。原SQL/原值及harness接线保持。
+T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。此次Q66删除未问的第三列后，补EN66原始三列规则。下面10份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。
 
 量纲策略SHA256：`7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db`。自动推断沿用固定reference_value_kinds及infer_value_kind，不能按列值猜量纲。原始返回类型逐字保留Nullable，比较结构时按裁决剥Nullable；count整数守卫由底层类型判断。
 
-全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和9份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。
+全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和10份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。
 
 | 原题／锚点 | 原始行数 | 类型及量纲 |
 |---|---:|---|
@@ -16,6 +17,7 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
 | Q66／EN66 | 4 | quarter: UInt8 / other；total_discount: Float64 / amount；discounted_orders: UInt64 / count |
 | Q74／EN74 | 9 | StoreName: String / other；ProductName: String / other；product_sales: Float64 / amount；pct_of_store: Nullable(Float64) / percentage |
 | Q83／EN83 | 1 | cohort_size_2007: Nullable(UInt64) / count；returned_2008: UInt64 / count；retention_2008_pct: Nullable(Float64) / percentage；returned_2008_and_2009: UInt64 / count；retention_2009_pct: Nullable(Float64) / percentage |
+| Q85／EN85 | 10 | bucket: String / other；StoreName: String / other；actual_amt: Float64 / amount；quota_amt: Nullable(Float64) / amount；attainment_pct: Nullable(Float64) / percentage |
 | Q87／EN87 | 20 | ProductName: String / other；on_hand: Int64 / other；avg_daily_qty: Float64 / other；days_of_coverage: Float64 / other |
 
 ## EN13
@@ -242,6 +244,101 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
     "Nullable(Float64)",
     "UInt64",
     "Nullable(Float64)"
+  ]
+}
+```
+
+## EN85
+
+原始SQL SHA256：`758e47981378caa606abd15456f4766a51ff66ce311f1151a2c3eb1e44b6fa57`；payload SHA256：`432a59e3717f33a535f5311f2acc023f4134fe53f574c126b8dc4a583b287088`。
+
+```json
+{
+  "ordered": true,
+  "top_n": null,
+  "tie_columns": [],
+  "value_kinds": [
+    "other",
+    "other",
+    "amount",
+    "amount",
+    "percentage"
+  ],
+  "value_types": [
+    "String",
+    "String",
+    "Float64",
+    "Nullable(Float64)",
+    "Nullable(Float64)"
+  ],
+  "selection": {
+    "version": 1,
+    "stages": [
+      {
+        "parent": null,
+        "where": [
+          {
+            "column": 0,
+            "equals": "TOP"
+          }
+        ],
+        "group_columns": [
+          0
+        ],
+        "object_columns": [
+          1
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
+        ],
+        "n": 5
+      },
+      {
+        "parent": null,
+        "where": [
+          {
+            "column": 0,
+            "equals": "BOTTOM"
+          }
+        ],
+        "group_columns": [
+          0
+        ],
+        "object_columns": [
+          1
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": false
+          }
+        ],
+        "n": 5
+      }
+    ],
+    "output_order": [
+      {
+        "column": 0,
+        "descending": false
+      },
+      {
+        "column": 4,
+        "descending": true
+      }
+    ]
+  },
+  "order_by": [
+    {
+      "column": 0,
+      "descending": false
+    },
+    {
+      "column": 4,
+      "descending": true
+    }
   ]
 }
 ```

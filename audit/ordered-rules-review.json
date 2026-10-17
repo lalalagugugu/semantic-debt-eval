@@ -318,7 +318,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "2a7451baf3b9311eceb970798e9fcc6a0be2578fe3d3b849f49b014ce84febaa"
+      "sql_sha256": "06ed04082d69e71a82d0b2e4a88683d6349e800a4995bc06ebb6588847ae485b"
     },
     {
       "question_id": "Q79",
@@ -349,7 +349,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "fea2a333c2aca94a73f0e57d608a139f6849202a0cfaf31b4d8fcd5fcaf71790"
+      "sql_sha256": "22c600048b08bf1561ef48d0e9bc71e237ff5ee3cd8eaa81cd2ee86b6c028ed0"
     },
     {
       "question_id": "Q85",
@@ -388,7 +388,7 @@
         }
       ],
       "source": "existing explicit selection.output_order",
-      "sql_sha256": "fabe6437b34fbaddcdd6fa7ac19762521e72ddf19ad8700a877dfba22368f742"
+      "sql_sha256": "6a76d6e2370b6d21a25a6090e627c819a491949a723de812999426f3035e3d3c"
     },
     {
       "question_id": "Q87",
@@ -477,7 +477,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "157ea93a73c3520ac835b261bf4cf074d20f0c37d236b97e97326d1fe05afa8b"
+      "sql_sha256": "44e259fbb0f35e336bf18e178541b0ab62539af79fd162d3c86a5f0937f8046c"
     },
     {
       "question_id": "Q94",

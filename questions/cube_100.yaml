@@ -772,7 +772,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT d.IsWorkDay, sum(s.SalesAmount) as sales, round(sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales), 2) as percentage FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.IsWorkDay",
+          "sql": "SELECT d.IsWorkDay, sum(s.SalesAmount) as sales, (sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales)) as percentage FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.IsWorkDay",
           "result_path": "refs/cube/Q17-1.csv"
         }
       ],
@@ -1159,7 +1159,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, round(sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0), 2) as return_rate_pct FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+          "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, (sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0)) as return_rate_pct FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
           "result_path": "refs/cube/Q24-1.csv"
         }
       ],
@@ -1430,7 +1430,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT round((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales, 2) as pct_difference FROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
+          "sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT ((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales) as pct_difference FROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
           "result_path": "refs/cube/Q29-1.csv"
         }
       ],
@@ -1698,7 +1698,7 @@
       "refs": [
         {
           "interpretation": "公司产品粒度：每个快照日先跨店汇总库存金额，再平均；同年公司产品销货成本除以平均库存",
-          "sql": "WITH cogs AS (SELECT ProductKey, sum(TotalCost) as total_cogs FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey), avg_inv AS (SELECT ProductKey, avg(inventory_amount) as avg_inventory FROM (SELECT ProductKey,DateKey,sum(OnHandQuantity * UnitCost) AS inventory_amount FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey,DateKey) GROUP BY ProductKey) SELECT p.ProductName, c.total_cogs, a.avg_inventory, round(c.total_cogs / nullIf(a.avg_inventory, 0), 2) as turnover_ratio,c.ProductKey AS ProductKey FROM cogs c JOIN avg_inv a ON c.ProductKey = a.ProductKey LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON c.ProductKey = p.ProductKey ORDER BY c.total_cogs / nullIf(a.avg_inventory, 0) DESC",
+          "sql": "WITH cogs AS (SELECT ProductKey, sum(TotalCost) as total_cogs FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey), avg_inv AS (SELECT ProductKey, avg(inventory_amount) as avg_inventory FROM (SELECT ProductKey,DateKey,sum(OnHandQuantity * UnitCost) AS inventory_amount FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey,DateKey) GROUP BY ProductKey) SELECT p.ProductName, c.total_cogs, a.avg_inventory, (c.total_cogs / nullIf(a.avg_inventory, 0)) as turnover_ratio,c.ProductKey AS ProductKey FROM cogs c JOIN avg_inv a ON c.ProductKey = a.ProductKey LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON c.ProductKey = p.ProductKey ORDER BY c.total_cogs / nullIf(a.avg_inventory, 0) DESC",
           "result_path": "refs/cube/Q34-1.csv"
         }
       ],
@@ -1808,7 +1808,7 @@
       "refs": [
         {
           "interpretation": "原参考解读；购买事件=全部行",
-          "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN 'Active' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN 'At Risk' ELSE 'Churned' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+          "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN '活跃' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN '有流失风险' ELSE '已流失' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
           "result_path": "refs/cube/Q36-1.csv"
         }
       ],
@@ -1856,7 +1856,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, round(PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100, 2) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
+          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, (PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
           "result_path": "refs/cube/Q37-1.csv"
         }
       ],
@@ -1907,7 +1907,7 @@
       "refs": [
         {
           "interpretation": "按裁决仅报告准确率=100%-绝对百分比误差",
-          "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as accuracy_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
+          "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, (100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0)) as accuracy_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
           "result_path": "refs/cube/Q38-2.csv"
         }
       ],
@@ -2642,7 +2642,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, round((s9.sales - s8.sales) * 100.0 / s8.sales, 2) as growth_pct FROM sales_2009 s9, sales_2008 s8",
+          "sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, ((s9.sales - s8.sales) * 100.0 / s8.sales) as growth_pct FROM sales_2009 s9, sales_2008 s8",
           "result_path": "refs/cube/Q50-1.csv"
         }
       ],
@@ -3745,7 +3745,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT toYear(DateKey) AS year, toQuarter(DateKey) AS quarter,\n       round(sum(SalesAmount), 2) AS quarterly_sales,\n       round(sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), 2) AS cumulative_sales\nFROM retail.FactOnlineSales\nGROUP BY year, quarter\nORDER BY year, quarter",
+          "sql": "SELECT toYear(DateKey) AS year, toQuarter(DateKey) AS quarter,\n       (sum(SalesAmount)) AS quarterly_sales,\n       (sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)) AS cumulative_sales\nFROM retail.FactOnlineSales\nGROUP BY year, quarter\nORDER BY year, quarter",
           "result_path": "refs/cube/Q72-1.csv"
         }
       ],
@@ -3940,7 +3940,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       round(y.y2008, 2) AS spend_2008,\n       round(y.y2009, 2) AS spend_2009,\n       round((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0), 2) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY (y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0) DESC",
+          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       (y.y2008) AS spend_2008,\n       (y.y2009) AS spend_2009,\n       ((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0)) AS pct_growth\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY (y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0) DESC",
           "result_path": "refs/cube/Q75-1.csv"
         }
       ],
@@ -3996,7 +3996,7 @@
       "refs": [
         {
           "interpretation": "客户全目录累计至少两笔线上订单，须声明粒度；购买事件=全部行（含纯退货行）",
-          "sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       round(sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0), 2) AS pct_repeat_customer_sales\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0) DESC",
+          "sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       (sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0)) AS pct_repeat_customer_sales\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0) DESC",
           "result_path": "refs/cube/Q76-1.csv"
         },
         {
@@ -4051,7 +4051,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH monthly AS (SELECT toStartOfMonth(DateKey) AS month_date,sum(SalesAmount) AS raw_sales FROM retail.FactOnlineSales WHERE DateKey>=toDate('2008-12-01') AND DateKey<toDate('2010-01-01') GROUP BY month_date), growth AS (SELECT month_date,raw_sales,lagInFrame(raw_sales) OVER (ORDER BY month_date ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS raw_previous FROM monthly) SELECT toMonth(month_date) AS month,round(raw_sales,2) AS sales,round(raw_previous,2) AS prev_month_sales,round((raw_sales-raw_previous)*100.0/nullIf(raw_previous,0),2) AS mom_growth_pct FROM growth WHERE toYear(month_date)=2009 ORDER BY month_date",
+          "sql": "WITH monthly AS (SELECT toStartOfMonth(DateKey) AS month_date,sum(SalesAmount) AS raw_sales FROM retail.FactOnlineSales WHERE DateKey>=toDate('2008-12-01') AND DateKey<toDate('2010-01-01') GROUP BY month_date), growth AS (SELECT month_date,raw_sales,lagInFrame(raw_sales) OVER (ORDER BY month_date ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS raw_previous FROM monthly) SELECT toMonth(month_date) AS month,(raw_sales) AS sales,(raw_previous) AS prev_month_sales,((raw_sales-raw_previous)*100.0/nullIf(raw_previous,0)) AS mom_growth_pct FROM growth WHERE toYear(month_date)=2009 ORDER BY month_date",
           "result_path": "refs/cube/Q77-1.csv"
         }
       ],
@@ -4104,7 +4104,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       round(disc, 2) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       round(disc * 100.0 / nullif(sum(disc) OVER (), 0), 2) AS pct_of_total\nFROM promo\nORDER BY rnk",
+          "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       (disc) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       (disc * 100.0 / nullif(sum(disc) OVER (), 0)) AS pct_of_total\nFROM promo\nORDER BY rnk",
           "result_path": "refs/cube/Q78-1.csv"
         }
       ],
@@ -4165,7 +4165,7 @@
       "refs": [
         {
           "interpretation": "预算场景目标达成率，取前10名并保留边界并列",
-          "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       round(a.actual_sales, 2) AS actual_sales,\n       round(q.quota, 2) AS quota,\n       (a.actual_sales * 100.0 / nullif(q.quota, 0)) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
+          "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       (a.actual_sales) AS actual_sales,\n       (q.quota) AS quota,\n       (a.actual_sales * 100.0 / nullif(q.quota, 0)) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
           "result_path": "refs/cube/Q79-1.csv"
         }
       ],
@@ -4229,7 +4229,7 @@
       "refs": [
         {
           "interpretation": "原参考解读；购买事件=全部行",
-          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       round(avg(dateDiff('day', cust.first_d, cust.last_d)), 1) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY country\nORDER BY avg(dateDiff('day', cust.first_d, cust.last_d)) DESC",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       (avg(dateDiff('day', cust.first_d, cust.last_d))) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY country\nORDER BY avg(dateDiff('day', cust.first_d, cust.last_d)) DESC",
           "result_path": "refs/cube/Q80-1.csv"
         }
       ],
@@ -4281,7 +4281,7 @@
       "refs": [
         {
           "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
-          "sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       round(avg(lifetime_spend), 2) AS avg_ltv,\n       round(sum(lifetime_spend), 2) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
+          "sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       (avg(lifetime_spend)) AS avg_ltv,\n       (sum(lifetime_spend)) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
           "result_path": "refs/cube/Q81-1.csv"
         }
       ],
@@ -4334,7 +4334,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       round(r.avg_tenure_years, 1) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       (r.avg_tenure_years) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
           "result_path": "refs/cube/Q82-1.csv"
         }
       ],
@@ -4502,7 +4502,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         (a.actual_amt * 100.0 / nullif(q.quota_amt, 0)) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT 'TOP' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC )\n  UNION ALL\n  (SELECT 'BOTTOM' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC )\n) ORDER BY bucket, attainment_pct DESC",
+          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         (a.actual_amt * 100.0 / nullif(q.quota_amt, 0)) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT '最高' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC )\n  UNION ALL\n  (SELECT '最低' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC )\n) ORDER BY bucket, attainment_pct DESC",
           "result_path": "refs/cube/Q85-1.csv",
           "postprocess": "selection"
         }
@@ -4558,7 +4558,7 @@
               "where": [
                 {
                   "column": 0,
-                  "equals": "TOP"
+                  "equals": "最高"
                 }
               ],
               "group_columns": [
@@ -4580,7 +4580,7 @@
               "where": [
                 {
                   "column": 0,
-                  "equals": "BOTTOM"
+                  "equals": "最低"
                 }
               ],
               "group_columns": [
@@ -4630,7 +4630,7 @@
       "refs": [
         {
           "interpretation": "原参考解读；按题面补全全部满足原样本下限的子品类，不截前20",
-          "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL AND p.PromotionKey <> 1\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC",
+          "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL AND p.PromotionKey <> 1\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       (discount_qty_corr) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC",
           "result_path": "refs/cube/Q86-1.csv"
         },
         {
@@ -4812,7 +4812,7 @@
       "refs": [
         {
           "interpretation": "原参考解读；购买事件=全部行",
-          "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN 'Active'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN 'At Risk'\n           ELSE 'Churned'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       round(avg(total_spend), 2) AS avg_spend,\n       round(avg(distinct_products), 1) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN 'Active' THEN 1 WHEN 'At Risk' THEN 2 ELSE 3 END",
+          "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN '活跃'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN '有流失风险'\n           ELSE '已流失'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       (avg(total_spend)) AS avg_spend,\n       (avg(distinct_products)) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN '活跃' THEN 1 WHEN '有流失风险' THEN 2 ELSE 3 END",
           "result_path": "refs/cube/Q89-1.csv"
         }
       ],
@@ -4864,7 +4864,7 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       round(m_2007, 2) AS margin_2007_pct,\n       round(m_2008, 2) AS margin_2008_pct,\n       round(m_2009, 2) AS margin_2009_pct,\n       round(m_2008 - m_2007, 2) AS delta_08_07_pp,\n       round(m_2009 - m_2008, 2) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
+          "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n),\nmargins AS (\n  SELECT category, y, (rev - cost) * 100.0 / nullif(rev, 0) AS margin_pct FROM yearly\n),\npivoted AS (\n  SELECT category,\n         anyIf(margin_pct, y = 2007) AS m_2007,\n         anyIf(margin_pct, y = 2008) AS m_2008,\n         anyIf(margin_pct, y = 2009) AS m_2009\n  FROM margins GROUP BY category\n)\nSELECT category,\n       (m_2007) AS margin_2007_pct,\n       (m_2008) AS margin_2008_pct,\n       (m_2009) AS margin_2009_pct,\n       (m_2008 - m_2007) AS delta_08_07_pp,\n       (m_2009 - m_2008) AS delta_09_08_pp\nFROM pivoted\nORDER BY m_2009 DESC",
           "result_path": "refs/cube/Q90-1.csv"
         }
       ],
@@ -4977,7 +4977,7 @@
       "refs": [
         {
           "interpretation": "按裁决以毛利率衡量盈利能力并降序排名",
-          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_pct DESC",
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nLEFT JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\nGROUP BY p.BrandName\nORDER BY gross_margin_pct DESC",
           "result_path": "refs/cube/Q92-1.csv"
         }
       ],

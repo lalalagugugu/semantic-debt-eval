@@ -1,17 +1,17 @@
 country,n_customers,avg_active_days
 Armenia,1,1068
-Australia,3631,988.3
+Australia,3631,988.2822913797852
 Bhutan,1,1047
-Canada,1579,987.7
+Canada,1579,987.7441418619379
 China,5,956.8
-France,1814,1080.7
-Germany,1791,1078.6
+France,1814,1080.7116868798237
+Germany,1791,1078.6007816862088
 Greece,1,888
-India,3,958.7
+India,3,958.6666666666666
 Iran,1,1041
 Ireland,1,954
 Italy,1,1021
-Japan,7,996.3
+Japan,7,996.2857142857143
 Kyrgyzstan,1,881
 Pakistan,1,927
 Poland,1,1087
@@ -25,6 +25,6 @@ Syria,1,904
 Taiwan,1,1034
 Thailand,1,866
 Turkmenistan,1,860
-United Kingdom,1931,1078
-United States,8086,990.7
+United Kingdom,1931,1077.9772138788192
+United States,8086,990.727801137769
 the Netherlands,1,881

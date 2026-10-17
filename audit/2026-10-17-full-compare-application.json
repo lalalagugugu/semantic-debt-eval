@@ -1,0 +1,280 @@
+{
+  "baseline_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
+  "rounding_removed": [
+    {
+      "question_id": "Q17",
+      "reference": "refs/cube/Q17-1.csv",
+      "columns": [
+        {
+          "name": "percentage",
+          "expression": "sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q24",
+      "reference": "refs/cube/Q24-1.csv",
+      "columns": [
+        {
+          "name": "return_rate_pct",
+          "expression": "sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q29",
+      "reference": "refs/cube/Q29-1.csv",
+      "columns": [
+        {
+          "name": "pct_difference",
+          "expression": "(h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales"
+        }
+      ]
+    },
+    {
+      "question_id": "Q34",
+      "reference": "refs/cube/Q34-1.csv",
+      "columns": [
+        {
+          "name": "turnover_ratio",
+          "expression": "c.total_cogs / nullIf(a.avg_inventory, 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q37",
+      "reference": "refs/cube/Q37-1.csv",
+      "columns": [
+        {
+          "name": "percentile",
+          "expression": "PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100"
+        }
+      ]
+    },
+    {
+      "question_id": "Q38",
+      "reference": "refs/cube/Q38-2.csv",
+      "columns": [
+        {
+          "name": "accuracy_pct",
+          "expression": "100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q50",
+      "reference": "refs/cube/Q50-1.csv",
+      "columns": [
+        {
+          "name": "growth_pct",
+          "expression": "(s9.sales - s8.sales) * 100.0 / s8.sales"
+        }
+      ]
+    },
+    {
+      "question_id": "Q72",
+      "reference": "refs/cube/Q72-1.csv",
+      "columns": [
+        {
+          "name": "quarterly_sales",
+          "expression": "sum(SalesAmount)"
+        },
+        {
+          "name": "cumulative_sales",
+          "expression": "sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q75",
+      "reference": "refs/cube/Q75-1.csv",
+      "columns": [
+        {
+          "name": "spend_2008",
+          "expression": "y.y2008"
+        },
+        {
+          "name": "spend_2009",
+          "expression": "y.y2009"
+        },
+        {
+          "name": "pct_growth",
+          "expression": "(y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q76",
+      "reference": "refs/cube/Q76-1.csv",
+      "columns": [
+        {
+          "name": "pct_repeat_customer_sales",
+          "expression": "sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q77",
+      "reference": "refs/cube/Q77-1.csv",
+      "columns": [
+        {
+          "name": "sales",
+          "expression": "raw_sales"
+        },
+        {
+          "name": "prev_month_sales",
+          "expression": "raw_previous"
+        },
+        {
+          "name": "mom_growth_pct",
+          "expression": "(raw_sales-raw_previous)*100.0/nullIf(raw_previous,0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q78",
+      "reference": "refs/cube/Q78-1.csv",
+      "columns": [
+        {
+          "name": "discount_total",
+          "expression": "disc"
+        },
+        {
+          "name": "pct_of_total",
+          "expression": "disc * 100.0 / nullif(sum(disc) OVER (), 0)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q79",
+      "reference": "refs/cube/Q79-1.csv",
+      "columns": [
+        {
+          "name": "actual_sales",
+          "expression": "a.actual_sales"
+        },
+        {
+          "name": "quota",
+          "expression": "q.quota"
+        }
+      ]
+    },
+    {
+      "question_id": "Q80",
+      "reference": "refs/cube/Q80-1.csv",
+      "columns": [
+        {
+          "name": "avg_active_days",
+          "expression": "avg(dateDiff('day', cust.first_d, cust.last_d))"
+        }
+      ]
+    },
+    {
+      "question_id": "Q81",
+      "reference": "refs/cube/Q81-1.csv",
+      "columns": [
+        {
+          "name": "avg_ltv",
+          "expression": "avg(lifetime_spend)"
+        },
+        {
+          "name": "total_ltv",
+          "expression": "sum(lifetime_spend)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q82",
+      "reference": "refs/cube/Q82-1.csv",
+      "columns": [
+        {
+          "name": "avg_team_tenure_years",
+          "expression": "r.avg_tenure_years"
+        }
+      ]
+    },
+    {
+      "question_id": "Q86",
+      "reference": "refs/cube/Q86-1.csv",
+      "columns": [
+        {
+          "name": "corr_discount_vs_qty",
+          "expression": "discount_qty_corr"
+        }
+      ]
+    },
+    {
+      "question_id": "Q89",
+      "reference": "refs/cube/Q89-1.csv",
+      "columns": [
+        {
+          "name": "avg_spend",
+          "expression": "avg(total_spend)"
+        },
+        {
+          "name": "avg_distinct_products",
+          "expression": "avg(distinct_products)"
+        }
+      ]
+    },
+    {
+      "question_id": "Q90",
+      "reference": "refs/cube/Q90-1.csv",
+      "columns": [
+        {
+          "name": "margin_2007_pct",
+          "expression": "m_2007"
+        },
+        {
+          "name": "margin_2008_pct",
+          "expression": "m_2008"
+        },
+        {
+          "name": "margin_2009_pct",
+          "expression": "m_2009"
+        },
+        {
+          "name": "delta_08_07_pp",
+          "expression": "m_2008 - m_2007"
+        },
+        {
+          "name": "delta_09_08_pp",
+          "expression": "m_2009 - m_2008"
+        }
+      ]
+    }
+  ],
+  "labels_changed": [
+    {
+      "question_id": "Q36",
+      "reference": "refs/cube/Q36-1.csv",
+      "source": "题面及冻结语义层客户分层枚举",
+      "values": [
+        "活跃",
+        "有流失风险",
+        "已流失"
+      ]
+    },
+    {
+      "question_id": "Q85",
+      "reference": "refs/cube/Q85-1.csv",
+      "source": "题面已用最高/最低",
+      "values": [
+        "最高",
+        "最低"
+      ]
+    },
+    {
+      "question_id": "Q89",
+      "reference": "refs/cube/Q89-1.csv",
+      "source": "题面及冻结语义层客户分层枚举",
+      "values": [
+        "活跃",
+        "有流失风险",
+        "已流失"
+      ]
+    }
+  ],
+  "Q92": "名称维度左连接，删除空品牌过滤，保留NULL品牌分组",
+  "Q48_status": "user_confirmed_keep_unchanged_judge"
+}
