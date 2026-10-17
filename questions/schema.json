@@ -23,7 +23,9 @@
           "scoring_notes",
           "labels",
           "split",
-          "rules"
+          "rules",
+          "summary_coverage",
+          "summary_coverage_reason"
         ],
         "additionalProperties": false,
         "properties": {
@@ -108,7 +110,71 @@
             "type": "string"
           },
           "labels": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "summary_coverage_evidence": {
+                "type": "string",
+                "pattern": "^audit/T06-summary-coverage\\.json#/records/[0-9]+$"
+              },
+              "low_discrimination": {
+                "type": "object",
+                "required": [
+                  "criteria",
+                  "evidence"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "criteria": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "enum": [
+                        "A",
+                        "B",
+                        "C"
+                      ]
+                    }
+                  },
+                  "evidence": {
+                    "type": "string"
+                  }
+                }
+              },
+              "external_rewrite": {
+                "type": "object",
+                "required": [
+                  "rewritten",
+                  "reason",
+                  "decision_repository",
+                  "decision",
+                  "anchor_revised_sensitivity"
+                ],
+                "properties": {
+                  "rewritten": {
+                    "const": true
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "decision_repository": {
+                    "const": "main"
+                  },
+                  "decision": {
+                    "type": "string"
+                  },
+                  "anchor_revised_sensitivity": {
+                    "const": "excluded"
+                  },
+                  "threshold_change": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "required": [
+              "summary_coverage_evidence",
+              "low_discrimination"
+            ]
           },
           "rules": {
             "type": "object",
@@ -196,6 +262,16 @@
               "tuning",
               "heldout"
             ]
+          },
+          "summary_coverage": {
+            "enum": [
+              "covered",
+              "not_covered"
+            ]
+          },
+          "summary_coverage_reason": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }

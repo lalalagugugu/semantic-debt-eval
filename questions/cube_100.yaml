@@ -30,9 +30,14 @@
           ],
           "notes": "产品目录的实体粒度与产品键；直接计数。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/0",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/0"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -43,7 +48,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q02",
@@ -75,9 +82,14 @@
           ],
           "notes": "题干已明确线上，查线上事实表销售金额并求和，无额外业务默认。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/1",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/1"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -88,7 +100,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q03",
@@ -120,9 +134,14 @@
           ],
           "notes": "题干明确线上，客户键去重与客户/订单/记录粒度可由结构探查。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/2",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/2"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -133,7 +152,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q04",
@@ -166,9 +187,14 @@
           ],
           "notes": "品牌枚举Contoso与产品名称字段。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/3",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/3"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -179,7 +205,9 @@
         "value_types": [
           "String"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q05",
@@ -212,9 +240,14 @@
           ],
           "notes": "产品→子品类→品类的连接路径及唯一键。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/4",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/4"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -227,7 +260,9 @@
           "String",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q06",
@@ -260,9 +295,14 @@
           ],
           "notes": "题干明确线上及2009，销售额字段和日期取值。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/5",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/5"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -273,7 +313,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q07",
@@ -305,9 +347,16 @@
           ],
           "notes": "题干明确按单价；产品目录UnitPrice字段和Top-10并列。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/6",
+        "low_discrimination": {
+          "criteria": [
+            "A"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/6"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 10,
@@ -328,7 +377,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q08",
@@ -361,9 +412,14 @@
           ],
           "notes": "销售人员标志的Yes枚举，而非职位名称猜测。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/7",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/7"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -376,7 +432,9 @@
           "String",
           "String"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
     },
     {
       "id": "Q09",
@@ -408,9 +466,14 @@
           ],
           "notes": "产品单位成本字段与空值处理。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/8",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/8"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -421,7 +484,9 @@
         "value_types": [
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q10",
@@ -453,9 +518,14 @@
           ],
           "notes": "L1门店状态On表示营业；CloseDate的2090-12-31是未关店哨兵，不接受SQL NULL替代营业判据。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/9",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/9"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -466,7 +536,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q11",
@@ -500,9 +572,14 @@
           ],
           "notes": "未说明渠道默认线上；品类连接路径。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/10",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/10"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -515,7 +592,9 @@
           "Nullable(String)",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用产品汇总：FactSales 的 Online 切片不能替代 FactOnlineSales；保存实际查询不匹配证据。"
     },
     {
       "id": "Q12",
@@ -548,9 +627,14 @@
           ],
           "notes": "明确线上和2008；日期按月分组。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/11",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/11"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -563,7 +647,9 @@
           "UInt8",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q13",
@@ -597,9 +683,21 @@
           ],
           "notes": "门店分析用全渠道销售；平均单价沿用语义层已有指标。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/12",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/12"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法改写为门店销售额、平均单价和销量；订单指标改为已有平均单价。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -618,7 +716,9 @@
           "Nullable(Float64)",
           "Int64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q14",
@@ -652,9 +752,25 @@
           ],
           "notes": "未说明渠道默认线上；先按CustomerKey累计销售金额，再按题面门槛筛选后计数。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/13",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/13"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法改为客户人数；累计消费门槛由10000美元改为100000美元，避免全体客户通过筛选。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded",
+          "threshold_change": {
+            "original_usd": 10000,
+            "current_usd": 100000
+          }
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -665,7 +781,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q15",
@@ -698,9 +816,14 @@
           ],
           "notes": "明确线上；国家按客户所在地，不按门店所在地（约定5）。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/14",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/14"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -713,7 +836,9 @@
           "String",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q16",
@@ -746,9 +871,14 @@
           ],
           "notes": "明确线上及两个年份；日期分组。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/15",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/15"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -761,7 +891,9 @@
           "UInt16",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q17",
@@ -795,9 +927,16 @@
           ],
           "notes": "已裁决：本题销售构成占比不套用约定4日均比较；默认线上，IsWorkDay枚举。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/16",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/16"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -812,7 +951,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用日汇总；全渠道日表 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q18",
@@ -846,9 +987,14 @@
           ],
           "notes": "默认线上；促销键1无折扣须排除；促销类型枚举。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/17",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/17"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -861,7 +1007,9 @@
           "Nullable(String)",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用促销汇总；全渠道促销表 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q19",
@@ -895,9 +1043,14 @@
           ],
           "notes": "客单价=销售额÷去重订单数；默认线上，性别维度。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/18",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/18"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -910,7 +1063,9 @@
           "Nullable(String)",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
     },
     {
       "id": "Q20",
@@ -945,9 +1100,14 @@
           ],
           "notes": "L1当前库存先按门店×产品取最新快照，再按题面产品粒度汇总后与安全库存比较。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/19",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/19"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -964,7 +1124,9 @@
           "Int64",
           "Int64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
     },
     {
       "id": "Q21",
@@ -998,9 +1160,21 @@
           ],
           "notes": "当前库存按每个门店×产品最近快照，不取全表最大日。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/20",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/20"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法改为逐门店汇总当前在手库存，保留门店×产品各自最近快照口径。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1015,7 +1189,9 @@
           "String",
           "Int64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q22",
@@ -1051,9 +1227,14 @@
           ],
           "notes": "默认线上；国家按客户所在地；国家内客户排名与边界。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/21",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/21"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1097,7 +1278,9 @@
           ],
           "output_order": []
         }
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q23",
@@ -1131,9 +1314,14 @@
           ],
           "notes": "默认线上；2009月销售后累计，不能直接累积销售行。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/22",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/22"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1148,7 +1336,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q24",
@@ -1182,9 +1372,14 @@
           ],
           "notes": "退货率=退货数量÷销售数量；默认线上。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/23",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/23"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1201,7 +1396,9 @@
           "Int64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类退货汇总；全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q25",
@@ -1235,9 +1432,14 @@
           ],
           "notes": "已裁决：先按客户所在地过滤北美，按日汇总后使用NorthAmericaSeason分组算日均。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/24",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/24"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 1,
@@ -1258,7 +1460,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
     },
     {
       "id": "Q26",
@@ -1292,9 +1496,14 @@
           ],
           "notes": "首次购买按客户全历史最小日期，再筛2007分季度。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/25",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/25"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1307,7 +1516,9 @@
           "UInt8",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q27",
@@ -1342,9 +1553,14 @@
           ],
           "notes": "产品利润率使用目录标价和成本；边界并列任一。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/26",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/26"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": 10,
@@ -1369,7 +1585,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q28",
@@ -1404,9 +1622,21 @@
           ],
           "notes": "渠道对比用全渠道销售；平均单价沿用语义层已有指标。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/27",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/27"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法改为比较门店与线上渠道的平均单价；移除实体渠道不存在的订单概念。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1419,7 +1649,9 @@
           "String",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q29",
@@ -1454,9 +1686,16 @@
           ],
           "notes": "节假日/普通日按日均比较；默认线上；IsHoliday枚举。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/28",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/28"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1467,7 +1706,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
     },
     {
       "id": "Q30",
@@ -1500,9 +1741,14 @@
           ],
           "notes": "明确线上和时间范围；先按日求和再做7行窗口；12月首几日窗口截短。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/29",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/29"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1517,7 +1763,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
     },
     {
       "id": "Q31",
@@ -1552,9 +1800,14 @@
           ],
           "notes": "计划表收入科目Sale Revenue、实际/预算场景含义及品类粒度。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/30",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/30"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1569,7 +1822,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q32",
@@ -1603,9 +1858,14 @@
           ],
           "notes": "默认线上；终身消费价值是全历史销售额，筛选三个年份均有购买的客户。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/31",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/31"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1618,7 +1878,9 @@
           "UInt64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q33",
@@ -1652,9 +1914,14 @@
           ],
           "notes": "订单号对应线上订单；同订单产品对的计数粒度及自连接去重。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/32",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/32"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -1687,7 +1954,9 @@
             "descending": false
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q34",
@@ -1723,9 +1992,14 @@
           ],
           "notes": "库存快照半可加；周转率的销售成本/平均库存金额口径和日期对齐。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/33",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/33"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1744,7 +2018,9 @@
           "Nullable(Float64)",
           "Int32"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
     },
     {
       "id": "Q35",
@@ -1776,9 +2052,14 @@
           ],
           "notes": "员工父键到经理的自连接及空值表示。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/34",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/34"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1797,7 +2078,9 @@
           "String",
           "String"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
     },
     {
       "id": "Q36",
@@ -1830,9 +2113,21 @@
           ],
           "notes": "截至2009-12-31，按月数<=6、7–12、>12三档；默认线上购买历史。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/35",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/35"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法改为三个现有客户分层各有多少人。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1845,7 +2140,9 @@
           "String",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺跨月客户去重状态：月报客户数不能跨月相加，也没有按固定客户分层的全历史客户键集合。"
     },
     {
       "id": "Q37",
@@ -1879,9 +2176,14 @@
           ],
           "notes": "门店用全渠道；百分位排序，小数/百分数等价。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/36",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/36"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1896,7 +2198,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q38",
@@ -1932,9 +2236,14 @@
           ],
           "notes": "计划实际/预测场景及收入科目；相同期间和品类对齐。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/37",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/37"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -1951,7 +2260,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q39",
@@ -2012,9 +2323,14 @@
           ],
           "notes": "新品2008–2009上市；同子品类老产品的可比前后窗口，须声明方法。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/38",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/38"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2035,7 +2351,9 @@
           "Nullable(Float64)",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q40",
@@ -2069,9 +2387,14 @@
           ],
           "notes": "用户批准USD销售额乘同日EUR收盘汇率，仅31天部分答案，必须披露缺失1065天，不外推全期间。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/39",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/39"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2082,7 +2405,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺汇率表与币种维度：ads 没有日收盘汇率或交易币种，不能做ASOF折算。"
     },
     {
       "id": "Q41",
@@ -2115,9 +2440,14 @@
           ],
           "notes": "今天2009-12-31、上季度2009Q4；默认线上。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/40",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/40"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2128,7 +2458,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q42",
@@ -2181,9 +2513,14 @@
           ],
           "notes": "默认线上；“表现”的指标选择须声明并待可接受范围裁决。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/41",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/41"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2198,7 +2535,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类汇总；全渠道 Online 切片不能复现任一参考。"
     },
     {
       "id": "Q43",
@@ -2236,9 +2575,14 @@
           ],
           "notes": "默认线上、客户所在地；地区粒度未指定，大洲/国家均接受。本题不再测试地理粒度；T06以任一可接受解读覆盖为准。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/42",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/42"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2251,7 +2595,9 @@
           "String",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q44",
@@ -2303,9 +2649,14 @@
           ],
           "notes": "线上已明确；“增长”的时间粒度和首期无基期表达待裁决。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/43",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/43"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2320,7 +2671,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q45",
@@ -2357,9 +2710,14 @@
           ],
           "notes": "门店全渠道、每平方英尺销售额；已批准允许声明Top-N或完整排名，不固定前10；新中文已确认。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/44",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/44"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -2382,7 +2740,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q46",
@@ -2423,9 +2783,14 @@
           ],
           "notes": "默认线上、遵守既有毛利口径；要求agent声明合理分群及筛选，学历/职业仅是示例。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/45",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/45"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 1,
@@ -2446,7 +2811,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q47",
@@ -2479,9 +2846,14 @@
           ],
           "notes": "门店IT停机事实表、DownTime字段与按门店分组可探查。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/46",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/46"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2494,7 +2866,9 @@
           "String",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺IT故障事实及指标：ads 没有故障次数、停机时长或故障关联状态。"
     },
     {
       "id": "Q48",
@@ -2562,9 +2936,14 @@
           ],
           "notes": "门店销售用全渠道；先按门店汇总故障和销售，声明分组阈值或使用相关系数。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/47",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/47"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2579,7 +2958,9 @@
           "Float64",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺IT故障事实及指标：ads 没有故障次数、停机时长或故障关联状态。"
     },
     {
       "id": "Q49",
@@ -2614,9 +2995,14 @@
           ],
           "notes": "计划实际场景、收入科目；自指父键是根，向祖先汇总并列出各级，不另留仅顶层展示。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/48",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/48"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2631,7 +3017,9 @@
           "String",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺组织维度与层级：计划汇总只留门店直属上级文字，无法恢复组织键及递归祖先关系。"
     },
     {
       "id": "Q50",
@@ -2666,9 +3054,14 @@
           ],
           "notes": "全渠道，同店只比较两年均有销售门店；同口径算增长。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/49",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/49"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2683,7 +3076,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q51",
@@ -2715,9 +3110,14 @@
           ],
           "notes": "门店实体与唯一键。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/50",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/50"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2728,7 +3128,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q52",
@@ -2760,9 +3162,14 @@
           ],
           "notes": "产品目录单价字段最大值。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/51",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/51"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2773,7 +3180,9 @@
         "value_types": [
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q53",
@@ -2807,9 +3216,14 @@
           ],
           "notes": "线上订单=去重SalesOrderNumber；不能按销售记录行数。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/52",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/52"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2820,7 +3234,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q54",
@@ -2852,9 +3268,14 @@
           ],
           "notes": "明确线上退货金额；ReturnAmount字段而非退货数量。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/53",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/53"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2865,7 +3286,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q55",
@@ -2898,9 +3321,14 @@
           ],
           "notes": "性别F枚举与客户实体计数。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/54",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/54"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2911,7 +3339,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q56",
@@ -2943,9 +3373,14 @@
           ],
           "notes": "YearlyIncome字段及缺失值表示。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/55",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/55"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -2956,7 +3391,9 @@
         "value_types": [
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q57",
@@ -2988,9 +3425,14 @@
           ],
           "notes": "产品BrandName去重；品牌与产品数量不同。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/56",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/56"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3001,7 +3443,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q58",
@@ -3033,9 +3477,14 @@
           ],
           "notes": "明确线上；单笔销售与订单/销售行粒度需要从字段关系核实，原参考使用单行金额。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/57",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/57"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3046,7 +3495,9 @@
         "value_types": [
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "需要订单行明细：线上汇总没有单行销售额最大值，不能由合计推回最大单行金额。"
     },
     {
       "id": "Q59",
@@ -3079,9 +3530,16 @@
           ],
           "notes": "日历IsHoliday的Yes枚举与日期实体。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/58",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/58"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3092,7 +3550,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q60",
@@ -3125,9 +3585,14 @@
           ],
           "notes": "部门Production枚举与员工实体。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/59",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/59"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3138,7 +3603,9 @@
         "value_types": [
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
     },
     {
       "id": "Q61",
@@ -3171,9 +3638,14 @@
           ],
           "notes": "明确线上、2009、100万美元阈值；产品至子品类路径。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/60",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/60"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3186,7 +3658,9 @@
           "Nullable(String)",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用子品类汇总；全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q62",
@@ -3219,9 +3693,14 @@
           ],
           "notes": "明确线上、2008、销量至少500；金额和数量单位字段。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/61",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/61"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3236,7 +3715,9 @@
           "Float64",
           "Int64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品牌汇总；全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q63",
@@ -3270,9 +3751,14 @@
           ],
           "notes": "线上客单价按销售额÷去重订单数，不按销售记录avg。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/62",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/62"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3287,7 +3773,9 @@
           "Nullable(Float64)",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺跨画像/季度的订单去重状态：订单数不可跨行相加；误差即使落入评分容差也不构成正确覆盖。"
     },
     {
       "id": "Q64",
@@ -3321,9 +3809,14 @@
           ],
           "notes": "毛利/毛利率定义；月份汇总与百分数单位。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/63",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/63"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3338,7 +3831,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q65",
@@ -3372,9 +3867,14 @@
           ],
           "notes": "全渠道事实；按DimStore.EmployeeKey关联经理姓名，缺映射保留NULL姓名及门店；返回全部超500万美元门店。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/64",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/64"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3389,7 +3889,9 @@
           "String",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q66",
@@ -3422,9 +3924,14 @@
           ],
           "notes": "默认线上；排除促销键1；按2009季度统计。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/65",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/65"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3437,7 +3944,9 @@
           "UInt8",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用促销季度折扣汇总：全渠道促销表的 Online 切片与线上事实不是同一来源。"
     },
     {
       "id": "Q67",
@@ -3472,9 +3981,14 @@
           ],
           "notes": "成交均价=销售金额/销售数量；销量至少1000件；已批准完整颜色排名，不固定前20。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/66",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/66"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -3495,7 +4009,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上颜色事实粒度：产品汇总未保留颜色，维度有颜色却无法再关联产品键。"
     },
     {
       "id": "Q68",
@@ -3529,9 +4045,16 @@
           ],
           "notes": "线上订单去重；按订单日期对应节假日枚举，营收已扣折扣。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/67",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/67"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3546,7 +4069,9 @@
           "UInt64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上日粒度：线上事实仅有周/月/季汇总，无法恢复日级销售、节假日内订单或移动窗口。"
     },
     {
       "id": "Q69",
@@ -3581,9 +4106,14 @@
           ],
           "notes": "按L1折扣率定义取折扣金额合计/折扣前原价合计，排除无折扣；按营收而非折扣深度排序。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/68",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/68"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -3606,7 +4136,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺促销类别：ads 促销维度/汇总保留促销类型与名称，没有 PromotionCategory；且无线上专用促销汇总。"
     },
     {
       "id": "Q70",
@@ -3640,9 +4172,14 @@
           ],
           "notes": "已批准：DimStore唯一门店的面积等权平均（含无销售门店），与全渠道销售汇总分开计算后对齐。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/69",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/69"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3659,7 +4196,9 @@
           "Nullable(Float64)",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q71",
@@ -3694,9 +4233,14 @@
           ],
           "notes": "明确线上与2009；品类内子品类最高销售额与连接路径。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/70",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/70"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3734,7 +4278,9 @@
           ],
           "output_order": []
         }
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类×子品类销售额；全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q72",
@@ -3766,9 +4312,14 @@
           ],
           "notes": "明确线上、2007–2009；先按季度求和再跨年累计。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/71",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/71"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3785,7 +4336,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q73",
@@ -3820,9 +4373,14 @@
           ],
           "notes": "当前库存按门店×产品最近快照再按产品汇总；缺口方向/并列排序。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/72",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/72"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": 10,
@@ -3847,7 +4405,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
     },
     {
       "id": "Q74",
@@ -3885,9 +4445,14 @@
           ],
           "notes": "已批准覆盖原keep：门店用全渠道，每店前三产品及占比，不设全局LIMIT50，参考保存完整量化边界。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/73",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/73"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3929,7 +4494,9 @@
           ],
           "output_order": []
         }
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q75",
@@ -3964,9 +4531,14 @@
           ],
           "notes": "默认线上；客户两年金额对齐，增长>50%；已批准完整结果，不固定前25。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/74",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/74"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -3985,7 +4557,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q76",
@@ -4025,9 +4599,17 @@
           ],
           "notes": "已批准全目录回头客或品类内回头客双解读；须声明订单去重的粒度。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/75",
+        "low_discrimination": {
+          "criteria": [
+            "A",
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/75"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4040,7 +4622,9 @@
           "Nullable(String)",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "需要客户订单次数及品类关系：线上汇总没有客户键和订单明细，无法按全目录/品类判定回头客。"
     },
     {
       "id": "Q77",
@@ -4074,9 +4658,14 @@
           ],
           "notes": "明确线上、2009、环比；月份窗口和首月基期缺失可由数据探查。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/76",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/76"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4093,7 +4682,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q78",
@@ -4129,9 +4720,14 @@
           ],
           "notes": "默认线上、排除促销键1；类别折扣占全部折扣分母。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/77",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/77"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -4154,7 +4750,9 @@
             "descending": false
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺促销类别：ads 促销维度/汇总保留促销类型与名称，没有 PromotionCategory；且无线上专用促销汇总。"
     },
     {
       "id": "Q79",
@@ -4191,9 +4789,16 @@
           ],
           "notes": "门店实际全渠道/预算场景目标；不能用实际场景配额。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/78",
+        "low_discrimination": {
+          "criteria": [
+            "C"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/78"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 10,
@@ -4218,7 +4823,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q80",
@@ -4253,9 +4860,14 @@
           ],
           "notes": "国家按客户所在地；已批准纳入所有购买客户，同日跨度为0，完整国家结果。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/79",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/79"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4270,7 +4882,9 @@
           "UInt64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q81",
@@ -4304,9 +4918,14 @@
           ],
           "notes": "首次购买年按全历史；终身价值按客户累计再组内求平均。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/80",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/80"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4323,7 +4942,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q82",
@@ -4358,9 +4979,14 @@
           ],
           "notes": "截止2009-12-31；直属下属入职天数/365.25后等权平均，不采用仅跨年边界的年差；无隐含LIMIT。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/81",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/81"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4377,7 +5003,9 @@
           "UInt64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺员工维度：ads.dim_store 仅保留门店经理姓名/职级，不能恢复完整员工及直属上下级。"
     },
     {
       "id": "Q83",
@@ -4413,9 +5041,16 @@
           ],
           "notes": "默认线上，2007首购队列→2008回购→再2009回购；已批准仅保留三项人数，不要求有误的辅助比率。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/82",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/82"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4430,7 +5065,9 @@
           "UInt64",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q84",
@@ -4472,9 +5109,14 @@
           ],
           "notes": "已批准按全局金额量化合并同额组，用组加入前累计份额判ABC，跨阈值整组留前类。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/83",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/83"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4491,7 +5133,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q85",
@@ -4529,9 +5173,16 @@
           ],
           "notes": "门店实际全渠道/预算目标；两路Top/Bottom并列冻结前复核。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/84",
+        "low_discrimination": {
+          "criteria": [
+            "C"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/84"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -4619,7 +5270,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q86",
@@ -4659,9 +5312,14 @@
           ],
           "notes": "按子品类计算相关性；依约定10排除无折扣；相关方法和样本下限的未定义默认另列缺口。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/85",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/85"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4676,7 +5334,9 @@
           "Nullable(Float64)",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "需要促销行级联合分布：汇总没有折扣比例与销量的协方差、秩或弹性所需明细。"
     },
     {
       "id": "Q87",
@@ -4713,9 +5373,14 @@
           ],
           "notes": "当前库存按每个门店×产品最新快照后汇总；最后90个日历日为窗口，日均销量分母遵守L1有销售天数。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/86",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/86"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 20,
@@ -4742,7 +5407,9 @@
             "descending": false
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺产品库存粒度：库存已按门店×品类聚合，无法恢复产品库存或产品与销量的对应关系。"
     },
     {
       "id": "Q88",
@@ -4778,9 +5445,14 @@
           ],
           "notes": "默认线上；忠实客户按每季度均有购买筛选，全年消费和并列。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/87",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/87"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": 20,
@@ -4801,7 +5473,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q89",
@@ -4834,9 +5508,21 @@
           ],
           "notes": "固定截止日、按6/12个月阈值分层；客户消费与产品种类先按人计算。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/88",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/88"
+        },
+        "external_rewrite": {
+          "rewritten": true,
+          "reason": "按真实问法直接使用客户分层业务词，询问各层平均消费及平均产品种类数。",
+          "decision_repository": "main",
+          "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+          "anchor_revised_sensitivity": "excluded"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4853,7 +5539,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q90",
@@ -4888,9 +5576,14 @@
           ],
           "notes": "默认线上；毛利率定义，跨年百分点差而非相对增长率。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/89",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/89"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4911,7 +5604,9 @@
           "Nullable(Float64)",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q91",
@@ -4951,9 +5646,14 @@
           ],
           "notes": "明确客户年收入与线上消费；先客户累计再相关，字段与连接可探查。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/90",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/90"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -4966,7 +5666,9 @@
           "Nullable(Float64)",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     },
     {
       "id": "Q92",
@@ -5001,9 +5703,14 @@
           ],
           "notes": "上季度=2009Q4，默认线上；已批准完整品牌盈利排名，不固定前10。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/91",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/91"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -5026,7 +5733,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q93",
@@ -5061,9 +5770,14 @@
           ],
           "notes": "排除无折扣；促销层面数量/营收与折扣相关；相关不证明因果。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/92",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/92"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -5078,7 +5792,9 @@
           "Nullable(Float64)",
           "UInt64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "需要促销行级联合分布：汇总没有折扣比例与销量的协方差、秩或弹性所需明细。"
     },
     {
       "id": "Q94",
@@ -5113,9 +5829,14 @@
           ],
           "notes": "门店全渠道；已批准返回所有Q3有销售且Q4下降的门店，无隐含前20。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/93",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/93"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -5138,7 +5859,9 @@
             "descending": false
           }
         ]
-      }
+      },
+      "summary_coverage": "covered",
+      "summary_coverage_reason": "仅使用ads汇总表/维度的查询已复现至少一份有效参考。"
     },
     {
       "id": "Q95",
@@ -5173,9 +5896,14 @@
           ],
           "notes": "默认线上、促销/原价定义；已批准描述性比较且必须声明不能识别因果增量。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/94",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/94"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -5192,7 +5920,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上品类×促销及订单行数联合粒度，无法重算促销/原价行均销售差。"
     },
     {
       "id": "Q96",
@@ -5227,9 +5957,14 @@
           ],
           "notes": "默认线上；按全历史首购年分队列，后续年份回购不能只看订单数。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/95",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/95"
+        }
       },
-      "split": null,
+      "split": "heldout",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -5246,7 +5981,9 @@
           "UInt64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺首单/最近购买的客户事件历史：月度新客/固定分层聚合不保留客户键、首购日及迁移/留存路径。"
     },
     {
       "id": "Q97",
@@ -5312,9 +6049,14 @@
           ],
           "notes": "固定2009年H1/H2；agent须声明合理反弹指标、N与基数筛选；增幅/增加额仅为示例。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/96",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/96"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -5339,7 +6081,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺订单/产品事实粒度：现有产品汇总只到品牌/子类，未保留产品键与订单篮子或逐产品销售。"
     },
     {
       "id": "Q98",
@@ -5443,9 +6187,14 @@
           ],
           "notes": "已批准2009年度或2007–2009逐年分析，声明年份，各年度内算季度集中度。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/97",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/97"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": true,
         "top_n": null,
@@ -5494,7 +6243,9 @@
             "descending": true
           }
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q99",
@@ -5529,9 +6280,16 @@
           ],
           "notes": "默认线上；日均不是销售记录均值；周末/工作日枚举。"
         },
-        "persona": "分析师"
+        "persona": "分析师",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/98",
+        "low_discrimination": {
+          "criteria": [
+            "B"
+          ],
+          "evidence": "audit/T06-low-discrimination.json#/records/98"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -5548,7 +6306,9 @@
           "Float64",
           "Nullable(Float64)"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺线上专用品类/品牌事实粒度：线上汇总没有这些产品属性，全渠道 Online 切片不能替代线上事实。"
     },
     {
       "id": "Q100",
@@ -5587,9 +6347,14 @@
           ],
           "notes": "线上订单去重、客单价定义；全局量化后精确线性插值P90双阈值交集，含阈值并列，无LIMIT30。"
         },
-        "persona": "管理层"
+        "persona": "管理层",
+        "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/99",
+        "low_discrimination": {
+          "criteria": [],
+          "evidence": "audit/T06-low-discrimination.json#/records/99"
+        }
       },
-      "split": null,
+      "split": "tuning",
       "rules": {
         "ordered": false,
         "top_n": null,
@@ -5606,7 +6371,9 @@
           "Float64",
           "Float64"
         ]
-      }
+      },
+      "summary_coverage": "not_covered",
+      "summary_coverage_reason": "缺客户事实粒度：线上汇总未保留客户键及逐客户消费/订单/产品状态，维度表不能恢复购买历史。"
     }
   ]
 }
