@@ -21,7 +21,11 @@ def main():
     baseline=json.loads((ROOT/'audit/reviews/2026-10-17-before-single-policy.json').read_text())
     questions={q['id']:q for name in ('cube_100','new') for q in json.loads((ROOT/f'questions/{name}.yaml').read_text())['questions']}
     manifest=json.loads((ROOT/'refs/MANIFEST.json').read_text());records={r['result_path']:r for r in manifest['records']}
-    assert len(questions)==122 and len(records)==policy['final_references']==133
+    ruling_path=ROOT/'audit/2026-10-17-gap-ruling-review.json'
+    ruling=json.loads(ruling_path.read_text()) if ruling_path.exists() else None
+    expected=ruling['final_references'] if ruling else policy['final_references']
+    assert policy['final_references']==133  # Historical first-stage decision ledger.
+    assert len(questions)==122 and len(records)==expected
     assert len(policy['extra_reference_inventory'])==43
     assert Counter(r['category'] for r in policy['extra_reference_inventory'])=={'口径歧义':30,'展示方式':2,'问法歧义':11}
     retired={r['reference'] for r in policy['removed_references']}
@@ -45,7 +49,7 @@ def main():
     assert records['refs/cube/Q93-1.csv']==previous['refs/cube/Q93-1.csv']
     for name,digest in policy['source_sha256'].items():
         assert hashlib.sha256((Path(os.environ['SEMDEBT_MAIN_DIR'])/'semantic'/name).read_bytes()).hexdigest()==digest
-    for name,digest in policy['current_question_sha256'].items():
+    for name,digest in (ruling or policy)['current_question_sha256'].items():
         assert hashlib.sha256((ROOT/f'questions/{name}.yaml').read_bytes()).hexdigest()==digest
     for qid in ('Q27','Q45','Q79','Q87'):
         q=questions[qid];ref=q['refs'][0];rule=effective_rules(q,ref);rows=csv_rows(records[ref['result_path']])
@@ -79,7 +83,7 @@ def main():
         assert '2026-10-17' in str(error)
     else:
         raise AssertionError('withdrawn purchase-event alternatives must not be reapplied')
-    print('PASS: 43 extra-reference decisions, 122 prompt reviews, 133 active references, retired files, Q93 unchanged, unrounded/rounded scorer compatibility and Q79 provenance')
+    print(f'PASS: 43 historical extra-reference decisions, 122 prompt reviews, {expected} active references, retired files, Q93 unchanged, unrounded/rounded scorer compatibility and Q79 provenance')
 
 
 if __name__=='__main__':main()

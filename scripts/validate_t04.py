@@ -38,6 +38,8 @@ def main():
     assert exact_percentile([Decimal(7)]) == Decimal(7)
     revenue_meta = [{"name": "ProductKey", "type": "Int32"}, {"name": "revenue", "type": "Float64"}]
     _, rows, _ = postprocess_reference("abc_groups", revenue_meta, [[1, 60], [2, 15], [3, 15], [4, 10]], policy)
+    _, after_rows, _ = postprocess_reference("abc_groups_after", revenue_meta, [[1, 60], [2, 15], [3, 15], [4, 10]], policy)
+    assert [(r[0], r[1]) for r in after_rows] == [('A', 1), ('B', 2), ('C', 1)]
     assert [(r[0], r[1], r[2]) for r in rows] == [("A", 3, 90.0), ("B", 1, 10.0)]
     _, rows, _ = postprocess_reference("abc_groups", revenue_meta, [[1, 79], [2, 11], [3, 6], [4, 4]], policy)
     assert [(r[0], r[1]) for r in rows] == [("A", 2), ("B", 1), ("C", 1)]
@@ -75,10 +77,15 @@ def main():
     policy_path = REPO / 'audit/2026-10-17-single-policy-review.json'
     policy = json.loads(policy_path.read_text()) if policy_path.exists() else None
     prompt_review = {r['question_id']:r for r in policy['question_text_review']} if policy else {}
+    ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
+    ruling=json.loads(ruling_path.read_text()) if ruling_path.exists() else None
+    rewritten={r['question_id']:r['text'] for r in ruling['rewritten_question_checks']} if ruling else {}
     schema = json.loads((REPO / "questions/schema.json").read_text())
     pattern = schema["properties"]["questions"]["items"]["properties"]["refs"]["items"]["properties"]["result_path"]["pattern"]
     for q, original in zip(questions, source, strict=True):
-        if q['id'] in prompt_review and prompt_review[q['id']]['changed']:
+        if q['id'] in rewritten:
+            assert q['text_en']==original['question'] and q['text_zh']==rewritten[q['id']]
+        elif q['id'] in prompt_review and prompt_review[q['id']]['changed']:
             reviewed = prompt_review[q['id']]
             assert reviewed['old_text_en'] == original['question']
             assert q['text_en'] == reviewed['new_text_en'] and q['text_zh'] == reviewed['new_text_zh']
@@ -105,8 +112,12 @@ def main():
     q40 = questions[39]
     assert q40["scoring"] == "judge"
     assert "s.CurrencyKey = er.CurrencyKey" not in q40["refs"][0]["sql"]
-    assert "s.SalesAmount * er.EndOfDayRate" in q40["refs"][0]["sql"]
-    assert all(value in q40["scoring_notes"] for value in ("31", "1065", "部分答案"))
+    if ruling:
+        assert 'ASOF LEFT JOIN' in q40['refs'][0]['sql'] and 'd.DateKey>=e.DateKey' in q40['refs'][0]['sql']
+        assert '此前最近' in q40['scoring_notes']
+    else:
+        assert "s.SalesAmount * er.EndOfDayRate" in q40["refs"][0]["sql"]
+        assert all(value in q40["scoring_notes"] for value in ("31", "1065", "部分答案"))
     assert not yaml.safe_load((REPO / "audit/audit_decisions.yaml").read_text())["pending_user_decision"]
     with (REPO / "refs/cube/Q40-1.csv").open() as stream:
         eur = list(csv.DictReader(stream))

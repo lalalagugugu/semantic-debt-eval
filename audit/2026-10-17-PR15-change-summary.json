@@ -1,78 +1,15 @@
 {
   "baseline_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "baseline_references": 162,
-  "current_references": 133,
-  "scope": "entire PR15 versus merged main/PR14, not just the 165-reference draft stage",
-  "text_changed": [
-    "Q07",
-    "Q36",
-    "Q45",
-    "Q50",
-    "Q66",
-    "Q85",
-    "Q89",
-    "Q111",
-    "Q115",
-    "Q120"
+  "current_references": 136,
+  "scope": "entire PR15 versus merged main/PR14; includes the approved semantic-gap ruling",
+  "manifest_sha256": "48196b77c5ebec81bab02b8d56191fb7957a290f8472c00e3d34ccdc59d02bb8",
+  "anchor_revised_sensitivity_exclusions": [
+    "EN13",
+    "EN28",
+    "EN36",
+    "EN89"
   ],
-  "references_changed": [
-    "Q10",
-    "Q11",
-    "Q20",
-    "Q24",
-    "Q26",
-    "Q27",
-    "Q33",
-    "Q34",
-    "Q36",
-    "Q38",
-    "Q45",
-    "Q48",
-    "Q49",
-    "Q61",
-    "Q62",
-    "Q65",
-    "Q66",
-    "Q67",
-    "Q69",
-    "Q71",
-    "Q75",
-    "Q76",
-    "Q77",
-    "Q79",
-    "Q80",
-    "Q85",
-    "Q86",
-    "Q87",
-    "Q88",
-    "Q89",
-    "Q90",
-    "Q95",
-    "Q99",
-    "Q102",
-    "Q114",
-    "Q115",
-    "Q116",
-    "Q121",
-    "Q122"
-  ],
-  "CSV_changed": [
-    "Q27",
-    "Q34",
-    "Q38",
-    "Q45",
-    "Q48",
-    "Q65",
-    "Q66",
-    "Q71",
-    "Q77",
-    "Q79",
-    "Q85",
-    "Q86",
-    "Q87",
-    "Q88"
-  ],
-  "manifest_sha256": "1db33777af9a9c9ebabd0797425beb19dd9d7a5f7be9f047effd73743b836bae",
   "records": [
     {
       "question_id": "Q01",
@@ -80,6 +17,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -91,6 +29,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -102,6 +41,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -113,6 +53,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -124,6 +65,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -135,6 +77,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -146,6 +89,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -157,6 +101,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -168,6 +113,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -179,6 +125,7 @@
       "references_changed": true,
       "previous_references": 3,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q10-2.csv",
         "refs/cube/Q10-3.csv"
@@ -193,6 +140,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q11-2.csv"
       ],
@@ -206,6 +154,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -213,14 +162,21 @@
     },
     {
       "question_id": "Q13",
-      "text_changed": false,
-      "references_changed": false,
+      "text_changed": true,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q13-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q13-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q13-1.csv"
+      ]
     },
     {
       "question_id": "Q14",
@@ -228,6 +184,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -239,6 +196,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -250,6 +208,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -261,6 +220,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -272,6 +232,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -283,6 +244,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -294,6 +256,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q20-1.csv"
       ],
@@ -307,6 +270,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -318,6 +282,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -329,6 +294,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -340,6 +306,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q24-2.csv"
       ],
@@ -353,6 +320,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -364,6 +332,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q26-2.csv"
       ],
@@ -377,6 +346,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q27-1.csv"
@@ -388,14 +358,21 @@
     },
     {
       "question_id": "Q28",
-      "text_changed": false,
-      "references_changed": false,
+      "text_changed": true,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q28-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q28-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q28-1.csv"
+      ]
     },
     {
       "question_id": "Q29",
@@ -403,6 +380,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -414,6 +392,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -425,6 +404,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -436,6 +416,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -447,6 +428,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q33-2.csv"
       ],
@@ -460,6 +442,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q34-1.csv"
@@ -475,6 +458,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -486,6 +470,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q36-2.csv"
       ],
@@ -499,6 +484,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -509,24 +495,26 @@
       "text_changed": false,
       "references_changed": true,
       "previous_references": 1,
-      "current_references": 2,
-      "removed_references": [],
-      "changed_SQL": [
+      "current_references": 1,
+      "added_references": [
         "refs/cube/Q38-2.csv"
       ],
-      "changed_CSV": [
-        "refs/cube/Q38-2.csv"
+      "removed_references": [
+        "refs/cube/Q38-1.csv"
       ],
-      "changed_rules": [
-        "refs/cube/Q38-2.csv"
-      ]
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
     },
     {
       "question_id": "Q39",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 1,
-      "current_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q39-2.csv"
+      ],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -535,12 +523,17 @@
     {
       "question_id": "Q40",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
+      "changed_SQL": [
+        "refs/cube/Q40-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q40-1.csv"
+      ],
       "changed_rules": []
     },
     {
@@ -549,6 +542,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -560,6 +554,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -571,6 +566,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -582,6 +578,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -593,6 +590,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q45-1.csv"
@@ -608,6 +606,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -619,6 +618,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -629,7 +629,10 @@
       "text_changed": false,
       "references_changed": true,
       "previous_references": 2,
-      "current_references": 2,
+      "current_references": 3,
+      "added_references": [
+        "refs/cube/Q48-3.csv"
+      ],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q48-1.csv",
@@ -649,6 +652,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q49-1.csv"
       ],
@@ -662,6 +666,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -673,6 +678,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -684,6 +690,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -695,6 +702,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -706,6 +714,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -717,6 +726,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -728,6 +738,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -739,6 +750,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -750,6 +762,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -761,6 +774,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -772,6 +786,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -783,6 +798,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q61-2.csv"
       ],
@@ -796,6 +812,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q62-2.csv"
       ],
@@ -809,6 +826,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -820,6 +838,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -831,18 +850,15 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [
+        "refs/cube/Q65-2.csv"
+      ],
       "removed_references": [
         "refs/cube/Q65-1.csv"
       ],
-      "changed_SQL": [
-        "refs/cube/Q65-2.csv"
-      ],
-      "changed_CSV": [
-        "refs/cube/Q65-2.csv"
-      ],
-      "changed_rules": [
-        "refs/cube/Q65-2.csv"
-      ]
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
     },
     {
       "question_id": "Q66",
@@ -850,6 +866,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q66-1.csv"
@@ -867,6 +884,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q67-2.csv"
       ],
@@ -880,6 +898,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -891,6 +910,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q69-2.csv"
       ],
@@ -904,6 +924,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -915,6 +936,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q71-2.csv"
       ],
@@ -932,6 +954,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -943,6 +966,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -954,6 +978,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -965,6 +990,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q75-1.csv"
@@ -978,6 +1004,7 @@
       "references_changed": true,
       "previous_references": 3,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q76-3.csv"
       ],
@@ -993,6 +1020,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q77-1.csv"
@@ -1008,6 +1036,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1019,6 +1048,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q79-1.csv"
@@ -1034,6 +1064,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q80-2.csv"
       ],
@@ -1049,6 +1080,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1060,6 +1092,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1071,6 +1104,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1079,9 +1113,12 @@
     {
       "question_id": "Q84",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 1,
-      "current_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q84-2.csv"
+      ],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1093,6 +1130,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q85-1.csv"
@@ -1107,7 +1145,10 @@
       "text_changed": false,
       "references_changed": true,
       "previous_references": 2,
-      "current_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q86-3.csv"
+      ],
       "removed_references": [
         "refs/cube/Q86-2.csv"
       ],
@@ -1125,6 +1166,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q87-1.csv"
@@ -1140,6 +1182,7 @@
       "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [
         "refs/cube/Q88-1.csv"
@@ -1155,6 +1198,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q89-2.csv"
       ],
@@ -1168,6 +1212,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q90-2.csv"
       ],
@@ -1178,9 +1223,12 @@
     {
       "question_id": "Q91",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 1,
-      "current_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q91-2.csv"
+      ],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1189,13 +1237,20 @@
     {
       "question_id": "Q92",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q92-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q92-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q92-1.csv"
+      ]
     },
     {
       "question_id": "Q93",
@@ -1203,6 +1258,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1214,6 +1270,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1225,12 +1282,19 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q95-2.csv"
       ],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q95-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q95-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q95-1.csv"
+      ]
     },
     {
       "question_id": "Q96",
@@ -1238,6 +1302,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1249,6 +1314,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1260,6 +1326,7 @@
       "references_changed": false,
       "previous_references": 2,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1271,6 +1338,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/cube/Q99-2.csv"
       ],
@@ -1284,6 +1352,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1295,6 +1364,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1306,6 +1376,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q102-2.csv"
       ],
@@ -1319,6 +1390,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1330,6 +1402,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1341,6 +1414,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1352,6 +1426,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1363,6 +1438,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1374,6 +1450,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1385,6 +1462,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1396,6 +1474,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1407,6 +1486,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1418,6 +1498,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1429,6 +1510,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1440,6 +1522,7 @@
       "references_changed": true,
       "previous_references": 4,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q114-2.csv",
         "refs/new/Q114-3.csv",
@@ -1455,6 +1538,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q115-2.csv"
       ],
@@ -1468,6 +1552,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q116-2.csv"
       ],
@@ -1481,6 +1566,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1492,6 +1578,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1500,10 +1587,13 @@
     {
       "question_id": "Q119",
       "text_changed": false,
-      "references_changed": false,
+      "references_changed": true,
       "previous_references": 2,
-      "current_references": 2,
-      "removed_references": [],
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q119-2.csv"
+      ],
       "changed_SQL": [],
       "changed_CSV": [],
       "changed_rules": []
@@ -1514,6 +1604,7 @@
       "references_changed": false,
       "previous_references": 1,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [],
       "changed_SQL": [],
       "changed_CSV": [],
@@ -1525,6 +1616,7 @@
       "references_changed": true,
       "previous_references": 4,
       "current_references": 2,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q121-3.csv",
         "refs/new/Q121-4.csv"
@@ -1539,6 +1631,7 @@
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q122-2.csv"
       ],
@@ -1546,5 +1639,87 @@
       "changed_CSV": [],
       "changed_rules": []
     }
+  ],
+  "text_changed": [
+    "Q07",
+    "Q13",
+    "Q28",
+    "Q36",
+    "Q45",
+    "Q50",
+    "Q66",
+    "Q85",
+    "Q89",
+    "Q111",
+    "Q115",
+    "Q120"
+  ],
+  "references_changed": [
+    "Q10",
+    "Q11",
+    "Q13",
+    "Q20",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q33",
+    "Q34",
+    "Q36",
+    "Q38",
+    "Q39",
+    "Q40",
+    "Q45",
+    "Q48",
+    "Q49",
+    "Q61",
+    "Q62",
+    "Q65",
+    "Q66",
+    "Q67",
+    "Q69",
+    "Q71",
+    "Q75",
+    "Q76",
+    "Q77",
+    "Q79",
+    "Q80",
+    "Q84",
+    "Q85",
+    "Q86",
+    "Q87",
+    "Q88",
+    "Q89",
+    "Q90",
+    "Q91",
+    "Q92",
+    "Q95",
+    "Q99",
+    "Q102",
+    "Q114",
+    "Q115",
+    "Q116",
+    "Q119",
+    "Q121",
+    "Q122"
+  ],
+  "CSV_changed": [
+    "Q13",
+    "Q27",
+    "Q28",
+    "Q34",
+    "Q40",
+    "Q45",
+    "Q48",
+    "Q66",
+    "Q71",
+    "Q77",
+    "Q79",
+    "Q85",
+    "Q86",
+    "Q87",
+    "Q88",
+    "Q92",
+    "Q95"
   ]
 }

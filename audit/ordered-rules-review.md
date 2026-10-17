@@ -19,7 +19,7 @@
 | 当前/refs/cube/Q85-1.csv | bucket, attainment_pct DESC | [{"column": 0, "descending": false}, {"column": 4, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/cube/Q87-1.csv | days_of_coverage ASC | [{"column": 3, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q88-1.csv | s.spend_2009 DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
-| 当前/refs/cube/Q92-1.csv | gross_margin_dollars DESC | [{"column": 2, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
+| 当前/refs/cube/Q92-1.csv | gross_margin_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q94-1.csv | qoq_pct_change ASC | [{"column": 3, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q97-1.csv | h2_vs_h1_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q97-2.csv | sales_increase DESC | [{"column": 4, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |

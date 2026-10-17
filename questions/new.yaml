@@ -1354,60 +1354,10 @@
               "output_order": []
             }
           }
-        },
-        {
-          "interpretation": "声明稠密排名1、1、2",
-          "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
-          "result_path": "refs/new/Q119-2.csv",
-          "postprocess": "product_rank_dense",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "other",
-              "other",
-              "other",
-              "amount",
-              "other"
-            ],
-            "value_types": [
-              "Int32",
-              "String",
-              "Int32",
-              "Nullable(String)",
-              "Float64",
-              "UInt64"
-            ],
-            "selection": {
-              "version": 1,
-              "stages": [
-                {
-                  "parent": null,
-                  "where": [],
-                  "group_columns": [
-                    0
-                  ],
-                  "object_columns": [
-                    2
-                  ],
-                  "order_by": [
-                    {
-                      "column": 4,
-                      "descending": true
-                    }
-                  ],
-                  "n": 1
-                }
-              ],
-              "output_order": []
-            }
-          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。",
+      "scoring_notes": "2026-10-17裁决：竞赛/稠密排名在当前返回结果完全相同，仅保留竞赛排名参考。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {

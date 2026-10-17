@@ -128,6 +128,8 @@ def main():
     text_changes={r['question_id']:r for r in corrections['records'] if r['text_changed']} if corrections else {}
     policy_path=REPO/'audit/2026-10-17-single-policy-review.json'
     single_policy=json.loads(policy_path.read_text()) if policy_path.exists() else None
+    gap_ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
+    gap_ruling=json.loads(gap_ruling_path.read_text()) if gap_ruling_path.exists() else None
     policy_text={r['question_id']:r for r in single_policy['question_text_review']} if single_policy else {}
     assert len(approved)==22
     for q in new:
@@ -154,7 +156,7 @@ def main():
         after=json.loads((REPO/'audit/T05-degeneracy-after.json').read_text())
         assert before['questions_scanned']==after['questions_scanned']==22 and not after['hits']
         assert set(before['hits'])==set(changed)==set(rewrites['rewritten_questions'])
-        current_after=json.loads((REPO/single_policy['new_question_audit']).read_text()) if single_policy else json.loads((REPO/corrections['new_question_audit']).read_text()) if corrections else after
+        current_after=json.loads((REPO/gap_ruling['new_question_audit']).read_text()) if gap_ruling else json.loads((REPO/single_policy['new_question_audit']).read_text()) if single_policy else json.loads((REPO/corrections['new_question_audit']).read_text()) if corrections else after
         assert not current_after['hits'] and current_after['questions_scanned']==22
         assert current_after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
         assert not rewrites['post_rewrite_audit_required'] and rewrites['after_hits']==[]
@@ -197,7 +199,9 @@ def main():
     if single_policy:
         assert len(single_policy['extra_reference_inventory'])==43
         assert len(single_policy['question_text_review'])==122
-        assert expected_total==single_policy['final_references']
+        gap_ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
+        gap_ruling=json.loads(gap_ruling_path.read_text()) if gap_ruling_path.exists() else None
+        assert expected_total==(gap_ruling or single_policy)['final_references']
         retired={r['reference'] for r in single_policy['removed_references']}
         assert not retired.intersection(records)
         assert all(not (REPO/path).exists() for path in retired)

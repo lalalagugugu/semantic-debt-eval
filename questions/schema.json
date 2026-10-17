@@ -83,6 +83,7 @@
                   "description": "Explicit approved processing of a SQL aggregate domain using the shared Decimal quantization policy; omitted for direct SQL results.",
                   "enum": [
                     "abc_groups",
+                    "abc_groups_after",
                     "power_customers",
                     "store_top3",
                     "selection",

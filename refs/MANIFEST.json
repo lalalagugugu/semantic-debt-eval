@@ -515,7 +515,7 @@
     {
       "question_id": "Q13",
       "result_path": "refs/cube/Q13-1.csv",
-      "sql_sha256": "4627286a3473e9bf5f1395b9955952557888c5b0a743f57930dce38831c46dff",
+      "sql_sha256": "f8c6b860e815335c03ed5af4c51495902f911fad7c25ac5191a6f63ed4621df9",
       "row_count": 306,
       "columns": [
         {
@@ -531,12 +531,12 @@
           "type": "Float64"
         },
         {
-          "name": "avg_record_amount",
-          "type": "Float64"
+          "name": "average_unit_price",
+          "type": "Nullable(Float64)"
         },
         {
-          "name": "record_count",
-          "type": "UInt64"
+          "name": "sales_quantity",
+          "type": "Int64"
         }
       ],
       "value_kinds": [
@@ -551,13 +551,13 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "742c7cda3ac1021c4f4c8b0210230d3d0968f3f225c46d9a7dbf47a0f9449098",
+      "sha256": "605c7f998f5a763faa24c16110be67fcda02051c837c7918119af4b341275d71",
       "value_types": [
         "Int32",
         "String",
         "Float64",
-        "Float64",
-        "UInt64"
+        "Nullable(Float64)",
+        "Int64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -576,8 +576,8 @@
           "Int32",
           "String",
           "Float64",
-          "Float64",
-          "UInt64"
+          "Nullable(Float64)",
+          "Int64"
         ]
       },
       "selection_checks": null
@@ -1660,7 +1660,7 @@
     {
       "question_id": "Q28",
       "result_path": "refs/cube/Q28-1.csv",
-      "sql_sha256": "c96768dc686256a8292bcc5eee67d7ea1f479052d05c6fb37b4a98a6fd42f7cd",
+      "sql_sha256": "7b2bf9ea8ac2d62e12ab9891eaeb4994100e631b32dd7d82b6cf8d1362e9f50f",
       "row_count": 2,
       "columns": [
         {
@@ -1668,8 +1668,8 @@
           "type": "String"
         },
         {
-          "name": "avg_record_amount",
-          "type": "Float64"
+          "name": "average_unit_price",
+          "type": "Nullable(Float64)"
         }
       ],
       "value_kinds": [
@@ -1681,10 +1681,10 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "1e6f355ea26979e34317251088d8b045807c875a4b262743e2d95362ec0fc346",
+      "sha256": "a1e8cab982c3aa355215eb69da477503ab3d9e147eecc22bb7bd48e13facab62",
       "value_types": [
         "String",
-        "Float64"
+        "Nullable(Float64)"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -1698,7 +1698,7 @@
         ],
         "value_types": [
           "String",
-          "Float64"
+          "Nullable(Float64)"
         ]
       },
       "selection_checks": null
@@ -2221,68 +2221,6 @@
     },
     {
       "question_id": "Q38",
-      "result_path": "refs/cube/Q38-1.csv",
-      "sql_sha256": "011e927206f30e8321efa151548cfc9ac0dd473920ab34db26876a5bdf99cfd1",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "ProductCategoryName",
-          "type": "String"
-        },
-        {
-          "name": "actual",
-          "type": "Float64"
-        },
-        {
-          "name": "forecast",
-          "type": "Float64"
-        },
-        {
-          "name": "error_pct",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "8a7b4fdef2ed6bc07c2052f3177f26ea3079479b82f6ca0c32ce71ca818eb920",
-      "value_types": [
-        "String",
-        "Float64",
-        "Float64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "percentage"
-        ],
-        "value_types": [
-          "String",
-          "Float64",
-          "Float64",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q38",
       "result_path": "refs/cube/Q38-2.csv",
       "sql_sha256": "9ddf3f11a1970c9b26e070dc2222825905b4e94191bba0972fd6ddf07a299269",
       "row_count": 8,
@@ -2422,9 +2360,87 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q39",
+      "result_path": "refs/cube/Q39-2.csv",
+      "sql_sha256": "b71028d834b2a83fce7447f6fe3e7a12ab6442719be2804bbad8ed39c007216f",
+      "row_count": 30,
+      "columns": [
+        {
+          "name": "subcategory_key",
+          "type": "Nullable(Int32)"
+        },
+        {
+          "name": "ProductSubcategoryName",
+          "type": "String"
+        },
+        {
+          "name": "introduction_date",
+          "type": "Nullable(Date)"
+        },
+        {
+          "name": "window_days",
+          "type": "Int64"
+        },
+        {
+          "name": "before_daily_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "after_daily_sales",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "other",
+        "other",
+        "amount",
+        "amount"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "c66f247647660bd665ea0353c22d2a9199a462e8879382d7fb5ecdc6ad9b53ea",
+      "value_types": [
+        "Nullable(Int32)",
+        "String",
+        "Nullable(Date)",
+        "Int64",
+        "Float64",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Int32)",
+          "String",
+          "Nullable(Date)",
+          "Int64",
+          "Float64",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q40",
       "result_path": "refs/cube/Q40-1.csv",
-      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
+      "sql_sha256": "9fbbdcd7bc11c8f3ed04e06cc854ee4df9e7d2852b88427aa060ac23b6e17630",
       "row_count": 1,
       "columns": [
         {
@@ -2440,7 +2456,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "d8ab1e323b596c22907ac9016b3fe0779d4a5d436648905ab58b6bdfa3256ff5",
+      "sha256": "ffc85ee7b4055facb5252571836e11dff48c357ae8ac295605e96ddf63adc4fb",
       "value_types": [
         "Float64"
       ],
@@ -3099,6 +3115,44 @@
         ],
         "value_types": [
           "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q48",
+      "result_path": "refs/cube/Q48-3.csv",
+      "sql_sha256": "6eb1af10d91e36c4e7c546147fba39a1fb54bdd7a74aa1a447be26d96160a546",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "correlation",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "ratio"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "7d78e21a04c7b1a5f7f0f126158e44314db91f362c3526add477504e204adc35",
+      "value_types": [
+        "Nullable(Float64)"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio"
+        ],
+        "value_types": [
+          "Nullable(Float64)"
         ]
       },
       "selection_checks": null
@@ -7957,6 +8011,72 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q84",
+      "result_path": "refs/cube/Q84-2.csv",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "abc_class",
+          "type": "String"
+        },
+        {
+          "name": "product_count",
+          "type": "UInt64"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "pct_of_revenue",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "amount",
+        "percentage"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": "abc_groups_after",
+      "postprocess_details": {
+        "domain_rows": 2504,
+        "same_amount_groups": 2504,
+        "quantized_total_revenue": "857728031.41"
+      },
+      "sha256": "3550c3951229ff3ff7c8bd59c9fbe2c2e738a48b60d5d8d512322708ca71176c",
+      "value_types": [
+        "String",
+        "UInt64",
+        "Float64",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q85",
       "result_path": "refs/cube/Q85-1.csv",
       "sql_sha256": "fabe6437b34fbaddcdd6fa7ac19762521e72ddf19ad8700a877dfba22368f742",
@@ -8148,6 +8268,60 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "8bf6ded4e1fbecc67f5e0aed3431c19d294fbdfbb5975b13dedd6f775edf6233",
+      "value_types": [
+        "Nullable(String)",
+        "Nullable(Float64)",
+        "UInt64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q86",
+      "result_path": "refs/cube/Q86-3.csv",
+      "sql_sha256": "139a8cfab2f6bb45d7f6836cb1c8974ccf9deb6e0b1ef884c5351b06d6e28634",
+      "row_count": 31,
+      "columns": [
+        {
+          "name": "ProductSubcategoryName",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "corr_discount_vs_qty",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "observations",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "ratio",
+        "count"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "3f696393113ae68b69e97e77bd6d3916c3dce347166ff9049347d98507ed5572",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -8491,9 +8665,55 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q91",
+      "result_path": "refs/cube/Q91-2.csv",
+      "sql_sha256": "ee0b9c35b2c6206ef54ee0d3a70491b7642d1e23137f4c435aff088c528c8584",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "income_spend_correlation",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "customers_analyzed",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "ratio",
+        "count"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "3adcedd1379b25c81c7c0e9678443f349e700a6f263eada3d098661c8153850c",
+      "value_types": [
+        "Nullable(Float64)",
+        "UInt64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q92",
       "result_path": "refs/cube/Q92-1.csv",
-      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee",
+      "sql_sha256": "157ea93a73c3520ac835b261bf4cf074d20f0c37d236b97e97326d1fe05afa8b",
       "row_count": 11,
       "columns": [
         {
@@ -8524,7 +8744,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "0714e22ab85c15bd08fb9404dcb3ef98201c60efc3d8f7b28f01e256d3939f9f",
+      "sha256": "40b514b4779c9cb9cdf08008bb131d931798be23c7a4eadd04e1a5586820d7c3",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -8551,7 +8771,7 @@
         ],
         "order_by": [
           {
-            "column": 2,
+            "column": 3,
             "descending": true
           }
         ]
@@ -8683,7 +8903,7 @@
     {
       "question_id": "Q95",
       "result_path": "refs/cube/Q95-1.csv",
-      "sql_sha256": "26bd671aed6999035111610632377c34444637124a03f6be1a8faa9c198e5a6d",
+      "sql_sha256": "0877441a980d72524d6cf0b12ca480e85c49f9656689340ff32d9987fc75770a",
       "row_count": 9,
       "columns": [
         {
@@ -8691,19 +8911,15 @@
           "type": "Nullable(String)"
         },
         {
-          "name": "promo_revenue",
+          "name": "promo_average_sales",
           "type": "Float64"
         },
         {
-          "name": "full_price_revenue",
+          "name": "full_price_average_sales",
           "type": "Float64"
         },
         {
-          "name": "promo_to_fullprice_ratio",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "total_discount_given",
+          "name": "incremental_average_sales",
           "type": "Float64"
         }
       ],
@@ -8711,7 +8927,6 @@
         "other",
         "amount",
         "amount",
-        "ratio",
         "amount"
       ],
       "ordered": false,
@@ -8719,12 +8934,11 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "29f32d5a266e0f75320e85853771e952b57086b0686bc53ddaa3280d57510d34",
+      "sha256": "5789053e8674bc5b3b942d43980f1a399698ba9cdc6e5364c337a952df7de941",
       "value_types": [
         "Nullable(String)",
         "Float64",
         "Float64",
-        "Nullable(Float64)",
         "Float64"
       ],
       "value_kind_source": "inferred",
@@ -8737,14 +8951,12 @@
           "other",
           "amount",
           "amount",
-          "ratio",
           "amount"
         ],
         "value_types": [
           "Nullable(String)",
           "Float64",
           "Float64",
-          "Nullable(Float64)",
           "Float64"
         ]
       },
@@ -10926,2869 +11138,6 @@
         "domain_rows": 358107,
         "products": 2504,
         "rank_method": "product_rank_competition",
-        "quantized_ranking": true
-      },
-      "sha256": "f0daab86dbaa3d7e0147d45646380ce69de13572e45ba52c15236212da8d3688",
-      "value_types": [
-        "Int32",
-        "String",
-        "Int32",
-        "Nullable(String)",
-        "Float64",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "other",
-          "amount",
-          "other"
-        ],
-        "value_types": [
-          "Int32",
-          "String",
-          "Int32",
-          "Nullable(String)",
-          "Float64",
-          "UInt64"
-        ],
-        "selection": {
-          "version": 1,
-          "stages": [
-            {
-              "parent": null,
-              "where": [],
-              "group_columns": [
-                0
-              ],
-              "object_columns": [
-                2
-              ],
-              "order_by": [
-                {
-                  "column": 4,
-                  "descending": true
-                }
-              ],
-              "n": 1
-            }
-          ],
-          "output_order": []
-        }
-      },
-      "selection_checks": [
-        [
-          {
-            "group": [
-              1
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              10
-            ],
-            "objects": 1099,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              100
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              101
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              102
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              103
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              104
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              105
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              107
-            ],
-            "objects": 1083,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              108
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              109
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              11
-            ],
-            "objects": 1091,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              110
-            ],
-            "objects": 1075,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              111
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              112
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              113
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              114
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              115
-            ],
-            "objects": 1088,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              116
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              117
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              118
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              119
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              12
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              120
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              121
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              122
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              123
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              124
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              125
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              126
-            ],
-            "objects": 1043,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              127
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              128
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              129
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              13
-            ],
-            "objects": 1087,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              130
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              131
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              132
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              133
-            ],
-            "objects": 1003,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              134
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              135
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              136
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              137
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              138
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              139
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              14
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              140
-            ],
-            "objects": 1035,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              141
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              142
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              143
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              144
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              145
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              146
-            ],
-            "objects": 1074,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              147
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              148
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              149
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              15
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              150
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              151
-            ],
-            "objects": 1084,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              152
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              153
-            ],
-            "objects": 1036,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              154
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              155
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              156
-            ],
-            "objects": 1033,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              157
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              158
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              159
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              16
-            ],
-            "objects": 1047,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              160
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              161
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              162
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              163
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              164
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              165
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              166
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              167
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              168
-            ],
-            "objects": 1049,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              169
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              17
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              170
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              171
-            ],
-            "objects": 1049,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              172
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              173
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              174
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              175
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              176
-            ],
-            "objects": 1055,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              177
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              178
-            ],
-            "objects": 1084,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              179
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              18
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              180
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              181
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              182
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              183
-            ],
-            "objects": 1074,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              184
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              185
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              186
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              187
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              188
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              189
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              19
-            ],
-            "objects": 1090,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              190
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              191
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              192
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              193
-            ],
-            "objects": 1086,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              194
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              195
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              196
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              197
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              198
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              199
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              2
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              20
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              200
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              201
-            ],
-            "objects": 984,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              202
-            ],
-            "objects": 979,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              203
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              204
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              205
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              206
-            ],
-            "objects": 959,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              207
-            ],
-            "objects": 982,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              208
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              209
-            ],
-            "objects": 967,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              21
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              210
-            ],
-            "objects": 943,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              211
-            ],
-            "objects": 974,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              212
-            ],
-            "objects": 966,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              213
-            ],
-            "objects": 936,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              214
-            ],
-            "objects": 984,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              215
-            ],
-            "objects": 963,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              216
-            ],
-            "objects": 897,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              217
-            ],
-            "objects": 986,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              218
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              219
-            ],
-            "objects": 965,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              22
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              220
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              221
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              222
-            ],
-            "objects": 931,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              223
-            ],
-            "objects": 509,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              224
-            ],
-            "objects": 1004,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              225
-            ],
-            "objects": 958,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              226
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              227
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              228
-            ],
-            "objects": 892,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              23
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              230
-            ],
-            "objects": 930,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              231
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              232
-            ],
-            "objects": 938,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              233
-            ],
-            "objects": 974,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              234
-            ],
-            "objects": 936,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              235
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              236
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              237
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              238
-            ],
-            "objects": 966,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              239
-            ],
-            "objects": 971,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              24
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              240
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              241
-            ],
-            "objects": 963,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              242
-            ],
-            "objects": 958,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              243
-            ],
-            "objects": 954,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              244
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              245
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              246
-            ],
-            "objects": 957,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              247
-            ],
-            "objects": 947,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              248
-            ],
-            "objects": 967,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              249
-            ],
-            "objects": 969,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              25
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              250
-            ],
-            "objects": 957,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              251
-            ],
-            "objects": 1853,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              252
-            ],
-            "objects": 1844,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              253
-            ],
-            "objects": 1863,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              254
-            ],
-            "objects": 1867,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              255
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              256
-            ],
-            "objects": 1877,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              257
-            ],
-            "objects": 1865,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              258
-            ],
-            "objects": 1201,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              259
-            ],
-            "objects": 1869,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              26
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              260
-            ],
-            "objects": 1820,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              261
-            ],
-            "objects": 1818,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              262
-            ],
-            "objects": 1808,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              263
-            ],
-            "objects": 979,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              264
-            ],
-            "objects": 1867,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              265
-            ],
-            "objects": 1862,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              267
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              268
-            ],
-            "objects": 1834,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              269
-            ],
-            "objects": 1840,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              27
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              270
-            ],
-            "objects": 1865,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              271
-            ],
-            "objects": 1813,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              272
-            ],
-            "objects": 1863,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              273
-            ],
-            "objects": 900,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              274
-            ],
-            "objects": 1810,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              275
-            ],
-            "objects": 1864,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              276
-            ],
-            "objects": 1857,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              277
-            ],
-            "objects": 1884,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              278
-            ],
-            "objects": 1859,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              279
-            ],
-            "objects": 1784,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              28
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              280
-            ],
-            "objects": 1140,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              281
-            ],
-            "objects": 1881,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              282
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              283
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              284
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              285
-            ],
-            "objects": 1091,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              286
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              287
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              288
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              289
-            ],
-            "objects": 1095,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              29
-            ],
-            "objects": 1082,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              290
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              291
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              292
-            ],
-            "objects": 1840,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              293
-            ],
-            "objects": 1850,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              294
-            ],
-            "objects": 1856,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              295
-            ],
-            "objects": 1873,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              296
-            ],
-            "objects": 1848,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              297
-            ],
-            "objects": 1821,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              298
-            ],
-            "objects": 1849,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              299
-            ],
-            "objects": 1821,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              3
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              30
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              300
-            ],
-            "objects": 1886,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              301
-            ],
-            "objects": 1848,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              302
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              303
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              304
-            ],
-            "objects": 975,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              305
-            ],
-            "objects": 972,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              306
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              307
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              308
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              309
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              31
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              310
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              32
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              33
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              34
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              35
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              36
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              37
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              38
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              39
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              4
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              40
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              41
-            ],
-            "objects": 1034,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              42
-            ],
-            "objects": 1042,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              43
-            ],
-            "objects": 1030,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              44
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              45
-            ],
-            "objects": 1032,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              46
-            ],
-            "objects": 1014,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              47
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              48
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              49
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              5
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              50
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              51
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              52
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              53
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              54
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              55
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              57
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              58
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              59
-            ],
-            "objects": 1104,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              6
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              60
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              61
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              62
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              63
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              64
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              65
-            ],
-            "objects": 593,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              66
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              67
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              68
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              69
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              7
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              70
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              71
-            ],
-            "objects": 1016,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              72
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              73
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              74
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              75
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              76
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              77
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              78
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              79
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              8
-            ],
-            "objects": 1032,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              80
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              81
-            ],
-            "objects": 1050,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              82
-            ],
-            "objects": 1047,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              83
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              84
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              85
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              86
-            ],
-            "objects": 1096,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              87
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              88
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              89
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              9
-            ],
-            "objects": 1038,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              90
-            ],
-            "objects": 996,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              91
-            ],
-            "objects": 1045,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              92
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              93
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              94
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              95
-            ],
-            "objects": 1038,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              96
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              97
-            ],
-            "objects": 1082,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              98
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              99
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          }
-        ]
-      ]
-    },
-    {
-      "question_id": "Q119",
-      "result_path": "refs/new/Q119-2.csv",
-      "sql_sha256": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22",
-      "row_count": 310,
-      "columns": [
-        {
-          "name": "StoreKey",
-          "type": "Int32"
-        },
-        {
-          "name": "StoreName",
-          "type": "String"
-        },
-        {
-          "name": "ProductKey",
-          "type": "Int32"
-        },
-        {
-          "name": "ProductName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "product_sales",
-          "type": "Float64"
-        },
-        {
-          "name": "global_rank",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "other",
-        "amount",
-        "other"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": "product_rank_dense",
-      "postprocess_details": {
-        "domain_rows": 358107,
-        "products": 2504,
-        "rank_method": "product_rank_dense",
         "quantized_ranking": true
       },
       "sha256": "f0daab86dbaa3d7e0147d45646380ce69de13572e45ba52c15236212da8d3688",

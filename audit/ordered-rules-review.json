@@ -451,10 +451,10 @@
     {
       "question_id": "Q92",
       "reference": "refs/cube/Q92-1.csv",
-      "order_clause": "gross_margin_dollars DESC",
+      "order_clause": "gross_margin_pct DESC",
       "order_by": [
         {
-          "column": 2,
+          "column": 3,
           "descending": true
         }
       ],
@@ -477,7 +477,7 @@
         }
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee"
+      "sql_sha256": "157ea93a73c3520ac835b261bf4cf074d20f0c37d236b97e97326d1fe05afa8b"
     },
     {
       "question_id": "Q94",

@@ -106,7 +106,7 @@ def validate_questions(questions, source="cube"):
                 raise ValueError(f"{question['id']}: ordered result requires final SQL ordering")
             if not isinstance(rules["value_kinds"], list) or not rules["value_kinds"] or len(rules["value_types"]) != len(rules["value_kinds"]):
                 raise ValueError(f"{question['id']}: references require complete kinds/types")
-            if ref.get("postprocess") not in {None, "abc_groups", "power_customers", "store_top3", "selection", "baseline_top_decile", "product_rank_competition", "product_rank_dense"}:
+            if ref.get("postprocess") not in {None, "abc_groups", "abc_groups_after", "power_customers", "store_top3", "selection", "baseline_top_decile", "product_rank_competition", "product_rank_dense"}:
                 raise ValueError(f"{question['id']}: invalid postprocess")
             if not re.fullmatch(r"refs/[A-Za-z0-9/_-]+\.csv", ref["result_path"]):
                 raise ValueError("invalid reference path")
@@ -204,7 +204,7 @@ def postprocess_reference(method, meta, rows, policy):
             row[positions["global_rank"]] = ranks[value(row, "ProductKey")]
             output.append([row[i] for i in keep])
         return [meta[i] for i in keep], output, {"domain_rows": len(rows), "products": len(amounts), "rank_method": method, "quantized_ranking": True}
-    if method == "abc_groups":
+    if method in {"abc_groups", "abc_groups_after"}:
         groups = defaultdict(list)
         for row in rows:
             groups[quantized(row, "revenue")].append(row)
@@ -214,10 +214,15 @@ def postprocess_reference(method, meta, rows, policy):
         buckets = {name: [0, Decimal(0)] for name in ("A", "B", "C")}
         cumulative = Decimal(0)
         for revenue, members in sorted(groups.items(), reverse=True):
-            name = "A" if cumulative < total * Decimal("0.8") else "B" if cumulative < total * Decimal("0.95") else "C"
+            if method == "abc_groups_after":
+                cumulative += revenue * len(members)
+                name = "A" if cumulative <= total * Decimal("0.8") else "B" if cumulative <= total * Decimal("0.95") else "C"
+            else:
+                name = "A" if cumulative < total * Decimal("0.8") else "B" if cumulative < total * Decimal("0.95") else "C"
             buckets[name][0] += len(members)
             buckets[name][1] += revenue * len(members)
-            cumulative += revenue * len(members)
+            if method == "abc_groups":
+                cumulative += revenue * len(members)
         columns = [{"name": "abc_class", "type": "String"}, {"name": "product_count", "type": "UInt64"}, {"name": "revenue", "type": "Float64"}, {"name": "pct_of_revenue", "type": "Float64"}]
         output = [[name, count, float(revenue), float(revenue * 100 / total)] for name, (count, revenue) in buckets.items() if count]
         return columns, output, {"domain_rows": len(rows), "same_amount_groups": len(groups), "quantized_total_revenue": str(total)}

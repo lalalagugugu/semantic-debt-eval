@@ -569,17 +569,17 @@
       "id": "Q13",
       "source": "cube",
       "text_en": "For each store, show total sales, average order value, and number of transactions",
-      "text_zh": "按门店列出销售额、平均订单金额和交易笔数。",
+      "text_zh": "按门店列出销售额、平均单价和销售数量。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "全渠道按门店统计；无订单号，按销售记录计算",
-          "sql": "SELECT s.StoreKey,s.StoreName,sum(f.SalesAmount) AS total_sales,avg(f.SalesAmount) AS avg_record_amount,count() AS record_count FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
+          "interpretation": "全渠道按门店统计销售额、平均单价和销售数量；沿用约定2及已有指标",
+          "sql": "SELECT s.StoreKey,s.StoreName,sum(f.SalesAmount) AS total_sales,sum(f.SalesAmount)/nullIf(sum(f.SalesQuantity),0) AS average_unit_price,sum(f.SalesQuantity) AS sales_quantity FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
           "result_path": "refs/cube/Q13-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "须声明全渠道无订单号，按记录计算；不接受只用线上销售。StoreName 已核对唯一，以 StoreKey 保留实体标识。",
+      "scoring_notes": "按2026-10-17裁决第五节改问已有全渠道指标；不缩为线上门店。EN13不纳入修订参考敏感性对照。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -595,7 +595,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "门店问题用全渠道；全渠道无订单号，须声明以销售记录代替订单。"
+          "notes": "门店分析用全渠道销售；平均单价沿用语义层已有指标。"
         },
         "persona": "管理层"
       },
@@ -615,8 +615,8 @@
           "Int32",
           "String",
           "Float64",
-          "Float64",
-          "UInt64"
+          "Nullable(Float64)",
+          "Int64"
         ]
       }
     },
@@ -1383,17 +1383,17 @@
       "id": "Q28",
       "source": "cube",
       "text_en": "Compare average transaction value between Store and Online channels",
-      "text_zh": "比较门店渠道和线上渠道的平均交易金额。",
+      "text_zh": "比较门店渠道和线上渠道的平均单价。",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "全渠道销售按门店、线上渠道比较每条销售记录金额",
-          "sql": "SELECT c.ChannelName,avg(s.SalesAmount) AS avg_record_amount FROM retail.FactSales s JOIN retail.DimChannel c ON s.channelKey=c.ChannelKey WHERE c.ChannelName IN ('Store','Online') GROUP BY c.ChannelName",
+          "interpretation": "全渠道Store与Online按已有平均单价指标比较",
+          "sql": "SELECT c.ChannelName,sum(f.SalesAmount)/nullIf(sum(f.SalesQuantity),0) AS average_unit_price FROM retail.FactSales f JOIN retail.DimChannel c ON f.channelKey=c.ChannelKey WHERE c.ChannelName IN ('Store','Online') GROUP BY c.ChannelName",
           "result_path": "refs/cube/Q28-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "按用户批注改为自然业务问法“平均交易金额”；全渠道无订单号，参考仍为按渠道的每条销售记录均额，回答须声明交易粒度；不可把记录均额称为按订单计算的客单价。该措辞待最终确认。",
+      "scoring_notes": "按2026-10-17裁决第五节改问平均单价；保留Store与Online比较对象。EN28不纳入修订参考敏感性对照。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -1410,7 +1410,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "全渠道销售门店/线上渠道；两边统一按销售记录而非订单计算。"
+          "notes": "渠道对比用全渠道销售；平均单价沿用语义层已有指标。"
         },
         "persona": "管理层"
       },
@@ -1425,7 +1425,7 @@
         ],
         "value_types": [
           "String",
-          "Float64"
+          "Nullable(Float64)"
         ]
       }
     },
@@ -1811,7 +1811,7 @@
       "id": "Q36",
       "source": "cube",
       "text_en": "Classify customers into Active, At Risk, and Churned based on recency",
-      "text_zh": "将客户划分为活跃、有流失风险和已流失。",
+      "text_zh": "当前活跃、有流失风险和已流失的客户各有多少人？",
       "type": "指标分析",
       "refs": [
         {
@@ -1821,7 +1821,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": " 2026-10-17按真实问法改写，不附定义；英文原题标识保留，修订参考敏感性对照剔除EN36。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1914,18 +1914,13 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as error_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
-          "result_path": "refs/cube/Q38-1.csv"
-        },
-        {
-          "interpretation": "准确率=100%-绝对百分比误差；题面未点名误差率或准确率，保留互补解读",
+          "interpretation": "按裁决仅报告准确率=100%-绝对百分比误差",
           "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, round(100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0), 2) as accuracy_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
           "result_path": "refs/cube/Q38-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": "2026-10-17丙组裁决：准确度只认准确率，不再接受误差率。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1977,6 +1972,32 @@
           "interpretation": "示例：2008–2009新品；首个新品上市前后等长窗口的老品日均线上销售",
           "sql": "WITH introductions AS (SELECT toInt32(ProductSubcategoryKey) AS subcategory_key,min(toDate(AvailableForSaleDate)) AS introduction_date FROM retail.DimProduct WHERE toDate(AvailableForSaleDate) BETWEEN '2008-01-01' AND '2009-12-31' GROUP BY subcategory_key), windows AS (SELECT *,least(dateDiff('day',toDate('2007-01-01'),introduction_date),dateDiff('day',introduction_date,toDate('2010-01-01'))) AS window_days FROM introductions), old_sales AS (SELECT w.subcategory_key,w.introduction_date,w.window_days,sumIf(f.SalesAmount,f.DateKey<w.introduction_date) AS before_sales,sumIf(f.SalesAmount,f.DateKey>=w.introduction_date) AS after_sales FROM windows w JOIN retail.DimProduct p ON toInt32(p.ProductSubcategoryKey)=w.subcategory_key JOIN retail.FactOnlineSales f ON f.ProductKey=p.ProductKey WHERE toDate(p.AvailableForSaleDate)<w.introduction_date AND f.DateKey>=subtractDays(w.introduction_date,toInt32(w.window_days)) AND f.DateKey<addDays(w.introduction_date,toInt32(w.window_days)) GROUP BY w.subcategory_key,w.introduction_date,w.window_days) SELECT o.subcategory_key,ps.ProductSubcategoryName,o.introduction_date,o.window_days,o.before_sales/o.window_days AS before_daily_sales,o.after_sales/o.window_days AS after_daily_sales FROM old_sales o JOIN retail.DimProductSubcategory ps ON o.subcategory_key=ps.ProductSubcategoryKey",
           "result_path": "refs/cube/Q39-1.csv"
+        },
+        {
+          "interpretation": "问法歧义：同一新品/老品范围，上市前后各90日比较老品日均销售",
+          "sql": "WITH introductions AS (SELECT toInt32(ProductSubcategoryKey) AS subcategory_key,min(toDate(AvailableForSaleDate)) AS introduction_date FROM retail.DimProduct WHERE toDate(AvailableForSaleDate) BETWEEN '2008-01-01' AND '2009-12-31' GROUP BY subcategory_key), windows AS (SELECT *,toInt64(90) AS window_days FROM introductions), old_sales AS (SELECT w.subcategory_key,w.introduction_date,w.window_days,sumIf(f.SalesAmount,f.DateKey<w.introduction_date) AS before_sales,sumIf(f.SalesAmount,f.DateKey>=w.introduction_date) AS after_sales FROM windows w JOIN retail.DimProduct p ON toInt32(p.ProductSubcategoryKey)=w.subcategory_key JOIN retail.FactOnlineSales f ON f.ProductKey=p.ProductKey WHERE toDate(p.AvailableForSaleDate)<w.introduction_date AND f.DateKey>=subtractDays(w.introduction_date,toInt32(w.window_days)) AND f.DateKey<addDays(w.introduction_date,toInt32(w.window_days)) GROUP BY w.subcategory_key,w.introduction_date,w.window_days) SELECT o.subcategory_key,ps.ProductSubcategoryName,o.introduction_date,o.window_days,o.before_sales/o.window_days AS before_daily_sales,o.after_sales/o.window_days AS after_daily_sales FROM old_sales o JOIN retail.DimProductSubcategory ps ON o.subcategory_key=ps.ProductSubcategoryKey",
+          "result_path": "refs/cube/Q39-2.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "amount",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(Int32)",
+              "String",
+              "Nullable(Date)",
+              "Int64",
+              "Float64",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "judge",
@@ -2032,13 +2053,13 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "方案A：仅31个有同日EUR汇率的销售日期，须披露1065天缺失",
-          "sql": "SELECT sum(s.SalesAmount * er.EndOfDayRate) as sales_eur FROM retail.FactOnlineSales s JOIN retail.FactExchangeRate er ON s.DateKey = er.DateKey JOIN retail.DimCurrency c ON er.CurrencyKey = c.CurrencyKey WHERE s.CurrencyKey = 1 AND c.CurrencyName = 'EUR'",
+          "interpretation": "缺失报价日沿用此前最近EUR收盘价；覆盖全部线上销售日",
+          "sql": "WITH daily AS (SELECT DateKey,sum(SalesAmount) AS sales FROM retail.FactOnlineSales WHERE CurrencyKey=1 GROUP BY DateKey) SELECT sum(d.sales*e.EndOfDayRate) AS sales_eur FROM (SELECT *,toUInt8(1) AS k FROM daily ORDER BY DateKey) d ASOF LEFT JOIN (SELECT r.DateKey,r.EndOfDayRate,toUInt8(1) AS k FROM retail.FactExchangeRate r JOIN retail.DimCurrency c ON r.CurrencyKey=c.CurrencyKey WHERE c.CurrencyName='EUR' ORDER BY DateKey) e ON d.k=e.k AND d.DateKey>=e.DateKey",
           "result_path": "refs/cube/Q40-1.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "用户批准方案A并确认公式：USD销售额乘同日EUR收盘汇率，仅汇总有同日汇率的31个销售日期。必须明确这是部分答案：1096个销售日期中覆盖31天，缺失1065天；不得声称全期间总额，不前填、插值或外推。judge同时核验金额和覆盖范围披露，只有金额正确但未披露缺失不算正确。",
+      "scoring_notes": "2026-10-17裁决：不丢弃无当日汇率的销售日，沿用此前最近收盘价。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -2508,6 +2529,22 @@
             ],
             "value_types": [
               "Float64"
+            ]
+          }
+        },
+        {
+          "interpretation": "问法歧义：Spearman相关，重复值使用平均秩，观察域与Pearson一致",
+          "sql": "WITH domain AS (WITH o AS (SELECT StoreKey,sum(DownTime) AS downtime FROM retail.FactITSLA GROUP BY StoreKey),s AS (SELECT StoreKey,sum(SalesAmount) AS sales FROM retail.FactSales GROUP BY StoreKey) SELECT ifNull(o.downtime,0) AS x,s.sales AS y FROM s LEFT JOIN o ON s.StoreKey=o.StoreKey),\nfrequency AS (SELECT x,y,count() AS w FROM domain WHERE x IS NOT NULL AND y IS NOT NULL GROUP BY x,y),\nranks AS (SELECT *,\nsum(w) OVER (ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY x)-1)/2.0 AS rx,\nsum(w) OVER (ORDER BY y RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY y)-1)/2.0 AS ry FROM frequency),\ncentered AS (SELECT *,sum(w*rx) OVER ()/sum(w) OVER () AS mx,\nsum(w*ry) OVER ()/sum(w) OVER () AS my FROM ranks)\nSELECT sum(w*(rx-mx)*(ry-my))/nullIf(sqrt(sum(w*pow(rx-mx,2))*sum(w*pow(ry-my,2))),0) AS correlation\nFROM centered",
+          "result_path": "refs/cube/Q48-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "ratio"
+            ],
+            "value_types": [
+              "Nullable(Float64)"
             ]
           }
         }
@@ -4415,6 +4452,12 @@
           "sql": "SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey",
           "result_path": "refs/cube/Q84-1.csv",
           "postprocess": "abc_groups"
+        },
+        {
+          "interpretation": "问法歧义：同额组整体归类，以加入后的累计占比划分80%/95%边界",
+          "sql": "SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey",
+          "result_path": "refs/cube/Q84-2.csv",
+          "postprocess": "abc_groups_after"
         }
       ],
       "scoring": "deterministic",
@@ -4597,6 +4640,11 @@
           "interpretation": "原参考解读；按题面补全全部满足原样本下限的子品类，不截前20",
           "sql": "WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL AND p.PromotionKey <> 1\n),\nstats AS (\n  SELECT ProductSubcategoryName,\n         corr(DiscountPercent, SalesQuantity) AS discount_qty_corr,\n         count() AS observations\n  FROM enriched\n  GROUP BY ProductSubcategoryName\n  HAVING observations > 100\n)\nSELECT ProductSubcategoryName,\n       round(discount_qty_corr, 3) AS corr_discount_vs_qty,\n       observations\nFROM stats\nORDER BY discount_qty_corr DESC",
           "result_path": "refs/cube/Q86-1.csv"
+        },
+        {
+          "interpretation": "问法歧义：Spearman相关，按全部促销观察的精确频数计算并列中秩，样本域同Pearson",
+          "sql": "WITH domain AS (WITH enriched AS (\n  SELECT psc.ProductSubcategoryName,\n         p.DiscountPercent,\n         fos.SalesQuantity\n  FROM retail.FactOnlineSales fos\n  JOIN retail.DimPromotion p ON p.PromotionKey = fos.PromotionKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) dp ON dp.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(dp.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  WHERE toYear(fos.DateKey) = 2009 AND p.DiscountPercent IS NOT NULL AND p.PromotionKey <> 1\n) SELECT ProductSubcategoryName,DiscountPercent AS x,SalesQuantity AS y FROM enriched),\nfrequency AS (SELECT ProductSubcategoryName,x,y,count() AS w FROM domain WHERE x IS NOT NULL AND y IS NOT NULL GROUP BY ProductSubcategoryName,x,y),\nranks AS (SELECT *,\nsum(w) OVER (PARTITION BY ProductSubcategoryName ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY ProductSubcategoryName,x)-1)/2.0 AS rx,\nsum(w) OVER (PARTITION BY ProductSubcategoryName ORDER BY y RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY ProductSubcategoryName,y)-1)/2.0 AS ry FROM frequency),\ncentered AS (SELECT *,sum(w*rx) OVER (PARTITION BY ProductSubcategoryName)/sum(w) OVER (PARTITION BY ProductSubcategoryName) AS mx,\nsum(w*ry) OVER (PARTITION BY ProductSubcategoryName)/sum(w) OVER (PARTITION BY ProductSubcategoryName) AS my FROM ranks)\nSELECT ProductSubcategoryName,sum(w*(rx-mx)*(ry-my))/nullIf(sqrt(sum(w*pow(rx-mx,2))*sum(w*pow(ry-my,2))),0) AS corr_discount_vs_qty,sum(w) AS observations\nFROM centered GROUP BY ProductSubcategoryName HAVING observations>100",
+          "result_path": "refs/cube/Q86-3.csv"
         }
       ],
       "scoring": "judge",
@@ -4767,7 +4815,7 @@
       "id": "Q89",
       "source": "cube",
       "text_en": "For each customer, classify them as Active, At Risk, or Churned based on recency, then compute average spend and product variety (distinct products purchased) per segment.",
-      "text_zh": "将客户分为活跃、有流失风险和已流失，计算各组客户的平均消费额和平均购买产品种类数。",
+      "text_zh": "活跃、有流失风险和已流失客户的平均消费金额与平均购买产品种类数是多少？",
       "type": "指标分析",
       "refs": [
         {
@@ -4777,7 +4825,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "",
+      "scoring_notes": " 2026-10-17按真实问法改写，不附定义；英文原题标识保留，修订参考敏感性对照剔除EN89。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -4884,6 +4932,11 @@
           "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
           "sql": "SELECT corr(c.YearlyIncome, cust_spend.total_spend) AS income_spend_correlation,\n       count() AS customers_analyzed\nFROM (\n  SELECT CustomerKey, sum(SalesAmount) AS total_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n) cust_spend\nJOIN retail.DimCustomer c ON c.CustomerKey = cust_spend.CustomerKey\nWHERE c.YearlyIncome IS NOT NULL",
           "result_path": "refs/cube/Q91-1.csv"
+        },
+        {
+          "interpretation": "问法歧义：Spearman相关，重复值使用平均秩，观察域与Pearson一致",
+          "sql": "WITH domain AS (SELECT c.YearlyIncome AS x,sum(f.SalesAmount) AS y FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey WHERE c.YearlyIncome IS NOT NULL GROUP BY f.CustomerKey,c.YearlyIncome),\nfrequency AS (SELECT x,y,count() AS w FROM domain WHERE x IS NOT NULL AND y IS NOT NULL GROUP BY x,y),\nranks AS (SELECT *,\nsum(w) OVER (ORDER BY x RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY x)-1)/2.0 AS rx,\nsum(w) OVER (ORDER BY y RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)-(sum(w) OVER (PARTITION BY y)-1)/2.0 AS ry FROM frequency),\ncentered AS (SELECT *,sum(w*rx) OVER ()/sum(w) OVER () AS mx,\nsum(w*ry) OVER ()/sum(w) OVER () AS my FROM ranks)\nSELECT sum(w*(rx-mx)*(ry-my))/nullIf(sqrt(sum(w*pow(rx-mx,2))*sum(w*pow(ry-my,2))),0) AS income_spend_correlation,sum(w) AS customers_analyzed\nFROM centered",
+          "result_path": "refs/cube/Q91-2.csv"
         }
       ],
       "scoring": "judge",
@@ -4931,13 +4984,13 @@
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC",
+          "interpretation": "按裁决以毛利率衡量盈利能力并降序排名",
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nJOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\n  AND p.BrandName IS NOT NULL\nGROUP BY p.BrandName\nORDER BY gross_margin_pct DESC",
           "result_path": "refs/cube/Q92-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
+      "scoring_notes": "2026-10-17丙组裁决：按毛利率排序，仅保留该参考。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -4977,7 +5030,7 @@
         ],
         "order_by": [
           {
-            "column": 2,
+            "column": 3,
             "descending": true
           }
         ]
@@ -5103,13 +5156,13 @@
       "type": "开放式",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "SELECT pc.ProductCategoryName,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) AS promo_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey = 1) AS full_price_revenue,\n       sumIf(f.SalesAmount, f.PromotionKey <> 1) / nullif(sumIf(f.SalesAmount, f.PromotionKey = 1), 0) AS promo_to_fullprice_ratio,\n       sum(f.DiscountAmount) AS total_discount_given\nFROM retail.FactOnlineSales f\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName\nORDER BY promo_to_fullprice_ratio DESC",
+          "interpretation": "按裁决仅保留促销行均销售减原价行均销售；包含孤儿产品属性组",
+          "sql": "SELECT pc.ProductCategoryName,avgIf(f.SalesAmount,f.PromotionKey<>1) AS promo_average_sales,avgIf(f.SalesAmount,f.PromotionKey=1) AS full_price_average_sales,promo_average_sales-full_price_average_sales AS incremental_average_sales FROM retail.FactOnlineSales f\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\nGROUP BY pc.ProductCategoryName",
           "result_path": "refs/cube/Q95-1.csv"
         }
       ],
       "scoring": "judge",
-      "scoring_notes": "已批准开放式：接受促销/原价营收的描述性对比，但必须说明无法据此识别因果增量；参考仅为描述性证据，不能把营收差或比值直接断言为促销造成的增量。\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "2026-10-17丙组裁决：报告促销与原价交易的行均销售差，不再用总额或总额比代替。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -5139,14 +5192,12 @@
           "other",
           "amount",
           "amount",
-          "ratio",
           "amount"
         ],
         "value_types": [
           "Nullable(String)",
           "Float64",
           "Float64",
-          "Nullable(Float64)",
           "Float64"
         ]
       }
