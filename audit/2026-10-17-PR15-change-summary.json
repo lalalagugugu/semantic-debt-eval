@@ -3,9 +3,11 @@
   "baseline_references": 162,
   "current_references": 136,
   "scope": "entire PR15 versus merged main/PR14; includes the approved semantic-gap ruling",
-  "manifest_sha256": "48196b77c5ebec81bab02b8d56191fb7957a290f8472c00e3d34ccdc59d02bb8",
+  "manifest_sha256": "a4a0a75b3a77dfdb5c52fa93fd55187de0840224479fa197e952864eb29a3c7e",
   "anchor_revised_sensitivity_exclusions": [
     "EN13",
+    "EN14",
+    "EN21",
     "EN28",
     "EN36",
     "EN89"
@@ -180,15 +182,21 @@
     },
     {
       "question_id": "Q14",
-      "text_changed": false,
-      "references_changed": false,
+      "text_changed": true,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
       "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q14-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q14-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q14-1.csv"
+      ]
     },
     {
       "question_id": "Q15",
@@ -266,15 +274,21 @@
     },
     {
       "question_id": "Q21",
-      "text_changed": false,
-      "references_changed": false,
+      "text_changed": true,
+      "references_changed": true,
       "previous_references": 1,
       "current_references": 1,
       "added_references": [],
       "removed_references": [],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/cube/Q21-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q21-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q21-1.csv"
+      ]
     },
     {
       "question_id": "Q22",
@@ -1627,7 +1641,7 @@
     },
     {
       "question_id": "Q122",
-      "text_changed": false,
+      "text_changed": true,
       "references_changed": true,
       "previous_references": 2,
       "current_references": 1,
@@ -1635,14 +1649,22 @@
       "removed_references": [
         "refs/new/Q122-2.csv"
       ],
-      "changed_SQL": [],
-      "changed_CSV": [],
-      "changed_rules": []
+      "changed_SQL": [
+        "refs/new/Q122-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/new/Q122-1.csv"
+      ],
+      "changed_rules": [
+        "refs/new/Q122-1.csv"
+      ]
     }
   ],
   "text_changed": [
     "Q07",
     "Q13",
+    "Q14",
+    "Q21",
     "Q28",
     "Q36",
     "Q45",
@@ -1652,13 +1674,16 @@
     "Q89",
     "Q111",
     "Q115",
-    "Q120"
+    "Q120",
+    "Q122"
   ],
   "references_changed": [
     "Q10",
     "Q11",
     "Q13",
+    "Q14",
     "Q20",
+    "Q21",
     "Q24",
     "Q26",
     "Q27",
@@ -1705,6 +1730,8 @@
   ],
   "CSV_changed": [
     "Q13",
+    "Q14",
+    "Q21",
     "Q27",
     "Q28",
     "Q34",
@@ -1720,6 +1747,7 @@
     "Q87",
     "Q88",
     "Q92",
-    "Q95"
+    "Q95",
+    "Q122"
   ]
 }

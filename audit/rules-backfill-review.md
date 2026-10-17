@@ -23,14 +23,14 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q11/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`total_sales` / `Float64` / **amount** |
 | Q12/1 | false | 参考行集 | `month` / `UInt8` / **other**<br>`monthly_sales` / `Float64` / **amount** |
 | Q13/1 | false | 参考行集 | `s.StoreKey` / `Int32` / **other**<br>`StoreName` / `String` / **other**<br>`total_sales` / `Float64` / **amount**<br>`average_unit_price` / `Nullable(Float64)` / **amount**<br>`sales_quantity` / `Int64` / **count** [整数守卫] |
-| Q14/1 | false | 参考行集 | `c.CustomerKey` / `Int32` / **other**<br>`FirstName` / `String` / **other**<br>`LastName` / `String` / **other**<br>`total_spent` / `Float64` / **amount** |
+| Q14/1 | false | 参考行集 | `customers` / `UInt64` / **count** [整数守卫] |
 | Q15/1 | false | 参考行集 | `RegionCountryName` / `String` / **other**<br>`total_sales` / `Float64` / **amount** |
 | Q16/1 | false | 参考行集 | `year` / `UInt16` / **other**<br>`total_sales` / `Float64` / **amount** |
 | Q17/1 | false | 参考行集 | `IsWorkDay` / `String` / **other**<br>`sales` / `Float64` / **amount**<br>`percentage` / `Nullable(Float64)` / **percentage** |
 | Q18/1 | false | 参考行集 | `PromotionType` / `Nullable(String)` / **other**<br>`total_discount` / `Float64` / **amount** |
 | Q19/1 | false | 参考行集 | `Gender` / `Nullable(String)` / **other**<br>`avg_order_amount` / `Float64` / **amount** |
 | Q20/1 | false | 参考行集 | `ProductKey` / `Int32` / **other**<br>`ProductName` / `Nullable(String)` / **other**<br>`on_hand_units` / `Int64` / **count** [整数守卫]<br>`safety_stock_units` / `Int64` / **count** [整数守卫] |
-| Q21/1 | false | 参考行集 | `StoreName` / `String` / **other**<br>`ProductName` / `Nullable(String)` / **other**<br>`OnHandQuantity` / `Int32` / **other**<br>`ProductKey` / `Int32` / **other** |
+| Q21/1 | false | 参考行集 | `s.StoreKey` / `Int32` / **other**<br>`StoreName` / `String` / **other**<br>`current_on_hand_quantity` / `Int64` / **other** |
 | Q22/1 | false | 1步骤分组选择 | `c.CustomerKey` / `Int32` / **other**<br>`FirstName` / `String` / **other**<br>`LastName` / `String` / **other**<br>`RegionCountryName` / `String` / **other**<br>`total_spent` / `Float64` / **amount**<br>`rn` / `UInt64` / **other** |
 | Q23/1 | false | 参考行集 | `month` / `UInt8` / **other**<br>`monthly_sales` / `Float64` / **amount**<br>`cumulative_sales` / `Float64` / **amount** |
 | Q24/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`total_returns` / `Int64` / **count** [整数守卫]<br>`total_sales` / `Int64` / **count** [整数守卫]<br>`return_rate_pct` / `Nullable(Float64)` / **percentage** |
@@ -124,7 +124,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q99/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`avg_weekend_day_sales` / `Float64` / **amount**<br>`avg_weekday_sales` / `Float64` / **amount**<br>`weekend_lift_pct` / `Nullable(Float64)` / **percentage** |
 | Q100/1 | false | 参考行集 | `customer_name` / `String` / **other**<br>`orders` / `UInt64` / **count** [整数守卫]<br>`avg_order_amount` / `Float64` / **amount**<br>`lifetime_value` / `Float64` / **amount** |
 
-合计：100题、113份参考；ordered=true共21份；分组选择6份参考；整数计数守卫42列。
+合计：100题、113份参考；ordered=true共21份；分组选择6份参考；整数计数守卫43列。
 
 Q33/Q45/Q97等judge题的示例截断不自动成为题干固定N；维持已批准的声明口径与非封闭示例，不将示例LIMIT伪装成新增的题意限制。
 

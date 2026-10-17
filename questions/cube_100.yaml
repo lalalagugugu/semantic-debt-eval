@@ -624,17 +624,17 @@
       "id": "Q14",
       "source": "cube",
       "text_en": "Which customers have spent more than $10,000 in total?",
-      "text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "text_zh": "累计消费超过 10 万美元的客户有多少人？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "按 CustomerKey 匹配完整客户结果",
-          "sql": "SELECT c.CustomerKey,c.FirstName,c.LastName,sum(s.SalesAmount) AS total_spent FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.CustomerKey,c.FirstName,c.LastName HAVING sum(s.SalesAmount)>10000",
+          "interpretation": "按客户累计线上消费，严格大于100000美元后计客户人数",
+          "sql": "SELECT count() AS customers FROM (\nSELECT c.CustomerKey,c.FirstName,c.LastName,sum(s.SalesAmount) AS total_spent FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.CustomerKey,c.FirstName,c.LastName HAVING sum(s.SalesAmount)>100000\n)",
           "result_path": "refs/cube/Q14-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "比对完整结果集，按 CustomerKey 匹配；不得使用公开100行截断作为真值。",
+      "scoring_notes": "2026-10-17裁决第六、七节：由客户清单改为人数汇总，门槛从1万美元改为10万美元；原门槛对全部客户均成立。T19披露参数改动；EN14不参加修订参考敏感性对照，英文原题/原始参考保留。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -650,7 +650,7 @@
             "可从数据发现",
             "只能由业务告知"
           ],
-          "notes": "未说明渠道默认线上；按CustomerKey累计并匹配完整客户结果。"
+          "notes": "未说明渠道默认线上；先按CustomerKey累计销售金额，再按题面门槛筛选后计数。"
         },
         "persona": "管理层"
       },
@@ -660,16 +660,10 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "amount"
+          "count"
         ],
         "value_types": [
-          "Int32",
-          "String",
-          "String",
-          "Float64"
+          "UInt64"
         ]
       }
     },
@@ -976,17 +970,17 @@
       "id": "Q21",
       "source": "cube",
       "text_en": "What is the current inventory level for each product in each store?",
-      "text_zh": "各门店每种产品目前的库存是多少？",
+      "text_zh": "各门店的当前在手库存数量是多少？",
       "type": "指标分析",
       "refs": [
         {
-          "interpretation": "原参考解读",
-          "sql": "WITH latest AS (SELECT StoreKey, ProductKey, MAX(DateKey) as max_date FROM retail.FactInventory GROUP BY StoreKey, ProductKey) SELECT s.StoreName, p.ProductName, i.OnHandQuantity,i.ProductKey AS ProductKey FROM retail.FactInventory i JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date JOIN retail.DimStore s ON i.StoreKey = s.StoreKey LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey = p.ProductKey",
+          "interpretation": "先按门店×产品取各自最近快照，再按门店汇总在手数量",
+          "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS max_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey) SELECT s.StoreKey,s.StoreName,sum(i.OnHandQuantity) AS current_on_hand_quantity FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.max_date JOIN retail.DimStore s ON i.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
           "result_path": "refs/cube/Q21-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "\n数据质量：名称连接不得删事实；缺失分类以NULL未分类汇总披露，不冒充真实品类；产品级按事实产品键保身份。",
+      "scoring_notes": "2026-10-17裁决第六节：从门店×产品清单改为门店库存汇总，保留当前库存的半可加粒度。EN21修订参考敏感性对照排除，英文原题及原始参考保留。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -1014,14 +1008,12 @@
         "value_kinds": [
           "other",
           "other",
-          "other",
           "other"
         ],
         "value_types": [
-          "String",
-          "Nullable(String)",
           "Int32",
-          "Int32"
+          "String",
+          "Int64"
         ]
       }
     },

@@ -26,6 +26,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--decision-file', type=Path, required=True)
     args = parser.parse_args()
+    summary_path=ROOT/'audit/2026-10-17-summary-rewrites.json'
+    summary_rewrites=json.loads(summary_path.read_text()) if summary_path.exists() else None
     questions = {q['id']: q for name in ('cube_100', 'new') for q in
                  json.loads((ROOT/f'questions/{name}.yaml').read_text())['questions']}
     manifest = json.loads((ROOT/'refs/MANIFEST.json').read_text())
@@ -86,6 +88,11 @@ def main():
               'over_50_rows':long,'anchor_revised_sensitivity_exclusions':['EN13','EN28','EN36','EN89'],
               'new_question_audit':'audit/2026-10-17-gap-ruling-new-question-check.json',
               'T05b_independent_recheck':'pending; SQL checks are not an independent pandas result'}
+    if summary_rewrites:
+        review['new_question_audit']=summary_rewrites['new_question_audit']
+        review['anchor_revised_sensitivity_exclusions']=summary_rewrites['anchor_revised_sensitivity_exclusions']
+        review['summary_rewrites']=summary_rewrites['records']
+        review['Q13_Q28_wording']='user_confirmed'
     (ROOT/'audit/2026-10-17-gap-ruling-review.json').write_text(json.dumps(review,ensure_ascii=False,indent=2,default=str)+'\n')
 
     baseline = 'bf8e09584187cee4fb60eb2715c4f075c4324424'
@@ -156,6 +163,9 @@ def main():
     lines += ['验证结果：136份全量生成及最终严格复算通过（包含Q33）；T04、T05、rules、单一口径与本轮17项裁决校验通过；四题及22新题A/B/C均0命中。`validate_gap_ruling.py --sql-fixtures`另覆盖重复观察的平均秩、反向排名及常数域NULL。Q101原有GMV显式量纲与推断不同的告警仍保留。', '',
               '过程记录：旧校验固定在133份阶段的题面、Q40部分日期方案及新题文件哈希，已改为核验当前裁决报告；Q86新参考编号曾撞上历史退役Q86-2，校验发现后改用Q86-3，并重新严格复算。历史退役文件仍不存在，未覆盖历史审计。', '',
               'T11交接：Q95中文参考由5列改为4列，英文原始参考须继续使用自身schema和rules，不直接复用中文rules；英文原始参考接线由Claude Code负责。本轮没有重评600条，历史影响数字不当作当前口径结果。','']
+    if summary_rewrites:
+        lines=[line.replace('Q13、Q28待用户确认','Q13、Q28用户已确认；本节保留此前四题改写') for line in lines]
+        lines.insert(2,'第六节追加：Q14/Q21/Q122汇总改写见[三题报告](2026-10-17-summary-rewrites.md)及配套JSON；Q13/Q28措辞已获用户确认。')
     (ROOT/'audit/2026-10-17-gap-ruling-review.md').write_text('\n'.join(lines))
     print(json.dumps({'references':len(records),'changed_this_round':[r['question_id'] for r in changed],
                       'rewritten':[r['question_id'] for r in checks],'over_50':long},ensure_ascii=False))

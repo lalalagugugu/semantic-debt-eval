@@ -80,6 +80,8 @@ def main():
     ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
     ruling=json.loads(ruling_path.read_text()) if ruling_path.exists() else None
     rewritten={r['question_id']:r['text'] for r in ruling['rewritten_question_checks']} if ruling else {}
+    if ruling:
+        rewritten.update({r['question_id']:r['new_text_zh'] for r in ruling.get('summary_rewrites',[])})
     schema = json.loads((REPO / "questions/schema.json").read_text())
     pattern = schema["properties"]["questions"]["items"]["properties"]["refs"]["items"]["properties"]["result_path"]["pattern"]
     for q, original in zip(questions, source, strict=True):

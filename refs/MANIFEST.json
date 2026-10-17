@@ -585,43 +585,25 @@
     {
       "question_id": "Q14",
       "result_path": "refs/cube/Q14-1.csv",
-      "sql_sha256": "bce32a8ea87b1a1b0c28dccd1633aa91ebd44ea57da466711ea7ad4bfc3f9a89",
-      "row_count": 18869,
+      "sql_sha256": "d06d876fc451b9f3a41d2adc76bbd88853e17834db9ecd6c6e0a1b2d73b4cd54",
+      "row_count": 1,
       "columns": [
         {
-          "name": "c.CustomerKey",
-          "type": "Int32"
-        },
-        {
-          "name": "FirstName",
-          "type": "String"
-        },
-        {
-          "name": "LastName",
-          "type": "String"
-        },
-        {
-          "name": "total_spent",
-          "type": "Float64"
+          "name": "customers",
+          "type": "UInt64"
         }
       ],
       "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "amount"
+        "count"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "af4ba022c8f4bce32311d115508d298666a9f442a311c6e4ca091488759f4781",
+      "sha256": "11ed1dd79b7249e0e86d02ebed5d33362a9ab62a9fb0a63dd7a68cab7fe3194a",
       "value_types": [
-        "Int32",
-        "String",
-        "String",
-        "Float64"
+        "UInt64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -630,16 +612,10 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "amount"
+          "count"
         ],
         "value_types": [
-          "Int32",
-          "String",
-          "String",
-          "Float64"
+          "UInt64"
         ]
       },
       "selection_checks": null
@@ -947,28 +923,23 @@
     {
       "question_id": "Q21",
       "result_path": "refs/cube/Q21-1.csv",
-      "sql_sha256": "cb09d946360984867eef114ac620c3518e2e36151e786740168952a435acf4aa",
-      "row_count": 600241,
+      "sql_sha256": "60541b551cfcea5dfa4dc489c2cf846585435018336be5d96abf03ced3f5e4ea",
+      "row_count": 306,
       "columns": [
+        {
+          "name": "s.StoreKey",
+          "type": "Int32"
+        },
         {
           "name": "StoreName",
           "type": "String"
         },
         {
-          "name": "ProductName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "OnHandQuantity",
-          "type": "Int32"
-        },
-        {
-          "name": "ProductKey",
-          "type": "Int32"
+          "name": "current_on_hand_quantity",
+          "type": "Int64"
         }
       ],
       "value_kinds": [
-        "other",
         "other",
         "other",
         "other"
@@ -978,12 +949,11 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "86e03e3fcc9327c9e41903a8cefbea72b21492f528f33398fd5968a13b411bfb",
+      "sha256": "1c1998f0b9c14bc001704dc79a697cbaa49df37f885f3acc5cbdc28bdda67143",
       "value_types": [
-        "String",
-        "Nullable(String)",
         "Int32",
-        "Int32"
+        "String",
+        "Int64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -994,14 +964,12 @@
         "value_kinds": [
           "other",
           "other",
-          "other",
           "other"
         ],
         "value_types": [
-          "String",
-          "Nullable(String)",
           "Int32",
-          "Int32"
+          "String",
+          "Int64"
         ]
       },
       "selection_checks": null
@@ -14127,37 +14095,32 @@
     {
       "question_id": "Q122",
       "result_path": "refs/new/Q122-1.csv",
-      "sql_sha256": "1a735dd55809e36af07e180b84840384e4063916b1b0d2bbb9fe34f7f80fe790",
-      "row_count": 207046,
+      "sql_sha256": "313455f2a418c5bf966c87ca5d36d018d5f9af515d06d99712bd67758bd36f1c",
+      "row_count": 1,
       "columns": [
         {
-          "name": "product1_key",
-          "type": "Int32"
+          "name": "all_orders",
+          "type": "UInt64"
         },
         {
-          "name": "product2_key",
-          "type": "Int32"
-        },
-        {
-          "name": "support_ratio",
+          "name": "average_support_ratio",
           "type": "Float64"
         },
         {
-          "name": "confidence_1_to_2_ratio",
+          "name": "average_confidence_1_to_2_ratio",
           "type": "Float64"
         },
         {
-          "name": "confidence_2_to_1_ratio",
+          "name": "average_confidence_2_to_1_ratio",
           "type": "Float64"
         },
         {
-          "name": "lift_ratio",
+          "name": "average_lift_ratio",
           "type": "Float64"
         }
       ],
       "value_kinds": [
-        "other",
-        "other",
+        "count",
         "ratio",
         "ratio",
         "ratio",
@@ -14168,10 +14131,9 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "202487bf366a787e230227449714f081375bd78c35b26baf8d12829d9736caf5",
+      "sha256": "d65608cfe2f9c7f1156be85b59ad4f022f8b3dc84f6de89f515503b91d721258",
       "value_types": [
-        "Int32",
-        "Int32",
+        "UInt64",
         "Float64",
         "Float64",
         "Float64",
@@ -14184,16 +14146,14 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "other",
+          "count",
           "ratio",
           "ratio",
           "ratio",
           "ratio"
         ],
         "value_types": [
-          "Int32",
-          "Int32",
+          "UInt64",
           "Float64",
           "Float64",
           "Float64",

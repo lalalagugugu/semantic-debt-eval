@@ -1588,39 +1588,18 @@
     {
       "id": "Q122",
       "source": "new",
-      "text_en": "For all pairs of Contoso products sold in 2009, report co-purchase support, both directional confidences and lift over all 2009 orders.",
-      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "text_en": "For Contoso products sold in 2009, report the total number of 2009 orders and the mean co-purchase support, mean confidence in each direction and mean lift across all product pairs, using all 2009 orders as the population.",
+      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，报告订单总数、产品对的平均共购支持度、两个方向的平均置信度和平均提升度。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
-          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
-          "result_path": "refs/new/Q122-1.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "other",
-              "ratio",
-              "ratio",
-              "ratio",
-              "ratio"
-            ],
-            "value_types": [
-              "Int32",
-              "Int32",
-              "Float64",
-              "Float64",
-              "Float64",
-              "Float64"
-            ]
-          }
+          "interpretation": "先计算全部产品对（含零共购对）的四项指标，再对产品对等权平均；购买事件与订单分母均按全部行",
+          "sql": "SELECT any(all_orders) AS all_orders,avg(support_ratio) AS average_support_ratio,avg(confidence_1_to_2_ratio) AS average_confidence_1_to_2_ratio,avg(confidence_2_to_1_ratio) AS average_confidence_2_to_1_ratio,avg(lift_ratio) AS average_lift_ratio FROM (\nWITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT t.all_orders AS all_orders,a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey\n)",
+          "result_path": "refs/new/Q122-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n产品域事先限定Contoso，订单内产品去重；全体2009订单为支持度／lift分母，零共购对保留；不按结果挑产品。",
+      "scoring_notes": "2026-10-17裁决第六节：汇总原产品对四项派生指标，保留产品域、订单内产品去重、全部订单分母和零共购对；不先删零共购对，不用总额比替代逐对指标的均值。 汇总同时报告原总体订单数，保留全部订单分母的整数守卫；只报均值时正销量错误口径可能落在现有容差内，不因此修改容差。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1649,16 +1628,14 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "other",
+          "count",
           "ratio",
           "ratio",
           "ratio",
           "ratio"
         ],
         "value_types": [
-          "Int32",
-          "Int32",
+          "UInt64",
           "Float64",
           "Float64",
           "Float64",

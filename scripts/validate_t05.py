@@ -140,6 +140,10 @@ def main():
         if q['id'] in policy_text:
             assert policy_text[q['id']]['old_text_zh']==expected
             expected=policy_text[q['id']]['new_text_zh']
+        summary_rewrites={r['question_id']:r for r in gap_ruling.get('summary_rewrites',[])} if gap_ruling else {}
+        if q['id'] in summary_rewrites:
+            assert summary_rewrites[q['id']]['old_text_zh']==expected
+            expected=summary_rewrites[q['id']]['new_text_zh']
         if q['id'] in changed:
             assert changed[q['id']]['original_question']==approved[q['id']]
         assert q['text_zh']==expected
