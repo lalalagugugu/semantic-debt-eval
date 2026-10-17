@@ -1,0 +1,4260 @@
+{
+  "baseline_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
+  "references_checked": 136,
+  "questions_checked": 122,
+  "rounding_references_changed": 19,
+  "records": [
+    {
+      "question_id": "Q01",
+      "references": [
+        {
+          "reference": "refs/cube/Q01-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "count()",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q02",
+      "references": [
+        {
+          "reference": "refs/cube/Q02-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sum(SalesAmount)",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q03",
+      "references": [
+        {
+          "reference": "refs/cube/Q03-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "countDistinct(CustomerKey)",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q04",
+      "references": [
+        {
+          "reference": "refs/cube/Q04-1.csv",
+          "rows": 644,
+          "numeric_columns_checked": [],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q05",
+      "references": [
+        {
+          "reference": "refs/cube/Q05-1.csv",
+          "rows": 8,
+          "numeric_columns_checked": [
+            {
+              "column": "product_count",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q06",
+      "references": [
+        {
+          "reference": "refs/cube/Q06-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sum(SalesAmount)",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q07",
+      "references": [
+        {
+          "reference": "refs/cube/Q07-1.csv",
+          "rows": 14,
+          "numeric_columns_checked": [
+            {
+              "column": "UnitPrice",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q08",
+      "references": [
+        {
+          "reference": "refs/cube/Q08-1.csv",
+          "rows": 17,
+          "numeric_columns_checked": [],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q09",
+      "references": [
+        {
+          "reference": "refs/cube/Q09-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "avg(UnitCost)",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q10",
+      "references": [
+        {
+          "reference": "refs/cube/Q10-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "store_count",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q11",
+      "references": [
+        {
+          "reference": "refs/cube/Q11-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q12",
+      "references": [
+        {
+          "reference": "refs/cube/Q12-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "monthly_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q13",
+      "references": [
+        {
+          "reference": "refs/cube/Q13-1.csv",
+          "rows": 306,
+          "numeric_columns_checked": [
+            {
+              "column": "s.StoreKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "average_unit_price",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "sales_quantity",
+              "type": "Int64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q14",
+      "references": [
+        {
+          "reference": "refs/cube/Q14-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q15",
+      "references": [
+        {
+          "reference": "refs/cube/Q15-1.csv",
+          "rows": 29,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q16",
+      "references": [
+        {
+          "reference": "refs/cube/Q16-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q17",
+      "references": [
+        {
+          "reference": "refs/cube/Q17-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "percentage",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "percentage",
+              "expression": "sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q18",
+      "references": [
+        {
+          "reference": "refs/cube/Q18-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "total_discount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q19",
+      "references": [
+        {
+          "reference": "refs/cube/Q19-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_order_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q20",
+      "references": [
+        {
+          "reference": "refs/cube/Q20-2.csv",
+          "rows": 429,
+          "numeric_columns_checked": [
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "on_hand_units",
+              "type": "Int64",
+              "kind": "count"
+            },
+            {
+              "column": "safety_stock_units",
+              "type": "Int64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q21",
+      "references": [
+        {
+          "reference": "refs/cube/Q21-1.csv",
+          "rows": 306,
+          "numeric_columns_checked": [
+            {
+              "column": "s.StoreKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "current_on_hand_quantity",
+              "type": "Int64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q22",
+      "references": [
+        {
+          "reference": "refs/cube/Q22-1.csv",
+          "rows": 65,
+          "numeric_columns_checked": [
+            {
+              "column": "c.CustomerKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "total_spent",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "rn",
+              "type": "UInt64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q23",
+      "references": [
+        {
+          "reference": "refs/cube/Q23-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "monthly_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "cumulative_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q24",
+      "references": [
+        {
+          "reference": "refs/cube/Q24-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "total_returns",
+              "type": "Int64",
+              "kind": "count"
+            },
+            {
+              "column": "total_sales",
+              "type": "Int64",
+              "kind": "count"
+            },
+            {
+              "column": "return_rate_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "return_rate_pct",
+              "expression": "sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q25",
+      "references": [
+        {
+          "reference": "refs/cube/Q25-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_daily_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q26",
+      "references": [
+        {
+          "reference": "refs/cube/Q26-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "quarter",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "new_customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q27",
+      "references": [
+        {
+          "reference": "refs/cube/Q27-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "UnitPrice",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "UnitCost",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "margin_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q28",
+      "references": [
+        {
+          "reference": "refs/cube/Q28-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "average_unit_price",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "ChannelName",
+              "values": [
+                "Online",
+                "Store"
+              ],
+              "action": "数据值，不是SQL常量标签",
+              "reason": "Store/Online来自DimChannel枚举，保留语义层原值"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "数据值，不是SQL常量标签",
+        "Store/Online来自DimChannel枚举，保留语义层原值"
+      ]
+    },
+    {
+      "question_id": "Q29",
+      "references": [
+        {
+          "reference": "refs/cube/Q29-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "pct_difference",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "pct_difference",
+              "expression": "(h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q30",
+      "references": [
+        {
+          "reference": "refs/cube/Q30-1.csv",
+          "rows": 31,
+          "numeric_columns_checked": [
+            {
+              "column": "daily_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "moving_avg_7d",
+              "type": "Float64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q31",
+      "references": [
+        {
+          "reference": "refs/cube/Q31-1.csv",
+          "rows": 8,
+          "numeric_columns_checked": [
+            {
+              "column": "actual",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "budget",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q32",
+      "references": [
+        {
+          "reference": "refs/cube/Q32-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "customer_count",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "total_ltv",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q33",
+      "references": [
+        {
+          "reference": "refs/cube/Q33-1.csv",
+          "rows": 20,
+          "numeric_columns_checked": [
+            {
+              "column": "product1_key",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "product2_key",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "co_order_count",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q34",
+      "references": [
+        {
+          "reference": "refs/cube/Q34-1.csv",
+          "rows": 2504,
+          "numeric_columns_checked": [
+            {
+              "column": "total_cogs",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "avg_inventory",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "turnover_ratio",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "turnover_ratio",
+              "expression": "c.total_cogs / nullIf(a.avg_inventory, 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q35",
+      "references": [
+        {
+          "reference": "refs/cube/Q35-1.csv",
+          "rows": 293,
+          "numeric_columns_checked": [],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q36",
+      "references": [
+        {
+          "reference": "refs/cube/Q36-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "segment",
+              "values": [
+                "已流失",
+                "有流失风险",
+                "活跃"
+              ],
+              "action": "改参考",
+              "reason": "客户分层用题面/语义层中文值"
+            }
+          ],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "改参考",
+        "客户分层用题面/语义层中文值"
+      ]
+    },
+    {
+      "question_id": "Q37",
+      "references": [
+        {
+          "reference": "refs/cube/Q37-1.csv",
+          "rows": 306,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "percentile",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "percentile",
+              "expression": "PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q38",
+      "references": [
+        {
+          "reference": "refs/cube/Q38-2.csv",
+          "rows": 8,
+          "numeric_columns_checked": [
+            {
+              "column": "actual",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "forecast",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "accuracy_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "accuracy_pct",
+              "expression": "100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q39",
+      "references": [
+        {
+          "reference": "refs/cube/Q39-1.csv",
+          "rows": 30,
+          "numeric_columns_checked": [
+            {
+              "column": "subcategory_key",
+              "type": "Nullable(Int32)",
+              "kind": "other"
+            },
+            {
+              "column": "window_days",
+              "type": "Nullable(Int64)",
+              "kind": "other"
+            },
+            {
+              "column": "before_daily_sales",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "after_daily_sales",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q39-2.csv",
+          "rows": 30,
+          "numeric_columns_checked": [
+            {
+              "column": "subcategory_key",
+              "type": "Nullable(Int32)",
+              "kind": "other"
+            },
+            {
+              "column": "window_days",
+              "type": "Int64",
+              "kind": "other"
+            },
+            {
+              "column": "before_daily_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "after_daily_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q40",
+      "references": [
+        {
+          "reference": "refs/cube/Q40-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_eur",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q41",
+      "references": [
+        {
+          "reference": "refs/cube/Q41-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sum(SalesAmount)",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q42",
+      "references": [
+        {
+          "reference": "refs/cube/Q42-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "yoy_change",
+              "type": "Float64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q42-2.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "gross_margin",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q43",
+      "references": [
+        {
+          "reference": "refs/cube/Q43-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "gross_margin",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q43-2.csv",
+          "rows": 29,
+          "numeric_columns_checked": [
+            {
+              "column": "gross_margin",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q44",
+      "references": [
+        {
+          "reference": "refs/cube/Q44-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "growth_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q44-2.csv",
+          "rows": 36,
+          "numeric_columns_checked": [
+            {
+              "column": "sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q45",
+      "references": [
+        {
+          "reference": "refs/cube/Q45-1.csv",
+          "rows": 306,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "SellingAreaSize",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            },
+            {
+              "column": "sales_per_sqft",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q46",
+      "references": [
+        {
+          "reference": "refs/cube/Q46-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "profit",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q46-2.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "profit",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q47",
+      "references": [
+        {
+          "reference": "refs/cube/Q47-1.csv",
+          "rows": 299,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_downtime_minutes",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q48",
+      "references": [
+        {
+          "reference": "refs/cube/Q48-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "store_count",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "downtime_group",
+              "values": [
+                "High Downtime",
+                "Low Downtime"
+              ],
+              "action": "待用户澄清",
+              "reason": "停机高低两组不能改成三类客户；当前保持原标签"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q48-2.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "correlation",
+              "type": "Float64",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q48-3.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "correlation",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "待用户澄清",
+        "停机高低两组不能改成三类客户；当前保持原标签"
+      ]
+    },
+    {
+      "question_id": "Q49",
+      "references": [
+        {
+          "reference": "refs/cube/Q49-2.csv",
+          "rows": 420,
+          "numeric_columns_checked": [
+            {
+              "column": "e.EntityKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "total_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q50",
+      "references": [
+        {
+          "reference": "refs/cube/Q50-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_2009",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "sales_2008",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "growth_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "growth_pct",
+              "expression": "(s9.sales - s8.sales) * 100.0 / s8.sales"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q51",
+      "references": [
+        {
+          "reference": "refs/cube/Q51-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "total_stores",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q52",
+      "references": [
+        {
+          "reference": "refs/cube/Q52-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "max_unit_price",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q53",
+      "references": [
+        {
+          "reference": "refs/cube/Q53-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "total_orders",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q54",
+      "references": [
+        {
+          "reference": "refs/cube/Q54-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "total_return_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q55",
+      "references": [
+        {
+          "reference": "refs/cube/Q55-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "female_customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q56",
+      "references": [
+        {
+          "reference": "refs/cube/Q56-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_yearly_income",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q57",
+      "references": [
+        {
+          "reference": "refs/cube/Q57-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "total_brands",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q58",
+      "references": [
+        {
+          "reference": "refs/cube/Q58-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "max_line_sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q59",
+      "references": [
+        {
+          "reference": "refs/cube/Q59-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "holiday_days",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q60",
+      "references": [
+        {
+          "reference": "refs/cube/Q60-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "production_employees",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q61",
+      "references": [
+        {
+          "reference": "refs/cube/Q61-1.csv",
+          "rows": 31,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q62",
+      "references": [
+        {
+          "reference": "refs/cube/Q62-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "units",
+              "type": "Int64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q63",
+      "references": [
+        {
+          "reference": "refs/cube/Q63-1.csv",
+          "rows": 5,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_order_value",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            },
+            {
+              "column": "orders",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q64",
+      "references": [
+        {
+          "reference": "refs/cube/Q64-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "gross_margin",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "margin_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q65",
+      "references": [
+        {
+          "reference": "refs/cube/Q65-2.csv",
+          "rows": 303,
+          "numeric_columns_checked": [
+            {
+              "column": "total_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q66",
+      "references": [
+        {
+          "reference": "refs/cube/Q66-1.csv",
+          "rows": 4,
+          "numeric_columns_checked": [
+            {
+              "column": "quarter",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "total_discount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q67",
+      "references": [
+        {
+          "reference": "refs/cube/Q67-1.csv",
+          "rows": 18,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_realized_price",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "units",
+              "type": "Int64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q68",
+      "references": [
+        {
+          "reference": "refs/cube/Q68-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "orders",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q69",
+      "references": [
+        {
+          "reference": "refs/cube/Q69-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "total_discount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "avg_discount_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q70",
+      "references": [
+        {
+          "reference": "refs/cube/Q70-1.csv",
+          "rows": 4,
+          "numeric_columns_checked": [
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "avg_area",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            },
+            {
+              "column": "stores",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q71",
+      "references": [
+        {
+          "reference": "refs/cube/Q71-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q72",
+      "references": [
+        {
+          "reference": "refs/cube/Q72-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "quarter",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "quarterly_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "cumulative_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "quarterly_sales",
+              "expression": "sum(SalesAmount)"
+            },
+            {
+              "name": "cumulative_sales",
+              "expression": "sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q73",
+      "references": [
+        {
+          "reference": "refs/cube/Q73-1.csv",
+          "rows": 10,
+          "numeric_columns_checked": [
+            {
+              "column": "total_on_hand",
+              "type": "Int64",
+              "kind": "other"
+            },
+            {
+              "column": "total_safety",
+              "type": "Int64",
+              "kind": "other"
+            },
+            {
+              "column": "gap",
+              "type": "Int64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q74",
+      "references": [
+        {
+          "reference": "refs/cube/Q74-1.csv",
+          "rows": 925,
+          "numeric_columns_checked": [
+            {
+              "column": "product_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "pct_of_store",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q75",
+      "references": [
+        {
+          "reference": "refs/cube/Q75-1.csv",
+          "rows": 1470,
+          "numeric_columns_checked": [
+            {
+              "column": "spend_2008",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "spend_2009",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "pct_growth",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "spend_2008",
+              "expression": "y.y2008"
+            },
+            {
+              "name": "spend_2009",
+              "expression": "y.y2009"
+            },
+            {
+              "name": "pct_growth",
+              "expression": "(y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q76",
+      "references": [
+        {
+          "reference": "refs/cube/Q76-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "pct_repeat_customer_sales",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "pct_repeat_customer_sales",
+              "expression": "sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        },
+        {
+          "reference": "refs/cube/Q76-2.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "pct_repeat_customer_sales",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q77",
+      "references": [
+        {
+          "reference": "refs/cube/Q77-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "prev_month_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "mom_growth_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "sales",
+              "expression": "raw_sales"
+            },
+            {
+              "name": "prev_month_sales",
+              "expression": "raw_previous"
+            },
+            {
+              "name": "mom_growth_pct",
+              "expression": "(raw_sales-raw_previous)*100.0/nullIf(raw_previous,0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q78",
+      "references": [
+        {
+          "reference": "refs/cube/Q78-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "discount_total",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "rnk",
+              "type": "UInt64",
+              "kind": "other"
+            },
+            {
+              "column": "pct_of_total",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "discount_total",
+              "expression": "disc"
+            },
+            {
+              "name": "pct_of_total",
+              "expression": "disc * 100.0 / nullif(sum(disc) OVER (), 0)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q79",
+      "references": [
+        {
+          "reference": "refs/cube/Q79-1.csv",
+          "rows": 42,
+          "numeric_columns_checked": [
+            {
+              "column": "actual_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "quota",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "attainment_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "actual_sales",
+              "expression": "a.actual_sales"
+            },
+            {
+              "name": "quota",
+              "expression": "q.quota"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q80",
+      "references": [
+        {
+          "reference": "refs/cube/Q80-1.csv",
+          "rows": 29,
+          "numeric_columns_checked": [
+            {
+              "column": "n_customers",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "avg_active_days",
+              "type": "Float64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "avg_active_days",
+              "expression": "avg(dateDiff('day', cust.first_d, cust.last_d))"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q81",
+      "references": [
+        {
+          "reference": "refs/cube/Q81-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "cohort_year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "customers_in_cohort",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "avg_ltv",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "total_ltv",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "avg_ltv",
+              "expression": "avg(lifetime_spend)"
+            },
+            {
+              "name": "total_ltv",
+              "expression": "sum(lifetime_spend)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q82",
+      "references": [
+        {
+          "reference": "refs/cube/Q82-1.csv",
+          "rows": 11,
+          "numeric_columns_checked": [
+            {
+              "column": "direct_reports",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "avg_team_tenure_years",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "avg_team_tenure_years",
+              "expression": "r.avg_tenure_years"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q83",
+      "references": [
+        {
+          "reference": "refs/cube/Q83-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "cohort_size_2007",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "returned_2008",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "returned_2008_and_2009",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q84",
+      "references": [
+        {
+          "reference": "refs/cube/Q84-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "product_count",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "pct_of_revenue",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "abc_class",
+              "values": [
+                "A",
+                "B",
+                "C"
+              ],
+              "action": "保持",
+              "reason": "后处理A/B/C常量与题面A/B/C分类一致"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q84-2.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "product_count",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "pct_of_revenue",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "abc_class",
+              "values": [
+                "A",
+                "B",
+                "C"
+              ],
+              "action": "保持",
+              "reason": "后处理A/B/C常量与题面A/B/C分类一致"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "保持",
+        "后处理A/B/C常量与题面A/B/C分类一致"
+      ]
+    },
+    {
+      "question_id": "Q85",
+      "references": [
+        {
+          "reference": "refs/cube/Q85-1.csv",
+          "rows": 97,
+          "numeric_columns_checked": [
+            {
+              "column": "actual_amt",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "quota_amt",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            },
+            {
+              "column": "attainment_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "bucket",
+              "values": [
+                "最低",
+                "最高"
+              ],
+              "action": "改参考",
+              "reason": "TOP/BOTTOM改为题面已有最高/最低；selection条件同步"
+            }
+          ],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "改参考",
+        "TOP/BOTTOM改为题面已有最高/最低；selection条件同步"
+      ]
+    },
+    {
+      "question_id": "Q86",
+      "references": [
+        {
+          "reference": "refs/cube/Q86-1.csv",
+          "rows": 31,
+          "numeric_columns_checked": [
+            {
+              "column": "corr_discount_vs_qty",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "observations",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "corr_discount_vs_qty",
+              "expression": "discount_qty_corr"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        },
+        {
+          "reference": "refs/cube/Q86-3.csv",
+          "rows": 31,
+          "numeric_columns_checked": [
+            {
+              "column": "corr_discount_vs_qty",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "observations",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q87",
+      "references": [
+        {
+          "reference": "refs/cube/Q87-1.csv",
+          "rows": 20,
+          "numeric_columns_checked": [
+            {
+              "column": "on_hand",
+              "type": "Int64",
+              "kind": "other"
+            },
+            {
+              "column": "avg_daily_qty",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "days_of_coverage",
+              "type": "Float64",
+              "kind": "other"
+            },
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q88",
+      "references": [
+        {
+          "reference": "refs/cube/Q88-1.csv",
+          "rows": 26,
+          "numeric_columns_checked": [
+            {
+              "column": "total_spend_2009",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q89",
+      "references": [
+        {
+          "reference": "refs/cube/Q89-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "customers",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "avg_spend",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "avg_distinct_products",
+              "type": "Float64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "avg_spend",
+              "expression": "avg(total_spend)"
+            },
+            {
+              "name": "avg_distinct_products",
+              "expression": "avg(distinct_products)"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "segment",
+              "values": [
+                "已流失",
+                "有流失风险",
+                "活跃"
+              ],
+              "action": "改参考",
+              "reason": "客户分层用题面/语义层中文值，ORDER BY CASE同步"
+            }
+          ],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "改参考",
+        "客户分层用题面/语义层中文值，ORDER BY CASE同步"
+      ]
+    },
+    {
+      "question_id": "Q90",
+      "references": [
+        {
+          "reference": "refs/cube/Q90-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "margin_2007_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "margin_2008_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "margin_2009_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "delta_08_07_pp",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "delta_09_08_pp",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [
+            {
+              "name": "margin_2007_pct",
+              "expression": "m_2007"
+            },
+            {
+              "name": "margin_2008_pct",
+              "expression": "m_2008"
+            },
+            {
+              "name": "margin_2009_pct",
+              "expression": "m_2009"
+            },
+            {
+              "name": "delta_08_07_pp",
+              "expression": "m_2008 - m_2007"
+            },
+            {
+              "name": "delta_09_08_pp",
+              "expression": "m_2009 - m_2008"
+            }
+          ],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q91",
+      "references": [
+        {
+          "reference": "refs/cube/Q91-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "income_spend_correlation",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "customers_analyzed",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q91-2.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "income_spend_correlation",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "customers_analyzed",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q92",
+      "references": [
+        {
+          "reference": "refs/cube/Q92-1.csv",
+          "rows": 12,
+          "numeric_columns_checked": [
+            {
+              "column": "revenue",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "gross_margin_dollars",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "gross_margin_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": true,
+          "csv_changed": true
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q93",
+      "references": [
+        {
+          "reference": "refs/cube/Q93-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "discount_qty_correlation",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "discount_revenue_correlation",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            },
+            {
+              "column": "promos_analyzed",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q94",
+      "references": [
+        {
+          "reference": "refs/cube/Q94-1.csv",
+          "rows": 99,
+          "numeric_columns_checked": [
+            {
+              "column": "q3_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "q4_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "qoq_pct_change",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q95",
+      "references": [
+        {
+          "reference": "refs/cube/Q95-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "promo_average_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "full_price_average_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "incremental_average_sales",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q96",
+      "references": [
+        {
+          "reference": "refs/cube/Q96-1.csv",
+          "rows": 2,
+          "numeric_columns_checked": [
+            {
+              "column": "cohort_year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "cohort_size",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "returning_customers",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "retention_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q97",
+      "references": [
+        {
+          "reference": "refs/cube/Q97-1.csv",
+          "rows": 15,
+          "numeric_columns_checked": [
+            {
+              "column": "h1_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "h2_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "h2_vs_h1_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q97-2.csv",
+          "rows": 15,
+          "numeric_columns_checked": [
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "h1_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "h2_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "sales_increase",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q98",
+      "references": [
+        {
+          "reference": "refs/cube/Q98-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "peak_quarter_share_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            },
+            {
+              "column": "peak_quarter",
+              "type": "UInt8",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/cube/Q98-2.csv",
+          "rows": 27,
+          "numeric_columns_checked": [
+            {
+              "column": "year",
+              "type": "UInt16",
+              "kind": "other"
+            },
+            {
+              "column": "peak_quarter_share_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            },
+            {
+              "column": "peak_quarter",
+              "type": "UInt8",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q99",
+      "references": [
+        {
+          "reference": "refs/cube/Q99-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "avg_weekend_day_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "avg_weekday_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "weekend_lift_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q100",
+      "references": [
+        {
+          "reference": "refs/cube/Q100-1.csv",
+          "rows": 108,
+          "numeric_columns_checked": [
+            {
+              "column": "orders",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "avg_order_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "lifetime_value",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q101",
+      "references": [
+        {
+          "reference": "refs/new/Q101-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "GMV",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q102",
+      "references": [
+        {
+          "reference": "refs/new/Q102-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "net_sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q103",
+      "references": [
+        {
+          "reference": "refs/new/Q103-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "orders",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "sales_share_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q104",
+      "references": [
+        {
+          "reference": "refs/new/Q104-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_change_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "margin_change_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q105",
+      "references": [
+        {
+          "reference": "refs/new/Q105-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q106",
+      "references": [
+        {
+          "reference": "refs/new/Q106-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "growth_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q107",
+      "references": [
+        {
+          "reference": "refs/new/Q107-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "net_sales_share_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q108",
+      "references": [
+        {
+          "reference": "refs/new/Q108-1.csv",
+          "rows": 29,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "orders",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q109",
+      "references": [
+        {
+          "reference": "refs/new/Q109-1.csv",
+          "rows": 4,
+          "numeric_columns_checked": [
+            {
+              "column": "quarter",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "daily_sales_growth_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q110",
+      "references": [
+        {
+          "reference": "refs/new/Q110-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "share_2008_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "share_2009_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "change_pp",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q111",
+      "references": [
+        {
+          "reference": "refs/new/Q111-1.csv",
+          "rows": 306,
+          "numeric_columns_checked": [
+            {
+              "column": "ytd_attainment_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            },
+            {
+              "column": "annual_attainment_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q112",
+      "references": [
+        {
+          "reference": "refs/new/Q112-1.csv",
+          "rows": 262,
+          "numeric_columns_checked": [
+            {
+              "column": "EmployeeKey",
+              "type": "Nullable(Float64)",
+              "kind": "other"
+            },
+            {
+              "column": "under_target_stores",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "shortfall_amount",
+              "type": "Nullable(Float64)",
+              "kind": "amount"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q113",
+      "references": [
+        {
+          "reference": "refs/new/Q113-1.csv",
+          "rows": 33,
+          "numeric_columns_checked": [
+            {
+              "column": "start_month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "end_month",
+              "type": "UInt8",
+              "kind": "other"
+            },
+            {
+              "column": "months",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q114",
+      "references": [
+        {
+          "reference": "refs/new/Q114-1.csv",
+          "rows": 6,
+          "numeric_columns_checked": [
+            {
+              "column": "new_customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q115",
+      "references": [
+        {
+          "reference": "refs/new/Q115-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "customers",
+              "type": "UInt64",
+              "kind": "count"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "a.old_state",
+              "values": [
+                "已流失",
+                "有流失风险",
+                "活跃"
+              ],
+              "action": "保持",
+              "reason": "中文状态名与题面/语义层一致"
+            },
+            {
+              "column": "b.new_state",
+              "values": [
+                "已流失",
+                "有流失风险",
+                "活跃"
+              ],
+              "action": "保持",
+              "reason": "中文状态名与题面/语义层一致"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "保持",
+        "中文状态名与题面/语义层一致"
+      ]
+    },
+    {
+      "question_id": "Q116",
+      "references": [
+        {
+          "reference": "refs/new/Q116-1.csv",
+          "rows": 4,
+          "numeric_columns_checked": [
+            {
+              "column": "repurchase_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q117",
+      "references": [
+        {
+          "reference": "refs/new/Q117-1.csv",
+          "rows": 3,
+          "numeric_columns_checked": [
+            {
+              "column": "t.StoreKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "decline_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            },
+            {
+              "column": "decline_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "contribution_pct",
+              "type": "Float64",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q118",
+      "references": [
+        {
+          "reference": "refs/new/Q118-1.csv",
+          "rows": 1,
+          "numeric_columns_checked": [
+            {
+              "column": "sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "share_pct",
+              "type": "Nullable(Float64)",
+              "kind": "percentage"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q119",
+      "references": [
+        {
+          "reference": "refs/new/Q119-1.csv",
+          "rows": 310,
+          "numeric_columns_checked": [
+            {
+              "column": "StoreKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "ProductKey",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "product_sales",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "global_rank",
+              "type": "UInt64",
+              "kind": "other"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q120",
+      "references": [
+        {
+          "reference": "refs/new/Q120-1.csv",
+          "rows": 6,
+          "numeric_columns_checked": [
+            {
+              "column": "customers",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "income_sales_corr",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [
+            {
+              "column": "scope",
+              "values": [
+                "全体",
+                "职业内"
+              ],
+              "action": "保持",
+              "reason": "全体/职业内由题面明确输出格式，保持"
+            }
+          ],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "保持",
+        "全体/职业内由题面明确输出格式，保持"
+      ]
+    },
+    {
+      "question_id": "Q121",
+      "references": [
+        {
+          "reference": "refs/new/Q121-1.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "monthly_sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "coefficient_ratio",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        },
+        {
+          "reference": "refs/new/Q121-2.csv",
+          "rows": 9,
+          "numeric_columns_checked": [
+            {
+              "column": "monthly_sales_amount",
+              "type": "Float64",
+              "kind": "amount"
+            },
+            {
+              "column": "coefficient_ratio",
+              "type": "Nullable(Float64)",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    },
+    {
+      "question_id": "Q122",
+      "references": [
+        {
+          "reference": "refs/new/Q122-1.csv",
+          "rows": 17,
+          "numeric_columns_checked": [
+            {
+              "column": "product1_key",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "product2_key",
+              "type": "Int32",
+              "kind": "other"
+            },
+            {
+              "column": "common_orders",
+              "type": "UInt64",
+              "kind": "count"
+            },
+            {
+              "column": "lift_ratio",
+              "type": "Float64",
+              "kind": "ratio"
+            }
+          ],
+          "display_rounding_removed": [],
+          "remaining_display_rounding": false,
+          "constant_labels": [],
+          "sql_changed": false,
+          "csv_changed": false
+        }
+      ],
+      "label_review": [
+        "无常量标签",
+        "字符串维度数据、筛选常量、日期单位、类型及连接分隔符不作输出标签"
+      ]
+    }
+  ],
+  "current_question_sha256": {
+    "cube_100": "e42c79506e47e87c0046282805d31d38021e5bede189685ab46daccb64f2b499",
+    "new": "fb1d7e1a55a2f2be7875e97d75da06ecf236cf608e2b09e62d0a9d710696df29"
+  },
+  "pending": [
+    "Q48-1标签裁决与现有停机分组含义不符，待用户澄清"
+  ],
+  "rounding_policy": "规范CSV存实际计算值，展示可取整；全局量化、比较容差与业务定义均不改",
+  "anchor_followup": "EN85原始参考的TOP/BOTTOM选择条件需单独保留，不复用中文最高/最低条件"
+}

@@ -49,7 +49,9 @@ def main():
     assert records['refs/cube/Q93-1.csv']==previous['refs/cube/Q93-1.csv']
     for name,digest in policy['source_sha256'].items():
         assert hashlib.sha256((Path(os.environ['SEMDEBT_MAIN_DIR'])/'semantic'/name).read_bytes()).hexdigest()==digest
-    for name,digest in (ruling or policy)['current_question_sha256'].items():
+    precision_path=ROOT/'audit/2026-10-17-full-compare-reference-audit.json'
+    precision=json.loads(precision_path.read_text()) if precision_path.exists() else None
+    for name,digest in (precision or ruling or policy)['current_question_sha256'].items():
         assert hashlib.sha256((ROOT/f'questions/{name}.yaml').read_bytes()).hexdigest()==digest
     for qid in ('Q27','Q45','Q79','Q87'):
         q=questions[qid];ref=q['refs'][0];rule=effective_rules(q,ref);rows=csv_rows(records[ref['result_path']])
@@ -59,7 +61,7 @@ def main():
         for row in candidate:row[rank_column]=round(row[rank_column],2)
         assert score(candidate,[rows],rule)=='correct',qid
     q=questions['Q85'];ref=q['refs'][0];rows=csv_rows(records[ref['result_path']]);candidate=[]
-    for bucket in ('BOTTOM','TOP'):candidate.extend(deepcopy([r for r in rows if r[0]==bucket][:5]))
+    for bucket in sorted({r[0] for r in rows}):candidate.extend(deepcopy([r for r in rows if r[0]==bucket][:5]))
     for row in candidate:row[4]=round(row[4],2)
     assert score(candidate,[rows],effective_rules(q,ref))=='correct'
     q=questions['Q27'];ref=q['refs'][0];rows=csv_rows(records[ref['result_path']]);rule=effective_rules(q,ref)

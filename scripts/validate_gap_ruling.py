@@ -35,7 +35,9 @@ def main():
     for check in review['rewritten_question_checks']:
         assert not any(check[k]['hit'] for k in ('A','B','C'))
         assert check['text']==questions[check['question_id']]['text_zh']
-    for name,digest in review['current_question_sha256'].items():
+    precision_path=ROOT/'audit/2026-10-17-full-compare-reference-audit.json'
+    precision=json.loads(precision_path.read_text()) if precision_path.exists() else None
+    for name,digest in (precision or review)['current_question_sha256'].items():
         assert hashlib.sha256((ROOT/f'questions/{name}.yaml').read_bytes()).hexdigest()==digest
     if review.get('summary_rewrites'):
         summary=json.loads((ROOT/'audit/2026-10-17-summary-rewrites.json').read_text())

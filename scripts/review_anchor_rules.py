@@ -10,6 +10,8 @@ import json
 import os
 from pathlib import Path
 import re
+import subprocess
+from copy import deepcopy
 
 from build_refs import effective_rules, has_final_order_by, load_selection_policy, load_unit_policy
 from check_rules_impact import contract_domain, verdict_only
@@ -32,6 +34,12 @@ def main():
     manifest=json.loads((folder/'MANIFEST.json').read_text())
     by_id={int(r['vendor_id']):r for r in manifest['records']}
     rows=[]
+    label_review=(ROOT/'audit/2026-10-17-full-compare-application.json')
+    english_bucket_rules=None
+    if label_review.exists():
+        baseline=json.loads(label_review.read_text())['baseline_commit']
+        previous=json.loads(subprocess.check_output(['git','show',f'{baseline}:questions/cube_100.yaml'],cwd=ROOT,text=True))
+        english_bucket_rules=next(q['rules'] for q in previous['questions'] if q['id']=='Q85')
     normalize=lambda typ:re.sub(r'^Nullable\((.*)\)$',r'\1',typ)
     for qid,q in sorted(questions.items()):
         if qid==33 or q['scoring']=='judge':
@@ -48,12 +56,15 @@ def main():
         if columns!=record['columns'] or len(payload['rows'])!=record['row_count']:
             raise ValueError(f'EN{qid:02d}: original manifest metadata differs')
         types=[c['type'] for c in columns]
-        if any([normalize(t) for t in effective_rules(q,r)['value_types']]==[normalize(t) for t in types] for r in q['refs']):
+        if any([normalize(t) for t in effective_rules(q,r)['value_types']]==[normalize(t) for t in types] for r in q['refs']) and not (qid==85 and english_bucket_rules):
             continue
         rules={k:v for k,v in q['rules'].items() if k!='selection'}
         rules.update(value_kinds=reference_value_kinds(sql,columns),value_types=types,ordered=q['rules']['ordered'] and has_final_order_by(sql))
         if qid==74:
             _,rules=contract_domain(qid,sql,q)
+            rules.update(value_kinds=reference_value_kinds(sql,columns),value_types=types)
+        if qid==85 and english_bucket_rules:
+            rules=deepcopy(english_bucket_rules)
             rules.update(value_kinds=reference_value_kinds(sql,columns),value_types=types)
         if rules['ordered']:
             rules['order_by'],_=reference_order(sql,columns,rules.get('selection',{}).get('output_order'))
@@ -62,7 +73,8 @@ def main():
         if result.outcome!='correct':
             raise ValueError(f'EN{qid:02d}: original self-match failed: {result.reason}')
         rows.append((qid,record,columns,rules))
-    if {qid for qid,*_ in rows}!={13,14,20,21,34,66,74,83,87}:
+    expected={13,14,20,21,34,66,74,83,87}|({85} if english_bucket_rules else set())
+    if {qid for qid,*_ in rows}!=expected:
         raise ValueError('unexpected structure-difference cohort; review before publishing rules')
     lines=['# 英文原始参考rules交接：不含接线变更','',
     'T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。此次Q66删除未问的第三列后，补EN66原始三列规则。下面9份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。',
@@ -73,6 +85,9 @@ def main():
         lines.append(f"| Q{qid:02d}／EN{qid:02d} | {record['row_count']} | "+'；'.join(f"{c['name']}: {c['type']} / {k}" for c,k in zip(columns,rules['value_kinds'],strict=True))+' |')
     for qid,record,columns,rules in rows:
         lines += ['',f'## EN{qid:02d}', '',f"原始SQL SHA256：`{record['sql_sha256']}`；payload SHA256：`{record['sha256']}`。",'', '```json',json.dumps(rules,ensure_ascii=False,indent=2),'```']
+    if english_bucket_rules:
+        lines=[line.replace('下面9份rules','下面10份rules').replace('和9份规则自比','和10份规则自比') for line in lines]
+        lines.insert(2,'本轮追加EN85：中文Q85标签改为最高/最低，英文原始参考仍为TOP/BOTTOM；显式保存原始选择条件，避免同结构规则复用造成标签域不一致。原SQL/原值及harness接线保持。')
     lines+=['','EN74的选择元数据仅按原始4列重映射为门店／产品／销售额／占比，保持外部原始渠道、连接与数值，不偷换成中文修订6列参考。T11仍须按既有Top-N完整边界要求核对原始截断是否丢并列；EN87同理。EN97仍为judge且不在确定性结构不同的9份之内；不以补规则扩大确定性题集合。',
     '', 'T11接入这些rules后可评数量预计由当前修订题库的79增为87，另12道judge；此处只是规则交接，是否可评以T11接线后的自比及完整边界检查为准。复现：`uv run python scripts/review_anchor_rules.py --check`。','']
     text='\n'.join(lines)
@@ -81,7 +96,7 @@ def main():
             raise ValueError('anchor rules review is stale')
     else:
         REPORT.write_text(text)
-    print('PASS: 9 original anchor rules, actual cached metadata and SQL/payload hashes; harness wiring unchanged')
+    print(f'PASS: {len(rows)} original anchor rules, actual cached metadata and SQL/payload hashes; harness wiring unchanged')
 
 
 if __name__=='__main__':
