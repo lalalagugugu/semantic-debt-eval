@@ -8,9 +8,13 @@ Rulings applied (main repo decisions/, 2026-10-16):
   * reference-inner-join-undercount: compute the business answer; facts are
     LEFT-joined to DimProduct, missing products keep their ProductKey with a
     NULL name/category, totals and denominators come from the full fact table.
-  * return-only-rows-and-purchase-events: anything that defines a purchase
-    event is computed twice, "all" (every row) and "qty_pos" (SalesQuantity > 0);
-    order-count denominators stay on all order numbers.
+  * return-only-rows-and-purchase-events, as superseded by
+    2026-10-17-one-convention-one-answer: every online row of a customer,
+    return-only rows included, is a transaction (first/last purchase, new
+    customers, recency, order counts); order denominators use all order numbers.
+  * one-convention-one-answer: one answer per convention. New-customer window
+    is [cutoff - 89 days, cutoff] (semantic layer); the empty product-group row
+    is always kept.
   * grouped/nested Top-N (BOARD items 3, 4) and Q79: selection is implemented
     here (strict prefix + complete boundary on quantized keys).
 
@@ -18,8 +22,7 @@ Usage:
   uv run python scripts/recheck_pandas.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-dd5853d"
   uv run python scripts/recheck_pandas.py --only Q74,Q79
 Outputs go to reports/T05b/pandas/: one CSV per question/interpretation
-(Qxx-k.csv, or Qxx-k.all.csv + Qxx-k.qty_pos.csv when the two purchase-event
-algorithms differ) and manifest.json.
+(Qxx-k.csv) and manifest.json.
 """
 
 from __future__ import annotations
@@ -43,8 +46,6 @@ if not DATA.exists():
 OUT = ROOT / "reports" / "T05b" / "pandas"
 
 TODAY = pd.Timestamp("2009-12-31")
-MODES = ("all", "qty_pos")
-MODE = "all"  # current purchase-event algorithm; switched by the runner
 
 
 # --------------------------------------------------------------------------
@@ -140,9 +141,8 @@ def fos():
 
 
 def buys():
-    """Online rows that count as purchase events under the active algorithm."""
-    f = fos()
-    return f if MODE == "all" else f[f.SalesQuantity > 0]
+    """Online rows that count as purchase events: every row, return-only rows included."""
+    return fos()
 
 
 @lru_cache(None)
@@ -218,7 +218,7 @@ def segment(m):
 
 
 QS = {}          # qid -> function returning list of DataFrames (one per ref, in order)
-EVENT = set()    # qids whose answer depends on the purchase-event algorithm
+EVENT = set()    # qids that define purchase events (informational since 2026-10-17)
 
 
 def Q(qid, event=False):
@@ -889,7 +889,7 @@ def _():
 @Q("Q76", event=True)
 def _():
     f = attach_product(fos()[["ProductKey", "CustomerKey", "order", "SalesAmount", "SalesQuantity"]].copy())
-    b = f if MODE == "all" else f[f.SalesQuantity > 0]
+    b = f
     orders_all = b.groupby("CustomerKey").order.nunique()
     repeat_all = set(orders_all[orders_all >= 2].index)
     orders_cat = b.groupby(["ProductCategoryName", "CustomerKey"], dropna=False).order.nunique()
@@ -1358,23 +1358,16 @@ def _():
 MONTH_ENDS = pd.date_range("2007-01-31", "2007-06-30", freq="ME")
 
 
-def _window(T_, inclusive):
-    return (T_ - pd.Timedelta(days=89), T_, True) if inclusive else (T_ - pd.Timedelta(days=90), T_, False)
-
-
-def _in_window(s, T_, inclusive):
-    lo, hi, inc = _window(T_, inclusive)
-    return (s >= lo) & ((s <= hi) if inc else (s < hi))
+def _in_window(s, T_):
+    """New-customer window [T - 89 days, T], cutoff day included (semantic layer)."""
+    return (s >= T_ - pd.Timedelta(days=89)) & (s <= T_)
 
 
 @Q("Q114", event=True)
 def _():
     first = first_last()["first"]
-    out = []
-    for inclusive in (True, False):
-        out.append(pd.DataFrame({"month_end": MONTH_ENDS.date,
-                                 "new_customers": [int(_in_window(first, t, inclusive).sum()) for t in MONTH_ENDS]}))
-    return out
+    return [pd.DataFrame({"month_end": MONTH_ENDS.date,
+                          "new_customers": [int(_in_window(first, t).sum()) for t in MONTH_ENDS]})]
 
 
 @Q("Q115", event=True)
@@ -1506,20 +1499,6 @@ def _():
 # --------------------------------------------------------------------------
 # Runner
 # --------------------------------------------------------------------------
-def frames_equal(a, b):
-    if len(a) != len(b) or len(a) != len(b):
-        return False
-    for x, y in zip(a, b):
-        if x.shape != y.shape:
-            return False
-        xs = x.reset_index(drop=True).astype(str).sort_values(list(x.columns)).reset_index(drop=True)
-        ys = y.reset_index(drop=True).astype(str).sort_values(list(y.columns)).reset_index(drop=True)
-        xs.columns = ys.columns
-        if not xs.equals(ys):
-            return False
-    return True
-
-
 def write(df, path):
     df = df.copy()
     for c in df.columns:
@@ -1529,7 +1508,6 @@ def write(df, path):
 
 
 def main(argv=None):
-    global MODE
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--out", default=str(OUT))
@@ -1555,27 +1533,14 @@ def main(argv=None):
         t0 = time.time()
         for old in out.glob(f"{qid}-*.csv"):
             old.unlink()
-        MODE = "all"
-        res_all = QS[qid]()
+        res = QS[qid]()
         entry = {"event_sensitive": qid in EVENT, "files": []}
         if sha:
             entry["eval_commit"] = sha
-        if qid in EVENT:
-            MODE = "qty_pos"
-            res_pos = QS[qid]()
-            MODE = "all"
-            same = frames_equal(res_all, res_pos)
-            entry["modes_identical"] = same
-        for i, df in enumerate(res_all, 1):
-            if qid in EVENT and not entry["modes_identical"]:
-                for mode, d in (("all", df), ("qty_pos", res_pos[i - 1])):
-                    p = out / f"{qid}-{i}.{mode}.csv"
-                    write(d, p)
-                    entry["files"].append({"ref": i, "mode": mode, "path": p.name, "rows": len(d)})
-            else:
-                p = out / f"{qid}-{i}.csv"
-                write(df, p)
-                entry["files"].append({"ref": i, "mode": "both" if qid in EVENT else None, "path": p.name, "rows": len(df)})
+        for i, df in enumerate(res, 1):
+            p = out / f"{qid}-{i}.csv"
+            write(df, p)
+            entry["files"].append({"ref": i, "mode": None, "path": p.name, "rows": len(df)})
         entry["seconds"] = round(time.time() - t0, 1)
         manifest[qid] = entry
         print(qid, entry, flush=True)

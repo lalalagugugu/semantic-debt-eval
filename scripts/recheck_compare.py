@@ -13,10 +13,10 @@ reference); percentage columns also try the fraction<->percent equivalence.
 Questions and refs are read from a read-only checkout of the finalized bank
 (git worktree of origin/main), never from the shared $SEMDEBT_EVAL_DIR workspace.
 
-Empty product-attribute group row (main decisions/2026-10-16-orphan-product-
-group-row-and-scorer-early-reject.md section 1): when the only difference is
-the NULL category/subcategory/brand/colour row, the result is reported as
-"match_modulo_null_group" and counts as a match.
+One convention, one answer (main decisions/2026-10-17-one-convention-one-
+answer.md): the empty product-group row is part of the answer, so its presence
+or absence is a difference; purchase events use every row, so a ref tagged
+"购买事件=SalesQuantity>0" has no pandas counterpart and is reported as such.
 
 Usage: uv run python scripts/recheck_compare.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-<sha>" [--only Q74,Q79]
 Writes reports/T05b/compare.json and prints one line per reference.
@@ -38,12 +38,10 @@ PANDAS = ROOT / "reports" / "T05b" / "pandas"
 ATOL = {"percentage": 0.01, "ratio": 1e-4, "amount": 0.01}
 
 
-NULL_GROUP_COLUMNS = {"category", "ProductCategoryName", "subcategory", "ProductSubcategoryName",
-                      "brand", "BrandName", "color", "ColorName"}
 # Ranked lists the pandas side truncates (judge examples without a fixed N):
 # compare the reference against the same-length pandas prefix.
 TRUNCATED = {"Q33", "Q97"}
-# Interpretation suffix of the bank's "no empty product-attribute group" variant refs.
+# Interpretation suffix of the (withdrawn) "no empty product-attribute group" variant refs.
 NULL_GROUP_VARIANT = "按产品属性分组时不展示空属性组"
 EVENT_TAG = "购买事件="
 
@@ -153,21 +151,6 @@ def match_rows(ref, combo, kinds):
             "ref_rows": r[bad].head(5).astype(str).values.tolist(), "pandas_rows": m[bad].head(5).astype(str).values.tolist()}
 
 
-def compare_with_null_group(ref, mine, rules):
-    res = compare_frames(ref, mine, rules)
-    if res["ok"]:
-        return res
-    cols = [c for c in mine.columns if c in NULL_GROUP_COLUMNS]
-    if cols:
-        keep = ~(mine[cols] == "").any(axis=1)
-        if (~keep).any():
-            alt = compare_frames(ref, mine[keep].reset_index(drop=True), rules)
-            if alt["ok"]:
-                alt["note"] = "match_modulo_null_group"
-                return alt
-    return res
-
-
 def main(argv=None):
     import subprocess
     ap = argparse.ArgumentParser()
@@ -193,8 +176,8 @@ def main(argv=None):
             interp = ref["interpretation"]
             base = None
             if not files and NULL_GROUP_VARIANT in interp:
-                # "No empty group row" variant: the pandas side keeps the row everywhere,
-                # so compare its base interpretation's output (null-group rule applies).
+                # Withdrawn "no empty group row" variant, if still present: compare the base
+                # output, which keeps the row; a missing row now counts as a difference.
                 stem = interp.split(NULL_GROUP_VARIANT)[0].rstrip("；")
                 base = next(k for k, r in enumerate(qd["refs"], 1) if r["interpretation"] == stem)
                 files = [f for f in allfiles if f["ref"] == base]
@@ -206,17 +189,17 @@ def main(argv=None):
                             if r["interpretation"].split("；" + EVENT_TAG)[0] == stem
                             and any(f["ref"] == k for f in allfiles))
                 files = [f for f in allfiles if f["ref"] == base]
-            mode = event_mode(interp)
-            if mode and any(f["mode"] for f in files):
-                files = [f for f in files if f["mode"] in (None, "both", mode)]
             results = {}
+            if event_mode(interp) == "qty_pos":
+                files = []
+                results["-"] = {"ok": False, "why": "SalesQuantity>0 ref: pandas computes purchase events on every row only (2026-10-17)"}
             for f in files:
                 mine = pd.read_csv(PANDAS / f["path"], dtype=str, keep_default_na=False)
                 if qid in TRUNCATED and len(mine) > len(refdf):
                     mine = mine.head(len(refdf))
-                results[f["mode"] or "-"] = compare_with_null_group(refdf, mine, ref["rules"])
+                results[f["mode"] or "-"] = compare_frames(refdf, mine, ref["rules"])
             ok = any(r["ok"] for r in results.values())
-            if not files:
+            if not results:
                 results["-"] = {"ok": False, "why": "no pandas output for this reference"}
             entries.append({"ref": ref["path"], "interpretation": ref["interpretation"], "match": ok,
                             "pandas_ref": base or i, "by_mode": results})

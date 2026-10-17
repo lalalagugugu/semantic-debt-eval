@@ -1,7 +1,7 @@
 {
  "_source": {
-  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-dd5853d",
-  "eval_commit": "dd5853d505ad0c08ccb11661c8a63d826d0a7d71"
+  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-bf8e095",
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424"
  },
  "Q01": {
   "event_sensitive": false,
@@ -13,6 +13,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q02": {
@@ -25,20 +26,21 @@
     "rows": 1
    }
   ],
-  "seconds": 1.3
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 1.2
  },
  "Q03": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q03-1.csv",
     "rows": 1
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.5
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.0
  },
  "Q04": {
   "event_sensitive": false,
@@ -50,6 +52,7 @@
     "rows": 644
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q05": {
@@ -62,6 +65,7 @@
     "rows": 8
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q06": {
@@ -74,6 +78,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q07": {
@@ -86,6 +91,7 @@
     "rows": 14
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q08": {
@@ -98,6 +104,7 @@
     "rows": 17
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q09": {
@@ -110,6 +117,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q10": {
@@ -134,6 +142,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q11": {
@@ -146,6 +155,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q12": {
@@ -158,6 +168,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q13": {
@@ -170,6 +181,7 @@
     "rows": 306
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q14": {
@@ -182,6 +194,7 @@
     "rows": 18869
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q15": {
@@ -194,6 +207,7 @@
     "rows": 29
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q16": {
@@ -206,6 +220,7 @@
     "rows": 2
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q17": {
@@ -218,6 +233,7 @@
     "rows": 2
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q18": {
@@ -230,6 +246,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q19": {
@@ -242,6 +259,7 @@
     "rows": 2
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q20": {
@@ -260,6 +278,7 @@
     "rows": 429
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.5
  },
  "Q21": {
@@ -272,7 +291,8 @@
     "rows": 600241
    }
   ],
-  "seconds": 0.5
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.4
  },
  "Q22": {
   "event_sensitive": false,
@@ -284,6 +304,7 @@
     "rows": 65
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q23": {
@@ -296,6 +317,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q24": {
@@ -308,6 +330,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q25": {
@@ -320,6 +343,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q26": {
@@ -327,19 +351,13 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q26-1.all.csv",
-    "rows": 2
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q26-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q26-1.csv",
     "rows": 2
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.4
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q27": {
   "event_sensitive": false,
@@ -351,6 +369,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q28": {
@@ -363,7 +382,8 @@
     "rows": 2
    }
   ],
-  "seconds": 0.2
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q29": {
   "event_sensitive": false,
@@ -375,6 +395,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q30": {
@@ -387,6 +408,7 @@
     "rows": 31
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q31": {
@@ -399,6 +421,7 @@
     "rows": 8
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q32": {
@@ -406,32 +429,26 @@
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q32-1.csv",
     "rows": 1
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.7
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q33": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q33-1.all.csv",
-    "rows": 101
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q33-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q33-1.csv",
     "rows": 101
    }
   ],
-  "modes_identical": false,
-  "seconds": 2.5
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 1.1
  },
  "Q34": {
   "event_sensitive": false,
@@ -443,6 +460,7 @@
     "rows": 2504
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q35": {
@@ -455,6 +473,7 @@
     "rows": 293
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q36": {
@@ -462,19 +481,13 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q36-1.all.csv",
-    "rows": 3
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q36-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q36-1.csv",
     "rows": 3
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.3
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q37": {
   "event_sensitive": false,
@@ -486,6 +499,7 @@
     "rows": 306
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q38": {
@@ -498,6 +512,7 @@
     "rows": 8
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q39": {
@@ -510,6 +525,7 @@
     "rows": 30
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 1.1
  },
  "Q40": {
@@ -522,6 +538,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q41": {
@@ -534,6 +551,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q42": {
@@ -552,6 +570,7 @@
     "rows": 3
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q43": {
@@ -570,6 +589,7 @@
     "rows": 29
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q44": {
@@ -588,6 +608,7 @@
     "rows": 36
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q45": {
@@ -600,6 +621,7 @@
     "rows": 306
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q46": {
@@ -618,6 +640,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q47": {
@@ -630,6 +653,7 @@
     "rows": 299
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q48": {
@@ -648,6 +672,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q49": {
@@ -666,6 +691,7 @@
     "rows": 420
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q50": {
@@ -678,6 +704,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q51": {
@@ -690,6 +717,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q52": {
@@ -702,6 +730,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q53": {
@@ -714,6 +743,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q54": {
@@ -726,6 +756,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q55": {
@@ -738,6 +769,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q56": {
@@ -750,6 +782,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q57": {
@@ -762,6 +795,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q58": {
@@ -774,6 +808,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q59": {
@@ -786,6 +821,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q60": {
@@ -798,6 +834,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q61": {
@@ -810,7 +847,8 @@
     "rows": 31
    }
   ],
-  "seconds": 0.2
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q62": {
   "event_sensitive": false,
@@ -822,6 +860,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q63": {
@@ -834,6 +873,7 @@
     "rows": 5
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q64": {
@@ -846,6 +886,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q65": {
@@ -858,6 +899,7 @@
     "rows": 303
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q66": {
@@ -870,6 +912,7 @@
     "rows": 4
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q67": {
@@ -882,6 +925,7 @@
     "rows": 18
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q68": {
@@ -894,6 +938,7 @@
     "rows": 2
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q69": {
@@ -912,7 +957,8 @@
     "rows": 1
    }
   ],
-  "seconds": 0.7
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.6
  },
  "Q70": {
   "event_sensitive": false,
@@ -924,6 +970,7 @@
     "rows": 4
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q71": {
@@ -936,6 +983,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q72": {
@@ -948,6 +996,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q73": {
@@ -960,6 +1009,7 @@
     "rows": 10
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q74": {
@@ -972,6 +1022,7 @@
     "rows": 925
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.6
  },
  "Q75": {
@@ -984,6 +1035,7 @@
     "rows": 1470
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q76": {
@@ -991,31 +1043,19 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q76-1.all.csv",
-    "rows": 9
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q76-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q76-1.csv",
     "rows": 9
    },
    {
     "ref": 2,
-    "mode": "all",
-    "path": "Q76-2.all.csv",
-    "rows": 9
-   },
-   {
-    "ref": 2,
-    "mode": "qty_pos",
-    "path": "Q76-2.qty_pos.csv",
+    "mode": null,
+    "path": "Q76-2.csv",
     "rows": 9
    }
   ],
-  "modes_identical": false,
-  "seconds": 3.5
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 1.5
  },
  "Q77": {
   "event_sensitive": false,
@@ -1027,7 +1067,8 @@
     "rows": 12
    }
   ],
-  "seconds": 0.3
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q78": {
   "event_sensitive": false,
@@ -1039,7 +1080,8 @@
     "rows": 1
    }
   ],
-  "seconds": 0.2
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q79": {
   "event_sensitive": false,
@@ -1051,6 +1093,7 @@
     "rows": 42
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q80": {
@@ -1058,32 +1101,26 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q80-1.all.csv",
-    "rows": 29
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q80-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q80-1.csv",
     "rows": 29
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.4
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q81": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q81-1.csv",
     "rows": 2
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.6
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q82": {
   "event_sensitive": false,
@@ -1095,6 +1132,7 @@
     "rows": 11
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q83": {
@@ -1102,13 +1140,13 @@
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q83-1.csv",
     "rows": 1
    }
   ],
-  "modes_identical": true,
-  "seconds": 1.6
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.4
  },
  "Q84": {
   "event_sensitive": false,
@@ -1120,6 +1158,7 @@
     "rows": 3
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q85": {
@@ -1132,6 +1171,7 @@
     "rows": 97
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q86": {
@@ -1144,7 +1184,8 @@
     "rows": 31
    }
   ],
-  "seconds": 0.3
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q87": {
   "event_sensitive": false,
@@ -1156,39 +1197,34 @@
     "rows": 20
    }
   ],
-  "seconds": 0.1
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.0
  },
  "Q88": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q88-1.csv",
     "rows": 26
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.6
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q89": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q89-1.all.csv",
-    "rows": 3
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q89-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q89-1.csv",
     "rows": 3
    }
   ],
-  "modes_identical": false,
-  "seconds": 1.1
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.3
  },
  "Q90": {
   "event_sensitive": false,
@@ -1200,6 +1236,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q91": {
@@ -1212,6 +1249,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q92": {
@@ -1224,6 +1262,7 @@
     "rows": 12
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q93": {
@@ -1236,6 +1275,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q94": {
@@ -1248,6 +1288,7 @@
     "rows": 99
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q95": {
@@ -1260,6 +1301,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q96": {
@@ -1267,13 +1309,13 @@
   "files": [
    {
     "ref": 1,
-    "mode": "both",
+    "mode": null,
     "path": "Q96-1.csv",
     "rows": 2
    }
   ],
-  "modes_identical": true,
-  "seconds": 0.7
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q97": {
   "event_sensitive": false,
@@ -1291,6 +1333,7 @@
     "rows": 15
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q98": {
@@ -1309,6 +1352,7 @@
     "rows": 27
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q99": {
@@ -1321,6 +1365,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q100": {
@@ -1328,19 +1373,13 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q100-1.all.csv",
+    "mode": null,
+    "path": "Q100-1.csv",
     "rows": 108
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q100-1.qty_pos.csv",
-    "rows": 109
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.8
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.3
  },
  "Q101": {
   "event_sensitive": false,
@@ -1352,6 +1391,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q102": {
@@ -1364,6 +1404,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q103": {
@@ -1376,6 +1417,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q104": {
@@ -1388,6 +1430,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.4
  },
  "Q105": {
@@ -1400,6 +1443,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q106": {
@@ -1412,6 +1456,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q107": {
@@ -1424,6 +1469,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q108": {
@@ -1436,6 +1482,7 @@
     "rows": 29
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q109": {
@@ -1449,7 +1496,7 @@
    }
   ],
   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
-  "seconds": 2.8
+  "seconds": 0.2
  },
  "Q110": {
   "event_sensitive": false,
@@ -1461,6 +1508,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.0
  },
  "Q111": {
@@ -1473,6 +1521,7 @@
     "rows": 306
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.3
  },
  "Q112": {
@@ -1486,7 +1535,7 @@
    }
   ],
   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
-  "seconds": 0.7
+  "seconds": 0.0
  },
  "Q113": {
   "event_sensitive": false,
@@ -1506,71 +1555,39 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q114-1.all.csv",
-    "rows": 6
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q114-1.qty_pos.csv",
-    "rows": 6
-   },
-   {
-    "ref": 2,
-    "mode": "all",
-    "path": "Q114-2.all.csv",
-    "rows": 6
-   },
-   {
-    "ref": 2,
-    "mode": "qty_pos",
-    "path": "Q114-2.qty_pos.csv",
+    "mode": null,
+    "path": "Q114-1.csv",
     "rows": 6
    }
   ],
   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
-  "modes_identical": false,
-  "seconds": 0.7
+  "seconds": 0.1
  },
  "Q115": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q115-1.all.csv",
-    "rows": 9
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q115-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q115-1.csv",
     "rows": 9
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.6
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.2
  },
  "Q116": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q116-1.all.csv",
+    "mode": null,
+    "path": "Q116-1.csv",
     "rows": 4
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q116-1.qty_pos.csv",
-    "rows": 5
    }
   ],
   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
-  "modes_identical": false,
-  "seconds": 1.1
+  "seconds": 0.2
  },
  "Q117": {
   "event_sensitive": false,
@@ -1582,6 +1599,7 @@
     "rows": 3
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.1
  },
  "Q118": {
@@ -1594,6 +1612,7 @@
     "rows": 1
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q119": {
@@ -1612,26 +1631,21 @@
     "rows": 310
    }
   ],
-  "seconds": 0.7
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.6
  },
  "Q120": {
   "event_sensitive": true,
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q120-1.all.csv",
-    "rows": 6
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q120-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q120-1.csv",
     "rows": 6
    }
   ],
-  "modes_identical": false,
-  "seconds": 0.5
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.1
  },
  "Q121": {
   "event_sensitive": false,
@@ -1649,6 +1663,7 @@
     "rows": 9
    }
   ],
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "seconds": 0.2
  },
  "Q122": {
@@ -1656,31 +1671,12 @@
   "files": [
    {
     "ref": 1,
-    "mode": "all",
-    "path": "Q122-1.all.csv",
-    "rows": 207046
-   },
-   {
-    "ref": 1,
-    "mode": "qty_pos",
-    "path": "Q122-1.qty_pos.csv",
+    "mode": null,
+    "path": "Q122-1.csv",
     "rows": 207046
    }
   ],
-  "modes_identical": false,
-  "seconds": 1.4
- },
- "_reruns": [
-  {
-   "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-bf8e095",
-   "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
-   "questions": [
-    "Q109",
-    "Q112",
-    "Q113",
-    "Q114",
-    "Q116"
-   ]
-  }
- ]
+  "eval_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "seconds": 0.4
+ }
 }
