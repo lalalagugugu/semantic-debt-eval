@@ -1596,15 +1596,10 @@
           "interpretation": "提升度按全体2009线上订单的概率总体计算；购买事件均为全部行，按共同订单数取Top-10完整边界",
           "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT x.product1_key AS product1_key,toNullable(a.ProductName) AS product1_name,\nx.product2_key AS product2_key,toNullable(b.ProductName) AS product2_name,\nx.both_orders AS common_orders,x.both_orders*1.0*t.all_orders/(ma.product_orders*mb.product_orders) AS lift_ratio\nFROM pairs x JOIN marginal ma ON x.product1_key=ma.ProductKey\nJOIN marginal mb ON x.product2_key=mb.ProductKey CROSS JOIN total t\nLEFT JOIN retail.DimProduct a ON x.product1_key=a.ProductKey\nLEFT JOIN retail.DimProduct b ON x.product2_key=b.ProductKey\nORDER BY common_orders DESC LIMIT 10",
           "result_path": "refs/new/Q122-1.csv"
-        },
-        {
-          "interpretation": "问法歧义：提升度按含Contoso产品的2009线上订单这一条件总体计算；事件定义不变，声明品牌内分析总体",
-          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT countIf(notEmpty(products)) AS all_orders FROM baskets)\nSELECT x.product1_key AS product1_key,toNullable(a.ProductName) AS product1_name,\nx.product2_key AS product2_key,toNullable(b.ProductName) AS product2_name,\nx.both_orders AS common_orders,x.both_orders*1.0*t.all_orders/(ma.product_orders*mb.product_orders) AS lift_ratio\nFROM pairs x JOIN marginal ma ON x.product1_key=ma.ProductKey\nJOIN marginal mb ON x.product2_key=mb.ProductKey CROSS JOIN total t\nLEFT JOIN retail.DimProduct a ON x.product1_key=a.ProductKey\nLEFT JOIN retail.DimProduct b ON x.product2_key=b.ProductKey\nORDER BY common_orders DESC LIMIT 10",
-          "result_path": "refs/new/Q122-3.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "按用户最新裁决改为自然Top-10共购问法；不附交易/总体定义，不为评分器增加额外总体订单数输出。两份参考为未指明分析总体的提升度统计方法歧义，非购买事件业务口径多解。共同订单数为排名键；产品对按事实产品键保持身份并无向去重；完整保存第10名边界并列组，允许任选所需边界成员。",
+      "scoring_notes": "题面已获用户确认。Q122为新题，标准答案由出题方确定：提升度只按2009年全体线上订单为总体；乙组多份参考仅适用于外部原题问法歧义。按共同订单数取Top-10，完整保存第10名边界并列组。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {

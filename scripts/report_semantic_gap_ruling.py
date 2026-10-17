@@ -173,7 +173,7 @@ def main():
         lines=[line.replace('Q13、Q28待用户确认','Q13、Q28用户已确认；本节保留此前四题改写') for line in lines]
         lines.insert(2,'第六节追加：Q14/Q21/Q122汇总改写见[三题报告](2026-10-17-summary-rewrites.md)及配套JSON；Q13/Q28措辞已获用户确认。')
     if q122_topn:
-        lines.insert(2,'Q122已按用户新指令改为Top-10共购，取代旧均值和总体订单数方案；当前137份参考。Q14/Q21已确认。见[最新Q122报告](2026-10-17-q122-topn.md)。')
+        lines.insert(2,f"Q122题面已确认，当前{len(records)}份参考；Q122现行标准及边界见[最新报告](2026-10-17-q122-topn.md)，旧均值/额外订单数方案已撤销。")
     (ROOT/'audit/2026-10-17-gap-ruling-review.md').write_text('\n'.join(lines))
     print(json.dumps({'references':len(records),'changed_this_round':[r['question_id'] for r in changed],
                       'rewritten':[r['question_id'] for r in checks],'over_50':long},ensure_ascii=False))

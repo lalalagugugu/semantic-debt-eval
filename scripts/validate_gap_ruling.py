@@ -25,10 +25,11 @@ def main():
               'Q86':2,'Q91':2,'Q92':1,'Q95':1,'Q97':2,'Q98':2,'Q100':1,'Q117':1,'Q118':1,'Q119':1,'Q121':2}
     review=json.loads((ROOT/'audit/2026-10-17-gap-ruling-review.json').read_text())
     topn=review.get('q122_topn')
-    assert len(questions)==122 and len(records)==(137 if topn else 136)
+    standard=bool(topn and topn.get('policy')=='standard_all_online_orders')
+    assert len(questions)==122 and len(records)==(137 if topn and not standard else 136)
     for qid,count in expected.items():
         assert len(questions[qid]['refs'])==count,(qid,count)
-    assert review['final_references']==len(records) and len(review['added_references'])==(6 if topn else 5) and len(review['removed_references'])==2
+    assert review['final_references']==len(records) and len(review['added_references'])==(6 if topn and not standard else 5) and len(review['removed_references'])==2
     assert len(review['over_50_rows'])==(20 if review.get('summary_rewrites') else 22)
     assert [r['question_id'] for r in review['over_50_rows'] if r['exceeds_50_due_to_ties']]==['Q85']
     for check in review['rewritten_question_checks']:
@@ -53,7 +54,7 @@ def main():
         row=csv_rows(records['refs/new/Q122-1.csv'])[0]
         q122=questions['Q122'];rule=effective_rules(q122,q122['refs'][0])
         if topn:
-            assert len(q122['refs'])==2 and len(row)==6
+            assert len(q122['refs'])==(1 if standard else 2) and len(row)==6
             assert rule['top_n']==10 and rule['tie_columns']==[4]
             assert rule['value_kinds']==['other','other','other','other','count','ratio']
             assert topn['unchanged_questions_verified']==121

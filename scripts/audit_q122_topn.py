@@ -29,7 +29,7 @@ def main():
     assert {qid for qid in questions if questions[qid]!=before[qid]}=={'Q122'}
     for qid,q in questions.items():
         if qid!='Q122':assert all(records[r['result_path']]==old_records[r['result_path']] for r in q['refs']),qid
-    q=questions['Q122'];assert len(q['refs'])==2
+    q=questions['Q122'];assert len(q['refs'])==1
     assert all(word not in q['text_zh'] for word in ('总体','至少售出','平均','订单总数','分母'))
     unit,unit_sha=load_unit_policy()
     from chdb import session
@@ -39,7 +39,7 @@ def main():
         s.query('SET max_threads=1');s.query('SET max_execution_time=0')
         def query(sql):return json.loads(str(s.query(sql,'JSONCompact')))['data']
         cte=q['refs'][0]['sql'].split('\nSELECT x.product1_key')[0]
-        populations=query(cte+' SELECT (SELECT count() FROM baskets),(SELECT countIf(notEmpty(products)) FROM baskets)')[0]
+        populations=query(cte+' SELECT count() FROM baskets')[0]
         for ref,population in zip(q['refs'],populations,strict=True):
             rec=records[ref['result_path']];rules=effective_rules(q,ref);rows=csv_rows(rec)
             sql,n=re.subn(r'\bLIMIT\s+10\s*$','',ref['sql'],flags=re.I);assert n==1
@@ -66,39 +66,35 @@ def main():
                             'boundary_slots_needed':10-strict,'three_n_threshold':30,'C_hit':ties>=30,
                             'A_hit':False,'B_applicable':False,'verdicts':verdicts,
                             'minimum_lift':min(r[5] for r in rows),'maximum_lift':max(r[5] for r in rows)})
-        first={tuple((r[0],r[2])):r for r in csv_rows(records[q['refs'][0]['result_path']])}
-        second={tuple((r[0],r[2])):r for r in csv_rows(records[q['refs'][1]['result_path']])}
-        assert first.keys()==second.keys()
-        for key,a in first.items():
-            b=second[key];assert a[:5]==b[:5]
-            assert abs(float(a[5])/float(b[5])-populations[0]/populations[1])<1e-9
+        prior=json.loads(subprocess.check_output(['git','show','6ab9687:refs/MANIFEST.json'],cwd=ROOT,text=True))
+        prior_standard=next(r for r in prior['records'] if r['result_path']=='refs/new/Q122-1.csv')
+        assert records['refs/new/Q122-1.csv']==prior_standard
     finally:s.close()
     result={'baseline_commit':revision,'old_text_zh':before['Q122']['text_zh'],'new_text_zh':q['text_zh'],
-            'authorization':'用户本轮Top-N改写指令；分析方法歧义按已批准乙组处理',
+            'authorization':'用户确认题面，裁定Q122新题只保留标准全体线上订单总体；乙组仅适用于外部原题问法歧义',
+            'policy':'standard_all_online_orders','wording':'user_confirmed',
             'unit_policy_sha256':unit_sha,'references':entries,'final_references':len(records),
             'unchanged_questions_verified':121,'Q14_Q21_wording':'user_confirmed','same_pair_members':True,
-            'new_question_audit':'audit/2026-10-17-q122-topn-new-question-check.json',
-            'analysis_population_difference':'全部线上订单与含Contoso订单的条件总体；购买事件、订单去重和共同计数不变',
+            'new_question_audit':'audit/2026-10-17-q122-standard-new-question-check.json',
             'removed_outputs':['总体订单数','平均支持度','平均双向置信度','平均提升度'],
             'question_sha256':hashlib.sha256((ROOT/'questions/new.yaml').read_bytes()).hexdigest()}
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str)+'\n')
     lines=['# Q122 Top-N重写与边界验收','',
-           '状态：Q14/Q21措辞已获用户确认，本次仅改Q122；PR15继续草稿，新题面交用户确认。旧均值及额外总体订单数方案已撤销。','',
+           '状态：Q14/Q21/Q122措辞均获用户确认。Q122仅保留标准全体线上订单参考；全部校验通过后将PR15标Ready for review，不执行合并或冻结。','',
            '新题面：'+q['text_zh'],'',
            '输出列：两个产品的键与名称、共同订单数、提升度。只显示用户要求的产品对与两个指标；不附总体定义、不输出为整数守卫增设的总体订单数。','',
-           '## 两份参考的统计方法','',
+           '## 唯一标准参考','',
            f'- 全体2009线上订单总体：{populations[0]:,}单；lift = P(A且B)/(P(A)P(B))。',
-           f'- 含Contoso产品的条件总体：{populations[1]:,}单；lift用同一条件总体里的联合概率及边际概率。',
-           '问法只指定产品品牌，未指定提升度分析总体；两份按乙组保留，作答须声明所用总体。这是统计分析总体的差异，交易事件仍按全部行，订单号去重规则不变；不保留SalesQuantity>0作为另一业务口径。共同订单数和Top-N成员在两份中相同，提升度不同。','',
+           '用户裁决：Q122是新题，标准答案由出题方确定；乙组多份参考只适用于外部原题问法里的歧义。已删除含Contoso订单的条件总体参考，不改变主参考、题面或Top-N边界规则。','',
            '## A/B/C及排序契约','',
            '- A：空结果和全零指标均判错；共同订单数和提升度均非平凡常数。',
            '- B：不涉及首单/新客/复购或节假日/周末，按标准不适用。',
-           '- C：正共购域32,304对、17个共同订单数取值；第10名为13单，严格前缀7对、边界并列10对，边界小于3N=30，未命中。两份参考各17行，允许保留7个严格成员并任选3个边界成员。',
-           '- 两份均实测：替换边界内任意3成员判对；漏严格成员判错；同计数块内换序判对；跨计数块换序判错。按未取整整数共同订单数排名，未用产品键打破统计并列。','',
+           '- C：正共购域32,304对、17个共同订单数取值；第10名为13单，严格前缀7对、边界并列10对，边界小于3N=30，未命中。参考17行，允许保留7个严格成员并任选3个边界成员。',
+           '- 实测：替换边界内任意3成员判对；漏严格成员判错；同计数块内换序判对；跨计数块换序判错。按未取整整数共同订单数排名。','',
            '## 交接','',
-           f'当前122题{len(records)}份参考（Q122两份，各17行）。相对573d518，其余121题及参考元数据逐记录不变，Q14/Q21保留已确认版本。',
-           'T05b需按新题面独立重算两个总体的共购计数、提升度及第10名边界，使用最新2026-10-17-PR15-change-summary.json。当前22新题A/B/C另存q122-topn-new-question-check.json。旧summary-rewrites报告仅作历史证据，不再是Q122当前契约。',
-           '验证：全部137份另起会话严格复算通过（包含Q33）；T04/T05/rules/单一口径/缺口校验通过；22新题A/B/C复查0命中。当前24份有序参考均有显式排序键。未修改评分器、容差或冻结语义层；未执行eval-v1冻结。','']
+           f'当前122题{len(records)}份参考（Q122一份、17行）。其余121题不变；Q122主参考与6ab9687逐字节一致，已撤销条件总体参考。',
+           'T05b按最新2026-10-17-PR15-change-summary.json独立重算全体线上订单总体的提升度及第10名边界。22新题A/B/C见q122-standard-new-question-check.json；两总体旧审计归档于audit/reviews/。',
+           '验证：全部136份另起会话严格复算（包含Q33）；T04/T05/rules/单一口径/缺口校验及22新题A/B/C按现行版本检查。当前23份有序参考均有显式排序键。未修改评分器、容差或冻结语义层。','']
     (ROOT/'audit/2026-10-17-q122-topn.md').write_text('\n'.join(lines))
     print(json.dumps(result,ensure_ascii=False,default=str))
 

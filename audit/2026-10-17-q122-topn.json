@@ -2,7 +2,9 @@
   "baseline_commit": "573d51849249f9d25a7d7db9ad1de9789803383b",
   "old_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，报告订单总数、产品对的平均共购支持度、两个方向的平均置信度和平均提升度。",
   "new_text_zh": "2009 年哪 10 对 Contoso 产品最常出现在同一个订单里？给出它们的共同订单数和提升度。",
-  "authorization": "用户本轮Top-N改写指令；分析方法歧义按已批准乙组处理",
+  "authorization": "用户确认题面，裁定Q122新题只保留标准全体线上订单总体；乙组仅适用于外部原题问法歧义",
+  "policy": "standard_all_online_orders",
+  "wording": "user_confirmed",
   "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
   "references": [
     {
@@ -31,46 +33,18 @@
       },
       "minimum_lift": "143.350347080441",
       "maximum_lift": "900.923745444351"
-    },
-    {
-      "reference": "refs/new/Q122-3.csv",
-      "interpretation": "问法歧义：提升度按含Contoso产品的2009线上订单这一条件总体计算；事件定义不变，声明品牌内分析总体",
-      "population_orders": 30193,
-      "reference_rows": 17,
-      "domain_pairs": 32304,
-      "distinct_sort_keys": 17,
-      "n": 10,
-      "nth_common_orders": 13,
-      "strict_prefix_members": 7,
-      "boundary_members": 10,
-      "boundary_slots_needed": 3,
-      "three_n_threshold": 30,
-      "C_hit": false,
-      "A_hit": false,
-      "B_applicable": false,
-      "verdicts": {
-        "empty": "wrong",
-        "all_zero_measures": "wrong",
-        "alternate_boundary_subset": "correct",
-        "missing_strict_member": "wrong",
-        "cross_rank_block_swap": "wrong",
-        "within_rank_block_swap": "correct"
-      },
-      "minimum_lift": "11.448083765968617",
-      "maximum_lift": "71.94855620970003"
     }
   ],
-  "final_references": 137,
+  "final_references": 136,
   "unchanged_questions_verified": 121,
   "Q14_Q21_wording": "user_confirmed",
   "same_pair_members": true,
-  "new_question_audit": "audit/2026-10-17-q122-topn-new-question-check.json",
-  "analysis_population_difference": "全部线上订单与含Contoso订单的条件总体；购买事件、订单去重和共同计数不变",
+  "new_question_audit": "audit/2026-10-17-q122-standard-new-question-check.json",
   "removed_outputs": [
     "总体订单数",
     "平均支持度",
     "平均双向置信度",
     "平均提升度"
   ],
-  "question_sha256": "c8c4d73ef88413f2c4f0b2ba94fafab6af4713b720fe5485d1aee743d0e751d7"
+  "question_sha256": "fb1d7e1a55a2f2be7875e97d75da06ecf236cf608e2b09e62d0a9d710696df29"
 }

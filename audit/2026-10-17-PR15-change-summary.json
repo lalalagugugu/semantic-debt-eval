@@ -1,9 +1,9 @@
 {
   "baseline_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
   "baseline_references": 162,
-  "current_references": 137,
+  "current_references": 136,
   "scope": "entire PR15 versus merged main/PR14; includes the approved semantic-gap ruling",
-  "manifest_sha256": "6ca67e2ccd68e09245071290dd273b9fa2664d0fe608ee94343b0ada1da33ec1",
+  "manifest_sha256": "4441e953a112c006a320efe75c4d31cb497f1b7b2babc7597eb235d10959a31b",
   "anchor_revised_sensitivity_exclusions": [
     "EN13",
     "EN14",
@@ -1644,10 +1644,8 @@
       "text_changed": true,
       "references_changed": true,
       "previous_references": 2,
-      "current_references": 2,
-      "added_references": [
-        "refs/new/Q122-3.csv"
-      ],
+      "current_references": 1,
+      "added_references": [],
       "removed_references": [
         "refs/new/Q122-2.csv"
       ],

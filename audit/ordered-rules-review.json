@@ -1,6 +1,6 @@
 {
   "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
-  "current_ordered_references": 24,
+  "current_ordered_references": 23,
   "original_ordered_validation_references": 18,
   "current_records": [
     {
@@ -723,45 +723,6 @@
       ],
       "source": "outer ORDER BY resolved to projected reference columns/aliases",
       "sql_sha256": "233d30b2db826f5c187777bd18a57f1fdabfa4e7158d6ad80084e98161e7be70"
-    },
-    {
-      "question_id": "Q122",
-      "reference": "refs/new/Q122-3.csv",
-      "order_clause": "common_orders DESC",
-      "order_by": [
-        {
-          "column": 4,
-          "descending": true
-        }
-      ],
-      "columns": [
-        {
-          "name": "product1_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product1_name",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "product2_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product2_name",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "common_orders",
-          "type": "UInt64"
-        },
-        {
-          "name": "lift_ratio",
-          "type": "Float64"
-        }
-      ],
-      "source": "outer ORDER BY resolved to projected reference columns/aliases",
-      "sql_sha256": "bede3ca0f59bff07247073f841c8eb6181175a0ab32141502ad7e6a0811fcdce"
     }
   ],
   "original_records": [
