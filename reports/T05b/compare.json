@@ -1,7 +1,7 @@
 {
  "_source": {
-  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-61c2213",
-  "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
+  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-e3aaed6",
+  "eval_commit": "e3aaed630aed48ff0069c5ec24d8d7d2a0765f9d",
   "pandas_source": {
    "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-61c2213",
    "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d"
@@ -628,16 +628,14 @@
   {
    "ref": "refs/cube/Q36-1.csv",
    "interpretation": "原参考解读；购买事件=全部行",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 0 (segment, other)",
-     "ref_head": [
-      "Active",
-      "At Risk",
-      "Churned"
+     "ok": true,
+     "mapping": [
+      "segment<-segment(str)",
+      "customers<-customers(num)"
      ]
     }
    }
@@ -1648,19 +1646,19 @@
   {
    "ref": "refs/cube/Q85-1.csv",
    "interpretation": "原参考解读",
-   "match": true,
+   "match": false,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": true,
-     "mapping": [
-      "bucket<-bucket(str)",
-      "StoreName<-StoreName(str)",
-      "actual_amt<-actual(num)",
-      "quota_amt<-quota(num)",
-      "attainment_pct<-att_pct(num)"
-     ],
-     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+     "ok": false,
+     "why": "no pandas column matches ref column 0 (bucket, other)",
+     "ref_head": [
+      "最低",
+      "最低",
+      "最低",
+      "最低",
+      "最低"
+     ]
     }
    }
   }
@@ -1669,18 +1667,15 @@
   {
    "ref": "refs/cube/Q86-1.csv",
    "interpretation": "原参考解读；按题面补全全部满足原样本下限的子品类，不截前20",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 1 (corr_discount_vs_qty, ratio)",
-     "ref_head": [
-      "-0.001",
-      "0.003",
-      "0.003",
-      "-0.002",
-      "-0.005"
+     "ok": true,
+     "mapping": [
+      "ProductSubcategoryName<-subcategory(str)",
+      "corr_discount_vs_qty<-corr(num)",
+      "observations<-n(num)"
      ]
     }
    }
@@ -1745,16 +1740,16 @@
   {
    "ref": "refs/cube/Q89-1.csv",
    "interpretation": "原参考解读；购买事件=全部行",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "no pandas column matches ref column 0 (segment, other)",
-     "ref_head": [
-      "Active",
-      "At Risk",
-      "Churned"
+     "ok": true,
+     "mapping": [
+      "segment<-seg(str)",
+      "customers<-customers(num)",
+      "avg_spend<-avg_spend(num)",
+      "avg_distinct_products<-avg_variety(num)"
      ]
     }
    }
@@ -1817,12 +1812,18 @@
   {
    "ref": "refs/cube/Q92-1.csv",
    "interpretation": "按裁决以毛利率衡量盈利能力并降序排名",
-   "match": false,
+   "match": true,
    "pandas_ref": 1,
    "by_mode": {
     "-": {
-     "ok": false,
-     "why": "row count ref=11 pandas=12"
+     "ok": true,
+     "mapping": [
+      "BrandName<-brand(str)",
+      "revenue<-revenue(num)",
+      "gross_margin_dollars<-profit(num)",
+      "gross_margin_pct<-margin_pct(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
     }
    }
   }
