@@ -1,4 +1,4 @@
-> T05b新修复PR：136份参考已存未取整计算值；Q36/Q89客户状态中文，Q85标签最高/最低，Q92保留空品牌。Q48标签语义仍待澄清。新审计/交接见audit/2026-10-17-full-compare-reference-audit.md及t05b-full-compare-change-summary.json。
+> T05b新修复PR：136份参考已存未取整计算值；Q36/Q89客户状态中文，Q85标签最高/最低，Q92保留空品牌。Q48-1按更正保持停机高低标签；Q34-1已包含在19份精度修复中。新审计/交接见audit/2026-10-17-full-compare-reference-audit.md及t05b-full-compare-change-summary.json。
 
 > 最终裁决：Q122只留全体2009线上订单标准提升度参考，品牌条件总体已删除；题面已确认。当前122题136份，有序参考23份；最新执行见audit/2026-10-17-q122-topn.md。
 

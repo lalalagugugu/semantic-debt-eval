@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parent.parent
 LABEL_REVIEW={
  'Q28':('数据值，不是SQL常量标签','Store/Online来自DimChannel枚举，保留语义层原值'),
  'Q36':('改参考','客户分层用题面/语义层中文值'),
- 'Q48':('待用户澄清','停机高低两组不能改成三类客户；当前保持原标签'),
+ 'Q48':('保持','用户确认协调会话笔误；judge题停机高低两组保持原标签'),
  'Q84':('保持','后处理A/B/C常量与题面A/B/C分类一致'),
  'Q85':('改参考','TOP/BOTTOM改为题面已有最高/最低；selection条件同步'),
  'Q89':('改参考','客户分层用题面/语义层中文值，ORDER BY CASE同步'),
@@ -69,7 +69,7 @@ def main():
     report={'baseline_commit':revision,'references_checked':len(records),'questions_checked':len(rows),
             'rounding_references_changed':len(removed),'records':rows,
             'current_question_sha256':{name:hashlib.sha256((ROOT/f'questions/{name}.yaml').read_bytes()).hexdigest() for name in ('cube_100','new')},
-            'pending':['Q48-1标签裁决与现有停机分组含义不符，待用户澄清'],
+            'pending':[],
             'rounding_policy':'规范CSV存实际计算值，展示可取整；全局量化、比较容差与业务定义均不改',
             'anchor_followup':'EN85原始参考的TOP/BOTTOM选择条件需单独保留，不复用中文最高/最低条件'}
     (ROOT/'audit/2026-10-17-full-compare-reference-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
@@ -80,12 +80,13 @@ def main():
              'pending':report['pending']}
     (ROOT/'audit/2026-10-17-t05b-full-compare-change-summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
     lines=['# T05b全量比对：参考精度与常量标签逐题审计','',
-           '基线：'+revision+'；新PR承接主仓库2026-10-17-t05b-full-compare裁决。Q48-1语义冲突待用户澄清，其余明确项先落实。','',
+           '基线：'+revision+'；新PR承接主仓库2026-10-17-t05b-full-compare裁决。文末更正已确认Q48-1保持原样，全部明确项已落实。','',
            '## 明确修复与原因','',
            '- Q86-1 Pearson和Q89平均值存未取整结果；全库共19份参考存在展示ROUND，统一移除最终展示舍入，保持计数、日期、原始字段精度及全局量化/容差。',
+           '- Q34-1已包含在19份精度修复中，turnover_ratio直接存计算结果，例如18.647330257086335；成本与平均库存粒度保持已有裁决。',
            '- Q92维度连接改左连接，删除非空品牌过滤；参考从11增至12行，其中1行空品牌。',
            '- Q36/Q89使用活跃/有流失风险/已流失，Q89排序CASE同步；Q85分组使用题面已有最高/最低，selection条件同步。',
-           '- Q48-1原为High Downtime/Low Downtime两组，不能强行换成三类客户状态；本项待用户确认，当前原样保留。',
+           '- Q48-1为High Downtime/Low Downtime两组的judge题；依据裁决文末更正，题面和参考标签均保持原样。',
            '- Q28的Online/Store为维度原值，不误当临时标签；Q84的A/B/C、Q115状态、Q120范围与题面或语义层匹配，保持。',
            '- Q79金额列去掉展示ROUND后重绑快照来源哈希，排序键仍为原未取整达成率；须核对门店成员及T05b复比，不以CSV浮点字节代替跨引擎核验。',
            '- 英文原题及原始参考保持；EN85需独立保留TOP/BOTTOM规则，防止中文标签规则渗入英文原始参考。','',
@@ -99,7 +100,7 @@ def main():
         lines.append('| '+row['question_id']+' | '+desc+' | '+label+' |')
     lines+=['', '## 重算与T05b交接','',
             '重算：build_refs.py --refresh-rules；严格复算：build_refs.py --check；规则审阅：validate_rules.py。当前136份，无新增可接受业务解读。',
-            '当前136份严格复算通过（含Q33）；T04/T05/rules/单一口径/缺口校验通过。英文原始10份规则按实际缓存元数据和SQL/文件哈希自比通过，包含EN85标签域保护。Q79仍为相同42个门店，完整行在全局量化下也相同，来源哈希已重绑。Q48-1尚未按冲突指令改动，不能据此宣告整项裁决全部完成。',
+            '当前136份严格复算通过（含Q33）；T04/T05/rules/单一口径/缺口校验通过。英文原始10份规则按实际缓存元数据和SQL/文件哈希自比通过，包含EN85标签域保护。Q79仍为相同42个门店，完整行在全局量化下也相同，来源哈希已重绑。Q48-1按更正保持原样，待澄清项已关闭；Q34-1追加单题严格复算，2504行全部一致。',
             '具体验证：Q86-1原先3位小数存值与当前未取整结果相比，31组中25组超出现行评分容差，最大差0.00048494102752124507；Q89活跃客户平均产品种类数由75改存74.97377146240379。',
             '最新新PR逐题清单为2026-10-17-t05b-full-compare-change-summary.json，以本PR提交号读取；PR15旧JSON保留历史，不混作本PR基线。T05b复比该JSON列出的受影响题，并核对本表两项排查；Q34/Q40/Q86/Q87的pandas更正依据仍来自语义层和已有裁决。','']
     (ROOT/'audit/2026-10-17-full-compare-reference-audit.md').write_text('\n'.join(lines))

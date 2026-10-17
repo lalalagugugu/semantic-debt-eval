@@ -1529,8 +1529,8 @@
                 "High Downtime",
                 "Low Downtime"
               ],
-              "action": "待用户澄清",
-              "reason": "停机高低两组不能改成三类客户；当前保持原标签"
+              "action": "保持",
+              "reason": "用户确认协调会话笔误；judge题停机高低两组保持原标签"
             }
           ],
           "sql_changed": false,
@@ -1570,8 +1570,8 @@
         }
       ],
       "label_review": [
-        "待用户澄清",
-        "停机高低两组不能改成三类客户；当前保持原标签"
+        "保持",
+        "用户确认协调会话笔误；judge题停机高低两组保持原标签"
       ]
     },
     {
@@ -4252,9 +4252,7 @@
     "cube_100": "e42c79506e47e87c0046282805d31d38021e5bede189685ab46daccb64f2b499",
     "new": "fb1d7e1a55a2f2be7875e97d75da06ecf236cf608e2b09e62d0a9d710696df29"
   },
-  "pending": [
-    "Q48-1标签裁决与现有停机分组含义不符，待用户澄清"
-  ],
+  "pending": [],
   "rounding_policy": "规范CSV存实际计算值，展示可取整；全局量化、比较容差与业务定义均不改",
   "anchor_followup": "EN85原始参考的TOP/BOTTOM选择条件需单独保留，不复用中文最高/最低条件"
 }

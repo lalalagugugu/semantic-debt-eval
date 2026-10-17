@@ -276,5 +276,5 @@
     }
   ],
   "Q92": "名称维度左连接，删除空品牌过滤，保留NULL品牌分组",
-  "Q48_status": "pending_user_clarification: downtime labels are not customer segments"
+  "Q48_status": "user_confirmed_keep_unchanged_judge"
 }

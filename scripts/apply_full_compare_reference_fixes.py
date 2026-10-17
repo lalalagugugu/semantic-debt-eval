@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Apply the unambiguous reference-value and label rulings; defer Q48."""
+"""Apply the unambiguous reference-value and label rulings; keep Q48 unchanged per corrected ruling."""
 import json
 from pathlib import Path
 import subprocess
@@ -39,8 +39,8 @@ def main():
     p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
     ledger.write_text(json.dumps({'baseline_commit':baseline,'rounding_removed':rounding,'labels_changed':labels,
         'Q92':'名称维度左连接，删除空品牌过滤，保留NULL品牌分组',
-        'Q48_status':'pending_user_clarification: downtime labels are not customer segments'},ensure_ascii=False,indent=2)+'\n')
-    print('Removed ROUND projections from',len(rounding),'references; changed labels Q36/Q89/Q85; fixed Q92; Q48 deferred')
+        'Q48_status':'user_confirmed_keep_unchanged_judge'},ensure_ascii=False,indent=2)+'\n')
+    print('Removed ROUND projections from',len(rounding),'references; changed labels Q36/Q89/Q85; fixed Q92; Q48 unchanged per corrected ruling')
 
 
 if __name__=='__main__':main()
