@@ -1,0 +1,160 @@
+{
+ "Q17": {
+  "set": "flagged",
+  "group": 2,
+  "swap": "周末 → 节假日",
+  "before_files": [
+   "Q17-before-1.csv"
+  ],
+  "after_file": "Q17-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q29": {
+  "set": "flagged",
+  "group": 2,
+  "swap": "节假日 → 周末",
+  "before_files": [
+   "Q29-before-1.csv"
+  ],
+  "after_file": "Q29-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q59": {
+  "set": "flagged",
+  "group": 2,
+  "swap": "节假日 → 周末",
+  "before_files": [
+   "Q59-before-1.csv"
+  ],
+  "after_file": "Q59-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q68": {
+  "set": "flagged",
+  "group": 2,
+  "swap": "节假日 → 周末",
+  "before_files": [
+   "Q68-before-1.csv"
+  ],
+  "after_file": "Q68-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q99": {
+  "set": "flagged",
+  "group": 2,
+  "swap": "周末 → 节假日",
+  "before_files": [
+   "Q99-before-1.csv"
+  ],
+  "after_file": "Q99-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q76": {
+  "set": "flagged",
+  "group": 1,
+  "swap": "回头客 → 有购买的客户",
+  "before_files": [
+   "Q76-before-1.csv",
+   "Q76-before-2.csv"
+  ],
+  "after_file": "Q76-after.csv",
+  "unchanged": [
+   true,
+   false
+  ],
+  "b_hit": true
+ },
+ "Q83": {
+  "set": "flagged",
+  "group": 1,
+  "swap": "2007 年首次购买 → 2007 年有购买",
+  "before_files": [
+   "Q83-before-1.csv"
+  ],
+  "after_file": "Q83-after.csv",
+  "unchanged": [
+   true
+  ],
+  "b_hit": true
+ },
+ "Q26": {
+  "set": "sample",
+  "group": 1,
+  "swap": "季度内首次购买 → 季度内有购买",
+  "before_files": [
+   "Q26-before-1.csv"
+  ],
+  "after_file": "Q26-after.csv",
+  "unchanged": [
+   false
+  ],
+  "b_hit": false
+ },
+ "Q81": {
+  "set": "sample",
+  "group": 1,
+  "swap": "首次购买年份 → 有购买的年份（客户计入每个有购买的年份）",
+  "before_files": [
+   "Q81-before-1.csv"
+  ],
+  "after_file": "Q81-after.csv",
+  "unchanged": [
+   false
+  ],
+  "b_hit": false
+ },
+ "Q96": {
+  "set": "sample",
+  "group": 1,
+  "swap": "首次购买年份 → 有购买的年份",
+  "before_files": [
+   "Q96-before-1.csv"
+  ],
+  "after_file": "Q96-after.csv",
+  "unchanged": [
+   false
+  ],
+  "b_hit": false
+ },
+ "Q114": {
+  "set": "sample",
+  "group": 1,
+  "swap": "窗口内首次购买 → 窗口内有购买",
+  "before_files": [
+   "Q114-before-1.csv"
+  ],
+  "after_file": "Q114-after.csv",
+  "unchanged": [
+   false
+  ],
+  "b_hit": false
+ },
+ "Q116": {
+  "set": "sample",
+  "group": 1,
+  "swap": "首购月份 → 有购买的月份（以该月第一次购买为起点）",
+  "before_files": [
+   "Q116-before-1.csv"
+  ],
+  "after_file": "Q116-after.csv",
+  "unchanged": [
+   false
+  ],
+  "b_hit": false
+ }
+}
