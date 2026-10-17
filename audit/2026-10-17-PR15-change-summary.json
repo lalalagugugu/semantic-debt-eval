@@ -1,0 +1,1753 @@
+{
+  "baseline_commit": "bf8e09584187cee4fb60eb2715c4f075c4324424",
+  "baseline_references": 162,
+  "current_references": 136,
+  "scope": "entire PR15 versus merged main/PR14; includes the approved semantic-gap ruling",
+  "manifest_sha256": "4441e953a112c006a320efe75c4d31cb497f1b7b2babc7597eb235d10959a31b",
+  "anchor_revised_sensitivity_exclusions": [
+    "EN13",
+    "EN14",
+    "EN21",
+    "EN28",
+    "EN36",
+    "EN89"
+  ],
+  "records": [
+    {
+      "question_id": "Q01",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q02",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q03",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q04",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q05",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q06",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q07",
+      "text_changed": true,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q08",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q09",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q10",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 3,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q10-2.csv",
+        "refs/cube/Q10-3.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q11",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q11-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q12",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q13",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q13-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q13-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q13-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q14",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q14-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q14-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q14-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q15",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q16",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q17",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q18",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q19",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q20",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q20-1.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q21",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q21-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q21-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q21-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q22",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q23",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q24",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q24-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q25",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q26",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q26-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q27",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q27-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q27-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q28",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q28-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q28-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q28-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q29",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q30",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q31",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q32",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q33",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q33-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q34",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q34-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q34-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q35",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q36",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q36-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q37",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q38",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [
+        "refs/cube/Q38-2.csv"
+      ],
+      "removed_references": [
+        "refs/cube/Q38-1.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q39",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q39-2.csv"
+      ],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q40",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q40-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q40-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q41",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q42",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q43",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q44",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q45",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q45-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q45-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q46",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q47",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q48",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 3,
+      "added_references": [
+        "refs/cube/Q48-3.csv"
+      ],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q48-1.csv",
+        "refs/cube/Q48-2.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q48-1.csv",
+        "refs/cube/Q48-2.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q48-2.csv"
+      ]
+    },
+    {
+      "question_id": "Q49",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q49-1.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q50",
+      "text_changed": true,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q51",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q52",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q53",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q54",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q55",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q56",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q57",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q58",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q59",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q60",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q61",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q61-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q62",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q62-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q63",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q64",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q65",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [
+        "refs/cube/Q65-2.csv"
+      ],
+      "removed_references": [
+        "refs/cube/Q65-1.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q66",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q66-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q66-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q66-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q67",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q67-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q68",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q69",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q69-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q70",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q71",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q71-2.csv"
+      ],
+      "changed_SQL": [
+        "refs/cube/Q71-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q71-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q72",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q73",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q74",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q75",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q75-1.csv"
+      ],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q76",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 3,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q76-3.csv"
+      ],
+      "changed_SQL": [
+        "refs/cube/Q76-1.csv"
+      ],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q77",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q77-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q77-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q78",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q79",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q79-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q79-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q80",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q80-2.csv"
+      ],
+      "changed_SQL": [
+        "refs/cube/Q80-1.csv"
+      ],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q81",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q82",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q83",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q84",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q84-2.csv"
+      ],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q85",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q85-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q85-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q86",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q86-3.csv"
+      ],
+      "removed_references": [
+        "refs/cube/Q86-2.csv"
+      ],
+      "changed_SQL": [
+        "refs/cube/Q86-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q86-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q87",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q87-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q87-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q88",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q88-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q88-1.csv"
+      ],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q89",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q89-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q90",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q90-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q91",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 2,
+      "added_references": [
+        "refs/cube/Q91-2.csv"
+      ],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q92",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [
+        "refs/cube/Q92-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q92-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q92-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q93",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q94",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q95",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q95-2.csv"
+      ],
+      "changed_SQL": [
+        "refs/cube/Q95-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/cube/Q95-1.csv"
+      ],
+      "changed_rules": [
+        "refs/cube/Q95-1.csv"
+      ]
+    },
+    {
+      "question_id": "Q96",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q97",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q98",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 2,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q99",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/cube/Q99-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q100",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q101",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q102",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q102-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q103",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q104",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q105",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q106",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q107",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q108",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q109",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q110",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q111",
+      "text_changed": true,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q112",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q113",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q114",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 4,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q114-2.csv",
+        "refs/new/Q114-3.csv",
+        "refs/new/Q114-4.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q115",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q115-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q116",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q116-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q117",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q118",
+      "text_changed": false,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q119",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q119-2.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q120",
+      "text_changed": true,
+      "references_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q121",
+      "text_changed": false,
+      "references_changed": true,
+      "previous_references": 4,
+      "current_references": 2,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q121-3.csv",
+        "refs/new/Q121-4.csv"
+      ],
+      "changed_SQL": [],
+      "changed_CSV": [],
+      "changed_rules": []
+    },
+    {
+      "question_id": "Q122",
+      "text_changed": true,
+      "references_changed": true,
+      "previous_references": 2,
+      "current_references": 1,
+      "added_references": [],
+      "removed_references": [
+        "refs/new/Q122-2.csv"
+      ],
+      "changed_SQL": [
+        "refs/new/Q122-1.csv"
+      ],
+      "changed_CSV": [
+        "refs/new/Q122-1.csv"
+      ],
+      "changed_rules": [
+        "refs/new/Q122-1.csv"
+      ]
+    }
+  ],
+  "text_changed": [
+    "Q07",
+    "Q13",
+    "Q14",
+    "Q21",
+    "Q28",
+    "Q36",
+    "Q45",
+    "Q50",
+    "Q66",
+    "Q85",
+    "Q89",
+    "Q111",
+    "Q115",
+    "Q120",
+    "Q122"
+  ],
+  "references_changed": [
+    "Q10",
+    "Q11",
+    "Q13",
+    "Q14",
+    "Q20",
+    "Q21",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q33",
+    "Q34",
+    "Q36",
+    "Q38",
+    "Q39",
+    "Q40",
+    "Q45",
+    "Q48",
+    "Q49",
+    "Q61",
+    "Q62",
+    "Q65",
+    "Q66",
+    "Q67",
+    "Q69",
+    "Q71",
+    "Q75",
+    "Q76",
+    "Q77",
+    "Q79",
+    "Q80",
+    "Q84",
+    "Q85",
+    "Q86",
+    "Q87",
+    "Q88",
+    "Q89",
+    "Q90",
+    "Q91",
+    "Q92",
+    "Q95",
+    "Q99",
+    "Q102",
+    "Q114",
+    "Q115",
+    "Q116",
+    "Q119",
+    "Q121",
+    "Q122"
+  ],
+  "CSV_changed": [
+    "Q13",
+    "Q14",
+    "Q21",
+    "Q27",
+    "Q28",
+    "Q34",
+    "Q40",
+    "Q45",
+    "Q48",
+    "Q66",
+    "Q71",
+    "Q77",
+    "Q79",
+    "Q85",
+    "Q86",
+    "Q87",
+    "Q88",
+    "Q92",
+    "Q95",
+    "Q122"
+  ]
+}

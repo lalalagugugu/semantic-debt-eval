@@ -8,27 +8,25 @@
 | 当前/refs/cube/Q25-1.csv | avg_daily_sales DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q27-1.csv | margin_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q33-1.csv | co_order_count DESC,product1_key,product2_key | [{"column": 4, "descending": true}, {"column": 0, "descending": false}, {"column": 1, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
-| 当前/refs/cube/Q33-2.csv | co_order_count DESC,product1_key,product2_key | [{"column": 4, "descending": true}, {"column": 0, "descending": false}, {"column": 1, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q45-1.csv | sales_per_sqft DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q46-1.csv | profit DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q46-2.csv | profit DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q67-1.csv | avg_realized_price DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
-| 当前/refs/cube/Q67-2.csv | avg_realized_price DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q69-1.csv | revenue DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
-| 当前/refs/cube/Q69-2.csv | revenue DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q73-1.csv | gap DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q78-1.csv | rnk | [{"column": 2, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q79-1.csv | attainment_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q85-1.csv | bucket, attainment_pct DESC | [{"column": 0, "descending": false}, {"column": 4, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/cube/Q87-1.csv | days_of_coverage ASC | [{"column": 3, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
-| 当前/refs/cube/Q88-1.csv | s.spend_2009 DESC | [{"column": 1, "descending": true}] | outer ORDER BY uses projected ROUND value under the existing reference/tie precision contract |
-| 当前/refs/cube/Q92-1.csv | gross_margin_dollars DESC | [{"column": 2, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
+| 当前/refs/cube/Q88-1.csv | s.spend_2009 DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
+| 当前/refs/cube/Q92-1.csv | gross_margin_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q94-1.csv | qoq_pct_change ASC | [{"column": 3, "descending": false}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q97-1.csv | h2_vs_h1_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q97-2.csv | sales_increase DESC | [{"column": 4, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 当前/refs/cube/Q98-1.csv | peak_quarter_share_pct DESC | [{"column": 1, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/cube/Q98-2.csv | year,peak_quarter_share_pct DESC | [{"column": 1, "descending": false}, {"column": 2, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/new/Q117-1.csv | decline_pct DESC,decline_amount DESC | [{"column": 2, "descending": true}, {"column": 4, "descending": true}] | existing explicit selection.output_order |
+| 当前/refs/new/Q122-1.csv | common_orders DESC | [{"column": 4, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/7 | UnitPrice DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/25 | avg_daily_sales DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/27 | margin_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
@@ -48,4 +46,4 @@
 | 原始/97 | h2_vs_h1_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/98 | peak_quarter_share_pct DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 
-当前25份有序参考全部补齐；原公开600条验证范围中18份有序原始参考排序键另存于配套JSON。Q33无可用公开原始参考，不伪造其排序元数据。实际英文锚点按T11规则选择：同结构逐参考rules原样透传，8份结构不同的规则由review_anchor_rules.py单独更新。
+当前23份有序参考全部补齐；原公开600条验证范围中18份有序原始参考排序键另存于配套JSON。Q33无可用公开原始参考，不伪造其排序元数据。实际英文锚点按T11规则选择：同结构逐参考rules原样透传，8份结构不同的规则由review_anchor_rules.py单独更新。

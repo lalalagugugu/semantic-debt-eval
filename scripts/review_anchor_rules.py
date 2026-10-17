@@ -62,18 +62,18 @@ def main():
         if result.outcome!='correct':
             raise ValueError(f'EN{qid:02d}: original self-match failed: {result.reason}')
         rows.append((qid,record,columns,rules))
-    if {qid for qid,*_ in rows}!={13,14,20,21,34,74,83,87}:
+    if {qid for qid,*_ in rows}!={13,14,20,21,34,66,74,83,87}:
         raise ValueError('unexpected structure-difference cohort; review before publishing rules')
     lines=['# 英文原始参考rules交接：不含接线变更','',
-    'T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。下面8份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。',
+    'T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。此次Q66删除未问的第三列后，补EN66原始三列规则。下面9份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。',
     '',f'量纲策略SHA256：`{policy_hash}`。自动推断沿用固定reference_value_kinds及infer_value_kind，不能按列值猜量纲。原始返回类型逐字保留Nullable，比较结构时按裁决剥Nullable；count整数守卫由底层类型判断。',
-    '', '全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和8份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。',
+    '', '全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和9份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。',
     '', '| 原题／锚点 | 原始行数 | 类型及量纲 |','|---|---:|---|']
     for qid,record,columns,rules in rows:
         lines.append(f"| Q{qid:02d}／EN{qid:02d} | {record['row_count']} | "+'；'.join(f"{c['name']}: {c['type']} / {k}" for c,k in zip(columns,rules['value_kinds'],strict=True))+' |')
     for qid,record,columns,rules in rows:
         lines += ['',f'## EN{qid:02d}', '',f"原始SQL SHA256：`{record['sql_sha256']}`；payload SHA256：`{record['sha256']}`。",'', '```json',json.dumps(rules,ensure_ascii=False,indent=2),'```']
-    lines+=['','EN74的选择元数据仅按原始4列重映射为门店／产品／销售额／占比，保持外部原始渠道、连接与数值，不偷换成中文修订6列参考。T11仍须按既有Top-N完整边界要求核对原始截断是否丢并列；EN87同理。EN97仍为judge且不在确定性缺规则的8份之内；不以补规则扩大确定性题集合。',
+    lines+=['','EN74的选择元数据仅按原始4列重映射为门店／产品／销售额／占比，保持外部原始渠道、连接与数值，不偷换成中文修订6列参考。T11仍须按既有Top-N完整边界要求核对原始截断是否丢并列；EN87同理。EN97仍为judge且不在确定性结构不同的9份之内；不以补规则扩大确定性题集合。',
     '', 'T11接入这些rules后可评数量预计由当前修订题库的79增为87，另12道judge；此处只是规则交接，是否可评以T11接线后的自比及完整边界检查为准。复现：`uv run python scripts/review_anchor_rules.py --check`。','']
     text='\n'.join(lines)
     if args.check:
@@ -81,7 +81,7 @@ def main():
             raise ValueError('anchor rules review is stale')
     else:
         REPORT.write_text(text)
-    print('PASS: 8 original anchor rules, actual cached metadata and SQL/payload hashes; harness wiring unchanged')
+    print('PASS: 9 original anchor rules, actual cached metadata and SQL/payload hashes; harness wiring unchanged')
 
 
 if __name__=='__main__':

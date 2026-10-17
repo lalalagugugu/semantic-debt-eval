@@ -10,11 +10,22 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT sum(SalesAmount) AS GMV FROM retail.FactOnlineSales WHERE DateKey>='2009-10-01' AND DateKey<'2010-01-01'",
-          "result_path": "refs/new/Q101-1.csv"
+          "result_path": "refs/new/Q101-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "amount"
+            ],
+            "value_types": [
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\nGMV、默认线上及相对季度按企业约定，不在问句解释。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\nGMV、默认线上及相对季度按企业约定，不在问句解释。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -57,12 +68,7 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category",
-          "result_path": "refs/new/Q102-1.csv"
-        },
-        {
-          "interpretation": "遵守企业约定及题干限定口径；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
-          "sql": "SELECT * FROM (\nSELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
-          "result_path": "refs/new/Q102-2.csv",
+          "result_path": "refs/new/Q102-1.csv",
           "rules": {
             "ordered": false,
             "top_n": null,
@@ -79,7 +85,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -125,11 +131,24 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "WITH orders AS (\nSELECT SalesOrderNumber,sum(SalesAmount) AS order_sales FROM retail.FactOnlineSales\nWHERE toYear(DateKey)=2009 GROUP BY SalesOrderNumber)\nSELECT countIf(order_sales>1000) AS orders,\nsumIf(order_sales,order_sales>1000)*100.0/nullIf(sum(order_sales),0) AS sales_share_pct FROM orders",
-          "result_path": "refs/new/Q103-1.csv"
+          "result_path": "refs/new/Q103-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "count",
+              "percentage"
+            ],
+            "value_types": [
+              "UInt64",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n先聚成订单再筛1000美元；分母包含全年全部订单，不能筛单条销售记录。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n先聚成订单再筛1000美元；分母包含全年全部订单，不能筛单条销售记录。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -176,11 +195,26 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS sales_change_amount,\nsumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2008) AS margin_change_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009)\nGROUP BY category HAVING sales_change_amount>0 AND margin_change_amount<0",
-          "result_path": "refs/new/Q104-1.csv"
+          "result_path": "refs/new/Q104-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "amount"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -229,11 +263,22 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT sum(f.SalesAmount) AS sales_amount FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey WHERE s.StoreName='Contoso Seattle No.2 Store' AND toYear(f.DateKey)=2009",
-          "result_path": "refs/new/Q105-1.csv"
+          "result_path": "refs/new/Q105-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "amount"
+            ],
+            "value_types": [
+              "Float64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n指定唯一门店，全渠道。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n指定唯一门店，全渠道。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -276,11 +321,22 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT (sumIf(f.SalesAmount,toYear(f.DateKey)=2009)/nullIf(sumIf(f.SalesAmount,toYear(f.DateKey)=2008),0)-1)*100 AS growth_pct\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='Miami' AND toYear(f.DateKey) IN (2008,2009)",
-          "result_path": "refs/new/Q106-1.csv"
+          "result_path": "refs/new/Q106-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n按门店地理的CityName确定完整同城集合；先合计再算增长，不平均各店增长率。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n按门店地理的CityName确定完整同城集合；先合计再算增长，不平均各店增长率。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -325,11 +381,22 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT sumIf(f.SalesAmount-f.ReturnAmount,s.StoreName='Contoso New York No.2 Store')*100.0/nullIf(sum(f.SalesAmount-f.ReturnAmount),0) AS net_sales_share_pct\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='New York' AND toYear(f.DateKey)=2009",
-          "result_path": "refs/new/Q107-1.csv"
+          "result_path": "refs/new/Q107-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n分子和分母均用全渠道净额；城市按门店地理，不从店名猜集合。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n分子和分母均用全渠道净额；城市按门店地理，不从店名猜集合。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -373,11 +440,26 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "SELECT if(g.GeographyKey=0,NULL,g.RegionCountryName) AS country,\nsum(f.SalesAmount) AS sales_amount,countDistinct(f.SalesOrderNumber) AS orders\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey\nLEFT JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey\nWHERE toYear(f.DateKey)=2009 GROUP BY country",
-          "result_path": "refs/new/Q108-1.csv"
+          "result_path": "refs/new/Q108-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "count"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "UInt64"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n默认线上、客户所在地，订单去重；保留无法匹配国家的事实。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n默认线上、客户所在地，订单去重；保留无法匹配国家的事实。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -442,7 +524,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "2026-10-16退化新题裁决改写。保留日粒度聚合、完整日历分母及同比增长；移除与周末重合的节假日分类。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留日粒度聚合、完整日历分母及同比增长；移除与周末重合的节假日分类。 购买事件统一为全部行（含纯退货）；日期窗口按冻结定义或题目明确参数，不另增业务口径解读。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -489,11 +571,26 @@
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "WITH shares AS (\nSELECT toYear(f.DateKey) AS y,sumIf(f.SalesAmount,c.ChannelName='Online')*100.0/nullIf(sum(f.SalesAmount),0) AS online_share_pct\nFROM retail.FactSales f LEFT JOIN retail.DimChannel c ON f.channelKey=c.ChannelKey\nWHERE toYear(f.DateKey) IN (2008,2009) GROUP BY y)\nSELECT anyIf(online_share_pct,y=2008) AS share_2008_pct,\nanyIf(online_share_pct,y=2009) AS share_2009_pct,\nanyIf(online_share_pct,y=2009)-anyIf(online_share_pct,y=2008) AS change_pp FROM shares",
-          "result_path": "refs/new/Q110-1.csv"
+          "result_path": "refs/new/Q110-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "percentage",
+              "percentage",
+              "percentage"
+            ],
+            "value_types": [
+              "Nullable(Float64)",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n混合渠道同源：分子分母均来自FactSales；不拼接线上独立事实表。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n混合渠道同源：分子分母均来自FactSales；不拼接线上独立事实表。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -535,18 +632,33 @@
     {
       "id": "Q111",
       "source": "new",
-      "text_en": "At September 2009 month-end, what percentage of year-to-date and annual sales targets had each store achieved?",
-      "text_zh": "截至2009年9月底，各门店的销售额相当于同期正式销售目标的百分之多少，又完成了全年目标的百分之多少？",
+      "text_en": "By September 2009, what were each store's year-to-date and full-year sales target attainment rates?",
+      "text_zh": "截至2009年9月底，各门店同期销售目标达成率和全年销售目标完成率分别是多少？",
       "type": "指标分析",
       "refs": [
         {
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "WITH actual AS (\nSELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE DateKey>='2009-01-01' AND DateKey<'2009-10-01' GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sumIf(SalesAmountQuota,DateKey<'2009-10-01') AS quota_ytd,sum(SalesAmountQuota) AS quota_year\nFROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey)\nSELECT s.StoreName,a.sales_amount*100.0/nullIf(t.quota_ytd,0) AS ytd_attainment_pct,\na.sales_amount*100.0/nullIf(t.quota_year,0) AS annual_attainment_pct\nFROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey LEFT JOIN targets t ON s.StoreKey=t.StoreKey",
-          "result_path": "refs/new/Q111-1.csv"
+          "result_path": "refs/new/Q111-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "percentage",
+              "percentage"
+            ],
+            "value_types": [
+              "String",
+              "Nullable(Float64)",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n事实先分别聚合；同一个1至9月实际额分别除同期和全年ScenarioKey=2正式目标，零目标返回NULL。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n事实先分别聚合；同一个1至9月实际额分别除同期和全年ScenarioKey=2正式目标，零目标返回NULL。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -616,7 +728,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "2026-10-16退化新题裁决改写。保留逐店实际与正式目标对齐、实体派生缺口、按经理二次汇总；120%是题干挑战线，不改正式目标定义。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留逐店实际与正式目标对齐、实体派生缺口、按经理二次汇总；120%是题干挑战线，不改正式目标定义。 购买事件统一为全部行（含纯退货）；日期窗口按冻结定义或题目明确参数，不另增业务口径解读。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -689,7 +801,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "2026-10-16退化新题裁决改写。保留计划与实际的月粒度对齐和连续区间识别；改为题干明确的年度目标均摊，避免固定月度达成率使区间为空或整年恒定。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留计划与实际的月粒度对齐和连续区间识别；改为题干明确的年度目标均摊，避免固定月度达成率使区间为空或整年恒定。 购买事件统一为全部行（含纯退货）；日期窗口按冻结定义或题目明确参数，不另增业务口径解读。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -754,64 +866,10 @@
               "UInt64"
             ]
           }
-        },
-        {
-          "interpretation": "不含截止日[T-90,T)；购买事件=全部行",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
-          "result_path": "refs/new/Q114-2.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "count"
-            ],
-            "value_types": [
-              "Date",
-              "UInt64"
-            ]
-          }
-        },
-        {
-          "interpretation": "含截止日[T-89,T]；购买事件=SalesQuantity>0",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
-          "result_path": "refs/new/Q114-3.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "count"
-            ],
-            "value_types": [
-              "Date",
-              "UInt64"
-            ]
-          }
-        },
-        {
-          "interpretation": "不含截止日[T-90,T)；购买事件=SalesQuantity>0",
-          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-90) AND f.first_date<c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
-          "result_path": "refs/new/Q114-4.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "count"
-            ],
-            "value_types": [
-              "Date",
-              "UInt64"
-            ]
-          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购、滚动90日窗与逐月截止日；改用实际存在首购分布的时期，不用活跃客户替代新客。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购、滚动90日窗与逐月截止日；改用实际存在首购分布的时期，不用活跃客户替代新客。 购买事件统一为全部行（含纯退货）；日期窗口按冻结定义或题目明确参数，不另增业务口径解读。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -850,19 +908,14 @@
     {
       "id": "Q115",
       "source": "new",
-      "text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end?",
-      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？",
+      "text_en": "How did the fixed cohort of customers acquired by 2008 year-end move among active, at-risk and churned states by 2009 year-end? Use the exact labels 活跃, 有流失风险 and 已流失 for both initial and final states.",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
       "type": "指标分析",
       "refs": [
         {
           "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
           "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM retail.FactOnlineSales GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
-          "result_path": "refs/new/Q115-1.csv"
-        },
-        {
-          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
-          "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
-          "result_path": "refs/new/Q115-2.csv",
+          "result_path": "refs/new/Q115-1.csv",
           "rules": {
             "ordered": false,
             "top_n": null,
@@ -881,7 +934,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n固定2008年末已购人群；全历史末购、各时点按月差分层；完整3×3迁移矩阵包含0格。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n固定2008年末已购人群；全历史末购、各时点按月差分层；完整3×3迁移矩阵包含0格。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -943,28 +996,10 @@
               "Float64"
             ]
           }
-        },
-        {
-          "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=SalesQuantity>0",
-          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) GROUP BY CustomerKey\nHAVING addDays(first_date,7)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,7)) AS purchases\nFROM cohorts c LEFT JOIN (SELECT * FROM retail.FactOnlineSales WHERE SalesQuantity>0) f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct FROM observed GROUP BY cohort_month",
-          "result_path": "refs/new/Q116-2.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "percentage"
-            ],
-            "value_types": [
-              "Date",
-              "Float64"
-            ]
-          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购分群、客户级复购事件、完整随访和分组比率；缩短明确观察窗，避免90天复购率全满。 购买事件若有歧义仍保留全部行与正销量两种参考，相同量化结果共用参考；时间窗口以题干及逐参考解读为准。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
+      "scoring_notes": "2026-10-16退化新题裁决改写。保留全历史首购分群、客户级复购事件、完整随访和分组比率；缩短明确观察窗，避免90天复购率全满。 购买事件统一为全部行（含纯退货）；日期窗口按冻结定义或题目明确参数，不另增业务口径解读。原题及A/B/C证据见audit/T05-degeneracy-before.json，改写交接见audit/T05-degeneracy-rewrites.json。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1093,7 +1128,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整事实门店分母；先按降幅选3店，再每店选下降金额最大品类，两个层级保存完整量化边界。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n完整事实门店分母；先按降幅选3店，再每店选下降金额最大品类，两个层级保存完整量化边界。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1208,11 +1243,24 @@
           "interpretation": "遵守企业约定及题干限定口径",
           "sql": "WITH products AS (\nSELECT ProductKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS base_sales,\nsumIf(SalesAmount,toYear(DateKey)=2009) AS future_sales,countIf(toYear(DateKey)=2008) AS base_rows\nFROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY ProductKey),\ntotal AS (SELECT sum(SalesAmount) AS total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009)\nSELECT p.ProductKey AS ProductKey,p.base_sales AS base_sales,p.future_sales AS sales_amount,t.total_sales AS total_sales,\np.future_sales*100.0/nullIf(t.total_sales,0) AS share_pct FROM products p CROSS JOIN total t WHERE p.base_rows>0",
           "result_path": "refs/new/Q118-1.csv",
-          "postprocess": "baseline_top_decile"
+          "postprocess": "baseline_top_decile",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "amount",
+              "percentage"
+            ],
+            "value_types": [
+              "Float64",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n基期完整产品键域，金额统一量化后精确线性插值P90，包含阈值同额；次期零销售成员保留，分母为2009全部事实。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n基期完整产品键域，金额统一量化后精确线性插值P90，包含阈值同额；次期零销售成员保留，分母为2009全部事实。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1261,17 +1309,55 @@
           "interpretation": "声明竞赛排名1、1、3",
           "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
           "result_path": "refs/new/Q119-1.csv",
-          "postprocess": "product_rank_competition"
-        },
-        {
-          "interpretation": "声明稠密排名1、1、2",
-          "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
-          "result_path": "refs/new/Q119-2.csv",
-          "postprocess": "product_rank_dense"
+          "postprocess": "product_rank_competition",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "other",
+              "other",
+              "amount",
+              "other"
+            ],
+            "value_types": [
+              "Int32",
+              "String",
+              "Int32",
+              "Nullable(String)",
+              "Float64",
+              "UInt64"
+            ],
+            "selection": {
+              "version": 1,
+              "stages": [
+                {
+                  "parent": null,
+                  "where": [],
+                  "group_columns": [
+                    0
+                  ],
+                  "object_columns": [
+                    2
+                  ],
+                  "order_by": [
+                    {
+                      "column": 4,
+                      "descending": true
+                    }
+                  ],
+                  "n": 1
+                }
+              ],
+              "output_order": []
+            }
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。\n全渠道；局部赢家与整体名次都按统一量化金额，不靠物理行序打破并列；孤儿保ProductKey及NULL名称。",
+      "scoring_notes": "2026-10-17裁决：竞赛/稠密排名在当前返回结果完全相同，仅保留竞赛排名参考。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1342,18 +1428,35 @@
     {
       "id": "Q120",
       "source": "new",
-      "text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts?",
-      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。",
+      "text_en": "What were Pearson correlations between annual income and 2009 spending overall and within occupations, with customer counts? Use scope labels 全体 and 职业内; the overall occupation is NULL, while occupation rows use the recorded occupation names.",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行／正销量（结果相同）",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行（含纯退货行）",
           "sql": "WITH spend AS (SELECT CustomerKey,sum(SalesAmount) AS annual_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY CustomerKey),\ncustomers AS (SELECT f.CustomerKey,c.YearlyIncome AS income,c.Occupation AS occupation,f.annual_sales\nFROM spend f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey WHERE c.YearlyIncome IS NOT NULL)\nSELECT '全体' AS scope,CAST(NULL,'Nullable(String)') AS occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers\nUNION ALL SELECT '职业内',occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers GROUP BY occupation",
-          "result_path": "refs/new/Q120-1.csv"
+          "result_path": "refs/new/Q120-1.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "other",
+              "count",
+              "ratio"
+            ],
+            "value_types": [
+              "String",
+              "Nullable(String)",
+              "UInt64",
+              "Nullable(Float64)"
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n每客户一行、等权；缺收入不参与相关，收入离群值不删除；不预设辛普森反转，不平均组内系数。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n每客户一行、等权；缺收入不参与相关，收入离群值不删除；不预设辛普森反转，不平均组内系数。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1404,17 +1507,7 @@
         {
           "interpretation": "声明总体标准差（除以12）",
           "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevPop(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
-          "result_path": "refs/new/Q121-1.csv"
-        },
-        {
-          "interpretation": "声明样本标准差（除以11）",
-          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
-          "result_path": "refs/new/Q121-2.csv"
-        },
-        {
-          "interpretation": "声明总体标准差（除以12）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
-          "sql": "SELECT * FROM (\nWITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevPop(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
-          "result_path": "refs/new/Q121-3.csv",
+          "result_path": "refs/new/Q121-1.csv",
           "rules": {
             "ordered": false,
             "top_n": null,
@@ -1432,9 +1525,9 @@
           }
         },
         {
-          "interpretation": "声明样本标准差（除以11）；按产品属性分组时不展示空属性组（有名称各组及其原分母保持不变）",
-          "sql": "SELECT * FROM (\nWITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category\n) AS named_product_groups\nWHERE (`category` IS NOT NULL AND `category` != '')",
-          "result_path": "refs/new/Q121-4.csv",
+          "interpretation": "声明样本标准差（除以11）",
+          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
+          "result_path": "refs/new/Q121-2.csv",
           "rules": {
             "ordered": false,
             "top_n": null,
@@ -1453,7 +1546,7 @@
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n2026-10-16空产品属性组裁决：有／无空属性组均接受；分母保持原完整定义，不扩展到产品键Top-N。详见audit/optional-product-group-refs.json。",
+      "scoring_notes": "第二轮已批准问句；按企业约定计算。业务口径按冻结约定及2026-10-17裁决；题目参数与问法歧义按逐参考说明。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。\n完整12个月，零销售月填0；均值0输出NULL；总体／样本标准差须声明。完整事实金额保留；NULL分类是无法分类事实的披露汇总，不冒充真实品类，不虚构维度。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1495,44 +1588,18 @@
     {
       "id": "Q122",
       "source": "new",
-      "text_en": "For all pairs of Contoso products sold in 2009, report co-purchase support, both directional confidences and lift over all 2009 orders.",
-      "text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "text_en": "Which 10 pairs of Contoso products appeared together in the most orders in 2009? Give their common order counts and lift.",
+      "text_zh": "2009 年哪 10 对 Contoso 产品最常出现在同一个订单里？给出它们的共同订单数和提升度。",
       "type": "统计",
       "refs": [
         {
-          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
-          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
+          "interpretation": "提升度按全体2009线上订单的概率总体计算；购买事件均为全部行，按共同订单数取Top-10完整边界",
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT x.product1_key AS product1_key,toNullable(a.ProductName) AS product1_name,\nx.product2_key AS product2_key,toNullable(b.ProductName) AS product2_name,\nx.both_orders AS common_orders,x.both_orders*1.0*t.all_orders/(ma.product_orders*mb.product_orders) AS lift_ratio\nFROM pairs x JOIN marginal ma ON x.product1_key=ma.ProductKey\nJOIN marginal mb ON x.product2_key=mb.ProductKey CROSS JOIN total t\nLEFT JOIN retail.DimProduct a ON x.product1_key=a.ProductKey\nLEFT JOIN retail.DimProduct b ON x.product2_key=b.ProductKey\nORDER BY common_orders DESC LIMIT 10",
           "result_path": "refs/new/Q122-1.csv"
-        },
-        {
-          "interpretation": "遵守企业约定及题干限定口径；购买事件=SalesQuantity>0",
-          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso' AND f.SalesQuantity>0) AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT a.ProductKey AS product1_key,b.ProductKey AS product2_key,\nifNull(x.both_orders,0)*1.0/t.all_orders AS support_ratio,\nifNull(x.both_orders,0)*1.0/a.product_orders AS confidence_1_to_2_ratio,\nifNull(x.both_orders,0)*1.0/b.product_orders AS confidence_2_to_1_ratio,\nifNull(x.both_orders,0)*1.0*t.all_orders/(a.product_orders*b.product_orders) AS lift_ratio\nFROM marginal a CROSS JOIN marginal b CROSS JOIN total t LEFT JOIN pairs x ON a.ProductKey=x.product1_key AND b.ProductKey=x.product2_key\nWHERE a.ProductKey<b.ProductKey",
-          "result_path": "refs/new/Q122-2.csv",
-          "rules": {
-            "ordered": false,
-            "top_n": null,
-            "tie_columns": [],
-            "value_kinds": [
-              "other",
-              "other",
-              "ratio",
-              "ratio",
-              "ratio",
-              "ratio"
-            ],
-            "value_types": [
-              "Int32",
-              "Int32",
-              "Float64",
-              "Float64",
-              "Float64",
-              "Float64"
-            ]
-          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "第二轮已批准问句；按企业约定计算。合理统计／日期解读须声明且计算一致；不把不完整随访当完整90天，不把除零报0。\n产品域事先限定Contoso，订单内产品去重；全体2009订单为支持度／lift分母，零共购对保留；不按结果挑产品。\n购买事件双解：全部行与SalesQuantity>0均可；实际结果相同的购买定义共用参考。逐参考比较及去重映射见audit/T05-purchase-events.json。",
+      "scoring_notes": "题面已获用户确认。Q122为新题，标准答案由出题方确定：提升度只按2009年全体线上订单为总体；乙组多份参考仅适用于外部原题问法歧义。按共同订单数取Top-10，完整保存第10名边界并列组。",
       "labels": {
         "q_level": "Q3",
         "complexity_source": {
@@ -1557,24 +1624,32 @@
       },
       "split": null,
       "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          4
+        ],
         "value_kinds": [
           "other",
           "other",
-          "ratio",
-          "ratio",
-          "ratio",
+          "other",
+          "other",
+          "count",
           "ratio"
         ],
         "value_types": [
           "Int32",
+          "Nullable(String)",
           "Int32",
-          "Float64",
-          "Float64",
-          "Float64",
+          "Nullable(String)",
+          "UInt64",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
         ]
       }
     }

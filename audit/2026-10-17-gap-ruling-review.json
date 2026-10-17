@@ -1,0 +1,762 @@
+{
+  "decision": "decisions/2026-10-17-semantic-gaps-and-realistic-questions.md",
+  "decision_sha256": "d84bffc3ff8c8795eb50f7968c2b02191b0abef750d1ac09ca2727f983aeb64a",
+  "previous_references": 133,
+  "final_references": 136,
+  "questions": 122,
+  "current_question_sha256": {
+    "cube_100": "01100b8eba0607686479b720d0ccb9704dc4dd05a81e4a8147f00a6e321ef5bd",
+    "new": "fb1d7e1a55a2f2be7875e97d75da06ecf236cf608e2b09e62d0a9d710696df29"
+  },
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "changes": [
+    {
+      "question_id": "Q13",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "全渠道按门店统计销售额、平均单价和销售数量；沿用约定2及已有指标"
+      ]
+    },
+    {
+      "question_id": "Q14",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "按客户累计线上消费，严格大于100000美元后计客户人数"
+      ]
+    },
+    {
+      "question_id": "Q21",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "先按门店×产品取各自最近快照，再按门店汇总在手数量"
+      ]
+    },
+    {
+      "question_id": "Q28",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "全渠道Store与Online按已有平均单价指标比较"
+      ]
+    },
+    {
+      "question_id": "Q36",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "原参考解读；购买事件=全部行"
+      ]
+    },
+    {
+      "question_id": "Q38",
+      "text_changed": false,
+      "previous_references": 2,
+      "current_references": 1,
+      "interpretations": [
+        "按裁决仅报告准确率=100%-绝对百分比误差"
+      ]
+    },
+    {
+      "question_id": "Q39",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 2,
+      "interpretations": [
+        "示例：2008–2009新品；首个新品上市前后等长窗口的老品日均线上销售",
+        "问法歧义：同一新品/老品范围，上市前后各90日比较老品日均销售"
+      ]
+    },
+    {
+      "question_id": "Q40",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "缺失报价日沿用此前最近EUR收盘价；覆盖全部线上销售日"
+      ]
+    },
+    {
+      "question_id": "Q48",
+      "text_changed": false,
+      "previous_references": 2,
+      "current_references": 3,
+      "interpretations": [
+        "示例：声明停机总时长超过1000分钟分组，比较门店平均全渠道销售",
+        "门店停机总时长与全渠道销售额的相关系数",
+        "问法歧义：Spearman相关，重复值使用平均秩，观察域与Pearson一致"
+      ]
+    },
+    {
+      "question_id": "Q84",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 2,
+      "interpretations": [
+        "同额组整体归类，以组加入前的累计占比划分80%/95%边界；SQL取产品收入域",
+        "问法歧义：同额组整体归类，以加入后的累计占比划分80%/95%边界"
+      ]
+    },
+    {
+      "question_id": "Q86",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 2,
+      "interpretations": [
+        "原参考解读；按题面补全全部满足原样本下限的子品类，不截前20",
+        "问法歧义：Spearman相关，按全部促销观察的精确频数计算并列中秩，样本域同Pearson"
+      ]
+    },
+    {
+      "question_id": "Q89",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "原参考解读；购买事件=全部行"
+      ]
+    },
+    {
+      "question_id": "Q91",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 2,
+      "interpretations": [
+        "原参考解读；购买事件=全部行（含纯退货行）",
+        "问法歧义：Spearman相关，重复值使用平均秩，观察域与Pearson一致"
+      ]
+    },
+    {
+      "question_id": "Q92",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "按裁决以毛利率衡量盈利能力并降序排名"
+      ]
+    },
+    {
+      "question_id": "Q95",
+      "text_changed": false,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "按裁决仅保留促销行均销售减原价行均销售；包含孤儿产品属性组"
+      ]
+    },
+    {
+      "question_id": "Q119",
+      "text_changed": false,
+      "previous_references": 2,
+      "current_references": 1,
+      "interpretations": [
+        "声明竞赛排名1、1、3"
+      ]
+    },
+    {
+      "question_id": "Q122",
+      "text_changed": true,
+      "previous_references": 1,
+      "current_references": 1,
+      "interpretations": [
+        "提升度按全体2009线上订单的概率总体计算；购买事件均为全部行，按共同订单数取Top-10完整边界"
+      ]
+    }
+  ],
+  "rewritten_question_checks": [
+    {
+      "question_id": "Q13",
+      "text": "按门店列出销售额、平均单价和销售数量。",
+      "reference_rows": 306,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "total_sales",
+            "distinct": 306,
+            "minimum": "1773000.183",
+            "maximum": "1078007547.2265618"
+          },
+          {
+            "column": "average_unit_price",
+            "distinct": 291,
+            "minimum": "160.2349916854948",
+            "maximum": "261.9101570183482"
+          },
+          {
+            "column": "sales_quantity",
+            "distinct": 301,
+            "minimum": 11065,
+            "maximum": 4681642
+          }
+        ],
+        "trivial_candidate_verdicts": {
+          "empty": "wrong",
+          "zero_measures": "wrong",
+          "blank_measures": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购/回头客，也不涉及节假日与周末；Q36/Q89是末次交易分层"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N或排名选择"
+      }
+    },
+    {
+      "question_id": "Q28",
+      "text": "比较门店渠道和线上渠道的平均单价。",
+      "reference_rows": 2,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "average_unit_price",
+            "distinct": 2,
+            "minimum": "214.10407376614663",
+            "maximum": "238.67256591209093"
+          }
+        ],
+        "trivial_candidate_verdicts": {
+          "empty": "wrong",
+          "zero_measures": "wrong",
+          "blank_measures": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购/回头客，也不涉及节假日与周末；Q36/Q89是末次交易分层"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N或排名选择"
+      }
+    },
+    {
+      "question_id": "Q36",
+      "text": "当前活跃、有流失风险和已流失的客户各有多少人？",
+      "reference_rows": 3,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "customers",
+            "distinct": 3,
+            "minimum": 138,
+            "maximum": 16890
+          }
+        ],
+        "trivial_candidate_verdicts": {
+          "empty": "wrong",
+          "zero_measures": "wrong",
+          "blank_measures": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购/回头客，也不涉及节假日与周末；Q36/Q89是末次交易分层"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N或排名选择"
+      }
+    },
+    {
+      "question_id": "Q89",
+      "text": "活跃、有流失风险和已流失客户的平均消费金额与平均购买产品种类数是多少？",
+      "reference_rows": 3,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "customers",
+            "distinct": 3,
+            "minimum": 138,
+            "maximum": 16890
+          },
+          {
+            "column": "avg_spend",
+            "distinct": 3,
+            "minimum": "76861.79",
+            "maximum": "5700390.36"
+          },
+          {
+            "column": "avg_distinct_products",
+            "distinct": 3,
+            "minimum": "75",
+            "maximum": "780.4"
+          }
+        ],
+        "trivial_candidate_verdicts": {
+          "empty": "wrong",
+          "zero_measures": "wrong",
+          "blank_measures": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购/回头客，也不涉及节假日与周末；Q36/Q89是末次交易分层"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N或排名选择"
+      }
+    }
+  ],
+  "added_references": [
+    "refs/cube/Q39-2.csv",
+    "refs/cube/Q48-3.csv",
+    "refs/cube/Q84-2.csv",
+    "refs/cube/Q86-3.csv",
+    "refs/cube/Q91-2.csv"
+  ],
+  "removed_references": [
+    "refs/cube/Q38-1.csv",
+    "refs/new/Q119-2.csv"
+  ],
+  "over_50_rows": [
+    {
+      "question_id": "Q04",
+      "reference": "refs/cube/Q04-1.csv",
+      "rows": 644,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 644,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q13",
+      "reference": "refs/cube/Q13-1.csv",
+      "rows": 306,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q20",
+      "reference": "refs/cube/Q20-2.csv",
+      "rows": 429,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 429,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q21",
+      "reference": "refs/cube/Q21-1.csv",
+      "rows": 306,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q22",
+      "reference": "refs/cube/Q22-1.csv",
+      "rows": 65,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 65,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q34",
+      "reference": "refs/cube/Q34-1.csv",
+      "rows": 2504,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 2504,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q35",
+      "reference": "refs/cube/Q35-1.csv",
+      "rows": 293,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 293,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q37",
+      "reference": "refs/cube/Q37-1.csv",
+      "rows": 306,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q45",
+      "reference": "refs/cube/Q45-1.csv",
+      "rows": 306,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q47",
+      "reference": "refs/cube/Q47-1.csv",
+      "rows": 299,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 299,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q49",
+      "reference": "refs/cube/Q49-2.csv",
+      "rows": 420,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 420,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q65",
+      "reference": "refs/cube/Q65-2.csv",
+      "rows": 303,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 303,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q74",
+      "reference": "refs/cube/Q74-1.csv",
+      "rows": 925,
+      "top_n_tie_expansion": true,
+      "tie_extra_rows": 7,
+      "rows_before_tie_expansion": 918,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q75",
+      "reference": "refs/cube/Q75-1.csv",
+      "rows": 1470,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 1470,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q85",
+      "reference": "refs/cube/Q85-1.csv",
+      "rows": 97,
+      "top_n_tie_expansion": true,
+      "tie_extra_rows": 87,
+      "rows_before_tie_expansion": 10,
+      "exceeds_50_due_to_ties": true
+    },
+    {
+      "question_id": "Q94",
+      "reference": "refs/cube/Q94-1.csv",
+      "rows": 99,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 99,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q100",
+      "reference": "refs/cube/Q100-1.csv",
+      "rows": 108,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 108,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q111",
+      "reference": "refs/new/Q111-1.csv",
+      "rows": 306,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q112",
+      "reference": "refs/new/Q112-1.csv",
+      "rows": 262,
+      "top_n_tie_expansion": false,
+      "tie_extra_rows": 0,
+      "rows_before_tie_expansion": 262,
+      "exceeds_50_due_to_ties": false
+    },
+    {
+      "question_id": "Q119",
+      "reference": "refs/new/Q119-1.csv",
+      "rows": 310,
+      "top_n_tie_expansion": true,
+      "tie_extra_rows": 4,
+      "rows_before_tie_expansion": 306,
+      "exceeds_50_due_to_ties": false
+    }
+  ],
+  "anchor_revised_sensitivity_exclusions": [
+    "EN13",
+    "EN14",
+    "EN21",
+    "EN28",
+    "EN36",
+    "EN89"
+  ],
+  "new_question_audit": "audit/2026-10-17-q122-standard-new-question-check.json",
+  "T05b_independent_recheck": "pending; SQL checks are not an independent pandas result",
+  "summary_rewrites": [
+    {
+      "question_id": "Q14",
+      "old_text_zh": "哪些客户的累计消费超过 1 万美元？",
+      "new_text_zh": "累计消费超过 10 万美元的客户有多少人？",
+      "previous_reference_rows": 18869,
+      "reference_rows": 1,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "customers",
+            "distinct": 1,
+            "minimum": 385,
+            "maximum": 385
+          }
+        ],
+        "trivial_candidates": {
+          "empty": "wrong",
+          "zero": "wrong",
+          "blank": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购或节假日/周末；另列原考点的错误算法敏感性"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N/排序选择"
+      },
+      "capability": {
+        "before": "客户粒度累计销售后的HAVING筛选",
+        "after": "相同客户粒度筛选后计数",
+        "threshold": 100000,
+        "all_customers": 18869,
+        "minimum_spend": 14082.861900000007,
+        "original_10000_members": 18869,
+        "selected_members": 385,
+        "wrong_filter_fact_rows_count": 0,
+        "ignoring_threshold_changes_result": true,
+        "ignoring_threshold_verdict": "wrong",
+        "retained": true
+      }
+    },
+    {
+      "question_id": "Q21",
+      "old_text_zh": "各门店每种产品目前的库存是多少？",
+      "new_text_zh": "各门店的当前在手库存数量是多少？",
+      "previous_reference_rows": 600241,
+      "reference_rows": 306,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "current_on_hand_quantity",
+            "distinct": 303,
+            "minimum": 7359,
+            "maximum": 185240
+          }
+        ],
+        "trivial_candidates": {
+          "empty": "wrong",
+          "zero": "wrong",
+          "blank": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购或节假日/周末；另列原考点的错误算法敏感性"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N/排序选择"
+      },
+      "capability": {
+        "before": "门店×产品各自最近快照的当前库存",
+        "after": "逐门店汇总同一批最近快照",
+        "latest_store_products": 600241,
+        "distinct_latest_dates": 156,
+        "latest_date_range": [
+          "2007-01-06",
+          "2009-12-26"
+        ],
+        "correct_stores": 306,
+        "wrong_global_latest_stores": 306,
+        "wrong_global_latest_different_stores": 306,
+        "retained": true
+      }
+    },
+    {
+      "question_id": "Q122",
+      "old_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，逐对列出共购支持度、两个方向的置信度和提升度。",
+      "new_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，报告订单总数、产品对的平均共购支持度、两个方向的平均置信度和平均提升度。",
+      "previous_reference_rows": 207046,
+      "reference_rows": 1,
+      "A": {
+        "hit": false,
+        "profiles": [
+          {
+            "column": "all_orders",
+            "distinct": 1,
+            "minimum": 378070,
+            "maximum": 378070
+          },
+          {
+            "column": "average_support_ratio",
+            "distinct": 1,
+            "minimum": "0.0000016346507851991678",
+            "maximum": "0.0000016346507851991678"
+          },
+          {
+            "column": "average_confidence_1_to_2_ratio",
+            "distinct": 1,
+            "minimum": "0.00788697062462238",
+            "maximum": "0.00788697062462238"
+          },
+          {
+            "column": "average_confidence_2_to_1_ratio",
+            "distinct": 1,
+            "minimum": "0.008378828641197551",
+            "maximum": "0.008378828641197551"
+          },
+          {
+            "column": "average_lift_ratio",
+            "distinct": 1,
+            "minimum": "41.25200844580553",
+            "maximum": "41.25200844580553"
+          }
+        ],
+        "trivial_candidates": {
+          "empty": "wrong",
+          "zero": "wrong",
+          "blank": "wrong"
+        }
+      },
+      "B": {
+        "hit": false,
+        "applicable": false,
+        "reason": "不涉及首单/新客/复购或节假日/周末；另列原考点的错误算法敏感性"
+      },
+      "C": {
+        "hit": false,
+        "applicable": false,
+        "reason": "无Top-N/排序选择"
+      },
+      "capability": {
+        "before": "全部产品对共购支持度、双向置信度、lift",
+        "after": "同一产品对域四项派生指标的等权均值",
+        "pair_domain": 207046,
+        "nonzero_pairs": 32304,
+        "zero_pairs": 174742,
+        "all_orders": 378070,
+        "correct_means": [
+          "0.0000016346507851991678",
+          "0.00788697062462238",
+          "0.008378828641197551",
+          "41.25200844580553"
+        ],
+        "wrong_drop_zero_pairs_means": [
+          1.0476965901199445e-05,
+          0.050549954183555144,
+          0.05370241935504546,
+          264.3964629974694
+        ],
+        "wrong_positive_only_orders": 376026,
+        "wrong_positive_only_means": [
+          1.6434721884587034e-06,
+          0.007891827325416174,
+          0.00838031367636788,
+          41.055222108767985
+        ],
+        "drop_zero_pairs_changes_result": true,
+        "retained": true,
+        "wrong_drop_zero_pairs_verdict": "wrong",
+        "wrong_positive_only_verdict": "wrong",
+        "means_only_positive_filter_verdict": "correct"
+      }
+    }
+  ],
+  "Q13_Q28_wording": "user_confirmed",
+  "q122_topn": {
+    "baseline_commit": "573d51849249f9d25a7d7db9ad1de9789803383b",
+    "old_text_zh": "以2009年全部订单为总体，对当年至少售出过一次的Contoso品牌产品，报告订单总数、产品对的平均共购支持度、两个方向的平均置信度和平均提升度。",
+    "new_text_zh": "2009 年哪 10 对 Contoso 产品最常出现在同一个订单里？给出它们的共同订单数和提升度。",
+    "authorization": "用户确认题面，裁定Q122新题只保留标准全体线上订单总体；乙组仅适用于外部原题问法歧义",
+    "policy": "standard_all_online_orders",
+    "wording": "user_confirmed",
+    "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+    "references": [
+      {
+        "reference": "refs/new/Q122-1.csv",
+        "interpretation": "提升度按全体2009线上订单的概率总体计算；购买事件均为全部行，按共同订单数取Top-10完整边界",
+        "population_orders": 378070,
+        "reference_rows": 17,
+        "domain_pairs": 32304,
+        "distinct_sort_keys": 17,
+        "n": 10,
+        "nth_common_orders": 13,
+        "strict_prefix_members": 7,
+        "boundary_members": 10,
+        "boundary_slots_needed": 3,
+        "three_n_threshold": 30,
+        "C_hit": false,
+        "A_hit": false,
+        "B_applicable": false,
+        "verdicts": {
+          "empty": "wrong",
+          "all_zero_measures": "wrong",
+          "alternate_boundary_subset": "correct",
+          "missing_strict_member": "wrong",
+          "cross_rank_block_swap": "wrong",
+          "within_rank_block_swap": "correct"
+        },
+        "minimum_lift": "143.350347080441",
+        "maximum_lift": "900.923745444351"
+      }
+    ],
+    "final_references": 136,
+    "unchanged_questions_verified": 121,
+    "Q14_Q21_wording": "user_confirmed",
+    "same_pair_members": true,
+    "new_question_audit": "audit/2026-10-17-q122-standard-new-question-check.json",
+    "removed_outputs": [
+      "总体订单数",
+      "平均支持度",
+      "平均双向置信度",
+      "平均提升度"
+    ],
+    "question_sha256": "fb1d7e1a55a2f2be7875e97d75da06ecf236cf608e2b09e62d0a9d710696df29"
+  },
+  "Q14_Q21_wording": "user_confirmed"
+}

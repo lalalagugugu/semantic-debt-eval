@@ -114,6 +114,20 @@ def main():
                 n=rec['postprocess_details']['selected_products']; boundary=values[n-1]; ties=values.count(boundary)
                 if ties>=3*n:flags.add('C')
                 item['C']=[{'n':n,'domain_products':len(values),'distinct_sort_keys':len(set(values)),'boundary_members':ties,'nth_key':str(boundary)}]
+            elif any(effective_rules(question,r)['top_n'] is not None for r in question['refs']):
+                item['C']=[]
+                for ref in question['refs']:
+                    rule=effective_rules(question,ref);n=rule['top_n']
+                    if n is None:continue
+                    sql,count=re.subn(rf'\bLIMIT\s+{n}\s*;?\s*$','',ref['sql'],flags=re.I)
+                    assert count==1
+                    domain=query(sql)
+                    keys=[tuple(policy.quantize_tie(row[i],rule['value_kinds'][i]) for i in rule['tie_columns']) for row in domain]
+                    boundary=keys[n-1];ties=keys.count(boundary)
+                    if ties>=3*n:flags.add('C')
+                    item['C'].append({'reference':ref['result_path'],'n':n,'domain_rows':len(domain),
+                                      'distinct_sort_keys':len(set(keys)),'boundary_members':ties,
+                                      'nth_key':list(map(str,boundary)),'three_n_threshold':3*n})
             else:item['C']={'applicable':False,'reason':'not a Top-N/quantile selection question'}
             item['hits']=sorted(flags);records.append(item)
             print(qid,item['hits'],flush=True)

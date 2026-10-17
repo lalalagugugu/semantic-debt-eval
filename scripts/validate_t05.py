@@ -37,12 +37,15 @@ def main():
     assert has_final_order_by('WITH x AS (SELECT 1) SELECT * FROM x ORDER BY 1')
     assert not has_final_order_by('SELECT `ORDER BY`, 1')
     sample = deepcopy(new[0])
+    sample['refs'][0].pop('rules',None)  # Exercise question-level inheritance, not an override.
     sample['rules']['ordered'] = True
     expect_error(lambda: validate_questions([sample], 'new'))
     sample = deepcopy(new[0])
+    sample['refs'][0].pop('rules',None)  # Exercise question-level inheritance, not an override.
     del sample['rules']['value_kinds']
     expect_error(lambda: validate_questions([sample], 'new'))
     sample = deepcopy(new[0])
+    sample['refs'][0].pop('rules',None)  # Exercise question-level inheritance, not an override.
     columns = [{'name': 'GMV', 'type': 'Float64'}]
     with redirect_stderr(io.StringIO()) as capture:
         kinds, warnings = reference_value_kinds(sample, sample['refs'][0], columns, ['other'])
@@ -120,13 +123,33 @@ def main():
     rewrite_path=REPO/'audit/T05-degeneracy-rewrites.json'
     rewrites=json.loads(rewrite_path.read_text()) if rewrite_path.exists() else None
     changed={r['question_id']:r for r in rewrites['records'] if r['changed']} if rewrites else {}
+    corrections_path=REPO/'audit/T05b-reference-corrections.json'
+    corrections=json.loads(corrections_path.read_text()) if corrections_path.exists() else None
+    text_changes={r['question_id']:r for r in corrections['records'] if r['text_changed']} if corrections else {}
+    policy_path=REPO/'audit/2026-10-17-single-policy-review.json'
+    single_policy=json.loads(policy_path.read_text()) if policy_path.exists() else None
+    gap_ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
+    gap_ruling=json.loads(gap_ruling_path.read_text()) if gap_ruling_path.exists() else None
+    policy_text={r['question_id']:r for r in single_policy['question_text_review']} if single_policy else {}
     assert len(approved)==22
     for q in new:
+        expected=changed[q['id']]['new_question'] if q['id'] in changed else approved[q['id']]
+        if q['id'] in text_changes:
+            assert text_changes[q['id']]['old_text_zh']==expected
+            expected=text_changes[q['id']]['new_text_zh']
+        if q['id'] in policy_text:
+            assert policy_text[q['id']]['old_text_zh']==expected
+            expected=policy_text[q['id']]['new_text_zh']
+        summary_rewrites={r['question_id']:r for r in gap_ruling.get('summary_rewrites',[])} if gap_ruling else {}
+        if q['id'] in summary_rewrites:
+            assert summary_rewrites[q['id']]['old_text_zh']==expected
+            expected=summary_rewrites[q['id']]['new_text_zh']
+        if q['id']=='Q122' and gap_ruling and gap_ruling.get('q122_topn'):
+            assert gap_ruling['q122_topn']['old_text_zh']==expected
+            expected=gap_ruling['q122_topn']['new_text_zh']
         if q['id'] in changed:
             assert changed[q['id']]['original_question']==approved[q['id']]
-            assert q['text_zh']==changed[q['id']]['new_question']
-        else:
-            assert q['text_zh']==approved[q['id']]
+        assert q['text_zh']==expected
     assert {q['id'] for q in old+new if any(effective_rules(q,r).get('selection') for r in q['refs'])} == {'Q22','Q71','Q74','Q85','Q98','Q117','Q119'}
     purchase = json.loads((REPO/'audit/T05-purchase-events.json').read_text())
     assert purchase['scanned_questions']==122 and len(purchase['records'])==122
@@ -140,12 +163,14 @@ def main():
         after=json.loads((REPO/'audit/T05-degeneracy-after.json').read_text())
         assert before['questions_scanned']==after['questions_scanned']==22 and not after['hits']
         assert set(before['hits'])==set(changed)==set(rewrites['rewritten_questions'])
-        assert after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
+        current_after=json.loads((REPO/gap_ruling['new_question_audit']).read_text()) if gap_ruling else json.loads((REPO/single_policy['new_question_audit']).read_text()) if single_policy else json.loads((REPO/corrections['new_question_audit']).read_text()) if corrections else after
+        assert not current_after['hits'] and current_after['questions_scanned']==22
+        assert current_after['question_sha256']==hashlib.sha256((REPO/'questions/new.yaml').read_bytes()).hexdigest()
         assert not rewrites['post_rewrite_audit_required'] and rewrites['after_hits']==[]
         assert rewrites['after_audit_sha256']==hashlib.sha256((REPO/'audit/T05-degeneracy-after.json').read_bytes()).hexdigest()
     else:
         assert expected_total==(optional['final_references'] if optional['applied'] else purchase['final_references'])
-    if optional['applied']:
+    if optional['applied'] and not single_policy:
         from audit_orphan_group_rows import GROUP_COLUMNS
         optional_paths={r['result_path'] for item in optional['records'] for r in item['additions']}
         optional_paths.update(path for item in optional['records'] for path in item.get('existing_optional_references',[]))
@@ -173,11 +198,25 @@ def main():
     assert {r['question_id'] for r in purchase['records'] if any(not x['quantized_equal'] for x in r['references'])}==expected_different
     for item in purchase['records']:
         for comparison in item['references']:
-            if item['question_id'] not in changed:
+            if item['question_id'] not in changed and not single_policy:
                 assert comparison['positive_maps_to'] in records
             if comparison['quantized_equal']:
                 assert not comparison['new_reference']
     ordering=json.loads((REPO/'audit/ordered-rules-review.json').read_text())
+    if single_policy:
+        assert len(single_policy['extra_reference_inventory'])==43
+        assert len(single_policy['question_text_review'])==122
+        gap_ruling_path=REPO/'audit/2026-10-17-gap-ruling-review.json'
+        gap_ruling=json.loads(gap_ruling_path.read_text()) if gap_ruling_path.exists() else None
+        assert expected_total==(gap_ruling or single_policy)['final_references']
+        retired={r['reference'] for r in single_policy['removed_references']}
+        assert not retired.intersection(records)
+        assert all(not (REPO/path).exists() for path in retired)
+        assert all('购买事件=SalesQuantity>0' not in r['interpretation'] for q in old+new for r in q['refs'])
+        by_id={q['id']:q for q in old+new}
+        assert len(by_id['Q114']['refs'])==len(by_id['Q116']['refs'])==len(by_id['Q65']['refs'])==1
+        assert '-89' in by_id['Q114']['refs'][0]['sql'] and '<=c.cutoff' in by_id['Q114']['refs'][0]['sql']
+        assert by_id['Q65']['refs'][0]['result_path']=='refs/cube/Q65-2.csv'
     current_ordered={r['reference']:r for r in ordering['current_records']}
     expected_ordered={ref['result_path'] for q in old+new for ref in q['refs'] if effective_rules(q,ref)['ordered']}
     assert current_ordered.keys()==expected_ordered
@@ -190,12 +229,17 @@ def main():
         n=rules['top_n']
         end=n if len(reference)==n else _boundary_start(reference,n,tuple(rules['tie_columns']),tuple(rules['value_kinds']))
         key=lambda row:tuple(policy.quantize_tie(row[k['column']],rules['value_kinds'][k['column']]) for k in rules['order_by'])
-        position=next(i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1])
+        positions=[i for i in range(end-1) if key(reference[i])==key(reference[i+1]) and reference[i]!=reference[i+1]]
+        if not positions:
+            return False  # A corrected precise ranking may have no prefix tie.
+        position=positions[0]
         candidate=deepcopy(reference[:n]);candidate[position],candidate[position+1]=candidate[position+1],candidate[position]
         assert score(candidate,[reference],rules)=='correct'
+        return True
     for qid in ('Q27','Q87','Q88'):
         question=next(q for q in old if q['id']==qid);ref=question['refs'][0]
-        tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+        swapped=tied_prefix_swap(csv_rows(records[ref['result_path']]),effective_rules(question,ref))
+        assert swapped or (single_policy is not None and qid in single_policy['precision_questions']) or (qid=='Q27' and corrections is not None)
     from harness.questions import load_questions
     for anchor in load_questions(REPO,lang='en'):
         if anchor.qid in ('EN27','EN88'):
@@ -206,10 +250,14 @@ def main():
         assert set(q['labels']) == set(old[0]['labels'])
         for ref in q['refs']:
             rules = effective_rules(q,ref)
-            assert rules['top_n'] is None
-            assert rules['ordered'] == (q['id']=='Q117')
+            topn_q122=q['id']=='Q122' and gap_ruling and gap_ruling.get('q122_topn')
+            assert rules['top_n'] == (10 if topn_q122 else None)
+            assert rules['ordered'] == (q['id']=='Q117' or bool(topn_q122))
             assert has_final_order_by(ref['sql']) == rules['ordered']
-            assert 'LIMIT' not in ref['sql'].upper()
+            if topn_q122:
+                assert re.search(r'\bLIMIT\s+10\s*$',ref['sql'],re.I)
+            else:
+                assert 'LIMIT' not in ref['sql'].upper()
             assert not ('FactOnlineSales' in ref['sql'] and 'FactSales ' in ref['sql'])
             if q['id'] == 'Q110':
                 assert 'FactSales' in ref['sql'] and 'FactOnlineSales' not in ref['sql'] and 'DimChannel' in ref['sql']

@@ -105,6 +105,8 @@ def signature(counter):
 
 
 def apply(report):
+    if (ROOT/'audit/2026-10-17-single-policy-review.json').exists():
+        raise ValueError('2026-10-17 ruling: all rows are transactions; historical positive-quantity alternatives may not be reapplied')
     if report['baseline_sha256']!=hashlib.sha256(BASELINE.read_bytes()).hexdigest():
         raise ValueError('audit baseline changed')
     baseline=yaml.safe_load(BASELINE.read_text())['questions']

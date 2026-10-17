@@ -1,10 +1,10 @@
 # 英文原始参考rules交接：不含接线变更
 
-T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。下面8份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。
+T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留事实ProductKey后另有EN21、EN34。此次Q66删除未问的第三列后，补EN66原始三列规则。下面9份rules对应外部原始SQL及T11已实际执行保存的列meta，不覆盖中文修订参考、不修改harness接线。T11应按vendor_id及SQL哈希选择整份rules；勿将下表塞进中文refs作为额外可接受解读。
 
 量纲策略SHA256：`7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db`。自动推断沿用固定reference_value_kinds及infer_value_kind，不能按列值猜量纲。原始返回类型逐字保留Nullable，比较结构时按裁决剥Nullable；count整数守卫由底层类型判断。
 
-全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和8份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。
+全部99道英文原始参考仍由T11维护。这里仅核对已存在原始payload的SQL/文件哈希、真实列类型和9份规则自比，不宣称重新执行99份SQL。T05b仍须独立核验。
 
 | 原题／锚点 | 原始行数 | 类型及量纲 |
 |---|---:|---|
@@ -13,6 +13,7 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
 | Q20／EN20 | 3969 | ProductName: String / other；OnHandQuantity: Int32 / other；SafetyStockQuantity: Int32 / other |
 | Q21／EN21 | 561293 | StoreName: String / other；ProductName: String / other；OnHandQuantity: Int32 / other |
 | Q34／EN34 | 2220 | ProductName: String / other；total_cogs: Float64 / amount；avg_inventory: Float64 / other；turnover_ratio: Nullable(Float64) / ratio |
+| Q66／EN66 | 4 | quarter: UInt8 / other；total_discount: Float64 / amount；discounted_orders: UInt64 / count |
 | Q74／EN74 | 9 | StoreName: String / other；ProductName: String / other；product_sales: Float64 / amount；pct_of_store: Nullable(Float64) / percentage |
 | Q83／EN83 | 1 | cohort_size_2007: Nullable(UInt64) / count；returned_2008: UInt64 / count；retention_2008_pct: Nullable(Float64) / percentage；returned_2008_and_2009: UInt64 / count；retention_2009_pct: Nullable(Float64) / percentage |
 | Q87／EN87 | 20 | ProductName: String / other；on_hand: Int64 / other；avg_daily_qty: Float64 / other；days_of_coverage: Float64 / other |
@@ -127,6 +128,28 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
     "Float64",
     "Float64",
     "Nullable(Float64)"
+  ]
+}
+```
+
+## EN66
+
+原始SQL SHA256：`5ad683444c9e6d545b231cebd25b586d610c97cc6aeccf7a5e8b8313f24a7ac5`；payload SHA256：`60de7c85b19ebaf4ef49079f8ba55fdb8f84914120ef1d9773a967d9648e2e88`。
+
+```json
+{
+  "ordered": false,
+  "top_n": null,
+  "tie_columns": [],
+  "value_kinds": [
+    "other",
+    "amount",
+    "count"
+  ],
+  "value_types": [
+    "UInt8",
+    "Float64",
+    "UInt64"
   ]
 }
 ```
@@ -255,6 +278,6 @@ T11的主仓库报告已交Codex补EN13、14、20、74、83、87；本轮保留�
 }
 ```
 
-EN74的选择元数据仅按原始4列重映射为门店／产品／销售额／占比，保持外部原始渠道、连接与数值，不偷换成中文修订6列参考。T11仍须按既有Top-N完整边界要求核对原始截断是否丢并列；EN87同理。EN97仍为judge且不在确定性缺规则的8份之内；不以补规则扩大确定性题集合。
+EN74的选择元数据仅按原始4列重映射为门店／产品／销售额／占比，保持外部原始渠道、连接与数值，不偷换成中文修订6列参考。T11仍须按既有Top-N完整边界要求核对原始截断是否丢并列；EN87同理。EN97仍为judge且不在确定性结构不同的9份之内；不以补规则扩大确定性题集合。
 
 T11接入这些rules后可评数量预计由当前修订题库的79增为87，另12道judge；此处只是规则交接，是否可评以T11接线后的自比及完整边界检查为准。复现：`uv run python scripts/review_anchor_rules.py --check`。

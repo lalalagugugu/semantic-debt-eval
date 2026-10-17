@@ -421,82 +421,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q10",
-      "result_path": "refs/cube/Q10-2.csv",
-      "sql_sha256": "daebc6d5c11d26bdd99bab1d47f93098730e4660fd99b391da95ba5397f11582",
-      "row_count": 1,
-      "columns": [
-        {
-          "name": "store_count",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "f13418cacea1466521de8cd07babb722d01980fc3d584d6861e626c156eba934",
-      "value_types": [
-        "UInt64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "count"
-        ],
-        "value_types": [
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q10",
-      "result_path": "refs/cube/Q10-3.csv",
-      "sql_sha256": "4ef7575fd5ac474195c67b104bfab6ee0e64fbfae9aea40608a76a288280d7f4",
-      "row_count": 1,
-      "columns": [
-        {
-          "name": "store_count",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "a3c841786680343066f7f293f02e68da1e82ff9f61053d5f373fb0ebada415dc",
-      "value_types": [
-        "UInt64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "count"
-        ],
-        "value_types": [
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q11",
       "result_path": "refs/cube/Q11-1.csv",
       "sql_sha256": "9ca814e2a227535e130a634df0984383251007dfc14480dda2d134fb94e58983",
@@ -521,52 +445,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "a14a99b5213f4499f15105e26e1f65c8bb42abead495d6a37805a12a64a460d4",
-      "value_types": [
-        "Nullable(String)",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q11",
-      "result_path": "refs/cube/Q11-2.csv",
-      "sql_sha256": "7bf4be84dc781a96a47eb66c773bd8ae20f0c2ca21cc868c588da02f16402e82",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "ProductCategoryName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "total_sales",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "350eeaf93d66ddaea903a7490fd826baa02c6d0a8ce4e7dac2153309b769b222",
       "value_types": [
         "Nullable(String)",
         "Float64"
@@ -637,7 +515,7 @@
     {
       "question_id": "Q13",
       "result_path": "refs/cube/Q13-1.csv",
-      "sql_sha256": "4627286a3473e9bf5f1395b9955952557888c5b0a743f57930dce38831c46dff",
+      "sql_sha256": "f8c6b860e815335c03ed5af4c51495902f911fad7c25ac5191a6f63ed4621df9",
       "row_count": 306,
       "columns": [
         {
@@ -653,12 +531,12 @@
           "type": "Float64"
         },
         {
-          "name": "avg_record_amount",
-          "type": "Float64"
+          "name": "average_unit_price",
+          "type": "Nullable(Float64)"
         },
         {
-          "name": "record_count",
-          "type": "UInt64"
+          "name": "sales_quantity",
+          "type": "Int64"
         }
       ],
       "value_kinds": [
@@ -673,13 +551,13 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "742c7cda3ac1021c4f4c8b0210230d3d0968f3f225c46d9a7dbf47a0f9449098",
+      "sha256": "605c7f998f5a763faa24c16110be67fcda02051c837c7918119af4b341275d71",
       "value_types": [
         "Int32",
         "String",
         "Float64",
-        "Float64",
-        "UInt64"
+        "Nullable(Float64)",
+        "Int64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -698,8 +576,8 @@
           "Int32",
           "String",
           "Float64",
-          "Float64",
-          "UInt64"
+          "Nullable(Float64)",
+          "Int64"
         ]
       },
       "selection_checks": null
@@ -707,43 +585,25 @@
     {
       "question_id": "Q14",
       "result_path": "refs/cube/Q14-1.csv",
-      "sql_sha256": "bce32a8ea87b1a1b0c28dccd1633aa91ebd44ea57da466711ea7ad4bfc3f9a89",
-      "row_count": 18869,
+      "sql_sha256": "d06d876fc451b9f3a41d2adc76bbd88853e17834db9ecd6c6e0a1b2d73b4cd54",
+      "row_count": 1,
       "columns": [
         {
-          "name": "c.CustomerKey",
-          "type": "Int32"
-        },
-        {
-          "name": "FirstName",
-          "type": "String"
-        },
-        {
-          "name": "LastName",
-          "type": "String"
-        },
-        {
-          "name": "total_spent",
-          "type": "Float64"
+          "name": "customers",
+          "type": "UInt64"
         }
       ],
       "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "amount"
+        "count"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "af4ba022c8f4bce32311d115508d298666a9f442a311c6e4ca091488759f4781",
+      "sha256": "11ed1dd79b7249e0e86d02ebed5d33362a9ab62a9fb0a63dd7a68cab7fe3194a",
       "value_types": [
-        "Int32",
-        "String",
-        "String",
-        "Float64"
+        "UInt64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -752,16 +612,10 @@
         "top_n": null,
         "tie_columns": [],
         "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "amount"
+          "count"
         ],
         "value_types": [
-          "Int32",
-          "String",
-          "String",
-          "Float64"
+          "UInt64"
         ]
       },
       "selection_checks": null
@@ -1006,84 +860,6 @@
     },
     {
       "question_id": "Q20",
-      "result_path": "refs/cube/Q20-1.csv",
-      "sql_sha256": "b3662e56e6cee9e90fc726538529a26f7f74a6c14886f55c524a25a057dad24a",
-      "row_count": 89591,
-      "columns": [
-        {
-          "name": "i.StoreKey",
-          "type": "Int32"
-        },
-        {
-          "name": "StoreName",
-          "type": "String"
-        },
-        {
-          "name": "i.ProductKey",
-          "type": "Int32"
-        },
-        {
-          "name": "ProductName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "OnHandQuantity",
-          "type": "Int32"
-        },
-        {
-          "name": "SafetyStockQuantity",
-          "type": "Int32"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "other",
-        "other",
-        "other"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "01ab85c7aac2e1ae077db8076f524a876df50c74f4a1531bf9e273692879717b",
-      "value_types": [
-        "Int32",
-        "String",
-        "Int32",
-        "Nullable(String)",
-        "Int32",
-        "Int32"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "other",
-          "other",
-          "other"
-        ],
-        "value_types": [
-          "Int32",
-          "String",
-          "Int32",
-          "Nullable(String)",
-          "Int32",
-          "Int32"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q20",
       "result_path": "refs/cube/Q20-2.csv",
       "sql_sha256": "4ee06b4ef225d1a26d3d701251cb0ce478af7b23da2fbffc6e9fcfe7199c6188",
       "row_count": 429,
@@ -1147,28 +923,23 @@
     {
       "question_id": "Q21",
       "result_path": "refs/cube/Q21-1.csv",
-      "sql_sha256": "cb09d946360984867eef114ac620c3518e2e36151e786740168952a435acf4aa",
-      "row_count": 600241,
+      "sql_sha256": "60541b551cfcea5dfa4dc489c2cf846585435018336be5d96abf03ced3f5e4ea",
+      "row_count": 306,
       "columns": [
+        {
+          "name": "s.StoreKey",
+          "type": "Int32"
+        },
         {
           "name": "StoreName",
           "type": "String"
         },
         {
-          "name": "ProductName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "OnHandQuantity",
-          "type": "Int32"
-        },
-        {
-          "name": "ProductKey",
-          "type": "Int32"
+          "name": "current_on_hand_quantity",
+          "type": "Int64"
         }
       ],
       "value_kinds": [
-        "other",
         "other",
         "other",
         "other"
@@ -1178,12 +949,11 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "86e03e3fcc9327c9e41903a8cefbea72b21492f528f33398fd5968a13b411bfb",
+      "sha256": "1c1998f0b9c14bc001704dc79a697cbaa49df37f885f3acc5cbdc28bdda67143",
       "value_types": [
-        "String",
-        "Nullable(String)",
         "Int32",
-        "Int32"
+        "String",
+        "Int64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -1194,14 +964,12 @@
         "value_kinds": [
           "other",
           "other",
-          "other",
           "other"
         ],
         "value_types": [
-          "String",
-          "Nullable(String)",
           "Int32",
-          "Int32"
+          "String",
+          "Int64"
         ]
       },
       "selection_checks": null
@@ -1688,68 +1456,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q24",
-      "result_path": "refs/cube/Q24-2.csv",
-      "sql_sha256": "02b9892957de8804d2aa151be5c442d5223fc33c28abf20d8941d5a71ea744aa",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "ProductCategoryName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "total_returns",
-          "type": "Int64"
-        },
-        {
-          "name": "total_sales",
-          "type": "Int64"
-        },
-        {
-          "name": "return_rate_pct",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count",
-        "count",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "44a9f8facea90c6a26a7bd4686c98bf06a7ee02d29834928b70de18c2f234415",
-      "value_types": [
-        "Nullable(String)",
-        "Int64",
-        "Int64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count",
-          "count",
-          "percentage"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Int64",
-          "Int64",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q25",
       "result_path": "refs/cube/Q25-1.csv",
       "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a",
@@ -1850,56 +1556,10 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q26",
-      "result_path": "refs/cube/Q26-2.csv",
-      "sql_sha256": "983ee79c2af8a95fb702f80c2883347d0995ab1295624656c87de0c482c7959d",
-      "row_count": 2,
-      "columns": [
-        {
-          "name": "quarter",
-          "type": "UInt8"
-        },
-        {
-          "name": "new_customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "5449f952d1ef281f2b093bace872f48239910500b3d382176c051c8cbbcfd243",
-      "value_types": [
-        "UInt8",
-        "UInt64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "UInt8",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q27",
       "result_path": "refs/cube/Q27-1.csv",
-      "sql_sha256": "29b6d9effe0d035dc4bf9bfb314e51babcdc98cb352443484e2014bd88c89760",
-      "row_count": 444,
+      "sql_sha256": "412ea5733b01c1c9d94101a6a3a03f33b98277c842b2a0b13ec39830cb0b3467",
+      "row_count": 12,
       "columns": [
         {
           "name": "ProductName",
@@ -1929,7 +1589,7 @@
       "tie_column": 3,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "4822554f31a1ef090bfe0d3af073fd98e255fe1959bf7a5657cdfd8ae95425c9",
+      "sha256": "e5d7d1f967a647f37eccb6736ab804de7c700bce6aee803d4d42268bbcb8dc2d",
       "value_types": [
         "String",
         "Nullable(Float64)",
@@ -1968,7 +1628,7 @@
     {
       "question_id": "Q28",
       "result_path": "refs/cube/Q28-1.csv",
-      "sql_sha256": "c96768dc686256a8292bcc5eee67d7ea1f479052d05c6fb37b4a98a6fd42f7cd",
+      "sql_sha256": "7b2bf9ea8ac2d62e12ab9891eaeb4994100e631b32dd7d82b6cf8d1362e9f50f",
       "row_count": 2,
       "columns": [
         {
@@ -1976,8 +1636,8 @@
           "type": "String"
         },
         {
-          "name": "avg_record_amount",
-          "type": "Float64"
+          "name": "average_unit_price",
+          "type": "Nullable(Float64)"
         }
       ],
       "value_kinds": [
@@ -1989,10 +1649,10 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "1e6f355ea26979e34317251088d8b045807c875a4b262743e2d95362ec0fc346",
+      "sha256": "a1e8cab982c3aa355215eb69da477503ab3d9e147eecc22bb7bd48e13facab62",
       "value_types": [
         "String",
-        "Float64"
+        "Nullable(Float64)"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -2006,7 +1666,7 @@
         ],
         "value_types": [
           "String",
-          "Float64"
+          "Nullable(Float64)"
         ]
       },
       "selection_checks": null
@@ -2288,93 +1948,9 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q33",
-      "result_path": "refs/cube/Q33-2.csv",
-      "sql_sha256": "27b963c97b6222099165029784146109ce133abdb61fe519f02e58aebee45803",
-      "row_count": 20,
-      "columns": [
-        {
-          "name": "product1_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product2_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product1",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "product2",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "co_order_count",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "other",
-        "count"
-      ],
-      "ordered": true,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "87a7e29e96989cfb571b2bde34eb55b41e565e941ad14a3cf9dce563615dd024",
-      "value_types": [
-        "Int32",
-        "Int32",
-        "Nullable(String)",
-        "Nullable(String)",
-        "UInt64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": true,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "Int32",
-          "Int32",
-          "Nullable(String)",
-          "Nullable(String)",
-          "UInt64"
-        ],
-        "order_by": [
-          {
-            "column": 4,
-            "descending": true
-          },
-          {
-            "column": 0,
-            "descending": false
-          },
-          {
-            "column": 1,
-            "descending": false
-          }
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q34",
       "result_path": "refs/cube/Q34-1.csv",
-      "sql_sha256": "5e4770bf3b06f22232b532dc67b54824a6d2179a9d95f15d385596ee487cde77",
+      "sql_sha256": "3866535f209a9afd3291451dadb5d9711f55ec72d1cae96da789117e36c15361",
       "row_count": 2504,
       "columns": [
         {
@@ -2410,7 +1986,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "78ffb508ddd5c0db1016acb1afb7657e1dbe8893f201b0b637f64b336910a031",
+      "sha256": "f78d66bb88f0fcd89eec736033f8b392f1afbd3c77268c6a5844820bd643872e",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -2558,52 +2134,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q36",
-      "result_path": "refs/cube/Q36-2.csv",
-      "sql_sha256": "f7c7d5f9b1bdcc0560dfe402d8d65c645e6598969768fb6756af44b2b27f058f",
-      "row_count": 3,
-      "columns": [
-        {
-          "name": "segment",
-          "type": "String"
-        },
-        {
-          "name": "customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "f437a4961686c39cc5d6e224b3cf01d9587d591a92fbd92401620a8758e0d127",
-      "value_types": [
-        "String",
-        "UInt64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "String",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q37",
       "result_path": "refs/cube/Q37-1.csv",
       "sql_sha256": "d4e2ae306e8fd20f079eccb0306a212e284ce939949c7ad81516bd9a25353497",
@@ -2659,8 +2189,8 @@
     },
     {
       "question_id": "Q38",
-      "result_path": "refs/cube/Q38-1.csv",
-      "sql_sha256": "011e927206f30e8321efa151548cfc9ac0dd473920ab34db26876a5bdf99cfd1",
+      "result_path": "refs/cube/Q38-2.csv",
+      "sql_sha256": "9ddf3f11a1970c9b26e070dc2222825905b4e94191bba0972fd6ddf07a299269",
       "row_count": 8,
       "columns": [
         {
@@ -2676,7 +2206,7 @@
           "type": "Float64"
         },
         {
-          "name": "error_pct",
+          "name": "accuracy_pct",
           "type": "Nullable(Float64)"
         }
       ],
@@ -2691,7 +2221,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "8a7b4fdef2ed6bc07c2052f3177f26ea3079479b82f6ca0c32ce71ca818eb920",
+      "sha256": "b112cfad106d7a47a1266bfccf7930db891acea2cf4ac3a64c7c10bd38e12067",
       "value_types": [
         "String",
         "Float64",
@@ -2798,9 +2328,87 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q39",
+      "result_path": "refs/cube/Q39-2.csv",
+      "sql_sha256": "b71028d834b2a83fce7447f6fe3e7a12ab6442719be2804bbad8ed39c007216f",
+      "row_count": 30,
+      "columns": [
+        {
+          "name": "subcategory_key",
+          "type": "Nullable(Int32)"
+        },
+        {
+          "name": "ProductSubcategoryName",
+          "type": "String"
+        },
+        {
+          "name": "introduction_date",
+          "type": "Nullable(Date)"
+        },
+        {
+          "name": "window_days",
+          "type": "Int64"
+        },
+        {
+          "name": "before_daily_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "after_daily_sales",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "other",
+        "other",
+        "amount",
+        "amount"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "c66f247647660bd665ea0353c22d2a9199a462e8879382d7fb5ecdc6ad9b53ea",
+      "value_types": [
+        "Nullable(Int32)",
+        "String",
+        "Nullable(Date)",
+        "Int64",
+        "Float64",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "amount",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(Int32)",
+          "String",
+          "Nullable(Date)",
+          "Int64",
+          "Float64",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q40",
       "result_path": "refs/cube/Q40-1.csv",
-      "sql_sha256": "41ee50ae0ee184b8c1d494b400b74f2d0ad99a3a2c66eae60d737ba602fdeec7",
+      "sql_sha256": "9fbbdcd7bc11c8f3ed04e06cc854ee4df9e7d2852b88427aa060ac23b6e17630",
       "row_count": 1,
       "columns": [
         {
@@ -2816,7 +2424,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "d8ab1e323b596c22907ac9016b3fe0779d4a5d436648905ab58b6bdfa3256ff5",
+      "sha256": "ffc85ee7b4055facb5252571836e11dff48c357ae8ac295605e96ddf63adc4fb",
       "value_types": [
         "Float64"
       ],
@@ -3168,7 +2776,7 @@
     {
       "question_id": "Q45",
       "result_path": "refs/cube/Q45-1.csv",
-      "sql_sha256": "009ad92e85439a3293b785e63bbfb9546893ee7aff188e38438a96e6a787faa5",
+      "sql_sha256": "9583c3f0d1df5bbc81685e966b77955f4cd7f8794596e119cf1a4763ddc19a1f",
       "row_count": 306,
       "columns": [
         {
@@ -3199,7 +2807,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "30e424185d6eb6bb24f3e31a94461ba5c24260f8c2580efbd21b136cdaa4c2b6",
+      "sha256": "577c8d5ffcaa23c8727e9a13bbe5a748855b84d71039592312d3a1b3ddb65327",
       "value_types": [
         "String",
         "Float64",
@@ -3390,7 +2998,7 @@
     {
       "question_id": "Q48",
       "result_path": "refs/cube/Q48-1.csv",
-      "sql_sha256": "6f8b5042be0f7754a83ab2368874be03f0dc9dbf0fecabe9fd1a691562963473",
+      "sql_sha256": "e681b67da2cb0fe811cdc907380df1a747df8fdc6472bbb69d6c999696849988",
       "row_count": 2,
       "columns": [
         {
@@ -3416,7 +3024,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "4dfb942b6940f22a2402dbf4a554111ddf2b1e5dddeb263827dc7b148deded2d",
+      "sha256": "ce98fb687893bff90954ebf1d19e688d00a4a02d1d4471d1085062eb02f111fd",
       "value_types": [
         "String",
         "Float64",
@@ -3444,7 +3052,45 @@
     {
       "question_id": "Q48",
       "result_path": "refs/cube/Q48-2.csv",
-      "sql_sha256": "b52d90932128204330f5674c1923f6ce0cd868ef7799920850136564423dd5bc",
+      "sql_sha256": "8f31c6b657630a35748cda84324c089ae09a6c6cc8660fccac7ac3904f135cd4",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "correlation",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "ratio"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "0eebc49bad5ee0d61d58bab1e64ef80e7e5e849e2b2c8e6da9f33cd82ea5e9b5",
+      "value_types": [
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio"
+        ],
+        "value_types": [
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q48",
+      "result_path": "refs/cube/Q48-3.csv",
+      "sql_sha256": "6eb1af10d91e36c4e7c546147fba39a1fb54bdd7a74aa1a447be26d96160a546",
       "row_count": 1,
       "columns": [
         {
@@ -3460,7 +3106,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "7b563514e213b98738e49b741b3614048df9305cbb6fadb0d6f03c075c3f3744",
+      "sha256": "7d78e21a04c7b1a5f7f0f126158e44314db91f362c3526add477504e204adc35",
       "value_types": [
         "Nullable(Float64)"
       ],
@@ -3475,60 +3121,6 @@
         ],
         "value_types": [
           "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q49",
-      "result_path": "refs/cube/Q49-1.csv",
-      "sql_sha256": "a6b5c77843581c564fd37a1293ba15e53a2d462f4cb8f8857b5f35c4ea607dc4",
-      "row_count": 3,
-      "columns": [
-        {
-          "name": "e.EntityKey",
-          "type": "Int32"
-        },
-        {
-          "name": "EntityName",
-          "type": "String"
-        },
-        {
-          "name": "total_amount",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "7dc44c63fbbeda1ef54938bc9c5507f6a704bc9a8978fc8db64836c4f81053c9",
-      "value_types": [
-        "Int32",
-        "String",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "amount"
-        ],
-        "value_types": [
-          "Int32",
-          "String",
-          "Float64"
         ]
       },
       "selection_checks": null
@@ -4068,52 +3660,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q61",
-      "result_path": "refs/cube/Q61-2.csv",
-      "sql_sha256": "272fbd488fe916f5db34ccad2ad1466556ca88a376b60489a0733979addc68d3",
-      "row_count": 30,
-      "columns": [
-        {
-          "name": "ProductSubcategoryName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "total_sales",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "d17c2cc706f7faba6c2edf8e5fb870d248fe4c5e842d87fd344bad5507e1ae01",
-      "value_types": [
-        "Nullable(String)",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q62",
       "result_path": "refs/cube/Q62-1.csv",
       "sql_sha256": "46b961b0aba293d0957a8664fa6caea187e52e795fec9be3fa25233bc66a86ed",
@@ -4143,60 +3689,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "0d324e03ee09821507ef6e9715a1eaaad54156315dbfe96832c2ced4bf96f686",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Int64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "count"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Int64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q62",
-      "result_path": "refs/cube/Q62-2.csv",
-      "sql_sha256": "0cfa6f2c3c90ff0fc6633a71a1a1358d20030ca1dde03f5034400f4226fe1f00",
-      "row_count": 11,
-      "columns": [
-        {
-          "name": "BrandName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "revenue",
-          "type": "Float64"
-        },
-        {
-          "name": "units",
-          "type": "Int64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "05131cef8bd99116c694bfe291a902897febbd05845ed108b88074608a92e226",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -4331,12 +3823,12 @@
     },
     {
       "question_id": "Q65",
-      "result_path": "refs/cube/Q65-1.csv",
-      "sql_sha256": "5cbfdf8db80944a7c35fe2f8e476c87f959b3da4b98ba2072517361a0f60f6b3",
+      "result_path": "refs/cube/Q65-2.csv",
+      "sql_sha256": "7c37f810c5cee55dfa448192df8af8051e331ff4f3d3f711d953d289cfbdddc4",
       "row_count": 303,
       "columns": [
         {
-          "name": "StoreManager",
+          "name": "manager_name",
           "type": "Nullable(String)"
         },
         {
@@ -4358,7 +3850,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "c3a33bfb872ad9ffdd037b274b9878221fa1fedd4ca5df59b90d3e787ac80977",
+      "sha256": "0bb13be7f5236c4e1af7ba72e4f2ac8067a2b0fd0ed4eb831f4bc1d486ba8fdb",
       "value_types": [
         "Nullable(String)",
         "String",
@@ -4386,7 +3878,7 @@
     {
       "question_id": "Q66",
       "result_path": "refs/cube/Q66-1.csv",
-      "sql_sha256": "5ad683444c9e6d545b231cebd25b586d610c97cc6aeccf7a5e8b8313f24a7ac5",
+      "sql_sha256": "89bbdd9badab52be6ff5cb2d0a74824db949c9a007e67f8c02b11809c89b7fa4",
       "row_count": 4,
       "columns": [
         {
@@ -4396,27 +3888,21 @@
         {
           "name": "total_discount",
           "type": "Float64"
-        },
-        {
-          "name": "discounted_orders",
-          "type": "UInt64"
         }
       ],
       "value_kinds": [
         "other",
-        "amount",
-        "count"
+        "amount"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "5d9ee814ff3ffc5e66cf404db12fd702785756677ee317ebd6a0e1f1df0c52a8",
+      "sha256": "14961e49e9c496657d2b172514268502b87b56c1ef9bc4dc8964fe30f4fbcffd",
       "value_types": [
         "UInt8",
-        "Float64",
-        "UInt64"
+        "Float64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -4426,13 +3912,11 @@
         "tie_columns": [],
         "value_kinds": [
           "other",
-          "amount",
-          "count"
+          "amount"
         ],
         "value_types": [
           "UInt8",
-          "Float64",
-          "UInt64"
+          "Float64"
         ]
       },
       "selection_checks": null
@@ -4467,66 +3951,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "0a66b6453e22212fc403e27d5aa38feeae03b89dbe0933c5819b15e5bd4ce0ca",
-      "value_types": [
-        "Nullable(String)",
-        "Nullable(Float64)",
-        "Int64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": true,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "count"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Nullable(Float64)",
-          "Int64"
-        ],
-        "order_by": [
-          {
-            "column": 1,
-            "descending": true
-          }
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q67",
-      "result_path": "refs/cube/Q67-2.csv",
-      "sql_sha256": "d976feae9173889f4241e7a4f92cd155220cb22e38e3da3db25965eb5757725a",
-      "row_count": 17,
-      "columns": [
-        {
-          "name": "ColorName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "avg_realized_price",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "units",
-          "type": "Int64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "count"
-      ],
-      "ordered": true,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "c52baa1fcf255bca3c217325a89f66a31123c8575a00d1d323afdd68c104d53c",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -4680,74 +4104,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q69",
-      "result_path": "refs/cube/Q69-2.csv",
-      "sql_sha256": "9f34350244e0d67a65c950569e5ed9e078b74d0365944b1588ab8a54dc810efc",
-      "row_count": 1,
-      "columns": [
-        {
-          "name": "PromotionCategory",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "revenue",
-          "type": "Float64"
-        },
-        {
-          "name": "total_discount",
-          "type": "Float64"
-        },
-        {
-          "name": "avg_discount_pct",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "amount",
-        "percentage"
-      ],
-      "ordered": true,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "6d99d3b1bb6665ae4f48de5fa323f55ea0bd21472a5e1d39a30ebd56c8e3cfa2",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Float64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": true,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "amount",
-          "percentage"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Float64",
-          "Nullable(Float64)"
-        ],
-        "order_by": [
-          {
-            "column": 1,
-            "descending": true
-          }
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q70",
       "result_path": "refs/cube/Q70-1.csv",
       "sql_sha256": "6dfa3daa4f832880a8d3e0f3af321b6d38cf8d499ef0162935bfd9633ab6f6dc",
@@ -4812,7 +4168,7 @@
     {
       "question_id": "Q71",
       "result_path": "refs/cube/Q71-1.csv",
-      "sql_sha256": "bab437c87dadf70502c9c747209fc499d45f78df027bb538dc4cccf1582e35fa",
+      "sql_sha256": "2a0e18f62b3e1305234f11585e13137d0915ddb5b64eb224f5af47469b638f65",
       "row_count": 9,
       "columns": [
         {
@@ -4838,7 +4194,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "e80f40db663a77f97e26f05bc429a5e65f6d524fb06848a3400647112b057aa4",
+      "sha256": "6d70d67eef83dafe9199698be66a2e15db926fa40c5272a7e3dfb677fa319761",
       "value_types": [
         "Nullable(String)",
         "Nullable(String)",
@@ -4963,158 +4319,6 @@
               null
             ],
             "objects": 1,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          }
-        ]
-      ]
-    },
-    {
-      "question_id": "Q71",
-      "result_path": "refs/cube/Q71-2.csv",
-      "sql_sha256": "5afc611b90363e61ca7638bc71d36d4622ffbe0524a901fc240c5ed95237331f",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "subcategory",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "sales_amount",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": "selection",
-      "postprocess_details": null,
-      "sha256": "1eb91711748f5de6336612991ad0d505fc815596f2fa4cbd2bd29be299277777",
-      "value_types": [
-        "Nullable(String)",
-        "Nullable(String)",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "amount"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Nullable(String)",
-          "Float64"
-        ],
-        "selection": {
-          "version": 1,
-          "stages": [
-            {
-              "parent": null,
-              "where": [],
-              "group_columns": [
-                0
-              ],
-              "object_columns": [
-                1
-              ],
-              "order_by": [
-                {
-                  "column": 2,
-                  "descending": true
-                }
-              ],
-              "n": 1
-            }
-          ],
-          "output_order": []
-        }
-      },
-      "selection_checks": [
-        [
-          {
-            "group": [
-              "Audio"
-            ],
-            "objects": 3,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Cameras and camcorders"
-            ],
-            "objects": 4,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Cell phones"
-            ],
-            "objects": 4,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Computers"
-            ],
-            "objects": 5,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Games and Toys"
-            ],
-            "objects": 1,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Home Appliances"
-            ],
-            "objects": 8,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "Music, Movies and Audio Books"
-            ],
-            "objects": 1,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              "TV and Video"
-            ],
-            "objects": 4,
             "required": 1,
             "strict": 0,
             "boundary": 1
@@ -8117,7 +7321,7 @@
     {
       "question_id": "Q75",
       "result_path": "refs/cube/Q75-1.csv",
-      "sql_sha256": "4d96fb928a90e776ee90c3a94d09332c617a54512f80670427f1eb9a5bd8d83b",
+      "sql_sha256": "f2c4d9b6360803137e803ef304f22842320b0905fe061a1ab7679d4974836bd4",
       "row_count": 1470,
       "columns": [
         {
@@ -8187,7 +7391,7 @@
     {
       "question_id": "Q76",
       "result_path": "refs/cube/Q76-1.csv",
-      "sql_sha256": "6b15e9da0d0ecdc7984db2db104db3d69db85d7621d07472151e065d54d66b69",
+      "sql_sha256": "0d4633fd4be84bb3f6ffc9ae1d824c74200b347f0c7f57a0fbb9f76f86c5fca3",
       "row_count": 9,
       "columns": [
         {
@@ -8277,55 +7481,9 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q76",
-      "result_path": "refs/cube/Q76-3.csv",
-      "sql_sha256": "8eaf0088c385da7e6218c7bd36995e9dc0b5ab40d2a0f23ea03a08708b038ff1",
-      "row_count": 9,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "pct_repeat_customer_sales",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "24ce1c15fcb0c3e43f4d3c5f956775c3734b2d8d9363b9471b35a241ec14f31b",
-      "value_types": [
-        "Nullable(String)",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "percentage"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q77",
       "result_path": "refs/cube/Q77-1.csv",
-      "sql_sha256": "1da942dacf58a1e5b79c5322127814f22fb11c0039abc4c0f901f024e20c0f62",
+      "sql_sha256": "4e80fc9a22179f8f9d7b88f79e911d11a9058c381f9293afe558dc99edc536d4",
       "row_count": 12,
       "columns": [
         {
@@ -8356,7 +7514,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "43eb10f493b3ab028c0ad72d7fb1a0e105cd57228da1e74861275733e2ae54d3",
+      "sha256": "d356465a94eabbfe7492d1dc6f2ca353f9fb08bef9b6631961281db469f73c69",
       "value_types": [
         "UInt8",
         "Float64",
@@ -8455,7 +7613,7 @@
     {
       "question_id": "Q79",
       "result_path": "refs/cube/Q79-1.csv",
-      "sql_sha256": "b77e29f25761f205d396500aa185d7d6fff1ec199ab782847d68d8b1ceae461d",
+      "sql_sha256": "fea2a333c2aca94a73f0e57d608a139f6849202a0cfaf31b4d8fcd5fcaf71790",
       "row_count": 42,
       "columns": [
         {
@@ -8486,7 +7644,7 @@
       "tie_column": 3,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6e91867ce968ae63e87a3a41863e806f8836a50ebcbd01d352ef6bcdb77dd172",
+      "sha256": "587696213039fe8c3e9832169bb924fa2bdc95da875ddd8982609cfe2edbbd21",
       "value_types": [
         "String",
         "Float64",
@@ -8525,7 +7683,7 @@
     {
       "question_id": "Q80",
       "result_path": "refs/cube/Q80-1.csv",
-      "sql_sha256": "b8ff395acfb5195fd4e837f3524b979593c2c704c099c1ac7a6060e91f0776a6",
+      "sql_sha256": "392e6879b896e2f503f4a645da66f9a318d48126b3d181907d66202e62827b22",
       "row_count": 29,
       "columns": [
         {
@@ -8552,60 +7710,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "f9d3d3da5917ca836251ba1851dc1875ac55a7f2f7880970ae3d7791ebce05c1",
-      "value_types": [
-        "String",
-        "UInt64",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count",
-          "other"
-        ],
-        "value_types": [
-          "String",
-          "UInt64",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q80",
-      "result_path": "refs/cube/Q80-2.csv",
-      "sql_sha256": "de0fe6fe906835e76f7e6d36a89e9a2e80c58fd95032a1d784ceacee36d9f219",
-      "row_count": 29,
-      "columns": [
-        {
-          "name": "country",
-          "type": "String"
-        },
-        {
-          "name": "n_customers",
-          "type": "UInt64"
-        },
-        {
-          "name": "avg_active_days",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count",
-        "other"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "0238aa6928c8a2b936bc371ce9d622aaa7fad568e00062326a5a84f882cf9da5",
       "value_types": [
         "String",
         "UInt64",
@@ -8875,9 +7979,75 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q84",
+      "result_path": "refs/cube/Q84-2.csv",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+      "row_count": 3,
+      "columns": [
+        {
+          "name": "abc_class",
+          "type": "String"
+        },
+        {
+          "name": "product_count",
+          "type": "UInt64"
+        },
+        {
+          "name": "revenue",
+          "type": "Float64"
+        },
+        {
+          "name": "pct_of_revenue",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "count",
+        "amount",
+        "percentage"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": "abc_groups_after",
+      "postprocess_details": {
+        "domain_rows": 2504,
+        "same_amount_groups": 2504,
+        "quantized_total_revenue": "857728031.41"
+      },
+      "sha256": "3550c3951229ff3ff7c8bd59c9fbe2c2e738a48b60d5d8d512322708ca71176c",
+      "value_types": [
+        "String",
+        "UInt64",
+        "Float64",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "count",
+          "amount",
+          "percentage"
+        ],
+        "value_types": [
+          "String",
+          "UInt64",
+          "Float64",
+          "Float64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q85",
       "result_path": "refs/cube/Q85-1.csv",
-      "sql_sha256": "d97ca6ac17e67ba2aeac6a6d22bbab9d78e00f7a5c7e1951dae4d4bf249d7245",
+      "sql_sha256": "fabe6437b34fbaddcdd6fa7ac19762521e72ddf19ad8700a877dfba22368f742",
       "row_count": 97,
       "columns": [
         {
@@ -8913,7 +8083,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "8bed3945878e0a68d83c43ab115b5aaf158ca9e6042c0f8ebaf9e9a901a02ca5",
+      "sha256": "fec3acb85dbf0666c6ebb0aaf49015f6ea403106bf01ec806482f4ea41ca24d6",
       "value_types": [
         "String",
         "String",
@@ -9039,8 +8209,8 @@
     {
       "question_id": "Q86",
       "result_path": "refs/cube/Q86-1.csv",
-      "sql_sha256": "77377039e250415dd22a3063c5a12888490b771f0254f0b3d6f55a433bc6f98c",
-      "row_count": 20,
+      "sql_sha256": "5250636b8612800eacf5a51222f1482c859e54a64c228162ca69a373fdb3a34f",
+      "row_count": 31,
       "columns": [
         {
           "name": "ProductSubcategoryName",
@@ -9065,7 +8235,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "ffc2e3eb46130ffae8a52548f50bbfcc99a0334c126ffb1b74ad713866cfa031",
+      "sha256": "8bf6ded4e1fbecc67f5e0aed3431c19d294fbdfbb5975b13dedd6f775edf6233",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -9092,9 +8262,9 @@
     },
     {
       "question_id": "Q86",
-      "result_path": "refs/cube/Q86-2.csv",
-      "sql_sha256": "55b8490be461d7c030cc0d65ea9453acd39f000eeced06df38305f3edeb9c21b",
-      "row_count": 19,
+      "result_path": "refs/cube/Q86-3.csv",
+      "sql_sha256": "139a8cfab2f6bb45d7f6836cb1c8974ccf9deb6e0b1ef884c5351b06d6e28634",
+      "row_count": 31,
       "columns": [
         {
           "name": "ProductSubcategoryName",
@@ -9119,7 +8289,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "6acb2a56ec6fd812caec46965040e6386f6d7da78c7326664dc52fcf085ae149",
+      "sha256": "3f696393113ae68b69e97e77bd6d3916c3dce347166ff9049347d98507ed5572",
       "value_types": [
         "Nullable(String)",
         "Nullable(Float64)",
@@ -9147,7 +8317,7 @@
     {
       "question_id": "Q87",
       "result_path": "refs/cube/Q87-1.csv",
-      "sql_sha256": "e30510dbb8363ecfb58df56742ab4325898833c34775ab6c153c76eb086ab555",
+      "sql_sha256": "8fa3caf32d462e28184172a8b76a30deabf7b25c848941496315e02aef23e817",
       "row_count": 20,
       "columns": [
         {
@@ -9183,7 +8353,7 @@
       "tie_column": 3,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "583928c6a84301183a640fa433ebca9526ea492f4d01ce7bb34d7bbb33a8d94f",
+      "sha256": "106623dd19b35c7a0a3c02daefaf9fc1300640ca6095feda7b5db6871ee9298a",
       "value_types": [
         "Nullable(String)",
         "Int64",
@@ -9225,7 +8395,7 @@
     {
       "question_id": "Q88",
       "result_path": "refs/cube/Q88-1.csv",
-      "sql_sha256": "2b396166f67044dbca459672d0e3b21170d52f813378d46befa1bbebb863f528",
+      "sql_sha256": "15fef95f8339d6e6469d45d6209b8bbfa37b7234af5ec84bd6bfd31a7998830b",
       "row_count": 26,
       "columns": [
         {
@@ -9246,7 +8416,7 @@
       "tie_column": 1,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "8dc2e55d34f2f58a1c96c6a8c3d789530f8ea06b4ecd549368e53791079c675e",
+      "sha256": "4fd7552149234d21a22c843ad8594746b41ab96fae047aa024257de2583e177b",
       "value_types": [
         "String",
         "Float64"
@@ -9311,68 +8481,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "6440e687f275fb6ca7917711fff0589ab2510b980facb1cebe336120e9366dcc",
-      "value_types": [
-        "String",
-        "UInt64",
-        "Float64",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count",
-          "amount",
-          "other"
-        ],
-        "value_types": [
-          "String",
-          "UInt64",
-          "Float64",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q89",
-      "result_path": "refs/cube/Q89-2.csv",
-      "sql_sha256": "2784a1ed6274819d8259a072803abf4e120c580b1f630ad2c1de898e6a1b3dd0",
-      "row_count": 3,
-      "columns": [
-        {
-          "name": "segment",
-          "type": "String"
-        },
-        {
-          "name": "customers",
-          "type": "UInt64"
-        },
-        {
-          "name": "avg_spend",
-          "type": "Float64"
-        },
-        {
-          "name": "avg_distinct_products",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count",
-        "amount",
-        "other"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "4d2485c87cdfd47e92662f71a5a026f2359deb351f3df4c461183318b360d008",
       "value_types": [
         "String",
         "UInt64",
@@ -9479,84 +8587,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q90",
-      "result_path": "refs/cube/Q90-2.csv",
-      "sql_sha256": "e572c0eaf02ff0d0fb43d42e39afe2a3c14627d8cf4b40d392be68208afc996c",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "margin_2007_pct",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "margin_2008_pct",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "margin_2009_pct",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "delta_08_07_pp",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "delta_09_08_pp",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "percentage",
-        "percentage",
-        "percentage",
-        "percentage",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "c927aa9b655caa1ed83f679f5a13947ea99b7586334a29c03e9d8100803d2119",
-      "value_types": [
-        "Nullable(String)",
-        "Nullable(Float64)",
-        "Nullable(Float64)",
-        "Nullable(Float64)",
-        "Nullable(Float64)",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "percentage",
-          "percentage",
-          "percentage",
-          "percentage",
-          "percentage"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Nullable(Float64)",
-          "Nullable(Float64)",
-          "Nullable(Float64)",
-          "Nullable(Float64)",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q91",
       "result_path": "refs/cube/Q91-1.csv",
       "sql_sha256": "253eca2c0bf56c1dab0d9fea31950bd6bdac2ac323091e0a0c6925e0f9ee77ec",
@@ -9603,9 +8633,55 @@
       "selection_checks": null
     },
     {
+      "question_id": "Q91",
+      "result_path": "refs/cube/Q91-2.csv",
+      "sql_sha256": "ee0b9c35b2c6206ef54ee0d3a70491b7642d1e23137f4c435aff088c528c8584",
+      "row_count": 1,
+      "columns": [
+        {
+          "name": "income_spend_correlation",
+          "type": "Nullable(Float64)"
+        },
+        {
+          "name": "customers_analyzed",
+          "type": "UInt64"
+        }
+      ],
+      "value_kinds": [
+        "ratio",
+        "count"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "3adcedd1379b25c81c7c0e9678443f349e700a6f263eada3d098661c8153850c",
+      "value_types": [
+        "Nullable(Float64)",
+        "UInt64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "ratio",
+          "count"
+        ],
+        "value_types": [
+          "Nullable(Float64)",
+          "UInt64"
+        ]
+      },
+      "selection_checks": null
+    },
+    {
       "question_id": "Q92",
       "result_path": "refs/cube/Q92-1.csv",
-      "sql_sha256": "245e106bfbb71f1c76c0e0633bd61f0b338997ec9d27d639e293fa992546ccee",
+      "sql_sha256": "157ea93a73c3520ac835b261bf4cf074d20f0c37d236b97e97326d1fe05afa8b",
       "row_count": 11,
       "columns": [
         {
@@ -9636,7 +8712,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "0714e22ab85c15bd08fb9404dcb3ef98201c60efc3d8f7b28f01e256d3939f9f",
+      "sha256": "40b514b4779c9cb9cdf08008bb131d931798be23c7a4eadd04e1a5586820d7c3",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -9663,7 +8739,7 @@
         ],
         "order_by": [
           {
-            "column": 2,
+            "column": 3,
             "descending": true
           }
         ]
@@ -9795,7 +8871,7 @@
     {
       "question_id": "Q95",
       "result_path": "refs/cube/Q95-1.csv",
-      "sql_sha256": "26bd671aed6999035111610632377c34444637124a03f6be1a8faa9c198e5a6d",
+      "sql_sha256": "0877441a980d72524d6cf0b12ca480e85c49f9656689340ff32d9987fc75770a",
       "row_count": 9,
       "columns": [
         {
@@ -9803,19 +8879,15 @@
           "type": "Nullable(String)"
         },
         {
-          "name": "promo_revenue",
+          "name": "promo_average_sales",
           "type": "Float64"
         },
         {
-          "name": "full_price_revenue",
+          "name": "full_price_average_sales",
           "type": "Float64"
         },
         {
-          "name": "promo_to_fullprice_ratio",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "total_discount_given",
+          "name": "incremental_average_sales",
           "type": "Float64"
         }
       ],
@@ -9823,7 +8895,6 @@
         "other",
         "amount",
         "amount",
-        "ratio",
         "amount"
       ],
       "ordered": false,
@@ -9831,12 +8902,11 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "29f32d5a266e0f75320e85853771e952b57086b0686bc53ddaa3280d57510d34",
+      "sha256": "5789053e8674bc5b3b942d43980f1a399698ba9cdc6e5364c337a952df7de941",
       "value_types": [
         "Nullable(String)",
         "Float64",
         "Float64",
-        "Nullable(Float64)",
         "Float64"
       ],
       "value_kind_source": "inferred",
@@ -9849,84 +8919,12 @@
           "other",
           "amount",
           "amount",
-          "ratio",
           "amount"
         ],
         "value_types": [
           "Nullable(String)",
           "Float64",
           "Float64",
-          "Nullable(Float64)",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q95",
-      "result_path": "refs/cube/Q95-2.csv",
-      "sql_sha256": "f89575e0da33df9fd884ea300b9a30f2680c0d27595470788650a92ac46f397e",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "ProductCategoryName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "promo_revenue",
-          "type": "Float64"
-        },
-        {
-          "name": "full_price_revenue",
-          "type": "Float64"
-        },
-        {
-          "name": "promo_to_fullprice_ratio",
-          "type": "Nullable(Float64)"
-        },
-        {
-          "name": "total_discount_given",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "amount",
-        "ratio",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "50e707ccdb3c7a20774fe9881b7d9432a3609d34fb4a9ff3e45db1ad587288f6",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Float64",
-        "Nullable(Float64)",
-        "Float64"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "amount",
-          "ratio",
-          "amount"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Float64",
-          "Nullable(Float64)",
           "Float64"
         ]
       },
@@ -10759,68 +9757,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q99",
-      "result_path": "refs/cube/Q99-2.csv",
-      "sql_sha256": "a2b33465cc722fbf56843abc696136e680622c4694431c279ccb673e5c7734ab",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "ProductCategoryName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "avg_weekend_day_sales",
-          "type": "Float64"
-        },
-        {
-          "name": "avg_weekday_sales",
-          "type": "Float64"
-        },
-        {
-          "name": "weekend_lift_pct",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "amount",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "0af7f194ba661e5aab84f5dc80190027cc9d495a30a852aff9269d4244a38f5f",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Float64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "inferred",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "amount",
-          "percentage"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Float64",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q100",
       "result_path": "refs/cube/Q100-1.csv",
       "sql_sha256": "32383d97b91ce7c7663e2b8f999fbc6fcd38dd692e5cc3f780fad25e7bf0069c",
@@ -10958,52 +9894,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "6aaa4efd25becd1e737d217440e8d9864549826deee277a1dfd681f5e4abf76b",
-      "value_types": [
-        "Nullable(String)",
-        "Float64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q102",
-      "result_path": "refs/new/Q102-2.csv",
-      "sql_sha256": "0d6bd0e00f1dd5c34a45349062f04aebd968208a1323747bf25f3e34d51c0b3f",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "net_sales_amount",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "42f2c0cae6e176ce753a9536cba7e6a8e3e60a14a60d24ad880bea4de38909bf",
       "value_types": [
         "Nullable(String)",
         "Float64"
@@ -11618,144 +10508,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q114",
-      "result_path": "refs/new/Q114-2.csv",
-      "sql_sha256": "3620e8b3777f7fac8786d394121a3ce5e11d301caa59a6cddf19709140e3e94e",
-      "row_count": 6,
-      "columns": [
-        {
-          "name": "cutoff",
-          "type": "Date"
-        },
-        {
-          "name": "new_customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "092132f66eb58bfb1025e5516fc613979a41c362a1f3a8ff2b15393052a840dc",
-      "value_types": [
-        "Date",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "Date",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q114",
-      "result_path": "refs/new/Q114-3.csv",
-      "sql_sha256": "e3a49f46b61129d894993446bd90cbe116e757ba442ef103d874d2e5f6e5aedb",
-      "row_count": 6,
-      "columns": [
-        {
-          "name": "cutoff",
-          "type": "Date"
-        },
-        {
-          "name": "new_customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "30f817afa9f56d497168fe6b19e76b3119f0b8b029d5f6f71841284dbba5bad3",
-      "value_types": [
-        "Date",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "Date",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q114",
-      "result_path": "refs/new/Q114-4.csv",
-      "sql_sha256": "c0d834858a376a714ee005f9054467c4718cb280a304d2ad29342923402304d6",
-      "row_count": 6,
-      "columns": [
-        {
-          "name": "cutoff",
-          "type": "Date"
-        },
-        {
-          "name": "new_customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "623f30b446090a9af984be01743d4b80371398d245f1c3ac0ba0b58bdcaa8f03",
-      "value_types": [
-        "Date",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "Date",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q115",
       "result_path": "refs/new/Q115-1.csv",
       "sql_sha256": "e7bf6fb48001c3f2bb853b389abe3c57b181bc5c97a206349af7bae5a57e0587",
@@ -11810,60 +10562,6 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q115",
-      "result_path": "refs/new/Q115-2.csv",
-      "sql_sha256": "1fddd44a2987155a34a9a4794d862047b21bfd41b40f6a8f1d1fd2a8f124aca0",
-      "row_count": 9,
-      "columns": [
-        {
-          "name": "a.old_state",
-          "type": "String"
-        },
-        {
-          "name": "b.new_state",
-          "type": "String"
-        },
-        {
-          "name": "customers",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "count"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "48074a3839df1fc183ddff317d36613b3121105b644c25764ac4f09a1f08d06c",
-      "value_types": [
-        "String",
-        "String",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "count"
-        ],
-        "value_types": [
-          "String",
-          "String",
-          "UInt64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q116",
       "result_path": "refs/new/Q116-1.csv",
       "sql_sha256": "93272fc9c6b680e1989321cede2d834f747ef7111ad7db88974932bb9428fbe7",
@@ -11888,52 +10586,6 @@
       "postprocess": null,
       "postprocess_details": null,
       "sha256": "bf80a8cf05706d7774e794363eff200dbedd4350ca8c4457523e513fe103e2ca",
-      "value_types": [
-        "Date",
-        "Float64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "percentage"
-        ],
-        "value_types": [
-          "Date",
-          "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q116",
-      "result_path": "refs/new/Q116-2.csv",
-      "sql_sha256": "d6653afc624653381eb2a73219ede3024baf75b496d25219138e36a460ec8709",
-      "row_count": 5,
-      "columns": [
-        {
-          "name": "cohort_month",
-          "type": "Date"
-        },
-        {
-          "name": "repurchase_pct",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "percentage"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "2ea3022daccf544d2fd9e4d21251896f63cbe68ba17fe7a591eedcec2e93fb94",
       "value_types": [
         "Date",
         "Float64"
@@ -15271,2869 +13923,6 @@
       ]
     },
     {
-      "question_id": "Q119",
-      "result_path": "refs/new/Q119-2.csv",
-      "sql_sha256": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22",
-      "row_count": 310,
-      "columns": [
-        {
-          "name": "StoreKey",
-          "type": "Int32"
-        },
-        {
-          "name": "StoreName",
-          "type": "String"
-        },
-        {
-          "name": "ProductKey",
-          "type": "Int32"
-        },
-        {
-          "name": "ProductName",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "product_sales",
-          "type": "Float64"
-        },
-        {
-          "name": "global_rank",
-          "type": "UInt64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "other",
-        "other",
-        "amount",
-        "other"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": "product_rank_dense",
-      "postprocess_details": {
-        "domain_rows": 358107,
-        "products": 2504,
-        "rank_method": "product_rank_dense",
-        "quantized_ranking": true
-      },
-      "sha256": "f0daab86dbaa3d7e0147d45646380ce69de13572e45ba52c15236212da8d3688",
-      "value_types": [
-        "Int32",
-        "String",
-        "Int32",
-        "Nullable(String)",
-        "Float64",
-        "UInt64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "other",
-          "other",
-          "amount",
-          "other"
-        ],
-        "value_types": [
-          "Int32",
-          "String",
-          "Int32",
-          "Nullable(String)",
-          "Float64",
-          "UInt64"
-        ],
-        "selection": {
-          "version": 1,
-          "stages": [
-            {
-              "parent": null,
-              "where": [],
-              "group_columns": [
-                0
-              ],
-              "object_columns": [
-                2
-              ],
-              "order_by": [
-                {
-                  "column": 4,
-                  "descending": true
-                }
-              ],
-              "n": 1
-            }
-          ],
-          "output_order": []
-        }
-      },
-      "selection_checks": [
-        [
-          {
-            "group": [
-              1
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              10
-            ],
-            "objects": 1099,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              100
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              101
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              102
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              103
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              104
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              105
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              107
-            ],
-            "objects": 1083,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              108
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              109
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              11
-            ],
-            "objects": 1091,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              110
-            ],
-            "objects": 1075,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              111
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              112
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              113
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              114
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              115
-            ],
-            "objects": 1088,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              116
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              117
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              118
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              119
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              12
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              120
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              121
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              122
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              123
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              124
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              125
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              126
-            ],
-            "objects": 1043,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              127
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              128
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              129
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              13
-            ],
-            "objects": 1087,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              130
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              131
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              132
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              133
-            ],
-            "objects": 1003,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              134
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              135
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              136
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              137
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              138
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              139
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              14
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              140
-            ],
-            "objects": 1035,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              141
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              142
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              143
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              144
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              145
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              146
-            ],
-            "objects": 1074,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              147
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              148
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              149
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              15
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              150
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              151
-            ],
-            "objects": 1084,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              152
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              153
-            ],
-            "objects": 1036,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              154
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              155
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              156
-            ],
-            "objects": 1033,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              157
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              158
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              159
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              16
-            ],
-            "objects": 1047,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              160
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              161
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              162
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              163
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              164
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              165
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              166
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              167
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              168
-            ],
-            "objects": 1049,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              169
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              17
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              170
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              171
-            ],
-            "objects": 1049,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              172
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              173
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              174
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              175
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              176
-            ],
-            "objects": 1055,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              177
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              178
-            ],
-            "objects": 1084,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              179
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              18
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              180
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              181
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              182
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              183
-            ],
-            "objects": 1074,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              184
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              185
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              186
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              187
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              188
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              189
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              19
-            ],
-            "objects": 1090,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              190
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              191
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              192
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              193
-            ],
-            "objects": 1086,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              194
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              195
-            ],
-            "objects": 1079,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              196
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              197
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              198
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              199
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              2
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              20
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              200
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              201
-            ],
-            "objects": 984,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              202
-            ],
-            "objects": 979,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              203
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              204
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              205
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              206
-            ],
-            "objects": 959,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              207
-            ],
-            "objects": 982,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              208
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              209
-            ],
-            "objects": 967,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              21
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              210
-            ],
-            "objects": 943,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              211
-            ],
-            "objects": 974,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              212
-            ],
-            "objects": 966,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              213
-            ],
-            "objects": 936,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              214
-            ],
-            "objects": 984,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              215
-            ],
-            "objects": 963,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              216
-            ],
-            "objects": 897,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              217
-            ],
-            "objects": 986,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              218
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              219
-            ],
-            "objects": 965,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              22
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              220
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              221
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              222
-            ],
-            "objects": 931,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              223
-            ],
-            "objects": 509,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              224
-            ],
-            "objects": 1004,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              225
-            ],
-            "objects": 958,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              226
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              227
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              228
-            ],
-            "objects": 892,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              23
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              230
-            ],
-            "objects": 930,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              231
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              232
-            ],
-            "objects": 938,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              233
-            ],
-            "objects": 974,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              234
-            ],
-            "objects": 936,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              235
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              236
-            ],
-            "objects": 960,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              237
-            ],
-            "objects": 970,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              238
-            ],
-            "objects": 966,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              239
-            ],
-            "objects": 971,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              24
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              240
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              241
-            ],
-            "objects": 963,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              242
-            ],
-            "objects": 958,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              243
-            ],
-            "objects": 954,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              244
-            ],
-            "objects": 961,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              245
-            ],
-            "objects": 981,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              246
-            ],
-            "objects": 957,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              247
-            ],
-            "objects": 947,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              248
-            ],
-            "objects": 967,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              249
-            ],
-            "objects": 969,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              25
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              250
-            ],
-            "objects": 957,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              251
-            ],
-            "objects": 1853,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              252
-            ],
-            "objects": 1844,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              253
-            ],
-            "objects": 1863,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              254
-            ],
-            "objects": 1867,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              255
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              256
-            ],
-            "objects": 1877,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              257
-            ],
-            "objects": 1865,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              258
-            ],
-            "objects": 1201,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              259
-            ],
-            "objects": 1869,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              26
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              260
-            ],
-            "objects": 1820,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              261
-            ],
-            "objects": 1818,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              262
-            ],
-            "objects": 1808,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              263
-            ],
-            "objects": 979,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              264
-            ],
-            "objects": 1867,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              265
-            ],
-            "objects": 1862,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              267
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              268
-            ],
-            "objects": 1834,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              269
-            ],
-            "objects": 1840,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              27
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              270
-            ],
-            "objects": 1865,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              271
-            ],
-            "objects": 1813,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              272
-            ],
-            "objects": 1863,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              273
-            ],
-            "objects": 900,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              274
-            ],
-            "objects": 1810,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              275
-            ],
-            "objects": 1864,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              276
-            ],
-            "objects": 1857,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              277
-            ],
-            "objects": 1884,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              278
-            ],
-            "objects": 1859,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              279
-            ],
-            "objects": 1784,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              28
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              280
-            ],
-            "objects": 1140,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              281
-            ],
-            "objects": 1881,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              282
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              283
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              284
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              285
-            ],
-            "objects": 1091,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              286
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              287
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              288
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              289
-            ],
-            "objects": 1095,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              29
-            ],
-            "objects": 1082,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              290
-            ],
-            "objects": 1041,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              291
-            ],
-            "objects": 1067,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              292
-            ],
-            "objects": 1840,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              293
-            ],
-            "objects": 1850,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              294
-            ],
-            "objects": 1856,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              295
-            ],
-            "objects": 1873,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              296
-            ],
-            "objects": 1848,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              297
-            ],
-            "objects": 1821,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              298
-            ],
-            "objects": 1849,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              299
-            ],
-            "objects": 1821,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              3
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              30
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              300
-            ],
-            "objects": 1886,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              301
-            ],
-            "objects": 1848,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              302
-            ],
-            "objects": 1858,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              303
-            ],
-            "objects": 955,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              304
-            ],
-            "objects": 975,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              305
-            ],
-            "objects": 972,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              306
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              307
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              308
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              309
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              31
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              310
-            ],
-            "objects": 2504,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              32
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              33
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              34
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              35
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              36
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              37
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              38
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              39
-            ],
-            "objects": 1059,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              4
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              40
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              41
-            ],
-            "objects": 1034,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              42
-            ],
-            "objects": 1042,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              43
-            ],
-            "objects": 1030,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              44
-            ],
-            "objects": 1053,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              45
-            ],
-            "objects": 1032,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              46
-            ],
-            "objects": 1014,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              47
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              48
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              49
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              5
-            ],
-            "objects": 1080,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              50
-            ],
-            "objects": 1066,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              51
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              52
-            ],
-            "objects": 1085,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              53
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              54
-            ],
-            "objects": 1060,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              55
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              57
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              58
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              59
-            ],
-            "objects": 1104,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              6
-            ],
-            "objects": 1077,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              60
-            ],
-            "objects": 1062,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              61
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              62
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              63
-            ],
-            "objects": 1073,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              64
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              65
-            ],
-            "objects": 593,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              66
-            ],
-            "objects": 1081,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              67
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              68
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              69
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              7
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              70
-            ],
-            "objects": 1044,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              71
-            ],
-            "objects": 1016,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              72
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              73
-            ],
-            "objects": 1078,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              74
-            ],
-            "objects": 1068,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              75
-            ],
-            "objects": 1065,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              76
-            ],
-            "objects": 1070,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              77
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              78
-            ],
-            "objects": 1056,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              79
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 2
-          },
-          {
-            "group": [
-              8
-            ],
-            "objects": 1032,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              80
-            ],
-            "objects": 1058,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              81
-            ],
-            "objects": 1050,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              82
-            ],
-            "objects": 1047,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              83
-            ],
-            "objects": 1057,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              84
-            ],
-            "objects": 1051,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              85
-            ],
-            "objects": 1071,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              86
-            ],
-            "objects": 1096,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              87
-            ],
-            "objects": 1046,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              88
-            ],
-            "objects": 1064,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              89
-            ],
-            "objects": 1048,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              9
-            ],
-            "objects": 1038,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              90
-            ],
-            "objects": 996,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              91
-            ],
-            "objects": 1045,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              92
-            ],
-            "objects": 1063,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              93
-            ],
-            "objects": 1054,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              94
-            ],
-            "objects": 1052,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              95
-            ],
-            "objects": 1038,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              96
-            ],
-            "objects": 1069,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              97
-            ],
-            "objects": 1082,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              98
-            ],
-            "objects": 1072,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              99
-            ],
-            "objects": 1061,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          }
-        ]
-      ]
-    },
-    {
       "question_id": "Q120",
       "result_path": "refs/new/Q120-1.csv",
       "sql_sha256": "44dadc9fb05e6d22879d87625f4855871c10b472bbd5c37e905b047ba1ea5980",
@@ -18304,138 +14093,30 @@
       "selection_checks": null
     },
     {
-      "question_id": "Q121",
-      "result_path": "refs/new/Q121-3.csv",
-      "sql_sha256": "d35e866073352df28d8a0cdacecd3f3ed6a7285a5b0c150e9d5ddefef7caf86c",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "monthly_sales_amount",
-          "type": "Float64"
-        },
-        {
-          "name": "coefficient_ratio",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "ratio"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "0eab9072ffbf402995f827736b6a13e50944b4c56c4732ed5b333e7ce2f35647",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "ratio"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q121",
-      "result_path": "refs/new/Q121-4.csv",
-      "sql_sha256": "ee61782cf97e38df3980f90ecd4dec6ff82c34baa6413eaecc58ff10d89b0c42",
-      "row_count": 8,
-      "columns": [
-        {
-          "name": "category",
-          "type": "Nullable(String)"
-        },
-        {
-          "name": "monthly_sales_amount",
-          "type": "Float64"
-        },
-        {
-          "name": "coefficient_ratio",
-          "type": "Nullable(Float64)"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "amount",
-        "ratio"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "071198875fd36f4680c1f208ef92512092ec9577c71e27340705a19fc27041d6",
-      "value_types": [
-        "Nullable(String)",
-        "Float64",
-        "Nullable(Float64)"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "amount",
-          "ratio"
-        ],
-        "value_types": [
-          "Nullable(String)",
-          "Float64",
-          "Nullable(Float64)"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
       "question_id": "Q122",
       "result_path": "refs/new/Q122-1.csv",
-      "sql_sha256": "1a735dd55809e36af07e180b84840384e4063916b1b0d2bbb9fe34f7f80fe790",
-      "row_count": 207046,
+      "sql_sha256": "233d30b2db826f5c187777bd18a57f1fdabfa4e7158d6ad80084e98161e7be70",
+      "row_count": 17,
       "columns": [
         {
           "name": "product1_key",
           "type": "Int32"
         },
         {
+          "name": "product1_name",
+          "type": "Nullable(String)"
+        },
+        {
           "name": "product2_key",
           "type": "Int32"
         },
         {
-          "name": "support_ratio",
-          "type": "Float64"
+          "name": "product2_name",
+          "type": "Nullable(String)"
         },
         {
-          "name": "confidence_1_to_2_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "confidence_2_to_1_ratio",
-          "type": "Float64"
+          "name": "common_orders",
+          "type": "UInt64"
         },
         {
           "name": "lift_ratio",
@@ -18445,124 +14126,54 @@
       "value_kinds": [
         "other",
         "other",
-        "ratio",
-        "ratio",
-        "ratio",
+        "other",
+        "other",
+        "count",
         "ratio"
       ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
+      "ordered": true,
+      "top_n": 10,
+      "tie_column": 4,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "202487bf366a787e230227449714f081375bd78c35b26baf8d12829d9736caf5",
+      "sha256": "b2a24d95de509166348d55dc73ee9c9282463e64d51ca9372282eb2d4b49ada0",
       "value_types": [
         "Int32",
+        "Nullable(String)",
         "Int32",
-        "Float64",
-        "Float64",
-        "Float64",
+        "Nullable(String)",
+        "UInt64",
         "Float64"
       ],
       "value_kind_source": "declared",
       "value_kind_warnings": [],
       "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          4
+        ],
         "value_kinds": [
           "other",
           "other",
-          "ratio",
-          "ratio",
-          "ratio",
+          "other",
+          "other",
+          "count",
           "ratio"
         ],
         "value_types": [
           "Int32",
+          "Nullable(String)",
           "Int32",
-          "Float64",
-          "Float64",
-          "Float64",
+          "Nullable(String)",
+          "UInt64",
           "Float64"
-        ]
-      },
-      "selection_checks": null
-    },
-    {
-      "question_id": "Q122",
-      "result_path": "refs/new/Q122-2.csv",
-      "sql_sha256": "6e7fdbc303bd32b9a6fbcfe647f6e6c99d39de833bc6bbabd4ecf773edb903ec",
-      "row_count": 207046,
-      "columns": [
-        {
-          "name": "product1_key",
-          "type": "Int32"
-        },
-        {
-          "name": "product2_key",
-          "type": "Int32"
-        },
-        {
-          "name": "support_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "confidence_1_to_2_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "confidence_2_to_1_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "lift_ratio",
-          "type": "Float64"
-        }
-      ],
-      "value_kinds": [
-        "other",
-        "other",
-        "ratio",
-        "ratio",
-        "ratio",
-        "ratio"
-      ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
-      "postprocess": null,
-      "postprocess_details": null,
-      "sha256": "8e84aade542b915979c254a57ba5e9ee9a0f38593fec74b4268b92cb0310c59a",
-      "value_types": [
-        "Int32",
-        "Int32",
-        "Float64",
-        "Float64",
-        "Float64",
-        "Float64"
-      ],
-      "value_kind_source": "declared",
-      "value_kind_warnings": [],
-      "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
-        "value_kinds": [
-          "other",
-          "other",
-          "ratio",
-          "ratio",
-          "ratio",
-          "ratio"
         ],
-        "value_types": [
-          "Int32",
-          "Int32",
-          "Float64",
-          "Float64",
-          "Float64",
-          "Float64"
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null

@@ -1,21 +1,32 @@
 ProductSubcategoryName,corr_discount_vs_qty,observations
-Bluetooth Headphones,0,73979
-Boxed Games,0.004,313184
-Camcorders,0.002,128872
-Cameras & Camcorders Accessories,-0.001,103504
-Car Video,-0.001,64203
-Cell phones Accessories,-0.001,998249
-Coffee Machines,0.002,116704
-Computers Accessories,0.002,165098
-Digital SLR Cameras,0.001,130258
-Fans,0.001,147202
-Home & Office Phones,0.003,110601
-Laptops,0,128549
-MP4&MP3,0.007,61038
-Microwaves,0.002,144421
-"Printers, Scanners & Fax",0.001,125459
-Projectors & Screens,0.003,131107
-Refrigerators,0.001,103578
-Washers & Dryers,0.004,43787
-Water Heaters,0.008,38149
-\N,0.003,750088
+Air Conditioners,-0.001,56627
+Bluetooth Headphones,0.003,50446
+Boxed Games,0.003,218544
+Camcorders,-0.002,87673
+Cameras & Camcorders Accessories,-0.005,71199
+Car Video,0,44100
+Cell phones Accessories,0.001,666275
+Coffee Machines,0.002,79809
+Computers Accessories,0,113304
+Digital Cameras,-0.001,87799
+Digital SLR Cameras,-0.005,88739
+Fans,-0.002,100865
+Home & Office Phones,-0.001,75322
+Home Theater System,-0.003,86143
+Lamps,-0.003,174395
+Laptops,0.003,88742
+MP4&MP3,-0.003,41170
+Microwaves,-0.002,100516
+Monitors,-0.005,80748
+Movie DVD,-0.002,71184
+"Printers, Scanners & Fax",-0.002,86265
+Projectors & Screens,-0.001,88377
+Recording Pen,-0.01,18516
+Refrigerators,-0.004,69971
+Smart phones & PDAs,-0.007,67777
+Televisions,-0.001,45985
+Touch Screen Phones,-0.003,56489
+VCD & DVD,-0.011,25647
+Washers & Dryers,-0.004,29696
+Water Heaters,0,26725
+\N,0.002,517591

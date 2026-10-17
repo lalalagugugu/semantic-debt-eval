@@ -1,0 +1,49 @@
+{
+  "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
+  "records": [
+    {
+      "question_id": "Q79",
+      "direction": "DESC",
+      "n": 10,
+      "raw_nth_value": 122.03886891460998,
+      "nth_quantized_ratio": "1.220389",
+      "strict_prefix_count": 0,
+      "boundary_group_count": 42,
+      "complete_reference_count": 42,
+      "raw_exact_tie_count": 1
+    },
+    {
+      "question_id": "Q27",
+      "direction": "DESC",
+      "n": 10,
+      "raw_nth_value": 66.87337467493501,
+      "nth_quantized_ratio": "0.668734",
+      "strict_prefix_count": 9,
+      "boundary_group_count": 3,
+      "complete_reference_count": 12,
+      "raw_exact_tie_count": 3
+    },
+    {
+      "question_id": "Q85",
+      "direction": "DESC",
+      "n": 5,
+      "raw_nth_value": 122.03886892722792,
+      "nth_quantized_ratio": "1.220389",
+      "strict_prefix_count": 0,
+      "boundary_group_count": 42,
+      "complete_reference_count": 42,
+      "raw_exact_tie_count": 1
+    },
+    {
+      "question_id": "Q85",
+      "direction": "ASC",
+      "n": 5,
+      "raw_nth_value": 118.44979187997474,
+      "nth_quantized_ratio": "1.184498",
+      "strict_prefix_count": 0,
+      "boundary_group_count": 55,
+      "complete_reference_count": 55,
+      "raw_exact_tie_count": 1
+    }
+  ]
+}

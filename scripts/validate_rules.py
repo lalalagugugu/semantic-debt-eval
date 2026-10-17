@@ -81,7 +81,7 @@ def main():
     lines += ['', f'合计：100题、{len([r for r in records.values() if r["question_id"] in {q["id"] for q in groups[0]}])}份参考；ordered=true共{ordered}份；分组选择{selected}份参考；整数计数守卫{count_guards}列。', '',
              'Q33/Q45/Q97等judge题的示例截断不自动成为题干固定N；维持已批准的声明口径与非封闭示例，不将示例LIMIT伪装成新增的题意限制。', '',
               '类型来源：直接查询列取引擎返回元数据；Q74等后处理保留对应投影类型。Q84的abc_groups会生成新输出列，表中类型沿用T04已批准的正式后处理schema，不是原始聚合域的列类型；T05b须同时独立核对这一输出schema。', '',
-              '冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序、完整边界及已披露的参考修复；Q79按已存306成员快照独立复现成员集合，不再以历史原始行哈希追溯为门槛。']
+              '冻结前仍需：用户审阅本表；T05b独立核对返回类型、量纲、排序、完整边界及已披露的参考修复。Q79以当前参考推导的边界成员集合及规则版本为准；2026-10-16 T05b差异裁决已确认独立成员集合一致并放行，旧306成员仅为历史工件，不是现行门禁。']
     review = '\n'.join(lines) + '\n'
     path = REPO / 'audit/rules-backfill-review.md'
     if args.write_review:
