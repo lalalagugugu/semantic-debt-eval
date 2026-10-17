@@ -28,6 +28,8 @@ def main():
     args = parser.parse_args()
     summary_path=ROOT/'audit/2026-10-17-summary-rewrites.json'
     summary_rewrites=json.loads(summary_path.read_text()) if summary_path.exists() else None
+    topn_path=ROOT/'audit/2026-10-17-q122-topn.json'
+    q122_topn=json.loads(topn_path.read_text()) if topn_path.exists() else None
     questions = {q['id']: q for name in ('cube_100', 'new') for q in
                  json.loads((ROOT/f'questions/{name}.yaml').read_text())['questions']}
     manifest = json.loads((ROOT/'refs/MANIFEST.json').read_text())
@@ -93,6 +95,10 @@ def main():
         review['anchor_revised_sensitivity_exclusions']=summary_rewrites['anchor_revised_sensitivity_exclusions']
         review['summary_rewrites']=summary_rewrites['records']
         review['Q13_Q28_wording']='user_confirmed'
+    if q122_topn:
+        review['q122_topn']=q122_topn
+        review['new_question_audit']=q122_topn['new_question_audit']
+        review['Q14_Q21_wording']='user_confirmed'
     (ROOT/'audit/2026-10-17-gap-ruling-review.json').write_text(json.dumps(review,ensure_ascii=False,indent=2,default=str)+'\n')
 
     baseline = 'bf8e09584187cee4fb60eb2715c4f075c4324424'
@@ -166,6 +172,8 @@ def main():
     if summary_rewrites:
         lines=[line.replace('Q13、Q28待用户确认','Q13、Q28用户已确认；本节保留此前四题改写') for line in lines]
         lines.insert(2,'第六节追加：Q14/Q21/Q122汇总改写见[三题报告](2026-10-17-summary-rewrites.md)及配套JSON；Q13/Q28措辞已获用户确认。')
+    if q122_topn:
+        lines.insert(2,'Q122已按用户新指令改为Top-10共购，取代旧均值和总体订单数方案；当前137份参考。Q14/Q21已确认。见[最新Q122报告](2026-10-17-q122-topn.md)。')
     (ROOT/'audit/2026-10-17-gap-ruling-review.md').write_text('\n'.join(lines))
     print(json.dumps({'references':len(records),'changed_this_round':[r['question_id'] for r in changed],
                       'rewritten':[r['question_id'] for r in checks],'over_50':long},ensure_ascii=False))

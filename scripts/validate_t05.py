@@ -144,6 +144,9 @@ def main():
         if q['id'] in summary_rewrites:
             assert summary_rewrites[q['id']]['old_text_zh']==expected
             expected=summary_rewrites[q['id']]['new_text_zh']
+        if q['id']=='Q122' and gap_ruling and gap_ruling.get('q122_topn'):
+            assert gap_ruling['q122_topn']['old_text_zh']==expected
+            expected=gap_ruling['q122_topn']['new_text_zh']
         if q['id'] in changed:
             assert changed[q['id']]['original_question']==approved[q['id']]
         assert q['text_zh']==expected
@@ -247,10 +250,14 @@ def main():
         assert set(q['labels']) == set(old[0]['labels'])
         for ref in q['refs']:
             rules = effective_rules(q,ref)
-            assert rules['top_n'] is None
-            assert rules['ordered'] == (q['id']=='Q117')
+            topn_q122=q['id']=='Q122' and gap_ruling and gap_ruling.get('q122_topn')
+            assert rules['top_n'] == (10 if topn_q122 else None)
+            assert rules['ordered'] == (q['id']=='Q117' or bool(topn_q122))
             assert has_final_order_by(ref['sql']) == rules['ordered']
-            assert 'LIMIT' not in ref['sql'].upper()
+            if topn_q122:
+                assert re.search(r'\bLIMIT\s+10\s*$',ref['sql'],re.I)
+            else:
+                assert 'LIMIT' not in ref['sql'].upper()
             assert not ('FactOnlineSales' in ref['sql'] and 'FactSales ' in ref['sql'])
             if q['id'] == 'Q110':
                 assert 'FactSales' in ref['sql'] and 'FactOnlineSales' not in ref['sql'] and 'DimChannel' in ref['sql']

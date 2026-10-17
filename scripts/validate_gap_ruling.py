@@ -23,11 +23,12 @@ def main():
     records={r['result_path']:r for r in json.loads((ROOT/'refs/MANIFEST.json').read_text())['records']}
     expected={'Q13':1,'Q28':1,'Q38':1,'Q39':2,'Q40':1,'Q47':1,'Q48':3,'Q76':2,'Q84':2,
               'Q86':2,'Q91':2,'Q92':1,'Q95':1,'Q97':2,'Q98':2,'Q100':1,'Q117':1,'Q118':1,'Q119':1,'Q121':2}
-    assert len(questions)==122 and len(records)==136
+    review=json.loads((ROOT/'audit/2026-10-17-gap-ruling-review.json').read_text())
+    topn=review.get('q122_topn')
+    assert len(questions)==122 and len(records)==(137 if topn else 136)
     for qid,count in expected.items():
         assert len(questions[qid]['refs'])==count,(qid,count)
-    review=json.loads((ROOT/'audit/2026-10-17-gap-ruling-review.json').read_text())
-    assert review['final_references']==136 and len(review['added_references'])==5 and len(review['removed_references'])==2
+    assert review['final_references']==len(records) and len(review['added_references'])==(6 if topn else 5) and len(review['removed_references'])==2
     assert len(review['over_50_rows'])==(20 if review.get('summary_rewrites') else 22)
     assert [r['question_id'] for r in review['over_50_rows'] if r['exceeds_50_due_to_ties']]==['Q85']
     for check in review['rewritten_question_checks']:
@@ -40,17 +41,30 @@ def main():
         assert summary['unchanged_questions_verified']==119
         assert {r['question_id'] for r in summary['records']}=={'Q14','Q21','Q122'}
         for item in summary['records']:
-            assert item['new_text_zh']==questions[item['question_id']]['text_zh']
+            if item['question_id']=='Q122' and topn:
+                assert topn['old_text_zh']==item['new_text_zh']
+                assert topn['new_text_zh']==questions['Q122']['text_zh']
+            else:
+                assert item['new_text_zh']==questions[item['question_id']]['text_zh']
             assert not any(item[k]['hit'] for k in ('A','B','C'))
             assert item['capability']['retained'] is True
         assert csv_rows(records['refs/cube/Q14-1.csv'])==[[385]]
         assert records['refs/cube/Q21-1.csv']['row_count']==306
         row=csv_rows(records['refs/new/Q122-1.csv'])[0]
-        assert len(row)==5 and row[0]==378070
         q122=questions['Q122'];rule=effective_rules(q122,q122['refs'][0])
-        assert rule['value_kinds']==['count','ratio','ratio','ratio','ratio']
-        from harness.scorer import score
-        assert score([[376026,*row[1:]]],[[row]],rule)=='wrong'
+        if topn:
+            assert len(q122['refs'])==2 and len(row)==6
+            assert rule['top_n']==10 and rule['tie_columns']==[4]
+            assert rule['value_kinds']==['other','other','other','other','count','ratio']
+            assert topn['unchanged_questions_verified']==121
+            for item in topn['references']:
+                assert item['reference_rows']==17 and item['nth_common_orders']==13
+                assert item['strict_prefix_members']==7 and item['boundary_members']==10 and not item['C_hit']
+        else:
+            assert len(row)==5 and row[0]==378070
+            assert rule['value_kinds']==['count','ratio','ratio','ratio','ratio']
+            from harness.scorer import score
+            assert score([[376026,*row[1:]]],[[row]],rule)=='wrong'
     for qid in ('Q13','Q28'):
         q=questions[qid];sql=q['refs'][0]['sql']
         assert '平均单价' in q['text_zh'] and all(s not in q['text_zh'] for s in ('订单','交易','除以','÷'))
@@ -92,7 +106,7 @@ def main():
             expected=correlation(ranks([x for x,y in sample]),ranks([y for x,y in sample]))
             assert actual is None if expected is None else math.isclose(actual,expected,abs_tol=1e-12)
         print('PASS: SQL average-tie ranks with duplicate observations, reverse ranks and constant-domain NULL')
-    print(f"PASS: 17 gap rulings, 136 refs, {len(review['rewritten_question_checks'])+len(review.get('summary_rewrites',[]))} rewrite checks, weighted Spearman, ABC boundaries, {len(review['over_50_rows'])} long results and retired paths")
+    print(f"PASS: 17 gap rulings, {len(records)} refs, {len(review['rewritten_question_checks'])+len(review.get('summary_rewrites',[]))} rewrite checks, weighted Spearman, ABC boundaries, {len(review['over_50_rows'])} long results and retired paths")
 
 
 if __name__=='__main__':

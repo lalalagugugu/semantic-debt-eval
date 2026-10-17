@@ -14095,69 +14095,171 @@
     {
       "question_id": "Q122",
       "result_path": "refs/new/Q122-1.csv",
-      "sql_sha256": "313455f2a418c5bf966c87ca5d36d018d5f9af515d06d99712bd67758bd36f1c",
-      "row_count": 1,
+      "sql_sha256": "233d30b2db826f5c187777bd18a57f1fdabfa4e7158d6ad80084e98161e7be70",
+      "row_count": 17,
       "columns": [
         {
-          "name": "all_orders",
+          "name": "product1_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product1_name",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "product2_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product2_name",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "common_orders",
           "type": "UInt64"
         },
         {
-          "name": "average_support_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "average_confidence_1_to_2_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "average_confidence_2_to_1_ratio",
-          "type": "Float64"
-        },
-        {
-          "name": "average_lift_ratio",
+          "name": "lift_ratio",
           "type": "Float64"
         }
       ],
       "value_kinds": [
+        "other",
+        "other",
+        "other",
+        "other",
         "count",
-        "ratio",
-        "ratio",
-        "ratio",
         "ratio"
       ],
-      "ordered": false,
-      "top_n": null,
-      "tie_column": null,
+      "ordered": true,
+      "top_n": 10,
+      "tie_column": 4,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "d65608cfe2f9c7f1156be85b59ad4f022f8b3dc84f6de89f515503b91d721258",
+      "sha256": "b2a24d95de509166348d55dc73ee9c9282463e64d51ca9372282eb2d4b49ada0",
       "value_types": [
+        "Int32",
+        "Nullable(String)",
+        "Int32",
+        "Nullable(String)",
         "UInt64",
-        "Float64",
-        "Float64",
-        "Float64",
         "Float64"
       ],
       "value_kind_source": "declared",
       "value_kind_warnings": [],
       "rules": {
-        "ordered": false,
-        "top_n": null,
-        "tie_columns": [],
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          4
+        ],
         "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
           "count",
-          "ratio",
-          "ratio",
-          "ratio",
           "ratio"
         ],
         "value_types": [
+          "Int32",
+          "Nullable(String)",
+          "Int32",
+          "Nullable(String)",
           "UInt64",
-          "Float64",
-          "Float64",
-          "Float64",
           "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q122",
+      "result_path": "refs/new/Q122-3.csv",
+      "sql_sha256": "bede3ca0f59bff07247073f841c8eb6181175a0ab32141502ad7e6a0811fcdce",
+      "row_count": 17,
+      "columns": [
+        {
+          "name": "product1_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product1_name",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "product2_key",
+          "type": "Int32"
+        },
+        {
+          "name": "product2_name",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "common_orders",
+          "type": "UInt64"
+        },
+        {
+          "name": "lift_ratio",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "other",
+        "other",
+        "count",
+        "ratio"
+      ],
+      "ordered": true,
+      "top_n": 10,
+      "tie_column": 4,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "e8b6f4c85782bf7762ff14ff4c4ddb80369b91407b993322730dfa266deafe18",
+      "value_types": [
+        "Int32",
+        "Nullable(String)",
+        "Int32",
+        "Nullable(String)",
+        "UInt64",
+        "Float64"
+      ],
+      "value_kind_source": "declared",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": true,
+        "top_n": 10,
+        "tie_columns": [
+          4
+        ],
+        "value_kinds": [
+          "other",
+          "other",
+          "other",
+          "other",
+          "count",
+          "ratio"
+        ],
+        "value_types": [
+          "Int32",
+          "Nullable(String)",
+          "Int32",
+          "Nullable(String)",
+          "UInt64",
+          "Float64"
+        ],
+        "order_by": [
+          {
+            "column": 4,
+            "descending": true
+          }
         ]
       },
       "selection_checks": null

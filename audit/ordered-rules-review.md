@@ -26,6 +26,8 @@
 | 当前/refs/cube/Q98-1.csv | peak_quarter_share_pct DESC | [{"column": 1, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/cube/Q98-2.csv | year,peak_quarter_share_pct DESC | [{"column": 1, "descending": false}, {"column": 2, "descending": true}] | existing explicit selection.output_order |
 | 当前/refs/new/Q117-1.csv | decline_pct DESC,decline_amount DESC | [{"column": 2, "descending": true}, {"column": 4, "descending": true}] | existing explicit selection.output_order |
+| 当前/refs/new/Q122-1.csv | common_orders DESC | [{"column": 4, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
+| 当前/refs/new/Q122-3.csv | common_orders DESC | [{"column": 4, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/7 | UnitPrice DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/25 | avg_daily_sales DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/27 | margin_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
@@ -45,4 +47,4 @@
 | 原始/97 | h2_vs_h1_pct DESC | [{"column": 3, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 | 原始/98 | peak_quarter_share_pct DESC | [{"column": 1, "descending": true}] | outer ORDER BY resolved to projected reference columns/aliases |
 
-当前22份有序参考全部补齐；原公开600条验证范围中18份有序原始参考排序键另存于配套JSON。Q33无可用公开原始参考，不伪造其排序元数据。实际英文锚点按T11规则选择：同结构逐参考rules原样透传，8份结构不同的规则由review_anchor_rules.py单独更新。
+当前24份有序参考全部补齐；原公开600条验证范围中18份有序原始参考排序键另存于配套JSON。Q33无可用公开原始参考，不伪造其排序元数据。实际英文锚点按T11规则选择：同结构逐参考rules原样透传，8份结构不同的规则由review_anchor_rules.py单独更新。
