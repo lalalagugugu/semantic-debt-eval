@@ -443,7 +443,7 @@
    }
   ],
   "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
-  "seconds": 0.4
+  "seconds": 0.6
  },
  "Q35": {
   "event_sensitive": false,
@@ -527,7 +527,7 @@
    }
   ],
   "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
-  "seconds": 0.1
+  "seconds": 1.3
  },
  "Q41": {
   "event_sensitive": false,
@@ -1192,7 +1192,7 @@
    }
   ],
   "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
-  "seconds": 0.0
+  "seconds": 0.4
  },
  "Q88": {
   "event_sensitive": true,
@@ -1672,5 +1672,17 @@
   ],
   "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
   "seconds": 0.2
- }
+ },
+ "_reruns": [
+  {
+   "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-61c2213",
+   "eval_commit": "61c2213a377fecb4d8f044c6702a81307339cb0d",
+   "questions": [
+    "Q34",
+    "Q40",
+    "Q86",
+    "Q87"
+   ]
+  }
+ ]
 }

@@ -504,7 +504,8 @@ def _():
 
 @Q("Q34")
 def _():
-    f = fos()
+    # Semantic layer 库存周转率: numerator is total cost over all channels (FactSales).
+    f = fs()
     cogs = f[f.year == 2009].groupby("ProductKey").TotalCost.sum()
     inv = pd.read_parquet(DATA / "FactInventory.parquet", columns=["DateKey", "ProductKey", "OnHandQuantity", "UnitCost"])
     inv["DateKey"] = pd.to_datetime(inv["DateKey"])
@@ -585,11 +586,12 @@ def _before_after(sub, launch, w):
 
 @Q("Q40")
 def _():
-    fx = T("FactExchangeRate")
-    eur = fx[fx.CurrencyKey == 7].groupby("DateKey").EndOfDayRate.first()
+    # 2026-10-17 semantic-gaps ruling, section 2: a day without a rate uses the most recent earlier close.
+    fx = T("FactExchangeRate").assign(DateKey=lambda d: pd.to_datetime(d.DateKey))
+    eur = fx[fx.CurrencyKey == 7].groupby("DateKey").EndOfDayRate.first().sort_index()
     daily = fos().groupby("DateKey").SalesAmount.sum()
-    j = daily.to_frame().join(eur, how="inner")
-    return [df_([[(j.SalesAmount * j.EndOfDayRate).sum()]], ["sales_eur"])]
+    rate = eur.reindex(eur.index.union(daily.index)).ffill().reindex(daily.index)
+    return [df_([[(daily * rate).sum()]], ["sales_eur"])]
 
 
 @Q("Q41")
@@ -1015,6 +1017,7 @@ def _():
 def _():
     f = attach_product(fos().loc[lambda d: d.year == 2009, ["ProductKey", "PromotionKey", "SalesQuantity"]].copy(),
                        ("ProductSubcategoryName",))
+    f = f[f.PromotionKey != 1].copy()  # convention 10: discount effect excludes no-discount transactions
     f["disc"] = f.PromotionKey.map(T("DimPromotion").set_index("PromotionKey").DiscountPercent)
     rows, rows_s = [], []
     for sc, g in f.groupby("ProductSubcategoryName", dropna=False):
@@ -1028,7 +1031,8 @@ def _():
     cur = current_inventory().groupby("ProductKey").OnHandQuantity.sum()
     f = fos()
     last90 = f[(f.DateKey >= pd.Timestamp("2009-10-03")) & (f.DateKey <= TODAY)]
-    avg = last90.groupby("ProductKey").SalesQuantity.sum() / 90.0
+    # Semantic layer 日均销售数量 = 销售数量 ÷ 有销售天数 (distinct days with sales).
+    avg = last90.groupby("ProductKey").SalesQuantity.sum() / last90.groupby("ProductKey").DateKey.nunique()
     d = pd.DataFrame({"onhand": cur, "avg_daily": avg}).dropna()
     d = d[d.avg_daily > 0]
     d["coverage"] = d.onhand / d.avg_daily
