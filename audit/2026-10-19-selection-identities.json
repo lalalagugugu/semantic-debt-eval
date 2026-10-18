@@ -1,0 +1,252 @@
+{
+  "baseline_commit": "938957f4281ddc63ba699bf15d91dcde6b71ddf0",
+  "reference_count": 137,
+  "selected_reference_count": 8,
+  "noncompliant_question_count": 4,
+  "noncompliant_reference_count": 5,
+  "references": [
+    {
+      "question_id": "Q74",
+      "reference": "refs/cube/Q74-1.csv",
+      "rows": 925,
+      "required_columns": [
+        0,
+        1,
+        3,
+        5,
+        6
+      ],
+      "missing": [
+        {
+          "stage": 0,
+          "field": "object_columns",
+          "column": 4,
+          "name": "ProductKey",
+          "required_name_checks": [
+            {
+              "column": 0,
+              "name": "StoreName",
+              "key_distinct": 130,
+              "name_distinct": 306,
+              "key_collisions": 84,
+              "name_collisions": 306,
+              "blank_name_rows": 0,
+              "bijective": false
+            },
+            {
+              "column": 1,
+              "name": "ProductName",
+              "key_distinct": 130,
+              "name_distinct": 130,
+              "key_collisions": 0,
+              "name_collisions": 0,
+              "blank_name_rows": 0,
+              "bijective": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-1.csv",
+      "rows": 9,
+      "required_columns": [
+        0,
+        4
+      ],
+      "missing": [
+        {
+          "stage": 0,
+          "field": "object_columns",
+          "column": 2,
+          "name": "peak_quarter",
+          "required_name_checks": [
+            {
+              "column": 0,
+              "name": "ProductCategoryName",
+              "key_distinct": 2,
+              "name_distinct": 9,
+              "key_collisions": 2,
+              "name_collisions": 0,
+              "blank_name_rows": 1,
+              "bijective": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-2.csv",
+      "rows": 27,
+      "required_columns": [
+        0,
+        1,
+        5
+      ],
+      "missing": [
+        {
+          "stage": 0,
+          "field": "object_columns",
+          "column": 3,
+          "name": "peak_quarter",
+          "required_name_checks": [
+            {
+              "column": 0,
+              "name": "ProductCategoryName",
+              "key_distinct": 4,
+              "name_distinct": 9,
+              "key_collisions": 4,
+              "name_collisions": 8,
+              "blank_name_rows": 3,
+              "bijective": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "Q117",
+      "reference": "refs/new/Q117-1.csv",
+      "rows": 3,
+      "required_columns": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "missing": [
+        {
+          "stage": 0,
+          "field": "object_columns",
+          "column": 0,
+          "name": "t.StoreKey",
+          "required_name_checks": [
+            {
+              "column": 1,
+              "name": "StoreName",
+              "key_distinct": 3,
+              "name_distinct": 3,
+              "key_collisions": 0,
+              "name_collisions": 0,
+              "blank_name_rows": 0,
+              "bijective": true
+            },
+            {
+              "column": 3,
+              "name": "category",
+              "key_distinct": 3,
+              "name_distinct": 2,
+              "key_collisions": 0,
+              "name_collisions": 1,
+              "blank_name_rows": 0,
+              "bijective": false
+            }
+          ]
+        },
+        {
+          "stage": 1,
+          "field": "group_columns",
+          "column": 0,
+          "name": "t.StoreKey",
+          "required_name_checks": [
+            {
+              "column": 1,
+              "name": "StoreName",
+              "key_distinct": 3,
+              "name_distinct": 3,
+              "key_collisions": 0,
+              "name_collisions": 0,
+              "blank_name_rows": 0,
+              "bijective": true
+            },
+            {
+              "column": 3,
+              "name": "category",
+              "key_distinct": 3,
+              "name_distinct": 2,
+              "key_collisions": 0,
+              "name_collisions": 1,
+              "blank_name_rows": 0,
+              "bijective": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "Q119",
+      "reference": "refs/new/Q119-1.csv",
+      "rows": 310,
+      "required_columns": [
+        1,
+        3,
+        5
+      ],
+      "missing": [
+        {
+          "stage": 0,
+          "field": "group_columns",
+          "column": 0,
+          "name": "StoreKey",
+          "required_name_checks": [
+            {
+              "column": 1,
+              "name": "StoreName",
+              "key_distinct": 306,
+              "name_distinct": 306,
+              "key_collisions": 0,
+              "name_collisions": 0,
+              "blank_name_rows": 0,
+              "bijective": true
+            },
+            {
+              "column": 3,
+              "name": "ProductName",
+              "key_distinct": 306,
+              "name_distinct": 69,
+              "key_collisions": 4,
+              "name_collisions": 47,
+              "blank_name_rows": 0,
+              "bijective": false
+            }
+          ]
+        },
+        {
+          "stage": 0,
+          "field": "object_columns",
+          "column": 2,
+          "name": "ProductKey",
+          "required_name_checks": [
+            {
+              "column": 1,
+              "name": "StoreName",
+              "key_distinct": 69,
+              "name_distinct": 306,
+              "key_collisions": 47,
+              "name_collisions": 4,
+              "blank_name_rows": 0,
+              "bijective": false
+            },
+            {
+              "column": 3,
+              "name": "ProductName",
+              "key_distinct": 69,
+              "name_distinct": 69,
+              "key_collisions": 0,
+              "name_collisions": 0,
+              "blank_name_rows": 0,
+              "bijective": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
