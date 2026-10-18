@@ -9,10 +9,11 @@ decisions/2026-10-17-one-convention-one-answer.md section 2); the name when it
 identifies every row (no NULL, no shared name), otherwise the key. Judge
 questions are skipped.
 
-Usage: uv run python scripts/required_columns.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-eval-v1" [--v2]
-Writes audit/T05b-required-columns.json, or with --v2 audit/T05b-required-columns.v2.json:
-the same annotation revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md
-section 5 (identifiers always by name) and section 3 (a placeholder-only name is no identifier).
+Usage: uv run python scripts/required_columns.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-eval-v1" [--version N]
+Writes audit/T05b-required-columns.json (version 1), or audit/T05b-required-columns.vN.json:
+- v2: revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md section 5
+  (identifiers always by name) and section 3 (a placeholder-only name is no identifier);
+- v3: v2 plus Q75 off the missing-column list (shared names are the section 5 case; user, 2026-10-18).
 """
 
 from __future__ import annotations
@@ -179,13 +180,21 @@ V2 = {
 }
 MISSING_V2 = {k: v for k, v in MISSING.items() if k != "Q100"}
 
+# v3: Q75 lacks no asked column; its shared names are the section 5 case.
+V3 = {
+    "Q75-1": ([0, 1], {2: "filter_value", 3: "filter_value", 4: "filter_value"},
+              "v3：不缺列。标识取名称（名、姓两列），47 行与其他行同名，属第五节的重名情形，按多重集比对"),
+}
+MISSING_V3 = {k: v for k, v in MISSING_V2.items() if k != "Q75"}
+
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--eval-dir", required=True)
-    ap.add_argument("--v2", action="store_true")
+    ap.add_argument("--version", type=int, choices=[1, 2, 3], default=1)
     args = ap.parse_args(argv)
-    ann = {**A, **V2} if args.v2 else A
+    v = args.version
+    ann = {**A, **(V2 if v >= 2 else {}), **(V3 if v >= 3 else {})}
     E = Path(args.eval_dir)
     sha = subprocess.run(["git", "-C", str(E), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
     refs, seen = [], set()
@@ -212,16 +221,18 @@ def main(argv=None):
     roles = {"rank_key": "排序键（Top-N 或排名依据）", "filter_value": "筛选依据的值", "not_asked": "题目没问的量",
              "alt_identifier": "同一对象的另一种标识（键或名称，只留一份）"}
     basis = "main decisions/2026-10-18-reference-columns-asked-only.md sections 2-3; question wording only"
-    if args.v2:
+    if v >= 2:
         roles["placeholder_name"] = "名称列全为占位值，不是标识"
         basis += "; revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md sections 3 and 5"
+    if v >= 3:
+        basis += "; Q75 off the missing-column list (user ruling 2026-10-18, section 5 shared-name case)"
     out = {"eval_tag": "eval-v1", "eval_commit": sha, "basis": basis, "roles": roles,
            "counts": {"references": len(refs), "annotated": sum("required_columns" in r for r in refs),
                       "judge_skipped": sum("skipped" in r for r in refs)},
-           "missing_asked_columns": MISSING_V2 if args.v2 else MISSING, "references": refs}
-    if args.v2:
-        out = {"version": 2, **out}
-    name = "T05b-required-columns.v2.json" if args.v2 else "T05b-required-columns.json"
+           "missing_asked_columns": {1: MISSING, 2: MISSING_V2, 3: MISSING_V3}[v], "references": refs}
+    if v >= 2:
+        out = {"version": v, **out}
+    name = f"T05b-required-columns.v{v}.json" if v >= 2 else "T05b-required-columns.json"
     (ROOT / "audit" / name).write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(out["counts"])
 

@@ -1,0 +1,2479 @@
+{
+ "version": 3,
+ "eval_tag": "eval-v1",
+ "eval_commit": "07dca9af414295205b0ae5f4a220bda44682af71",
+ "basis": "main decisions/2026-10-18-reference-columns-asked-only.md sections 2-3; question wording only; revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md sections 3 and 5; Q75 off the missing-column list (user ruling 2026-10-18, section 5 shared-name case)",
+ "roles": {
+  "rank_key": "排序键（Top-N 或排名依据）",
+  "filter_value": "筛选依据的值",
+  "not_asked": "题目没问的量",
+  "alt_identifier": "同一对象的另一种标识（键或名称，只留一份）",
+  "placeholder_name": "名称列全为占位值，不是标识"
+ },
+ "counts": {
+  "references": 136,
+  "annotated": 114,
+  "judge_skipped": 22
+ },
+ "missing_asked_columns": {
+  "Q50": "增长额（题目问增长了多少；参考只有两年金额与增长率）",
+  "Q99": "周末日与工作日日均销售额之差（题目问高多少；参考只有两项均值与百分比）"
+ },
+ "references": [
+  {
+   "question_id": "Q01",
+   "ref": "refs/cube/Q01-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "count()"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q02",
+   "ref": "refs/cube/Q02-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sum(SalesAmount)"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q03",
+   "ref": "refs/cube/Q03-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "countDistinct(CustomerKey)"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q04",
+   "ref": "refs/cube/Q04-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q05",
+   "ref": "refs/cube/Q05-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "product_count"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q06",
+   "ref": "refs/cube/Q06-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sum(SalesAmount)"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q07",
+   "ref": "refs/cube/Q07-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName",
+    "UnitPrice"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "UnitPrice",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q08",
+   "ref": "refs/cube/Q08-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "FirstName",
+    "LastName"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q09",
+   "ref": "refs/cube/Q09-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "avg(UnitCost)"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q10",
+   "ref": "refs/cube/Q10-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "store_count"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q11",
+   "ref": "refs/cube/Q11-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "total_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q12",
+   "ref": "refs/cube/Q12-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "month",
+    "monthly_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q13",
+   "ref": "refs/cube/Q13-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "total_sales",
+    "average_unit_price",
+    "sales_quantity"
+   ],
+   "required_columns": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "s.StoreKey",
+     "role": "alt_identifier"
+    }
+   ]
+  },
+  {
+   "question_id": "Q14",
+   "ref": "refs/cube/Q14-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "customers"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q15",
+   "ref": "refs/cube/Q15-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "RegionCountryName",
+    "total_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q16",
+   "ref": "refs/cube/Q16-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "year",
+    "total_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q17",
+   "ref": "refs/cube/Q17-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "IsWorkDay",
+    "sales",
+    "percentage"
+   ],
+   "required_columns": [
+    0,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "sales",
+     "role": "not_asked"
+    }
+   ],
+   "note": "题目问比例，销售额不是所问"
+  },
+  {
+   "question_id": "Q18",
+   "ref": "refs/cube/Q18-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "PromotionType",
+    "total_discount"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q19",
+   "ref": "refs/cube/Q19-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "Gender",
+    "avg_order_amount"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q20",
+   "ref": "refs/cube/Q20-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductKey",
+    "ProductName",
+    "on_hand_units",
+    "safety_stock_units"
+   ],
+   "required_columns": [
+    1
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "ProductKey",
+     "role": "alt_identifier"
+    },
+    {
+     "position": 2,
+     "column": "on_hand_units",
+     "role": "filter_value"
+    },
+    {
+     "position": 3,
+     "column": "safety_stock_units",
+     "role": "filter_value"
+    }
+   ],
+   "note": "v2：标识一律取名称（产品名）；原版取产品键"
+  },
+  {
+   "question_id": "Q21",
+   "ref": "refs/cube/Q21-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "s.StoreKey",
+    "StoreName",
+    "current_on_hand_quantity"
+   ],
+   "required_columns": [
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "s.StoreKey",
+     "role": "alt_identifier"
+    }
+   ]
+  },
+  {
+   "question_id": "Q22",
+   "ref": "refs/cube/Q22-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "c.CustomerKey",
+    "FirstName",
+    "LastName",
+    "RegionCountryName",
+    "total_spent",
+    "rn"
+   ],
+   "required_columns": [
+    1,
+    2,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "c.CustomerKey",
+     "role": "alt_identifier"
+    },
+    {
+     "position": 4,
+     "column": "total_spent",
+     "role": "rank_key"
+    },
+    {
+     "position": 5,
+     "column": "rn",
+     "role": "rank_key"
+    }
+   ],
+   "note": "v2：标识一律取名称（名、姓两列）；原版取客户键。国家是分组"
+  },
+  {
+   "question_id": "Q23",
+   "ref": "refs/cube/Q23-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "month",
+    "monthly_sales",
+    "cumulative_sales"
+   ],
+   "required_columns": [
+    0,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "monthly_sales",
+     "role": "not_asked"
+    }
+   ],
+   "note": "题目问累计值，当月值不是所问"
+  },
+  {
+   "question_id": "Q24",
+   "ref": "refs/cube/Q24-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "total_returns",
+    "total_sales",
+    "return_rate_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "total_returns",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "total_sales",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q25",
+   "ref": "refs/cube/Q25-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "NorthAmericaSeason",
+    "avg_daily_sales"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "avg_daily_sales",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q26",
+   "ref": "refs/cube/Q26-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "quarter",
+    "new_customers"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q27",
+   "ref": "refs/cube/Q27-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName",
+    "UnitPrice",
+    "UnitCost",
+    "margin_pct"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "UnitPrice",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "UnitCost",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "margin_pct",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q28",
+   "ref": "refs/cube/Q28-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ChannelName",
+    "average_unit_price"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q29",
+   "ref": "refs/cube/Q29-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "pct_difference"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q30",
+   "ref": "refs/cube/Q30-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "DateKey",
+    "daily_sales",
+    "moving_avg_7d"
+   ],
+   "required_columns": [
+    0,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "daily_sales",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q31",
+   "ref": "refs/cube/Q31-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "actual",
+    "budget"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q32",
+   "ref": "refs/cube/Q32-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "customer_count",
+    "total_ltv"
+   ],
+   "required_columns": [
+    1
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "customer_count",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q33",
+   "ref": "refs/cube/Q33-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "product1_key",
+    "product2_key",
+    "product1",
+    "product2",
+    "co_order_count"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q34",
+   "ref": "refs/cube/Q34-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName",
+    "total_cogs",
+    "avg_inventory",
+    "turnover_ratio",
+    "ProductKey"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "total_cogs",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "avg_inventory",
+     "role": "not_asked"
+    },
+    {
+     "position": 4,
+     "column": "ProductKey",
+     "role": "alt_identifier"
+    }
+   ],
+   "note": "v2：标识一律取名称（产品名）；原版取产品键"
+  },
+  {
+   "question_id": "Q35",
+   "ref": "refs/cube/Q35-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "FirstName",
+    "LastName",
+    "Title",
+    "manager_first",
+    "manager_last"
+   ],
+   "required_columns": [
+    0,
+    1,
+    3,
+    4
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "Title",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q36",
+   "ref": "refs/cube/Q36-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "segment",
+    "customers"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q37",
+   "ref": "refs/cube/Q37-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "total_sales",
+    "percentile"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q38",
+   "ref": "refs/cube/Q38-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "actual",
+    "forecast",
+    "accuracy_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "actual",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "forecast",
+     "role": "not_asked"
+    }
+   ],
+   "note": "题目未要求按品类，参考按品类给出；品类列作为行的标识计入必答"
+  },
+  {
+   "question_id": "Q39",
+   "ref": "refs/cube/Q39-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "subcategory_key",
+    "ProductSubcategoryName",
+    "introduction_date",
+    "window_days",
+    "before_daily_sales",
+    "after_daily_sales"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q39",
+   "ref": "refs/cube/Q39-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "subcategory_key",
+    "ProductSubcategoryName",
+    "introduction_date",
+    "window_days",
+    "before_daily_sales",
+    "after_daily_sales"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q40",
+   "ref": "refs/cube/Q40-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "sales_eur"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q41",
+   "ref": "refs/cube/Q41-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sum(SalesAmount)"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q42",
+   "ref": "refs/cube/Q42-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "year",
+    "sales",
+    "yoy_change"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q42",
+   "ref": "refs/cube/Q42-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "year",
+    "gross_margin"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q43",
+   "ref": "refs/cube/Q43-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "region",
+    "gross_margin"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q43",
+   "ref": "refs/cube/Q43-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "region",
+    "gross_margin"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q44",
+   "ref": "refs/cube/Q44-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "year",
+    "sales",
+    "growth_pct"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q44",
+   "ref": "refs/cube/Q44-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "month",
+    "sales"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q45",
+   "ref": "refs/cube/Q45-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "StoreName",
+    "total_sales",
+    "SellingAreaSize",
+    "sales_per_sqft"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q46",
+   "ref": "refs/cube/Q46-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "segment",
+    "profit"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q46",
+   "ref": "refs/cube/Q46-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "segment",
+    "profit"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q47",
+   "ref": "refs/cube/Q47-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "avg_downtime_minutes"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q48",
+   "ref": "refs/cube/Q48-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "downtime_group",
+    "avg_sales",
+    "store_count"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q48",
+   "ref": "refs/cube/Q48-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "correlation"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q48",
+   "ref": "refs/cube/Q48-3.csv",
+   "scoring": "judge",
+   "columns": [
+    "correlation"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q49",
+   "ref": "refs/cube/Q49-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "e.EntityKey",
+    "EntityName",
+    "total_amount"
+   ],
+   "required_columns": [
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "e.EntityKey",
+     "role": "alt_identifier"
+    }
+   ],
+   "note": "v2：标识一律取名称（实体名）；原版取实体键"
+  },
+  {
+   "question_id": "Q50",
+   "ref": "refs/cube/Q50-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sales_2009",
+    "sales_2008",
+    "growth_pct"
+   ],
+   "required_columns": [
+    2
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "sales_2009",
+     "role": "not_asked"
+    },
+    {
+     "position": 1,
+     "column": "sales_2008",
+     "role": "not_asked"
+    }
+   ],
+   "note": "缺列：题目问增长了多少，参考没有增长额"
+  },
+  {
+   "question_id": "Q51",
+   "ref": "refs/cube/Q51-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "total_stores"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q52",
+   "ref": "refs/cube/Q52-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "max_unit_price"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q53",
+   "ref": "refs/cube/Q53-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "total_orders"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q54",
+   "ref": "refs/cube/Q54-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "total_return_amount"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q55",
+   "ref": "refs/cube/Q55-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "female_customers"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q56",
+   "ref": "refs/cube/Q56-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "avg_yearly_income"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q57",
+   "ref": "refs/cube/Q57-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "total_brands"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q58",
+   "ref": "refs/cube/Q58-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "max_line_sales_amount"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q59",
+   "ref": "refs/cube/Q59-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "holiday_days"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q60",
+   "ref": "refs/cube/Q60-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "production_employees"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q61",
+   "ref": "refs/cube/Q61-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductSubcategoryName",
+    "total_sales"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "total_sales",
+     "role": "filter_value"
+    }
+   ]
+  },
+  {
+   "question_id": "Q62",
+   "ref": "refs/cube/Q62-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "BrandName",
+    "revenue",
+    "units"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": [],
+   "note": "销量既是所问又是筛选依据，计入必答"
+  },
+  {
+   "question_id": "Q63",
+   "ref": "refs/cube/Q63-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "Occupation",
+    "avg_order_value",
+    "orders"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "orders",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q64",
+   "ref": "refs/cube/Q64-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "month",
+    "gross_margin",
+    "margin_pct"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q65",
+   "ref": "refs/cube/Q65-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "manager_name",
+    "StoreName",
+    "total_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "total_sales",
+     "role": "filter_value"
+    }
+   ],
+   "note": "参考按门店逐行给出经理与门店，两列都计入必答"
+  },
+  {
+   "question_id": "Q66",
+   "ref": "refs/cube/Q66-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "quarter",
+    "total_discount"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q67",
+   "ref": "refs/cube/Q67-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ColorName",
+    "avg_realized_price",
+    "units"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "avg_realized_price",
+     "role": "rank_key"
+    },
+    {
+     "position": 2,
+     "column": "units",
+     "role": "filter_value"
+    }
+   ]
+  },
+  {
+   "question_id": "Q68",
+   "ref": "refs/cube/Q68-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "IsHoliday",
+    "orders",
+    "revenue"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q69",
+   "ref": "refs/cube/Q69-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "PromotionCategory",
+    "revenue",
+    "total_discount",
+    "avg_discount_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "revenue",
+     "role": "rank_key"
+    },
+    {
+     "position": 2,
+     "column": "total_discount",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q70",
+   "ref": "refs/cube/Q70-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreType",
+    "revenue",
+    "avg_area",
+    "stores"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 3,
+     "column": "stores",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q71",
+   "ref": "refs/cube/Q71-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "subcategory",
+    "sales_amount"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q72",
+   "ref": "refs/cube/Q72-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "year",
+    "quarter",
+    "quarterly_sales",
+    "cumulative_sales"
+   ],
+   "required_columns": [
+    0,
+    1,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "quarterly_sales",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q73",
+   "ref": "refs/cube/Q73-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName",
+    "total_on_hand",
+    "total_safety",
+    "gap"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "total_on_hand",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "total_safety",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "gap",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q74",
+   "ref": "refs/cube/Q74-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "ProductName",
+    "product_sales",
+    "pct_of_store",
+    "ProductKey"
+   ],
+   "required_columns": [
+    0,
+    1,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "product_sales",
+     "role": "rank_key"
+    },
+    {
+     "position": 4,
+     "column": "ProductKey",
+     "role": "alt_identifier"
+    }
+   ]
+  },
+  {
+   "question_id": "Q75",
+   "ref": "refs/cube/Q75-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "FirstName",
+    "LastName",
+    "spend_2008",
+    "spend_2009",
+    "pct_growth"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "spend_2008",
+     "role": "filter_value"
+    },
+    {
+     "position": 3,
+     "column": "spend_2009",
+     "role": "filter_value"
+    },
+    {
+     "position": 4,
+     "column": "pct_growth",
+     "role": "filter_value"
+    }
+   ],
+   "note": "v3：不缺列。标识取名称（名、姓两列），47 行与其他行同名，属第五节的重名情形，按多重集比对"
+  },
+  {
+   "question_id": "Q76",
+   "ref": "refs/cube/Q76-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "pct_repeat_customer_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q76",
+   "ref": "refs/cube/Q76-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "pct_repeat_customer_sales"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q77",
+   "ref": "refs/cube/Q77-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "month",
+    "sales",
+    "prev_month_sales",
+    "mom_growth_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "sales",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "prev_month_sales",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q78",
+   "ref": "refs/cube/Q78-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "discount_total",
+    "rnk",
+    "pct_of_total"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "discount_total",
+     "role": "rank_key"
+    },
+    {
+     "position": 2,
+     "column": "rnk",
+     "role": "rank_key"
+    }
+   ],
+   "note": "名次由 order_by 检查，名次列本身不计入必答"
+  },
+  {
+   "question_id": "Q79",
+   "ref": "refs/cube/Q79-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "actual_sales",
+    "quota",
+    "attainment_pct"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "actual_sales",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "quota",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "attainment_pct",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q80",
+   "ref": "refs/cube/Q80-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "country",
+    "n_customers",
+    "avg_active_days"
+   ],
+   "required_columns": [
+    0,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "n_customers",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q81",
+   "ref": "refs/cube/Q81-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "cohort_year",
+    "customers_in_cohort",
+    "avg_ltv",
+    "total_ltv"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 3,
+     "column": "total_ltv",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q82",
+   "ref": "refs/cube/Q82-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "manager_name",
+    "Title",
+    "direct_reports",
+    "avg_team_tenure_years"
+   ],
+   "required_columns": [
+    0,
+    2,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "Title",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q83",
+   "ref": "refs/cube/Q83-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "cohort_size_2007",
+    "returned_2008",
+    "returned_2008_and_2009"
+   ],
+   "required_columns": [
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "cohort_size_2007",
+     "role": "not_asked"
+    }
+   ],
+   "note": "题目问 2008、2009 两个人数，未问 2007 群体人数"
+  },
+  {
+   "question_id": "Q84",
+   "ref": "refs/cube/Q84-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "abc_class",
+    "product_count",
+    "revenue",
+    "pct_of_revenue"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "revenue",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "pct_of_revenue",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q84",
+   "ref": "refs/cube/Q84-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "abc_class",
+    "product_count",
+    "revenue",
+    "pct_of_revenue"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "revenue",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "pct_of_revenue",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q85",
+   "ref": "refs/cube/Q85-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "bucket",
+    "StoreName",
+    "actual_amt",
+    "quota_amt",
+    "attainment_pct"
+   ],
+   "required_columns": [
+    0,
+    1,
+    4
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "actual_amt",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "quota_amt",
+     "role": "not_asked"
+    }
+   ],
+   "note": "最高 / 最低分组列计入必答"
+  },
+  {
+   "question_id": "Q86",
+   "ref": "refs/cube/Q86-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "ProductSubcategoryName",
+    "corr_discount_vs_qty",
+    "observations"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q86",
+   "ref": "refs/cube/Q86-3.csv",
+   "scoring": "judge",
+   "columns": [
+    "ProductSubcategoryName",
+    "corr_discount_vs_qty",
+    "observations"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q87",
+   "ref": "refs/cube/Q87-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductName",
+    "on_hand",
+    "avg_daily_qty",
+    "days_of_coverage",
+    "ProductKey"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "on_hand",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "avg_daily_qty",
+     "role": "not_asked"
+    },
+    {
+     "position": 4,
+     "column": "ProductKey",
+     "role": "alt_identifier"
+    }
+   ],
+   "note": "v2：标识一律取名称（产品名）；原版取产品键。可售天数既是所问又是排序键，计入必答"
+  },
+  {
+   "question_id": "Q88",
+   "ref": "refs/cube/Q88-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "customer_name",
+    "total_spend_2009"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "total_spend_2009",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q89",
+   "ref": "refs/cube/Q89-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "segment",
+    "customers",
+    "avg_spend",
+    "avg_distinct_products"
+   ],
+   "required_columns": [
+    0,
+    2,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "customers",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q90",
+   "ref": "refs/cube/Q90-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "margin_2007_pct",
+    "margin_2008_pct",
+    "margin_2009_pct",
+    "delta_08_07_pp",
+    "delta_09_08_pp"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q91",
+   "ref": "refs/cube/Q91-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "income_spend_correlation",
+    "customers_analyzed"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q91",
+   "ref": "refs/cube/Q91-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "income_spend_correlation",
+    "customers_analyzed"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q92",
+   "ref": "refs/cube/Q92-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "BrandName",
+    "revenue",
+    "gross_margin_dollars",
+    "gross_margin_pct"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "revenue",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "gross_margin_dollars",
+     "role": "not_asked"
+    },
+    {
+     "position": 3,
+     "column": "gross_margin_pct",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q93",
+   "ref": "refs/cube/Q93-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "discount_qty_correlation",
+    "discount_revenue_correlation",
+    "promos_analyzed"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q94",
+   "ref": "refs/cube/Q94-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "q3_sales",
+    "q4_sales",
+    "qoq_pct_change"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "q3_sales",
+     "role": "filter_value"
+    },
+    {
+     "position": 2,
+     "column": "q4_sales",
+     "role": "filter_value"
+    },
+    {
+     "position": 3,
+     "column": "qoq_pct_change",
+     "role": "rank_key"
+    }
+   ]
+  },
+  {
+   "question_id": "Q95",
+   "ref": "refs/cube/Q95-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "ProductCategoryName",
+    "promo_average_sales",
+    "full_price_average_sales",
+    "incremental_average_sales"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q96",
+   "ref": "refs/cube/Q96-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "cohort_year",
+    "cohort_size",
+    "returning_customers",
+    "retention_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "cohort_size",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "returning_customers",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q97",
+   "ref": "refs/cube/Q97-1.csv",
+   "scoring": "judge",
+   "columns": [
+    "ProductName",
+    "h1_sales",
+    "h2_sales",
+    "h2_vs_h1_pct",
+    "ProductKey"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q97",
+   "ref": "refs/cube/Q97-2.csv",
+   "scoring": "judge",
+   "columns": [
+    "ProductKey",
+    "ProductName",
+    "h1_sales",
+    "h2_sales",
+    "sales_increase"
+   ],
+   "skipped": "judge"
+  },
+  {
+   "question_id": "Q98",
+   "ref": "refs/cube/Q98-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "peak_quarter_share_pct",
+    "peak_quarter"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "peak_quarter_share_pct",
+     "role": "rank_key"
+    },
+    {
+     "position": 2,
+     "column": "peak_quarter",
+     "role": "not_asked"
+    }
+   ],
+   "note": "所依赖的季度未明确问到，不计入必答"
+  },
+  {
+   "question_id": "Q98",
+   "ref": "refs/cube/Q98-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "year",
+    "peak_quarter_share_pct",
+    "peak_quarter"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": [
+    {
+     "position": 2,
+     "column": "peak_quarter_share_pct",
+     "role": "rank_key"
+    },
+    {
+     "position": 3,
+     "column": "peak_quarter",
+     "role": "not_asked"
+    }
+   ],
+   "note": "年份是该解读的分组，计入必答"
+  },
+  {
+   "question_id": "Q99",
+   "ref": "refs/cube/Q99-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "ProductCategoryName",
+    "avg_weekend_day_sales",
+    "avg_weekday_sales",
+    "weekend_lift_pct"
+   ],
+   "required_columns": [
+    0,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 1,
+     "column": "avg_weekend_day_sales",
+     "role": "not_asked"
+    },
+    {
+     "position": 2,
+     "column": "avg_weekday_sales",
+     "role": "not_asked"
+    }
+   ],
+   "note": "缺列：题目问高多少，参考只有百分比，没有差额（与 Q50 同型）"
+  },
+  {
+   "question_id": "Q100",
+   "ref": "refs/cube/Q100-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "customer_name",
+    "orders",
+    "avg_order_amount",
+    "lifetime_value"
+   ],
+   "required_columns": [
+    1,
+    2
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "customer_name",
+     "role": "placeholder_name"
+    },
+    {
+     "position": 3,
+     "column": "lifetime_value",
+     "role": "not_asked"
+    }
+   ],
+   "note": "v2：姓名列全为占位值，不是标识，不必答；只比订单数、客单价两列的多重集。参考无客户键"
+  },
+  {
+   "question_id": "Q101",
+   "ref": "refs/new/Q101-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "GMV"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q102",
+   "ref": "refs/new/Q102-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "net_sales_amount"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q103",
+   "ref": "refs/new/Q103-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "orders",
+    "sales_share_pct"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q104",
+   "ref": "refs/new/Q104-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "sales_change_amount",
+    "margin_change_amount"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q105",
+   "ref": "refs/new/Q105-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sales_amount"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q106",
+   "ref": "refs/new/Q106-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "growth_pct"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q107",
+   "ref": "refs/new/Q107-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "net_sales_share_pct"
+   ],
+   "required_columns": [
+    0
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q108",
+   "ref": "refs/new/Q108-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "country",
+    "sales_amount",
+    "orders"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q109",
+   "ref": "refs/new/Q109-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "quarter",
+    "daily_sales_growth_pct"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q110",
+   "ref": "refs/new/Q110-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "share_2008_pct",
+    "share_2009_pct",
+    "change_pp"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q111",
+   "ref": "refs/new/Q111-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "ytd_attainment_pct",
+    "annual_attainment_pct"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q112",
+   "ref": "refs/new/Q112-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "EmployeeKey",
+    "manager",
+    "under_target_stores",
+    "shortfall_amount"
+   ],
+   "required_columns": [
+    1,
+    2,
+    3
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "EmployeeKey",
+     "role": "alt_identifier"
+    }
+   ],
+   "note": "v2：标识一律取名称（经理名）；原版取员工键"
+  },
+  {
+   "question_id": "Q113",
+   "ref": "refs/new/Q113-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreName",
+    "start_month",
+    "end_month",
+    "months"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q114",
+   "ref": "refs/new/Q114-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "cutoff",
+    "new_customers"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q115",
+   "ref": "refs/new/Q115-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "a.old_state",
+    "b.new_state",
+    "customers"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q116",
+   "ref": "refs/new/Q116-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "cohort_month",
+    "repurchase_pct"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q117",
+   "ref": "refs/new/Q117-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "t.StoreKey",
+    "StoreName",
+    "decline_pct",
+    "category",
+    "decline_amount",
+    "contribution_pct"
+   ],
+   "required_columns": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "t.StoreKey",
+     "role": "alt_identifier"
+    }
+   ]
+  },
+  {
+   "question_id": "Q118",
+   "ref": "refs/new/Q118-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "sales_amount",
+    "share_pct"
+   ],
+   "required_columns": [
+    0,
+    1
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q119",
+   "ref": "refs/new/Q119-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "StoreKey",
+    "StoreName",
+    "ProductKey",
+    "ProductName",
+    "product_sales",
+    "global_rank"
+   ],
+   "required_columns": [
+    1,
+    3,
+    5
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "StoreKey",
+     "role": "alt_identifier"
+    },
+    {
+     "position": 2,
+     "column": "ProductKey",
+     "role": "alt_identifier"
+    },
+    {
+     "position": 4,
+     "column": "product_sales",
+     "role": "not_asked"
+    }
+   ]
+  },
+  {
+   "question_id": "Q120",
+   "ref": "refs/new/Q120-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "scope",
+    "occupation",
+    "customers",
+    "income_sales_corr"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q121",
+   "ref": "refs/new/Q121-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "monthly_sales_amount",
+    "coefficient_ratio"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q121",
+   "ref": "refs/new/Q121-2.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "category",
+    "monthly_sales_amount",
+    "coefficient_ratio"
+   ],
+   "required_columns": [
+    0,
+    1,
+    2
+   ],
+   "non_required": []
+  },
+  {
+   "question_id": "Q122",
+   "ref": "refs/new/Q122-1.csv",
+   "scoring": "deterministic",
+   "columns": [
+    "product1_key",
+    "product1_name",
+    "product2_key",
+    "product2_name",
+    "common_orders",
+    "lift_ratio"
+   ],
+   "required_columns": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "non_required": [
+    {
+     "position": 0,
+     "column": "product1_key",
+     "role": "alt_identifier"
+    },
+    {
+     "position": 2,
+     "column": "product2_key",
+     "role": "alt_identifier"
+    }
+   ]
+  }
+ ]
+}
