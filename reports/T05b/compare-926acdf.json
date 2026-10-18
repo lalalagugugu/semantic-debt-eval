@@ -1,0 +1,1090 @@
+{
+ "_source": {
+  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-926acdf",
+  "eval_commit": "926acdffcc32523a3f92569f02f1fa489397607d",
+  "pandas_source": {
+   "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-6234d29",
+   "eval_commit": "6234d290afff20e6ef56b67c37e1b144f0758d9c",
+   "script": "scripts/recheck_v11.py"
+  }
+ },
+ "Q07": [
+  {
+   "ref": "refs/cube/Q07-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "UnitPrice<-UnitPrice(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q17": [
+  {
+   "ref": "refs/cube/Q17-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "IsWorkDay<-day_type(str)",
+      "sales<-sales(num)",
+      "percentage<-pct(num)",
+      "total_sales_amount<-total(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q22": [
+  {
+   "ref": "refs/cube/Q22-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "c.CustomerKey<-CustomerKey(num)",
+      "FirstName<-FirstName(str)",
+      "LastName<-LastName(str)",
+      "RegionCountryName<-country(str)",
+      "total_spent<-SalesAmount(num)",
+      "rn<-rank(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q26": [
+  {
+   "ref": "refs/cube/Q26-1.csv",
+   "interpretation": "原参考解读；购买事件=全部行",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "quarter<-quarter(str)",
+      "new_customers<-customers(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q27": [
+  {
+   "ref": "refs/cube/Q27-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "UnitPrice<-UnitPrice(num)",
+      "UnitCost<-UnitCost(num)",
+      "margin_pct<-margin_pct(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q29": [
+  {
+   "ref": "refs/cube/Q29-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "pct_difference<-pct_diff(num)",
+      "sales_difference_amount<-abs_diff(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q31": [
+  {
+   "ref": "refs/cube/Q31-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-category(str)",
+      "scenario<-scenario(str)",
+      "sales_amount<-amount(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q33": [
+  {
+   "ref": "refs/cube/Q33-1.csv",
+   "interpretation": "共购按不同订单计数：每订单内产品去重；保留产品键与缺失名称。前20仅是judge示例，不是题干固定N。；购买事件=全部行",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "product1_key<-key_a(num)",
+      "product2_key<-key_b(num)",
+      "product1<-product_a(str)",
+      "product2<-product_b(str)",
+      "co_order_count<-orders(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q38": [
+  {
+   "ref": "refs/cube/Q38-2.csv",
+   "interpretation": "按裁决仅报告准确率=100%-绝对百分比误差",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-category(str)",
+      "actual<-actual(num)",
+      "forecast<-forecast(num)",
+      "accuracy_pct<-accuracy_pct(num)"
+     ]
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q38-3.csv",
+   "interpretation": "同一季度总体预测准确率：汇总实际与预测后计算；与按品类展示均可接受",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "actual<-actual(num)",
+      "forecast<-forecast(num)",
+      "accuracy_pct<-accuracy_pct(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q42": [
+  {
+   "ref": "refs/cube/Q42-1.csv",
+   "interpretation": "示例：年度线上销售趋势；不是封闭的唯一分析口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "year<-year(num)",
+      "sales<-sales(num)",
+      "yoy_change<-yoy_amount(num)",
+      "yoy_change_pct<-yoy_pct(num)"
+     ]
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q42-2.csv",
+   "interpretation": "示例：年度线上毛利；需声明指标和时间范围",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "year<-year(num)",
+      "gross_margin<-gross_margin(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q44": [
+  {
+   "ref": "refs/cube/Q44-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "year<-year(num)",
+      "sales<-sales(num)",
+      "growth_pct<-yoy_pct(num)",
+      "sales_change_amount<-yoy_amount(num)"
+     ]
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q44-2.csv",
+   "interpretation": "示例：逐月线上销售趋势；声明年度/月度即可，不强制唯一粒度",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "month<-month(num)",
+      "sales<-sales(num)",
+      "year<-year(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q45": [
+  {
+   "ref": "refs/cube/Q45-1.csv",
+   "interpretation": "完整销售平效排序域；允许声明正整数Top-N或返回完整排名",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "StoreName<-StoreName(str)",
+      "total_sales<-sales(num)",
+      "SellingAreaSize<-area(num)",
+      "sales_per_sqft<-sales_per_sqft(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q64": [
+  {
+   "ref": "refs/cube/Q64-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "month<-month(num)",
+      "gross_margin<-gross_margin(num)",
+      "margin_pct<-margin_pct(num)",
+      "revenue_amount<-revenue(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q65": [
+  {
+   "ref": "refs/cube/Q65-2.csv",
+   "interpretation": "以经理姓名标识，同名经理不合并门店；无员工映射保留门店及NULL姓名",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "manager_name<-manager(str)",
+      "StoreName<-StoreName(str)",
+      "total_sales<-sales(num)",
+      "manager_key<-EmployeeKey(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q66": [
+  {
+   "ref": "refs/cube/Q66-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "quarter<-quarter(str)",
+      "total_discount<-d(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q67": [
+  {
+   "ref": "refs/cube/Q67-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ColorName<-color(str)",
+      "avg_realized_price<-avg_price(num)",
+      "units<-units(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q69": [
+  {
+   "ref": "refs/cube/Q69-1.csv",
+   "interpretation": "折前金额加权实际折扣率，须声明权重",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "PromotionCategory<-cat(str)",
+      "revenue<-rev(num)",
+      "total_discount<-disc(num)",
+      "avg_discount_pct<-pct(num)",
+      "original_sales_amount<-gross(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q72": [
+  {
+   "ref": "refs/cube/Q72-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "year<-year(num)",
+      "quarter<-quarter(str)",
+      "quarterly_sales<-SalesAmount(num)",
+      "cumulative_sales<-cumulative(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q73": [
+  {
+   "ref": "refs/cube/Q73-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "total_on_hand<-OnHandQuantity(num)",
+      "total_safety<-SafetyStockQuantity(num)",
+      "gap<-gap(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q74": [
+  {
+   "ref": "refs/cube/Q74-1.csv",
+   "interpretation": "全渠道每店前3产品，完整事实门店总额作分母；缺名产品按键保留，完整量化边界",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "StoreName<-StoreName(str)",
+      "ProductName<-ProductName(str)",
+      "product_sales<-sales(num)",
+      "pct_of_store<-share_pct(num)",
+      "ProductKey<-ProductKey(num)",
+      "store_total_sales<-store_total(num)",
+      "rank<-rank(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q75": [
+  {
+   "ref": "refs/cube/Q75-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "FirstName<-FirstName(str)",
+      "LastName<-LastName(str)",
+      "spend_2008<-s2008(num)",
+      "spend_2009<-s2009(num)",
+      "pct_growth<-growth_pct(num)",
+      "CustomerKey<-CustomerKey(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q76": [
+  {
+   "ref": "refs/cube/Q76-1.csv",
+   "interpretation": "客户全目录累计至少两笔线上订单，须声明粒度；购买事件=全部行（含纯退货行）",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-category(str)",
+      "pct_repeat_customer_sales<-repeat_pct(num)",
+      "repeat_sales_amount<-repeat_sales(num)",
+      "category_sales_amount<-total(num)"
+     ]
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q76-2.csv",
+   "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度；购买事件=全部行",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-category(str)",
+      "pct_repeat_customer_sales<-repeat_pct(num)",
+      "repeat_sales_amount<-repeat_sales(num)",
+      "category_sales_amount<-total(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q77": [
+  {
+   "ref": "refs/cube/Q77-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "month<-month(num)",
+      "sales<-sales(num)",
+      "prev_month_sales<-prev(num)",
+      "mom_growth_pct<-mom_pct(num)",
+      "mom_change_amount<-mom_amount(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q78": [
+  {
+   "ref": "refs/cube/Q78-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-cat(str)",
+      "discount_total<-discount(num)",
+      "rnk<-rank(num)",
+      "pct_of_total<-share_pct(num)",
+      "total_discount_amount<-total(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q79": [
+  {
+   "ref": "refs/cube/Q79-1.csv",
+   "interpretation": "预算场景目标达成率，取前10名并保留边界并列",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "StoreName<-StoreName(str)",
+      "actual_sales<-actual(num)",
+      "quota<-quota(num)",
+      "attainment_pct<-att_pct(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q83": [
+  {
+   "ref": "refs/cube/Q83-1.csv",
+   "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "cohort_year<-cohort_year(num)",
+      "activity_year<-year(num)",
+      "customers<-customers(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q84": [
+  {
+   "ref": "refs/cube/Q84-1.csv",
+   "interpretation": "同额组整体归类，以组加入前的累计占比划分80%/95%边界；SQL取产品收入域",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "abc_class<-class(str)",
+      "product_count<-products(num)",
+      "revenue<-revenue(num)",
+      "pct_of_revenue<-revenue_pct(num)",
+      "total_revenue_amount<-total(num)"
+     ]
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q84-2.csv",
+   "interpretation": "问法歧义：同额组整体归类，以加入后的累计占比划分80%/95%边界",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "abc_class<-class(str)",
+      "product_count<-products(num)",
+      "revenue<-revenue(num)",
+      "pct_of_revenue<-revenue_pct(num)",
+      "total_revenue_amount<-total(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q85": [
+  {
+   "ref": "refs/cube/Q85-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "bucket<-bucket(str)",
+      "StoreName<-StoreName(str)",
+      "actual_amt<-actual(num)",
+      "quota_amt<-quota(num)",
+      "attainment_pct<-att_pct(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q87": [
+  {
+   "ref": "refs/cube/Q87-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "on_hand<-onhand(num)",
+      "avg_daily_qty<-avg_daily(num)",
+      "days_of_coverage<-coverage(num)",
+      "ProductKey<-ProductKey(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q88": [
+  {
+   "ref": "refs/cube/Q88-1.csv",
+   "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "customer_name<-name(str)",
+      "total_spend_2009<-SalesAmount(num)",
+      "CustomerKey<-CustomerKey(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q90": [
+  {
+   "ref": "refs/cube/Q90-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-category(str)",
+      "year<-year(num)",
+      "margin_pct<-margin_pct(num)",
+      "change_pp<-change_pp(num)",
+      "revenue_amount<-revenue(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q92": [
+  {
+   "ref": "refs/cube/Q92-1.csv",
+   "interpretation": "按裁决以毛利率衡量盈利能力并降序排名",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "BrandName<-brand(str)",
+      "revenue<-revenue(num)",
+      "gross_margin_dollars<-profit(num)",
+      "gross_margin_pct<-margin_pct(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q95": [
+  {
+   "ref": "refs/cube/Q95-1.csv",
+   "interpretation": "按裁决仅保留促销行均销售减原价行均销售；包含孤儿产品属性组",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-category(str)",
+      "promo_average_sales<-promo_avg(num)",
+      "full_price_average_sales<-full_avg(num)",
+      "incremental_average_sales<-diff(num)",
+      "incremental_sales_pct<-diff_pct(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q97": [
+  {
+   "ref": "refs/cube/Q97-1.csv",
+   "interpretation": "示例：原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "h1_sales<-h1(num)",
+      "h2_sales<-h2(num)",
+      "h2_vs_h1_pct<-growth_pct(num)",
+      "ProductKey<-ProductKey(num)",
+      "sales_change_amount<-inc(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q97-2.csv",
+   "interpretation": "示例：按H2较H1的增加额排序，取前15名，不设H1下限",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductKey<-ProductKey(num)",
+      "ProductName<-ProductName(str)",
+      "h1_sales<-h1(num)",
+      "h2_sales<-h2(num)",
+      "sales_increase<-inc(num)",
+      "sales_change_pct<-growth_pct(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q98": [
+  {
+   "ref": "refs/cube/Q98-1.csv",
+   "interpretation": "仅分析2009年度，须声明年份",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-ProductCategoryName(str)",
+      "peak_quarter_share_pct<-share_pct(num)",
+      "peak_quarter<-quarter(str)",
+      "annual_sales_amount<-annual(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  },
+  {
+   "ref": "refs/cube/Q98-2.csv",
+   "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
+   "match": true,
+   "pandas_ref": 2,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-ProductCategoryName(str)",
+      "year<-year(num)",
+      "peak_quarter_share_pct<-share_pct(num)",
+      "peak_quarter<-quarter(str)",
+      "annual_sales_amount<-annual(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q100": [
+  {
+   "ref": "refs/cube/Q100-1.csv",
+   "interpretation": "两个精确线性插值P90阈值交集，保留全部阈值并列；SQL取客户排序域",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "customer_name<-name(str)",
+      "orders<-orders(num)",
+      "avg_order_amount<-aov(num)",
+      "lifetime_value<-sales(num)",
+      "CustomerKey<-CustomerKey(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q103": [
+  {
+   "ref": "refs/new/Q103-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "orders<-orders_over_1000(num)",
+      "sales_share_pct<-sales_share_pct(num)",
+      "selected_sales_amount<-big_sales(num)",
+      "total_sales_amount<-total(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q104": [
+  {
+   "ref": "refs/new/Q104-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-category(str)",
+      "sales_change_amount<-revenue_change(num)",
+      "margin_change_amount<-gross_profit_change(num)",
+      "sales_change_pct<-revenue_change_pct(num)",
+      "margin_change_pct<-gross_profit_change_pct(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q106": [
+  {
+   "ref": "refs/new/Q106-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "growth_pct<-growth_pct(num)",
+      "sales_change_amount<-growth_amount(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q107": [
+  {
+   "ref": "refs/new/Q107-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "net_sales_share_pct<-share_pct(num)",
+      "store_net_sales_amount<-store_net(num)",
+      "city_net_sales_amount<-city_net(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q109": [
+  {
+   "ref": "refs/new/Q109-1.csv",
+   "interpretation": "完整季度日历，含零销售日；先逐日汇总再按季度计算日均值",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "quarter<-quarter(str)",
+      "daily_sales_growth_pct<-growth_pct(num)",
+      "daily_sales_change_amount<-diff(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q110": [
+  {
+   "ref": "refs/new/Q110-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "year<-year(num)",
+      "online_share_pct<-share_pct(num)",
+      "change_pp<-change_pp(num)",
+      "total_sales_amount<-total(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q111": [
+  {
+   "ref": "refs/new/Q111-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "StoreName<-StoreName(str)",
+      "ytd_attainment_pct<-ytd_pct(num)",
+      "annual_attainment_pct<-annual_pct(num)",
+      "actual_sales_amount<-ytd_actual(num)",
+      "ytd_target_amount<-ytd_quota(num)",
+      "annual_target_amount<-annual_quota(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q112": [
+  {
+   "ref": "refs/new/Q112-1.csv",
+   "interpretation": "正式目标ScenarioKey=2；挑战缺口=max(1.2×目标−实际,0)；按经理汇总",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "EmployeeKey<-EmployeeKey(num)",
+      "manager<-manager(str)",
+      "under_target_stores<-missed_stores(num)",
+      "shortfall_amount<-shortfall(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q116": [
+  {
+   "ref": "refs/new/Q116-1.csv",
+   "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=全部行",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "cohort_month<-month(num)",
+      "repurchase_pct<-repurchase_pct(num)",
+      "cohort_customers<-cohort(num)",
+      "cohort_year<-year(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q117": [
+  {
+   "ref": "refs/new/Q117-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "t.StoreKey<-StoreKey(num)",
+      "StoreName<-StoreName(str)",
+      "decline_pct<-store_decline_pct(num)",
+      "category<-category(str)",
+      "decline_amount<-category_decline(num)",
+      "contribution_pct<-share_pct(num)",
+      "store_decline_amount<-store_decline(num)",
+      "category_decline_pct<-category_decline_pct(num)",
+      "store_rank<-store_rank(num)",
+      "category_rank<-category_rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ],
+ "Q118": [
+  {
+   "ref": "refs/new/Q118-1.csv",
+   "interpretation": "遵守企业约定及题干限定口径",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "sales_amount<-top_decile_sales_2009(num)",
+      "share_pct<-share_pct(num)",
+      "total_sales<-total_2009(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q122": [
+  {
+   "ref": "refs/new/Q122-1.csv",
+   "interpretation": "提升度按全体2009线上订单的概率总体计算；购买事件均为全部行，按共同订单数取Top-10完整边界",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "product1_key<-product_a(num)",
+      "product1_name<-name_a(str)",
+      "product2_key<-product_b(num)",
+      "product2_name<-name_b(str)",
+      "common_orders<-co_orders(num)",
+      "lift_ratio<-lift(num)",
+      "rank<-rank(num)"
+     ],
+     "order_note": "ordered=true: row order not checked here; see selection/output_order"
+    }
+   }
+  }
+ ]
+}
