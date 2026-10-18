@@ -361,7 +361,8 @@ class RefCheck:
         if not ref:
             return "correct" if not cand else "row_count"  # SPEC-GAP G8
         if not cand:
-            return "correct" if not any(self.ref_mand) and R.selection is None else "row_count"
+            # only optional zero rows may all be absent; Top-N still needs exactly N rows (5.3)
+            return "correct" if not any(self.ref_mand) and R.selection is None and R.top_n is None else "row_count"
         if R.top_n is not None and len(cand) != self.expected_rows:
             if len(cand) == len(ref) and len(ref) > R.top_n and self._full_group_matches():
                 return "top_n_full_group"
@@ -564,8 +565,8 @@ class RefCheck:
             return _max_match(L, Rr, edges) >= need
         Rr = list(rc.values())
         if j in self.rank_req:
-            # rank values are judged in the rank step (reason 'rank'); here only "is an integer"
-            edges = [(a, b) for a, (c, _) in enumerate(L) for b in range(len(Rr)) if _as_int(c) is not None]
+            # rank values, integrality included (5.9), are judged in the rank step (reason 'rank')
+            return True
         elif u.mode == "merge":
             idx = {}
             for b, (r, _) in enumerate(Rr):

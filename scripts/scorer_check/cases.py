@@ -442,6 +442,8 @@ def stress():
     case("stress/tie42-position-gap", "7.2", [[n, i + 2] for i, n in enumerate(pick)], [ref], R, "wrong", "rank",
          note="positions 2..11: block starts at 1")
     case("stress/tie42-full-group", "7.2, 5.3", [[n, 1] for n in names], [ref], R, "wrong", "top_n_full_group")
+    case("stress/tie42-empty", "5.3", [], [ref], R, "wrong", "row_count",
+         note="every reference row is in the boundary group, yet N rows are still required")
     case("stress/tie42-wrong-all-columns", "7.2", [[n, 1000.0 + i, 1000.0 + i, 99.0, 1] for i, n in enumerate(pick)],
          [ref], R, "correct", note="extra columns are not compared")
     # S2. 60-row tie block, unordered, ranks positional permutation
