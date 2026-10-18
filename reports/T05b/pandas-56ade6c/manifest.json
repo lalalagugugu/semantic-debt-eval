@@ -1,0 +1,66 @@
+{
+ "_reruns": [
+  {
+   "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-56ade6c",
+   "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+   "questions": [
+    "Q34",
+    "Q50",
+    "Q71",
+    "Q99"
+   ]
+  }
+ ],
+ "Q34": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q34-1.csv",
+    "rows": 2508
+   }
+  ],
+  "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+  "seconds": 0.7
+ },
+ "Q50": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q50-1.csv",
+    "rows": 1
+   }
+  ],
+  "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+  "seconds": 0.1
+ },
+ "Q71": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q71-1.csv",
+    "rows": 8
+   }
+  ],
+  "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+  "seconds": 1.3
+ },
+ "Q99": {
+  "event_sensitive": false,
+  "files": [
+   {
+    "ref": 1,
+    "mode": null,
+    "path": "Q99-1.csv",
+    "rows": 9
+   }
+  ],
+  "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+  "seconds": 0.4
+ }
+}

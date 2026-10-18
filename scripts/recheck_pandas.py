@@ -513,7 +513,10 @@ def _():
     inv["value"] = inv.OnHandQuantity * inv.UnitCost
     per_date = inv.groupby(["ProductKey", "DateKey"]).value.sum()
     avg_inv = per_date.groupby("ProductKey").mean()
-    d = pd.DataFrame({"cogs": cogs, "avg_inventory": avg_inv}).dropna(subset=["cogs"])
+    # Ruling 10-18 judge-stratum section 3: products stocked in 2009 but unsold are kept, turnover 0.
+    d = pd.DataFrame({"cogs": cogs, "avg_inventory": avg_inv})
+    d = d[d.cogs.notna() | d.avg_inventory.notna()]
+    d["cogs"] = d.cogs.fillna(0)
     d["turnover"] = d.cogs / d.avg_inventory
     d["turnover"] = d.turnover.where(np.isfinite(d.turnover))
     d.insert(0, "ProductName", d.index.map(prod().ProductName))
@@ -696,7 +699,7 @@ def _():
     g = f[f.year.isin([2008, 2009])].groupby(["StoreKey", "year"]).SalesAmount.sum().unstack()
     g = g.dropna()
     a, b = g[2008].sum(), g[2009].sum()
-    return [df_([[a, b, (b / a - 1) * 100]], ["sales_2008", "sales_2009", "growth_pct"])]
+    return [df_([[a, b, (b / a - 1) * 100, b - a]], ["sales_2008", "sales_2009", "growth_pct", "growth_amount"])]
 
 
 @Q("Q51")
@@ -846,7 +849,9 @@ def _():
     f = attach_product(fos().loc[lambda d: d.year == 2009, ["ProductKey", "SalesAmount"]].copy(),
                        ("ProductCategoryName", "ProductSubcategoryName"))
     g = f.groupby(["ProductCategoryName", "ProductSubcategoryName"], dropna=False).SalesAmount.sum().reset_index()
-    return [select_top(g, ["ProductCategoryName"], [("SalesAmount", "amount", True)], 1)]
+    top = select_top(g, ["ProductCategoryName"], [("SalesAmount", "amount", True)], 1)
+    # Ruling 10-18 judge-stratum section 3: a group whose pick is NULL is not part of the answer.
+    return [top[top.ProductSubcategoryName.notna()]]
 
 
 @Q("Q72")
@@ -1177,7 +1182,8 @@ def _():
     d["we"] = d.DateKey.map(dates().IsWorkDay) == "WeekEnd"
     g = d.groupby(["ProductCategoryName", "we"], dropna=False).SalesAmount.mean().unstack()
     return [pd.DataFrame({"category": g.index, "weekend_avg": g[True].values, "weekday_avg": g[False].values,
-                          "diff_pct": pct(g[True] - g[False], g[False]).values})]
+                          "diff_pct": pct(g[True] - g[False], g[False]).values,
+                          "diff": (g[True] - g[False]).values})]
 
 
 @Q("Q100", event=True)
