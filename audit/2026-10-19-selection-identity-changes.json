@@ -1,0 +1,583 @@
+{
+  "ruling": "semantic-debt PR #106; scorer spec v2 section IX",
+  "target": "eval-v1.2",
+  "reference_count": 137,
+  "changes": [
+    {
+      "question_id": "Q74",
+      "reference": "refs/cube/Q74-1.csv",
+      "before": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                4
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            }
+          ],
+          "output_order": []
+        },
+        "required_columns": [
+          0,
+          1,
+          3,
+          5,
+          6
+        ],
+        "rankings": [
+          {
+            "column": 6,
+            "group_columns": [
+              0
+            ],
+            "object_columns": [
+              4
+            ],
+            "prefix": true,
+            "block_count": 910,
+            "blocks_sha256": "ff89d03742add9f8a28f411fb81c0cc83469c70a61a05061ceff514b88d12b02"
+          }
+        ]
+      },
+      "after": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            }
+          ],
+          "output_order": []
+        },
+        "required_columns": [
+          0,
+          1,
+          3,
+          5,
+          6
+        ],
+        "rankings": [
+          {
+            "column": 6,
+            "group_columns": [
+              0
+            ],
+            "object_columns": [
+              1
+            ],
+            "prefix": true,
+            "block_count": 910,
+            "blocks_sha256": "ff89d03742add9f8a28f411fb81c0cc83469c70a61a05061ceff514b88d12b02"
+          }
+        ]
+      },
+      "csv_sha256_unchanged": "07a929437b64a5c4e0afb18858d47af91069baaf9b90f221bc1fbba8580817fa",
+      "sql_sha256_unchanged": "64d05736c8ab7cc3f0cbaa7eb361ab41e352702b567bc5aaa3587772b769cd78"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-1.csv",
+      "before": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                2
+              ],
+              "order_by": [
+                {
+                  "column": 1,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          0,
+          4
+        ],
+        "rankings": [
+          {
+            "column": 4,
+            "group_columns": [],
+            "object_columns": [
+              0
+            ],
+            "prefix": true,
+            "block_count": 9,
+            "blocks_sha256": "b9e2424bb645a190b5f81b3424f225e2a7e640339c98326b291d1ef0e83c0857"
+          }
+        ]
+      },
+      "after": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                2
+              ],
+              "order_by": [
+                {
+                  "column": 1,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          0,
+          2,
+          4
+        ],
+        "rankings": [
+          {
+            "column": 4,
+            "group_columns": [],
+            "object_columns": [
+              0
+            ],
+            "prefix": true,
+            "block_count": 9,
+            "blocks_sha256": "b9e2424bb645a190b5f81b3424f225e2a7e640339c98326b291d1ef0e83c0857"
+          }
+        ]
+      },
+      "csv_sha256_unchanged": "250ca82501ce61ca936c6a2c04ca6beae9ae8677b5ccf6e9b2170db00174e2f6",
+      "sql_sha256_unchanged": "906e1cc34753728dd2ac9941eea97ab0f9c1b9fe7073e541eebcbfbd8364f37f"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-2.csv",
+      "before": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0,
+                1
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 1,
+              "descending": false
+            },
+            {
+              "column": 2,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          0,
+          1,
+          5
+        ],
+        "rankings": [
+          {
+            "column": 5,
+            "group_columns": [
+              1
+            ],
+            "object_columns": [
+              0
+            ],
+            "prefix": true,
+            "block_count": 27,
+            "blocks_sha256": "7ede28656969f1b7a7b62776142ecfa0ea3a3301fd1eae75c078304aa2fb18c2"
+          }
+        ]
+      },
+      "after": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0,
+                1
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 1,
+              "descending": false
+            },
+            {
+              "column": 2,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          0,
+          1,
+          3,
+          5
+        ],
+        "rankings": [
+          {
+            "column": 5,
+            "group_columns": [
+              1
+            ],
+            "object_columns": [
+              0
+            ],
+            "prefix": true,
+            "block_count": 27,
+            "blocks_sha256": "7ede28656969f1b7a7b62776142ecfa0ea3a3301fd1eae75c078304aa2fb18c2"
+          }
+        ]
+      },
+      "csv_sha256_unchanged": "d5c09195ce2e959d98a42e254e5dcd0849cb7dd9363a79879884650e6dcf6c2f",
+      "sql_sha256_unchanged": "7ce09467661a4e03feb0c2e8957d5dc9f871fff3222f07fcad59e23cce864d47"
+    },
+    {
+      "question_id": "Q117",
+      "reference": "refs/new/Q117-1.csv",
+      "before": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [],
+              "object_columns": [
+                0
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            },
+            {
+              "parent": 0,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 2,
+              "descending": true
+            },
+            {
+              "column": 4,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "rankings": [
+          {
+            "column": 8,
+            "group_columns": [],
+            "object_columns": [
+              0
+            ],
+            "prefix": true,
+            "block_count": 3,
+            "blocks_sha256": "7c79453a42104b99d32b5a9d7b99c4a4caaa882012e3cc7a30addaa93c39717c"
+          },
+          {
+            "column": 9,
+            "group_columns": [
+              0
+            ],
+            "object_columns": [
+              3
+            ],
+            "prefix": true,
+            "block_count": 3,
+            "blocks_sha256": "360b85cd9b9316bbbbfb78c7275e1dfa44d7b35391d9cc40b9ed58a426f9bf3d"
+          }
+        ]
+      },
+      "after": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 3
+            },
+            {
+              "parent": 0,
+              "where": [],
+              "group_columns": [
+                1
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": [
+            {
+              "column": 2,
+              "descending": true
+            },
+            {
+              "column": 4,
+              "descending": true
+            }
+          ]
+        },
+        "required_columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "rankings": [
+          {
+            "column": 8,
+            "group_columns": [],
+            "object_columns": [
+              1
+            ],
+            "prefix": true,
+            "block_count": 3,
+            "blocks_sha256": "7c79453a42104b99d32b5a9d7b99c4a4caaa882012e3cc7a30addaa93c39717c"
+          },
+          {
+            "column": 9,
+            "group_columns": [
+              1
+            ],
+            "object_columns": [
+              3
+            ],
+            "prefix": true,
+            "block_count": 3,
+            "blocks_sha256": "a69ad5be58782a26bbc49b4ee833dc676199339e3e3f930efa11e4bc4229e43d"
+          }
+        ]
+      },
+      "csv_sha256_unchanged": "8cadc5700cc999c6984179245d187230b47468cb1ec1f03c53c02d15862d01f7",
+      "sql_sha256_unchanged": "879c29c530922f548177e4d6b7e84655ace1dfedbad7d8745a5b39d65634c661"
+    },
+    {
+      "question_id": "Q119",
+      "reference": "refs/new/Q119-1.csv",
+      "before": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                2
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": []
+        },
+        "required_columns": [
+          1,
+          3,
+          5
+        ],
+        "rankings": [
+          {
+            "column": 5,
+            "group_columns": [],
+            "object_columns": [
+              2
+            ],
+            "prefix": false,
+            "block_count": 2504,
+            "blocks_sha256": "ec0ec46499deb119b3e8b257486d9e1a4207e32cf2a49a6f00c31d64d66e2458"
+          }
+        ]
+      },
+      "after": {
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                1
+              ],
+              "object_columns": [
+                3
+              ],
+              "order_by": [
+                {
+                  "column": 4,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": []
+        },
+        "required_columns": [
+          1,
+          3,
+          5
+        ],
+        "rankings": [
+          {
+            "column": 5,
+            "group_columns": [],
+            "object_columns": [
+              3
+            ],
+            "prefix": false,
+            "block_count": 2504,
+            "blocks_sha256": "ec0ec46499deb119b3e8b257486d9e1a4207e32cf2a49a6f00c31d64d66e2458"
+          }
+        ]
+      },
+      "csv_sha256_unchanged": "f0daab86dbaa3d7e0147d45646380ce69de13572e45ba52c15236212da8d3688",
+      "sql_sha256_unchanged": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22"
+    }
+  ]
+}

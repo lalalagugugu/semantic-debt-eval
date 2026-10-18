@@ -1,0 +1,12 @@
+{
+  "baseline_commit": "938957f4281ddc63ba699bf15d91dcde6b71ddf0",
+  "question_files_sha256": {
+    "cube_100.yaml": "a806d22f7341fffe68ee65e672b5fafb36c7ef5e251b1ae1b950c0fb8074605b",
+    "new.yaml": "73b4e9dd1bb298880462aba5db3742d833a16f2b947b2253bffd1b15c7da3f86"
+  },
+  "reference_count": 137,
+  "selected_reference_count": 8,
+  "noncompliant_question_count": 0,
+  "noncompliant_reference_count": 0,
+  "references": []
+}
