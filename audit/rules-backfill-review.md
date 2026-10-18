@@ -66,7 +66,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q48/2 | false | 参考行集 | `correlation` / `Float64` / **ratio** |
 | Q48/3 | false | 参考行集 | `correlation` / `Nullable(Float64)` / **ratio** |
 | Q49/1 | false | 参考行集 | `e.EntityKey` / `Int32` / **other**<br>`EntityName` / `String` / **other**<br>`total_amount` / `Float64` / **amount** |
-| Q50/1 | false | 参考行集 | `sales_2009` / `Float64` / **amount**<br>`sales_2008` / `Float64` / **amount**<br>`growth_pct` / `Float64` / **percentage** |
+| Q50/1 | false | 参考行集 | `sales_2009` / `Float64` / **amount**<br>`sales_2008` / `Float64` / **amount**<br>`growth_pct` / `Float64` / **percentage**<br>`growth_amount` / `Float64` / **amount** |
 | Q51/1 | false | 参考行集 | `total_stores` / `UInt64` / **count** [整数守卫] |
 | Q52/1 | false | 参考行集 | `max_unit_price` / `Nullable(Float64)` / **amount** |
 | Q53/1 | false | 参考行集 | `total_orders` / `UInt64` / **count** [整数守卫] |
@@ -121,7 +121,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q97/2 | true | 参考行集 | `ProductKey` / `Int32` / **other**<br>`ProductName` / `Nullable(String)` / **other**<br>`h1_sales` / `Float64` / **amount**<br>`h2_sales` / `Float64` / **amount**<br>`sales_increase` / `Float64` / **amount** |
 | Q98/1 | true | 1步骤分组选择 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`peak_quarter_share_pct` / `Float64` / **percentage**<br>`peak_quarter` / `UInt8` / **other** |
 | Q98/2 | true | 1步骤分组选择 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`year` / `UInt16` / **other**<br>`peak_quarter_share_pct` / `Float64` / **percentage**<br>`peak_quarter` / `UInt8` / **other** |
-| Q99/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`avg_weekend_day_sales` / `Float64` / **amount**<br>`avg_weekday_sales` / `Float64` / **amount**<br>`weekend_lift_pct` / `Nullable(Float64)` / **percentage** |
+| Q99/1 | false | 参考行集 | `ProductCategoryName` / `Nullable(String)` / **other**<br>`avg_weekend_day_sales` / `Float64` / **amount**<br>`avg_weekday_sales` / `Float64` / **amount**<br>`weekend_lift_pct` / `Nullable(Float64)` / **percentage**<br>`weekend_difference_amount` / `Float64` / **amount** |
 | Q100/1 | false | 参考行集 | `customer_name` / `String` / **other**<br>`orders` / `UInt64` / **count** [整数守卫]<br>`avg_order_amount` / `Float64` / **amount**<br>`lifetime_value` / `Float64` / **amount** |
 
 合计：100题、113份参考；ordered=true共21份；分组选择6份参考；整数计数守卫43列。
