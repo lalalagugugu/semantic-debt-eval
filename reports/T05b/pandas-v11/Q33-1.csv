@@ -1,0 +1,102 @@
+product_a,product_b,orders,key_a,key_b,rank
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV 16xDVD M360 Black,269201,153,176,1
+A. Datum SLR Camera X137 Grey,Contoso Telephoto Conversion Lens X400 Silver,112247,1052,1293,2
+SV 16xDVD M360 Black,,89887,176,864,3
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",,89883,153,864,4
+,,89882,864,896,5
+SV 16xDVD M360 Black,,89819,176,896,6
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",,89815,153,896,7
+NT Bluetooth Stereo Headphones E52 Blue,A. Datum SLR Camera X137 Grey,73566,66,1052,8
+Contoso 4G MP3 Player E400 Silver,A. Datum SLR Camera X137 Grey,73550,8,1052,9
+NT Bluetooth Stereo Headphones E52 Blue,Contoso Telephoto Conversion Lens X400 Silver,73535,66,1293,10
+Contoso 4G MP3 Player E400 Silver,Contoso Telephoto Conversion Lens X400 Silver,73519,8,1293,11
+Contoso 4G MP3 Player E400 Silver,NT Bluetooth Stereo Headphones E52 Blue,73505,8,66,12
+,,47543,904,1297,13
+SV 16xDVD M360 Black,A. Datum SLR Camera X137 Grey,37572,176,1052,14
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",A. Datum SLR Camera X137 Grey,37569,153,1052,15
+SV 16xDVD M360 Black,Contoso Telephoto Conversion Lens X400 Silver,37455,176,1293,16
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",Contoso Telephoto Conversion Lens X400 Silver,37452,153,1293,17
+NT Bluetooth Stereo Headphones E52 Blue,"Adventure Works 26"" 720p LCD HDTV M140 Silver",24678,66,153,18
+NT Bluetooth Stereo Headphones E52 Blue,SV 16xDVD M360 Black,24677,66,176,19
+Contoso 4G MP3 Player E400 Silver,"Adventure Works 26"" 720p LCD HDTV M140 Silver",24615,8,153,20
+Contoso 4G MP3 Player E400 Silver,SV 16xDVD M360 Black,24614,8,176,21
+SV 16xDVD M360 Black,,16144,176,1297,22
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",,16138,153,1297,23
+SV 16xDVD M360 Black,,15926,176,904,24
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",,15920,153,904,25
+,A. Datum SLR Camera X137 Grey,12559,864,1052,26
+,A. Datum SLR Camera X137 Grey,12527,896,1052,27
+,Contoso Telephoto Conversion Lens X400 Silver,12518,864,1293,28
+,Contoso Telephoto Conversion Lens X400 Silver,12486,896,1293,29
+NT Bluetooth Stereo Headphones E52 Blue,,8248,66,864,30
+NT Bluetooth Stereo Headphones E52 Blue,,8234,66,896,31
+Contoso 4G MP3 Player E400 Silver,,8218,8,864,32
+Contoso 4G MP3 Player E400 Silver,,8204,8,896,33
+A. Datum SLR Camera X137 Grey,,6753,1052,1297,34
+Contoso Telephoto Conversion Lens X400 Silver,,6713,1293,1297,35
+,A. Datum SLR Camera X137 Grey,6643,904,1052,36
+,Contoso Telephoto Conversion Lens X400 Silver,6615,904,1293,37
+,,5396,864,1297,38
+,,5379,896,1297,39
+,,5339,864,904,40
+,,5329,896,904,41
+NT Bluetooth Stereo Headphones E52 Blue,,4418,66,1297,42
+Contoso 4G MP3 Player E400 Silver,,4407,8,1297,43
+NT Bluetooth Stereo Headphones E52 Blue,,4361,66,904,44
+Contoso 4G MP3 Player E400 Silver,,4350,8,904,45
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for Office worker L299 Yellow,3577,153,1666,46
+SV 16xDVD M360 Black,MGS Hand Games for Office worker L299 Yellow,3577,176,1666,46
+SV 16xDVD M360 Black,MGS Hand Games for Office worker L299 Black,3508,176,1672,48
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for Office worker L299 Black,3508,153,1672,48
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games women M40 Red,3303,153,1700,50
+SV 16xDVD M360 Black,SV Hand Games women M40 Red,3303,176,1700,50
+SV 16xDVD M360 Black,MGS Hand Games women M400 Silver,3282,176,1682,52
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games women M400 Silver,3282,153,1682,52
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games women M40 Black,3241,153,1694,54
+SV 16xDVD M360 Black,SV Hand Games women M40 Black,3241,176,1694,54
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games women M400 Red,3060,153,1676,56
+SV 16xDVD M360 Black,MGS Hand Games women M400 Red,3060,176,1676,56
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games women M40 Silver,3058,153,1706,58
+SV 16xDVD M360 Black,SV Hand Games women M40 Silver,3058,176,1706,58
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games women M400 Yellow,3011,153,1664,60
+SV 16xDVD M360 Black,MGS Hand Games women M400 Yellow,3011,176,1664,60
+SV 16xDVD M360 Black,MGS Hand Games for Office worker L299 Red,2904,176,1678,62
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for Office worker L299 Red,2904,153,1678,62
+SV 16xDVD M360 Black,SV Hand Games women M40 Yellow,2846,176,1688,64
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games women M40 Yellow,2846,153,1688,64
+SV 16xDVD M360 Black,MGS Hand Games women M400 Black,2815,176,1670,66
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games women M400 Black,2815,153,1670,66
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for Office worker L28 Red,2461,153,1702,68
+SV 16xDVD M360 Black,SV Hand Games for Office worker L28 Red,2461,176,1702,68
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for Office worker L299 Silver,2376,153,1684,70
+SV 16xDVD M360 Black,MGS Hand Games for Office worker L299 Silver,2376,176,1684,70
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for Office worker L28 Black,2325,153,1696,72
+SV 16xDVD M360 Black,SV Hand Games for Office worker L28 Black,2325,176,1696,72
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for Office worker L28 Yellow,2286,153,1690,74
+SV 16xDVD M360 Black,SV Hand Games for Office worker L28 Yellow,2286,176,1690,74
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for 12-16 boys E600 Yellow,1866,153,1665,76
+SV 16xDVD M360 Black,MGS Hand Games for 12-16 boys E600 Yellow,1866,176,1665,76
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for students E40 Silver,1761,153,1704,78
+SV 16xDVD M360 Black,SV Hand Games for students E40 Silver,1761,176,1704,78
+SV 16xDVD M360 Black,SV Hand Games for 12-16 boys E60 Black,1646,176,1695,80
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for 12-16 boys E60 Black,1646,153,1695,80
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for students E40 Yellow,1506,153,1686,82
+SV 16xDVD M360 Black,SV Hand Games for students E40 Yellow,1506,176,1686,82
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for students E400 Yellow,1496,153,1662,84
+SV 16xDVD M360 Black,MGS Hand Games for students E400 Yellow,1496,176,1662,84
+SV 16xDVD M360 Black,MGS Hand Games for 12-16 boys E600 Black,1493,176,1671,86
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for 12-16 boys E600 Black,1493,153,1671,86
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for 12-16 boys E600 Red,1489,153,1677,88
+SV 16xDVD M360 Black,MGS Hand Games for 12-16 boys E600 Red,1489,176,1677,88
+A. Datum SLR Camera X137 Grey,MGS Hand Games for Office worker L299 Yellow,1479,1052,1666,90
+Contoso Telephoto Conversion Lens X400 Silver,MGS Hand Games for Office worker L299 Yellow,1479,1293,1666,90
+SV 16xDVD M360 Black,SV Hand Games for students E40 Black,1473,176,1692,92
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for students E40 Black,1473,153,1692,92
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for 12-16 boys E60 Red,1462,153,1701,94
+SV 16xDVD M360 Black,SV Hand Games for 12-16 boys E60 Red,1462,176,1701,94
+A. Datum SLR Camera X137 Grey,MGS Hand Games for Office worker L299 Black,1448,1052,1672,96
+Contoso Telephoto Conversion Lens X400 Silver,MGS Hand Games for Office worker L299 Black,1448,1293,1672,96
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",MGS Hand Games for students E400 Red,1412,153,1674,98
+SV 16xDVD M360 Black,MGS Hand Games for students E400 Red,1412,176,1674,98
+"Adventure Works 26"" 720p LCD HDTV M140 Silver",SV Hand Games for 12-16 boys E60 Yellow,1403,153,1689,100
+SV 16xDVD M360 Black,SV Hand Games for 12-16 boys E60 Yellow,1403,176,1689,100

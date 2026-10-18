@@ -1,0 +1,66 @@
+CustomerKey,FirstName,LastName,country,SalesAmount,rank
+19088,Not Provided,Not Provided,Australia,14901636.0745,1
+19087,Not Provided,Not Provided,Australia,14663536.7105,2
+19086,Not Provided,Not Provided,Australia,14391701.943,3
+19085,Not Provided,Not Provided,Australia,13966925.147,4
+19106,Not Provided,Not Provided,Australia,13586963.356,5
+18800,Not Provided,Not Provided,United States,5969145.685,1
+19036,Not Provided,Not Provided,United States,5093392.12,2
+18798,Not Provided,Not Provided,United States,3554491.8475,3
+18794,Not Provided,Not Provided,United States,3494115.0045,4
+18795,Not Provided,Not Provided,United States,3437486.9755,5
+18790,Not Provided,Not Provided,Canada,3156664.498,1
+18817,Not Provided,Not Provided,Canada,3151250.672,2
+18866,Not Provided,Not Provided,Canada,3074497.069,3
+18820,Not Provided,Not Provided,Canada,3034748.943,4
+18874,Not Provided,Not Provided,Canada,2601131.1095,5
+19053,Not Provided,Not Provided,Germany,19130453.2765,1
+19041,Not Provided,Not Provided,Germany,18387863.3273,2
+19042,Not Provided,Not Provided,Germany,18106519.6304,3
+19039,Not Provided,Not Provided,Germany,17675165.3663,4
+19049,Not Provided,Not Provided,Germany,16571387.412,5
+19040,Not Provided,Not Provided,United Kingdom,18599373.1705,1
+19051,Not Provided,Not Provided,United Kingdom,18268990.108,2
+19043,Not Provided,Not Provided,United Kingdom,18195922.7655,3
+19052,Not Provided,Not Provided,United Kingdom,17962159.957,4
+19055,Not Provided,Not Provided,United Kingdom,17745174.9114,5
+19050,Not Provided,Not Provided,France,17957139.4976,1
+19059,Not Provided,Not Provided,France,14924784.6489,2
+19047,Not Provided,Not Provided,France,14029609.6773,3
+19076,Not Provided,Not Provided,France,11622717.68,4
+8034,Omar,Lin,France,72572.5163,5
+19061,Not Provided,Not Provided,the Netherlands,11803685.7991,1
+19062,Not Provided,Not Provided,Greece,13096318.104700001,1
+19063,Not Provided,Not Provided,Switzerland,13504432.4602,1
+19067,Not Provided,Not Provided,Ireland,12886836.462,1
+19070,Not Provided,Not Provided,Portugal,13020482.359,1
+19071,Not Provided,Not Provided,Spain,13624008.936,1
+19073,Not Provided,Not Provided,Italy,12933040.402,1
+19074,Not Provided,Not Provided,Russia,12129502.272,1
+19077,Not Provided,Not Provided,Russia,11506312.4,2
+19078,Not Provided,Not Provided,Poland,11575240.712,1
+19118,Not Provided,Not Provided,Turkmenistan,8808346.2092,1
+19119,Not Provided,Not Provided,Thailand,8554068.0639,1
+19137,Not Provided,Not Provided,China,11113033.272,1
+19120,Not Provided,Not Provided,China,9510723.9605,2
+19126,Not Provided,Not Provided,China,8954249.6535,3
+19125,Not Provided,Not Provided,China,8857397.704,4
+19143,Not Provided,Not Provided,China,8540702.1875,5
+19121,Not Provided,Not Provided,Kyrgyzstan,8787155.09,1
+19136,Not Provided,Not Provided,South Korea,11558446.5935,1
+19122,Not Provided,Not Provided,South Korea,9801531.8571,2
+19124,Not Provided,Not Provided,Syria,8432194.8256,1
+19127,Not Provided,Not Provided,Pakistan,9423419.859,1
+19133,Not Provided,Not Provided,India,10933021.155,1
+19128,Not Provided,Not Provided,India,9321375.3095,2
+19131,Not Provided,Not Provided,India,9246923.8835,3
+19135,Not Provided,Not Provided,Japan,10752734.9755,1
+19134,Not Provided,Not Provided,Japan,10456884.023,2
+19132,Not Provided,Not Provided,Japan,10169541.8715,3
+19130,Not Provided,Not Provided,Japan,9865556.668,4
+19129,Not Provided,Not Provided,Japan,9113799.8395,5
+19138,Not Provided,Not Provided,Singapore,11235199.702,1
+19139,Not Provided,Not Provided,Taiwan,8921717.0281,1
+19140,Not Provided,Not Provided,Iran,8356473.266,1
+19141,Not Provided,Not Provided,Bhutan,8522927.5,1
+19144,Not Provided,Not Provided,Armenia,7481458.274,1

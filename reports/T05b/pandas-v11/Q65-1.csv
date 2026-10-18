@@ -1,0 +1,304 @@
+manager,StoreName,sales,EmployeeKey
+Roy Antebi,Contoso Seattle No.1 Store,22994925.1695,35.0
+Roy Antebi,Contoso Seattle No.2 Store,22668671.158999998,35.0
+Prithvi Raj,Contoso Kennewick Store,22470746.1235,36.0
+Luca Argentiero,Contoso Bellevue Store,21237087.116,37.0
+Suriya Sajjateerakool,Contoso Redmond Store,22642835.091,38.0
+Zainal Arifin,Contoso Yakima Store,22903891.261,39.0
+Amy Strande,Contoso Granger Store,22127419.7615,40.0
+Ties Arts,Contoso Sunnyside Store,22273861.1955,41.0
+Daniel Taylor,Contoso Toppenish Store,23001652.789,42.0
+Ronen Ashkenazi,Contoso Wapato Store,23038106.4665,43.0
+Hans-Walter Untch,Contoso Cle Elum Store,23092694.339,44.0
+Chris Ashton,Contoso North Bend Store,23216442.862,45.0
+Michael Vanderhyde,Contoso Snoqualmie Store,22877189.1725,46.0
+Vivian Atlas,Contoso Fall City Store,22314891.133,47.0
+Robin Wakefield,Contoso Renton Store,22856635.2115,48.0
+Anahita Bahrami,Contoso Everett Store,22745221.8975,49.0
+Chase Carpenter,Contoso Spokane Store,22598548.465,135.0
+Pieter Wycoff,Contoso Veradale Store,22507907.9575,50.0
+Dev Balasubramanian,Contoso Cheney Store,22611028.226,51.0
+Steven Wright,Contoso Englewood Store,22514748.192,52.0
+Oliver Szimmetat,Contoso Wheat Ridge Store,22816231.823,66.0
+Eiji Yasuda,Contoso Westminster Store,22238424.413,54.0
+Ed Banti,Contoso Grand Junction Store,22929282.372,55.0
+Mrina Natarajan,Contoso New Castle Store,22382953.2435,56.0
+Dave Barnett,Contoso Greeley  No.1 Store,22463731.9295,57.0
+Manuel Oliveira,Contoso Loveland Store,23277716.327,58.0
+Adam Barr,Contoso Lafayette Store,21925370.068,59.0
+Rok Palcic,Contoso Castle Rock Store,22851184.749,60.0
+Shai Bassli,Contoso Sedalia Store,23204157.962,61.0
+Yossi Ran,Contoso Fort Collins Store,23397040.109,62.0
+Dave Barnett,Contoso Greeley No.2 Store,22975399.041,57.0
+Shaun Beasley,Contoso Milliken Store,22972604.726,63.0
+Karolina Salas-Szlejter,Contoso Berthoud Store,23031618.491,64.0
+Anna Bedecs,Contoso Denver No.1 Store,22861756.6975,65.0
+Anna Bedecs,Contoso Denver No.2 Store,22688007.184,65.0
+Anna Bedecs,Contoso Denver No.3 Store,23111475.5885,65.0
+Oliver Szimmetat,Contoso Boulder Store,23113009.595,66.0
+Ann Beebe,Contoso Thornton Store,23254190.6235,67.0
+Jeff Teper,Contoso Littleton Store,21839154.618,68.0
+Allie Bellew,Contoso Aurora Store,22858139.075,69.0
+Siri Velauthapillai,Contoso Parker Store,22875883.0895,70.0
+Nuno Bento,Contoso Green Bay Store,22550730.5855,71.0
+Anne Wallace,Contoso Appleton Store,22827472.7635,72.0
+Matt Berg,Contoso Menasha Store,22802672.0315,73.0
+John Yokim,Contoso Oshkosh Store,14543787.2705,74.0
+Arvind Rao,Contoso Fond du Lac Store,13547747.0405,136.0
+Antonio Bermejo,Contoso Milwaukee No.1 Store,23169860.7145,75.0
+Antonio Bermejo,Contoso Milwaukee No.2 Store,22716823.3605,75.0
+Antonio Bermejo,Contoso Milwaukee No.3 Store,22879743.064,75.0
+Robert Zare,Contoso Waukesha No.1 Store,22636487.4695,76.0
+Corinna Bolender,Contoso Racine No.1 Store,22577151.6765,87.0
+Carlos Carvallo,Contoso Burlington Store,22768866.422,137.0
+Morten Rasmussen,Contoso East Troy Store,23434287.786,138.0
+Robert Zare,Contoso Waukesha No.2 Store,23094079.1495,76.0
+Michael Berroth,Contoso Germantown Store,22541583.5445,77.0
+Jimmy Bischoff,Contoso Port Washington Store,23120183.0,79.0
+Michael Neipper,Contoso Sheboygan Store,23714383.066,80.0
+Ari Bixhorn,Contoso Manitowoc Store,22714123.5015,81.0
+Paulo Neves,Contoso Madison Store,21993962.662,82.0
+Rex Bloesser,Contoso Oregon Store,22837464.917,83.0
+Aaron Nicholls,Contoso Stoughton Store,23061108.657,84.0
+Tomasz Bochenek,Contoso Edgerton Store,22545232.2655,85.0
+Toby Nixon,Contoso Fort Atkinson Store,23091486.971,86.0
+Fabricio Noriega,Contoso Houston No.1 Store,22817707.637,88.0
+Fabricio Noriega,Contoso Houston No.2 Store,22645082.3295,88.0
+Fabricio Noriega,Contoso Houston No.3 Store,22785534.249,88.0
+Fabricio Noriega,Contoso Houston No.4 Store,22424107.9225,88.0
+Raffaella Bonaldi,Contoso Midland Store,23273211.9405,89.0
+Jerry Orman,Contoso Russellville Store,13980055.1655,90.0
+Laurent Bonnet,Contoso Minden Store,22523580.665,91.0
+Danni Ortman,Contoso Shreveport Store,22555876.2815,92.0
+Thomas Bouchard,Contoso Marshall Store,22919012.718,93.0
+Scott Oveson,Contoso Longview Store,22815495.76,94.0
+Marc Boyer,Contoso Beaumont No.1 Store,23112373.888,95.0
+Tude Palma,Contoso Orange Store,22327693.536,96.0
+Marc Boyer,Contoso Beaumont No.2 Store,22986908.8445,95.0
+Peter Bankov,Contoso Baytown Store,22744961.735,97.0
+Dan Park,Contoso La Porte Store,22879630.299,98.0
+Bryan Bredehoeft,Contoso Bacliff Store,23112797.983,99.0
+Rajesh Patel,Contoso Texas City Store,22421351.9595,100.0
+Alan Brewer,Contoso Pasadena Store,22611306.6055,101.0
+Dorena Paschke,Contoso Humble Store,22252770.7875,102.0
+Nick Brigandi,Contoso Spring Store,22450468.2175,103.0
+Leonids Paturskis,Contoso Austin Store,23092451.725,104.0
+Allison Brown,Contoso San Antonio Store,22678286.033,105.0
+Yael Peled,Contoso Cedar Park Store,22608694.5745,106.0
+Robert Brown,Contoso Round Rock Store,22729291.7595,107.0
+Lori Penor,Contoso Dallas Store,5492546.02,108.0
+Daniel Brunner,Contoso Georgetown Store,23000135.4315,109.0
+Michel Pereira,Contoso Hillsboro Store,22827419.951,110.0
+Chris Bryant,Contoso Arlington Store,22404669.3825,111.0
+Wirote Petchdenlarp,Contoso Grand Prairie Store,21863765.096,112.0
+Brian Burke,Contoso Desoto Store,23195677.5455,113.0
+Palle Petersen,Contoso Richardson Store,23060800.865,114.0
+Tzipi Butnaru,Contoso Lewisville Store,22394625.117,115.0
+Terrence Philip,Contoso Denton Store,23349814.3185,116.0
+Rick Byham,Contoso Fort Worth Store,23019433.7895,117.0
+Michal Piaseczny,Contoso Plano Store,22067454.5315,118.0
+Reina Cabatana,Contoso Miami No.1 Store,22276437.5595,119.0
+Reina Cabatana,Contoso Miami No.2 Store,22636377.946,119.0
+Pilar Pinilla,Contoso Jacksonville Store,22890669.209,120.0
+Iulian Calinov,Contoso Tallahassee No.1 Store,22348738.845,121.0
+Iulian Calinov,Contoso Tallahassee No.2 Store,22422338.841,121.0
+Maria Cameron,Contoso Sebring Store,23555460.4835,123.0
+Ekaterina Podkolzina,Contoso Lakeland Store,22450191.1575,124.0
+Jamie Campbell,Contoso Fort Lauderdale Store,22797483.966000002,125.0
+Grigory Pogulsky,Contoso Orlando Store,22346945.1145,126.0
+Paul Cannon,Contoso Tampa Store,22840811.201,127.0
+Josh Pollock,Contoso Key West Store,22883845.1585,128.0
+Cyril Carbonati,Contoso Cape Canaveral Store,22992894.7545,129.0
+Cristina Potra,Contoso Albany Store,22395039.8005,130.0
+Jason Carlson,Contoso New York No.1 Store,22967683.9355,131.0
+Chris Preston,Contoso Rochester No.1 Store,23244748.6275,132.0
+Jason Carlson,Contoso New York No.2 Store,22838945.8725,131.0
+Fernando Caro,Contoso Syracuse Store,22558036.087,133.0
+Vishwa Ranjan,Contoso Buffalo Store,22351101.178,134.0
+Gitte Casparij,Contoso Plattsburgh Store,22969249.3065,139.0
+Mike Ray,Contoso Brooklyn Store,22654110.2945,140.0
+Giorgio Cavaglieri,Contoso Oswego Store,22840628.453,141.0
+April Reagan,Contoso Ithaca Store,21988879.6105,142.0
+Chris Preston,Contoso Rochester No.2 Store,22401156.5995,132.0
+Luisa Cazzaniga,Contoso Queens Store,22776111.823,143.0
+Barak Regev,Contoso Elmira Store,22502251.563,144.0
+Sean Chai,Contoso Poestenkill Store,22611944.597,145.0
+Enoch Remick,Contoso Trenton No.1 Store,22048188.96,146.0
+Enoch Remick,Contoso Trenton No.2 Store,22754956.4175,146.0
+Greg Chapman,Contoso Newark No.1 Store,23069439.141,147.0
+Greg Chapman,Contoso Newark No.2 Store,23248998.2665,147.0
+Bjorn Rettig,Contoso Jersey City Store,22785694.402,148.0
+Neil Charney,Contoso Paterson Store,5560507.959,149.0
+Don Richardson,Contoso Clifton Store,22771283.5745,150.0
+Ankur Chavda,Contoso East Orange Store,22508608.176,151.0
+Wendy Richardson,Contoso Passaic Store,22871947.698,152.0
+Aik Chen,Contoso Bayonne Store,22617321.226,153.0
+Anders Riis,Contoso Vineland Store,22443022.4405,154.0
+Jeff Chia,Contoso New Brunswick Store,22347439.537,155.0
+Titti Ringstrom,Contoso Hackensack Store,23075662.5825,156.0
+Michal Chmiela,Contoso Atlantic City Store,22289885.1495,157.0
+John Rodman,Contoso Montclair Store,22584512.5405,158.0
+Ray Chow,Contoso Hoboken Store,22607247.927,159.0
+Don Roessler,Contoso Morristown Store,23191297.162,160.0
+Alice Ciccu,Contoso Cape May Store,22620615.0225,161.0
+Kelly Rollin,Contoso Boston Store,22865828.187,162.0
+Izak Cohen,Contoso Worcester No.1 Store,21981924.947,163.0
+Izak Cohen,Contoso Worcester No.2 Store,22449064.4245,163.0
+Daniel Roth,Contoso New Bedford Store,22537308.4785,164.0
+Aaron Con,Contoso Attleboro Store,21964170.8765,165.0
+Pablo Rovira Diez,Contoso Lowell Store,23429062.9075,166.0
+Kevin Cook,Contoso Leominster Store,22643738.608,167.0
+Erik Rucker,Contoso Hingham Store,22622817.6045,168.0
+Jim Corbin,Contoso Quincy Store,22882255.6435,169.0
+Michael Ruggiero,Contoso Framingham Store,23239851.722,170.0
+Cecilia Cornejo,Contoso Cambridge Store,22185588.658999998,171.0
+Sharon Salavaria,Contoso Somerville Store,22417607.8035,172.0
+Robin Counts,Contoso Haverhill Store,22810668.6085,173.0
+Ken Sánchez,Contoso Lynn Store,22439523.5695,174.0
+Ioan Crisiarcu,Contoso Northampton Store,23230910.276,175.0
+Mandar Samant,Contoso Holyoke Store,22713458.638,176.0
+Scott Culp,Contoso Pittsfield Store,22770052.1135,177.0
+Patrick Sands,Contoso Falmouth Store,22840085.6475,178.0
+Pawel Czernek,Contoso Provincetown Store,22943490.1495,179.0
+Mark Sargent,Contoso Nantucket Store,23170240.775,180.0
+Apurva Dalia,Contoso Bangor Store,22741300.252,181.0
+Tihomir Sasic,Contoso Bar Harbor Store,22723318.2475,182.0
+Jim Daly,Contoso Kennebunkport Store,22488046.9945,183.0
+Michiyo Sato,Contoso Lewiston Store,22749932.216,184.0
+Mike Danseglio,Contoso Orono Store,23153727.461,185.0
+Rimvydas Saulis,Contoso South Portland Store,22928230.122,186.0
+Shannon Dascher,Contoso Hartford Store,22700450.9605,187.0
+George Schaller,Contoso Bridgeport Store,22103844.555,188.0
+Andrew Davis,Contoso Waterbury Store,21832023.253,189.0
+Rainer Schiller,Contoso Old Saybrook Store,22443204.8755,190.0
+Eric Davison,Contoso Darien Store,22690823.232,191.0
+Boris Scholl,Contoso New Haven Store,22440258.2815,192.0
+Denis Dehenne,Contoso Litchfield County Store,22884961.976,193.0
+Andreas Schou,Contoso New London Store,22457722.9315,194.0
+Axel Delgado,Contoso Norfolk Store,22362075.8515,195.0
+Miguel Severino,Contoso Virginia Beach Store,22227300.951,196.0
+Luca Dellamore,Contoso Winchester Store,22207212.4495,197.0
+Chris Bryant,Contoso Anchorage Store,22786936.4405,111.0
+Jill Shrader,Contoso Alexandria Store,22303674.8295,198.0
+Molly Dempsey,Contoso Roanoke Store,22484023.163,199.0
+Alexandre Silva,Contoso Charlottesville Store,22538269.6575,200.0
+Prashanth Desai,Contoso Fredericksburg Store,22315929.6975,201.0
+Alex Simmons,Contoso Martinsville Store,22504838.9125,202.0
+Michael DeVoe,Contoso Greenville Store,22917396.1245,203.0
+David Simpson,Contoso Charleston Store,23372585.874,204.0
+Cari Dick,Contoso Annapolis Store,23220581.8605,205.0
+Ashima Singhal,Contoso Baltimore Store,22624458.3085,206.0
+Cliff Didcock,Contoso Howard Store,22642909.4235,207.0
+Bonnie Skelly,Contoso Ridgely Store,23776552.145,208.0
+Blaine Dockter,Contoso Queen Anne's County Store,22656142.7505,209.0
+Egil Skjold,Contoso Parkville Store,22848060.5875,210.0
+Chris Downs,Contoso Back River Store,22272111.006,211.0
+Michael Berroth,Contoso North Harford Store,23485872.852,77.0
+Ben Smith,Contoso North America Online Store,984249404.2534,212.0
+Jan Dryml,Contoso Catalog Store,1078007547.2267,213.0
+Bart Duncan,Contoso London Store,21793846.0772,219.0
+Jeff Stammler,Contoso Edinburgh Store,21347226.4213,220.0
+Shelley Dyck,Contoso Glasgow Store,13622387.0485,221.0
+Mark Steele,Contoso York Store,21267630.9451,222.0
+Witold Dyszkiewicz,Contoso Carlisle Store,21071609.6106,223.0
+Brad Sutton,Contoso Manchester Store,21444225.0295,224.0
+Terry Earls,Contoso Lancashire Store,21600150.2924,225.0
+Bernard Tham,Contoso West Yorkshire Store,21536956.1147,226.0
+Josh Edwards,Contoso Baildon Store,21545276.9508,227.0
+Sandhya Thodla,Contoso Cheshire Store,21376867.3651,228.0
+Vladimir Egorov,Contoso Stockport Store,20889856.1059,229.0
+Iben Thorell,Contoso Liverpool Store,21391579.7204,230.0
+Patrick Elliott,Contoso Knotty Ash Store,21365723.8925,231.0
+Justin Thorp,Contoso Leeds Store,21616232.2125,232.0
+Anil Elson,Contoso Paris Store,21207333.2638,233.0
+Danielle Tiedt,Contoso Marseille Store,7514886.2431,234.0
+Michael Entin,Contoso Lyon Store,21253119.69,235.0
+Olinda Turner,Contoso Toulouse Store,21377469.3988,236.0
+Ebru Ersan,Contoso Nice Store,21484387.7285,237.0
+Tjeerd Veninga,Contoso Nantes Store,21409974.0163,238.0
+Modesto Estrada,Contoso Strasbourg Store,21587408.5994,239.0
+Gregory Verny,Contoso Roma Store,12264100.2604,240.0
+Peter Villadsen,Contoso Firenze Store,21694875.8521,242.0
+Antoine Faisandier,Contoso Torino Store,21583682.325,243.0
+Florian Voss,Contoso Milan Store,21174935.8996,244.0
+,Contoso Naples Store,18696000.136,245.0
+Kelly Weadock,Contoso Berlin Store,5084164.1215,246.0
+Yaniv Feinberg,Contoso koln No.2 Store,21341284.6885,247.0
+Martin Weber,Contoso Hofheim Store,21161395.2645,248.0
+Dan Fennell,Contoso koln No.1 Store,21329402.7324,249.0
+Cindy White,Contoso Landstuhl Store,21178911.5909,250.0
+Franziska Fiegler,Contoso Dusseldorf Store,12973045.1393,251.0
+Greg Winston,Contoso Ramstein Store,21965573.9788,252.0
+William Flash,Contoso Baumholder Store,21680324.7299,253.0
+Robin Wood,Contoso Giebelstadt Store,21303929.4474,254.0
+Raymond Fong,Contoso obamberg Store,21411171.6044,255.0
+Karin Zimprich,Contoso Munich Store,21588771.7373,256.0
+Jeff Ford,Contoso Amsterdam Store,21398002.4558,257.0
+Aziz Hassouneh,Contoso Copenhagen Store,21535956.8587,258.0
+Diane Forsyth,Contoso Stockholm Store,21017382.4823,259.0
+Arno Harteveld,Contoso Madrid Store,21386046.7229,260.0
+Soren Francker,Contoso Ljubljana Store,21116855.5835,261.0
+Mark Harrington,Contoso Bucharest Store,21677572.0895,262.0
+Joel Frauenheim,Contoso Berne Store,20797430.7454,263.0
+Eran Harel,Contoso Warsaw Store,21450381.8807,264.0
+Victor Freitas,Contoso Valletta Store,21276135.0245,265.0
+Claus Hansen,Contoso Dublin Store,21449079.0478,266.0
+Gabe Frost,Contoso Athens Store,21456075.942,267.0
+Jim Hance,Contoso Singapore Store,36263091.3035,268.0
+Jossef Goldberg,Contoso Canberra Store,36913603.6905,296.0
+Daniel Goldschmidt,Contoso Sydney No.1 Store,37929553.4305,294.0
+Gerhard Goeschl,Contoso Yerevan Store,37267993.47,295.0
+Kari Furse,Contoso New Delhi Store,37417079.491,269.0
+David Hamilton,Contoso Mumbai Store,36852710.2835,270.0
+Mike Gahrns,Contoso Kolkata Store,37649289.012,271.0
+Dean Halstead,Contoso Thimphu No.1 Store,6986780.585,272.0
+Janet Galore,Contoso Hong Kong No.1 Store,36915837.5575,273.0
+Adina Hagege,Contoso Tehran No.1 Store,37483598.3595,274.0
+Cesar Garcia,Contoso Damascus No.1 Store,29213300.337,275.0
+Mary Andersen,Contoso Bangkok No.1 Store,15459414.487,276.0
+Hugo Garcia,Contoso Moscow  No.1 Store,21444124.272,277.0
+Allan Guinot,Contoso Ashgabat No.1 Store,37053783.246,278.0
+Davide Garghentini,Contoso Islamabad No.1 Store,37016662.7455,279.0
+Inbar Gazit,Contoso Tokyo No.1 Store,37382717.1475,281.0
+Inbar Gazit,Contoso Tokyo No.2 Store,36945141.564,281.0
+Seth Grossman,Contoso Yokohama Store,36436543.235,282.0
+Christa Geller,Contoso Osaka No.1 Store,37080959.85,283.0
+Carlos Grilo,Contoso Nagoya Store,18177347.682,284.0
+Tom Getzinger,Contoso Sapporo Store,31217723.4485,285.0
+Leo Giakoumakis,Contoso Seoul Store,16567667.516,287.0
+Nikolay Grachev,Contoso Busan Store,36573180.1055,288.0
+Enrique Gil,Contoso Bishkek Store,37599400.743,289.0
+Mojca Gostincar,Contoso Shanghai No.1 Store,36834657.191,290.0
+Eric Gilmore,Contoso Urumqi Store,37523589.5895,291.0
+Nuria Gonzalez,Contoso Beijing Store,19431783.9435,292.0
+Stuart Glasson,Contoso Guangzhou Store,6460684.531,293.0
+Mojca Gostincar,Contoso Shanghai No.2 Store,36782308.1325,290.0
+Brian Smith,Contoso Ottawa No.1 Store,22333610.625,214.0
+Brian Smith,Contoso Ottawa No.2 Store,22982409.601,214.0
+Bernard Duerr,Contoso Toronto No.1 Store,23027554.895,215.0
+Bernard Duerr,Contoso Toronto No.2 Store,22444208.65,215.0
+Bernard Duerr,Contoso Toronto No.3 Store,22537482.361,215.0
+Lorrin Smith-Bates,Contoso Montreal No.1 Store,22544106.28,216.0
+Lorrin Smith-Bates,Contoso Montreal No.2 Store,22549416.5735,216.0
+Andrea Dunker,Contoso Vancouver  No.1 Store,23440233.2615,217.0
+Andrea Dunker,Contoso Vancouver  No.2 Store,23058497.855,217.0
+Martin Spona,Contoso Calgary  Store,23493114.433,218.0
+Dean Halstead,Contoso Thimphu No.2 Store,36887032.7265,272.0
+Janet Galore,Contoso Hong Kong No.2 Store,35666112.202,273.0
+Adina Hagege,Contoso Tehran No.2 Store,37733360.956,274.0
+Cesar Garcia,Contoso Damascus No.2 Store,37502773.7485,275.0
+Mary Andersen,Contoso Bangkok No.2 Store,37416713.1235,276.0
+Hugo Garcia,Contoso Moscow  No.2 Store,37426777.6374,277.0
+Allan Guinot,Contoso Ashgabat  No.2 Store,36758701.4205,278.0
+Davide Garghentini,Contoso Islamabad  No.2 Store,27299295.4525,279.0
+Daniel Goldschmidt,Contoso Sydney  No.2 Store,37719118.165,294.0
+Christa Geller,Contoso Osaka No.2 Store,34489779.8185,283.0
+Ming-Yang Xie,Contoso Taipei  Store,37610056.3785,24.0
+Antonio Alwan,Contoso Lisbon Store,21451249.5827,25.0
+Miguel Saenz,Contoso Saint Petersburg Store,21129080.2105,14.0
+Kim Akers,Contoso Nizhny Novgorod Store,21349251.2109,15.0
+Kelly Weadock,Contoso Europe Online Store,806300456.3879,246.0
+Nuria Gonzalez,Contoso Asia Online Store,887049174.4335,292.0
+Roy Antebi,Contoso North America Reseller,628168708.5233,35.0
+Anil Elson,Contoso Europe Reseller,523087943.2288,233.0
+Nuria Gonzalez,Contoso Asia Reseller,563941179.69,292.0

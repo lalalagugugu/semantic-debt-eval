@@ -1,0 +1,4 @@
+StoreKey,StoreName,store_decline_pct,category,category_decline,share_pct,store_decline,category_decline_pct,store_rank,category_rank
+46,Contoso Fond du Lac Store,38.46518884040379,Home Appliances,978662.5744999999,32.57479109639483,3004355.643,36.43546026186591,1,1
+71,Contoso Russellville Store,37.925682699982964,Computers,803528.9125000001,28.02472661251112,2867214.0984999994,53.51140429925022,2,1
+45,Contoso Oshkosh Store,35.10773394186952,Home Appliances,900232.8865,34.02666888536735,2645668.5769999996,35.0057839286921,3,1
