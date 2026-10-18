@@ -1,0 +1,2080 @@
+{
+  "version": 1,
+  "base_required_columns": {
+    "refs/cube/Q01-1.csv": [
+      0
+    ],
+    "refs/cube/Q02-1.csv": [
+      0
+    ],
+    "refs/cube/Q03-1.csv": [
+      0
+    ],
+    "refs/cube/Q04-1.csv": [
+      0
+    ],
+    "refs/cube/Q05-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q06-1.csv": [
+      0
+    ],
+    "refs/cube/Q07-1.csv": [
+      0
+    ],
+    "refs/cube/Q08-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q09-1.csv": [
+      0
+    ],
+    "refs/cube/Q10-1.csv": [
+      0
+    ],
+    "refs/cube/Q11-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q12-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q13-1.csv": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs/cube/Q14-1.csv": [
+      0
+    ],
+    "refs/cube/Q15-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q16-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q17-1.csv": [
+      0,
+      2
+    ],
+    "refs/cube/Q18-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q19-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q20-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q21-1.csv": [
+      1,
+      2
+    ],
+    "refs/cube/Q22-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/cube/Q23-1.csv": [
+      0,
+      2
+    ],
+    "refs/cube/Q24-1.csv": [
+      0,
+      3
+    ],
+    "refs/cube/Q25-1.csv": [
+      0
+    ],
+    "refs/cube/Q26-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q27-1.csv": [
+      0
+    ],
+    "refs/cube/Q28-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q29-1.csv": [
+      0
+    ],
+    "refs/cube/Q30-1.csv": [
+      0,
+      2
+    ],
+    "refs/cube/Q31-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q32-1.csv": [
+      1
+    ],
+    "refs/cube/Q33-1.csv": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs/cube/Q34-1.csv": [
+      0,
+      3,
+      4
+    ],
+    "refs/cube/Q35-1.csv": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "refs/cube/Q36-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q37-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q38-2.csv": [
+      0,
+      3
+    ],
+    "refs/cube/Q38-3.csv": [
+      0,
+      2
+    ],
+    "refs/cube/Q39-1.csv": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refs/cube/Q39-2.csv": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refs/cube/Q40-1.csv": [
+      0
+    ],
+    "refs/cube/Q41-1.csv": [
+      0
+    ],
+    "refs/cube/Q42-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q42-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q43-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q43-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q44-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q44-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q45-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/cube/Q46-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q46-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q47-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q48-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q48-2.csv": [
+      0
+    ],
+    "refs/cube/Q48-3.csv": [
+      0
+    ],
+    "refs/cube/Q49-2.csv": [
+      1,
+      2
+    ],
+    "refs/cube/Q50-1.csv": [
+      2,
+      3
+    ],
+    "refs/cube/Q51-1.csv": [
+      0
+    ],
+    "refs/cube/Q52-1.csv": [
+      0
+    ],
+    "refs/cube/Q53-1.csv": [
+      0
+    ],
+    "refs/cube/Q54-1.csv": [
+      0
+    ],
+    "refs/cube/Q55-1.csv": [
+      0
+    ],
+    "refs/cube/Q56-1.csv": [
+      0
+    ],
+    "refs/cube/Q57-1.csv": [
+      0
+    ],
+    "refs/cube/Q58-1.csv": [
+      0
+    ],
+    "refs/cube/Q59-1.csv": [
+      0
+    ],
+    "refs/cube/Q60-1.csv": [
+      0
+    ],
+    "refs/cube/Q61-1.csv": [
+      0
+    ],
+    "refs/cube/Q62-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q63-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q64-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q65-2.csv": [
+      0
+    ],
+    "refs/cube/Q66-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q67-1.csv": [
+      0
+    ],
+    "refs/cube/Q68-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q69-1.csv": [
+      0,
+      3
+    ],
+    "refs/cube/Q70-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q71-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q72-1.csv": [
+      0,
+      1,
+      3
+    ],
+    "refs/cube/Q73-1.csv": [
+      0
+    ],
+    "refs/cube/Q74-1.csv": [
+      0,
+      1,
+      3
+    ],
+    "refs/cube/Q75-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q76-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q76-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q77-1.csv": [
+      0,
+      3
+    ],
+    "refs/cube/Q78-1.csv": [
+      0,
+      2,
+      3
+    ],
+    "refs/cube/Q79-1.csv": [
+      0
+    ],
+    "refs/cube/Q80-1.csv": [
+      0,
+      2
+    ],
+    "refs/cube/Q81-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q82-1.csv": [
+      0,
+      2,
+      3
+    ],
+    "refs/cube/Q83-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q84-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q84-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q85-1.csv": [
+      0,
+      1,
+      4
+    ],
+    "refs/cube/Q86-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q86-3.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q87-1.csv": [
+      0,
+      3,
+      4
+    ],
+    "refs/cube/Q88-1.csv": [
+      0
+    ],
+    "refs/cube/Q89-1.csv": [
+      0,
+      2,
+      3
+    ],
+    "refs/cube/Q90-1.csv": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refs/cube/Q91-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q91-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q92-1.csv": [
+      0
+    ],
+    "refs/cube/Q93-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q94-1.csv": [
+      0
+    ],
+    "refs/cube/Q95-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/cube/Q96-1.csv": [
+      0,
+      3
+    ],
+    "refs/cube/Q97-1.csv": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs/cube/Q97-2.csv": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs/cube/Q98-1.csv": [
+      0
+    ],
+    "refs/cube/Q98-2.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q99-1.csv": [
+      0,
+      3,
+      4
+    ],
+    "refs/cube/Q100-1.csv": [
+      1,
+      2
+    ],
+    "refs/new/Q101-1.csv": [
+      0
+    ],
+    "refs/new/Q102-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q103-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q104-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q105-1.csv": [
+      0
+    ],
+    "refs/new/Q106-1.csv": [
+      0
+    ],
+    "refs/new/Q107-1.csv": [
+      0
+    ],
+    "refs/new/Q108-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q109-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q110-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q111-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q112-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/new/Q113-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/new/Q114-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q115-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q116-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q117-1.csv": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "refs/new/Q118-1.csv": [
+      0,
+      1
+    ],
+    "refs/new/Q119-1.csv": [
+      1,
+      3,
+      5
+    ],
+    "refs/new/Q120-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/new/Q121-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q121-2.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/new/Q122-1.csv": [
+      1,
+      3,
+      4,
+      5
+    ]
+  },
+  "existing_required_columns": {
+    "refs/cube/Q24-1.csv": [
+      2
+    ],
+    "refs/cube/Q34-1.csv": [
+      2
+    ],
+    "refs/cube/Q38-2.csv": [
+      1
+    ],
+    "refs/cube/Q85-1.csv": [
+      3
+    ],
+    "refs/cube/Q87-1.csv": [
+      2
+    ],
+    "refs/cube/Q96-1.csv": [
+      1
+    ],
+    "refs/cube/Q22-1.csv": [
+      5
+    ],
+    "refs/cube/Q37-1.csv": [
+      2
+    ],
+    "refs/cube/Q78-1.csv": [
+      2
+    ],
+    "refs/new/Q119-1.csv": [
+      5
+    ],
+    "refs/cube/Q50-1.csv": [
+      2,
+      3
+    ],
+    "refs/cube/Q99-1.csv": [
+      3,
+      4
+    ],
+    "refs/cube/Q29-1.csv": [
+      0
+    ],
+    "refs/cube/Q77-1.csv": [
+      3
+    ],
+    "refs/new/Q104-1.csv": [
+      1,
+      2
+    ],
+    "refs/new/Q106-1.csv": [
+      0
+    ],
+    "refs/new/Q109-1.csv": [
+      1
+    ],
+    "refs/new/Q117-1.csv": [
+      2,
+      4,
+      5
+    ],
+    "refs/cube/Q42-1.csv": [
+      2
+    ],
+    "refs/cube/Q44-1.csv": [
+      2
+    ],
+    "refs/cube/Q95-1.csv": [
+      3
+    ],
+    "refs/cube/Q97-1.csv": [
+      3
+    ],
+    "refs/cube/Q97-2.csv": [
+      4
+    ]
+  },
+  "baseline": "455e96f",
+  "references": {
+    "refs/cube/Q84-1.csv": {
+      "append_postprocess_total": true
+    },
+    "refs/cube/Q84-2.csv": {
+      "append_postprocess_total": true
+    },
+    "refs/new/Q118-1.csv": {
+      "append_postprocess_total": true
+    },
+    "refs/cube/Q07-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q27-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q67-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q73-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q79-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q87-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            4
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": false
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q88-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            2
+          ],
+          "order_by": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q92-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q33-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0,
+            1
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q45-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q97-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            4
+          ],
+          "order_by": [
+            {
+              "column": 3,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q97-2.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/new/Q122-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0,
+            2
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q22-1.csv": {
+      "ranks": [
+        {
+          "name": "rn",
+          "group_columns": [
+            3
+          ],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q74-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [
+            0
+          ],
+          "object_columns": [
+            4
+          ],
+          "order_by": [
+            {
+              "column": 2,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q85-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [
+            0
+          ],
+          "object_columns": [
+            1
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": [
+            {
+              "column": 0,
+              "equals": "最高"
+            }
+          ]
+        },
+        {
+          "name": "rank",
+          "group_columns": [
+            0
+          ],
+          "object_columns": [
+            1
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": false
+            }
+          ],
+          "where": [
+            {
+              "column": 0,
+              "equals": "最低"
+            }
+          ]
+        }
+      ]
+    },
+    "refs/cube/Q98-1.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 1,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ],
+      "periods": [
+        {
+          "column": 2,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/cube/Q98-2.csv": {
+      "ranks": [
+        {
+          "name": "rank",
+          "group_columns": [
+            1
+          ],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 2,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ],
+      "periods": [
+        {
+          "column": 3,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/new/Q117-1.csv": {
+      "ranks": [
+        {
+          "name": "store_rank",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ],
+          "order_by": [
+            {
+              "column": 2,
+              "descending": true
+            }
+          ],
+          "where": []
+        },
+        {
+          "name": "category_rank",
+          "group_columns": [
+            0
+          ],
+          "object_columns": [
+            3
+          ],
+          "order_by": [
+            {
+              "column": 4,
+              "descending": true
+            }
+          ],
+          "where": []
+        }
+      ]
+    },
+    "refs/cube/Q26-1.csv": {
+      "periods": [
+        {
+          "column": 0,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/cube/Q66-1.csv": {
+      "periods": [
+        {
+          "column": 0,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/cube/Q72-1.csv": {
+      "periods": [
+        {
+          "column": 1,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/new/Q109-1.csv": {
+      "periods": [
+        {
+          "column": 0,
+          "kind": "quarter_label"
+        }
+      ]
+    },
+    "refs/cube/Q44-2.csv": {
+      "periods": [
+        {
+          "column": 0,
+          "kind": "calendar_month",
+          "year_name": "year"
+        }
+      ]
+    },
+    "refs/new/Q116-1.csv": {
+      "periods": [
+        {
+          "column": 0,
+          "kind": "calendar_month",
+          "year_name": "cohort_year"
+        }
+      ]
+    },
+    "refs/cube/Q78-1.csv": {
+      "existing_ranks": [
+        {
+          "name": "rnk",
+          "group_columns": [],
+          "object_columns": [
+            0
+          ]
+        }
+      ]
+    },
+    "refs/new/Q119-1.csv": {
+      "existing_ranks": [
+        {
+          "name": "global_rank",
+          "group_columns": [],
+          "object_columns": [
+            2
+          ],
+          "population": true
+        }
+      ]
+    }
+  },
+  "declared_new_value_kinds": {
+    "refs/new/Q101-1.csv": {
+      "GMV": "amount",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q102-1.csv": {
+      "category": "other",
+      "net_sales_amount": "amount",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q103-1.csv": {
+      "orders": "count",
+      "sales_share_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q104-1.csv": {
+      "category": "other",
+      "sales_change_amount": "amount",
+      "margin_change_amount": "amount",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q105-1.csv": {
+      "sales_amount": "amount",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q106-1.csv": {
+      "growth_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q107-1.csv": {
+      "net_sales_share_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q108-1.csv": {
+      "country": "other",
+      "sales_amount": "amount",
+      "orders": "count",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q109-1.csv": {
+      "quarter": "other",
+      "daily_sales_growth_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q110-1.csv": {
+      "share_2008_pct": "percentage",
+      "share_2009_pct": "percentage",
+      "change_pp": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q111-1.csv": {
+      "StoreName": "other",
+      "ytd_attainment_pct": "percentage",
+      "annual_attainment_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q112-1.csv": {
+      "EmployeeKey": "other",
+      "manager": "other",
+      "under_target_stores": "count",
+      "shortfall_amount": "amount",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q113-1.csv": {
+      "StoreName": "other",
+      "start_month": "other",
+      "end_month": "other",
+      "months": "count",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q114-1.csv": {
+      "cutoff": "other",
+      "new_customers": "count",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q115-1.csv": {
+      "a.old_state": "other",
+      "b.new_state": "other",
+      "customers": "count",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q116-1.csv": {
+      "cohort_month": "other",
+      "repurchase_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q117-1.csv": {
+      "t.StoreKey": "other",
+      "StoreName": "other",
+      "decline_pct": "percentage",
+      "category": "other",
+      "decline_amount": "amount",
+      "contribution_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q118-1.csv": {
+      "sales_amount": "amount",
+      "share_pct": "percentage",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other",
+      "total_sales": "amount"
+    },
+    "refs/new/Q119-1.csv": {
+      "StoreKey": "other",
+      "StoreName": "other",
+      "ProductKey": "other",
+      "ProductName": "other",
+      "product_sales": "amount",
+      "global_rank": "other",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q120-1.csv": {
+      "scope": "other",
+      "occupation": "other",
+      "customers": "count",
+      "income_sales_corr": "ratio",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q121-1.csv": {
+      "category": "other",
+      "monthly_sales_amount": "amount",
+      "coefficient_ratio": "ratio",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q121-2.csv": {
+      "category": "other",
+      "monthly_sales_amount": "amount",
+      "coefficient_ratio": "ratio",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    },
+    "refs/new/Q122-1.csv": {
+      "product1_key": "other",
+      "product1_name": "other",
+      "product2_key": "other",
+      "product2_name": "other",
+      "common_orders": "count",
+      "lift_ratio": "ratio",
+      "sales_change_pct": "percentage",
+      "margin_change_pct": "percentage",
+      "category_decline_pct": "percentage",
+      "sales_change_amount": "amount",
+      "daily_sales_change_amount": "amount",
+      "store_decline_amount": "amount",
+      "selected_sales_amount": "amount",
+      "total_sales_amount": "amount",
+      "store_net_sales_amount": "amount",
+      "city_net_sales_amount": "amount",
+      "actual_sales_amount": "amount",
+      "ytd_target_amount": "amount",
+      "annual_target_amount": "amount",
+      "cohort_customers": "count",
+      "rank": "other",
+      "store_rank": "other",
+      "category_rank": "other",
+      "year": "other",
+      "online_share_pct": "percentage",
+      "change_pp": "percentage",
+      "cohort_year": "other"
+    }
+  },
+  "overrides": {
+    "refs/cube/Q31-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q83-1.csv": [
+      0,
+      1,
+      2
+    ],
+    "refs/cube/Q90-1.csv": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs/new/Q110-1.csv": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "refs/cube/Q27-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q79-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q92-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q98-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q98-2.csv": [
+      0,
+      1,
+      5
+    ],
+    "refs/cube/Q84-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q84-2.csv": [
+      0,
+      1
+    ]
+  },
+  "new_columns_required": true,
+  "identifier_column_names": {
+    "refs/cube/Q01-1.csv": [],
+    "refs/cube/Q02-1.csv": [],
+    "refs/cube/Q03-1.csv": [],
+    "refs/cube/Q04-1.csv": [],
+    "refs/cube/Q05-1.csv": [],
+    "refs/cube/Q06-1.csv": [],
+    "refs/cube/Q07-1.csv": [],
+    "refs/cube/Q08-1.csv": [],
+    "refs/cube/Q09-1.csv": [],
+    "refs/cube/Q10-1.csv": [],
+    "refs/cube/Q11-1.csv": [],
+    "refs/cube/Q12-1.csv": [],
+    "refs/cube/Q13-1.csv": [
+      "s.StoreKey"
+    ],
+    "refs/cube/Q14-1.csv": [],
+    "refs/cube/Q15-1.csv": [],
+    "refs/cube/Q16-1.csv": [],
+    "refs/cube/Q17-1.csv": [],
+    "refs/cube/Q18-1.csv": [],
+    "refs/cube/Q19-1.csv": [],
+    "refs/cube/Q20-2.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q21-1.csv": [
+      "s.StoreKey"
+    ],
+    "refs/cube/Q22-1.csv": [
+      "c.CustomerKey"
+    ],
+    "refs/cube/Q23-1.csv": [],
+    "refs/cube/Q24-1.csv": [],
+    "refs/cube/Q25-1.csv": [],
+    "refs/cube/Q26-1.csv": [],
+    "refs/cube/Q27-1.csv": [],
+    "refs/cube/Q28-1.csv": [],
+    "refs/cube/Q29-1.csv": [],
+    "refs/cube/Q31-1.csv": [],
+    "refs/cube/Q32-1.csv": [],
+    "refs/cube/Q33-1.csv": [
+      "product1_key",
+      "product2_key"
+    ],
+    "refs/cube/Q34-1.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q35-1.csv": [],
+    "refs/cube/Q36-1.csv": [],
+    "refs/cube/Q37-1.csv": [],
+    "refs/cube/Q38-2.csv": [],
+    "refs/cube/Q39-1.csv": [
+      "subcategory_key"
+    ],
+    "refs/cube/Q39-2.csv": [
+      "subcategory_key"
+    ],
+    "refs/cube/Q40-1.csv": [],
+    "refs/cube/Q41-1.csv": [],
+    "refs/cube/Q42-1.csv": [],
+    "refs/cube/Q42-2.csv": [],
+    "refs/cube/Q43-1.csv": [],
+    "refs/cube/Q43-2.csv": [],
+    "refs/cube/Q44-1.csv": [],
+    "refs/cube/Q44-2.csv": [],
+    "refs/cube/Q45-1.csv": [],
+    "refs/cube/Q46-1.csv": [],
+    "refs/cube/Q46-2.csv": [],
+    "refs/cube/Q47-1.csv": [],
+    "refs/cube/Q48-1.csv": [],
+    "refs/cube/Q48-2.csv": [],
+    "refs/cube/Q48-3.csv": [],
+    "refs/cube/Q49-2.csv": [
+      "e.EntityKey"
+    ],
+    "refs/cube/Q50-1.csv": [],
+    "refs/cube/Q51-1.csv": [],
+    "refs/cube/Q52-1.csv": [],
+    "refs/cube/Q53-1.csv": [],
+    "refs/cube/Q54-1.csv": [],
+    "refs/cube/Q55-1.csv": [],
+    "refs/cube/Q56-1.csv": [],
+    "refs/cube/Q57-1.csv": [],
+    "refs/cube/Q58-1.csv": [],
+    "refs/cube/Q59-1.csv": [],
+    "refs/cube/Q60-1.csv": [],
+    "refs/cube/Q61-1.csv": [],
+    "refs/cube/Q62-1.csv": [],
+    "refs/cube/Q63-1.csv": [],
+    "refs/cube/Q64-1.csv": [],
+    "refs/cube/Q65-2.csv": [
+      "manager_key"
+    ],
+    "refs/cube/Q66-1.csv": [],
+    "refs/cube/Q67-1.csv": [],
+    "refs/cube/Q68-1.csv": [],
+    "refs/cube/Q69-1.csv": [],
+    "refs/cube/Q70-1.csv": [],
+    "refs/cube/Q71-1.csv": [],
+    "refs/cube/Q72-1.csv": [],
+    "refs/cube/Q73-1.csv": [],
+    "refs/cube/Q74-1.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q75-1.csv": [
+      "CustomerKey"
+    ],
+    "refs/cube/Q76-1.csv": [],
+    "refs/cube/Q76-2.csv": [],
+    "refs/cube/Q77-1.csv": [],
+    "refs/cube/Q78-1.csv": [],
+    "refs/cube/Q79-1.csv": [],
+    "refs/cube/Q80-1.csv": [],
+    "refs/cube/Q81-1.csv": [],
+    "refs/cube/Q82-1.csv": [],
+    "refs/cube/Q83-1.csv": [],
+    "refs/cube/Q84-1.csv": [],
+    "refs/cube/Q84-2.csv": [],
+    "refs/cube/Q85-1.csv": [],
+    "refs/cube/Q86-1.csv": [],
+    "refs/cube/Q86-3.csv": [],
+    "refs/cube/Q87-1.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q88-1.csv": [
+      "CustomerKey"
+    ],
+    "refs/cube/Q89-1.csv": [],
+    "refs/cube/Q90-1.csv": [],
+    "refs/cube/Q91-1.csv": [],
+    "refs/cube/Q91-2.csv": [],
+    "refs/cube/Q92-1.csv": [],
+    "refs/cube/Q93-1.csv": [],
+    "refs/cube/Q94-1.csv": [],
+    "refs/cube/Q95-1.csv": [],
+    "refs/cube/Q96-1.csv": [],
+    "refs/cube/Q97-1.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q97-2.csv": [
+      "ProductKey"
+    ],
+    "refs/cube/Q98-1.csv": [],
+    "refs/cube/Q98-2.csv": [],
+    "refs/cube/Q99-1.csv": [],
+    "refs/cube/Q100-1.csv": [
+      "CustomerKey"
+    ],
+    "refs/new/Q101-1.csv": [],
+    "refs/new/Q102-1.csv": [],
+    "refs/new/Q103-1.csv": [],
+    "refs/new/Q104-1.csv": [],
+    "refs/new/Q105-1.csv": [],
+    "refs/new/Q106-1.csv": [],
+    "refs/new/Q107-1.csv": [],
+    "refs/new/Q108-1.csv": [],
+    "refs/new/Q109-1.csv": [],
+    "refs/new/Q110-1.csv": [],
+    "refs/new/Q111-1.csv": [],
+    "refs/new/Q112-1.csv": [
+      "EmployeeKey"
+    ],
+    "refs/new/Q113-1.csv": [],
+    "refs/new/Q114-1.csv": [],
+    "refs/new/Q115-1.csv": [],
+    "refs/new/Q116-1.csv": [],
+    "refs/new/Q117-1.csv": [
+      "t.StoreKey"
+    ],
+    "refs/new/Q118-1.csv": [],
+    "refs/new/Q119-1.csv": [
+      "StoreKey",
+      "ProductKey"
+    ],
+    "refs/new/Q120-1.csv": [],
+    "refs/new/Q121-1.csv": [],
+    "refs/new/Q121-2.csv": [],
+    "refs/new/Q122-1.csv": [
+      "product1_key",
+      "product2_key"
+    ]
+  },
+  "rank_column_names": {
+    "refs/cube/Q07-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q27-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q67-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q73-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q79-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q87-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q88-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q92-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q33-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q45-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q97-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q97-2.csv": [
+      "rank"
+    ],
+    "refs/new/Q122-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q22-1.csv": [
+      "rn"
+    ],
+    "refs/cube/Q74-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q85-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q98-1.csv": [
+      "rank"
+    ],
+    "refs/cube/Q98-2.csv": [
+      "rank"
+    ],
+    "refs/new/Q117-1.csv": [
+      "category_rank",
+      "store_rank"
+    ],
+    "refs/cube/Q78-1.csv": [
+      "rnk"
+    ],
+    "refs/new/Q119-1.csv": [
+      "global_rank"
+    ]
+  },
+  "not_required_columns": {
+    "refs/cube/Q27-1.csv": [
+      1
+    ],
+    "refs/cube/Q79-1.csv": [
+      2
+    ],
+    "refs/cube/Q92-1.csv": [
+      1
+    ],
+    "refs/cube/Q98-1.csv": [
+      3
+    ],
+    "refs/cube/Q98-2.csv": [
+      4
+    ],
+    "refs/cube/Q84-1.csv": [
+      4
+    ],
+    "refs/cube/Q84-2.csv": [
+      4
+    ],
+    "refs/cube/Q65-2.csv": [
+      1
+    ]
+  }
+}

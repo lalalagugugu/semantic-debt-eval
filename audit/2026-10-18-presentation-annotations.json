@@ -1,0 +1,919 @@
+{
+  "Q01-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "题目只问产品数量。"
+  },
+  "Q02-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "题目只问线上销售总额。"
+  },
+  "Q03-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "题目只问购买客户人数。"
+  },
+  "Q04-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "列出产品只需产品名称。"
+  },
+  "Q05-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求各品类名称及产品数。"
+  },
+  "Q06-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "题目只问指定年份销售额。"
+  },
+  "Q07-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些产品，单价是排序依据。"
+  },
+  "Q08-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "姓名由名和姓两列共同表示。"
+  },
+  "Q09-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问平均单位成本。"
+  },
+  "Q10-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问营业门店数。"
+  },
+  "Q11-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求品类和销售额。"
+  },
+  "Q12-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求月份和对应销售额。"
+  },
+  "Q13-1": {
+    "required": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "missing_asked": null,
+    "note": "要求门店名称及销售额、平均单价、销量，门店键不必答。"
+  },
+  "Q14-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "中文修订题只问客户人数。"
+  },
+  "Q15-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求国家和销售额。"
+  },
+  "Q16-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "比较两年销售额，需要年份及金额。"
+  },
+  "Q17-1": {
+    "required": [
+      0,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求日类型及销售占比，销售额是辅助量。"
+  },
+  "Q18-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求促销类型及折扣金额。"
+  },
+  "Q19-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求性别及客单价。"
+  },
+  "Q20-2": {
+    "required": [
+      1
+    ],
+    "missing_asked": null,
+    "note": "只问哪些产品，键和库存比较值不必答。"
+  },
+  "Q21-1": {
+    "required": [
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求门店名称及当前库存数。"
+  },
+  "Q22-1": {
+    "required": [
+      1,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "边界：按国家列出客户，姓名及国家必答；排名理解为排序要求，不要求单列名次或消费额；姓名并非全为占位值。"
+  },
+  "Q23-1": {
+    "required": [
+      0,
+      2
+    ],
+    "missing_asked": null,
+    "note": "逐月累计销售额要求月份及累计额，不要求当月额。"
+  },
+  "Q24-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求品类和退货率，分子分母不必答。"
+  },
+  "Q25-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪个季节，日均金额为排序依据。"
+  },
+  "Q26-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求季度及首次购买客户数。"
+  },
+  "Q27-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些产品，利润率及计算输入不必答。"
+  },
+  "Q28-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求渠道名称及平均单价。"
+  },
+  "Q29-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问销售差异百分比。"
+  },
+  "Q30-1": {
+    "required": [
+      0,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求日期及七日移动均值，不要求当日销售额。"
+  },
+  "Q31-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求品类及实际、预算两个金额。"
+  },
+  "Q32-1": {
+    "required": [
+      1
+    ],
+    "missing_asked": null,
+    "note": "只问终身消费价值合计，不问客户数。"
+  },
+  "Q34-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求产品名称及库存周转率，键和中间量不必答。"
+  },
+  "Q35-1": {
+    "required": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "missing_asked": null,
+    "note": "要求员工及经理姓名，不要求职务。"
+  },
+  "Q36-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求客户状态及各状态人数。"
+  },
+  "Q37-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求门店、销售总额及百分位排名。"
+  },
+  "Q38-2": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "边界：沿用参考按品类展示准确率，品类为结果分组标识；实际额及预测额并未单独问到。"
+  },
+  "Q41-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问上季度销售额。"
+  },
+  "Q43-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求地区及毛利。"
+  },
+  "Q43-2": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求地区及毛利。"
+  },
+  "Q47-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求门店及平均停机时长。"
+  },
+  "Q49-2": {
+    "required": [
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求各实体名称及汇总收入，实体键不必答。"
+  },
+  "Q50-1": {
+    "required": [
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "边界：增长多少同时保留增长率及增长额，两年基数金额不必答。"
+  },
+  "Q51-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问门店总数。"
+  },
+  "Q52-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问最高单价。"
+  },
+  "Q53-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问订单数。"
+  },
+  "Q54-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问退货金额合计。"
+  },
+  "Q55-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问女性客户数。"
+  },
+  "Q56-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问平均年收入。"
+  },
+  "Q57-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问品牌数。"
+  },
+  "Q58-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问最大单笔金额。"
+  },
+  "Q59-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问节假日天数。"
+  },
+  "Q60-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问生产部门人数。"
+  },
+  "Q61-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些子品类，金额是筛选依据。"
+  },
+  "Q62-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "明确要求品牌、营收及销量。"
+  },
+  "Q63-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求职业及客单价，不问订单数。"
+  },
+  "Q64-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求月份、毛利金额及毛利率。"
+  },
+  "Q65-2": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "边界：所问对象是经理，门店名称及其销售额只是限定经理的依据。"
+  },
+  "Q66-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求季度及折扣金额。"
+  },
+  "Q67-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "边界：只问哪些颜色，成交均价用于排序，销量用于筛选。"
+  },
+  "Q68-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求节假日类别、订单数及营收。"
+  },
+  "Q69-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "边界：问哪些促销类别及各自平均折扣比例，营收只用于排序，折扣金额是辅助量。"
+  },
+  "Q70-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求门店类型、销售总额及平均面积，不问门店数。"
+  },
+  "Q71-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求品类、最高销售子品类及其金额。"
+  },
+  "Q72-1": {
+    "required": [
+      0,
+      1,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求年季度及累计销售额，不要求当季销售额。"
+  },
+  "Q73-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些产品，库存及差额为排序依据。"
+  },
+  "Q74-1": {
+    "required": [
+      0,
+      1,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求门店、产品及销售占比，销售额和产品键不必答。"
+  },
+  "Q75-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "只问哪些客户，年份消费额及增长率为筛选依据。"
+  },
+  "Q76-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求品类及回头客销售占比。"
+  },
+  "Q76-2": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求品类及回头客销售占比。"
+  },
+  "Q77-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求月份及环比率，两期销售额不必答。"
+  },
+  "Q78-1": {
+    "required": [
+      0,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "边界：明确要求给类别排名，保留名次及占比，折扣金额仅作排序依据。"
+  },
+  "Q79-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些门店，目标及达成率用于排序。"
+  },
+  "Q80-1": {
+    "required": [
+      0,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求国家及平均相隔天数，不问客户数。"
+  },
+  "Q81-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求首购年份、客户数及平均终身价值，不问总价值。"
+  },
+  "Q82-1": {
+    "required": [
+      0,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求经理姓名、直属下属数及平均年限，不问职务。"
+  },
+  "Q83-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "明确要求首购人数及两阶段回购人数。"
+  },
+  "Q84-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "只要求ABC类别及产品数，不要求营收或份额。"
+  },
+  "Q84-2": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "只要求ABC类别及产品数，不要求营收或份额。"
+  },
+  "Q85-1": {
+    "required": [
+      0,
+      1,
+      4
+    ],
+    "missing_asked": null,
+    "note": "边界：题目明确问达成率并分别列出最高最低门店，分组标签、门店及达成率必答。"
+  },
+  "Q87-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "明确要求计算可售天数并列出产品，库存及日均销量为中间量，键不必答。"
+  },
+  "Q88-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些客户并按消费额排序，消费额不必答。"
+  },
+  "Q89-1": {
+    "required": [
+      0,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求状态、平均消费额及平均产品种类数，不问人数。"
+  },
+  "Q90-1": {
+    "required": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "missing_asked": null,
+    "note": "要求品类、各年毛利率及逐年百分点变化。"
+  },
+  "Q92-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "边界：只问哪些品牌，盈利能力按毛利率用于排序，不另要求展示指标。"
+  },
+  "Q94-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问哪些门店，两季金额和变化率为筛选依据。"
+  },
+  "Q96-1": {
+    "required": [
+      0,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求首购年份及之后回购比例，不问两项人数。"
+  },
+  "Q98-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "边界：只问哪些品类，峰值季度及其份额为识别与排序依据。"
+  },
+  "Q98-2": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "边界：分年度解读需品类和年份，峰值季度及其份额为识别与排序依据。"
+  },
+  "Q99-1": {
+    "required": [
+      0,
+      3,
+      4
+    ],
+    "missing_asked": null,
+    "note": "边界：高多少同时保留比例及金额差值，不要求两个日均基数。"
+  },
+  "Q100-1": {
+    "required": [
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "边界：依指定Q100裁决排除全为占位值的姓名，保留订单数和客单价数值多重集；终身消费值未问到。"
+  },
+  "Q101-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问GMV。"
+  },
+  "Q102-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求品类及净销售额。"
+  },
+  "Q103-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求符合门槛的订单数及销售占比。"
+  },
+  "Q104-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求品类及营收、毛利两项金额变化。"
+  },
+  "Q105-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问指定门店销售额。"
+  },
+  "Q106-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问销售增长百分比。"
+  },
+  "Q107-1": {
+    "required": [
+      0
+    ],
+    "missing_asked": null,
+    "note": "只问净销售额占比。"
+  },
+  "Q108-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求国家、营收及订单数。"
+  },
+  "Q109-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "只问各季度日均销售额同比增长率，不另问日均销售额基数。"
+  },
+  "Q110-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求两年占比及百分点变化。"
+  },
+  "Q111-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "要求门店及同期、全年两项目标达成率。"
+  },
+  "Q112-1": {
+    "required": [
+      1,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "要求经理姓名、未达挑战线门店数及缺口金额，经理键不必答。"
+  },
+  "Q113-1": {
+    "required": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "明确要求门店、起止月份及连续月数。"
+  },
+  "Q114-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求各截止日及新客数。"
+  },
+  "Q115-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "明确要求期初状态、期末状态及迁移人数。"
+  },
+  "Q116-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求首购月份及复购率。"
+  },
+  "Q117-1": {
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "missing_asked": null,
+    "note": "要求门店、降幅、拖累品类、品类减少额及贡献占比，门店键不必答。"
+  },
+  "Q118-1": {
+    "required": [
+      0,
+      1
+    ],
+    "missing_asked": null,
+    "note": "要求销售额及其占比。"
+  },
+  "Q119-1": {
+    "required": [
+      1,
+      3,
+      5
+    ],
+    "missing_asked": null,
+    "note": "要求门店、最畅销产品及公司排名，键和产品销售额不必答。"
+  },
+  "Q120-1": {
+    "required": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "missing_asked": null,
+    "note": "明确要求范围标签、职业、客户数及相关系数。"
+  },
+  "Q121-1": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "明确要求品类、月均销售额及变异系数。"
+  },
+  "Q121-2": {
+    "required": [
+      0,
+      1,
+      2
+    ],
+    "missing_asked": null,
+    "note": "明确要求品类、月均销售额及变异系数。"
+  },
+  "Q122-1": {
+    "required": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "missing_asked": null,
+    "note": "要求两个产品名称、共同订单数及提升度，两个产品键不必答。"
+  }
+}

@@ -20,6 +20,9 @@ import sys
 from collections import defaultdict
 from decimal import Decimal
 import difflib
+import subprocess
+
+from reference_presentation import apply_presentation, ranking_domains
 
 from chdb import session
 import yaml
@@ -96,7 +99,7 @@ def validate_questions(questions, source="cube"):
             if question["source"] != source:
                 raise ValueError(f"{question['id']}: wrong source file")
             rules = effective_rules(question, ref)
-            if set(rules) - {"ordered", "top_n", "tie_columns", "value_kinds", "value_types", "selection", "order_by"} or not {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} <= set(rules):
+            if set(rules) - {"ordered", "top_n", "tie_columns", "value_kinds", "value_types", "selection", "order_by", "required_columns", "unordered_pairs", "identifier_columns", "rank_columns", "rankings"} or not {"ordered", "top_n", "tie_columns", "value_kinds", "value_types"} <= set(rules):
                 raise ValueError(f"{question['id']}: invalid scoring rules")
             if rules['ordered'] and not rules.get('order_by'):
                 raise ValueError(f"{question['id']}: ordered bank references require explicit order_by")
@@ -158,7 +161,7 @@ def exact_percentile(values, fraction=Decimal("0.9")):
     return ordered[lower] + (ordered[upper] - ordered[lower]) * (position - lower)
 
 
-def postprocess_reference(method, meta, rows, policy):
+def postprocess_reference(method, meta, rows, policy, *, append_total=False):
     """Apply explicitly declared, user-approved rules to SQL aggregate domains.
 
     All membership decisions use the shared Decimal quantizer. The SQL supplies
@@ -179,7 +182,11 @@ def postprocess_reference(method, meta, rows, policy):
         amount = sum(value(row, "sales_amount") for row in selected)
         total = value(rows[0], "total_sales")
         output = [[amount, amount * 100.0 / total if total else None]]
-        return [meta[positions[name]] for name in ("sales_amount", "share_pct")], output, {"domain_rows": len(rows), "selected_products": len(selected), "base_sales_p90": str(boundary), "percentile_method": "exact linear interpolation at (n-1)*0.9", "selected_product_keys": [value(row, "ProductKey") for row in selected]}
+        output_meta = [meta[positions[name]] for name in ("sales_amount", "share_pct")]
+        if append_total:
+            output_meta.append(meta[positions['total_sales']])
+            for row in output: row.append(total)
+        return output_meta, output, {"domain_rows": len(rows), "selected_products": len(selected), "base_sales_p90": str(boundary), "percentile_method": "exact linear interpolation at (n-1)*0.9", "selected_product_keys": [value(row, "ProductKey") for row in selected]}
     if method in {"product_rank_competition", "product_rank_dense"}:
         amounts = {}
         for row in rows:
@@ -203,7 +210,10 @@ def postprocess_reference(method, meta, rows, policy):
             row = list(row)
             row[positions["global_rank"]] = ranks[value(row, "ProductKey")]
             output.append([row[i] for i in keep])
-        return [meta[i] for i in keep], output, {"domain_rows": len(rows), "products": len(amounts), "rank_method": method, "quantized_ranking": True}
+        return [meta[i] for i in keep], output, {"domain_rows": len(rows), "products": len(amounts), "rank_method": method, "quantized_ranking": True, "rank_blocks": [
+            {"group": [], "rank": 1 + sum(len(v) for amount,v in groups.items() if amount > value),
+             "dense": dense, "size": len(keys)}
+            for dense,(value,keys) in enumerate(sorted(groups.items(),reverse=True),1)]}
     if method in {"abc_groups", "abc_groups_after"}:
         groups = defaultdict(list)
         for row in rows:
@@ -225,6 +235,9 @@ def postprocess_reference(method, meta, rows, policy):
                 cumulative += revenue * len(members)
         columns = [{"name": "abc_class", "type": "String"}, {"name": "product_count", "type": "UInt64"}, {"name": "revenue", "type": "Float64"}, {"name": "pct_of_revenue", "type": "Float64"}]
         output = [[name, count, float(revenue), float(revenue * 100 / total)] for name, (count, revenue) in buckets.items() if count]
+        if append_total:
+            columns.append({'name':'total_revenue_amount','type':'Float64'})
+            for row in output: row.append(float(total))
         return columns, output, {"domain_rows": len(rows), "same_amount_groups": len(groups), "quantized_total_revenue": str(total)}
     if method == "power_customers":
         order_p90 = exact_percentile([quantized(row, "orders") for row in rows])
@@ -284,7 +297,11 @@ def main():
         raise SystemExit("chdb-eval does not exist; rebuild it from Parquet first")
     policy, policy_hash = load_unit_policy()
     selection_policy, _ = load_selection_policy()
-    input_paths = [REPO / filename for filename in ("questions/cube_100.yaml", "questions/new.yaml", "refs/MANIFEST.json")]
+    presentation_path = REPO / 'refs/PRESENTATION.json'
+    presentation = json.loads(presentation_path.read_text()) if presentation_path.exists() else {}
+    previous_manifest=json.loads(subprocess.check_output(['git','show',presentation['baseline']+':refs/MANIFEST.json'],cwd=REPO)) if presentation else json.loads((REPO/'refs/MANIFEST.json').read_text())
+    old_records = {r['result_path']:r for r in previous_manifest['records']}
+    input_paths = [REPO / filename for filename in ("questions/cube_100.yaml", "questions/new.yaml", "refs/MANIFEST.json", "refs/PRESENTATION.json")]
     input_hashes = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in input_paths if path.exists()}
     questions = yaml.safe_load((REPO / "questions/cube_100.yaml").read_text())["questions"]
     validate_questions(questions)
@@ -322,13 +339,10 @@ def main():
                 except Exception as error:
                     raise RuntimeError(f"{question['id']} {ref['result_path']}: reference execution failed; build aborted and session closed") from error
                 meta, rows = payload["meta"], payload["data"]
-                meta, rows, postprocess_details = postprocess_reference(ref.get("postprocess"), meta, rows, policy)
+                display = presentation.get('references',{}).get(ref['result_path'],{})
+                meta, rows, postprocess_details = postprocess_reference(ref.get("postprocess"), meta, rows, policy, append_total=display.get('append_postprocess_total',False))
                 count_aliases = {m.group(1).lower() for m in re.finditer(r"(?:\bSELECT\s+|,)\s*(?:count|countDistinct|countIf|uniqExact)\s*\([^)]*\)\s+(?:AS\s+)?([A-Za-z_]\w*)", sql, re.I)}
                 kinds = ["count" if c["name"].lower() in count_aliases else policy.infer_value_kind(c["name"], c["type"]) for c in meta]
-                if args.refresh_rules and question["source"] == "cube":
-                    rules = {**rules, "value_kinds": kinds, "value_types": [column["type"] for column in meta]}
-                    ref["rules"] = rules
-                kinds, kind_warnings = reference_value_kinds(question, ref, meta, kinds)
                 selection_checks = None
                 if rules.get("selection") is not None:
                     rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
@@ -350,6 +364,37 @@ def main():
                     rows = rows[:cut]
                 elif not rules["ordered"]:
                     rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False))
+                meta, rows = apply_presentation(meta, rows, policy, display)
+                kinds = ["count" if c['name'].lower() in count_aliases else policy.infer_value_kind(c['name'],c['type']) for c in meta]
+                inferred_kinds=kinds[:]
+                if args.refresh_rules:
+                    if question['source']=='new':
+                        declared=presentation.get('declared_new_value_kinds',{}).get(ref['result_path'],{})
+                        missing_declarations=[c['name'] for c in meta if c['name'] not in declared]
+                        if missing_declarations:raise ValueError('new reference kinds must be explicitly declared: '+str(missing_declarations))
+                        kinds=[declared[c['name']] for c in meta]
+                    original=old_records.get(ref['result_path'])
+                    required=presentation.get('base_required_columns',{}).get(ref['result_path'],rules.get('required_columns'))
+                    if presentation and original:
+                        old_names=[c['name'] for c in original['columns']]
+                        current_names=[c['name'] for c in meta]
+                        required_names={old_names[i] for i in required or range(len(old_names))}
+                        required=[i for i,name in enumerate(current_names) if name in required_names or name not in old_names]
+                        required=presentation.get('overrides',{}).get(ref['result_path'],required)
+                        required=sorted(set(required+presentation.get('existing_required_columns',{}).get(ref['result_path'],[])))
+                    rules={**rules,'value_kinds':kinds,'value_types':[c['type'] for c in meta]}
+                    if required is not None:rules['required_columns']=required
+                    for field,key in [('identifier_columns','identifier_column_names'),('rank_columns','rank_column_names')]:
+                        names=presentation.get(key,{}).get(ref['result_path'],[])
+                        indexes=[i for i,c in enumerate(meta) if c['name'] in names]
+                        if indexes:rules[field]=indexes
+                        else:rules.pop(field,None)
+                    ref['rules']=rules
+                rankings = ranking_domains(meta,rows,display,population_blocks=(postprocess_details or {}).get('rank_blocks'))
+                if rankings:
+                    rules={**rules,'rankings':rankings}
+                    if args.refresh_rules:ref['rules']=rules
+                kinds, kind_warnings = reference_value_kinds(question, ref, meta, inferred_kinds)
                 contents = csv_bytes(meta, rows)
                 path = REPO / ref["result_path"]
                 if args.check:
@@ -359,10 +404,14 @@ def main():
                     pending_writes.append((path, contents))
                 records.append({"question_id": question["id"], "result_path": ref["result_path"], "sql_sha256": hashlib.sha256(ref["sql"].encode()).hexdigest(), "row_count": len(rows), "columns": meta, "value_kinds": kinds, "ordered": rules["ordered"], "top_n": n, "tie_column": rules["tie_columns"][0] if len(rules["tie_columns"]) == 1 else None, "postprocess": ref.get("postprocess"), "postprocess_details": postprocess_details, "sha256": hashlib.sha256(contents).hexdigest()})
                 records[-1].update(value_types=rules["value_types"], value_kind_source="declared" if question["source"] == "new" else "inferred", value_kind_warnings=kind_warnings, rules=rules, selection_checks=selection_checks)
+                if display:
+                    records[-1]['presentation_sha256']=hashlib.sha256(json.dumps(display,sort_keys=True).encode()).hexdigest()
                 print(f"{question['id']} {ref['result_path']} {len(rows)} rows", flush=True)
     finally:
         sess.close()
     manifest = {"chdb_version": package_version("chdb"), "clickhouse_version": version, "max_threads": 1, "max_execution_time": 0, "unit_policy_sha256": policy_hash, "tie_quantization": "Decimal ROUND_HALF_EVEN; amount=2; percentage /100 then 6; ratio/other=6", "csv_null": "\\N", "reference_review": "provisional; T05b independent pandas recomputation required", "records": records}
+    if presentation:
+        manifest['presentation_sha256']=hashlib.sha256(presentation_path.read_bytes()).hexdigest()
     path = REPO / "refs/MANIFEST.json"
     if args.question:
         previous = json.loads(path.read_text())
@@ -387,16 +436,15 @@ def main():
             result_path.write_bytes(contents)
         path.write_text(content)
     if args.refresh_rules:
-        source_questions = [question for question in all_questions if question["source"] == "cube"]
-        for question in source_questions:
-            reference_rules = [effective_rules(question, ref) for ref in question["refs"]]
-            question["rules"] = reference_rules[0]
-            for ref, rules in zip(question["refs"], reference_rules, strict=True):
-                if rules == question["rules"]:
-                    ref.pop("rules", None)
-                else:
-                    ref["rules"] = rules
-        (REPO / "questions/cube_100.yaml").write_text(json.dumps({"questions": source_questions}, ensure_ascii=False, indent=2) + "\n")
+        for source,filename in [('cube','cube_100'),('new','new')]:
+            source_questions=[q for q in all_questions if q['source']==source]
+            for question in source_questions:
+                reference_rules=[effective_rules(question,ref) for ref in question['refs']]
+                question['rules']=reference_rules[0]
+                for ref,rule in zip(question['refs'],reference_rules,strict=True):
+                    if rule==question['rules']:ref.pop('rules',None)
+                    else:ref['rules']=rule
+            (REPO/f'questions/{filename}.yaml').write_text(json.dumps({'questions':source_questions},ensure_ascii=False,indent=2)+'\n')
     print(f"{'Verified' if args.check else 'Built'} {len(records)} references for {len(questions)} questions")
 
 

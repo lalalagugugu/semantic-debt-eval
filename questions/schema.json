@@ -183,7 +183,8 @@
               "top_n",
               "tie_columns",
               "value_kinds",
-              "value_types"
+              "value_types",
+              "required_columns"
             ],
             "additionalProperties": false,
             "properties": {
@@ -233,6 +234,132 @@
                 "minItems": 1,
                 "items": {
                   "$ref": "#/$defs/orderKey"
+                }
+              },
+              "required_columns": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "unordered_pairs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "left",
+                    "right"
+                  ],
+                  "properties": {
+                    "left": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "right": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    }
+                  }
+                }
+              },
+              "identifier_columns": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "rank_columns": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "rankings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "column",
+                    "group_columns",
+                    "object_columns",
+                    "prefix",
+                    "blocks"
+                  ],
+                  "properties": {
+                    "column": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "group_columns": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "uniqueItems": true
+                    },
+                    "object_columns": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "uniqueItems": true
+                    },
+                    "prefix": {
+                      "type": "boolean"
+                    },
+                    "blocks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "group",
+                          "rank",
+                          "dense",
+                          "size"
+                        ],
+                        "properties": {
+                          "group": {
+                            "type": "array"
+                          },
+                          "rank": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "dense": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "size": {
+                            "type": "integer",
+                            "minimum": 1
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             },
@@ -330,6 +457,132 @@
           "items": {
             "$ref": "#/$defs/orderKey"
           }
+        },
+        "required_columns": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "unordered_pairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "left",
+              "right"
+            ],
+            "properties": {
+              "left": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "right": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        "identifier_columns": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "rank_columns": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "rankings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "column",
+              "group_columns",
+              "object_columns",
+              "prefix",
+              "blocks"
+            ],
+            "properties": {
+              "column": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "group_columns": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "uniqueItems": true
+              },
+              "object_columns": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "uniqueItems": true
+              },
+              "prefix": {
+                "type": "boolean"
+              },
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "group",
+                    "rank",
+                    "dense",
+                    "size"
+                  ],
+                  "properties": {
+                    "group": {
+                      "type": "array"
+                    },
+                    "rank": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "dense": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "size": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "required": [
@@ -337,7 +590,8 @@
         "top_n",
         "tie_columns",
         "value_kinds",
-        "value_types"
+        "value_types",
+        "required_columns"
       ],
       "allOf": [
         {

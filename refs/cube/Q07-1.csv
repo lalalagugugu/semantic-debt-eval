@@ -1,15 +1,15 @@
-ProductName,UnitPrice
-Fabrikam Refrigerator 24.7CuFt X9800 Blue,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 Brown,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 Green,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 Grey,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 Orange,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 Silver,3199.99
-Fabrikam Refrigerator 24.7CuFt X9800 White,3199.99
-Litware Refrigerator 24.7CuFt X980 Blue,3199.99
-Litware Refrigerator 24.7CuFt X980 Brown,3199.99
-Litware Refrigerator 24.7CuFt X980 Green,3199.99
-Litware Refrigerator 24.7CuFt X980 Grey,3199.99
-Litware Refrigerator 24.7CuFt X980 Silver,3199.99
-Litware Refrigerator 24.7CuFt X980 White,3199.99
-Litware Refrigerator L1200 Orange,3199.99
+ProductName,UnitPrice,rank
+Fabrikam Refrigerator 24.7CuFt X9800 Blue,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 Brown,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 Green,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 Grey,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 Orange,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 Silver,3199.99,1
+Fabrikam Refrigerator 24.7CuFt X9800 White,3199.99,1
+Litware Refrigerator 24.7CuFt X980 Blue,3199.99,1
+Litware Refrigerator 24.7CuFt X980 Brown,3199.99,1
+Litware Refrigerator 24.7CuFt X980 Green,3199.99,1
+Litware Refrigerator 24.7CuFt X980 Grey,3199.99,1
+Litware Refrigerator 24.7CuFt X980 Silver,3199.99,1
+Litware Refrigerator 24.7CuFt X980 White,3199.99,1
+Litware Refrigerator L1200 Orange,3199.99,1

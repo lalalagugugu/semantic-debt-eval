@@ -1,0 +1,271 @@
+{
+  "baseline": "455e96f",
+  "sql_appends": [
+    {
+      "reference": "refs/cube/Q29-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "h.avg_sales - r.avg_sales AS sales_difference_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q77-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "raw_sales - raw_previous AS mom_change_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q104-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sales_change_amount*100.0/nullIf(sumIf(f.SalesAmount,toYear(f.DateKey)=2008),0) AS sales_change_pct",
+        "margin_change_amount*100.0/nullIf(sumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2008),0) AS margin_change_pct"
+      ]
+    },
+    {
+      "reference": "refs/new/Q106-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sumIf(f.SalesAmount,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS sales_change_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q109-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "avgIf(day_sales,y=2009)-avgIf(day_sales,y=2008) AS daily_sales_change_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q117-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "t.sales_2008-t.sales_2009 AS store_decline_amount",
+        "c.decline_amount*100.0/nullIf(c.category_base_sales,0) AS category_decline_pct"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q42-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "yoy_change*100.0/nullIf(lagInFrame(toNullable(sum(s.SalesAmount))) OVER (ORDER BY toYear(s.DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING),0) AS yoy_change_pct"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q44-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sales-previous_sales AS sales_change_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q95-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "incremental_average_sales*100.0/nullIf(full_price_average_sales,0) AS incremental_sales_pct"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q97-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "h2_sales-h1_sales AS sales_change_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q97-2.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sales_increase*100.0/nullIf(h1_sales,0) AS sales_change_pct"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q17-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "(SELECT sum(SalesAmount) FROM retail.FactOnlineSales) AS total_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q64-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sum(SalesAmount) AS revenue_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q69-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sum(f.SalesAmount+f.DiscountAmount) AS original_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q74-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "t.store_total AS store_total_sales"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q76-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sumIf(f.SalesAmount,co.n_orders>=2) AS repeat_sales_amount",
+        "sum(f.SalesAmount) AS category_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q76-2.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sumIf(t.SalesAmount,c.orders>=2) AS repeat_sales_amount",
+        "sum(t.SalesAmount) AS category_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q78-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sum(disc) OVER () AS total_discount_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q98-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS annual_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q98-2.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS annual_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q103-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sumIf(order_sales,order_sales>1000) AS selected_sales_amount",
+        "sum(order_sales) AS total_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q107-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "sumIf(f.SalesAmount-f.ReturnAmount,s.StoreName='Contoso New York No.2 Store') AS store_net_sales_amount",
+        "sum(f.SalesAmount-f.ReturnAmount) AS city_net_sales_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q111-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "a.sales_amount AS actual_sales_amount",
+        "t.quota_ytd AS ytd_target_amount",
+        "t.quota_year AS annual_target_amount"
+      ]
+    },
+    {
+      "reference": "refs/new/Q116-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "count() AS cohort_customers"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q65-2.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "s.manager_key AS manager_key"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q75-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "y.CustomerKey AS CustomerKey"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q88-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "s.CustomerKey AS CustomerKey"
+      ]
+    },
+    {
+      "reference": "refs/cube/Q100-1.csv",
+      "action": "append SQL columns",
+      "expressions": [
+        "f.CustomerKey AS CustomerKey"
+      ]
+    }
+  ],
+  "rewrites": {
+    "Q67": "仅考虑销量至少 1000 件的产品颜色，按线上实际成交均价从高到低列出各颜色。",
+    "Q92": "按上季度盈利能力从高到低列出各产品品牌。",
+    "Q98": "按全年销售对单个季度的依赖程度从高到低列出各产品品类。",
+    "Q69": "哪个促销类别带来的线上促销营收最高？其平均折扣比例是多少？",
+    "Q45": "按销售坪效从高到低列出各门店。",
+    "Q97": "按 2009 年下半年销售相对上半年的反弹幅度从高到低列出产品。"
+  },
+  "annotation_sources": {
+    "codex_sha256": "58fbfc02b6a7fff0a0e90e2b61cb3c59e66b567aec12addc32063e27ca5a43e0",
+    "claude_v4_sha256": "694a21905c49ed8d054c7552c20a3fcc4b140556fe087782b16256f73978de5b"
+  },
+  "required_overrides": {
+    "Q50-1": [
+      2,
+      3
+    ],
+    "Q99-1": [
+      0,
+      3,
+      4
+    ],
+    "Q78-1": [
+      0,
+      2,
+      3
+    ],
+    "Q83-1": [
+      0,
+      1,
+      2
+    ],
+    "Q65-2": [
+      0
+    ]
+  },
+  "pending": [],
+  "clarifications": {
+    "zero_groups": "required count zero and other required numeric values zero or NULL",
+    "existing_denominators": "required only when the ratio itself is required; Q85 column 3 remains required"
+  },
+  "T05b_PR92_corrections": {
+    "remove_date_identifier": "Q30-1 c0",
+    "no_base_change_null": "Q42-1 c2",
+    "optional_denominators": [
+      "Q27-1 c1",
+      "Q79-1 c2",
+      "Q92-1 c1",
+      "Q98-1 c3",
+      "Q98-2 c4",
+      "Q84-1 c4",
+      "Q84-2 c4"
+    ],
+    "restore_explanation": "Q97",
+    "required_list_additions": [
+      "Q50-1 c2",
+      "Q99-1 c3",
+      "Q78-1 c2",
+      "Q83-1 first-year count"
+    ],
+    "optional_list_addition": "Q65-2 c1"
+  }
+}
