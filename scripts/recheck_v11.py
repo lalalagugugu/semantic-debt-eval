@@ -327,12 +327,14 @@ def _():
 def _():
     r1, r2 = base("Q98")
     f = attach_product(fos()[["ProductKey", "year", "SalesAmount"]].copy())
-    cy = f.groupby(["ProductCategoryName", "year"], dropna=False).SalesAmount.sum()
+    # NaN never equals NaN as a dict key: look the empty category up under a sentinel.
+    f["cat"] = f.ProductCategoryName.fillna("\0")
+    cy = f.groupby(["cat", "year"]).SalesAmount.sum()
     r1 = r1.assign(quarter=qlabel(r1.quarter),
-                   annual=[cy.get((c, 2009), np.nan) for c in r1.ProductCategoryName],
+                   annual=[cy.get((c, 2009), np.nan) for c in r1.ProductCategoryName.fillna("\0")],
                    rank=crank(r1.share_pct, "percentage"))
     r2 = r2.assign(quarter=qlabel(r2.quarter),
-                   annual=[cy.get((c, y), np.nan) for c, y in zip(r2.ProductCategoryName, r2.year)],
+                   annual=[cy.get((c, y), np.nan) for c, y in zip(r2.ProductCategoryName.fillna("\0"), r2.year)],
                    rank=crank(r2.share_pct, "percentage", groups=r2.year))
     return [r1, r2]
 
