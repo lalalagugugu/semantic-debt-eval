@@ -74,6 +74,19 @@ def iter_cases(path):
                 yield c
 
 
+def bank_rules(eval_dir):
+    """question_id -> effective rules of each reference, from a bank checkout (questions/*.yaml)."""
+    import yaml
+    out = {}
+    for f in (Path(eval_dir, "questions", "cube_100.yaml"), Path(eval_dir, "questions", "new.yaml")):
+        data = yaml.safe_load(f.read_text(encoding="utf-8"))
+        if not isinstance(data, dict) or "questions" not in data:
+            continue
+        for q in data["questions"]:
+            out[q["id"]] = [r.get("rules") or q["rules"] for r in q["refs"]]
+    return out
+
+
 def run_case(c):
     if c.get("judge") or c.get("refs") is None:
         return {"outcome": "skipped", "reason": "judge" if c.get("judge") else "no_refs", "seconds": 0.0}
@@ -97,12 +110,20 @@ def main(argv=None):
     r.add_argument("corpus", nargs="+")
     r.add_argument("--out", required=True)
     r.add_argument("--only", default="", help="case_id substring filter")
+    r.add_argument("--rules-from", default="", help="bank checkout whose rules replace the corpus rules (same references)")
     args = ap.parse_args(argv)
+    override = bank_rules(args.rules_from) if args.rules_from else None
     results = []
     for path in args.corpus:
         for c in iter_cases(path):
             if args.only and args.only not in c["case_id"]:
                 continue
+            if override is not None and c.get("question_id") in override and c.get("refs") is not None:
+                new = override[c["question_id"]]
+                if len(new) != len(c["refs"]):
+                    raise SystemExit(f"{c['case_id']}: bank has {len(new)} references, corpus {len(c['refs'])}")
+                c["rules"] = new
+                c["value_types"] = [x["value_types"] for x in new]
             res = run_case(c)
             res["case_id"] = c["case_id"]
             exp = c.get("expected")
