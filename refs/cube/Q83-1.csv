@@ -1,2 +1,4 @@
-cohort_size_2007,returned_2008,returned_2008_and_2009
-18868,18723,17671
+cohort_year,activity_year,customers
+2007,2007,18868
+2007,2008,18723
+2007,2009,17671

@@ -12,6 +12,7 @@ import sys
 
 from build_refs import effective_rules, load_unit_policy
 from check_rules_impact import csv_rows
+from reference_presentation import apply_presentation
 
 ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT = ROOT / 'audit/Q79-boundary-members.json'
@@ -140,6 +141,10 @@ def main():
         payload=json.loads(str(sess.query(sql,'JSONCompact')))
     finally:
         sess.close()
+    presentation_path=ROOT/'refs/PRESENTATION.json'
+    if presentation_path.exists():
+        presentation=json.loads(presentation_path.read_text())
+        payload['meta'],payload['data']=apply_presentation(payload['meta'],payload['data'],policy,presentation.get('references',{}).get(ref['result_path'],{}))
     if payload['meta']!=record['columns']:
         raise ValueError('current Q79 query metadata changed')
     current=make_snapshot(ref,record,rules,payload['data'],policy,policy_hash)

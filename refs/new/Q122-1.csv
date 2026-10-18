@@ -1,18 +1,18 @@
-product1_key,product1_name,product2_key,product2_name,common_orders,lift_ratio
-758,Contoso Connectivity Starter Kit Smart Buy M680 Black,768,Contoso ADSL Modem Splitter/Filter X 1 E100 Black,17,900.923745444351
-1336,Contoso Expandable 4-Handset Cordless Phone System M206 Black,1466,Contoso Pen Touch Screen Phones M320 Black,16,860.4722617354196
-1466,Contoso Pen Touch Screen Phones M320 Black,2517,Contoso In-Line Coupler E180 Silver,16,636.7494736842106
-1080,Contoso SLR Camera X143 Silver,1259,Contoso Cyber Shot Digital Cameras Adapter E306 Black,15,750.8341056533827
-2122,Contoso Coffee Maker Super-Auto 12C X1250 Silver,2137,Contoso Coffee Maker Auto 5C E0900 Grey,15,732.6937984496124
-2070,Contoso Microwave 1.0CuFt E0110 Grey,2091,Contoso Water Heater 4.3GPM M1250 Blue,14,726.0603566529493
-608,Contoso Screen 100in E010 Silver,610,Contoso Screen 80in E080 Silver,14,848.2339743589744
-1265,Contoso Rechargeable Battery Pack E310 White,1272,Contoso Lens Cap Keeper E314 White,13,829.5206751054852
-1317,Contoso Dual Handset Cordless Phone System  E20 Black,1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,13,679.0425531914893
-1320,Contoso KSU-less key system M38 Black,1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,13,746.9468085106383
-1331,Contoso Phone System Accessory Handset with Charger M308 Black,2505,Contoso Touch Stylus Pen E150 Red,13,777.9218106995885
-1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,1459,Contoso Touch Screen Phones 5-Wire/Built-in M500 Black,13,687.9773236282194
-1358,Contoso Electronic Private Automatic Branch Exchange M90 White,1468,Contoso Touch Screen Phones - CRT M11 Black,13,722.7808823529411
-1463,Contoso Touch Screen Phones SAW/On-wall M806 Black,1466,Contoso Pen Touch Screen Phones M320 Black,13,654.8847435043305
-264,Contoso Home Theater System 4.1 Channel M1420 Silver,290,Contoso Home Theater System 4.1 Channel M1420 Brown,13,143.350347080441
-4,Contoso 2G MP3 Player E200 Silver,34,Contoso 4GB Portable MP3 Player M450 Black,13,414.55043859649123
-577,Contoso Projector 720p M620 Black,597,Contoso Screen 85in E085 White,13,731.3854166666666
+product1_key,product1_name,product2_key,product2_name,common_orders,lift_ratio,rank
+758,Contoso Connectivity Starter Kit Smart Buy M680 Black,768,Contoso ADSL Modem Splitter/Filter X 1 E100 Black,17,900.923745444351,1
+1336,Contoso Expandable 4-Handset Cordless Phone System M206 Black,1466,Contoso Pen Touch Screen Phones M320 Black,16,860.4722617354196,2
+1466,Contoso Pen Touch Screen Phones M320 Black,2517,Contoso In-Line Coupler E180 Silver,16,636.7494736842106,2
+1080,Contoso SLR Camera X143 Silver,1259,Contoso Cyber Shot Digital Cameras Adapter E306 Black,15,750.8341056533827,4
+2122,Contoso Coffee Maker Super-Auto 12C X1250 Silver,2137,Contoso Coffee Maker Auto 5C E0900 Grey,15,732.6937984496124,4
+2070,Contoso Microwave 1.0CuFt E0110 Grey,2091,Contoso Water Heater 4.3GPM M1250 Blue,14,726.0603566529493,6
+608,Contoso Screen 100in E010 Silver,610,Contoso Screen 80in E080 Silver,14,848.2339743589744,6
+1265,Contoso Rechargeable Battery Pack E310 White,1272,Contoso Lens Cap Keeper E314 White,13,829.5206751054852,8
+1317,Contoso Dual Handset Cordless Phone System  E20 Black,1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,13,679.0425531914893,8
+1320,Contoso KSU-less key system M38 Black,1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,13,746.9468085106383,8
+1331,Contoso Phone System Accessory Handset with Charger M308 Black,2505,Contoso Touch Stylus Pen E150 Red,13,777.9218106995885,8
+1337,Contoso Expandable1-Handset Cordless Phone System M207 Black,1459,Contoso Touch Screen Phones 5-Wire/Built-in M500 Black,13,687.9773236282194,8
+1358,Contoso Electronic Private Automatic Branch Exchange M90 White,1468,Contoso Touch Screen Phones - CRT M11 Black,13,722.7808823529411,8
+1463,Contoso Touch Screen Phones SAW/On-wall M806 Black,1466,Contoso Pen Touch Screen Phones M320 Black,13,654.8847435043305,8
+264,Contoso Home Theater System 4.1 Channel M1420 Silver,290,Contoso Home Theater System 4.1 Channel M1420 Brown,13,143.350347080441,8
+4,Contoso 2G MP3 Player E200 Silver,34,Contoso 4GB Portable MP3 Player M450 Black,13,414.55043859649123,8
+577,Contoso Projector 720p M620 Black,597,Contoso Screen 85in E085 White,13,731.3854166666666,8
