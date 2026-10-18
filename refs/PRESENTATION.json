@@ -588,26 +588,17 @@
     "refs/cube/Q24-1.csv": [
       2
     ],
-    "refs/cube/Q27-1.csv": [
-      1
-    ],
     "refs/cube/Q34-1.csv": [
       2
     ],
     "refs/cube/Q38-2.csv": [
       1
     ],
-    "refs/cube/Q79-1.csv": [
-      2
-    ],
     "refs/cube/Q85-1.csv": [
       3
     ],
     "refs/cube/Q87-1.csv": [
       2
-    ],
-    "refs/cube/Q92-1.csv": [
-      1
     ],
     "refs/cube/Q96-1.csv": [
       1
@@ -1780,6 +1771,35 @@
       1,
       2,
       3
+    ],
+    "refs/cube/Q27-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q79-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q92-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q98-1.csv": [
+      0,
+      4
+    ],
+    "refs/cube/Q98-2.csv": [
+      0,
+      1,
+      5
+    ],
+    "refs/cube/Q84-1.csv": [
+      0,
+      1
+    ],
+    "refs/cube/Q84-2.csv": [
+      0,
+      1
     ]
   },
   "new_columns_required": true,
@@ -1821,9 +1841,6 @@
     "refs/cube/Q27-1.csv": [],
     "refs/cube/Q28-1.csv": [],
     "refs/cube/Q29-1.csv": [],
-    "refs/cube/Q30-1.csv": [
-      "DateKey"
-    ],
     "refs/cube/Q31-1.csv": [],
     "refs/cube/Q32-1.csv": [],
     "refs/cube/Q33-1.csv": [
@@ -2032,6 +2049,32 @@
     ],
     "refs/new/Q119-1.csv": [
       "global_rank"
+    ]
+  },
+  "not_required_columns": {
+    "refs/cube/Q27-1.csv": [
+      1
+    ],
+    "refs/cube/Q79-1.csv": [
+      2
+    ],
+    "refs/cube/Q92-1.csv": [
+      1
+    ],
+    "refs/cube/Q98-1.csv": [
+      3
+    ],
+    "refs/cube/Q98-2.csv": [
+      4
+    ],
+    "refs/cube/Q84-1.csv": [
+      4
+    ],
+    "refs/cube/Q84-2.csv": [
+      4
+    ],
+    "refs/cube/Q65-2.csv": [
+      1
     ]
   }
 }

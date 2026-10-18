@@ -2265,7 +2265,6 @@
         ],
         "required_columns": [
           0,
-          1,
           4
         ],
         "rank_columns": [
@@ -2492,9 +2491,6 @@
         "required_columns": [
           0,
           2
-        ],
-        "identifier_columns": [
-          0
         ]
       },
       "summary_coverage": "not_covered",
@@ -3455,7 +3451,7 @@
       "refs": [
         {
           "interpretation": "示例：年度线上销售趋势；不是封闭的唯一分析口径",
-          "sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(sum(s.SalesAmount)) OVER (ORDER BY toYear(s.DateKey)) as yoy_change, yoy_change*100.0/nullIf(lagInFrame(toNullable(sum(s.SalesAmount))) OVER (ORDER BY toYear(s.DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING),0) AS yoy_change_pct\nFROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
+          "sql": "-- Ambiguous: interpreting as sales trend\nSELECT toYear(s.DateKey) as year, sum(s.SalesAmount) as sales, sum(s.SalesAmount) - lag(toNullable(sum(s.SalesAmount))) OVER (ORDER BY toYear(s.DateKey)) as yoy_change, yoy_change*100.0/nullIf(lagInFrame(toNullable(sum(s.SalesAmount))) OVER (ORDER BY toYear(s.DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING),0) AS yoy_change_pct\nFROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey WHERE pc.ProductCategoryName = 'Cameras and camcorders' GROUP BY year ORDER BY year",
           "result_path": "refs/cube/Q42-1.csv"
         },
         {
@@ -3522,7 +3518,7 @@
         "value_types": [
           "UInt16",
           "Float64",
-          "Float64",
+          "Nullable(Float64)",
           "Nullable(Float64)"
         ],
         "required_columns": [
@@ -15403,7 +15399,6 @@
         ],
         "required_columns": [
           0,
-          2,
           4
         ],
         "rank_columns": [
@@ -15760,8 +15755,7 @@
         ],
         "required_columns": [
           0,
-          1,
-          4
+          1
         ]
       },
       "summary_coverage": "not_covered",
@@ -16650,7 +16644,6 @@
         ],
         "required_columns": [
           0,
-          1,
           4
         ],
         "rank_columns": [
@@ -17018,7 +17011,7 @@
       "id": "Q97",
       "source": "cube",
       "text_en": "Which products had the biggest second-half comeback in 2009 — meaning H2 sales dramatically exceeded H1?",
-      "text_zh": "按 2009 年下半年销售相对上半年的反弹幅度从高到低列出产品。",
+      "text_zh": "2009 年，按下半年的销售反弹从高到低列出产品，即下半年销售额大幅超过上半年。",
       "type": "统计",
       "refs": [
         {
@@ -17440,7 +17433,6 @@
             "required_columns": [
               0,
               1,
-              4,
               5
             ],
             "rank_columns": [
@@ -17763,7 +17755,6 @@
         ],
         "required_columns": [
           0,
-          3,
           4
         ],
         "rank_columns": [

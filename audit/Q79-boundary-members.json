@@ -55,7 +55,6 @@
     ],
     "required_columns": [
       0,
-      2,
       4
     ],
     "rank_columns": [
@@ -80,7 +79,7 @@
       }
     ]
   },
-  "rules_sha256": "37ec4d41b9c2ca075c7a495ab9592cba714038ca39a342f2b595bf98b3bf7d72",
+  "rules_sha256": "e734babe813adfe6fa46b9d92965078a6c3a5aa6cab0e65b6ceaa978e1483291",
   "value_kinds": [
     "other",
     "amount",

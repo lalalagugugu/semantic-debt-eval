@@ -245,6 +245,27 @@
   "pending": [],
   "clarifications": {
     "zero_groups": "required count zero and other required numeric values zero or NULL",
-    "existing_denominators": "all required, including Q85 column 3"
+    "existing_denominators": "required only when the ratio itself is required; Q85 column 3 remains required"
+  },
+  "T05b_PR92_corrections": {
+    "remove_date_identifier": "Q30-1 c0",
+    "no_base_change_null": "Q42-1 c2",
+    "optional_denominators": [
+      "Q27-1 c1",
+      "Q79-1 c2",
+      "Q92-1 c1",
+      "Q98-1 c3",
+      "Q98-2 c4",
+      "Q84-1 c4",
+      "Q84-2 c4"
+    ],
+    "restore_explanation": "Q97",
+    "required_list_additions": [
+      "Q50-1 c2",
+      "Q99-1 c3",
+      "Q78-1 c2",
+      "Q83-1 first-year count"
+    ],
+    "optional_list_addition": "Q65-2 c1"
   }
 }

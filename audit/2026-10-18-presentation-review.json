@@ -793,7 +793,6 @@
       ],
       "required_columns": [
         0,
-        1,
         4
       ],
       "identifier_columns": [],
@@ -895,9 +894,7 @@
         0,
         2
       ],
-      "identifier_columns": [
-        0
-      ],
+      "identifier_columns": [],
       "rank_columns": [],
       "new_columns": [],
       "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c",
@@ -1400,7 +1397,7 @@
         },
         {
           "name": "yoy_change",
-          "type": "Float64"
+          "type": "Nullable(Float64)"
         },
         {
           "name": "yoy_change_pct",
@@ -1422,8 +1419,8 @@
           "required": true
         }
       ],
-      "sql_sha256": "10509c6f5493c7cfe96b56ff9377afca352cdeedb19241cf890542c93687ae9e",
-      "sha256": "fddca9dab7db0657cc17a8493e5ccfff233c1cfd760e3b28d5e8b3e2e58b1d7f"
+      "sql_sha256": "ae4e1c079d4129081e05852602e065fb4306610357eab525908dcd432a4abb19",
+      "sha256": "ff13a2b2eed8c65d34d42f27a6e07a3ff880e3a114cae605673b04837e245b76"
     },
     {
       "question_id": "Q42",
@@ -2895,7 +2892,6 @@
       ],
       "required_columns": [
         0,
-        2,
         4
       ],
       "identifier_columns": [],
@@ -3094,8 +3090,7 @@
       ],
       "required_columns": [
         0,
-        1,
-        4
+        1
       ],
       "identifier_columns": [],
       "rank_columns": [],
@@ -3103,7 +3098,7 @@
         {
           "column": 4,
           "name": "total_revenue_amount",
-          "required": true
+          "required": false
         }
       ],
       "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
@@ -3140,8 +3135,7 @@
       ],
       "required_columns": [
         0,
-        1,
-        4
+        1
       ],
       "identifier_columns": [],
       "rank_columns": [],
@@ -3149,7 +3143,7 @@
         {
           "column": 4,
           "name": "total_revenue_amount",
-          "required": true
+          "required": false
         }
       ],
       "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
@@ -3564,7 +3558,6 @@
       ],
       "required_columns": [
         0,
-        1,
         4
       ],
       "identifier_columns": [],
@@ -3896,7 +3889,6 @@
       ],
       "required_columns": [
         0,
-        3,
         4
       ],
       "identifier_columns": [],
@@ -3907,7 +3899,7 @@
         {
           "column": 3,
           "name": "annual_sales_amount",
-          "required": true
+          "required": false
         },
         {
           "column": 4,
@@ -3954,7 +3946,6 @@
       "required_columns": [
         0,
         1,
-        4,
         5
       ],
       "identifier_columns": [],
@@ -3965,7 +3956,7 @@
         {
           "column": 4,
           "name": "annual_sales_amount",
-          "required": true
+          "required": false
         },
         {
           "column": 5,
@@ -5053,13 +5044,6 @@
       "reason": "新系统约定：已有分母／名次／变化表达"
     },
     {
-      "reference": "refs/cube/Q27-1.csv",
-      "old_column": 1,
-      "new_column": 1,
-      "name": "UnitPrice",
-      "reason": "新系统约定：已有分母／名次／变化表达"
-    },
-    {
       "reference": "refs/cube/Q34-1.csv",
       "old_column": 2,
       "new_column": 2,
@@ -5081,11 +5065,25 @@
       "reason": "新系统约定：已有分母／名次／变化表达"
     },
     {
-      "reference": "refs/cube/Q79-1.csv",
+      "reference": "refs/cube/Q50-1.csv",
       "old_column": 2,
       "new_column": 2,
-      "name": "quota",
-      "reason": "新系统约定：已有分母／名次／变化表达"
+      "name": "growth_pct",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
+      "reference": "refs/cube/Q78-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "rnk",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
+      "reference": "refs/cube/Q83-1.csv",
+      "old_column": 0,
+      "new_column": 2,
+      "name": "customers（首年行）",
+      "reason": "已裁决必答，补录原清单遗漏；首年行"
     },
     {
       "reference": "refs/cube/Q85-1.csv",
@@ -5109,13 +5107,6 @@
       "reason": "缺失或占位名称的已有对象键裁决"
     },
     {
-      "reference": "refs/cube/Q92-1.csv",
-      "old_column": 1,
-      "new_column": 1,
-      "name": "revenue",
-      "reason": "新系统约定：已有分母／名次／变化表达"
-    },
-    {
       "reference": "refs/cube/Q96-1.csv",
       "old_column": 1,
       "new_column": 1,
@@ -5123,11 +5114,68 @@
       "reason": "新系统约定：已有分母／名次／变化表达"
     },
     {
+      "reference": "refs/cube/Q99-1.csv",
+      "old_column": 3,
+      "new_column": 3,
+      "name": "weekend_lift_pct",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
       "reference": "refs/new/Q112-1.csv",
       "old_column": 0,
       "new_column": 0,
       "name": "EmployeeKey",
       "reason": "缺失或占位名称的已有对象键裁决"
+    }
+  ],
+  "became_optional": [
+    {
+      "reference": "refs/cube/Q27-1.csv",
+      "column": 1,
+      "name": "UnitPrice",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q79-1.csv",
+      "column": 2,
+      "name": "quota",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q92-1.csv",
+      "column": 1,
+      "name": "revenue",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q98-1.csv",
+      "column": 3,
+      "name": "annual_sales_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q98-2.csv",
+      "column": 4,
+      "name": "annual_sales_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q84-1.csv",
+      "column": 4,
+      "name": "total_revenue_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q84-2.csv",
+      "column": 4,
+      "name": "total_revenue_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q65-2.csv",
+      "column": 1,
+      "name": "StoreName",
+      "reason": "原裁决只要求经理标识，不要求门店"
     }
   ],
   "rewrites": [
@@ -5220,7 +5268,7 @@
     {
       "question_id": "Q97",
       "old_text": "2009 年哪些产品在下半年的销售反弹最大，即下半年销售额大幅超过上半年？",
-      "new_text": "按 2009 年下半年销售相对上半年的反弹幅度从高到低列出产品。",
+      "new_text": "2009 年，按下半年的销售反弹从高到低列出产品，即下半年销售额大幅超过上半年。",
       "profiles": [
         {
           "all_zero_required_numeric": "wrong",
@@ -5303,10 +5351,10 @@
   "rank_style_self_matched_references": 21,
   "self_matched_references": 137,
   "question_sha256": {
-    "questions/cube_100.yaml": "b5160b9a7fbd029a87de669d7d5dbb6735c9fcfe6d4729ac7caae9ac943d616d",
+    "questions/cube_100.yaml": "f4991452518678d2c699507bbf28d45e9d0a3d96c062b4c60a3660782b97b6f8",
     "questions/new.yaml": "029a239958920d990b11572e673fa74eb71723937ad6743ced90f7da252f6835"
   },
-  "manifest_sha256": "a1362a043d78ce26f1c36142e76b581d160640ec771d8e9e322cf7b100f4ba12",
-  "presentation_sha256": "76d9ec318980e2a45776a21ed144b7cb4c7e52c34c971ea96937b148710eebaa",
-  "independent_T05b": "pending; no eval-v1.1 tag created"
+  "manifest_sha256": "ec55e46ef0ad3ab08184ede412e246b68cfc1ca39400c1cbb1e86e7b83b35225",
+  "presentation_sha256": "757eaaff5b48274e89fae3973deb36709f4e690f9235f39dccda65909fb014c3",
+  "independent_T05b": "PR92 reviewed 6234d29; current corrections require follow-up; no eval-v1.1 tag created"
 }

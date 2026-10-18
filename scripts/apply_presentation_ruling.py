@@ -62,6 +62,7 @@ def main():
     add('Q109-1','avgIf(day_sales,y=2009)-avgIf(day_sales,y=2008) AS daily_sales_change_amount')
     replace_sql('Q117-1', 'AS decline_amount\nFROM', "AS decline_amount, sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS category_base_sales\nFROM")
     add('Q117-1','t.sales_2008-t.sales_2009 AS store_decline_amount','c.decline_amount*100.0/nullIf(c.category_base_sales,0) AS category_decline_pct')
+    ref('Q42-1')[0]['sql']=ref('Q42-1')[0]['sql'].replace('lag(sum(s.SalesAmount))','lag(toNullable(sum(s.SalesAmount)))')
     add('Q42-1','yoy_change*100.0/nullIf(lagInFrame(toNullable(sum(s.SalesAmount))) OVER (ORDER BY toYear(s.DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING),0) AS yoy_change_pct')
     add('Q44-1','sales-previous_sales AS sales_change_amount')
     add('Q95-1','incremental_average_sales*100.0/nullIf(full_price_average_sales,0) AS incremental_sales_pct')
@@ -138,7 +139,7 @@ def main():
             if stem=='Q33-1':rule['unordered_pairs']=[{'left':[0,2],'right':[1,3]}]
             if stem=='Q122-1':rule['unordered_pairs']=[{'left':[0,1],'right':[2,3]}]
             r['rules']=rule
-    rewrites={'Q67':'仅考虑销量至少 1000 件的产品颜色，按线上实际成交均价从高到低列出各颜色。','Q92':'按上季度盈利能力从高到低列出各产品品牌。','Q98':'按全年销售对单个季度的依赖程度从高到低列出各产品品类。','Q69':'哪个促销类别带来的线上促销营收最高？其平均折扣比例是多少？','Q45':'按销售坪效从高到低列出各门店。','Q97':'按 2009 年下半年销售相对上半年的反弹幅度从高到低列出产品。'}
+    rewrites={'Q67':'仅考虑销量至少 1000 件的产品颜色，按线上实际成交均价从高到低列出各颜色。','Q92':'按上季度盈利能力从高到低列出各产品品牌。','Q98':'按全年销售对单个季度的依赖程度从高到低列出各产品品类。','Q69':'哪个促销类别带来的线上促销营收最高？其平均折扣比例是多少？','Q45':'按销售坪效从高到低列出各门店。','Q97':'2009 年，按下半年的销售反弹从高到低列出产品，即下半年销售额大幅超过上半年。'}
     for qid,text in rewrites.items():qs[qid]['text_zh']=text
     # Metadata is finalized by the builder using actual post-presentation output.
     # Preserve old explicit kinds for new questions by column name, declare additions.
@@ -150,14 +151,22 @@ def main():
     existing_changes={'Q50-1':[2,3],'Q99-1':[3,4],'Q29-1':[0],'Q77-1':[3],'Q104-1':[1,2],'Q106-1':[0],'Q109-1':[1],'Q117-1':[2,4,5],'Q42-1':[2],'Q44-1':[2],'Q95-1':[3],'Q97-1':[3],'Q97-2':[4]}
     for stem,cols in existing_changes.items():existing_required[stem]=sorted(set(existing_required.get(stem,[])+cols))
     existing_required={ref(stem)[1]:cols for stem,cols in existing_required.items()}
-    identifier_names={path:[c['name'] for c in r['columns'] if c['name'].lower().endswith('key')] for path,r in old_records.items()}
+    identifier_names={path:[c['name'] for c in r['columns'] if c['name'].lower().endswith('key') and 'Date' not in c['type']] for path,r in old_records.items()}
     for stem,name in [('Q65-2','manager_key'),('Q75-1','CustomerKey'),('Q88-1','CustomerKey'),('Q100-1','CustomerKey')]:identifier_names.setdefault(ref(stem)[1],[]).append(name)
     rank_names={path:sorted({r['name'] for r in plan.get('ranks',[])}) for path,plan in cfg.items() if plan.get('ranks')}
     rank_names.update({ref('Q78-1')[1]:['rnk'],ref('Q119-1')[1]:['global_rank']})
+    spec('Q78-1')['existing_ranks']=[{'name':'rnk','group_columns':[],'object_columns':[0]}]
+    spec('Q119-1')['existing_ranks']=[{'name':'global_rank','group_columns':[],'object_columns':[2],'population':True}]
     presentation={'version':1,'identifier_column_names':identifier_names,'rank_column_names':rank_names,'base_required_columns':base_required,'existing_required_columns':existing_required,'baseline':BASE,'references':cfg,'declared_new_value_kinds':declared,'overrides':{'refs/cube/Q31-1.csv':[0,1,2],'refs/cube/Q83-1.csv':[0,1,2],'refs/cube/Q90-1.csv':[0,1,2,3,4],'refs/new/Q110-1.csv':[0,1,2,3]},'new_columns_required':True}
     for path,data in files.items():(ROOT/path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    presentation['not_required_columns']={'refs/cube/Q27-1.csv': [1], 'refs/cube/Q79-1.csv': [2], 'refs/cube/Q92-1.csv': [1], 'refs/cube/Q98-1.csv': [3], 'refs/cube/Q98-2.csv': [4], 'refs/cube/Q84-1.csv': [4], 'refs/cube/Q84-2.csv': [4], 'refs/cube/Q65-2.csv': [1]}
+    presentation['overrides'].update({'refs/cube/Q27-1.csv': [0, 4], 'refs/cube/Q79-1.csv': [0, 4], 'refs/cube/Q92-1.csv': [0, 4], 'refs/cube/Q98-1.csv': [0, 4], 'refs/cube/Q98-2.csv': [0, 1, 5], 'refs/cube/Q84-1.csv': [0, 1], 'refs/cube/Q84-2.csv': [0, 1]})
+    presentation['identifier_column_names'].pop('refs/cube/Q30-1.csv',None)
+    for path,cols in presentation['not_required_columns'].items():
+        if path in presentation['existing_required_columns']:
+            presentation['existing_required_columns'][path]=[i for i in presentation['existing_required_columns'][path] if i not in cols]
     (ROOT/'refs/PRESENTATION.json').write_text(json.dumps(presentation,ensure_ascii=False,indent=2)+'\n')
-    (ROOT/'audit/2026-10-18-presentation-application.json').write_text(json.dumps({'baseline':BASE,'sql_appends':changes,'rewrites':rewrites,'annotation_sources':{'codex_sha256':hashlib.sha256((data_dir/'handoff-codex/required-columns.json').read_bytes()).hexdigest(),'claude_v4_sha256':hashlib.sha256((data_dir/'handoff-claude/T05b-required-columns.v4.json').read_bytes()).hexdigest()},'required_overrides':overrides,'pending':[], 'clarifications':{'zero_groups':'required count zero and other required numeric values zero or NULL','existing_denominators':'all required, including Q85 column 3'}},ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'audit/2026-10-18-presentation-application.json').write_text(json.dumps({'baseline':BASE,'sql_appends':changes,'rewrites':rewrites,'annotation_sources':{'codex_sha256':hashlib.sha256((data_dir/'handoff-codex/required-columns.json').read_bytes()).hexdigest(),'claude_v4_sha256':hashlib.sha256((data_dir/'handoff-claude/T05b-required-columns.v4.json').read_bytes()).hexdigest()},'required_overrides':overrides,'pending':[], 'clarifications':{'zero_groups':'required count zero and other required numeric values zero or NULL','existing_denominators':'required only when the ratio itself is required; Q85 column 3 remains required'}},ensure_ascii=False,indent=2)+'\n')
     print('Applied',len(changes),'SQL append groups,',len(cfg),'presentation transforms; total accuracy reference added')
 
 

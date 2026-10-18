@@ -1,0 +1,366 @@
+{
+  "baseline": "6234d29",
+  "source": "main PR92 reports/eval-v1.1-review.md + user adjudication",
+  "references": 137,
+  "changed_records": [
+    {
+      "question_id": "Q27",
+      "reference": "refs/cube/Q27-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        1,
+        4
+      ],
+      "required_columns": [
+        0,
+        4
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "33adbcf5193d1cc2b8a1ba314f58057e6db25d279531da36c3321a57b732fa1e",
+      "sql_sha256": "412ea5733b01c1c9d94101a6a3a03f33b98277c842b2a0b13ec39830cb0b3467"
+    },
+    {
+      "question_id": "Q30",
+      "reference": "refs/cube/Q30-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        2
+      ],
+      "required_columns": [
+        0,
+        2
+      ],
+      "old_identifier_columns": [
+        0
+      ],
+      "identifier_columns": [],
+      "sha256": "51d30a3d622eee68a7d9bae9e2a7abc70834d23da3095521610f47ae8369682c",
+      "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c"
+    },
+    {
+      "question_id": "Q42",
+      "reference": "refs/cube/Q42-1.csv",
+      "csv_changed": true,
+      "sql_changed": true,
+      "old_required_columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "required_columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "ff13a2b2eed8c65d34d42f27a6e07a3ff880e3a114cae605673b04837e245b76",
+      "sql_sha256": "ae4e1c079d4129081e05852602e065fb4306610357eab525908dcd432a4abb19"
+    },
+    {
+      "question_id": "Q79",
+      "reference": "refs/cube/Q79-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        2,
+        4
+      ],
+      "required_columns": [
+        0,
+        4
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "746d17cdae7593535e196d1f0cfeadecb982ee9497fed390edd1e77123dbecc2",
+      "sql_sha256": "22c600048b08bf1561ef48d0e9bc71e237ff5ee3cd8eaa81cd2ee86b6c028ed0"
+    },
+    {
+      "question_id": "Q84",
+      "reference": "refs/cube/Q84-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        1,
+        4
+      ],
+      "required_columns": [
+        0,
+        1
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "0b9d9a13c6a8604b1433df4edfb30bacd506f1a78e88129de26269081665c831",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97"
+    },
+    {
+      "question_id": "Q84",
+      "reference": "refs/cube/Q84-2.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        1,
+        4
+      ],
+      "required_columns": [
+        0,
+        1
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "65caf4a001a2c3c7a939927b17756c43a000147b955da6b90dd9300ac11408eb",
+      "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97"
+    },
+    {
+      "question_id": "Q92",
+      "reference": "refs/cube/Q92-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        1,
+        4
+      ],
+      "required_columns": [
+        0,
+        4
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "0e78a409d49b4f56f58dc908c9488bcf89055025af849ded1a246faba109ac71",
+      "sql_sha256": "44e259fbb0f35e336bf18e178541b0ab62539af79fd162d3c86a5f0937f8046c"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-1.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        3,
+        4
+      ],
+      "required_columns": [
+        0,
+        4
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "250ca82501ce61ca936c6a2c04ca6beae9ae8677b5ccf6e9b2170db00174e2f6",
+      "sql_sha256": "906e1cc34753728dd2ac9941eea97ab0f9c1b9fe7073e541eebcbfbd8364f37f"
+    },
+    {
+      "question_id": "Q98",
+      "reference": "refs/cube/Q98-2.csv",
+      "csv_changed": false,
+      "sql_changed": false,
+      "old_required_columns": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "required_columns": [
+        0,
+        1,
+        5
+      ],
+      "old_identifier_columns": [],
+      "identifier_columns": [],
+      "sha256": "d5c09195ce2e959d98a42e254e5dcd0849cb7dd9363a79879884650e6dcf6c2f",
+      "sql_sha256": "7ce09467661a4e03feb0c2e8957d5dc9f871fff3222f07fcad59e23cce864d47"
+    }
+  ],
+  "Q42_changed_cells": [
+    {
+      "data_row": 0,
+      "column": 2,
+      "new": "NULL"
+    }
+  ],
+  "question_changes": {
+    "Q97": "restored original rebound explanation; only ordered-list wording changed"
+  },
+  "checks": {
+    "strict_recompute": 137,
+    "self_matches": 137,
+    "rank_style_references": 21,
+    "Q30_date_equivalent_forms": 3
+  },
+  "became_required_list": [
+    {
+      "reference": "refs/cube/Q20-2.csv",
+      "old_column": 0,
+      "new_column": 0,
+      "name": "ProductKey",
+      "reason": "缺失或占位名称的已有对象键裁决"
+    },
+    {
+      "reference": "refs/cube/Q22-1.csv",
+      "old_column": 0,
+      "new_column": 0,
+      "name": "c.CustomerKey",
+      "reason": "缺失或占位名称的已有对象键裁决"
+    },
+    {
+      "reference": "refs/cube/Q22-1.csv",
+      "old_column": 5,
+      "new_column": 5,
+      "name": "rn",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q24-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "total_sales",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q34-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "avg_inventory",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q34-1.csv",
+      "old_column": 4,
+      "new_column": 4,
+      "name": "ProductKey",
+      "reason": "缺失或占位名称的已有对象键裁决"
+    },
+    {
+      "reference": "refs/cube/Q38-2.csv",
+      "old_column": 1,
+      "new_column": 1,
+      "name": "actual",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q50-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "growth_pct",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
+      "reference": "refs/cube/Q78-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "rnk",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
+      "reference": "refs/cube/Q83-1.csv",
+      "old_column": 0,
+      "new_column": 2,
+      "name": "customers（首年行）",
+      "reason": "已裁决必答，补录原清单遗漏；首年行"
+    },
+    {
+      "reference": "refs/cube/Q85-1.csv",
+      "old_column": 3,
+      "new_column": 3,
+      "name": "quota_amt",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q87-1.csv",
+      "old_column": 2,
+      "new_column": 2,
+      "name": "avg_daily_qty",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q87-1.csv",
+      "old_column": 4,
+      "new_column": 4,
+      "name": "ProductKey",
+      "reason": "缺失或占位名称的已有对象键裁决"
+    },
+    {
+      "reference": "refs/cube/Q96-1.csv",
+      "old_column": 1,
+      "new_column": 1,
+      "name": "cohort_size",
+      "reason": "新系统约定：已有分母／名次／变化表达"
+    },
+    {
+      "reference": "refs/cube/Q99-1.csv",
+      "old_column": 3,
+      "new_column": 3,
+      "name": "weekend_lift_pct",
+      "reason": "已裁决必答，补录原清单遗漏"
+    },
+    {
+      "reference": "refs/new/Q112-1.csv",
+      "old_column": 0,
+      "new_column": 0,
+      "name": "EmployeeKey",
+      "reason": "缺失或占位名称的已有对象键裁决"
+    }
+  ],
+  "became_optional_list": [
+    {
+      "reference": "refs/cube/Q27-1.csv",
+      "column": 1,
+      "name": "UnitPrice",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q79-1.csv",
+      "column": 2,
+      "name": "quota",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q92-1.csv",
+      "column": 1,
+      "name": "revenue",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q98-1.csv",
+      "column": 3,
+      "name": "annual_sales_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q98-2.csv",
+      "column": 4,
+      "name": "annual_sales_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q84-1.csv",
+      "column": 4,
+      "name": "total_revenue_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q84-2.csv",
+      "column": 4,
+      "name": "total_revenue_amount",
+      "reason": "比率本身不必答；第15条只在输出比率时要求分母"
+    },
+    {
+      "reference": "refs/cube/Q65-2.csv",
+      "column": 1,
+      "name": "StoreName",
+      "reason": "原裁决只要求经理标识，不要求门店"
+    }
+  ],
+  "candidate_600": "reuse first immutable execution cache after commit; no candidate SQL reexecution",
+  "T05b_followup": "pending"
+}

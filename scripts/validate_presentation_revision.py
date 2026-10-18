@@ -109,7 +109,7 @@ def main():
                             transitions.append({'reference':path,'old_column':old_i,'new_column':i,'name':column['name'],'reason':reason})
                     else:
                         added.append({'column':i,'name':column['name'],'required':i in required})
-                assert all(a['required'] for a in added),path
+                assert all(a['required'] or a['column'] in cfg.get('not_required_columns',{}).get(path,[]) for a in added),path
             witness=rows[:rule['top_n']] if rule['top_n'] is not None else sample_selection(rows,rule) if rule.get('selection') else rows
             candidate=[[row[i] for i in required] for row in witness]
             assert score(candidate,[rows],rule)=='correct', (path,'projected self-match')
@@ -145,6 +145,30 @@ def main():
                 for row in rows:
                     if period['kind']=='quarter_label':assert row[period['column']] in {'Q1','Q2','Q3','Q4'}
                     else:assert 1<=row[period['column']]<=12
+    # Include explicit adjudications even when one annotator already agreed.
+    for stem,old_i,new_i,scope in [('Q50-1',2,2,''),('Q99-1',3,3,''),('Q78-1',2,2,''),('Q83-1',0,2,'首年行')]:
+        path='refs/cube/'+stem+'.csv'
+        if not any(r['reference']==path and r['old_column']==old_i for r in transitions):
+            transitions.append({'reference':path,'old_column':old_i,'new_column':new_i,
+                                'name':records[path]['columns'][new_i]['name']+('（'+scope+'）' if scope else ''),
+                                'reason':'已裁决必答，补录原清单遗漏'+('；'+scope if scope else '')})
+    transitions.sort(key=lambda r:(r['reference'],r['new_column']))
+    became_optional=[]
+    for path,indexes in cfg.get('not_required_columns',{}).items():
+        for i in indexes:
+            assert i not in records[path]['rules']['required_columns']
+            became_optional.append({'reference':path,'column':i,'name':records[path]['columns'][i]['name'],
+                                    'reason':'原裁决只要求经理标识，不要求门店' if path.endswith('Q65-2.csv') else '比率本身不必答；第15条只在输出比率时要求分母'})
+    # Q30 is a Date, not an identifier. All three equivalent date forms work.
+    from datetime import date,datetime
+    r30=records['refs/cube/Q30-1.csv'];assert 0 not in r30['rules'].get('identifier_columns',[])
+    rows30=csv_rows(r30);required30=r30['rules']['required_columns']
+    for convert in (date.fromisoformat,datetime.fromisoformat,lambda value:value+' 00:00:00'):
+        candidate=[[convert(row[i]) if i==0 else row[i] for i in required30] for row in rows30]
+        assert score(candidate,[rows30],r30['rules'])=='correct','Q30 date equivalence'
+    first42=min(csv_rows(records['refs/cube/Q42-1.csv']),key=lambda r:r[0])
+    assert first42[2] is None and first42[3] is None,'Q42 unavailable base'
+    assert before['Q97']['text_zh'].split('即',1)[1].rstrip('？?。') in qs['Q97']['text_zh'],'Q97 rebound explanation'
     key_columns={'Q20-2':0,'Q22-1':0,'Q34-1':4,'Q87-1':4,'Q112-1':0,'Q100-1':4,'Q75-1':5,'Q88-1':2,'Q65-2':3}
     for stem,column in key_columns.items():
         record=next(r for path,r in records.items() if Path(path).stem==stem)
@@ -182,12 +206,14 @@ def main():
             profiles.append({'all_zero_required_numeric':score(zero_candidate,[rows],rule),'reference':ref['result_path'],'rows':len(rows),'order_key_distinct':{str(i):len({str(policy.quantize_tie(row[i],rule['value_kinds'][i])) for row in rows}) for i in sort_columns},'empty_candidate':score([],[rows],rule),'declared_low_discrimination':q['labels']['low_discrimination']['criteria'],'C_scope':'full ordered list, no new Top-N cutoff; existing internal selection constraints retained'})
         rewritten.append({'question_id':qid,'old_text':before[qid]['text_zh'],'new_text':q['text_zh'],'profiles':profiles,'A':'Q69保留单类别退化A；其他题非零/非空，不以单行计算结果本身当常数','B':'六题均不涉及首购/复购或节假日与周末互换，B条两组必测口径不适用','C':'排序键按冻结量化逐份统计；不更改既有边界或把全排序误作Top-1'})
     remaining=[{'question_id':qid,'text':q['text_zh'],'explicit_top_n':bool(re.search(r'(?:前|最大的|最高的|最少的)\s*\d+',q['text_zh']))} for qid,q in qs.items() if qid not in REWRITES and re.search(r'哪些|哪几',q['text_zh']) and re.search(r'最高|最强|最大|最依赖|最贵',q['text_zh'])]
-    report={'baseline':BASE,'questions':122,'references':137,'annotation_agreement':109,'annotation_disputes_resolved':5,'new_total_accuracy_reference':'refs/cube/Q38-3.csv','details':details,'became_required':transitions,'rewrites':rewritten,'other_similar_phrasing':remaining,'rank_style_self_matched_references':sum(bool(r['rules'].get('rankings')) for r in records.values()),'self_matched_references':len(self_matches),'question_sha256':{p:digest(p) for p in qfiles},'manifest_sha256':digest('refs/MANIFEST.json'),'presentation_sha256':digest('refs/PRESENTATION.json'),'independent_T05b':'pending; no eval-v1.1 tag created'}
+    report={'baseline':BASE,'questions':122,'references':137,'annotation_agreement':109,'annotation_disputes_resolved':5,'new_total_accuracy_reference':'refs/cube/Q38-3.csv','details':details,'became_required':transitions,'became_optional':became_optional,'rewrites':rewritten,'other_similar_phrasing':remaining,'rank_style_self_matched_references':sum(bool(r['rules'].get('rankings')) for r in records.values()),'self_matched_references':len(self_matches),'question_sha256':{p:digest(p) for p in qfiles},'manifest_sha256':digest('refs/MANIFEST.json'),'presentation_sha256':digest('refs/PRESENTATION.json'),'independent_T05b':'PR92 reviewed 6234d29; current corrections require follow-up; no eval-v1.1 tag created'}
     if args.write:
         REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
         lines=['# eval-v1.1 展示约定与逐参考变更审计','','基线455e96f；122题、137份参考。137份必答列投影后的自匹配通过。新增Q38总准确率，不删除原品类参考；不打冻结tag。','','## 原来不必答、现在必答（逐列）','','| 参考 | 原列号 | 新列号 | 列名 | 原因 |','|---|---:|---:|---|---|']
         for r in transitions:lines.append(f"| {r['reference']} | {r['old_column']} | {r['new_column']} | {r['name']} | {r['reason']} |")
-        lines+=['','## 逐参考改动','','| 参考 | SQL变化 | CSV变化 | 行数（旧→新） | 必答列 |','|---|---|---|---|---|']
+        lines+=['','## 由必答改为不必答（逐列）','','| 参考 | 列号 | 列名 | 原因 |','|---|---:|---|---|']
+        for r in became_optional:lines.append(f"| {r['reference']} | {r['column']} | {r['name']} | {r['reason']} |")
+        lines+=['','## 逐参考改动' ,'','| 参考 | SQL变化 | CSV变化 | 行数（旧→新） | 必答列 |','|---|---|---|---|---|']
         for r in details:lines.append(f"| {r['reference']} | {r['sql_changed']} | {r['csv_changed']} | {r['old_rows']}→{r['new_rows']} | {r['required_columns']} |")
         lines+=['','## 标识列与名次列（0起）','','| 参考 | identifier_columns | rank_columns |','|---|---|---|']
         for r in details:
@@ -198,7 +224,7 @@ def main():
             lines += ['- '+item['question_id']+'：'+item['new_text'], '  - '+item['A']+'；'+item['B']+'。', '  - 排序取值及逐参考记录：'+json.dumps(item['profiles'],ensure_ascii=False)]
         lines+=['','## 其余同类句式（只列不改）','']
         for r in remaining:lines.append('- '+r['question_id']+'：'+r['text']+'；已明示前N：'+str(r['explicit_top_n']))
-        lines+=['','21份含名次的参考分别构造竞赛、稠密、位置编号三种完整答案并全部自匹配通过；分组及筛选总体保持原排名域。排名按全局固定量化计算竞赛排名1、1、3；名次不参与原有选择边界。月分群显示年和月份数字，季度用语义上下文Q1–Q4，不合并跨年组。Q112空集合缺口为0，无分母的比例、无基期变化保留NULL。第八节边界不补相应列。','','独立pandas复核待T05b；旧T06覆盖/低区分度报告保留为eval-v1历史。本报告是新参考与改写的变更证据，不宣称已重新冻结或完成600条/T12重评。']
+        lines+=['','21份含名次的参考分别构造竞赛、稠密、位置编号三种完整答案并全部自匹配通过；分组及筛选总体保持原排名域。排名按全局固定量化计算竞赛排名1、1、3；名次不参与原有选择边界。月分群显示年和月份数字，季度用语义上下文Q1–Q4，不合并跨年组。Q112空集合缺口为0，无分母的比例、无基期变化保留NULL。第八节边界不补相应列。','','T05b的PR92已复核6234d29，本轮落实其9份问题及用户裁决，修正后待T05b跟进；旧T06覆盖/低区分度报告保留为eval-v1历史。本报告是新参考与改写的变更证据，不宣称已重新冻结或完成600条/T12重评。']
         (ROOT/'audit/2026-10-18-presentation-review.md').write_text('\n'.join(lines)+'\n')
     else:
         assert json.loads(REPORT.read_text())==report,'review stale'

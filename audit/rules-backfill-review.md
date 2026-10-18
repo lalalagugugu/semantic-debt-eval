@@ -53,7 +53,7 @@ Q101–Q122已按批准稿落实第二轮正式SQL，显式声明量纲并重新
 | Q39/2 | false | 参考行集 | `subcategory_key` / `Nullable(Int32)` / **other**<br>`ProductSubcategoryName` / `String` / **other**<br>`introduction_date` / `Nullable(Date)` / **other**<br>`window_days` / `Int64` / **other**<br>`before_daily_sales` / `Float64` / **amount**<br>`after_daily_sales` / `Float64` / **amount** |
 | Q40/1 | false | 参考行集 | `sales_eur` / `Float64` / **amount** |
 | Q41/1 | false | 参考行集 | `sum(SalesAmount)` / `Float64` / **amount** |
-| Q42/1 | false | 参考行集 | `year` / `UInt16` / **other**<br>`sales` / `Float64` / **amount**<br>`yoy_change` / `Float64` / **other**<br>`yoy_change_pct` / `Nullable(Float64)` / **percentage** |
+| Q42/1 | false | 参考行集 | `year` / `UInt16` / **other**<br>`sales` / `Float64` / **amount**<br>`yoy_change` / `Nullable(Float64)` / **other**<br>`yoy_change_pct` / `Nullable(Float64)` / **percentage** |
 | Q42/2 | false | 参考行集 | `year` / `UInt16` / **other**<br>`gross_margin` / `Float64` / **amount** |
 | Q43/1 | false | 参考行集 | `region` / `String` / **other**<br>`gross_margin` / `Float64` / **amount** |
 | Q43/2 | false | 参考行集 | `region` / `String` / **other**<br>`gross_margin` / `Float64` / **amount** |

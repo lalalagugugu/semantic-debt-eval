@@ -2323,7 +2323,6 @@
         ],
         "required_columns": [
           0,
-          1,
           4
         ],
         "rank_columns": [
@@ -2517,9 +2516,6 @@
         "required_columns": [
           0,
           2
-        ],
-        "identifier_columns": [
-          0
         ]
       },
       "selection_checks": null
@@ -3537,7 +3533,7 @@
     {
       "question_id": "Q42",
       "result_path": "refs/cube/Q42-1.csv",
-      "sql_sha256": "10509c6f5493c7cfe96b56ff9377afca352cdeedb19241cf890542c93687ae9e",
+      "sql_sha256": "ae4e1c079d4129081e05852602e065fb4306610357eab525908dcd432a4abb19",
       "row_count": 3,
       "columns": [
         {
@@ -3550,7 +3546,7 @@
         },
         {
           "name": "yoy_change",
-          "type": "Float64"
+          "type": "Nullable(Float64)"
         },
         {
           "name": "yoy_change_pct",
@@ -3568,11 +3564,11 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "fddca9dab7db0657cc17a8493e5ccfff233c1cfd760e3b28d5e8b3e2e58b1d7f",
+      "sha256": "ff13a2b2eed8c65d34d42f27a6e07a3ff880e3a114cae605673b04837e245b76",
       "value_types": [
         "UInt16",
         "Float64",
-        "Float64",
+        "Nullable(Float64)",
         "Nullable(Float64)"
       ],
       "value_kind_source": "inferred",
@@ -3590,7 +3586,7 @@
         "value_types": [
           "UInt16",
           "Float64",
-          "Float64",
+          "Nullable(Float64)",
           "Nullable(Float64)"
         ],
         "required_columns": [
@@ -18461,7 +18457,6 @@
         ],
         "required_columns": [
           0,
-          2,
           4
         ],
         "rank_columns": [
@@ -18813,8 +18808,7 @@
         ],
         "required_columns": [
           0,
-          1,
-          4
+          1
         ]
       },
       "selection_checks": null,
@@ -18893,8 +18887,7 @@
         ],
         "required_columns": [
           0,
-          1,
-          4
+          1
         ]
       },
       "selection_checks": null,
@@ -19922,7 +19915,6 @@
         ],
         "required_columns": [
           0,
-          1,
           4
         ],
         "rank_columns": [
@@ -20813,7 +20805,6 @@
         ],
         "required_columns": [
           0,
-          3,
           4
         ],
         "rank_columns": [
@@ -21094,7 +21085,6 @@
         "required_columns": [
           0,
           1,
-          4,
           5
         ],
         "rank_columns": [
@@ -56621,5 +56611,5 @@
       "presentation_sha256": "e2aa21d868695255c65f6be5c697520fccd8f1e29f1004c4a1c1a8d8c0d99174"
     }
   ],
-  "presentation_sha256": "76d9ec318980e2a45776a21ed144b7cb4c7e52c34c971ea96937b148710eebaa"
+  "presentation_sha256": "757eaaff5b48274e89fae3973deb36709f4e690f9235f39dccda65909fb014c3"
 }
