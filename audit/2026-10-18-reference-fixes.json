@@ -1,0 +1,132 @@
+{
+  "baseline_commit": "07dca9af414295205b0ae5f4a220bda44682af71",
+  "references": 136,
+  "details": {
+    "Q34": {
+      "before_rows": 2504,
+      "after_rows": 2508,
+      "added_rows": [
+        {
+          "ProductName": "Adventure Works Laptop16 M1600 Black",
+          "total_cogs": "0",
+          "avg_inventory": "48136.634999999995",
+          "turnover_ratio": "0",
+          "ProductKey": "365"
+        },
+        {
+          "ProductName": "Fabrikam Laptop10.1 M0101 Silver",
+          "total_cogs": "0",
+          "avg_inventory": "34462.89375",
+          "turnover_ratio": "0",
+          "ProductKey": "353"
+        },
+        {
+          "ProductName": "Fabrikam Laptop8.9W E0880 Silver",
+          "total_cogs": "0",
+          "avg_inventory": "25309.575",
+          "turnover_ratio": "0",
+          "ProductKey": "351"
+        },
+        {
+          "ProductName": "Proseware Laptop15.4W M518 Black",
+          "total_cogs": "0",
+          "avg_inventory": "49019.0625",
+          "turnover_ratio": "0",
+          "ProductKey": "408"
+        }
+      ],
+      "reference": "refs/cube/Q34-1.csv",
+      "sql_sha256": "63b923d3c8dfbf801423d689cb0dce7ea9a04a093a8337803c3d8355e7c3b93f",
+      "reference_sha256": "8822155f68548632f989dd86ca6a1a37e7c577adccb05fe223a9258d11ed5427"
+    },
+    "Q50": {
+      "rows": 1,
+      "new_column": "growth_amount",
+      "values": [
+        "-392072435.4483013"
+      ],
+      "reference": "refs/cube/Q50-1.csv",
+      "sql_sha256": "b91b32a60d09ca96fe470eed3692e45ad89e0dc170381f8662eb52974f4d2e32",
+      "reference_sha256": "4604ed27726c598134353a7fa907b4517b3778504f8c0e80b00a0a0945b0c7da"
+    },
+    "Q71": {
+      "before_rows": 9,
+      "after_rows": 8,
+      "removed_rows": [
+        {
+          "category": "\\N",
+          "subcategory": "\\N",
+          "sales_amount": "49265904.89900433"
+        }
+      ],
+      "reference": "refs/cube/Q71-1.csv",
+      "sql_sha256": "94d56e4d5693b000ca6b099a30dce166f56853d61c1cab6af5b2531bb5dc3fd0",
+      "reference_sha256": "e403b18c8094873229c67512e33964145f3809943fedcebe11e7792904264ba3"
+    },
+    "Q99": {
+      "rows": 9,
+      "new_column": "weekend_difference_amount",
+      "values": [
+        "562.4217180992055",
+        "4171.144366111024",
+        "-1486.6726879081689",
+        "-1317.3483884906746",
+        "-24.00740886874246",
+        "-1843.2152578588575",
+        "-1160.203384085551",
+        "-90.79801558016334",
+        "1833.3295225108159"
+      ],
+      "reference": "refs/cube/Q99-1.csv",
+      "sql_sha256": "c040864a94499c11fe05e057ec106b4a25e07bcfdbc38dfb66a36e4d0cb472ae",
+      "reference_sha256": "7ee9c589d2127cdefda060892a490a799ee14cdb4ec93bdc09fc0748f955286d"
+    }
+  },
+  "Q69": {
+    "conclusion": "中英文均明确促销类别，不含促销名解读；保留原参考，按最新裁决标A",
+    "criterion": "A：类别维度只有一个有效值，类别间营收排名退化；不将单行计算指标本身视为常数",
+    "category_count": 1,
+    "promotion_name_count": 9,
+    "ungrouped_sql": "SELECT any(pr.PromotionCategory) AS PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 ORDER BY revenue DESC",
+    "ungrouped_rows": [
+      [
+        "Store",
+        1782429980.538207,
+        268904117.39100343,
+        13.108743118074312
+      ]
+    ],
+    "reference_rows": [
+      {
+        "PromotionCategory": "Store",
+        "revenue": "1782429980.5777142",
+        "total_discount": "268904117.39643854",
+        "avg_discount_pct": "13.108743117946862"
+      }
+    ],
+    "comparison": "correct under frozen scorer tolerance; raw floating sums differ by aggregation order",
+    "cardinality_sql": "SELECT uniqExact(pr.PromotionCategory), uniqExact(pr.PromotionName) FROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey=pr.PromotionKey WHERE f.PromotionKey<>1",
+    "reference_unchanged": true,
+    "evidence_scope": "data and reference only; no candidate/model outputs"
+  },
+  "question_sha256": {
+    "questions/cube_100.yaml": "580231d3182e6feb0cfba103e04deba8d224745ae8b1fa702f7ef218e1348e12",
+    "questions/new.yaml": "9b22dc994be2d7ce2cdb2a98cc14ff98005ccf2c755b21f26d9e94d82fe3f783"
+  },
+  "manifest_sha256": "0dab2ca1a2994ee0a64c8dbdbc2279cabeebcbf091635dde92dbe13a9f421e4b",
+  "validation": {
+    "strict_recomputation": "build_refs.py --check: Verified 136 references for 122 questions",
+    "rules": "validate_rules.py: 122 questions, 136 rules/types/hashes PASS",
+    "patch_scope": "validate_t12_reference_fixes.py PASS",
+    "fixtures": "validate_t04.py --fixtures-only PASS",
+    "reference_self_match": [
+      "Q34",
+      "Q50",
+      "Q69",
+      "Q71",
+      "Q99"
+    ],
+    "independent_pandas": "pending T05b",
+    "candidate_reevaluation": "not run"
+  }
+}

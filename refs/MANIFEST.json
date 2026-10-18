@@ -1950,8 +1950,8 @@
     {
       "question_id": "Q34",
       "result_path": "refs/cube/Q34-1.csv",
-      "sql_sha256": "bde169e0a897407653df5eb7d3f1720d5bd6c81d90f84e868b69b25550eb959d",
-      "row_count": 2504,
+      "sql_sha256": "63b923d3c8dfbf801423d689cb0dce7ea9a04a093a8337803c3d8355e7c3b93f",
+      "row_count": 2508,
       "columns": [
         {
           "name": "ProductName",
@@ -1986,7 +1986,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "dc3206b3437e8ee3bb6c21fa6a768e31baa9f9c35149e348d16b17cf4d592b31",
+      "sha256": "8822155f68548632f989dd86ca6a1a37e7c577adccb05fe223a9258d11ed5427",
       "value_types": [
         "Nullable(String)",
         "Float64",
@@ -3182,7 +3182,7 @@
     {
       "question_id": "Q50",
       "result_path": "refs/cube/Q50-1.csv",
-      "sql_sha256": "838f103d7cf62de9d42f268670b918467745fcac86f3df300e73875df93f40f7",
+      "sql_sha256": "b91b32a60d09ca96fe470eed3692e45ad89e0dc170381f8662eb52974f4d2e32",
       "row_count": 1,
       "columns": [
         {
@@ -3196,20 +3196,26 @@
         {
           "name": "growth_pct",
           "type": "Float64"
+        },
+        {
+          "name": "growth_amount",
+          "type": "Float64"
         }
       ],
       "value_kinds": [
         "amount",
         "amount",
-        "percentage"
+        "percentage",
+        "amount"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "567dafbf5bfdd08eaf386411acfcc4d90c01d5e57720cdb183a3d4105475bf4a",
+      "sha256": "4604ed27726c598134353a7fa907b4517b3778504f8c0e80b00a0a0945b0c7da",
       "value_types": [
+        "Float64",
         "Float64",
         "Float64",
         "Float64"
@@ -3223,9 +3229,11 @@
         "value_kinds": [
           "amount",
           "amount",
-          "percentage"
+          "percentage",
+          "amount"
         ],
         "value_types": [
+          "Float64",
           "Float64",
           "Float64",
           "Float64"
@@ -4168,8 +4176,8 @@
     {
       "question_id": "Q71",
       "result_path": "refs/cube/Q71-1.csv",
-      "sql_sha256": "2a0e18f62b3e1305234f11585e13137d0915ddb5b64eb224f5af47469b638f65",
-      "row_count": 9,
+      "sql_sha256": "94d56e4d5693b000ca6b099a30dce166f56853d61c1cab6af5b2531bb5dc3fd0",
+      "row_count": 8,
       "columns": [
         {
           "name": "category",
@@ -4194,7 +4202,7 @@
       "tie_column": null,
       "postprocess": "selection",
       "postprocess_details": null,
-      "sha256": "6d70d67eef83dafe9199698be66a2e15db926fa40c5272a7e3dfb677fa319761",
+      "sha256": "e403b18c8094873229c67512e33964145f3809943fedcebe11e7792904264ba3",
       "value_types": [
         "Nullable(String)",
         "Nullable(String)",
@@ -4310,15 +4318,6 @@
               "TV and Video"
             ],
             "objects": 4,
-            "required": 1,
-            "strict": 0,
-            "boundary": 1
-          },
-          {
-            "group": [
-              null
-            ],
-            "objects": 1,
             "required": 1,
             "strict": 0,
             "boundary": 1
@@ -9697,7 +9696,7 @@
     {
       "question_id": "Q99",
       "result_path": "refs/cube/Q99-1.csv",
-      "sql_sha256": "499658a653340d8ed44547a8b26bc318d079238e8fa160d251265b9524d44c1f",
+      "sql_sha256": "c040864a94499c11fe05e057ec106b4a25e07bcfdbc38dfb66a36e4d0cb472ae",
       "row_count": 9,
       "columns": [
         {
@@ -9715,25 +9714,31 @@
         {
           "name": "weekend_lift_pct",
           "type": "Nullable(Float64)"
+        },
+        {
+          "name": "weekend_difference_amount",
+          "type": "Float64"
         }
       ],
       "value_kinds": [
         "other",
         "amount",
         "amount",
-        "percentage"
+        "percentage",
+        "amount"
       ],
       "ordered": false,
       "top_n": null,
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "028f03d705ac9fe829a0932a8ec72ba3c0525d427e70319328fe88b0b827fbc7",
+      "sha256": "7ee9c589d2127cdefda060892a490a799ee14cdb4ec93bdc09fc0748f955286d",
       "value_types": [
         "Nullable(String)",
         "Float64",
         "Float64",
-        "Nullable(Float64)"
+        "Nullable(Float64)",
+        "Float64"
       ],
       "value_kind_source": "inferred",
       "value_kind_warnings": [],
@@ -9745,13 +9750,15 @@
           "other",
           "amount",
           "amount",
-          "percentage"
+          "percentage",
+          "amount"
         ],
         "value_types": [
           "Nullable(String)",
           "Float64",
           "Float64",
-          "Nullable(Float64)"
+          "Nullable(Float64)",
+          "Float64"
         ]
       },
       "selection_checks": null
