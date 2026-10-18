@@ -14,6 +14,8 @@ Writes audit/T05b-required-columns.json (version 1), or audit/T05b-required-colu
 - v2: revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md section 5
   (identifiers always by name) and section 3 (a placeholder-only name is no identifier);
 - v3: v2 plus Q75 off the missing-column list (shared names are the section 5 case; user, 2026-10-18).
+- v4: v3 on the bank after PR #18 (run with --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-56ade6c"; same tree
+  as merge 455e96f), where Q50 and Q99 gained their difference columns. Missing-column list empty.
 """
 
 from __future__ import annotations
@@ -187,14 +189,25 @@ V3 = {
 }
 MISSING_V3 = {k: v for k, v in MISSING_V2.items() if k != "Q75"}
 
+# v4: bank after PR #18; Q50 and Q99 carry the asked difference column (user, 2026-10-18).
+V4 = {
+    "Q50-1": ([3], {0: "not_asked", 1: "not_asked", 2: "alt_measure"},
+              "v4：题目问增长了多少（金额），增长额（第 3 列）必答。增长率是同一所问量的另一种表达，"
+              "不要求同时给出，非必答；两年金额是计算过程，题目没问，非必答"),
+    "Q99-1": ([0, 4], {1: "not_asked", 2: "not_asked", 3: "alt_measure"},
+              "v4：题目按品类问周末日比工作日高多少（金额），品类与差值（第 4 列）必答。百分比是同一所问量的"
+              "另一种表达，不要求同时给出，非必答；两项日均是计算过程，题目没问，非必答"),
+}
+MISSING_V4 = {}
+
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--eval-dir", required=True)
-    ap.add_argument("--version", type=int, choices=[1, 2, 3], default=1)
+    ap.add_argument("--version", type=int, choices=[1, 2, 3, 4], default=1)
     args = ap.parse_args(argv)
     v = args.version
-    ann = {**A, **(V2 if v >= 2 else {}), **(V3 if v >= 3 else {})}
+    ann = {**A, **(V2 if v >= 2 else {}), **(V3 if v >= 3 else {}), **(V4 if v >= 4 else {})}
     E = Path(args.eval_dir)
     sha = subprocess.run(["git", "-C", str(E), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
     refs, seen = [], set()
@@ -224,12 +237,16 @@ def main(argv=None):
     if v >= 2:
         roles["placeholder_name"] = "名称列全为占位值，不是标识"
         basis += "; revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md sections 3 and 5"
+    if v >= 4:
+        roles["alt_measure"] = "同一所问量的另一种表达（如差额对应的百分比），不要求同时给出"
     if v >= 3:
         basis += "; Q75 off the missing-column list (user ruling 2026-10-18, section 5 shared-name case)"
-    out = {"eval_tag": "eval-v1", "eval_commit": sha, "basis": basis, "roles": roles,
+    if v >= 4:
+        basis += "; bank after PR #18 (Q50, Q99 difference columns), user instruction 2026-10-18"
+    out = {"eval_tag": "eval-v1 + PR #18" if v >= 4 else "eval-v1", "eval_commit": sha, "basis": basis, "roles": roles,
            "counts": {"references": len(refs), "annotated": sum("required_columns" in r for r in refs),
                       "judge_skipped": sum("skipped" in r for r in refs)},
-           "missing_asked_columns": {1: MISSING, 2: MISSING_V2, 3: MISSING_V3}[v], "references": refs}
+           "missing_asked_columns": {1: MISSING, 2: MISSING_V2, 3: MISSING_V3, 4: MISSING_V4}[v], "references": refs}
     if v >= 2:
         out = {"version": v, **out}
     name = f"T05b-required-columns.v{v}.json" if v >= 2 else "T05b-required-columns.json"
