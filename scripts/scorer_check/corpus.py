@@ -24,7 +24,8 @@ from .checker import CANNOT_ANSWER, ExecError, RulesError, score
 
 _FLOATS = {"nan": math.nan, "inf": math.inf, "-inf": -math.inf}
 _TAGS = {"$date": dt.date.fromisoformat, "$datetime": dt.datetime.fromisoformat,
-         "$decimal": Decimal, "$float": _FLOATS.__getitem__}
+         "$decimal": Decimal, "$float": _FLOATS.__getitem__,
+         "$array": lambda xs: tuple(decode_value(x) for x in xs)}  # Array / Tuple cell (spec 12)
 
 
 def decode_value(v):

@@ -94,6 +94,19 @@ case("num/pct-zero-ref-atol", "3.3", [[0.009]], [[[0.0]]], Rpct, "correct", note
 case("num/pct-zero-ref-no-x100", "3.3", [[0.5]], [[[0.0]]], Rpct, "wrong", "values", note="zero reference: no 100x guess")
 Rcnt = rules(["count"], ["UInt64"], [0])
 case("num/count-exact", "3.3", [[100]], [[[100]]], Rcnt, "correct")
+case("num/amount-no-x100", "12.1 (negative)", [[1234.0]], [[[12.34]]], Ramt, "wrong", "values", note="amount: no x100 / 100")
+case("num/amount-no-div100", "12.1 (negative)", [[0.1234]], [[[12.34]]], Ramt, "wrong", "values")
+case("num/other-float-x100", "12.1 (other, non-integer type)", [[0.1316]], [[[13.16]]], rules(["other"], ["Float64"], [0]), "correct")
+case("num/other-float-div100", "12.1 (other, non-integer type)", [[13.16]], [[[0.1316]]], rules(["other"], ["Nullable(Float64)"], [0]), "correct")
+case("num/count-float-no-x100", "12.1 (negative)", [[10000.0]], [[[100.0]]], rules(["count"], ["Float64"], [0]), "wrong", "values")
+case("num/int-other-exact", "12.2", [[2009]], [[[2008]]], rules(["other"], ["UInt16"], [0]), "wrong", "values",
+     note="integer reference type: exact, although within 0.5%")
+case("num/int-amount-exact", "12.2", [[100001]], [[[100000]]], rules(["amount"], ["Int64"], [0]), "wrong", "values")
+case("num/int-other-float-equal", "12.2", [[2008.0]], [[[2008]]], rules(["other"], ["UInt16"], [0]), "correct")
+case("num/int-other-no-x100", "12.1, 12.2", [[1300]], [[[13]]], rules(["other"], ["Int32"], [0]), "wrong", "values")
+case("num/long-table-years-shifted", "12.2", [["Audio", 2008, 48.6], ["Audio", 2009, 53.2], ["Audio", 2007, 51.0]],
+     [[["Audio", 2007, 48.6], ["Audio", 2008, 53.2], ["Audio", 2009, 51.0]]],
+     rules(["other", "other", "percentage"], ["String", "UInt16", "Float64"], [0, 1, 2]), "wrong", "values")
 case("num/count-exact-float-equal", "3.3", [[100.0]], [[[100]]], Rcnt, "correct")
 case("num/count-exact-off", "3.3", [[100.4]], [[[100]]], Rcnt, "wrong", "values", note="integer count: exact, no 0.5%")
 case("num/count-exact-no-x100", "3.3", [[10000]], [[[100]]], Rcnt, "wrong", "values")
@@ -156,8 +169,12 @@ case("date/quarter-label", "3.5, 5.8", [["2009-Q1", 5.0]], [[["Q1", 5.0]]],
      rules(["other", "amount"], ["String", "Float64"], [0, 1]), "wrong", "values")
 case("date/quarter-number", "5.8", [[1, 5.0]], [[["Q1", 5.0]]],
      rules(["other", "amount"], ["String", "Float64"], [0, 1]), "wrong", "values")
-case("date/iso-T-string", "3.5", [["2009-12-01T00:00:00", 5.0]], [refd], Rd, "wrong", "values",
-     note="only the 'YYYY-MM-DD 00:00:00' string form is listed")
+case("date/iso-T-string", "12.10", [["2009-12-01T00:00:00", 5.0]], [refd], Rd, "correct")
+case("date/zero-fraction", "12.10", [["2009-12-01 00:00:00.000", 5.0]], [refd], Rd, "correct")
+case("date/T-zero-fraction", "12.10", [["2009-12-01T00:00:00.000000", 5.0]], [refd], Rd, "correct")
+case("date/nonzero-fraction", "12.10 (negative)", [["2009-12-01 00:00:00.500", 5.0]], [refd], Rd, "wrong", "values")
+case("date/in-identifier", "12.10", [["2009-12-01 00:00:00", 5.0]], [refd],
+     rules(["other", "amount"], ["Date", "Float64"], [0, 1], identifier_columns=[0]), "correct")
 
 # ---------------------------------------------------------------------------
 # 6. Reference-side empty labels (3.6), positive and both negatives
@@ -171,6 +188,11 @@ case("empty/ref-empty-str-cand-label", "3.6", [["(blank)", 10.0], ["Audio", 20.0
 case("empty/cand-uses-other-label", "3.6", [["Audio", 10.0], ["Audio", 20.0]], [refe], Re, "wrong", "values")
 case("empty/reverse-not-relaxed", "3.6 (reverse)", [[None, 10.0], [None, 20.0]], [refe], Re, "wrong", "values",
      note="reference has a real label, candidate blank")
+case("empty/ref-empty-cand-null", "12.9", [[None, 10.0], ["Audio", 20.0]], [[["", 10.0], ["Audio", 20.0]]], Re, "correct")
+case("empty/date-col-not-relaxed", "12.9 (negative)", [["unknown", 1.0]], [[[None, 1.0]]],
+     rules(["other", "amount"], ["Nullable(Date)", "Float64"], [0, 1]), "wrong", "values")
+case("empty/identifier-not-relaxed", "12.9 (negative)", [["x", 1.0]], [[[None, 1.0]]],
+     rules(["other", "amount"], ["Nullable(String)", "Float64"], [0, 1], identifier_columns=[0]), "wrong", "values")
 case("empty/numeric-col-not-relaxed", "3.6", [["x"]], [[[None]]],
      rules(["amount"], ["Nullable(Float64)"], [0]), "wrong", "values")
 
@@ -193,8 +215,22 @@ case("name/merge-needs-both-required", "11.2 (negative)", [["Ann Lee", 1.0], ["B
      note="only one of the two is required: compared as a single column")
 case("name/early-reject-counts-merge-as-one", "6.6, 11.2", [["Ann Lee", 1.0], ["Bo Chen", 2.0]], [refs_], Rsplit, "correct",
      note="3 required columns, candidate has 2: not an early reject")
-case("name/mixed-order-rows", "3.7", [["Ann Lee", 1.0], ["Chen Bo", 2.0]], [refs_], Rsplit, "wrong", "values",
-     note="one join order per answer (SPEC-GAP: order chosen per answer, not per row)")
+case("name/mixed-order-rows", "12.8 (negative)", [["Ann Lee", 1.0], ["Chen Bo", 2.0]], [refs_], Rsplit, "wrong", "values",
+     note="one join order per answer")
+case("name/null-part", "12.8 (negative)", [["Ann", None, 1.0], ["Bo", "Chen", 2.0]], [reff], Rfull, "wrong", "values")
+sel_name = {"version": 1, "output_order": [], "stages": [
+    {"parent": None, "where": [], "group_columns": [2], "object_columns": [0, 1],
+     "order_by": [{"column": 3, "descending": True}], "n": 1}]}
+Rseln = rules(["other", "other", "other", "amount"], ["String", "String", "String", "Float64"], [0, 1, 2, 3], selection=sel_name)
+refseln = [["Ann", "Lee", "US", 9.0], ["Bo", "Chen", "CN", 8.0], ["Cy", "Wu", "CN", 8.0]]
+case("name/selection-identity-merged", "12.8 (selection identity)", [["Ann Lee", "US", 9.0], ["Cy Wu", "CN", 8.0]],
+     [refseln], Rseln, "correct")
+case("name/selection-identity-wrong", "12.8 (negative)", [["Ann Lee", "US", 9.0], ["Cy Chen", "CN", 8.0]],
+     [refseln], Rseln, "wrong", "values")
+case("name/selection-identity-two-boundary", "12.8, 5.7 (negative)", [["Ann Lee", "US", 9.0], ["Cy Wu", "CN", 8.0], ["Bo Chen", "CN", 8.0]],
+     [refseln], Rseln, "wrong", "selection")
+case("name/identifier-not-split", "12.8 (negative)", [["10", "000", 1.0]], [[["10 000", 1.0]]],
+     rules(["other", "amount"], ["String", "Float64"], [0, 1], identifier_columns=[0]), "wrong", "values")
 
 # ---------------------------------------------------------------------------
 # 8. Row sets (5.1, 5.2)
@@ -255,6 +291,13 @@ case("zero/only-count-kind", "5.4 (negative)", [["Q1", 5, 10.0]], [[["Q1", 5, 10
 case("zero/not-in-top-n", "5.4 (Top-N excluded)", [["a", 5]],
      [[["a", 5], ["b", 0]]], rules(["other", "count"], ["String", "UInt64"], [0, 1], top_n=2, ties=[1]),
      "wrong", "row_count")
+Rzr = rules(["other", "count", "other"], ["String", "UInt64", "UInt64"], [0, 1, 2], rank_columns=[2],
+            rankings=[{"column": 2, "group_columns": [], "object_columns": [0], "prefix": True, "blocks": blocks_for([1, 2])}])
+case("zero/rank-column-excluded", "12.11", [["a", 5, 1]], [[["a", 5, 1], ["b", 0, 2]]], Rzr, "correct",
+     note="the rank column is not one of the 'other numbers' that must be 0")
+case("zero/two-count-columns", "12.11 (negative)", [["a", 5, 1]], [[["a", 5, 1], ["b", 0, 3]]],
+     rules(["other", "count", "count"], ["String", "UInt64", "UInt64"], [0, 1, 2]), "wrong", "row_count",
+     note="both count columns must be 0")
 case("zero/extra-wrong-value", "5.4 (negative)", [["Q1", 5, 10.0], ["Q3", 2, 4.0], ["Q5", 1, 0.0]],
      [[["Q1", 5, 10.0], ["Q3", 2, 4.0]]], Rz, "wrong", "values")
 
@@ -349,12 +392,33 @@ Rlong = rules(["other", "amount"], ["String", "Float64"], [0, 1])
 case("strict/wide-vs-long", "5.8", [[100.0, 80.0]], [[["Actual", 100.0], ["Budget", 80.0]]], Rlong, "wrong", "row_count")
 
 # ---------------------------------------------------------------------------
+# 15b. Array / Tuple cells (corpus $array)
+# ---------------------------------------------------------------------------
+Rarr = rules(["other", "count"], ["Array(UInt8)", "UInt64"], [0, 1])
+case("cell/array-equal", "12 (corpus)", [[{"$array": [1, 2]}, 3]], [[[{"$array": [1, 2]}, 3]]], Rarr, "correct")
+case("cell/array-differs", "12 (corpus, negative)", [[{"$array": [2, 1]}, 3]], [[[{"$array": [1, 2]}, 3]]], Rarr, "wrong", "values")
+
+# ---------------------------------------------------------------------------
 # 16. Rules validation (spec 2)
 # ---------------------------------------------------------------------------
 case("rules/missing-required-columns", "2", [[1]], [[[1]]],
      {"ordered": False, "top_n": None, "tie_columns": [], "value_kinds": ["count"], "value_types": ["UInt64"]}, "error")
 case("rules/old-switch", "2", [[1]], [[[1]]], dict(R1, use_absolute_tolerance=True), "error")
 case("rules/ordered-without-order-by", "2", [[1]], [[[1]]], dict(R1, ordered=True), "error")
+case("rules/unknown-field", "12.3", [[1]], [[[1]]], dict(R1, label_values=[["x"]]), "error")
+case("rules/top-n-without-ties", "12.3", [[1]], [[[1]]], dict(R1, top_n=1), "error")
+case("rules/where-not-required", "12.4", [["high", "A", 99.0]], [[["high", "A", 99.0]]],
+     rules(["other", "other", "percentage"], ["String", "String", "Float64"], [1, 2], selection={"version": 1, "output_order": [], "stages": [
+         {"parent": None, "where": [{"column": 0, "equals": "high"}], "group_columns": [], "object_columns": [1],
+          "order_by": [{"column": 2, "descending": True}], "n": 1}]}), "error")
+case("rules/top-n-not-prefix-boundary", "12.5", [["a", 9.0]], [[["a", 9.0], ["b", 5.0], ["c", 7.0]]],
+     rules(["other", "amount"], ["String", "Float64"], [0, 1], top_n=1, ties=[1]), "error",
+     note="rows after the N-th must all share its tie key")
+case("edge/ragged-candidate", "12.14", [["a", 1.0], ["b"]], [[["a", 1.0], ["b", 2.0]]],
+     rules(["other", "amount"], ["String", "Float64"], [0, 1]), "error")
+case("edge/empty-ref-empty-cand", "12.14", [], [[]], rules(["other"], ["String"], [0]), "correct")
+case("edge/empty-ref-rows", "12.14", [["a"]], [[]], rules(["other"], ["String"], [0]), "wrong", "row_count")
+case("edge/bool-vs-int", "12.14", [[True]], [[[1]]], rules(["other"], ["UInt8"], [0]), "wrong", "values")
 
 
 # ---------------------------------------------------------------------------

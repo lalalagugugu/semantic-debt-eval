@@ -19,7 +19,7 @@ _WRAP = re.compile(r"^(?:Nullable|LowCardinality)\((.*)\)$")
 _INT = re.compile(r"^U?Int(?:8|16|32|64|128|256)$")
 _NUMERIC = re.compile(r"^(?:U?Int\d+|Float\d+|Decimal\d*(?:\(.*\))?|Decimal)$")
 _DATE_STR = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
-_MIDNIGHT_STR = re.compile(r"^(\d{4})-(\d{2})-(\d{2}) 00:00:00$")
+_MIDNIGHT_STR = re.compile(r"^(\d{4})-(\d{2})-(\d{2})[ T]00:00:00(?:\.0+)?$")  # 12.10
 _DEC_INT_STR = re.compile(r"^(?:0|-?[1-9][0-9]*)$")
 
 
@@ -132,7 +132,7 @@ def _f(v) -> float:
     return float(v)
 
 
-def num_close(c, r, kind: str) -> bool:
+def num_close(c, r, kind: str, convert: bool = True) -> bool:
     """Spec 3.3, non-exact numbers: |c - r| <= max(0.005|r|, atol); percentages are
     compared as fractions (divide by 100 first); candidate x100 and /100 are also tried;
     a zero reference uses only its declared unit with the absolute floor."""
@@ -148,7 +148,7 @@ def num_close(c, r, kind: str) -> bool:
 
     if ok(c):
         return True
-    if r == 0:
+    if r == 0 or not convert:
         return False
     return ok(c * 100.0) or ok(c / 100.0)
 
@@ -168,10 +168,11 @@ class Col:
 
 def make_col(j, kind, vtype, identifier, ref_values):
     numeric = is_numeric_type(vtype)
+    # 12.2: any integer reference type compares exactly, whatever the kind
     c = Col(index=j, kind=kind, vtype=vtype, identifier=identifier,
-            exact_count=(kind == "count" and is_int_type(vtype)), numeric=numeric)
-    # 3.6: non-numeric reference column holding NULL or '' (identifier columns are exact, 3.4).
-    if not numeric and not identifier:
+            exact_count=is_int_type(vtype), numeric=numeric)
+    # 3.6 as narrowed by 12.9: string-typed reference columns only (not dates, not identifiers).
+    if is_string_type(vtype) and not identifier:
         empty = any(v is None or (isinstance(v, str) and v.strip() == "") for v in ref_values)
         if empty:
             c.empty_label_rule = True
@@ -189,7 +190,7 @@ def equal(c, r, col: Col) -> bool:
         return ident_key(c) == ident_key(r) and not (ident_key(c)[0] == "nonfinite")
     if col.empty_label_rule and is_empty_label(r):
         if c is None:
-            return r is None                      # 3.2: NULL equals NULL only
+            return True                            # 12.9: '' or NULL against NULL: neither has a label
         if isinstance(c, str):
             return c.strip() not in col.labels     # any string not used by another reference row
         return False
@@ -208,7 +209,8 @@ def equal(c, r, col: Col) -> bool:
     if is_num(c) and is_num(r):
         if col.exact_count:
             return finite(c) and finite(r) and Decimal(repr(c) if isinstance(c, float) else c) == Decimal(repr(r) if isinstance(r, float) else r)
-        return num_close(c, r, col.kind)
+        # 12.1: x100 / 100 only for percentage, ratio and non-integer other columns
+        return num_close(c, r, col.kind, convert=col.kind in ("percentage", "ratio", "other"))
     if isinstance(c, str) and isinstance(r, str):
         return c.strip() == r.strip()
     if isinstance(c, dt.datetime) and isinstance(r, dt.datetime):

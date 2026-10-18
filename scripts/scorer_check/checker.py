@@ -265,10 +265,12 @@ class RefCheck:
         self.req_set = set(R.required)
         # selection identity columns compare exactly (selection contract)
         self.sel_ident = set()
+        self.sel_where = set()
         if R.selection:
             for st in R.selection["stages"]:
                 self.sel_ident |= set(st["group_columns"]) | set(st["object_columns"])
                 self.sel_ident |= {w["column"] for w in st.get("where") or []}
+                self.sel_where |= {w["column"] for w in st.get("where") or []}
         for j in self.sel_ident:
             if not self.cols[j].identifier:
                 self.cols[j] = C.make_col(j, R.kinds[j], R.types[j], True, [row[j] for row in ref])
@@ -309,7 +311,9 @@ class RefCheck:
         R = self.R
         self.zero_cols = [j for j in self.req if R.kinds[j] == "count" and j not in R.identifier]
         self.zero_ok = bool(self.zero_cols) and R.top_n is None and R.selection is None
-        self.other_numeric = [j for j in self.req if j not in R.identifier and j not in self.zero_cols and self.cols[j].numeric]
+        # 12.11: other required numbers exclude identifier and rank columns
+        self.other_numeric = [j for j in self.req if j not in R.identifier and j not in R.rank_columns
+                              and j not in self.zero_cols and self.cols[j].numeric]
         self.ref_zero = [self.zero_ok and self._is_zero([row[j] for j in self.zero_cols], [row[j] for j in self.other_numeric])
                          for row in self.ref]
 
@@ -403,7 +407,9 @@ class RefCheck:
 
     # ---------------- column mapping (spec 4, 3.7, 6.5)
     def _special(self, j):
-        return j in self.R.identifier or j in self.R.rank_columns or j in self.pair_cols or j in self.sel_ident
+        """Columns that never take part in name split/merge (12.8): identifiers, ranks, pairs,
+        and selection where-columns (compared against literal values)."""
+        return j in self.R.identifier or j in self.R.rank_columns or j in self.pair_cols or j in self.sel_where
 
     def _merge_pairs(self):
         """Adjacent required string reference columns that may be joined (3.7, reference side)."""
@@ -783,7 +789,10 @@ class RefCheck:
     def _selection_ok(self, units):
         sel = self.R.selection
         stages = sel["stages"]
-        unit_of = {u.ref_cols[0]: u for u in units if u.mode == "one"}
+        unit_of = {}
+        for u in units:
+            for j in u.ref_cols:
+                unit_of[j] = u
         children = {i: [] for i in range(len(stages))}
         for i, st in enumerate(stages):
             if st.get("parent") is not None:
@@ -791,10 +800,12 @@ class RefCheck:
         leaves = [i for i in range(len(stages)) if not children[i]]
 
         def cval(row, j):
-            return C.ident_key(unit_of[j].cand_value(row))
+            v = unit_of[j].cand_value(row)
+            return ("joinfail", id(row)) if v is JOIN_FAIL else C.ident_key(v)
 
         def rval(row, j):
-            return C.ident_key(row[j])
+            v = unit_of[j].ref_value(row)
+            return ("joinfail",) if v is JOIN_FAIL else C.ident_key(v)
 
         def chain(i):
             out = []
