@@ -9,8 +9,10 @@ decisions/2026-10-17-one-convention-one-answer.md section 2); the name when it
 identifies every row (no NULL, no shared name), otherwise the key. Judge
 questions are skipped.
 
-Usage: uv run python scripts/required_columns.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-eval-v1"
-Writes audit/T05b-required-columns.json.
+Usage: uv run python scripts/required_columns.py --eval-dir "$SEMDEBT_DATA_DIR/eval-ro-eval-v1" [--v2]
+Writes audit/T05b-required-columns.json, or with --v2 audit/T05b-required-columns.v2.json:
+the same annotation revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md
+section 5 (identifiers always by name) and section 3 (a placeholder-only name is no identifier).
 """
 
 from __future__ import annotations
@@ -160,11 +162,30 @@ MISSING = {
     "Q100": "客户唯一标识（只有姓名，107 行重名）",
 }
 
+# v2 (judge-stratum ruling, sections 3 and 5): ref -> replacement entry.
+V2 = {
+    "Q20-2": ([1], {0: "alt_identifier", 2: "filter_value", 3: "filter_value"},
+              "v2：标识一律取名称（产品名）；原版取产品键"),
+    "Q22-1": ([1, 2, 3], {0: "alt_identifier", 4: "rank_key", 5: "rank_key"},
+              "v2：标识一律取名称（名、姓两列）；原版取客户键。国家是分组"),
+    "Q34-1": ([0, 3], {1: "not_asked", 2: "not_asked", 4: "alt_identifier"},
+              "v2：标识一律取名称（产品名）；原版取产品键"),
+    "Q49-2": ([1, 2], {0: "alt_identifier"}, "v2：标识一律取名称（实体名）；原版取实体键"),
+    "Q87-1": ([0, 3], {1: "not_asked", 2: "not_asked", 4: "alt_identifier"},
+              "v2：标识一律取名称（产品名）；原版取产品键。可售天数既是所问又是排序键，计入必答"),
+    "Q112-1": ([1, 2, 3], {0: "alt_identifier"}, "v2：标识一律取名称（经理名）；原版取员工键"),
+    "Q100-1": ([1, 2], {0: "placeholder_name", 3: "not_asked"},
+               "v2：姓名列全为占位值，不是标识，不必答；只比订单数、客单价两列的多重集。参考无客户键"),
+}
+MISSING_V2 = {k: v for k, v in MISSING.items() if k != "Q100"}
+
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--eval-dir", required=True)
+    ap.add_argument("--v2", action="store_true")
     args = ap.parse_args(argv)
+    ann = {**A, **V2} if args.v2 else A
     E = Path(args.eval_dir)
     sha = subprocess.run(["git", "-C", str(E), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
     refs, seen = [], set()
@@ -178,7 +199,7 @@ def main(argv=None):
                 if q["scoring"] == "judge":
                     entry["skipped"] = "judge"
                 else:
-                    req, roles, note = A[key]
+                    req, roles, note = ann[key]
                     seen.add(key)
                     assert all(0 <= i < len(header) for i in req), key
                     assert set(req).isdisjoint(roles) and set(req) | set(roles) == set(range(len(header))), key
@@ -188,14 +209,20 @@ def main(argv=None):
                         entry["note"] = note
                 refs.append(entry)
     assert seen == set(A), set(A) - seen
-    out = {"eval_tag": "eval-v1", "eval_commit": sha,
-           "basis": "main decisions/2026-10-18-reference-columns-asked-only.md sections 2-3; question wording only",
-           "roles": {"rank_key": "排序键（Top-N 或排名依据）", "filter_value": "筛选依据的值", "not_asked": "题目没问的量",
-                     "alt_identifier": "同一对象的另一种标识（键或名称，只留一份）"},
+    roles = {"rank_key": "排序键（Top-N 或排名依据）", "filter_value": "筛选依据的值", "not_asked": "题目没问的量",
+             "alt_identifier": "同一对象的另一种标识（键或名称，只留一份）"}
+    basis = "main decisions/2026-10-18-reference-columns-asked-only.md sections 2-3; question wording only"
+    if args.v2:
+        roles["placeholder_name"] = "名称列全为占位值，不是标识"
+        basis += "; revised per main decisions/2026-10-18-judge-stratum-and-t12-audit.md sections 3 and 5"
+    out = {"eval_tag": "eval-v1", "eval_commit": sha, "basis": basis, "roles": roles,
            "counts": {"references": len(refs), "annotated": sum("required_columns" in r for r in refs),
                       "judge_skipped": sum("skipped" in r for r in refs)},
-           "missing_asked_columns": MISSING, "references": refs}
-    (ROOT / "audit" / "T05b-required-columns.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
+           "missing_asked_columns": MISSING_V2 if args.v2 else MISSING, "references": refs}
+    if args.v2:
+        out = {"version": 2, **out}
+    name = "T05b-required-columns.v2.json" if args.v2 else "T05b-required-columns.json"
+    (ROOT / "audit" / name).write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print(out["counts"])
 
 
