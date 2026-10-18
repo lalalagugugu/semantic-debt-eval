@@ -1,0 +1,84 @@
+{
+ "_source": {
+  "eval_dir": "/Users/yuhuang/dev/semdebt/data/eval-ro-56ade6c",
+  "eval_commit": "56ade6cd4d78c722a0e3861072ceece0779fcdc0",
+  "pandas_source": null
+ },
+ "Q34": [
+  {
+   "ref": "refs/cube/Q34-1.csv",
+   "interpretation": "公司产品粒度：每个快照日先跨店汇总库存金额，再平均；同年公司产品销货成本除以平均库存",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductName<-ProductName(str)",
+      "total_cogs<-cogs(num)",
+      "avg_inventory<-avg_inventory(num)",
+      "turnover_ratio<-turnover(num)",
+      "ProductKey<-ProductKey(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q50": [
+  {
+   "ref": "refs/cube/Q50-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "sales_2009<-sales_2009(num)",
+      "sales_2008<-sales_2008(num)",
+      "growth_pct<-growth_pct(num)",
+      "growth_amount<-growth_amount(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q71": [
+  {
+   "ref": "refs/cube/Q71-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "category<-ProductCategoryName(str)",
+      "subcategory<-ProductSubcategoryName(str)",
+      "sales_amount<-SalesAmount(num)"
+     ]
+    }
+   }
+  }
+ ],
+ "Q99": [
+  {
+   "ref": "refs/cube/Q99-1.csv",
+   "interpretation": "原参考解读",
+   "match": true,
+   "pandas_ref": 1,
+   "by_mode": {
+    "-": {
+     "ok": true,
+     "mapping": [
+      "ProductCategoryName<-category(str)",
+      "avg_weekend_day_sales<-weekend_avg(num)",
+      "avg_weekday_sales<-weekday_avg(num)",
+      "weekend_lift_pct<-diff_pct(num)",
+      "weekend_difference_amount<-diff(num)"
+     ]
+    }
+   }
+  }
+ ]
+}

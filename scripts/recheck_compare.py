@@ -166,12 +166,15 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--eval-dir", required=True, help="read-only checkout of the finalized question bank")
+    ap.add_argument("--pandas", default=str(PANDAS), help="folder with the pandas results and manifest.json")
+    ap.add_argument("--out", default=str(ROOT / "reports" / "T05b" / "compare.json"))
     args = ap.parse_args(argv)
+    pandas_dir = Path(args.pandas)
     eval_root = Path(args.eval_dir)
     sha = subprocess.run(["git", "-C", str(eval_root), "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
     only = {s.strip() for s in args.only.split(",") if s.strip()}
     qs = load_questions(eval_root)
-    manifest = json.loads((PANDAS / "manifest.json").read_text())
+    manifest = json.loads((pandas_dir / "manifest.json").read_text())
     report = {"_source": {"eval_dir": str(eval_root), "eval_commit": sha,
                           "pandas_source": manifest.get("_source")}}
     for qid, qd in qs.items():
@@ -204,7 +207,7 @@ def main(argv=None):
                 files = []
                 results["-"] = {"ok": False, "why": "SalesQuantity>0 ref: pandas computes purchase events on every row only (2026-10-17)"}
             for f in files:
-                mine = pd.read_csv(PANDAS / f["path"], dtype=str, keep_default_na=False)
+                mine = pd.read_csv(pandas_dir / f["path"], dtype=str, keep_default_na=False)
                 if qid in TRUNCATED and len(mine) > len(refdf):
                     mine = mine.head(len(refdf))
                 results[f["mode"] or "-"] = compare_frames(refdf, mine, ref["rules"])
@@ -216,7 +219,7 @@ def main(argv=None):
             print(f"{qid}-{i} [{qd['scoring']}] {'MATCH' if ok else 'DIFF '} "
                   + "; ".join(f"{k}: {('ok ' + v.get('note', '')).strip() if v['ok'] else v['why']}" for k, v in results.items()))
         report[qid] = entries
-    out = ROOT / "reports" / "T05b" / "compare.json"
+    out = Path(args.out)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=1, default=str))
 
 
