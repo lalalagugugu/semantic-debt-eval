@@ -225,8 +225,8 @@ Rseln = rules(["other", "other", "other", "amount"], ["String", "String", "Strin
 refseln = [["Ann", "Lee", "US", 9.0], ["Bo", "Chen", "CN", 8.0], ["Cy", "Wu", "CN", 8.0]]
 case("name/selection-identity-merged", "12.8 (selection identity)", [["Ann Lee", "US", 9.0], ["Cy Wu", "CN", 8.0]],
      [refseln], Rseln, "correct")
-case("name/selection-identity-wrong", "12.8 (negative)", [["Ann Lee", "US", 9.0], ["Cy Chen", "CN", 8.0]],
-     [refseln], Rseln, "wrong", "values")
+case("name/selection-identity-wrong", "12.8, 13.2 (negative)", [["Ann Lee", "US", 9.0], ["Cy Chen", "CN", 8.0]],
+     [refseln], Rseln, "wrong", "selection", note="a wrong object in a group is a selection problem (13.2)")
 case("name/selection-identity-two-boundary", "12.8, 5.7 (negative)", [["Ann Lee", "US", 9.0], ["Cy Wu", "CN", 8.0], ["Bo Chen", "CN", 8.0]],
      [refseln], Rseln, "wrong", "selection")
 case("name/identifier-not-split", "12.8 (negative)", [["10", "000", 1.0]], [[["10 000", 1.0]]],
@@ -384,6 +384,58 @@ case("sel/two-roots-ok", "5.7", [["high", "A", 99.0], ["low", "Y", 10.0]], [refs
 case("sel/two-roots-missing-group", "5.7 (negative)", [["high", "A", 99.0]], [refsel2], Rsel2, "wrong", "selection")
 case("sel/two-roots-both-boundary", "5.7 (negative)", [["high", "A", 99.0], ["low", "Y", 10.0], ["low", "Z", 10.0]],
      [refsel2], Rsel2, "wrong", "selection")
+# 13.2: anything the selection finds is 'selection'; 'values' only when every chosen object is right
+case("sel/wrong-child-object", "13.2 (negative)", [["S1", 30.0, "Cams", 50.0], ["S2", 20.0, "Audio", 9.0]], [refsel], Rsel,
+     "wrong", "selection", note="a group's object is one the reference never chose for that group")
+case("sel/objects-right-value-wrong", "13.2 (negative)", [["S1", 30.0, "TV", 55.0], ["S2", 20.0, "Audio", 9.0]], [refsel],
+     Rsel, "wrong", "values")
+case("sel/n-plus-k-values-also-wrong", "13.2 (negative)",
+     [["S1", 31.0, "TV", 50.0], ["S3", 20.0, "TV", 8.0], ["S3", 20.0, "Cams", 8.0]], [refsel], Rsel, "wrong", "selection")
+
+# 13.1: Q119-like. Per-group top 1 (selection) and a global, non-prefix object ranking; the same
+# object is chosen in several groups and carries the same rank every time.
+sel_q119 = {"version": 1, "output_order": [], "stages": [
+    {"parent": None, "where": [], "group_columns": [0], "object_columns": [1],
+     "order_by": [{"column": 2, "descending": True}], "n": 1}]}
+rk_q119 = [{"column": 3, "group_columns": [], "object_columns": [1], "prefix": False,
+            "blocks": [{"group": [], "rank": 1, "dense": 1, "size": 1}, {"group": [], "rank": 2, "dense": 2, "size": 1},
+                       {"group": [], "rank": 3, "dense": 3, "size": 2}]}]
+Rq119 = rules(["other", "other", "amount", "other"], ["String", "String", "Float64", "UInt64"], [0, 1, 3],
+              selection=sel_q119, rank_columns=[3], rankings=rk_q119)
+Rq119_nosel = rules(["other", "other", "amount", "other"], ["String", "String", "Float64", "UInt64"], [0, 1, 3],
+                    rank_columns=[3], rankings=rk_q119)
+refq119 = [["g1", "A", 50.0, 1], ["g2", "A", 40.0, 1], ["g3", "B", 30.0, 2], ["g4", "C", 20.0, 3], ["g4", "D", 20.0, 3]]
+case("rank/object-in-many-groups-ref-itself", "13.1", refq119, [refq119], Rq119_nosel, "correct",
+     note="the reference scored against itself: object A twice with the same rank is not a repeat")
+case("rank/object-in-many-groups-competition", "13.1", [["g1", "A", 1], ["g2", "A", 1], ["g3", "B", 2], ["g4", "C", 3]],
+     [refq119], Rq119, "correct")
+case("rank/object-in-many-groups-position", "13.1", [["g1", "A", 1], ["g2", "A", 1], ["g3", "B", 2], ["g4", "D", 4]],
+     [refq119], Rq119, "correct",
+     note="only the position style fits (D numbered 4 in the C/D block); A in two rows is one object")
+case("rank/object-in-many-groups-legal-selection", "13.1 addendum (PR #120)",
+     [["g1", "A", 1], ["g2", "A", 1], ["g3", "B", 2], ["g4", "D", 3]], [refq119], Rq119, "correct",
+     note="a legal selection from the reference (the other boundary object of g4) scores correct")
+case("rank/object-in-many-groups-wrong-rank", "13.1 (negative)",
+     [["g1", "A", 1], ["g2", "A", 1], ["g3", "B", 3], ["g4", "C", 3]], [refq119], Rq119, "wrong", "rank")
+case("rank/object-in-many-groups-n-plus-k", "13.1, 13.2 (negative)",
+     [["g1", "A", 1], ["g2", "A", 1], ["g3", "B", 2], ["g4", "C", 3], ["g4", "D", 3]], [refq119], Rq119, "wrong", "selection",
+     note="the whole boundary domain submitted as is: N+k (PR #120 addendum)")
+
+# 13.3: Q92-like. Ordered with a rank column and a NULL label in the reference; reasons follow 12.6
+R92 = rules(["other", "percentage", "other"], ["Nullable(String)", "Float64", "UInt64"], [0, 2], ordered=True,
+            order_by=[{"column": 1, "descending": True}], rank_columns=[2],
+            rankings=[{"column": 2, "group_columns": [], "object_columns": [0], "prefix": True,
+                       "blocks": blocks_for([1, 2, 3, 4])}])
+ref92 = [["a", 52.0, 1], ["b", 51.0, 2], ["c", 50.0, 3], [None, 45.0, 4]]
+case("order/rank-col-positional-rows-swapped", "13.3 (negative)",
+     [[1, "b"], [2, "a"], [3, "c"], [4, "unknown"]], [ref92], R92, "wrong", "order",
+     note="ranks numbered by the candidate's own row positions; the row order is wrong")
+case("order/no-rank-col-rows-swapped", "13.3 (negative)",
+     [["b", 0.51], ["a", 0.52], ["c", 0.50], ["unknown", 0.45]], [ref92], R92, "wrong", "order",
+     note="no rank column: a non-integer column falls on the rank, but the order fails first")
+case("order/no-rank-col-rows-in-order", "13.3 (negative)",
+     [["a", 0.52], ["b", 0.51], ["c", 0.50], ["unknown", 0.45]], [ref92], R92, "wrong", "rank")
+case("order/rank-col-rows-in-order", "13.3", [[1, "a"], [2, "b"], [3, "c"], [4, "unknown"]], [ref92], R92, "correct")
 
 # ---------------------------------------------------------------------------
 # 15. Not relaxed (5.8): wide vs long

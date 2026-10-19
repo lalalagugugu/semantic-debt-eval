@@ -33,6 +33,7 @@ REQUIRED_FIELDS = ("required_columns", "value_kinds", "value_types", "ordered", 
 OPTIONAL_FIELDS = ("order_by", "selection", "identifier_columns", "rank_columns", "rankings", "unordered_pairs")
 FORBIDDEN_FIELDS = ("use_absolute_tolerance", "exact_counts")
 REASON_PROGRESS = ["values", "order", "selection", "rank"]  # later = got further
+SEL_GATE = "selection-gate"  # a mapping whose chosen objects are wrong (13.2)
 
 
 @dataclass(frozen=True)
@@ -385,11 +386,52 @@ class RefCheck:
             res = self._check_mapping(units)
             if res == "correct":
                 return "correct"
+            if res == SEL_GATE:
+                continue
             if best is None or REASON_PROGRESS.index(res) > REASON_PROGRESS.index(best):
                 best = res
+        if best is None and R.selection is not None:
+            # 13.2: 'values' only if some mapping gets every chosen object right. Mappings the
+            # value filter dropped were never shown to the selection gate, so look again without it.
+            return "values" if self._some_mapping_selects(merges) else "selection"
         if best is None:
             return "values"  # SPEC-GAP G9: missing_columns only for the early column-count reject
         return best  # SPEC-GAP G9
+
+    def _some_mapping_selects(self, merges):
+        """13.2 reason: does some mapping of the selection identity columns alone choose every object
+        right? _selection_ok reads only those columns, so the other required columns are not mapped
+        here and the value filter is off (a filtered-out mapping was never shown to the selection gate)."""
+        saved = self._opt_cache
+        self._opt_cache, self._no_value_filter = {}, True
+        try:
+            seen, tried = set(), 0
+            for parts in self._partitions(merges):
+                parts = tuple(p for p in parts if set(p[0]) & self.sel_ident)
+                if parts in seen:
+                    continue
+                seen.add(parts)
+                opts = [self._options(rc, m) for rc, m in parts]
+                chosen = [None] * len(parts)
+
+                def bt(i, used):
+                    if i == len(parts):
+                        yield list(chosen)
+                        return
+                    for u in opts[i]:
+                        if used.isdisjoint(u.cand_cols):
+                            chosen[i] = u
+                            yield from bt(i + 1, used | set(u.cand_cols))
+
+                for units in bt(0, frozenset()):
+                    tried += 1
+                    if tried > 100_000:
+                        raise RuntimeError("selection reason search too large")  # never seen; fail loudly
+                    if self._selection_ok(units):
+                        return True
+            return False
+        finally:
+            self._opt_cache, self._no_value_filter = saved, False
 
     def _full_group_matches(self):
         """N+k rows that equal the whole reference (spec 5.3 reason code)."""
@@ -527,6 +569,8 @@ class RefCheck:
 
     def _unit_feasible(self, u, need):
         """Necessary condition: this unit alone can pair `need` rows."""
+        if getattr(self, "_no_value_filter", False):
+            return True
         cv = [u.cand_value(row) for row in self.cand]
         rv = [u.ref_value(row) for row in self.ref]
         j = u.ref_cols[0]
@@ -592,15 +636,16 @@ class RefCheck:
                 counts = [ucol[j].cand_value(row) for j in self.zero_cols if j in ucol]
                 others = [ucol[j].cand_value(row) for j in self.other_numeric if j in ucol]
                 self.cand_mand[i] = not self._is_zero(counts, others)
+        # 0. selection gate (13.2): missing or extra groups, N+k, wrong objects -> 'selection';
+        #    later stages are reached only when all chosen objects are right
+        if R.selection is not None and not self._selection_ok(units):
+            return SEL_GATE
         # 1. values: multiset pairing, ranks as wildcard
         if not self._match(units, cand_idx, ref_idx, "any"):
             return "values"
         # 2. order
         if R.ordered and not self._ordered(units, "any"):
             return "order"
-        # 3. selection
-        if R.selection is not None and not self._selection_ok(units):
-            return "selection"
         # 4. ranks: one style for the whole answer (5.9)
         if self.rank_req:
             for style in ("competition", "dense", "position"):
@@ -625,17 +670,23 @@ class RefCheck:
         return not self.R.ordered or self._ordered(units, style)
 
     def _position_blocks_ok(self, units, flows):
+        # 13.1: count objects, not rows; blocks are per group, so groups are checked separately.
+        # The same object in several rows (e.g. under several selection groups) is one object.
         per_block = {}
         for (ci, ri), f in flows:
             for j in self.rank_req:
                 u = next(u for u in units if u.ref_cols == (j,))
                 b = self.ref_block[(j, ri)]
                 v = int(float(u.cand_value(self.cand[ci])))
-                per_block.setdefault((j, id(b)), (b, self.rankings[j]["prefix"], []))[2].extend([v] * f)
-        for b, prefix, vals in per_block.values():
-            if len(set(vals)) != len(vals):
-                return False
-            if prefix and sorted(vals) != list(range(b["rank"], b["rank"] + len(vals))):
+                obj = tuple(C.ident_key(self.ref[ri][c]) for c in self.rankings[j]["object_columns"])
+                per_block.setdefault((j, id(b)), (b, self.rankings[j]["prefix"], {}))[2].setdefault(obj, set()).add(v)
+        for b, prefix, by_obj in per_block.values():
+            owner = {}
+            for obj, vs in by_obj.items():
+                for v in vs:
+                    if owner.setdefault(v, obj) != obj:
+                        return False  # two different objects share a position number
+            if prefix and sorted(owner) != list(range(b["rank"], b["rank"] + len(by_obj))):
                 return False
         return True
 
