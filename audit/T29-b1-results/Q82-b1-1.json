@@ -1,0 +1,88 @@
+{
+  "columns": [
+    {
+      "name": "manager_name",
+      "type": "String"
+    },
+    {
+      "name": "Title",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "direct_reports",
+      "type": "UInt64"
+    },
+    {
+      "name": "avg_team_tenure_years",
+      "type": "Nullable(Float64)"
+    }
+  ],
+  "rows": [
+    [
+      "Terry Adams",
+      "Sales State Manager",
+      89,
+      10.832106683893592
+    ],
+    [
+      "Yoichiro Okada",
+      "Sales State Manager",
+      65,
+      9.989364502711526
+    ],
+    [
+      "David Probst",
+      "Sales State Manager",
+      44,
+      10.439673946860806
+    ],
+    [
+      "Aaron Painter",
+      "Sales State Manager",
+      33,
+      10.928172899425466
+    ],
+    [
+      "Pilar Ackerman",
+      "Sales State Manager",
+      33,
+      9.527388878518241
+    ],
+    [
+      "Kim Abercrombie",
+      "Sales Region Manager",
+      6,
+      11.554642938626511
+    ],
+    [
+      "Sagiv Hadaya",
+      "Sales Region Manager",
+      6,
+      11.430527036276523
+    ],
+    [
+      "Luka Abrus",
+      "Sales Region Manager",
+      5,
+      11.351676933607118
+    ],
+    [
+      "Pieter Uittenbogaard",
+      "Sales Group Manager",
+      5,
+      12.457221081451062
+    ],
+    [
+      "Humberto Acevedo",
+      "Sales Region Manager",
+      3,
+      11.530002281542322
+    ],
+    [
+      "Kirk Nason",
+      "Sales Region Manager",
+      3,
+      11.546429386265114
+    ]
+  ]
+}

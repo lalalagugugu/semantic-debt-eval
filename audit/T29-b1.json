@@ -1,0 +1,3118 @@
+{
+  "schema_version": 1,
+  "annotator": "Codex manual review",
+  "before_model_answers": true,
+  "eval_tag": "eval-v1.2",
+  "eval_commit": "90e13b385a639a9164ac78430c50c11a7859f976",
+  "semantic_tag": "semantic-v1.6-l1plus",
+  "semantic_commit": "866004b3b1e55950139ba87f728d3f7f13f26433",
+  "decision": "用户2026-10-25：B2只认可符合L1plus明确约定的理解；违反者单列，不改主评分；可疑既有参考交题库负责方核对。",
+  "scope": "逐题审阅109道deterministic题。企业默认、指标定义、相对时间及显式约束先适用；不把改渠道、换公式、删未知行等违反约定算成可认可歧义。D18已允许的边界并列策略是通用输出政策，不穷举为业务理解。",
+  "reference_coverage": "existing_reference非空表示该解读已有冻结参考；其SQL可能需原题库脚本中的物化转换。新增结果JSON直接保存最终列和行。已有参考不足时不修改题库冻结目录，只新增audit结果。",
+  "summary": {
+    "questions": 109,
+    "existing_reference_count": 115,
+    "existing_multi_reference_qids": [
+      "Q38",
+      "Q43",
+      "Q76",
+      "Q84",
+      "Q98",
+      "Q121"
+    ],
+    "question_only_multiple": 21,
+    "multiple_b2_eligible": 18,
+    "excluded_existing_reference_count": 6,
+    "new_result_count": 22
+  },
+  "records": [
+    {
+      "qid": "Q01",
+      "text_zh": "产品目录中共有多少种产品？",
+      "split": "heldout",
+      "manual_rationale": "产品目录的产品实体计数，不是事实表行数或在售产品数。A31。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q01-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q01-1.csv",
+          "sql": "SELECT count() FROM retail.DimProduct",
+          "sql_sha256": "7475ef1a93b1299e1a59bed9c57e0d11eb670a76329fa7a16e34e6632100f2b8",
+          "result": {
+            "path": "refs/cube/Q01-1.csv",
+            "sha256": "d98c675cd7917669a84685c863b1772db5a8ff15010ecc632c2f4e35abf26585"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q02",
+      "text_zh": "线上销售额合计是多少？",
+      "split": "heldout",
+      "manual_rationale": "明确线上销售额；约定7限定金额。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q02-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q02-1.csv",
+          "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales",
+          "sql_sha256": "c767d5ee977f960566113eacf8efb31ab18ae460ff3eeddc819b4ad662471d61",
+          "result": {
+            "path": "refs/cube/Q02-1.csv",
+            "sha256": "ca0280d169f101686c5b14245c005158f444a4fbb4a7cc2d332e421c9bc74323"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q03",
+      "text_zh": "有多少位客户在线上购买过商品？",
+      "split": "tuning",
+      "manual_rationale": "购买客户去重；A12明确含只有退货行的客户。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q03-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q03-1.csv",
+          "sql": "SELECT count(DISTINCT CustomerKey) FROM retail.FactOnlineSales",
+          "sql_sha256": "51472307cc6376a211b9508104d7b1c6e3d532acf1d86d3f21e03ee273d02621",
+          "result": {
+            "path": "refs/cube/Q03-1.csv",
+            "sha256": "ff4b3d9ed9f6a6ddb97e89ef6daa6e5dc168588dbae0c302fc0c0c5b333a9f06"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q04",
+      "text_zh": "列出 Contoso 品牌的所有产品。",
+      "split": "heldout",
+      "manual_rationale": "品牌限定明确；所有产品不缩到在售产品。A31。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q04-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q04-1.csv",
+          "sql": "SELECT ProductName FROM retail.DimProduct WHERE BrandName = 'Contoso'",
+          "sql_sha256": "f6bbfc9675c4cd50f1f18f30cfa6be69313ab7b8446a122e636965f4aaaf9e4d",
+          "result": {
+            "path": "refs/cube/Q04-1.csv",
+            "sha256": "19285ea7ea6e68f8190b783718fa2a949c59858f4b10e4147a4819999bd146d9"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q05",
+      "text_zh": "各产品品类分别有多少种产品？",
+      "split": "heldout",
+      "manual_rationale": "产品目录按品类计产品实体，不是交易行或销量。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q05-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q05-1.csv",
+          "sql": "SELECT pc.ProductCategoryName, count() as product_count FROM retail.DimProduct p JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+          "sql_sha256": "26a0350e5f276491404f3b753bf46f541d35c81ba11ac272fbc0f66a585939f9",
+          "result": {
+            "path": "refs/cube/Q05-1.csv",
+            "sha256": "94302ed60afe77626c2b6fc3492e2c29b7bf668de9541275d827797ec2026c78"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q06",
+      "text_zh": "2009 年的线上销售额是多少？",
+      "split": "tuning",
+      "manual_rationale": "年份、渠道、指标都明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q06-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q06-1.csv",
+          "sql": "SELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+          "sql_sha256": "1798cab9d75605b6aff2180a094a54742c8606bf61e35e1cb5cc583acb4d6f07",
+          "result": {
+            "path": "refs/cube/Q06-1.csv",
+            "sha256": "19423f9ca408162fb19e4bcbe378377ec2718551213a4ae181b0629f6ab5f390"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q07",
+      "text_zh": "最贵的前10款产品是哪些？",
+      "split": "heldout",
+      "manual_rationale": "约定9/A16限定标价；D18允许的并列策略另记为展示政策。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q07-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q07-1.csv",
+          "sql": "SELECT ProductName, UnitPrice FROM retail.DimProduct ORDER BY UnitPrice DESC LIMIT 10",
+          "sql_sha256": "13f331aa61aac68bf16a9e45847a99e3a2cf511ba2affb180d8e2632d694e333",
+          "result": {
+            "path": "refs/cube/Q07-1.csv",
+            "sha256": "a709e887558120273ee37f38832f55c01c7db2e51d5367adbe2524f474c31f30"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q08",
+      "text_zh": "列出所有销售人员。",
+      "split": "tuning",
+      "manual_rationale": "销售人员由IsSalesPerson标识，不凭职位名称猜。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q08-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q08-1.csv",
+          "sql": "SELECT FirstName, LastName FROM retail.DimEmployee WHERE IsSalesPerson = 'Yes'",
+          "sql_sha256": "eaf4c193f84d5808534cdef98b6fc40569f6c5f8fb61e79081e126b5e78d5038",
+          "result": {
+            "path": "refs/cube/Q08-1.csv",
+            "sha256": "36446c1de72cb68a0dfbb1eecb3a5499c0be74dda93099dc76ec5b59df7ba428"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q09",
+      "text_zh": "所有产品的平均单位成本是多少？",
+      "split": "heldout",
+      "manual_rationale": "产品维度单位成本的算术平均；A36不剔异常。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q09-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q09-1.csv",
+          "sql": "SELECT avg(UnitCost) FROM retail.DimProduct",
+          "sql_sha256": "ef28c4b6fd74bd23887b100aa540c04e7fd1be023a0cd266dea36ef84f775554",
+          "result": {
+            "path": "refs/cube/Q09-1.csv",
+            "sha256": "93a2a53078b2b7f6cf973a822dca17617a4facaacdf8d0e8549364ddb706eaf1"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q10",
+      "text_zh": "目前有多少家门店在营业？",
+      "split": "heldout",
+      "manual_rationale": "营业状态On；A01含虚拟门店，不把门店读成实体店。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q10-existing-1",
+          "interpretation": "状态为 On",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q10-1.csv",
+          "sql": "SELECT count() AS store_count FROM retail.DimStore WHERE Status = 'On'",
+          "sql_sha256": "5a647eb59674cacf0b223fd81e4fb879cb666be98ec7e6bc6c10adf6a65e4f18",
+          "result": {
+            "path": "refs/cube/Q10-1.csv",
+            "sha256": "a3c841786680343066f7f293f02e68da1e82ff9f61053d5f373fb0ebada415dc"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q11",
+      "text_zh": "按产品品类汇总销售额。",
+      "split": "heldout",
+      "manual_rationale": "约定1默认线上；A20保留未知品类。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q11-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q11-1.csv",
+          "sql": "SELECT pc.ProductCategoryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName ORDER BY total_sales DESC",
+          "sql_sha256": "9ca814e2a227535e130a634df0984383251007dfc14480dda2d134fb94e58983",
+          "result": {
+            "path": "refs/cube/Q11-1.csv",
+            "sha256": "a14a99b5213f4499f15105e26e1f65c8bb42abead495d6a37805a12a64a460d4"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q12",
+      "text_zh": "2008 年各月的线上销售额分别是多少？",
+      "split": "tuning",
+      "manual_rationale": "2008年逐月线上金额，时间粒度明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q12-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q12-1.csv",
+          "sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2008 GROUP BY month ORDER BY month",
+          "sql_sha256": "f727c4e87c28652359392563efc40e0554856f4671df2ba8e38fde5a8734b62f",
+          "result": {
+            "path": "refs/cube/Q12-1.csv",
+            "sha256": "2d170f2cc22bb63bb4ccd63db7bef72c41e7cd6e540092fedde5845bc2852036"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q13",
+      "text_zh": "按门店列出销售额、平均单价和销售数量。",
+      "split": "tuning",
+      "manual_rationale": "约定2全渠道；A16单价=销售额/销量。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q13-existing-1",
+          "interpretation": "全渠道按门店统计销售额、平均单价和销售数量；沿用约定2及已有指标",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q13-1.csv",
+          "sql": "SELECT s.StoreKey,s.StoreName,sum(f.SalesAmount) AS total_sales,sum(f.SalesAmount)/nullIf(sum(f.SalesQuantity),0) AS average_unit_price,sum(f.SalesQuantity) AS sales_quantity FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
+          "sql_sha256": "f8c6b860e815335c03ed5af4c51495902f911fad7c25ac5191a6f63ed4621df9",
+          "result": {
+            "path": "refs/cube/Q13-1.csv",
+            "sha256": "605c7f998f5a763faa24c16110be67fcda02051c837c7918119af4b341275d71"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q14",
+      "text_zh": "累计消费超过 10 万美元的客户有多少人？",
+      "split": "heldout",
+      "manual_rationale": "D08终身累计消费；严格大于阈值；按客户计数。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q14-existing-1",
+          "interpretation": "按客户累计线上消费，严格大于100000美元后计客户人数",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q14-1.csv",
+          "sql": "SELECT count() AS customers FROM (\nSELECT c.CustomerKey,c.FirstName,c.LastName,sum(s.SalesAmount) AS total_spent FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.CustomerKey,c.FirstName,c.LastName HAVING sum(s.SalesAmount)>100000\n)",
+          "sql_sha256": "d06d876fc451b9f3a41d2adc76bbd88853e17834db9ecd6c6e0a1b2d73b4cd54",
+          "result": {
+            "path": "refs/cube/Q14-1.csv",
+            "sha256": "11ed1dd79b7249e0e86d02ebed5d33362a9ab62a9fb0a63dd7a68cab7fe3194a"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q15",
+      "text_zh": "各国家的线上销售额是多少？",
+      "split": "tuning",
+      "manual_rationale": "A04/A05明确客户所在地；不是门店所在地。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q15-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q15-1.csv",
+          "sql": "SELECT g.RegionCountryName, sum(s.SalesAmount) as total_sales FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName ORDER BY total_sales DESC",
+          "sql_sha256": "bb62fa657cdf4c2c4a20fae8737c68f69d1158cc880c9ce431eb4b0f56584f99",
+          "result": {
+            "path": "refs/cube/Q15-1.csv",
+            "sha256": "6405bc74974056f94cbd1efe078d9883aac37dd38ec577f06e5c07ab3ff6ffee"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q16",
+      "text_zh": "比较 2008 年和 2009 年的线上销售总额。",
+      "split": "heldout",
+      "manual_rationale": "两年各自汇总；差额/增长率展示按系统提示。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q16-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q16-1.csv",
+          "sql": "SELECT toYear(DateKey) as year, sum(SalesAmount) as total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008, 2009) GROUP BY year ORDER BY year",
+          "sql_sha256": "d25de5a1fca644d1206801ef6837b4a0a14a60fee830118294d5a10be0e5d3cc",
+          "result": {
+            "path": "refs/cube/Q16-1.csv",
+            "sha256": "c69a6d0a03696424bcb72791a9430709e63e84cfe94ca8b2fa0e90e6c778669e"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q17",
+      "text_zh": "周末和工作日的销售分别占多少比例？",
+      "split": "tuning",
+      "manual_rationale": "问的是两类日子的销售份额，分母为全部销售额（A21），不是另造日均份额指标。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q17-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q17-1.csv",
+          "sql": "SELECT d.IsWorkDay, sum(s.SalesAmount) as sales, (sum(s.SalesAmount) * 100.0 / (SELECT sum(SalesAmount) FROM retail.FactOnlineSales)) as percentage, (SELECT sum(SalesAmount) FROM retail.FactOnlineSales) AS total_sales_amount\nFROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.IsWorkDay",
+          "sql_sha256": "52c5a0ace5de6c86eebf856da29aa5626d048b8c842c6141bf3fc4ca9e98a0e6",
+          "result": {
+            "path": "refs/cube/Q17-1.csv",
+            "sha256": "aa935d0eedd83f3d6846f1178a258abdd8410f961923808e1a59a62eac8289cf"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q18",
+      "text_zh": "各种促销类型分别提供了多少累计折扣金额？",
+      "split": "heldout",
+      "manual_rationale": "促销类型分组；约定10排除无折扣键；A06全历史。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q18-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q18-1.csv",
+          "sql": "SELECT p.PromotionType, sum(s.DiscountAmount) as total_discount FROM retail.FactOnlineSales s JOIN retail.DimPromotion p ON s.PromotionKey = p.PromotionKey WHERE p.PromotionKey != 1 GROUP BY p.PromotionType",
+          "sql_sha256": "23073211db731011ee627224521ddf2b34bc935d685e2a8ccaf9e29f4e9bbe09",
+          "result": {
+            "path": "refs/cube/Q18-1.csv",
+            "sha256": "a7f4e4ac336a66013faf66ff89b1491c4e0c834506eb6e0ffcb3bc7607097c1c"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q19",
+      "text_zh": "不同性别客户的客单价分别是多少？",
+      "split": "tuning",
+      "manual_rationale": "约定8/A12固定客单价和去重订单；不是客均消费。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q19-existing-1",
+          "interpretation": "线上销售额除以去重订单数，按性别分组",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q19-1.csv",
+          "sql": "SELECT c.Gender,sum(s.SalesAmount)/countDistinct(s.SalesOrderNumber) AS avg_order_amount FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey=c.CustomerKey GROUP BY c.Gender",
+          "sql_sha256": "ba25fa16780262c51588a18eae569b95ba99a6aa5bdd5be05331de77d5d2e1fc",
+          "result": {
+            "path": "refs/cube/Q19-1.csv",
+            "sha256": "4da90240176e77e2ee7bbe14454e5ce21803315919fe04301692b6f578470fda"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q20",
+      "text_zh": "哪些产品目前的库存低于安全库存水平？",
+      "split": "heldout",
+      "manual_rationale": "A22/A24固定最近门店产品快照后跨店汇总比较。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q20-existing-1",
+          "interpretation": "每个门店×产品最近快照后按产品汇总",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q20-2.csv",
+          "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS last_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey), current_stock AS (SELECT i.* FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.last_date) SELECT i.ProductKey,p.ProductName,sum(i.OnHandQuantity) AS on_hand_units,sum(i.SafetyStockQuantity) AS safety_stock_units FROM current_stock i LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey=p.ProductKey GROUP BY i.ProductKey,p.ProductName HAVING on_hand_units<safety_stock_units",
+          "sql_sha256": "4ee06b4ef225d1a26d3d701251cb0ce478af7b23da2fbffc6e9fcfe7199c6188",
+          "result": {
+            "path": "refs/cube/Q20-2.csv",
+            "sha256": "8a368c9d24894900aff9ad30c3a196a7c5f9ff369d0efc0e82172600304ac44c"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q21",
+      "text_zh": "各门店的当前在手库存数量是多少？",
+      "split": "heldout",
+      "manual_rationale": "A22当前库存固定按组合取最近快照。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q21-existing-1",
+          "interpretation": "先按门店×产品取各自最近快照，再按门店汇总在手数量",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q21-1.csv",
+          "sql": "WITH latest AS (SELECT StoreKey,ProductKey,max(DateKey) AS max_date FROM retail.FactInventory GROUP BY StoreKey,ProductKey) SELECT s.StoreKey,s.StoreName,sum(i.OnHandQuantity) AS current_on_hand_quantity FROM retail.FactInventory i JOIN latest l ON i.StoreKey=l.StoreKey AND i.ProductKey=l.ProductKey AND i.DateKey=l.max_date JOIN retail.DimStore s ON i.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName",
+          "sql_sha256": "60541b551cfcea5dfa4dc489c2cf846585435018336be5d96abf03ced3f5e4ea",
+          "result": {
+            "path": "refs/cube/Q21-1.csv",
+            "sha256": "1c1998f0b9c14bc001704dc79a697cbaa49df37f885f3acc5cbdc28bdda67143"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q22",
+      "text_zh": "按各国家客户的累计消费额，列出排名前 5 的客户。",
+      "split": "heldout",
+      "manual_rationale": "按客户国家内累计消费排前五；D08和D18。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q22-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q22-1.csv",
+          "sql": "WITH customer_sales AS (SELECT c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName, sum(s.SalesAmount) as total_spent, rank() OVER (PARTITION BY g.RegionCountryName ORDER BY sum(s.SalesAmount) DESC) as rn FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY c.CustomerKey, c.FirstName, c.LastName, g.RegionCountryName) SELECT * FROM customer_sales",
+          "sql_sha256": "8036a1da177d5e25304918c1fcb251809e43b8e3c9efe54ecd33bc4561a01aeb",
+          "result": {
+            "path": "refs/cube/Q22-1.csv",
+            "sha256": "5253f320bae42b2ab768c51809af0d40a9fc803973369a5647750c58d7b1f5ed"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q23",
+      "text_zh": "展示 2009 年逐月累计销售额。",
+      "split": "heldout",
+      "manual_rationale": "单年逐月累计，年初到当月；D13。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q23-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q23-1.csv",
+          "sql": "SELECT toMonth(DateKey) as month, sum(SalesAmount) as monthly_sales, sum(sum(SalesAmount)) OVER (ORDER BY toMonth(DateKey)) as cumulative_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+          "sql_sha256": "46d21e44441e2a4568c0632f27fc6103351c440b077382eedd927326da122ee5",
+          "result": {
+            "path": "refs/cube/Q23-1.csv",
+            "sha256": "9f545e1bb1e560d17d560a7b96acea378b585ef09cdb124e2a0c3016809f97d4"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q24",
+      "text_zh": "各产品品类的退货率是多少？",
+      "split": "tuning",
+      "manual_rationale": "约定7固定数量退货率；不是金额率D17。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q24-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q24-1.csv",
+          "sql": "SELECT pc.ProductCategoryName, sum(s.ReturnQuantity) as total_returns, sum(s.SalesQuantity) as total_sales, (sum(s.ReturnQuantity) * 100.0 / nullIf(sum(s.SalesQuantity), 0)) as return_rate_pct FROM retail.FactOnlineSales s LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON s.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey = pc.ProductCategoryKey GROUP BY pc.ProductCategoryName",
+          "sql_sha256": "e30c19b3982d94b0c533071a3f6a37dc518111354705643109c29c98f0252643",
+          "result": {
+            "path": "refs/cube/Q24-1.csv",
+            "sha256": "64c2ee644f464e068ef684a1b85afb5c4999622f50d8972edeb0e6700628d98f"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q25",
+      "text_zh": "在北美，哪个季节的日均销售额最高？",
+      "split": "heldout",
+      "manual_rationale": "约定4/A09/A10固定交易日日均和北美季节字段。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q25-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q25-1.csv",
+          "sql": "SELECT d.NorthAmericaSeason,avg(s.daily_sales) AS avg_daily_sales FROM (SELECT f.DateKey,sum(f.SalesAmount) AS daily_sales FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey WHERE g.ContinentName='North America' GROUP BY f.DateKey) s JOIN retail.DimDate d ON s.DateKey=d.DateKey GROUP BY d.NorthAmericaSeason ORDER BY avg_daily_sales DESC LIMIT 1",
+          "sql_sha256": "d0f1302cbb01572c06ccc1718c916d0bcd7a1c327305f46b66911d43e530439a",
+          "result": {
+            "path": "refs/cube/Q25-1.csv",
+            "sha256": "45233ed05dbc8e4859ec81b8679d384a5e5fc719389a0a34bffa4a9403233bfd"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q26",
+      "text_zh": "2007 年各季度分别有多少客户完成了首次购买？",
+      "split": "tuning",
+      "manual_rationale": "明确首次购买所在季度；D01全局首购，不能改成季度新客90天。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q26-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q26-1.csv",
+          "sql": "WITH first_purchase AS (SELECT CustomerKey, MIN(DateKey) as first_date FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT toQuarter(first_date) as quarter, count() as new_customers FROM first_purchase WHERE toYear(first_date) = 2007 GROUP BY quarter ORDER BY quarter",
+          "sql_sha256": "a8ba0ae98862ee37c9bb28c4c7529e64e574321e069fa76b78d3d57224b35781",
+          "result": {
+            "path": "refs/cube/Q26-1.csv",
+            "sha256": "515bbe55f9998cda8c41c297cc3a2d1b65a316103c497f1d61525f4be7674690"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q27",
+      "text_zh": "按利润率排名，前 10 款产品是哪些？",
+      "split": "tuning",
+      "manual_rationale": "约定9/A13固定产品标价利润率。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q27-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q27-1.csv",
+          "sql": "SELECT ProductName, UnitPrice, UnitCost, ((UnitPrice - UnitCost) * 100.0 / nullIf(UnitPrice, 0)) as margin_pct FROM retail.DimProduct WHERE UnitPrice > 0 ORDER BY margin_pct DESC LIMIT 10",
+          "sql_sha256": "412ea5733b01c1c9d94101a6a3a03f33b98277c842b2a0b13ec39830cb0b3467",
+          "result": {
+            "path": "refs/cube/Q27-1.csv",
+            "sha256": "33adbcf5193d1cc2b8a1ba314f58057e6db25d279531da36c3321a57b732fa1e"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q28",
+      "text_zh": "比较门店渠道和线上渠道的平均单价。",
+      "split": "tuning",
+      "manual_rationale": "A02明确渠道对比用FactSales；A16固定成交均价。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q28-existing-1",
+          "interpretation": "全渠道Store与Online按已有平均单价指标比较",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q28-1.csv",
+          "sql": "SELECT c.ChannelName,sum(f.SalesAmount)/nullIf(sum(f.SalesQuantity),0) AS average_unit_price FROM retail.FactSales f JOIN retail.DimChannel c ON f.channelKey=c.ChannelKey WHERE c.ChannelName IN ('Store','Online') GROUP BY c.ChannelName",
+          "sql_sha256": "7b2bf9ea8ac2d62e12ab9891eaeb4994100e631b32dd7d82b6cf8d1362e9f50f",
+          "result": {
+            "path": "refs/cube/Q28-1.csv",
+            "sha256": "a1e8cab982c3aa355215eb69da477503ab3d9e147eecc22bb7bd48e13facab62"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q29",
+      "text_zh": "节假日相比普通日，销售多或少了百分之多少？",
+      "split": "heldout",
+      "manual_rationale": "约定4/A09比较日均；按非节假日作基数。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q29-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q29-1.csv",
+          "sql": "WITH daily_sales AS (SELECT d.DateKey, d.IsHoliday, sum(s.SalesAmount) as sales FROM retail.FactOnlineSales s JOIN retail.DimDate d ON s.DateKey = d.DateKey GROUP BY d.DateKey, d.IsHoliday), avgs AS (SELECT IsHoliday, avg(sales) as avg_sales FROM daily_sales GROUP BY IsHoliday) SELECT ((h.avg_sales - r.avg_sales) * 100.0 / r.avg_sales) as pct_difference, h.avg_sales - r.avg_sales AS sales_difference_amount\nFROM avgs h, avgs r WHERE h.IsHoliday = 'Yes' AND r.IsHoliday = 'No'",
+          "sql_sha256": "75bd7553907fcce628042d24ca70d732f7f9671045e2b775e8dbaf9089a0c343",
+          "result": {
+            "path": "refs/cube/Q29-1.csv",
+            "sha256": "753a58e0ed5fba768bf9532e91aadd41aac66dbc37f669ee06f982e360bc6093"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q30",
+      "text_zh": "计算 2009 年 12 月每日线上销售额的 7 日移动平均值。",
+      "split": "heldout",
+      "manual_rationale": "未说明展示窗口起点之前的数据是否参与首六天移动平均。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q30-existing-1",
+          "interpretation": "只用12月数据的向后窗口；月初不足7天时按已有天数平均",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q30-1.csv",
+          "sql": "SELECT DateKey, daily_sales, avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as moving_avg_7d FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales WHERE DateKey >= '2009-12-01' AND DateKey <= '2009-12-31' GROUP BY DateKey) ORDER BY DateKey",
+          "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c",
+          "result": {
+            "path": "refs/cube/Q30-1.csv",
+            "sha256": "51d30a3d622eee68a7d9bae9e2a7abc70834d23da3095521610f47ae8369682c"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q30-b1-1",
+          "interpretation": "12月展示，但首6天移动平均包含11月最后6天，始终7个自然日",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH daily AS (SELECT DateKey,sum(SalesAmount) AS daily_sales FROM retail.FactOnlineSales WHERE DateKey BETWEEN toDate('2009-11-25') AND toDate('2009-12-31') GROUP BY DateKey), rolling AS (SELECT DateKey,daily_sales,avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS moving_avg_7d FROM daily) SELECT * FROM rolling WHERE DateKey>=toDate('2009-12-01') ORDER BY DateKey",
+          "sql_sha256": "74b2790c9855e0bc6de303f134337a6d96b9dd2663c14aa5b86a0e1ac406d4df",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q30-b1-1.json",
+            "sha256": "3e60fa927dcb402d8ddcdbffa2fe3667f9f06f71f5158f829956497511f22f1c",
+            "rows": 31
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q31",
+      "text_zh": "比较 2009 年各产品品类的实际销售收入与预算。",
+      "split": "heldout",
+      "manual_rationale": "A14/A15明确销售收入科目Actual和Budget，不改用销售目标表。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q31-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q31-1.csv",
+          "sql": "SELECT pc.ProductCategoryName, if(sp.ScenarioKey=1,'Actual','Budget') AS scenario, sum(sp.Amount) AS sales_amount FROM retail.FactStrategyPlan sp JOIN retail.DimProductCategory pc ON sp.ProductCategoryKey=pc.ProductCategoryKey JOIN retail.DimAccount a ON sp.AccountKey=a.AccountKey WHERE a.AccountName='Sale Revenue' AND toYear(sp.DateKey)=2009 AND sp.ScenarioKey IN (1,2) GROUP BY pc.ProductCategoryName,sp.ScenarioKey",
+          "sql_sha256": "e9c538431e9a282bb5681d6a0ab3b0924fd6abeae636601ff30cbc3b4d81d306",
+          "result": {
+            "path": "refs/cube/Q31-1.csv",
+            "sha256": "5b0ea9e6565a991308d38a4d42f02a40cd64c1b36351137a616da232be30e02a"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q32",
+      "text_zh": "三个年份均有购买的客户，其终身消费价值合计是多少？",
+      "split": "heldout",
+      "manual_rationale": "三年均购买条件及D08终身累计明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q32-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q32-1.csv",
+          "sql": "SELECT count() as customer_count, sum(total_ltv) as total_ltv FROM (SELECT CustomerKey, sum(SalesAmount) as total_ltv FROM retail.FactOnlineSales GROUP BY CustomerKey HAVING count(DISTINCT toYear(DateKey)) = 3)",
+          "sql_sha256": "47011f5cc278adb6b2b25d59892f0030fc914917afe14e407d69e1a5a95252f6",
+          "result": {
+            "path": "refs/cube/Q32-1.csv",
+            "sha256": "0d52c9afc2aad2fc1e0c432bac0b45dde97341e0e6a853ff96ad40d2419dd59d"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q34",
+      "text_zh": "计算 2009 年各产品的库存周转率。",
+      "split": "tuning",
+      "manual_rationale": "A22/A23明确快照日先汇总库存金额后平均。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q34-existing-1",
+          "interpretation": "公司产品粒度：每个快照日先跨店汇总库存金额，再平均；同年公司产品销货成本除以平均库存",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q34-1.csv",
+          "sql": "WITH cogs AS (SELECT ProductKey, sum(TotalCost) as total_cogs FROM retail.FactSales WHERE toYear(DateKey) = 2009 GROUP BY ProductKey), avg_inv AS (SELECT ProductKey, avg(inventory_amount) as avg_inventory FROM (SELECT ProductKey,DateKey,sum(OnHandQuantity * UnitCost) AS inventory_amount FROM retail.FactInventory WHERE toYear(DateKey) = 2009 GROUP BY ProductKey,DateKey) GROUP BY ProductKey) SELECT p.ProductName, coalesce(c.total_cogs, 0) AS total_cogs, a.avg_inventory, (coalesce(c.total_cogs, 0) / nullIf(a.avg_inventory, 0)) as turnover_ratio,a.ProductKey AS ProductKey FROM avg_inv a LEFT JOIN cogs c ON c.ProductKey = a.ProductKey LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON a.ProductKey = p.ProductKey ORDER BY coalesce(c.total_cogs, 0) / nullIf(a.avg_inventory, 0) DESC",
+          "sql_sha256": "63b923d3c8dfbf801423d689cb0dce7ea9a04a093a8337803c3d8355e7c3b93f",
+          "result": {
+            "path": "refs/cube/Q34-1.csv",
+            "sha256": "8822155f68548632f989dd86ca6a1a37e7c577adccb05fe223a9258d11ed5427"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q35",
+      "text_zh": "列出所有员工及其上级经理的姓名。",
+      "split": "heldout",
+      "manual_rationale": "员工及直属经理；H06以18为根的断环规则明确。旧参考保留原始环边，单列可疑。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q35-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": false,
+          "existing_reference": "refs/cube/Q35-1.csv",
+          "sql": "SELECT e.FirstName, e.LastName, e.Title, m.FirstName as manager_first, m.LastName as manager_last FROM retail.DimEmployee e LEFT JOIN retail.DimEmployee m ON e.ParentEmployeeKey = m.EmployeeKey",
+          "sql_sha256": "76f4157cb3c3187987201aba019a70b09f1e803c78c03f92b64edf8f6a9d13df",
+          "result": {
+            "path": "refs/cube/Q35-1.csv",
+            "sha256": "3a4f36eaec00467df907b02634ceca60e5ffcf7d16b151ddb9158a50e9e09e56"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "H06根18没有上级；原SQL直接连接原始18→1环边"
+        },
+        {
+          "id": "Q35-b1-1",
+          "interpretation": "按H06断环后的员工直属上级，根18上级为NULL",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT e.FirstName,e.LastName,e.Title,if(e.EmployeeKey=18,NULL,m.FirstName) AS manager_first,if(e.EmployeeKey=18,NULL,m.LastName) AS manager_last FROM retail.DimEmployee e LEFT JOIN retail.DimEmployee m ON e.ParentEmployeeKey=m.EmployeeKey",
+          "sql_sha256": "689065de379635f8aeae141f1bef3c10230a5149693e023d71b8a0ac861f38f4",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q35-b1-1.json",
+            "sha256": "97630ccf5a1f186b2f73b6e16a5f2a68943ca4d9a8e68ee6958aff70d76aa032",
+            "rows": 293
+          }
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/cube/Q35-1.csv",
+          "reason": "H06根18没有上级；原SQL直接连接原始18→1环边"
+        }
+      ]
+    },
+    {
+      "qid": "Q36",
+      "text_zh": "当前活跃、有流失风险和已流失的客户各有多少人？",
+      "split": "tuning",
+      "manual_rationale": "约定13/A27固定参照日、月数和分层集合。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q36-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q36-1.csv",
+          "sql": "WITH max_date AS (SELECT MAX(DateKey) as data_end FROM retail.FactOnlineSales), customer_last AS (SELECT CustomerKey, MAX(DateKey) as last_purchase FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT CASE WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 6 THEN '活跃' WHEN dateDiff('month', cl.last_purchase, md.data_end) <= 12 THEN '有流失风险' ELSE '已流失' END as segment, count() as customers FROM customer_last cl, max_date md GROUP BY segment",
+          "sql_sha256": "101e80a3c8292d4817346278fa4f4817d10b06837d6275e2565200638cfd3339",
+          "result": {
+            "path": "refs/cube/Q36-1.csv",
+            "sha256": "0717562cf554b00df970ddcff90e574f864c29adad1451e934abaa97939195fd"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q37",
+      "text_zh": "展示各门店的销售总额及其百分位排名。",
+      "split": "heldout",
+      "manual_rationale": "百分位排名未规定用PERCENT_RANK还是累计分布CUME_DIST。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q37-existing-1",
+          "interpretation": "百分位采用PERCENT_RANK：(升序rank-1)/(门店数-1)",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q37-1.csv",
+          "sql": "SELECT s.StoreName, sum(f.SalesAmount) as total_sales, (PERCENT_RANK() OVER (ORDER BY sum(f.SalesAmount)) * 100) as percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey = s.StoreKey GROUP BY s.StoreKey, s.StoreName ORDER BY total_sales DESC",
+          "sql_sha256": "263e02c7ecc4cfe1db7dbdc8a81b98787355216fe40380777138c48dc06fcd36",
+          "result": {
+            "path": "refs/cube/Q37-1.csv",
+            "sha256": "36681fc9a8662d11718d9c787c6ccd3d43300644de9f326ebb625ee7231bf4e4"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q37-b1-1",
+          "interpretation": "百分位采用累计分布：销售额不超过本店的门店占比",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT s.StoreName,sum(f.SalesAmount) AS total_sales,cume_dist() OVER (ORDER BY sum(f.SalesAmount))*100 AS percentile FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName ORDER BY total_sales DESC",
+          "sql_sha256": "01409f08809e19ae9cd344c0dac01fbacd62bf40b2d84047af6cc54824422054",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q37-b1-1.json",
+            "sha256": "14ab3ad61eb2d4fe080403ddbaa0488e43a257f61c7f5d80d3e79e17cf1e9c7c",
+            "rows": 306
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q38",
+      "text_zh": "2009 年第四季度，销售预测与实际相比有多准确？",
+      "split": "tuning",
+      "manual_rationale": "未指定总体还是按品类展示；D31固定准确度公式，不固定展示粒度。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q38-existing-1",
+          "interpretation": "按裁决仅报告准确率=100%-绝对百分比误差",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q38-2.csv",
+          "sql": "WITH actuals AS (SELECT ProductCategoryKey, sum(Amount) as actual FROM retail.FactStrategyPlan WHERE ScenarioKey = 1 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey), forecasts AS (SELECT ProductCategoryKey, sum(Amount) as forecast FROM retail.FactStrategyPlan WHERE ScenarioKey = 3 AND DateKey >= '2009-10-01' AND DateKey <= '2009-12-31' AND AccountKey = 4 GROUP BY ProductCategoryKey) SELECT pc.ProductCategoryName, a.actual, f.forecast, (100.0 - abs(a.actual - f.forecast) * 100.0 / nullIf(a.actual, 0)) as accuracy_pct FROM actuals a JOIN forecasts f ON a.ProductCategoryKey = f.ProductCategoryKey JOIN retail.DimProductCategory pc ON a.ProductCategoryKey = pc.ProductCategoryKey",
+          "sql_sha256": "14bfe190c1667156db4803aa864d20b67afb016943c15d954fd90e5ef92dd90c",
+          "result": {
+            "path": "refs/cube/Q38-2.csv",
+            "sha256": "4634996eda82509b5f992c5732f53983129c7682543b9d3115a23290eb384972"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q38-existing-2",
+          "interpretation": "同一季度总体预测准确率：汇总实际与预测后计算；与按品类展示均可接受",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q38-3.csv",
+          "sql": "WITH actual AS (SELECT sum(Amount) AS actual FROM retail.FactStrategyPlan WHERE ScenarioKey=1 AND DateKey>='2009-10-01' AND DateKey<='2009-12-31' AND AccountKey=4), forecast AS (SELECT sum(Amount) AS forecast FROM retail.FactStrategyPlan WHERE ScenarioKey=3 AND DateKey>='2009-10-01' AND DateKey<='2009-12-31' AND AccountKey=4) SELECT a.actual,f.forecast,100.0-abs(a.actual-f.forecast)*100.0/nullIf(a.actual,0) AS accuracy_pct FROM actual a CROSS JOIN forecast f",
+          "sql_sha256": "fdc6e7bc50ab97361082715686519ae233472bd126845a62a5745eef24b63f9f",
+          "result": {
+            "path": "refs/cube/Q38-3.csv",
+            "sha256": "d295837bfcd6cf2a30a953990c7841ec15b4dda4e3268a1bb4417b83360bbeb7"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q41",
+      "text_zh": "上季度销售额是多少？",
+      "split": "heldout",
+      "manual_rationale": "约定3/A07固定上季度为2009Q4。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q41-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q41-1.csv",
+          "sql": "-- Ambiguous: assuming last quarter of available data (Q4 2009)\nSELECT sum(SalesAmount) FROM retail.FactOnlineSales WHERE DateKey >= '2009-10-01' AND DateKey <= '2009-12-31'",
+          "sql_sha256": "d91d81eeaafb4a292a8b82c228b4bf3121de3eadfe5e8bbeb17b2dff52043e5a",
+          "result": {
+            "path": "refs/cube/Q41-1.csv",
+            "sha256": "5481597382947a91434bcbc6521d1f3942c19d90fcf1c176e6ba5739185a0362"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q43",
+      "text_zh": "按地区展示毛利。",
+      "split": "tuning",
+      "manual_rationale": "裸题地区可有国家或大洲读法；同义词及A39明确地区=国家，B2只认国家。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q43-existing-1",
+          "interpretation": "按客户所在大洲的毛利",
+          "b2_eligible": false,
+          "existing_reference": "refs/cube/Q43-1.csv",
+          "sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.ContinentName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.ContinentName",
+          "sql_sha256": "65df53f0336d75237f56fda5111501cbc4420590e50bd01d2e6eb0b2d57cf942",
+          "result": {
+            "path": "refs/cube/Q43-1.csv",
+            "sha256": "929a4e7b942edca49b82de0ac54224fe88e8b8b85b924005f0037fa4d4074995"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "source.synonyms地区=RegionCountryName；L1plus A39"
+        },
+        {
+          "id": "Q43-existing-2",
+          "interpretation": "按客户所在国家的毛利",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q43-2.csv",
+          "sql": "-- Interpreting gross margin as (SalesAmount - TotalCost), region as continent\nSELECT g.RegionCountryName as region, sum(s.SalesAmount) - sum(s.TotalCost) as gross_margin FROM retail.FactOnlineSales s JOIN retail.DimCustomer c ON s.CustomerKey = c.CustomerKey JOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey GROUP BY g.RegionCountryName",
+          "sql_sha256": "86ee42e9c70de5a491c3510df239dee50e8472aff85191421a3cc1f71db4dd3a",
+          "result": {
+            "path": "refs/cube/Q43-2.csv",
+            "sha256": "ef2f141e4d1962bd9ab2c56a330bc8b8eb74955d63e7eef1a34e0253b730d0a8"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/cube/Q43-1.csv",
+          "reason": "source.synonyms地区=RegionCountryName；L1plus A39"
+        }
+      ]
+    },
+    {
+      "qid": "Q47",
+      "text_zh": "各门店的机器平均停机时长是多少？",
+      "split": "tuning",
+      "manual_rationale": "机器平均可指每次故障平均，也可指店内每台故障设备的累计停机时长平均。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q47-existing-1",
+          "interpretation": "每个门店全部故障事件的DownTime算术平均",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q47-1.csv",
+          "sql": "SELECT s.StoreName, avg(i.DownTime) as avg_downtime_minutes FROM retail.FactITSLA i JOIN retail.DimStore s ON i.StoreKey = s.StoreKey WHERE i.DownTime IS NOT NULL GROUP BY s.StoreKey, s.StoreName ORDER BY avg_downtime_minutes DESC",
+          "sql_sha256": "9cd5f2ff40b0d640f61253989deb0de1f57b3a2746cd7b726cc01c786fac0264",
+          "result": {
+            "path": "refs/cube/Q47-1.csv",
+            "sha256": "44e623ceaae2a9c631802d4d0b04d3c4dd59a43dc29cb1dd769dbca25ba25768"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q47-b1-1",
+          "interpretation": "先按发生故障门店×设备汇总全历史停机，再平均设备累计停机（有故障设备集合）",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH devices AS (SELECT StoreKey,MachineKey,sum(DownTime) AS down FROM retail.FactITSLA GROUP BY StoreKey,MachineKey) SELECT s.StoreName,avg(d.down) AS avg_downtime_minutes FROM devices d JOIN retail.DimStore s ON d.StoreKey=s.StoreKey GROUP BY s.StoreKey,s.StoreName ORDER BY avg_downtime_minutes DESC",
+          "sql_sha256": "b58257e7206ffa7eadb9ff15c9087a4f9e7a405586ff92125fc221b268be1f0d",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q47-b1-1.json",
+            "sha256": "48e1d1814342d9b73d0e97b2eb8a1445fbd429388ea4d1399c536ce47c991284",
+            "rows": 299
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q49",
+      "text_zh": "按组织层级汇总销售收入。",
+      "split": "tuning",
+      "manual_rationale": "组织层级由H05定义；收入Actual/Sale Revenue，逐级上卷而非只给叶子。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q49-existing-1",
+          "interpretation": "实际场景收入沿实体层级汇总，列出各级实体",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q49-2.csv",
+          "sql": "WITH RECURSIVE ancestry AS (SELECT EntityKey AS descendant_key,EntityKey AS ancestor_key,ParentEntityKey FROM retail.DimEntity UNION ALL SELECT a.descendant_key,e.EntityKey AS ancestor_key,e.ParentEntityKey FROM ancestry a JOIN retail.DimEntity e ON a.ParentEntityKey=e.EntityKey WHERE a.ancestor_key!=a.ParentEntityKey), amounts AS (SELECT sp.EntityKey,sum(sp.Amount) AS revenue FROM retail.FactStrategyPlan sp JOIN retail.DimAccount ac ON sp.AccountKey=ac.AccountKey WHERE sp.ScenarioKey=1 AND ac.AccountName='Sale Revenue' GROUP BY sp.EntityKey) SELECT e.EntityKey,e.EntityName,sum(m.revenue) AS total_amount FROM ancestry a JOIN amounts m ON a.descendant_key=m.EntityKey JOIN retail.DimEntity e ON a.ancestor_key=e.EntityKey GROUP BY e.EntityKey,e.EntityName",
+          "sql_sha256": "0be93beab6d6601bb00c86f1dfc9983189d51ec3e34bbd28c0da51b7bdfe8520",
+          "result": {
+            "path": "refs/cube/Q49-2.csv",
+            "sha256": "12dad3e10df7beca72ec779e703f0c33956e00bd156bb50e8aba2d78ed6c8e35"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q50",
+      "text_zh": "2009年同店销售总额比2008年增长了多少？",
+      "split": "tuning",
+      "manual_rationale": "A29固定同店集合，整年比较；金额及百分比按提示展示。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q50-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q50-1.csv",
+          "sql": "WITH stores_both_years AS (SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2008 INTERSECT SELECT DISTINCT StoreKey FROM retail.FactSales WHERE toYear(DateKey) = 2009), sales_2008 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2008 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)), sales_2009 AS (SELECT sum(SalesAmount) as sales FROM retail.FactSales WHERE toYear(DateKey) = 2009 AND StoreKey IN (SELECT StoreKey FROM stores_both_years)) SELECT s9.sales as sales_2009, s8.sales as sales_2008, ((s9.sales - s8.sales) * 100.0 / s8.sales) as growth_pct, s9.sales - s8.sales AS growth_amount FROM sales_2009 s9, sales_2008 s8",
+          "sql_sha256": "b91b32a60d09ca96fe470eed3692e45ad89e0dc170381f8662eb52974f4d2e32",
+          "result": {
+            "path": "refs/cube/Q50-1.csv",
+            "sha256": "4604ed27726c598134353a7fa907b4517b3778504f8c0e80b00a0a0945b0c7da"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q51",
+      "text_zh": "共有多少家门店？",
+      "split": "tuning",
+      "manual_rationale": "A01/A31门店主数据总数含虚拟门店和已关店。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q51-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q51-1.csv",
+          "sql": "SELECT count(*) AS total_stores FROM retail.DimStore",
+          "sql_sha256": "61cb319fc7aebf0db90e147141d20765fabc4539cedd94dafe5841fa87d25593",
+          "result": {
+            "path": "refs/cube/Q51-1.csv",
+            "sha256": "48e2db30b00bd51d3f4583f7111d2bc6796d044a318e56a75a0facbcf43f6a45"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q52",
+      "text_zh": "产品目录中的最高单价是多少？",
+      "split": "heldout",
+      "manual_rationale": "明确产品目录标价最大值；约定9/A16。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q52-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q52-1.csv",
+          "sql": "SELECT max(UnitPrice) AS max_unit_price FROM retail.DimProduct",
+          "sql_sha256": "bdcfc99340f39ac5f1132f2a9502fdc320dc0a182d6a44c2b5dc480b0cf528ed",
+          "result": {
+            "path": "refs/cube/Q52-1.csv",
+            "sha256": "b3529b3db1d02b1335de72c43bcaadb098b96e1adf32fa457fd5c963761d954b"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q53",
+      "text_zh": "2009年总共有多少笔线上订单？",
+      "split": "heldout",
+      "manual_rationale": "约定8/A12去重订单号，含只有退货行的订单。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q53-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q53-1.csv",
+          "sql": "SELECT countDistinct(SalesOrderNumber) AS total_orders FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009",
+          "sql_sha256": "b163d900915879a0084ee11414efb6bbadc569013fb8c32ef775306177bf5525",
+          "result": {
+            "path": "refs/cube/Q53-1.csv",
+            "sha256": "3a85ca5515baf96521a038deebe164deeb789de68a9e8c9ed50d55f1975ce52f"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q54",
+      "text_zh": "线上销售的退货金额合计是多少？",
+      "split": "heldout",
+      "manual_rationale": "线上退货金额求和，不是退货率或净销售。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q54-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q54-1.csv",
+          "sql": "SELECT sum(ReturnAmount) AS total_return_amount FROM retail.FactOnlineSales",
+          "sql_sha256": "c9e21151a6b551fe4cfd9033f5ba36b064091ccf13433b6dfeb2ad6bee6e1074",
+          "result": {
+            "path": "refs/cube/Q54-1.csv",
+            "sha256": "cb434473f2d97388c64215e36a952a2bec5e9eb48fe5f0a6284c2cbeb5b9c1cb"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q55",
+      "text_zh": "客户库中有多少位女性客户？",
+      "split": "tuning",
+      "manual_rationale": "客户维度Gender=F计数。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q55-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q55-1.csv",
+          "sql": "SELECT count(*) AS female_customers FROM retail.DimCustomer WHERE Gender = 'F'",
+          "sql_sha256": "452452d252ae5d083a49c3043bf4ecc5cf40167b445df911389d89717ced8949",
+          "result": {
+            "path": "refs/cube/Q55-1.csv",
+            "sha256": "ded01cb3e54cd4e0935c15e33562b9c28459f83edcc85f3e7a95538ceca22041"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q56",
+      "text_zh": "客户的平均年收入是多少？",
+      "split": "tuning",
+      "manual_rationale": "A36全部客户年收入的算术平均，不剔离群值。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q56-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q56-1.csv",
+          "sql": "SELECT avg(YearlyIncome) AS avg_yearly_income FROM retail.DimCustomer",
+          "sql_sha256": "f9b1301ccc99820cfb9ab24fd6e0b01bd7c4b1e77803c8c35c67007bef65ea96",
+          "result": {
+            "path": "refs/cube/Q56-1.csv",
+            "sha256": "590f4ee5204a766d0f997d9bcefbc60065500a0e23f29177c4fbc67f698d316b"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q57",
+      "text_zh": "我们有多少个不同的产品品牌？",
+      "split": "tuning",
+      "manual_rationale": "产品目录品牌去重计数，不是制造商。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q57-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q57-1.csv",
+          "sql": "SELECT countDistinct(BrandName) AS total_brands FROM retail.DimProduct",
+          "sql_sha256": "21ce3d08797dfeb0dd23ae2be436adb0f8a6ec019b9148e6a33e380a5fe52770",
+          "result": {
+            "path": "refs/cube/Q57-1.csv",
+            "sha256": "e383af9c1b4752b03145ddfb148f256f8380bfbe79f80a50ad0936bb4f071db8"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q58",
+      "text_zh": "历史上金额最大的一笔线上销售是多少？",
+      "split": "tuning",
+      "manual_rationale": "一笔线上销售未明说订单行还是整个订单。约定8仅定义订单，不把销售记录自动等同订单。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q58-existing-1",
+          "interpretation": "一笔销售指一条线上订单行，取行金额最大值",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q58-1.csv",
+          "sql": "SELECT max(SalesAmount) AS max_line_sales_amount FROM retail.FactOnlineSales",
+          "sql_sha256": "263508f2236de652fac4c4f2a5ef4c54a118994364231676946b8b94295e9a47",
+          "result": {
+            "path": "refs/cube/Q58-1.csv",
+            "sha256": "4f281dd5f09fb897d854ff83bd34090bfc2e5f244854a018546eb4dcff749ddc"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q58-b1-1",
+          "interpretation": "一笔销售指整个线上订单，先合并该订单全部行",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT max(amount) AS max_order_sales_amount FROM (SELECT SalesOrderNumber,sum(SalesAmount) AS amount FROM retail.FactOnlineSales GROUP BY SalesOrderNumber)",
+          "sql_sha256": "4af3f58060b9dcfdcedb0c01e69b5900dc3c940f5d02a37dfe4b3092103623a7",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q58-b1-1.json",
+            "sha256": "f1bac04efc7df40c02a7869ff4b1102dd42a1c981eaea3262bec3f6b5604ca53",
+            "rows": 1
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q59",
+      "text_zh": "日历中共有多少个节假日？",
+      "split": "heldout",
+      "manual_rationale": "日历维度全部节假日，A06明确主数据不截到事实区间。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q59-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q59-1.csv",
+          "sql": "SELECT count(*) AS holiday_days FROM retail.DimDate WHERE IsHoliday = 'Yes'",
+          "sql_sha256": "ca594c40be55494d411faad1a6179c7554580aae305f36bdfb6a60831859e693",
+          "result": {
+            "path": "refs/cube/Q59-1.csv",
+            "sha256": "796585831e1f787e3d703cada20b86985f0e5c70e0801a4806ebac93c346c4ef"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q60",
+      "text_zh": "生产部门共有多少名员工？",
+      "split": "tuning",
+      "manual_rationale": "部门名Production筛员工；空集也可回答，不凭职位猜生产人员。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q60-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q60-1.csv",
+          "sql": "SELECT count(*) AS production_employees FROM retail.DimEmployee WHERE DepartmentName = 'Production'",
+          "sql_sha256": "23e4d6d8b35f8527e2373c750ed1b252e73d1815cc9f5daaed54f3c97838c7ce",
+          "result": {
+            "path": "refs/cube/Q60-1.csv",
+            "sha256": "d6606929d0fc03e916a03222140336e5a541e2069b0bcffd4532c1ab40241992"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q61",
+      "text_zh": "2009 年哪些产品子品类的线上销售额超过 100 万美元？",
+      "split": "heldout",
+      "manual_rationale": "子类层、2009、线上金额和严格阈值明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q61-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q61-1.csv",
+          "sql": "SELECT psc.ProductSubcategoryName, sum(f.SalesAmount) AS total_sales FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey WHERE toYear(f.DateKey) = 2009 GROUP BY psc.ProductSubcategoryName HAVING total_sales > 1000000 ORDER BY total_sales DESC",
+          "sql_sha256": "287a1a8a150443ba44eed14a6bacdbd61849bd90fbd1d039bf7ea0a911dce05c",
+          "result": {
+            "path": "refs/cube/Q61-1.csv",
+            "sha256": "a4665c2f5425a2a7016b434105b8af20134fe3f71232f66e3c05b83eef450e05"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q62",
+      "text_zh": "按产品品牌列出 2008 年线上营收和销量，仅保留销量至少 500 件的品牌。",
+      "split": "heldout",
+      "manual_rationale": "品牌层、2008、线上及销量>=500明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q62-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q62-1.csv",
+          "sql": "SELECT p.BrandName, sum(f.SalesAmount) AS revenue, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey WHERE toYear(f.DateKey) = 2008 GROUP BY p.BrandName HAVING units >= 500 ORDER BY revenue DESC",
+          "sql_sha256": "46b961b0aba293d0957a8664fa6caea187e52e795fec9be3fa25233bc66a86ed",
+          "result": {
+            "path": "refs/cube/Q62-1.csv",
+            "sha256": "0d324e03ee09821507ef6e9715a1eaaad54156315dbfe96832c2ced4bf96f686"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q63",
+      "text_zh": "按客户职业统计线上客单价。",
+      "split": "heldout",
+      "manual_rationale": "职业层线上客单价，约定8固定订单分母。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q63-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q63-1.csv",
+          "sql": "SELECT c.Occupation, sum(f.SalesAmount) / nullif(countDistinct(f.SalesOrderNumber), 0) AS avg_order_value, countDistinct(f.SalesOrderNumber) AS orders FROM retail.FactOnlineSales f JOIN retail.DimCustomer c ON f.CustomerKey = c.CustomerKey GROUP BY c.Occupation ORDER BY avg_order_value DESC",
+          "sql_sha256": "a5babb8a345f8593eeca4f875f8e333afa08bd5abcbb632b304a840393bb4cfb",
+          "result": {
+            "path": "refs/cube/Q63-1.csv",
+            "sha256": "32ece7c6fe18bdf3f86d7f20c724dfd932b291c4d33d8db64f908e7000baad60"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q64",
+      "text_zh": "展示 2009 年每月的线上毛利金额和毛利率。",
+      "split": "heldout",
+      "manual_rationale": "约定7/A11固定毛利金额与毛利率；逐月范围明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q64-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q64-1.csv",
+          "sql": "SELECT toMonth(DateKey) AS month, sum(SalesAmount) - sum(TotalCost) AS gross_margin, (sum(SalesAmount) - sum(TotalCost)) * 100.0 / nullif(sum(SalesAmount), 0) AS margin_pct, sum(SalesAmount) AS revenue_amount\nFROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 GROUP BY month ORDER BY month",
+          "sql_sha256": "229cc46cab65e20ba026892248ad52355ca0f666b8a36fd98433c09bf4a05084",
+          "result": {
+            "path": "refs/cube/Q64-1.csv",
+            "sha256": "8d7befb136fff3502fe68b0d453c652bf363ad11313171b6ef92830cebabbec8"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q65",
+      "text_zh": "哪些门店经理管理的门店，其全渠道销售总额超过 500 万美元？",
+      "split": "heldout",
+      "manual_rationale": "可以逐店检查门槛列经理，也可按每位经理所管门店合计后检查门槛。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q65-existing-1",
+          "interpretation": "逐店销售额超过500万美元，逐店列出其经理",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q65-2.csv",
+          "sql": "WITH stores AS (SELECT s.EmployeeKey AS manager_key,StoreName,sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.EmployeeKey,StoreName HAVING total_sales>5000000) SELECT if(e.EmployeeKey=0,NULL,e.FirstName||' '||e.LastName) AS manager_name,s.StoreName,s.total_sales, s.manager_key AS manager_key\nFROM stores s LEFT JOIN retail.DimEmployee e ON s.manager_key=e.EmployeeKey ORDER BY total_sales DESC",
+          "sql_sha256": "2d9885788501bc97c2ceeab23d64d8fe73c4a09ed8cae83ff99074f52c302e81",
+          "result": {
+            "path": "refs/cube/Q65-2.csv",
+            "sha256": "50fe549e2fbcc00c20c8e95ec6e40684c91a7005a8a48a0c6c47ebe8182ca33b"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q65-b1-1",
+          "interpretation": "按每位经理管理的门店合计判断500万美元，列经理及其门店合计",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH managers AS (SELECT s.EmployeeKey,sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.EmployeeKey HAVING total_sales>5000000) SELECT m.EmployeeKey,if(e.EmployeeKey=0,NULL,concat(e.FirstName,' ',e.LastName)) AS manager_name,m.total_sales FROM managers m LEFT JOIN retail.DimEmployee e ON m.EmployeeKey=e.EmployeeKey ORDER BY total_sales DESC",
+          "sql_sha256": "692b5dd98873f53a6a9766d23a4d421a667263b53b0fb8b3455494ee7c7987dd",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q65-b1-1.json",
+            "sha256": "ce725b2f7a90d8c2c3c93ae1fd71a09a7e49997163a7e4012f7ed00a49bb2b0a",
+            "rows": 260
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q66",
+      "text_zh": "2009年各季度累计提供了多少折扣金额？",
+      "split": "tuning",
+      "manual_rationale": "各季度累计可指各季合计，或各季末年初至今累计；未说逐季累计。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q66-existing-1",
+          "interpretation": "每个季度各自合计折扣金额，不跨季累计",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q66-1.csv",
+          "sql": "SELECT toQuarter(DateKey) AS quarter, sum(DiscountAmount) AS total_discount FROM retail.FactOnlineSales WHERE toYear(DateKey) = 2009 AND PromotionKey <> 1 GROUP BY quarter ORDER BY quarter",
+          "sql_sha256": "89bbdd9badab52be6ff5cb2d0a74824db949c9a007e67f8c02b11809c89b7fa4",
+          "result": {
+            "path": "refs/cube/Q66-1.csv",
+            "sha256": "96798a57b1db967c21694405416414abeaee2a948d5fe4749f1c92786f9704ab"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q66-b1-1",
+          "interpretation": "各季末从2009年初累计的折扣金额",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT toQuarter(DateKey) AS quarter,sum(sum(DiscountAmount)) OVER (ORDER BY toQuarter(DateKey)) AS total_discount FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 AND PromotionKey<>1 GROUP BY quarter ORDER BY quarter",
+          "sql_sha256": "0836e33e4f7ad58c288631590f3cea29feae4fc05c2479c6481003fe51e482f9",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q66-b1-1.json",
+            "sha256": "955df677a5cc8e5f64484c0da1950a12fe97b3046da231c81f76b3684e0fc674",
+            "rows": 4
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q67",
+      "text_zh": "仅考虑销量至少 1000 件的产品颜色，按线上实际成交均价从高到低列出各颜色。",
+      "split": "heldout",
+      "manual_rationale": "题面明确成交均价、销量门槛、线上；A36颜色不合并大小写。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q67-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q67-1.csv",
+          "sql": "SELECT p.ColorName, sum(f.SalesAmount) / nullif(sum(f.SalesQuantity), 0) AS avg_realized_price, sum(f.SalesQuantity) AS units FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey GROUP BY p.ColorName HAVING units >= 1000 ORDER BY avg_realized_price DESC",
+          "sql_sha256": "f6a9ab1cb3438e754434bf3658a3df749fe5fc2f40999eac676fac1951940991",
+          "result": {
+            "path": "refs/cube/Q67-1.csv",
+            "sha256": "0fb70c0df69871d493c25e69c6082a2d1a1d2462ce24101d43cc9e6521c4f1ba"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q68",
+      "text_zh": "2009 年节假日和非节假日分别有多少笔线上订单、多少营收？",
+      "split": "tuning",
+      "manual_rationale": "明确节假日分组的订单数和收入，不是日均。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q68-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q68-1.csv",
+          "sql": "SELECT d.IsHoliday, countDistinct(f.SalesOrderNumber) AS orders, sum(f.SalesAmount) AS revenue FROM retail.FactOnlineSales f JOIN retail.DimDate d ON f.DateKey = d.DateKey WHERE toYear(f.DateKey) = 2009 GROUP BY d.IsHoliday",
+          "sql_sha256": "94eba87889513422b2da2a837f8286511f45f079a38f5661530f07ff8e2c6f01",
+          "result": {
+            "path": "refs/cube/Q68-1.csv",
+            "sha256": "a73925d33216c1905e588c6e63d4259153a59b1caf6bb78bfc0a231aceaa2c4e"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q69",
+      "text_zh": "哪个促销类别带来的线上促销营收最高？其平均折扣比例是多少？",
+      "split": "tuning",
+      "manual_rationale": "A17固定折前金额加权折扣率，不能另选促销主表折扣率平均。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q69-existing-1",
+          "interpretation": "折前金额加权实际折扣率，须声明权重",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q69-1.csv",
+          "sql": "SELECT pr.PromotionCategory, sum(f.SalesAmount) AS revenue, sum(f.DiscountAmount) AS total_discount, sum(f.DiscountAmount) * 100.0 / nullif(sum(f.SalesAmount + f.DiscountAmount), 0) AS avg_discount_pct, sum(f.SalesAmount+f.DiscountAmount) AS original_sales_amount\nFROM retail.FactOnlineSales f JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey WHERE f.PromotionKey <> 1 GROUP BY pr.PromotionCategory ORDER BY revenue DESC",
+          "sql_sha256": "f6c9933039e04c793ee946f778a690a5b9b568e1e5b0649f5914dd56a023e0cd",
+          "result": {
+            "path": "refs/cube/Q69-1.csv",
+            "sha256": "b18416a5fe2c5dc2da36aac40f29bbe49215fe5d7f3375d05a5122441eda3212"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q70",
+      "text_zh": "按门店类型统计全渠道销售总额和平均营业面积。",
+      "split": "tuning",
+      "manual_rationale": "销售与面积各自汇总；A36每家门店一次的算术平均，不能事实连接后加权。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q70-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q70-1.csv",
+          "sql": "WITH store_sales AS (SELECT StoreKey,sum(SalesAmount) AS revenue FROM retail.FactSales GROUP BY StoreKey) SELECT s.StoreType,sum(coalesce(f.revenue,0)) AS revenue,avg(s.SellingAreaSize) AS avg_area,count() AS stores FROM retail.DimStore s LEFT JOIN store_sales f ON s.StoreKey=f.StoreKey GROUP BY s.StoreType ORDER BY revenue DESC",
+          "sql_sha256": "6dfa3daa4f832880a8d3e0f3af321b6d38cf8d499ef0162935bfd9633ab6f6dc",
+          "result": {
+            "path": "refs/cube/Q70-1.csv",
+            "sha256": "6961370750cf4676ea365d66c9635f9f98da6b24c3f7a9a4ef82da89a8bd9616"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q71",
+      "text_zh": "2009 年每个产品品类中，哪个子品类的线上销售额最高？金额是多少？",
+      "split": "tuning",
+      "manual_rationale": "品类内最高子类；D18并列政策，不等于另一个业务理解。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q71-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q71-1.csv",
+          "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, (sales) AS sales_amount\nFROM ranked\nWHERE subcategory IS NOT NULL\nORDER BY sales_amount DESC",
+          "sql_sha256": "94d56e4d5693b000ca6b099a30dce166f56853d61c1cab6af5b2531bb5dc3fd0",
+          "result": {
+            "path": "refs/cube/Q71-1.csv",
+            "sha256": "e403b18c8094873229c67512e33964145f3809943fedcebe11e7792904264ba3"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q72",
+      "text_zh": "展示 2007—2009 年按季度累计的线上销售额。",
+      "split": "tuning",
+      "manual_rationale": "季度累计可跨2007—2009连续累计，也可每年重置年初至今。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q72-existing-1",
+          "interpretation": "从2007年起至当前季度跨年连续累计",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q72-1.csv",
+          "sql": "SELECT toYear(DateKey) AS year, toQuarter(DateKey) AS quarter,\n       (sum(SalesAmount)) AS quarterly_sales,\n       (sum(sum(SalesAmount)) OVER (ORDER BY toYear(DateKey), toQuarter(DateKey) ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)) AS cumulative_sales\nFROM retail.FactOnlineSales\nGROUP BY year, quarter\nORDER BY year, quarter",
+          "sql_sha256": "352354a0c4daf20ec89c32901b23ce38e86fb938114b249f8a18b27cedba2072",
+          "result": {
+            "path": "refs/cube/Q72-1.csv",
+            "sha256": "48e14899f2a4c2d0ef8685734e44cce048946bfba3a157665f3f98737d6c1448"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q72-b1-1",
+          "interpretation": "2007—2009分别在每年年初重置，逐季展示本年累计",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT toYear(DateKey) AS year,toQuarter(DateKey) AS quarter,sum(SalesAmount) AS quarterly_sales,sum(sum(SalesAmount)) OVER (PARTITION BY toYear(DateKey) ORDER BY toQuarter(DateKey)) AS cumulative_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) BETWEEN 2007 AND 2009 GROUP BY year,quarter ORDER BY year,quarter",
+          "sql_sha256": "625b27e5137a6c0e2e4ec7e8358a0a2dc68096f0f49e421ce70076167e1d8c99",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q72-b1-1.json",
+            "sha256": "70f19351c4c6a4b4c9daa56414f837da2ad31335d9c2a7134fde0870868089d0",
+            "rows": 12
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q73",
+      "text_zh": "当前库存与安全库存的差额最大的 10 款产品是哪些？",
+      "split": "tuning",
+      "manual_rationale": "差额未明确方向，可能指库存减安全库存、安全库存减库存或绝对差。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q73-existing-1",
+          "interpretation": "当前在手库存减安全库存，取正向差额最大10款",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q73-1.csv",
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey = p.ProductKey\nGROUP BY i.ProductKey,p.ProductName\nORDER BY gap DESC\nLIMIT 10",
+          "sql_sha256": "e13993334fbcc7bd1766f73d9b3548260be27e958e7b8931f4628ede82044bbe",
+          "result": {
+            "path": "refs/cube/Q73-1.csv",
+            "sha256": "31f28418f3b98edfd14a016e81005c41986675b82b1efd5d2c93cbdc17f15765"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q73-b1-1",
+          "interpretation": "差额指安全库存减当前库存（缺口），取缺口最大10产品",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       sum(i.SafetyStockQuantity) - sum(i.OnHandQuantity) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey = p.ProductKey\nGROUP BY i.ProductKey,p.ProductName\nORDER BY gap DESC\nLIMIT 10",
+          "sql_sha256": "994425c3664f7533ca99dad85d537de14b4c7db9c2ac6753d6601490358852dc",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q73-b1-1.json",
+            "sha256": "74e01e01335d26df829d3133d5a4692401b676cbfb463b463b84e9ed1f15f22e",
+            "rows": 10
+          }
+        },
+        {
+          "id": "Q73-b1-2",
+          "interpretation": "差额指当前库存与安全库存的绝对差，取绝对差最大10产品",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory\n  GROUP BY StoreKey, ProductKey\n)\nSELECT p.ProductName,\n       sum(i.OnHandQuantity) AS total_on_hand,\n       sum(i.SafetyStockQuantity) AS total_safety,\n       abs(sum(i.OnHandQuantity) - sum(i.SafetyStockQuantity)) AS gap\nFROM retail.FactInventory i\nJOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON i.ProductKey = p.ProductKey\nGROUP BY i.ProductKey,p.ProductName\nORDER BY gap DESC\nLIMIT 10",
+          "sql_sha256": "3da7cc550b6ca42bfdaa2e7eb2fc00f99a739e32b231f835da373e07ac282023",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q73-b1-2.json",
+            "sha256": "fe3a990a751ae99a2edc983c84b7e73d935f923bf3c11e94f0509a3a3b59131a",
+            "rows": 10
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q74",
+      "text_zh": "按门店列出 2009 年销售额排名前 3 的产品，以及各产品占该门店销售总额的比例。",
+      "split": "tuning",
+      "manual_rationale": "门店内产品前3，A21完整门店销售分母。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q74-existing-1",
+          "interpretation": "全渠道每店前3产品，完整事实门店总额作分母；缺名产品按键保留，完整量化边界",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q74-1.csv",
+          "sql": "WITH sales AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), totals AS (SELECT StoreKey,sum(product_sales) AS store_total FROM sales GROUP BY StoreKey) SELECT f.StoreKey AS StoreKey,s.StoreName AS StoreName,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,f.product_sales AS product_sales,f.product_sales*100.0/nullIf(t.store_total,0) AS pct_of_store,f.ProductKey AS ProductKey, t.store_total AS store_total_sales\nFROM sales f JOIN totals t ON f.StoreKey=t.StoreKey JOIN retail.DimStore s ON f.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey",
+          "sql_sha256": "64d05736c8ab7cc3f0cbaa7eb361ab41e352702b567bc5aaa3587772b769cd78",
+          "result": {
+            "path": "refs/cube/Q74-1.csv",
+            "sha256": "07a929437b64a5c4e0afb18858d47af91069baaf9b90f221bc1fbba8580817fa"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q75",
+      "text_zh": "哪些客户 2009 年的消费额比 2008 年增长了 50% 以上？",
+      "split": "tuning",
+      "manual_rationale": "两年消费比较、严格超过50%；A08零基数为NULL。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q75-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q75-1.csv",
+          "sql": "WITH yearly AS (\n  SELECT CustomerKey,\n         sumIf(SalesAmount, toYear(DateKey) = 2008) AS y2008,\n         sumIf(SalesAmount, toYear(DateKey) = 2009) AS y2009\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName, c.LastName,\n       (y.y2008) AS spend_2008,\n       (y.y2009) AS spend_2009,\n       ((y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0)) AS pct_growth, y.CustomerKey AS CustomerKey\nFROM yearly y\nJOIN retail.DimCustomer c ON y.CustomerKey = c.CustomerKey\nWHERE y.y2008 > 0 AND (y.y2009 - y.y2008) / nullif(y.y2008, 0) > 0.5\nORDER BY (y.y2009 - y.y2008) * 100.0 / nullif(y.y2008, 0) DESC",
+          "sql_sha256": "abda3d97efedbac09d9d99a1c394a3b30a6a65b5db653cef47f1c71e1c1ebd45",
+          "result": {
+            "path": "refs/cube/Q75-1.csv",
+            "sha256": "21e6f14e0ecf6c38cac9c0b227c29c84f4028296b67f2df189060de94690fbdb"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q76",
+      "text_zh": "各产品品类的线上销售额中，有多少比例来自回头客（下过至少 2 笔订单的客户）？",
+      "split": "tuning",
+      "manual_rationale": "回头客的两单可以在全目录内认定，也可以在当前品类内认定；D05规定时间窗口但未固定品类作用域。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q76-existing-1",
+          "interpretation": "客户全目录累计至少两笔线上订单，须声明粒度；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q76-1.csv",
+          "sql": "WITH cust_orders AS (\n  SELECT CustomerKey, countDistinct(SalesOrderNumber) AS n_orders\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT pc.ProductCategoryName AS category,\n       (sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0)) AS pct_repeat_customer_sales, sumIf(f.SalesAmount,co.n_orders>=2) AS repeat_sales_amount, sum(f.SalesAmount) AS category_sales_amount\nFROM retail.FactOnlineSales f\nJOIN cust_orders co ON f.CustomerKey = co.CustomerKey\nLEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\nLEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\nLEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY category\nORDER BY sumIf(f.SalesAmount, co.n_orders >= 2) * 100.0 / nullif(sum(f.SalesAmount), 0) DESC",
+          "sql_sha256": "57b8cf33cfd67fc745dee42fdabb3f4f35461cb63e30645e699b530102b9857a",
+          "result": {
+            "path": "refs/cube/Q76-1.csv",
+            "sha256": "599e40406fe0f3d1b4d507a57735245107a7aec2b0cac0c66fecf0fd528c5100"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q76-existing-2",
+          "interpretation": "在该品类内至少两笔线上订单的回头客，须声明粒度；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q76-2.csv",
+          "sql": "WITH tagged AS (SELECT f.CustomerKey AS CustomerKey,f.SalesOrderNumber AS SalesOrderNumber,f.SalesAmount AS SalesAmount,pc.ProductCategoryKey AS ProductCategoryKey,pc.ProductCategoryName AS ProductCategoryName FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey=p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey=pc.ProductCategoryKey), counts AS (SELECT CustomerKey,ProductCategoryKey,countDistinct(SalesOrderNumber) AS orders FROM tagged GROUP BY CustomerKey,ProductCategoryKey) SELECT t.ProductCategoryName AS category,sumIf(t.SalesAmount,c.orders>=2)*100.0/nullIf(sum(t.SalesAmount),0) AS pct_repeat_customer_sales, sumIf(t.SalesAmount,c.orders>=2) AS repeat_sales_amount, sum(t.SalesAmount) AS category_sales_amount\nFROM tagged t JOIN counts c ON t.CustomerKey=c.CustomerKey AND t.ProductCategoryKey=c.ProductCategoryKey GROUP BY category ORDER BY pct_repeat_customer_sales DESC",
+          "sql_sha256": "d92d2b63521e69d612b44719c567b3528dd60dcebf2bd1502db15f7e8c35bddf",
+          "result": {
+            "path": "refs/cube/Q76-2.csv",
+            "sha256": "88187507cfc60e39ebb185f95593bc16f90184ad2f77b26da24664c5eb8eb6f4"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q77",
+      "text_zh": "计算 2009 年各月线上销售额的环比增长率。",
+      "split": "heldout",
+      "manual_rationale": "A08固定前一个月，一月要比较2008年12月，不接受窗口内缺基期。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q77-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q77-1.csv",
+          "sql": "WITH monthly AS (SELECT toStartOfMonth(DateKey) AS month_date,sum(SalesAmount) AS raw_sales FROM retail.FactOnlineSales WHERE DateKey>=toDate('2008-12-01') AND DateKey<toDate('2010-01-01') GROUP BY month_date), growth AS (SELECT month_date,raw_sales,lagInFrame(raw_sales) OVER (ORDER BY month_date ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS raw_previous FROM monthly) SELECT toMonth(month_date) AS month,(raw_sales) AS sales,(raw_previous) AS prev_month_sales,((raw_sales-raw_previous)*100.0/nullIf(raw_previous,0)) AS mom_growth_pct, raw_sales - raw_previous AS mom_change_amount\nFROM growth WHERE toYear(month_date)=2009 ORDER BY month_date",
+          "sql_sha256": "33aedd2d83009742cda8e38fe6369099caf4dadafad830052052e1a573d0981e",
+          "result": {
+            "path": "refs/cube/Q77-1.csv",
+            "sha256": "8900c914167b847d3a841fa41c77b9de1b55a34974b91df5116d1aaeb367ed22"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q78",
+      "text_zh": "按 2009 年折扣金额合计给促销类别排名，并展示各类别占全部折扣金额的比例。",
+      "split": "tuning",
+      "manual_rationale": "明确折扣金额排位和完整折扣分母；约定10排无折扣。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q78-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q78-1.csv",
+          "sql": "WITH promo AS (\n  SELECT pr.PromotionCategory AS category, sum(f.DiscountAmount) AS disc\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimPromotion pr ON f.PromotionKey = pr.PromotionKey\n  WHERE f.PromotionKey != 1 AND toYear(f.DateKey) = 2009\n  GROUP BY category\n)\nSELECT category,\n       (disc) AS discount_total,\n       rank() OVER (ORDER BY disc DESC) AS rnk,\n       (disc * 100.0 / nullif(sum(disc) OVER (), 0)) AS pct_of_total, sum(disc) OVER () AS total_discount_amount\nFROM promo\nORDER BY rnk",
+          "sql_sha256": "63d873b544a9e112c34c8f6b130359fcd93df70e2143886e79a66587ff0ba5d0",
+          "result": {
+            "path": "refs/cube/Q78-1.csv",
+            "sha256": "6ce3cabc1bfe3711b401aa64840fcd61e17b9a3022992e9df951b5e9710e4294"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q79",
+      "text_zh": "2009 年销售目标达成率最高的 10 家门店是哪些？",
+      "split": "heldout",
+      "manual_rationale": "约定12/A26正式预算目标、整年比值；并列按D18。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q79-existing-1",
+          "interpretation": "预算场景目标达成率，取前10名并保留边界并列",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q79-1.csv",
+          "sql": "WITH actuals AS (\n  SELECT StoreKey, sum(SalesAmount) AS actual_sales\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nquotas AS (\n  SELECT StoreKey, sum(SalesAmountQuota) AS quota\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n)\nSELECT s.StoreName,\n       (a.actual_sales) AS actual_sales,\n       (q.quota) AS quota,\n       (a.actual_sales * 100.0 / nullif(q.quota, 0)) AS attainment_pct\nFROM actuals a\nJOIN quotas q ON a.StoreKey = q.StoreKey\nJOIN retail.DimStore s ON a.StoreKey = s.StoreKey\nWHERE q.quota > 0\nORDER BY attainment_pct DESC\nLIMIT 10",
+          "sql_sha256": "22c600048b08bf1561ef48d0e9bc71e237ff5ee3cd8eaa81cd2ee86b6c028ed0",
+          "result": {
+            "path": "refs/cube/Q79-1.csv",
+            "sha256": "746d17cdae7593535e196d1f0cfeadecb982ee9497fed390edd1e77123dbecc2"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q80",
+      "text_zh": "按国家统计，客户从首次购买到最近一次购买平均相隔多少天？",
+      "split": "tuning",
+      "manual_rationale": "客户首末购相隔自然天，按国家平均；A12/D01/D02。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q80-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q80-1.csv",
+          "sql": "WITH cust AS (\n  SELECT CustomerKey, MIN(DateKey) AS first_d, MAX(DateKey) AS last_d\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT g.RegionCountryName AS country,\n       count(*) AS n_customers,\n       (avg(dateDiff('day', cust.first_d, cust.last_d))) AS avg_active_days\nFROM cust\nJOIN retail.DimCustomer c ON cust.CustomerKey = c.CustomerKey\nJOIN retail.DimGeography g ON c.GeographyKey = g.GeographyKey\nGROUP BY country\nORDER BY avg(dateDiff('day', cust.first_d, cust.last_d)) DESC",
+          "sql_sha256": "8ebb02be6832a22f408fe31465fa536e7bdba78e65d6db0dd6b96eb63d5f7f67",
+          "result": {
+            "path": "refs/cube/Q80-1.csv",
+            "sha256": "43452500f4bcdd4365d29288dd59c4d837635c05fffdda3a6cabd1ce06ce880d"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q81",
+      "text_zh": "按客户首次购买的年份分组，计算每组平均终身消费价值，并列出客户数。",
+      "split": "tuning",
+      "manual_rationale": "全局首购年队列、D08客户终身消费平均和人数明确。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q81-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q81-1.csv",
+          "sql": "WITH first_purchase AS (\n  SELECT CustomerKey, toYear(MIN(DateKey)) AS cohort_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\ncustomer_spend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS lifetime_spend\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\njoined AS (\n  SELECT f.cohort_year, c.lifetime_spend\n  FROM first_purchase f\n  JOIN customer_spend c USING (CustomerKey)\n)\nSELECT cohort_year,\n       count() AS customers_in_cohort,\n       (avg(lifetime_spend)) AS avg_ltv,\n       (sum(lifetime_spend)) AS total_ltv\nFROM joined\nGROUP BY cohort_year\nORDER BY cohort_year",
+          "sql_sha256": "9814d5682f277b737cd81351673e58c9b82c44285dd89d4ce7057b96baaae8c4",
+          "result": {
+            "path": "refs/cube/Q81-1.csv",
+            "sha256": "2c6dd1999c834c8379ac2d51c4b85dc2b88165afcc5144354101a21298e8983a"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q82",
+      "text_zh": "对每位有直属下属的经理，列出其直属下属人数和团队平均入职年限。",
+      "split": "tuning",
+      "manual_rationale": "人数明确直属；团队年限可能只指直属成员，也可指含经理的直属团队，或全部下属；均遵H06断环。旧参考未断环。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q82-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": false,
+          "existing_reference": "refs/cube/Q82-1.csv",
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       (r.avg_tenure_years) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
+          "sql_sha256": "959d4478561020a1ed5ab6058b6a1d4adfd5a412ea85c1ca46527906901744cd",
+          "result": {
+            "path": "refs/cube/Q82-1.csv",
+            "sha256": "cec18daedd830b001f9c2b2df4e0ab43b9b113b7b0fae616af2edccefa71fb25"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "H06以员工18为根，不把18算作1的下属"
+        },
+        {
+          "id": "Q82-b1-1",
+          "interpretation": "直属下属人数；团队平均仅含直属下属，按H06去掉18→1环边",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE EmployeeKey!=18 AND ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       (r.avg_tenure_years) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
+          "sql_sha256": "e05d90f09a3b7fc6c875ca02f417d41369e155033b7ceff5578d98edb72bb941",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q82-b1-1.json",
+            "sha256": "10211af73d261ab2831d4fa1ae3d2523f7de68eab0d831fd42976757de716955",
+            "rows": 11
+          }
+        },
+        {
+          "id": "Q82-b1-2",
+          "interpretation": "直属下属人数；直属团队平均含经理本人，按H06断环",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH edges AS (SELECT EmployeeKey,ParentEmployeeKey FROM retail.DimEmployee WHERE EmployeeKey!=18), managers AS (SELECT ParentEmployeeKey AS manager,count() AS direct_reports FROM edges GROUP BY manager), members AS (SELECT ParentEmployeeKey AS manager,EmployeeKey AS member FROM edges UNION ALL SELECT manager,manager AS member FROM managers) SELECT m.EmployeeKey,concat(m.FirstName,' ',m.LastName) AS manager_name,r.direct_reports,avg(dateDiff('day',toDate(e.HireDate),toDate('2009-12-31'))/365.25) AS avg_team_tenure_years FROM members x JOIN retail.DimEmployee e ON x.member=e.EmployeeKey JOIN retail.DimEmployee m ON x.manager=m.EmployeeKey JOIN managers r ON r.manager=x.manager GROUP BY m.EmployeeKey,manager_name,r.direct_reports ORDER BY r.direct_reports DESC,manager_name",
+          "sql_sha256": "ab8a9d49d8526c4d555fee08379cf9a3d261d99a3d295785e9bd139dc3720d63",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q82-b1-2.json",
+            "sha256": "29738c420d45a61d2b026986d0544afec4c312c0d6faa29f75b8a7fdf73bce73",
+            "rows": 11
+          }
+        },
+        {
+          "id": "Q82-b1-3",
+          "interpretation": "直属下属人数；团队平均含全部层级下属但不含经理，按H06断环",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH RECURSIVE edges AS (SELECT EmployeeKey,ParentEmployeeKey FROM retail.DimEmployee WHERE EmployeeKey!=18), descendants AS (SELECT ParentEmployeeKey AS manager,EmployeeKey AS member FROM edges UNION ALL SELECT d.manager,e.EmployeeKey FROM descendants d JOIN edges e ON e.ParentEmployeeKey=d.member), counts AS (SELECT ParentEmployeeKey AS manager,count() AS direct_reports FROM edges GROUP BY manager) SELECT m.EmployeeKey,concat(m.FirstName,' ',m.LastName) AS manager_name,c.direct_reports,avg(dateDiff('day',toDate(e.HireDate),toDate('2009-12-31'))/365.25) AS avg_team_tenure_years FROM descendants d JOIN retail.DimEmployee e ON d.member=e.EmployeeKey JOIN retail.DimEmployee m ON d.manager=m.EmployeeKey JOIN counts c ON c.manager=d.manager GROUP BY m.EmployeeKey,manager_name,c.direct_reports ORDER BY c.direct_reports DESC,manager_name",
+          "sql_sha256": "90fdd42df088eeacb3c844a9035d05116028973dfd388e2a54d840907e90fe47",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q82-b1-3.json",
+            "sha256": "f42f3da8cf6037b39339f82741dbcfafce60656f7dd62b0ec49edaee84f80d92",
+            "rows": 11
+          }
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/cube/Q82-1.csv",
+          "reason": "H06以员工18为根，不把18算作1的下属"
+        }
+      ]
+    },
+    {
+      "qid": "Q83",
+      "text_zh": "看客户的逐年留存：2007 年首次购买的客户中，有多少在 2008 年回购？这些人中又有多少在 2009 年再次购买？",
+      "split": "heldout",
+      "manual_rationale": "题面逐层限定2008回购者中2009再回购，不是每年独立留存率。D04。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q83-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q83-1.csv",
+          "sql": "WITH counted AS (WITH first_yr AS (SELECT CustomerKey,toYear(min(DateKey)) AS first_year FROM retail.FactOnlineSales GROUP BY CustomerKey), activity AS (SELECT CustomerKey,max(toYear(DateKey)=2008) AS in_2008,max(toYear(DateKey)=2009) AS in_2009 FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT count() AS cohort_size_2007,countIf(a.in_2008) AS returned_2008,countIf(a.in_2008 AND a.in_2009) AS returned_2008_and_2009 FROM first_yr f JOIN activity a ON f.CustomerKey=a.CustomerKey WHERE f.first_year=2007) SELECT toUInt16(2007) AS cohort_year, toUInt16(tupleElement(stage,1)) AS activity_year, tupleElement(stage,2) AS customers FROM counted ARRAY JOIN [(2007,cohort_size_2007),(2008,returned_2008),(2009,returned_2008_and_2009)] AS stage",
+          "sql_sha256": "3e5f2b8ec2cffdf896122ec3ce07a75796bb91c5607cdcf4a480854334a9fb48",
+          "result": {
+            "path": "refs/cube/Q83-1.csv",
+            "sha256": "49becb6b023ece4840d6a101be6128237819f78e68f340b8200ad0d11ed74f67"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q84",
+      "text_zh": "对 2009 年产品营收做 ABC 分析：A 类占营收前 80%，B 类占接下来的 15%，C 类占其余 5%；报告各类产品数量。",
+      "split": "heldout",
+      "manual_rationale": "题面ABC跨界组可前后累计；D19明确加入后累计，因此前累计参考只记可疑，不进入B2。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q84-existing-1",
+          "interpretation": "同额组整体归类，以组加入前的累计占比划分80%/95%边界；SQL取产品收入域",
+          "b2_eligible": false,
+          "existing_reference": "refs/cube/Q84-1.csv",
+          "sql": "SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey",
+          "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+          "result": {
+            "path": "refs/cube/Q84-1.csv",
+            "sha256": "0b9d9a13c6a8604b1433df4edfb30bacd506f1a78e88129de26269081665c831"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "L1plus D19加入后累计归类",
+          "answer_sql": "WITH amounts AS (SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey), shares AS (SELECT *,sum(revenue) OVER (ORDER BY revenue DESC RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum,sum(revenue) OVER (PARTITION BY revenue) AS group_amount,sum(revenue) OVER () AS total FROM amounts), classified AS (SELECT *,multiIf((cum-group_amount)/total<=0.8,'A',(cum-group_amount)/total<=0.95,'B','C') AS abc_class FROM shares) SELECT abc_class,count() AS product_count,sum(c.revenue) AS revenue,sum(c.revenue)*100.0/any(total) AS pct_of_revenue,any(total) AS total_revenue_amount FROM classified c GROUP BY abc_class ORDER BY abc_class",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q84-existing-1.json",
+            "sha256": "8aba80646d2e9bbbe6c6d70794a7fe39bcf070717c57dc6a8f688033a9b06f70",
+            "rows": 3
+          },
+          "answer_sql_sha256": "32184a1ac22fb6086fed75303998e1ca8be75019cd53b0e3ac4d11d39ffa9bda"
+        },
+        {
+          "id": "Q84-existing-2",
+          "interpretation": "问法歧义：同额组整体归类，以加入后的累计占比划分80%/95%边界",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q84-2.csv",
+          "sql": "SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey",
+          "sql_sha256": "7bfd06e87945edc72fca27538a1af0dd3f17c3418bfd17e6853b60de1a92eb97",
+          "result": {
+            "path": "refs/cube/Q84-2.csv",
+            "sha256": "65caf4a001a2c3c7a939927b17756c43a000147b955da6b90dd9300ac11408eb"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "answer_sql": "WITH amounts AS (SELECT ProductKey,sum(SalesAmount) AS revenue FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY ProductKey), shares AS (SELECT *,sum(revenue) OVER (ORDER BY revenue DESC RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cum,sum(revenue) OVER (PARTITION BY revenue) AS group_amount,sum(revenue) OVER () AS total FROM amounts), classified AS (SELECT *,multiIf((cum)/total<=0.8,'A',(cum)/total<=0.95,'B','C') AS abc_class FROM shares) SELECT abc_class,count() AS product_count,sum(c.revenue) AS revenue,sum(c.revenue)*100.0/any(total) AS pct_of_revenue,any(total) AS total_revenue_amount FROM classified c GROUP BY abc_class ORDER BY abc_class",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q84-existing-2.json",
+            "sha256": "30724286f7e576bb71611ca21cfa852a249f556874c212cc992ce98a1b5fe0b1",
+            "rows": 3
+          },
+          "answer_sql_sha256": "b21515c6190368be096531f72e93845ee44df2df4262526387c47fe340007b3e"
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/cube/Q84-1.csv",
+          "reason": "L1plus D19加入后累计归类"
+        }
+      ]
+    },
+    {
+      "qid": "Q85",
+      "text_zh": "2009年各门店的销售目标达成率是多少？列出最高和最低的各5家门店。",
+      "split": "heldout",
+      "manual_rationale": "A26整年正式目标比值；两端各5，NULL不具备最高最低比率。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q85-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q85-1.csv",
+          "sql": "WITH quotas AS (\n  SELECT StoreKey, SUM(SalesAmountQuota) AS quota_amt\n  FROM retail.FactSalesQuota\n  WHERE toYear(DateKey) = 2009 AND ScenarioKey = 2\n  GROUP BY StoreKey\n),\nactuals AS (\n  SELECT StoreKey, SUM(SalesAmount) AS actual_amt\n  FROM retail.FactSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY StoreKey\n),\nperf AS (\n  SELECT s.StoreName, a.actual_amt, q.quota_amt,\n         (a.actual_amt * 100.0 / nullif(q.quota_amt, 0)) AS attainment_pct\n  FROM actuals a\n  JOIN quotas q USING (StoreKey)\n  JOIN retail.DimStore s ON s.StoreKey = a.StoreKey\n  WHERE q.quota_amt > 0\n)\nSELECT * FROM (\n  (SELECT '最高' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct DESC )\n  UNION ALL\n  (SELECT '最低' AS bucket, StoreName, actual_amt, quota_amt, attainment_pct FROM perf ORDER BY attainment_pct ASC )\n) ORDER BY bucket, attainment_pct DESC",
+          "sql_sha256": "6a76d6e2370b6d21a25a6090e627c819a491949a723de812999426f3035e3d3c",
+          "result": {
+            "path": "refs/cube/Q85-1.csv",
+            "sha256": "5073389cd6a3d7bc9d6cd433c5d7c78bcf9a36fa60419e26e10d3d803c39f35b"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q87",
+      "text_zh": "计算各产品的库存可售天数：当前库存÷2009 年最后 90 天的日均销量，列出可售天数最少的 20 款产品。",
+      "split": "heldout",
+      "manual_rationale": "D29明确默认线上、交易日日均；不能用无声明的全渠道或90日历日。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q87-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q87-1.csv",
+          "sql": "WITH latest AS (\n  SELECT StoreKey, ProductKey, MAX(DateKey) AS max_date\n  FROM retail.FactInventory GROUP BY StoreKey, ProductKey\n),\ncurrent_inv AS (\n  SELECT i.ProductKey, SUM(i.OnHandQuantity) AS on_hand\n  FROM retail.FactInventory i\n  JOIN latest l ON i.StoreKey = l.StoreKey AND i.ProductKey = l.ProductKey AND i.DateKey = l.max_date\n  GROUP BY i.ProductKey\n),\nrecent_sales AS (\n  SELECT ProductKey,\n         SUM(SalesQuantity) / countDistinct(DateKey) AS avg_daily_qty\n  FROM retail.FactOnlineSales\n  WHERE DateKey BETWEEN toDate('2009-10-03') AND toDate('2009-12-31')\n  GROUP BY ProductKey\n  HAVING avg_daily_qty > 0\n)\nSELECT if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\n       c.on_hand,\n       (r.avg_daily_qty) AS avg_daily_qty,\n       (c.on_hand / r.avg_daily_qty) AS days_of_coverage,c.ProductKey AS ProductKey\nFROM current_inv c\nJOIN recent_sales r USING (ProductKey)\nLEFT JOIN retail.DimProduct p ON p.ProductKey = c.ProductKey\nORDER BY days_of_coverage ASC\nLIMIT 20",
+          "sql_sha256": "8fa3caf32d462e28184172a8b76a30deabf7b25c848941496315e02aef23e817",
+          "result": {
+            "path": "refs/cube/Q87-1.csv",
+            "sha256": "86d1139679f2ac2aa1bc41c8c461b0e12d66765c4df054a71786abf5394febbb"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q88",
+      "text_zh": "找出 2009 年每个季度都至少购买过一次的忠实客户，按全年消费总额从高到低列出前 20 名。",
+      "split": "heldout",
+      "manual_rationale": "2009四季度都有购买，全年消费排前20；A12固定购买事件。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q88-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q88-1.csv",
+          "sql": "WITH cust_q AS (\n  SELECT CustomerKey, toQuarter(DateKey) AS q\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009\n  GROUP BY CustomerKey, q\n),\nloyal AS (\n  SELECT CustomerKey\n  FROM cust_q GROUP BY CustomerKey HAVING count(distinct q) = 4\n),\nspend AS (\n  SELECT CustomerKey, SUM(SalesAmount) AS spend_2009\n  FROM retail.FactOnlineSales\n  WHERE toYear(DateKey) = 2009 AND CustomerKey IN (SELECT CustomerKey FROM loyal)\n  GROUP BY CustomerKey\n)\nSELECT c.FirstName || ' ' || c.LastName AS customer_name,\n       (s.spend_2009) AS total_spend_2009, s.CustomerKey AS CustomerKey\nFROM spend s\nJOIN retail.DimCustomer c ON c.CustomerKey = s.CustomerKey\nORDER BY s.spend_2009 DESC\nLIMIT 20",
+          "sql_sha256": "9108aea498771a349860879ec70f860c9b858461e35a38063579cd020d589c0e",
+          "result": {
+            "path": "refs/cube/Q88-1.csv",
+            "sha256": "de46e6bc1eae77879718b655f5b8b10440842ade23433adc8b6c590ea84dcd05"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q89",
+      "text_zh": "活跃、有流失风险和已流失客户的平均消费金额与平均购买产品种类数是多少？",
+      "split": "heldout",
+      "manual_rationale": "A27客户分层及A06全历史消费，平均以客户为单位，不是订单平均。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q89-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q89-1.csv",
+          "sql": "WITH cust_recency AS (\n  SELECT CustomerKey,\n         MAX(DateKey) AS last_purchase,\n         SUM(SalesAmount) AS total_spend,\n         countDistinct(ProductKey) AS distinct_products\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nsegmented AS (\n  SELECT *,\n         dateDiff('month', last_purchase, toDate('2009-12-31')) AS months_inactive,\n         CASE\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 6 THEN '活跃'\n           WHEN dateDiff('month', last_purchase, toDate('2009-12-31')) <= 12 THEN '有流失风险'\n           ELSE '已流失'\n         END AS segment\n  FROM cust_recency\n)\nSELECT segment,\n       count() AS customers,\n       (avg(total_spend)) AS avg_spend,\n       (avg(distinct_products)) AS avg_distinct_products\nFROM segmented\nGROUP BY segment\nORDER BY CASE segment WHEN '活跃' THEN 1 WHEN '有流失风险' THEN 2 ELSE 3 END",
+          "sql_sha256": "3e5a60b21ead598684f7df7cddd3cfd1469b19dc8d64ac66129a9b72f2cfa141",
+          "result": {
+            "path": "refs/cube/Q89-1.csv",
+            "sha256": "5d104670f579f120ed85cc97cf53465a48cfa3312df5f36461b656583cacb167"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q90",
+      "text_zh": "展示 2007、2008、2009 年各产品品类的毛利率趋势，并列出毛利率逐年的变化，单位为百分点。",
+      "split": "tuning",
+      "manual_rationale": "按年毛利率及相邻年份百分点差，首年无前期值。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q90-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q90-1.csv",
+          "sql": "WITH yearly AS (\n  SELECT pc.ProductCategoryName AS category,\n         toYear(fos.DateKey) AS y,\n         SUM(fos.SalesAmount) AS rev,\n         SUM(fos.TotalCost) AS cost\n  FROM retail.FactOnlineSales fos\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = fos.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON toInt32(p.ProductSubcategoryKey) = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = psc.ProductCategoryKey\n  GROUP BY category, y\n), margins AS (SELECT category,y,rev,(rev-cost)*100.0/nullIf(rev,0) AS margin_pct FROM yearly) SELECT category,y AS year,margin_pct, margin_pct-lagInFrame(toNullable(margin_pct)) OVER (PARTITION BY category ORDER BY y ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS change_pp, rev AS revenue_amount FROM margins ORDER BY category,y",
+          "sql_sha256": "80688b3f0828ea989124d169386449ee3aaf7c4b28735acb58e3b2bc936ad38c",
+          "result": {
+            "path": "refs/cube/Q90-1.csv",
+            "sha256": "91815b6e28de77befd83f9da1b15c8cbe1512efc8d70b5cf448f40aabaac3e1d"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q92",
+      "text_zh": "按上季度盈利能力从高到低列出各产品品牌。",
+      "split": "heldout",
+      "manual_rationale": "盈利能力未明确毛利额还是毛利率；A13只规定利润率的含义，并未将盈利能力映射为利润率。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q92-existing-1",
+          "interpretation": "盈利能力以毛利率衡量，按上季度毛利率降序",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q92-1.csv",
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nLEFT JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\nGROUP BY p.BrandName\nORDER BY gross_margin_pct DESC",
+          "sql_sha256": "44e259fbb0f35e336bf18e178541b0ab62539af79fd162d3c86a5f0937f8046c",
+          "result": {
+            "path": "refs/cube/Q92-1.csv",
+            "sha256": "0e78a409d49b4f56f58dc908c9488bcf89055025af849ded1a246faba109ac71"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q92-b1-1",
+          "interpretation": "盈利能力以毛利金额衡量，按上季度毛利金额降序",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT p.BrandName,\n       sum(f.SalesAmount) AS revenue,\n       sum(f.SalesAmount - f.TotalCost) AS gross_margin_dollars,\n       sum(f.SalesAmount - f.TotalCost) / nullif(sum(f.SalesAmount), 0) * 100 AS gross_margin_pct\nFROM retail.FactOnlineSales f\nLEFT JOIN retail.DimProduct p ON p.ProductKey = f.ProductKey\nWHERE f.DateKey BETWEEN toDate('2009-10-01') AND toDate('2009-12-31')\nGROUP BY p.BrandName\nORDER BY gross_margin_dollars DESC",
+          "sql_sha256": "c024d0b0a165e159dcdf4d690083e0c35340eda64d36366c50ea2bfe281a7dd7",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q92-b1-1.json",
+            "sha256": "00e90d43b679cba2562e11a500b78fca0fe2d972674d97a6a200f2148299b2c4",
+            "rows": 12
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q94",
+      "text_zh": "哪些门店在年末显出销售走弱的迹象，即 2009 年第四季度销售额低于第三季度？",
+      "split": "heldout",
+      "manual_rationale": "即字后已定义走弱为第四季低于第三季，不再引入其他趋势定义。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q94-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q94-1.csv",
+          "sql": "SELECT s.StoreName,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3) AS q3_sales,\n       sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) AS q4_sales,\n       (sumIf(f.SalesAmount, toQuarter(f.DateKey) = 4) - sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3))\n         * 100.0 / nullif(sumIf(f.SalesAmount, toQuarter(f.DateKey) = 3), 0) AS qoq_pct_change\nFROM retail.FactSales f\nJOIN retail.DimStore s ON s.StoreKey = f.StoreKey\nWHERE toYear(f.DateKey) = 2009\nGROUP BY s.StoreKey, s.StoreName\nHAVING q3_sales > 0 AND qoq_pct_change < 0\nORDER BY qoq_pct_change ASC",
+          "sql_sha256": "e67a00a108c52fd38dab04dab68782e9b1976deac443916fdb275893af8da285",
+          "result": {
+            "path": "refs/cube/Q94-1.csv",
+            "sha256": "6a5f2f71759436893754e62c88d9d0497a97a8cef9fc9748a0d2e5d1817e2ff5"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q96",
+      "text_zh": "按首次购买年份划分客户群体，每组有多大比例的客户在之后的年份回来购买过？",
+      "split": "heldout",
+      "manual_rationale": "之后任一年回购过，明确D04任意后续期回购，不是连续或逐期留存。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q96-existing-1",
+          "interpretation": "原参考解读；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q96-1.csv",
+          "sql": "WITH first_year AS (\n  SELECT CustomerKey, toYear(min(DateKey)) AS first_year\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n),\nyears_active AS (\n  SELECT CustomerKey, countDistinct(toYear(DateKey)) AS years_with_activity\n  FROM retail.FactOnlineSales\n  GROUP BY CustomerKey\n)\nSELECT fy.first_year AS cohort_year,\n       count() AS cohort_size,\n       countIf(ya.years_with_activity > 1) AS returning_customers,\n       countIf(ya.years_with_activity > 1) * 100.0 / count() AS retention_pct\nFROM first_year fy\nJOIN years_active ya ON ya.CustomerKey = fy.CustomerKey\nGROUP BY fy.first_year\nORDER BY cohort_year",
+          "sql_sha256": "85857ec1f4f9a007618424df9680409e92e4575b7fcbf182069c6f2517ba5f25",
+          "result": {
+            "path": "refs/cube/Q96-1.csv",
+            "sha256": "e4beb01b5cbe06423283d6a8a4a4535b546c0750532504524ce93511f979ddf8"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q98",
+      "text_zh": "按全年销售对单个季度的依赖程度从高到低列出各产品品类。",
+      "split": "tuning",
+      "manual_rationale": "未指定年份，A06要求全部数据按年；仅2009的旧参考违反A06，单列可疑。最大季度份额衡量单季依赖。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q98-existing-1",
+          "interpretation": "仅分析2009年度，须声明年份",
+          "b2_eligible": false,
+          "existing_reference": "refs/cube/Q98-1.csv",
+          "sql": "WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n) SELECT ProductCategoryName,q_sales*100.0/sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS peak_quarter_share_pct,q AS peak_quarter, sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS annual_sales_amount\nFROM cat_q ORDER BY peak_quarter_share_pct DESC",
+          "sql_sha256": "906e1cc34753728dd2ac9941eea97ab0f9c1b9fe7073e541eebcbfbd8364f37f",
+          "result": {
+            "path": "refs/cube/Q98-1.csv",
+            "sha256": "250ca82501ce61ca936c6a2c04ca6beae9ae8677b5ccf6e9b2170db00174e2f6"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "L1plus A06无时间条件须覆盖全部事实年份",
+          "answer_sql": "WITH domain AS (WITH cat_q AS (\n  SELECT pc.ProductCategoryName,\n         toQuarter(f.DateKey) AS q,\n         sum(f.SalesAmount) AS q_sales\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, q\n) SELECT ProductCategoryName,q_sales*100.0/sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS peak_quarter_share_pct,q AS peak_quarter, sum(q_sales) OVER (PARTITION BY ProductCategoryName) AS annual_sales_amount\nFROM cat_q), marked AS (SELECT *,rank() OVER (PARTITION BY ProductCategoryName ORDER BY peak_quarter_share_pct DESC) AS r FROM domain) SELECT ProductCategoryName,peak_quarter_share_pct,concat('Q',toString(peak_quarter)) AS peak_quarter,annual_sales_amount,rank() OVER (ORDER BY peak_quarter_share_pct DESC) AS rank FROM marked WHERE r=1 ORDER BY peak_quarter_share_pct DESC",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q98-existing-1.json",
+            "sha256": "2f4e32926e1ed5099d48f1b9033c0b8a0bbe31a722fdebdaa8de531166695906",
+            "rows": 9
+          },
+          "answer_sql_sha256": "7286c0d02df6533ad4548238629e216b17ea7dff26cd5a928b2df862f4f3404f"
+        },
+        {
+          "id": "Q98-existing-2",
+          "interpretation": "分别按2007、2008、2009年度分析，各年内计算季度份额，须声明年份",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q98-2.csv",
+          "sql": "WITH cat_q AS (SELECT pc.ProductCategoryName,toYear(f.DateKey) AS year,toQuarter(f.DateKey) AS quarter,sum(f.SalesAmount) AS quarter_sales FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey=p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) BETWEEN 2007 AND 2009 GROUP BY pc.ProductCategoryName,year,quarter) SELECT ProductCategoryName,year,quarter_sales*100.0/sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS peak_quarter_share_pct,quarter AS peak_quarter, sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS annual_sales_amount\nFROM cat_q ORDER BY year,peak_quarter_share_pct DESC",
+          "sql_sha256": "7ce09467661a4e03feb0c2e8957d5dc9f871fff3222f07fcad59e23cce864d47",
+          "result": {
+            "path": "refs/cube/Q98-2.csv",
+            "sha256": "d5c09195ce2e959d98a42e254e5dcd0849cb7dd9363a79879884650e6dcf6c2f"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "answer_sql": "WITH domain AS (WITH cat_q AS (SELECT pc.ProductCategoryName,toYear(f.DateKey) AS year,toQuarter(f.DateKey) AS quarter,sum(f.SalesAmount) AS quarter_sales FROM retail.FactOnlineSales f LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey=p.ProductKey LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) BETWEEN 2007 AND 2009 GROUP BY pc.ProductCategoryName,year,quarter) SELECT ProductCategoryName,year,quarter_sales*100.0/sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS peak_quarter_share_pct,quarter AS peak_quarter, sum(quarter_sales) OVER (PARTITION BY ProductCategoryName,year) AS annual_sales_amount\nFROM cat_q), marked AS (SELECT *,rank() OVER (PARTITION BY ProductCategoryName,year ORDER BY peak_quarter_share_pct DESC) AS r FROM domain) SELECT ProductCategoryName,year,peak_quarter_share_pct,concat('Q',toString(peak_quarter)) AS peak_quarter,annual_sales_amount,rank() OVER (PARTITION BY year ORDER BY peak_quarter_share_pct DESC) AS rank FROM marked WHERE r=1 ORDER BY year,peak_quarter_share_pct DESC",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q98-existing-2.json",
+            "sha256": "31c773e0cecedaca2608691fd5606dee3d554461392bb38a62412b77523f4c8e",
+            "rows": 27
+          },
+          "answer_sql_sha256": "4ed19b953b79719095e84380872d114e5ff19859b304984309bcde8df7e03a21"
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/cube/Q98-1.csv",
+          "reason": "L1plus A06无时间条件须覆盖全部事实年份"
+        }
+      ]
+    },
+    {
+      "qid": "Q99",
+      "text_zh": "按产品品类比较，平均一个周末日的销售额比平均一个工作日高多少？",
+      "split": "tuning",
+      "manual_rationale": "约定4/A09逐类交易日日均；高多少同时展示金额和百分比。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q99-existing-1",
+          "interpretation": "原参考解读",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q99-1.csv",
+          "sql": "WITH daily AS (\n  SELECT pc.ProductCategoryName,\n         f.DateKey,\n         d.IsWorkDay,\n         sum(f.SalesAmount) AS day_sales\n  FROM retail.FactOnlineSales f\n  JOIN retail.DimDate d ON d.DateKey = f.DateKey\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON p.ProductKey = f.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON pc.ProductCategoryKey = ps.ProductCategoryKey\n  GROUP BY pc.ProductCategoryName, f.DateKey, d.IsWorkDay\n)\nSELECT ProductCategoryName,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') AS avg_weekend_day_sales,\n       avgIf(day_sales, IsWorkDay = 'WorkDay') AS avg_weekday_sales,\n       (avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay'))\n         * 100.0 / nullif(avgIf(day_sales, IsWorkDay = 'WorkDay'), 0) AS weekend_lift_pct,\n       avgIf(day_sales, IsWorkDay = 'WeekEnd') - avgIf(day_sales, IsWorkDay = 'WorkDay') AS weekend_difference_amount\nFROM daily\nGROUP BY ProductCategoryName\nORDER BY weekend_lift_pct DESC",
+          "sql_sha256": "c040864a94499c11fe05e057ec106b4a25e07bcfdbc38dfb66a36e4d0cb472ae",
+          "result": {
+            "path": "refs/cube/Q99-1.csv",
+            "sha256": "7ee9c589d2127cdefda060892a490a799ee14cdb4ec93bdc09fc0748f955286d"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q100",
+      "text_zh": "哪些客户既处于订单数前 10%，又处于客单价前 10%，称得上真正的高价值客户？",
+      "split": "tuning",
+      "manual_rationale": "前10%可用P90值阈值，或先按对象排名取ceil(N*10%)；D18未规定百分位阈值算法。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q100-existing-1",
+          "interpretation": "订单数和客单价各取精确线性插值P90阈值，保留阈值并列后取交集",
+          "b2_eligible": true,
+          "existing_reference": "refs/cube/Q100-1.csv",
+          "sql": "WITH customers AS (SELECT CustomerKey,countDistinct(SalesOrderNumber) AS orders,sum(SalesAmount)/countDistinct(SalesOrderNumber) AS avg_order_amount,sum(SalesAmount) AS lifetime_value FROM retail.FactOnlineSales GROUP BY CustomerKey) SELECT c.FirstName||' '||c.LastName AS customer_name,f.orders,f.avg_order_amount,f.lifetime_value, f.CustomerKey AS CustomerKey\nFROM customers f JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey",
+          "sql_sha256": "80b15de31b351347fe01616052d78eddbe23fbd78bb41b1e89655a35761bedf5",
+          "result": {
+            "path": "refs/cube/Q100-1.csv",
+            "sha256": "0104f5d25b74d2a04dc2dcd37ee94341dc4646a111b3198424ad7ab0b60aa465"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "answer_sql": "WITH domain AS (SELECT CustomerKey,countDistinct(SalesOrderNumber) AS orders,sum(SalesAmount)/countDistinct(SalesOrderNumber) AS avg_order_amount,sum(SalesAmount) AS lifetime_value FROM retail.FactOnlineSales GROUP BY CustomerKey), thresholds AS (SELECT quantileExactInclusive(0.9)(orders) AS o,quantileExactInclusive(0.9)(avg_order_amount) AS a FROM domain) SELECT concat(c.FirstName,' ',c.LastName) AS customer_name,d.orders,d.avg_order_amount,d.lifetime_value,d.CustomerKey FROM domain d CROSS JOIN thresholds t JOIN retail.DimCustomer c ON d.CustomerKey=c.CustomerKey WHERE d.orders>=t.o AND d.avg_order_amount>=t.a",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q100-existing-1.json",
+            "sha256": "4c06b87d9ea74bb289af5dfd6a344739650c1db42608bb03a318d50b35025bbe",
+            "rows": 108
+          },
+          "answer_sql_sha256": "1e51a9f490e4cc486e325030de35360bf9d9f602b8623c85722308e506d70343"
+        },
+        {
+          "id": "Q100-b1-1",
+          "interpretation": "两指标分别取人数前ceil(N*10%)，阈值同值全保留，再取交集",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH domain AS (SELECT CustomerKey,countDistinct(SalesOrderNumber) AS orders,sum(SalesAmount)/countDistinct(SalesOrderNumber) AS avg_order_amount,sum(SalesAmount) AS lifetime_value FROM retail.FactOnlineSales GROUP BY CustomerKey), ranks AS (SELECT *,rank() OVER (ORDER BY orders DESC) AS order_rank,rank() OVER (ORDER BY avg_order_amount DESC) AS aov_rank,count() OVER () AS n FROM domain) SELECT concat(c.FirstName,' ',c.LastName) AS customer_name,r.orders,r.avg_order_amount,r.lifetime_value,r.CustomerKey FROM ranks r JOIN retail.DimCustomer c ON r.CustomerKey=c.CustomerKey WHERE order_rank<=ceil(n*0.1) AND aov_rank<=ceil(n*0.1)",
+          "sql_sha256": "6002434d0200b1a40df618db38e71c293af06ff1ef4ac6ac5a6d5a6d3bbc3a38",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q100-b1-1.json",
+            "sha256": "6842cc9919a01a12a6a617ed76f82ec2f35fdfc5c0ca43060c10998847256c5f",
+            "rows": 108
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q101",
+      "text_zh": "上季度的GMV是多少？",
+      "split": "heldout",
+      "manual_rationale": "约定3/7与A07确定2009Q4线上SalesAmount。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q101-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q101-1.csv",
+          "sql": "SELECT sum(SalesAmount) AS GMV FROM retail.FactOnlineSales WHERE DateKey>='2009-10-01' AND DateKey<'2010-01-01'",
+          "sql_sha256": "e5c7d987045e36f3d873b57d636f3cc6431bc89a0004b67b40acb1dd364e77f7",
+          "result": {
+            "path": "refs/new/Q101-1.csv",
+            "sha256": "c7ed6b25397c5347d9e397457070e4fe078335e2724f9fad66e93936cb2e3dc0"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q102",
+      "text_zh": "今年各产品品类的净销售额是多少？",
+      "split": "tuning",
+      "manual_rationale": "约定7净销售额扣退货；A07今年2009；A20保留未知组。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q102-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q102-1.csv",
+          "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,sum(f.SalesAmount-f.ReturnAmount) AS net_sales_amount FROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category",
+          "sql_sha256": "abab18d6eabe9e1e514305df9293fb1807e673a18097d347a88ceeddc7efb34f",
+          "result": {
+            "path": "refs/new/Q102-1.csv",
+            "sha256": "6aaa4efd25becd1e737d217440e8d9864549826deee277a1dfd681f5e4abf76b"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q103",
+      "text_zh": "2009年单笔金额超过1000美元的订单有多少笔？这些订单的销售额占全年销售额的百分之多少？",
+      "split": "heldout",
+      "manual_rationale": "明确订单、年度、严格金额阈值；约定8先按订单汇总。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q103-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q103-1.csv",
+          "sql": "WITH orders AS (\nSELECT SalesOrderNumber,sum(SalesAmount) AS order_sales FROM retail.FactOnlineSales\nWHERE toYear(DateKey)=2009 GROUP BY SalesOrderNumber)\nSELECT countIf(order_sales>1000) AS orders,\nsumIf(order_sales,order_sales>1000)*100.0/nullIf(sum(order_sales),0) AS sales_share_pct, sumIf(order_sales,order_sales>1000) AS selected_sales_amount, sum(order_sales) AS total_sales_amount\nFROM orders",
+          "sql_sha256": "31094460afb7bbf5818296e01d7e7a09f495d1c2cef89560b05cfb542a3fbb8b",
+          "result": {
+            "path": "refs/new/Q103-1.csv",
+            "sha256": "b8545256ed97cdfa19a6bebfca9933656b3bc2af027f677f07515559ae78c446"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q104",
+      "text_zh": "2009年比2008年营收增加但毛利减少的产品品类有哪些？各自两项金额变化是多少？",
+      "split": "tuning",
+      "manual_rationale": "两年收入增且毛利减；约定7及D14固定两项带符号变化。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q104-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q104-1.csv",
+          "sql": "SELECT if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS sales_change_amount,\nsumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2008) AS margin_change_amount, sales_change_amount*100.0/nullIf(sumIf(f.SalesAmount,toYear(f.DateKey)=2008),0) AS sales_change_pct, margin_change_amount*100.0/nullIf(sumIf(f.SalesAmount-f.TotalCost,toYear(f.DateKey)=2008),0) AS margin_change_pct\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009)\nGROUP BY category HAVING sales_change_amount>0 AND margin_change_amount<0",
+          "sql_sha256": "c5ffe393637373bf92fde83f7effcd5f18bb4370c0009fd85a12bdc5821ee258",
+          "result": {
+            "path": "refs/new/Q104-1.csv",
+            "sha256": "d2bbf8813ba273557400819a19a68898076a3a31b2ff05d5ca009246883b71bf"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q105",
+      "text_zh": "西雅图2号店2009年卖了多少？",
+      "split": "tuning",
+      "manual_rationale": "卖了多少未明确金额或件数；同义词只将卖了多少件映射销量，不规定本题省略单位。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q105-existing-1",
+          "interpretation": "卖了多少指销售金额（美元）",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q105-1.csv",
+          "sql": "SELECT sum(f.SalesAmount) AS sales_amount FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey WHERE s.StoreName='Contoso Seattle No.2 Store' AND toYear(f.DateKey)=2009",
+          "sql_sha256": "7ed59289afc26f7393c1af71f6c31c49011563f2b501744147f29ee19ed3abf1",
+          "result": {
+            "path": "refs/new/Q105-1.csv",
+            "sha256": "f546d18ef1bb6ca8ea4f30969e140fbc999fd360e0401acd595fb3829522690c"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q105-b1-1",
+          "interpretation": "卖了多少指销售件数；全渠道、点名门店和年份不变",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "SELECT sum(f.SalesQuantity) AS sales_quantity FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey WHERE s.StoreName='Contoso Seattle No.2 Store' AND toYear(f.DateKey)=2009",
+          "sql_sha256": "0ec2ce1b0885f5638dd462a1b550a85c71e56779b7861d91ce5fef70fd9c7cf6",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q105-b1-1.json",
+            "sha256": "53a1ae0a2e3d8d3200ae1da7a9cf83ca3a57d7f66924a079c3244437e891cc1e",
+            "rows": 1
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q106",
+      "text_zh": "迈阿密所有门店2009年的合计销售额比2008年增长了百分之多少？",
+      "split": "heldout",
+      "manual_rationale": "城市内全部门店全渠道年度同比；A01/A03及地点别名。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q106-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q106-1.csv",
+          "sql": "SELECT (sumIf(f.SalesAmount,toYear(f.DateKey)=2009)/nullIf(sumIf(f.SalesAmount,toYear(f.DateKey)=2008),0)-1)*100 AS growth_pct, sumIf(f.SalesAmount,toYear(f.DateKey)=2009)-sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS sales_change_amount\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='Miami' AND toYear(f.DateKey) IN (2008,2009)",
+          "sql_sha256": "d3842bd12e1359e3a0175eb831bb26d866ba2a825fe2b92fa97b71be80eeeea1",
+          "result": {
+            "path": "refs/new/Q106-1.csv",
+            "sha256": "314329bf3e78425a9c5db7f8de7f727de7bb2815995c27bbf803b173fe26f179"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q107",
+      "text_zh": "纽约2号店2009年的净销售额占纽约全部门店的百分之多少？",
+      "split": "heldout",
+      "manual_rationale": "明确单店净额占全城门店净额；A21总体不能改成线上或单店。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q107-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q107-1.csv",
+          "sql": "SELECT sumIf(f.SalesAmount-f.ReturnAmount,s.StoreName='Contoso New York No.2 Store')*100.0/nullIf(sum(f.SalesAmount-f.ReturnAmount),0) AS net_sales_share_pct, sumIf(f.SalesAmount-f.ReturnAmount,s.StoreName='Contoso New York No.2 Store') AS store_net_sales_amount, sum(f.SalesAmount-f.ReturnAmount) AS city_net_sales_amount\nFROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey\nJOIN retail.DimGeography g ON s.GeographyKey=g.GeographyKey\nWHERE g.CityName='New York' AND toYear(f.DateKey)=2009",
+          "sql_sha256": "3b2424d8182843f7142325c881686ebe539b04159a6a5ddd3b16ab44220eaea8",
+          "result": {
+            "path": "refs/new/Q107-1.csv",
+            "sha256": "53cb3774fa8c2543bae66629e93580aed9272ea01866f7cde38f036d46bf0309"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q108",
+      "text_zh": "2009年各国家的营收和订单数是多少？",
+      "split": "heldout",
+      "manual_rationale": "约定1/5/8固定线上、客户国家、订单号。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q108-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q108-1.csv",
+          "sql": "SELECT if(g.GeographyKey=0,NULL,g.RegionCountryName) AS country,\nsum(f.SalesAmount) AS sales_amount,countDistinct(f.SalesOrderNumber) AS orders\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey\nLEFT JOIN retail.DimGeography g ON c.GeographyKey=g.GeographyKey\nWHERE toYear(f.DateKey)=2009 GROUP BY country",
+          "sql_sha256": "dbd13df2f618c85c10e2a2fa9796022fb0c9a136290fd467da603d8b671be980",
+          "result": {
+            "path": "refs/new/Q108-1.csv",
+            "sha256": "071276740fb3d96c43104b6c0f648bf29cf6082c7f24546460697ce5e3351fd1"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q109",
+      "text_zh": "今年各季度的日均销售额，各比去年同期增长了百分之多少？",
+      "split": "tuning",
+      "manual_rationale": "A09交易日日均及A08去年同期；旧参考补日历的写法不扩展为新的B2允许口径。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q109-existing-1",
+          "interpretation": "完整季度日历，含零销售日；先逐日汇总再按季度计算日均值",
+          "b2_eligible": false,
+          "existing_reference": "refs/new/Q109-1.csv",
+          "sql": "WITH daily AS (\nSELECT d.DateKey AS day,toQuarter(d.DateKey) AS quarter,toYear(d.DateKey) AS y,sum(f.SalesAmount) AS day_sales\nFROM retail.DimDate d LEFT JOIN retail.FactOnlineSales f ON d.DateKey=f.DateKey\nWHERE toYear(d.DateKey) IN (2008,2009) GROUP BY day,quarter,y)\nSELECT quarter,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct, avgIf(day_sales,y=2009)-avgIf(day_sales,y=2008) AS daily_sales_change_amount\nFROM daily GROUP BY quarter",
+          "sql_sha256": "7c539811c3b393683d7eba3c7878c1a9ff7c0d1e68daf2d26e36462ab3f3f91f",
+          "result": {
+            "path": "refs/new/Q109-1.csv",
+            "sha256": "d8b993e9b82eef33ba17ba3d5930a8ba4e5891df93db18143573e8e1f178ec97"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "exclusion_reason": "A09默认交易日日均，题面未明确要求补零日历日；原SQL显式补完整日历"
+        },
+        {
+          "id": "Q109-b1-1",
+          "interpretation": "按A09在各年各季有交易的日子上平均每日销售，再与去年同期比较",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH daily AS (SELECT DateKey,toQuarter(DateKey) AS quarter,toYear(DateKey) AS y,sum(SalesAmount) AS day_sales FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY DateKey,quarter,y) SELECT quarter,(avgIf(day_sales,y=2009)/nullIf(avgIf(day_sales,y=2008),0)-1)*100 AS daily_sales_growth_pct,avgIf(day_sales,y=2009)-avgIf(day_sales,y=2008) AS daily_sales_change_amount FROM daily GROUP BY quarter ORDER BY quarter",
+          "sql_sha256": "cc3f6fea0b87d594cc963c491fd91661dc72d043fed2b1534669fe277fcf9a66",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q109-b1-1.json",
+            "sha256": "aa997822ec310f1f3beb110c2e72369a276438b0bc27ef89267ab39254dab061",
+            "rows": 4
+          }
+        }
+      ],
+      "suspicious_references": [
+        {
+          "reference": "refs/new/Q109-1.csv",
+          "reason": "A09默认交易日日均，题面未明确要求补零日历日；原SQL显式补完整日历",
+          "note": "这是口径/实现疑点，不声称当前数据上数值必然不同，交题库负责方核对。"
+        }
+      ]
+    },
+    {
+      "qid": "Q110",
+      "text_zh": "2008年和2009年，线上销售额占公司全渠道销售额的比例各是多少？2009年比2008年变化了多少个百分点？",
+      "split": "heldout",
+      "manual_rationale": "A02渠道占比同表FactSales，按百分点相减。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q110-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q110-1.csv",
+          "sql": "WITH shares AS (SELECT toYear(f.DateKey) AS y,sumIf(f.SalesAmount,c.ChannelName='Online')*100.0/nullIf(sum(f.SalesAmount),0) AS online_share_pct,sum(f.SalesAmount) AS total_sales_amount FROM retail.FactSales f LEFT JOIN retail.DimChannel c ON f.channelKey=c.ChannelKey WHERE toYear(f.DateKey) IN (2008,2009) GROUP BY y) SELECT y AS year,online_share_pct,online_share_pct-lagInFrame(toNullable(online_share_pct)) OVER (ORDER BY y ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS change_pp,total_sales_amount FROM shares ORDER BY y",
+          "sql_sha256": "745e8c36bbdbf51d02fc44e4343ca708e291990f22c90a356e0404e6d321a8d8",
+          "result": {
+            "path": "refs/new/Q110-1.csv",
+            "sha256": "7108d87a8227284911b272fe26c5414eaf71dfb3de2c5654870a9b006704e9a5"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q111",
+      "text_zh": "截至2009年9月底，各门店同期销售目标达成率和全年销售目标完成率分别是多少？",
+      "split": "tuning",
+      "manual_rationale": "截至9月底的年内实际额分别除同期与全年预算；A26。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q111-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q111-1.csv",
+          "sql": "WITH actual AS (\nSELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE DateKey>='2009-01-01' AND DateKey<'2009-10-01' GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sumIf(SalesAmountQuota,DateKey<'2009-10-01') AS quota_ytd,sum(SalesAmountQuota) AS quota_year\nFROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey)\nSELECT s.StoreName,a.sales_amount*100.0/nullIf(t.quota_ytd,0) AS ytd_attainment_pct,\na.sales_amount*100.0/nullIf(t.quota_year,0) AS annual_attainment_pct, a.sales_amount AS actual_sales_amount, t.quota_ytd AS ytd_target_amount, t.quota_year AS annual_target_amount\nFROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey LEFT JOIN targets t ON s.StoreKey=t.StoreKey",
+          "sql_sha256": "472f97f53463ef05e9cb78292f736b5b4a261947850f21442c3b75c31f0907b4",
+          "result": {
+            "path": "refs/new/Q111-1.csv",
+            "sha256": "89333555d3367564389270e1755193852ff2a6812f5ea9c8e84a841b68bfb88d"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q112",
+      "text_zh": "2009年，以正式销售目标的120%为挑战线，每位门店经理手下有多少家门店未达到这条线？这些门店距离挑战线的销售额缺口合计是多少？",
+      "split": "tuning",
+      "manual_rationale": "120%挑战线、店级判定后经理汇总、正缺口已明说。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q112-existing-1",
+          "interpretation": "正式目标ScenarioKey=2；挑战缺口=max(1.2×目标−实际,0)；按经理汇总",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q112-1.csv",
+          "sql": "WITH actual AS (SELECT StoreKey,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS quota_amount FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\ngaps AS (SELECT s.StoreKey AS StoreKey,s.EmployeeKey AS EmployeeKey,if(e.EmployeeKey=0,NULL,concat(e.FirstName,' ',e.LastName)) AS manager,\n1.2*t.quota_amount-a.sales_amount AS gap FROM retail.DimStore s LEFT JOIN actual a ON s.StoreKey=a.StoreKey\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey LEFT JOIN retail.DimEmployee e ON s.EmployeeKey=e.EmployeeKey)\nSELECT EmployeeKey,manager,countIf(gap>0) AS under_target_stores,coalesce(sumIf(gap,gap>0),0) AS shortfall_amount\nFROM gaps GROUP BY EmployeeKey,manager",
+          "sql_sha256": "c4efaedb4c39146265f3029cd84213eb3455ff892131e4b4231262f87468dd57",
+          "result": {
+            "path": "refs/new/Q112-1.csv",
+            "sha256": "9a2d4749f40f6f14ddea706b4c3375858bd10665c535c9de660bcd47168114b6"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q113",
+      "text_zh": "将各门店2009年的全年正式销售目标平均分摊到12个月后，哪些门店出现过连续至少3个月未达到月度均摊目标的时段？列出门店、起止月份和连续月数。",
+      "split": "heldout",
+      "manual_rationale": "全年正式目标/12、连续至少3个月，列最大连续段而非重叠子区间。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q113-existing-1",
+          "interpretation": "全年正式目标除以12；完整12月日历；无销售月份按0；无正式目标的门店不参与",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q113-1.csv",
+          "sql": "WITH actual AS (SELECT StoreKey,toMonth(DateKey) AS m,sum(SalesAmount) AS sales_amount FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,m),\ntargets AS (SELECT StoreKey,sum(SalesAmountQuota) AS annual_quota FROM retail.FactSalesQuota WHERE ScenarioKey=2 AND toYear(DateKey)=2009 GROUP BY StoreKey),\nmonthly AS (SELECT s.StoreKey AS StoreKey,s.StoreName AS StoreName,toUInt8(n.number+1) AS m,ifNull(a.sales_amount,0) AS sales_amount,t.annual_quota/12 AS monthly_target\nFROM retail.DimStore s CROSS JOIN numbers(12) n LEFT JOIN actual a ON s.StoreKey=a.StoreKey AND n.number+1=a.m\nLEFT JOIN targets t ON s.StoreKey=t.StoreKey WHERE t.annual_quota>0),\nunder AS (SELECT StoreKey,StoreName,m,toInt64(m)-toInt64(row_number() OVER (PARTITION BY StoreKey ORDER BY m)) AS island\nFROM monthly WHERE sales_amount<monthly_target)\nSELECT StoreName,min(m) AS start_month,max(m) AS end_month,count() AS months\nFROM under GROUP BY StoreKey,StoreName,island HAVING months>=3",
+          "sql_sha256": "bae10ca1cb2ba3a08091fe729338599216d2cb9cbe73aca17e569688e022335f",
+          "result": {
+            "path": "refs/new/Q113-1.csv",
+            "sha256": "603b4d4140c57e35742e8bb3397d88708c0f7d5e4fe90926b1ec3a324286fa9f"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q114",
+      "text_zh": "以2007年上半年每个月末为截止日，近90天内首次购买的新客各有多少？",
+      "split": "heldout",
+      "manual_rationale": "全局首购和每月末90天窗口均明确；A28/D01。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q114-existing-1",
+          "interpretation": "含截止日[T-89,T]；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q114-1.csv",
+          "sql": "WITH firsts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey),\ncutoffs AS (SELECT toLastDayOfMonth(addMonths(toDate('2007-01-01'),number)) AS cutoff FROM numbers(6))\nSELECT c.cutoff,countIf(f.first_date>=addDays(c.cutoff,-89) AND f.first_date<=c.cutoff) AS new_customers FROM firsts f CROSS JOIN cutoffs c GROUP BY c.cutoff",
+          "sql_sha256": "637561baf1285523a8d0213d61aecb8cad3a0eb5b7868de34a94f68637eb869b",
+          "result": {
+            "path": "refs/new/Q114-1.csv",
+            "sha256": "f24809781f4270f662ecf7b6e78c7beece518188bb489f1c6d6243f326f60ffe"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q115",
+      "text_zh": "对2008年末已经购买过商品的客户，从2008年末到2009年末，活跃、有流失风险、已流失三种状态之间各有多少人发生了怎样的迁移？状态标签统一使用“活跃”“有流失风险”“已流失”，分别列出期初状态和期末状态。",
+      "split": "tuning",
+      "manual_rationale": "期初已购买集合、两个截止日分层及迁移方向明确；A27。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q115-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q115-1.csv",
+          "sql": "WITH last_dates AS (\nSELECT CustomerKey,min(DateKey) AS first_date,maxIf(DateKey,DateKey<=toDate('2008-12-31')) AS last_2008,maxIf(DateKey,DateKey<=toDate('2009-12-31')) AS last_2009\nFROM retail.FactOnlineSales GROUP BY CustomerKey HAVING first_date<=toDate('2008-12-31')),\nstates AS (SELECT CustomerKey,\nmultiIf(dateDiff('month',last_2008,toDate('2008-12-31'))<=6,'活跃',dateDiff('month',last_2008,toDate('2008-12-31'))<=12,'有流失风险','已流失') AS old_state,\nmultiIf(dateDiff('month',last_2009,toDate('2009-12-31'))<=6,'活跃',dateDiff('month',last_2009,toDate('2009-12-31'))<=12,'有流失风险','已流失') AS new_state FROM last_dates)\nSELECT a.old_state,b.new_state,countIf(s.old_state=a.old_state AND s.new_state=b.new_state) AS customers\nFROM states s CROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS old_state) a\nCROSS JOIN (SELECT arrayJoin(['活跃','有流失风险','已流失']) AS new_state) b GROUP BY a.old_state,b.new_state",
+          "sql_sha256": "e7bf6fb48001c3f2bb853b389abe3c57b181bc5c97a206349af7bae5a57e0587",
+          "result": {
+            "path": "refs/new/Q115-1.csv",
+            "sha256": "071bdd3bcbdcdaa500b157abff679b748d480a841f058fdea42afa229ebaf5e9"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q116",
+      "text_zh": "以2009年12月31日为观察截止日，按客户的真实首购月份分群，首购次日起7个自然日内的复购率分别是多少？排除观察期不足7天的客户。",
+      "split": "tuning",
+      "manual_rationale": "全局首购次日起7天、排未完成观察、月队列明确；D06b。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q116-existing-1",
+          "interpretation": "首购次日起7个自然日；截止2009-12-31已完成观察；购买事件=全部行",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q116-1.csv",
+          "sql": "WITH cohorts AS (SELECT CustomerKey,min(DateKey) AS first_date FROM retail.FactOnlineSales GROUP BY CustomerKey\nHAVING addDays(first_date,7)<=toDate('2009-12-31')),\nobserved AS (SELECT c.CustomerKey AS CustomerKey,c.first_date AS first_date,countDistinctIf(f.SalesOrderNumber,f.DateKey>c.first_date AND f.DateKey<=addDays(c.first_date,7)) AS purchases\nFROM cohorts c LEFT JOIN retail.FactOnlineSales f ON c.CustomerKey=f.CustomerKey GROUP BY c.CustomerKey,c.first_date)\nSELECT toStartOfMonth(first_date) AS cohort_month,countIf(purchases>0)*100.0/count() AS repurchase_pct, count() AS cohort_customers\nFROM observed GROUP BY cohort_month",
+          "sql_sha256": "d0cd1c844d2489ab49630a93a582326ae2a15c98b7dae7ec3249b3d40594bf41",
+          "result": {
+            "path": "refs/new/Q116-1.csv",
+            "sha256": "b62c9943f66d06d6d403d9fa4f334dfb3445c21c8f03ae098bd12a0f7e02df34"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q117",
+      "text_zh": "在2009年同店销售下降的门店中，降幅最大的3家门店各自由哪个产品品类拖累最多？列出门店降幅、该品类销售减少额及其占门店总减少额的百分比。",
+      "split": "tuning",
+      "manual_rationale": "同店降幅率选店，再按品类销售减少额选最大拖累；A29/D14。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q117-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q117-1.csv",
+          "sql": "WITH totals AS (\nSELECT StoreKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS sales_2008,sumIf(SalesAmount,toYear(DateKey)=2009) AS sales_2009\nFROM retail.FactSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY StoreKey HAVING sales_2008>0 AND sales_2009>0 AND sales_2009<sales_2008),\ncategories AS (SELECT f.StoreKey AS StoreKey,if(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,\nsumIf(f.SalesAmount,toYear(f.DateKey)=2008)-sumIf(f.SalesAmount,toYear(f.DateKey)=2009) AS decline_amount, sumIf(f.SalesAmount,toYear(f.DateKey)=2008) AS category_base_sales\nFROM retail.FactSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey) IN (2008,2009) GROUP BY f.StoreKey,category)\nSELECT t.StoreKey,s.StoreName,(t.sales_2008-t.sales_2009)*100.0/t.sales_2008 AS decline_pct,\nc.category,c.decline_amount,c.decline_amount*100.0/(t.sales_2008-t.sales_2009) AS contribution_pct, t.sales_2008-t.sales_2009 AS store_decline_amount, c.decline_amount*100.0/nullIf(c.category_base_sales,0) AS category_decline_pct\nFROM totals t JOIN categories c ON t.StoreKey=c.StoreKey LEFT JOIN retail.DimStore s ON t.StoreKey=s.StoreKey\nORDER BY decline_pct DESC,decline_amount DESC",
+          "sql_sha256": "879c29c530922f548177e4d6b7e84655ace1dfedbad7d8745a5b39d65634c661",
+          "result": {
+            "path": "refs/new/Q117-1.csv",
+            "sha256": "8cadc5700cc999c6984179245d187230b47468cb1ec1f03c53c02d15862d01f7"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q118",
+      "text_zh": "2008年销售额处于前10%的产品，在2009年合计贡献了多少销售额，占2009年全部销售额的百分之多少？",
+      "split": "heldout",
+      "manual_rationale": "产品前10%可取P90值阈值或ceil(N*10%)排名；不是营收累计前10%。A21固定2009完整分母。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q118-existing-1",
+          "interpretation": "按2008年销售额的精确线性插值P90阈值选产品，保留阈值并列",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q118-1.csv",
+          "sql": "WITH products AS (\nSELECT ProductKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS base_sales,\nsumIf(SalesAmount,toYear(DateKey)=2009) AS future_sales,countIf(toYear(DateKey)=2008) AS base_rows\nFROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY ProductKey),\ntotal AS (SELECT sum(SalesAmount) AS total_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009)\nSELECT p.ProductKey AS ProductKey,p.base_sales AS base_sales,p.future_sales AS sales_amount,t.total_sales AS total_sales,\np.future_sales*100.0/nullIf(t.total_sales,0) AS share_pct FROM products p CROSS JOIN total t WHERE p.base_rows>0",
+          "sql_sha256": "eeb1df186ae822a48b9ee3b4d6ff2bfc5c391326c1244046d4691ede1e195e2b",
+          "result": {
+            "path": "refs/new/Q118-1.csv",
+            "sha256": "71583397fdfea639327ec695f6cbc302c155914c1e3ae16f67b0a0e09db20cdf"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "answer_sql": "WITH base AS (SELECT ProductKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS base_sales,sumIf(SalesAmount,toYear(DateKey)=2009) AS future_sales,countIf(toYear(DateKey)=2008) AS base_rows FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY ProductKey HAVING base_rows>0), threshold AS (SELECT quantileExactInclusive(0.9)(base_sales) AS p90 FROM base), total AS (SELECT sum(SalesAmount) AS denominator FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009) SELECT sumIf(future_sales,base_sales>=p90) AS sales_amount,sales_amount*100.0/any(denominator) AS share_pct,any(denominator) AS total_sales FROM base CROSS JOIN threshold CROSS JOIN total",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q118-existing-1.json",
+            "sha256": "97c6088334ed984a9f69fc47d275ef9e1f1f8d4e58c25f620d92accbe785da2e",
+            "rows": 1
+          },
+          "answer_sql_sha256": "8951327a7fbf53c2bc3c65360ccea52fc71fb05874acf3e2bcddd65e0ca23233"
+        },
+        {
+          "id": "Q118-b1-1",
+          "interpretation": "按2008年产品数取前ceil(N*10%)，边界并列全部保留",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH base AS (SELECT ProductKey,sumIf(SalesAmount,toYear(DateKey)=2008) AS base_sales,sumIf(SalesAmount,toYear(DateKey)=2009) AS future_sales,countIf(toYear(DateKey)=2008) AS base_rows FROM retail.FactOnlineSales WHERE toYear(DateKey) IN (2008,2009) GROUP BY ProductKey HAVING base_rows>0), ranked AS (SELECT *,rank() OVER (ORDER BY base_sales DESC) AS r,count() OVER () AS n FROM base), total AS (SELECT sum(SalesAmount) AS denominator FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009) SELECT sumIf(future_sales,r<=ceil(n*0.1)) AS sales_amount,sales_amount*100.0/any(denominator) AS share_pct,any(denominator) AS total_sales FROM ranked CROSS JOIN total",
+          "sql_sha256": "798cd927ed581132b2fcded72e289418cfa1a36be9fb4534c09c1c49966f52b5",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q118-b1-1.json",
+            "sha256": "a98c9d368ecb4dd9ae3b5be5c8c034d28b8bab503f0d1cc27a46c44b5e01a5b7",
+            "rows": 1
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q119",
+      "text_zh": "列出2009年各门店最畅销的产品，以及这些产品在全公司当年产品销售额中的排名。",
+      "split": "heldout",
+      "manual_rationale": "店内最畅销可指销量或销售额；全公司排名明确按销售额，竞赛与稠密排名未被D18唯一限定。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q119-existing-1",
+          "interpretation": "店内按销售额选最畅销产品；全公司销售额按竞赛排名，并列最高都列出",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q119-1.csv",
+          "sql": "WITH by_store AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS product_sales\nFROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey),\nrank_domain AS (SELECT *,sum(product_sales) OVER (PARTITION BY ProductKey) AS global_sales FROM by_store)\nSELECT r.StoreKey AS StoreKey,s.StoreName AS StoreName,r.ProductKey AS ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,\nr.product_sales AS product_sales,r.global_sales AS global_sales,toUInt64(0) AS global_rank FROM rank_domain r\nLEFT JOIN retail.DimStore s ON r.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON r.ProductKey=p.ProductKey",
+          "sql_sha256": "da7a348376ff18aa95127760569b2132cc012d88d7f99f98b2d60b4195a99b22",
+          "result": {
+            "path": "refs/new/Q119-1.csv",
+            "sha256": "f0daab86dbaa3d7e0147d45646380ce69de13572e45ba52c15236212da8d3688"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。",
+          "answer_sql": "WITH stores AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS amount,sum(SalesAmount) AS criterion FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), global AS (SELECT ProductKey,sum(amount) AS company_sales,rank() OVER (ORDER BY sum(amount) DESC) AS global_rank FROM stores GROUP BY ProductKey), selected AS (SELECT *,rank() OVER (PARTITION BY StoreKey ORDER BY criterion DESC) AS r FROM stores) SELECT x.StoreKey,s.StoreName,x.ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,x.amount AS product_sales,g.global_rank FROM selected x JOIN global g ON x.ProductKey=g.ProductKey LEFT JOIN retail.DimStore s ON x.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON x.ProductKey=p.ProductKey WHERE x.r=1 ORDER BY x.StoreKey,x.ProductKey",
+          "answer_result": {
+            "path": "audit/T29-b1-results/Q119-existing-1.json",
+            "sha256": "9a66e518f10a8775ffd7039fe5928cb3a347425182156d3971bb55e1460ba0f1",
+            "rows": 310
+          },
+          "answer_sql_sha256": "a490fdee36f1fa5878bedfafe8c045c40d718cae0c982ec4fd3f7ab02628304c"
+        },
+        {
+          "id": "Q119-b1-1",
+          "interpretation": "店内按销售额选最畅销产品；公司销售额采用dense_rank排名，并列最高都列出",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH stores AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS amount,sum(SalesAmount) AS criterion FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), global AS (SELECT ProductKey,sum(amount) AS company_sales,dense_rank() OVER (ORDER BY sum(amount) DESC) AS global_rank FROM stores GROUP BY ProductKey), selected AS (SELECT *,rank() OVER (PARTITION BY StoreKey ORDER BY criterion DESC) AS r FROM stores) SELECT x.StoreKey,s.StoreName,x.ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,x.amount AS product_sales,g.global_rank FROM selected x JOIN global g ON x.ProductKey=g.ProductKey LEFT JOIN retail.DimStore s ON x.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON x.ProductKey=p.ProductKey WHERE x.r=1 ORDER BY x.StoreKey,x.ProductKey",
+          "sql_sha256": "d84929680ff3364a232a440fb3f3823577089642b6b9d4d1d78dfb4153791af7",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q119-b1-1.json",
+            "sha256": "9a66e518f10a8775ffd7039fe5928cb3a347425182156d3971bb55e1460ba0f1",
+            "rows": 310
+          }
+        },
+        {
+          "id": "Q119-b1-2",
+          "interpretation": "店内按销量选最畅销产品；公司销售额采用rank排名，并列最高都列出",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH stores AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS amount,sum(SalesQuantity) AS criterion FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), global AS (SELECT ProductKey,sum(amount) AS company_sales,rank() OVER (ORDER BY sum(amount) DESC) AS global_rank FROM stores GROUP BY ProductKey), selected AS (SELECT *,rank() OVER (PARTITION BY StoreKey ORDER BY criterion DESC) AS r FROM stores) SELECT x.StoreKey,s.StoreName,x.ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,x.amount AS product_sales,g.global_rank FROM selected x JOIN global g ON x.ProductKey=g.ProductKey LEFT JOIN retail.DimStore s ON x.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON x.ProductKey=p.ProductKey WHERE x.r=1 ORDER BY x.StoreKey,x.ProductKey",
+          "sql_sha256": "3c5f3cba4ef4056cdf2efd34a0979b6ba004766991803462f0ea977214c81c86",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q119-b1-2.json",
+            "sha256": "3c3bbf093bc19abd1a971c884296402167f7ab26d8eb68bdc3757f6a73080d66",
+            "rows": 341
+          }
+        },
+        {
+          "id": "Q119-b1-3",
+          "interpretation": "店内按销量选最畅销产品；公司销售额采用dense_rank排名，并列最高都列出",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH stores AS (SELECT StoreKey,ProductKey,sum(SalesAmount) AS amount,sum(SalesQuantity) AS criterion FROM retail.FactSales WHERE toYear(DateKey)=2009 GROUP BY StoreKey,ProductKey), global AS (SELECT ProductKey,sum(amount) AS company_sales,dense_rank() OVER (ORDER BY sum(amount) DESC) AS global_rank FROM stores GROUP BY ProductKey), selected AS (SELECT *,rank() OVER (PARTITION BY StoreKey ORDER BY criterion DESC) AS r FROM stores) SELECT x.StoreKey,s.StoreName,x.ProductKey,if(p.ProductKey=0,NULL,p.ProductName) AS ProductName,x.amount AS product_sales,g.global_rank FROM selected x JOIN global g ON x.ProductKey=g.ProductKey LEFT JOIN retail.DimStore s ON x.StoreKey=s.StoreKey LEFT JOIN retail.DimProduct p ON x.ProductKey=p.ProductKey WHERE x.r=1 ORDER BY x.StoreKey,x.ProductKey",
+          "sql_sha256": "e6b4efa215788ea4500b5ce4f8fc530a10d6593971f84460d8cba847645b1592",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q119-b1-3.json",
+            "sha256": "3c3bbf093bc19abd1a971c884296402167f7ab26d8eb68bdc3757f6a73080d66",
+            "rows": 341
+          }
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q120",
+      "text_zh": "对2009年购买过商品的客户，客户年收入与当年消费额的Pearson相关系数，在全体客户和各职业内分别是多少？列出各组客户数。范围标签统一使用“全体”和“职业内”；全体行的职业列为空，职业内行使用数据中的职业名称。",
+      "split": "heldout",
+      "manual_rationale": "Pearson、当年消费、全体和职业组、样本人数已明确；A36不擅自剔离群客户。",
+      "question_only_multiple": false,
+      "multiple_b2_eligible": false,
+      "interpretations": [
+        {
+          "id": "Q120-existing-1",
+          "interpretation": "遵守企业约定及题干限定口径；购买事件=全部行（含纯退货行）",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q120-1.csv",
+          "sql": "WITH spend AS (SELECT CustomerKey,sum(SalesAmount) AS annual_sales FROM retail.FactOnlineSales WHERE toYear(DateKey)=2009 GROUP BY CustomerKey),\ncustomers AS (SELECT f.CustomerKey,c.YearlyIncome AS income,c.Occupation AS occupation,f.annual_sales\nFROM spend f LEFT JOIN retail.DimCustomer c ON f.CustomerKey=c.CustomerKey WHERE c.YearlyIncome IS NOT NULL)\nSELECT '全体' AS scope,CAST(NULL,'Nullable(String)') AS occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers\nUNION ALL SELECT '职业内',occupation,count() AS customers,corr(income,annual_sales) AS income_sales_corr FROM customers GROUP BY occupation",
+          "sql_sha256": "44dadc9fb05e6d22879d87625f4855871c10b472bbd5c37e905b047ba1ea5980",
+          "result": {
+            "path": "refs/new/Q120-1.csv",
+            "sha256": "a483ecf050dd414189e5b4ede6124b5947d19505d29e3ffe2629e34116c861dc"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q121",
+      "text_zh": "用2009年月度销售额的变异系数比较各产品品类的经营波动，列出各品类的月均销售额和变异系数。",
+      "split": "tuning",
+      "manual_rationale": "变异系数的总体或样本标准差均可；L1plus未规定标准差分母。D12规定月均。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q121-existing-1",
+          "interpretation": "声明总体标准差（除以12）",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q121-1.csv",
+          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevPop(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
+          "sql_sha256": "71f495e6996da27f4960210faaa5ccddadd07ac70ad0ac08c0c7684a4d64ed89",
+          "result": {
+            "path": "refs/new/Q121-1.csv",
+            "sha256": "7227521a4144d2cfa2a52d46a62546b8277b95d07c71aad0363cc52a3d80e1dd"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q121-existing-2",
+          "interpretation": "声明样本标准差（除以11）",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q121-2.csv",
+          "sql": "WITH monthly AS (SELECT if(pc.ProductCategoryKey=0,0,pc.ProductCategoryKey) AS category_key,\nif(pc.ProductCategoryKey=0,NULL,pc.ProductCategoryName) AS category,toMonth(f.DateKey) AS m,sum(f.SalesAmount) AS sales_amount\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nLEFT JOIN retail.DimProductSubcategory ps ON p.ProductSubcategoryKey=ps.ProductSubcategoryKey\nLEFT JOIN retail.DimProductCategory pc ON ps.ProductCategoryKey=pc.ProductCategoryKey WHERE toYear(f.DateKey)=2009 GROUP BY category_key,category,m),\ncategories AS (SELECT category_key,any(category) AS category FROM monthly GROUP BY category_key),\nseries AS (SELECT c.category_key AS category_key,c.category AS category,n.number+1 AS m,x.sales_amount AS sales_amount\nFROM categories c CROSS JOIN numbers(12) n LEFT JOIN monthly x ON c.category_key=x.category_key AND n.number+1=x.m)\nSELECT category,avg(sales_amount) AS monthly_sales_amount,stddevSamp(sales_amount)/nullIf(avg(sales_amount),0) AS coefficient_ratio\nFROM series GROUP BY category_key,category",
+          "sql_sha256": "9963fe35c60d1aa6d9789d4cb9e7c0cc42b223b5a557d66952536d75917b29d3",
+          "result": {
+            "path": "refs/new/Q121-2.csv",
+            "sha256": "d59ea444cdf9af8ce4d8b43d5a120b87c183f0025ab72cda0f9b8343ee1999f5"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        }
+      ],
+      "suspicious_references": []
+    },
+    {
+      "qid": "Q122",
+      "text_zh": "2009 年哪 10 对 Contoso 产品最常出现在同一个订单里？给出它们的共同订单数和提升度。",
+      "split": "tuning",
+      "manual_rationale": "共同订单数明确，提升度的概率总体可为全部线上订单或至少含一款Contoso的订单；L1plus未规定lift总体。",
+      "question_only_multiple": true,
+      "multiple_b2_eligible": true,
+      "interpretations": [
+        {
+          "id": "Q122-existing-1",
+          "interpretation": "提升度的概率总体为2009年全部线上订单",
+          "b2_eligible": true,
+          "existing_reference": "refs/new/Q122-1.csv",
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT count() AS all_orders FROM baskets)\nSELECT x.product1_key AS product1_key,toNullable(a.ProductName) AS product1_name,\nx.product2_key AS product2_key,toNullable(b.ProductName) AS product2_name,\nx.both_orders AS common_orders,x.both_orders*1.0*t.all_orders/(ma.product_orders*mb.product_orders) AS lift_ratio\nFROM pairs x JOIN marginal ma ON x.product1_key=ma.ProductKey\nJOIN marginal mb ON x.product2_key=mb.ProductKey CROSS JOIN total t\nLEFT JOIN retail.DimProduct a ON x.product1_key=a.ProductKey\nLEFT JOIN retail.DimProduct b ON x.product2_key=b.ProductKey\nORDER BY common_orders DESC LIMIT 10",
+          "sql_sha256": "233d30b2db826f5c187777bd18a57f1fdabfa4e7158d6ad80084e98161e7be70",
+          "result": {
+            "path": "refs/new/Q122-1.csv",
+            "sha256": "1c0978e76c6cbdac32bd5d524c4cdf5ba1861b3fb05779240f2c10e78bb68e6e"
+          },
+          "note": "沿用冻结参考结果；部分SQL返回选择域，最终答案生成过程见原题库scripts及refs/MANIFEST.json，不把域当成最终答案。"
+        },
+        {
+          "id": "Q122-b1-1",
+          "interpretation": "提升度概率总体为当年含至少一款Contoso的线上订单；共同订单数仍按产品对去重订单",
+          "b2_eligible": true,
+          "existing_reference": null,
+          "sql": "WITH baskets AS (\nSELECT f.SalesOrderNumber,groupUniqArrayIf(f.ProductKey,p.BrandName='Contoso') AS products\nFROM retail.FactOnlineSales f LEFT JOIN retail.DimProduct p ON f.ProductKey=p.ProductKey\nWHERE toYear(f.DateKey)=2009 GROUP BY f.SalesOrderNumber),\nfirst_product AS (SELECT SalesOrderNumber,products,arrayJoin(products) AS product1_key FROM baskets),\npairs AS (SELECT product1_key,product2_key,count() AS both_orders FROM first_product ARRAY JOIN products AS product2_key\nWHERE product1_key<product2_key GROUP BY product1_key,product2_key),\nmarginal AS (SELECT product1_key AS ProductKey,count() AS product_orders FROM first_product GROUP BY product1_key),\ntotal AS (SELECT countIf(length(products)>0) AS all_orders FROM baskets)\nSELECT x.product1_key AS product1_key,toNullable(a.ProductName) AS product1_name,\nx.product2_key AS product2_key,toNullable(b.ProductName) AS product2_name,\nx.both_orders AS common_orders,x.both_orders*1.0*t.all_orders/(ma.product_orders*mb.product_orders) AS lift_ratio\nFROM pairs x JOIN marginal ma ON x.product1_key=ma.ProductKey\nJOIN marginal mb ON x.product2_key=mb.ProductKey CROSS JOIN total t\nLEFT JOIN retail.DimProduct a ON x.product1_key=a.ProductKey\nLEFT JOIN retail.DimProduct b ON x.product2_key=b.ProductKey\nORDER BY common_orders DESC LIMIT 10",
+          "sql_sha256": "86b338fa04423ed7aed2fee971e1747894303e8cf762fe16ff64817887cba5bc",
+          "exclusion_reason": null,
+          "result": {
+            "path": "audit/T29-b1-results/Q122-b1-1.json",
+            "sha256": "0b1cae1d8bfc5612033956d25a68b44cd175ece696b7aecd8c828d14b743597f",
+            "rows": 10
+          }
+        }
+      ],
+      "suspicious_references": []
+    }
+  ]
+}

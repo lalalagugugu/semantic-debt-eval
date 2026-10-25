@@ -1,0 +1,13 @@
+{
+  "columns": [
+    {
+      "name": "sales_quantity",
+      "type": "Int64"
+    }
+  ],
+  "rows": [
+    [
+      28018
+    ]
+  ]
+}

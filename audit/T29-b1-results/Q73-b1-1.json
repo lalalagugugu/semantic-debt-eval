@@ -1,0 +1,82 @@
+{
+  "columns": [
+    {
+      "name": "ProductName",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "total_on_hand",
+      "type": "Int64"
+    },
+    {
+      "name": "total_safety",
+      "type": "Int64"
+    },
+    {
+      "name": "gap",
+      "type": "Int64"
+    }
+  ],
+  "rows": [
+    [
+      "Contoso DVD 9-Inch Player Portable M300 White",
+      4468,
+      18510,
+      14042
+    ],
+    [
+      "Contoso DVD 55DVD Storage Binder M56 Silver",
+      4448,
+      18470,
+      14022
+    ],
+    [
+      "Contoso DVD 55DVD Storage Binder M56 Red",
+      4418,
+      18230,
+      13812
+    ],
+    [
+      "SV DVD 55DVD Storage Binder M56 Red",
+      4583,
+      18100,
+      13517
+    ],
+    [
+      "SV DVD 12-Inch Player Portable M400 White",
+      4531,
+      17980,
+      13449
+    ],
+    [
+      "Contoso DVD 60 DVD Storage Binder L20 Black",
+      4141,
+      17500,
+      13359
+    ],
+    [
+      "SV DVD 15-Inch Player Portable L200 White",
+      4132,
+      17360,
+      13228
+    ],
+    [
+      "SV DVD 14-Inch Player Portable L100 Silver",
+      4305,
+      17470,
+      13165
+    ],
+    [
+      "SV DVD 9-Inch Player Portable M300 White",
+      4481,
+      17640,
+      13159
+    ],
+    [
+      "SV DVD 9-Inch Player Portable M300 Silver",
+      4313,
+      17470,
+      13157
+    ]
+  ]
+}
