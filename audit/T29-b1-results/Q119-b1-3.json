@@ -1,0 +1,2758 @@
+{
+  "columns": [
+    {
+      "name": "x.StoreKey",
+      "type": "Int32"
+    },
+    {
+      "name": "StoreName",
+      "type": "String"
+    },
+    {
+      "name": "x.ProductKey",
+      "type": "Int32"
+    },
+    {
+      "name": "ProductName",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "product_sales",
+      "type": "Float64"
+    },
+    {
+      "name": "global_rank",
+      "type": "UInt64"
+    }
+  ],
+  "rows": [
+    [
+      1,
+      "Contoso Seattle No.1 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      19992,
+      160
+    ],
+    [
+      2,
+      "Contoso Seattle No.2 Store",
+      2496,
+      null,
+      9987.003,
+      703
+    ],
+    [
+      3,
+      "Contoso Kennewick Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      3979.2299999999996,
+      1542
+    ],
+    [
+      4,
+      "Contoso Bellevue Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      31291.424,
+      290
+    ],
+    [
+      5,
+      "Contoso Redmond Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      17980.504999999997,
+      363
+    ],
+    [
+      6,
+      "Contoso Yakima Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      7770.045,
+      1542
+    ],
+    [
+      7,
+      "Contoso Granger Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      12377.61,
+      756
+    ],
+    [
+      8,
+      "Contoso Sunnyside Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      4709.6,
+      1692
+    ],
+    [
+      9,
+      "Contoso Toppenish Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      13178.808,
+      752
+    ],
+    [
+      10,
+      "Contoso Wapato Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      43964.907,
+      178
+    ],
+    [
+      11,
+      "Contoso Cle Elum Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      24664.056,
+      295
+    ],
+    [
+      12,
+      "Contoso North Bend Store",
+      2497,
+      null,
+      12784.7025,
+      764
+    ],
+    [
+      13,
+      "Contoso Snoqualmie Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      9584.405999999999,
+      752
+    ],
+    [
+      14,
+      "Contoso Fall City Store",
+      2495,
+      null,
+      13579.407,
+      590
+    ],
+    [
+      15,
+      "Contoso Renton Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      14975.009999999998,
+      393
+    ],
+    [
+      16,
+      "Contoso Everett Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      7305.564,
+      1552
+    ],
+    [
+      17,
+      "Contoso Spokane Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4738.104,
+      1418
+    ],
+    [
+      18,
+      "Contoso Veradale Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      2469.0119999999997,
+      1780
+    ],
+    [
+      19,
+      "Contoso Cheney Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      16381.601999999999,
+      752
+    ],
+    [
+      20,
+      "Contoso Englewood Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      14375.61,
+      752
+    ],
+    [
+      21,
+      "Contoso Wheat Ridge Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      32973.0555,
+      160
+    ],
+    [
+      22,
+      "Contoso Westminster Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      29988,
+      160
+    ],
+    [
+      23,
+      "Contoso Grand Junction Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      5033.588,
+      1642
+    ],
+    [
+      24,
+      "Contoso New Castle Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      7631.582,
+      1642
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      12974.808,
+      140
+    ],
+    [
+      25,
+      "Contoso Greeley  No.1 Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      12320.168,
+      295
+    ],
+    [
+      26,
+      "Contoso Loveland Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      2947.33,
+      1741
+    ],
+    [
+      27,
+      "Contoso Lafayette Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      24645.08,
+      374
+    ],
+    [
+      28,
+      "Contoso Castle Rock Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      13582.404,
+      786
+    ],
+    [
+      29,
+      "Contoso Sedalia Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      11988,
+      737
+    ],
+    [
+      30,
+      "Contoso Fort Collins Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      7143.570000000001,
+      1552
+    ],
+    [
+      31,
+      "Contoso Greeley No.2 Store",
+      2495,
+      null,
+      7591.401,
+      590
+    ],
+    [
+      32,
+      "Contoso Milliken Store",
+      2496,
+      null,
+      7992,
+      703
+    ],
+    [
+      33,
+      "Contoso Berthoud Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      18976,
+      374
+    ],
+    [
+      34,
+      "Contoso Denver No.1 Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9982.008,
+      786
+    ],
+    [
+      35,
+      "Contoso Denver No.2 Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4360.8,
+      1418
+    ],
+    [
+      36,
+      "Contoso Denver No.3 Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      13984.002,
+      756
+    ],
+    [
+      37,
+      "Contoso Boulder Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      3895.1639999999998,
+      1692
+    ],
+    [
+      38,
+      "Contoso Thornton Store",
+      2496,
+      null,
+      11986.002,
+      703
+    ],
+    [
+      39,
+      "Contoso Littleton Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      13186.703000000001,
+      393
+    ],
+    [
+      39,
+      "Contoso Littleton Store",
+      2497,
+      null,
+      8788.7025,
+      764
+    ],
+    [
+      39,
+      "Contoso Littleton Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      8781.21,
+      786
+    ],
+    [
+      39,
+      "Contoso Littleton Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      2945.8225,
+      1741
+    ],
+    [
+      40,
+      "Contoso Aurora Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      32242.596,
+      295
+    ],
+    [
+      41,
+      "Contoso Parker Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      25959.612,
+      160
+    ],
+    [
+      42,
+      "Contoso Green Bay Store",
+      2495,
+      null,
+      12785.202000000001,
+      590
+    ],
+    [
+      43,
+      "Contoso Appleton Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      5497.9259999999995,
+      1418
+    ],
+    [
+      44,
+      "Contoso Menasha Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      3082,
+      1734
+    ],
+    [
+      45,
+      "Contoso Oshkosh Store",
+      2497,
+      null,
+      17576.406,
+      764
+    ],
+    [
+      46,
+      "Contoso Fond du Lac Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      22990.8,
+      178
+    ],
+    [
+      47,
+      "Contoso Milwaukee No.1 Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      4115.118,
+      1780
+    ],
+    [
+      48,
+      "Contoso Milwaukee No.2 Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      35968.106999999996,
+      140
+    ],
+    [
+      49,
+      "Contoso Milwaukee No.3 Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      4419.99,
+      1734
+    ],
+    [
+      50,
+      "Contoso Waukesha No.1 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      30980.103,
+      160
+    ],
+    [
+      51,
+      "Contoso Racine No.1 Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      2586.906,
+      1780
+    ],
+    [
+      52,
+      "Contoso Burlington Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4170.252,
+      1418
+    ],
+    [
+      53,
+      "Contoso East Troy Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      46964.9565,
+      160
+    ],
+    [
+      54,
+      "Contoso Waukesha No.2 Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      31296.167999999998,
+      295
+    ],
+    [
+      55,
+      "Contoso Germantown Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3571.5820000000003,
+      1642
+    ],
+    [
+      57,
+      "Contoso Port Washington Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      13790.8,
+      363
+    ],
+    [
+      58,
+      "Contoso Sheboygan Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      9182.808,
+      737
+    ],
+    [
+      59,
+      "Contoso Manitowoc Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      6635.052,
+      1441
+    ],
+    [
+      60,
+      "Contoso Madison Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      23712.884,
+      374
+    ],
+    [
+      61,
+      "Contoso Oregon Store",
+      2496,
+      null,
+      9584.405999999999,
+      703
+    ],
+    [
+      61,
+      "Contoso Oregon Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      3896.788,
+      1552
+    ],
+    [
+      62,
+      "Contoso Stoughton Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      22765.313000000002,
+      363
+    ],
+    [
+      63,
+      "Contoso Edgerton Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      23978.004,
+      363
+    ],
+    [
+      64,
+      "Contoso Fort Atkinson Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      5359.2,
+      1692
+    ],
+    [
+      65,
+      "Contoso Racine No.2 Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      7791.802,
+      363
+    ],
+    [
+      65,
+      "Contoso Racine No.2 Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      12329.656,
+      379
+    ],
+    [
+      65,
+      "Contoso Racine No.2 Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      2464.8,
+      1418
+    ],
+    [
+      66,
+      "Contoso Houston No.1 Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      13191.2,
+      462
+    ],
+    [
+      67,
+      "Contoso Houston No.2 Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      13784.804,
+      462
+    ],
+    [
+      67,
+      "Contoso Houston No.2 Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4357.008,
+      1441
+    ],
+    [
+      68,
+      "Contoso Houston No.3 Store",
+      2496,
+      null,
+      9188.802,
+      703
+    ],
+    [
+      69,
+      "Contoso Houston No.4 Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      13185.204,
+      363
+    ],
+    [
+      70,
+      "Contoso Midland Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      15582.9015,
+      752
+    ],
+    [
+      71,
+      "Contoso Russellville Store",
+      2495,
+      null,
+      9190.8,
+      590
+    ],
+    [
+      71,
+      "Contoso Russellville Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      21812.912,
+      374
+    ],
+    [
+      72,
+      "Contoso Minden Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4170.014999999999,
+      1418
+    ],
+    [
+      73,
+      "Contoso Shreveport Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      6006.77,
+      1642
+    ],
+    [
+      74,
+      "Contoso Marshall Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      32254.456,
+      290
+    ],
+    [
+      75,
+      "Contoso Longview Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      3215.33,
+      1741
+    ],
+    [
+      76,
+      "Contoso Beaumont No.1 Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      33200.884,
+      295
+    ],
+    [
+      77,
+      "Contoso Orange Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      30352.112,
+      290
+    ],
+    [
+      78,
+      "Contoso Beaumont No.2 Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      4286.66,
+      1734
+    ],
+    [
+      79,
+      "Contoso Baytown Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      25959.612,
+      140
+    ],
+    [
+      80,
+      "Contoso La Porte Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      29976.754500000003,
+      160
+    ],
+    [
+      81,
+      "Contoso Bacliff Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      1526.448,
+      1780
+    ],
+    [
+      82,
+      "Contoso Texas City Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      13188.9515,
+      363
+    ],
+    [
+      83,
+      "Contoso Pasadena Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      8787.204,
+      786
+    ],
+    [
+      83,
+      "Contoso Pasadena Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4170.726000000001,
+      1418
+    ],
+    [
+      84,
+      "Contoso Humble Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      32971.806,
+      178
+    ],
+    [
+      84,
+      "Contoso Humble Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      31300.912,
+      374
+    ],
+    [
+      85,
+      "Contoso Spring Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      21812.912,
+      295
+    ],
+    [
+      86,
+      "Contoso Austin Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      21822.4,
+      379
+    ],
+    [
+      87,
+      "Contoso San Antonio Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      5357.982,
+      1642
+    ],
+    [
+      88,
+      "Contoso Cedar Park Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4549.452,
+      1441
+    ],
+    [
+      89,
+      "Contoso Round Rock Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      12984.804,
+      160
+    ],
+    [
+      89,
+      "Contoso Round Rock Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      1741.33,
+      1734
+    ],
+    [
+      90,
+      "Contoso Dallas Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      11988,
+      737
+    ],
+    [
+      91,
+      "Contoso Georgetown Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9188.802,
+      786
+    ],
+    [
+      91,
+      "Contoso Georgetown Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      3731.952,
+      1552
+    ],
+    [
+      92,
+      "Contoso Hillsboro Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      19181.203999999998,
+      393
+    ],
+    [
+      93,
+      "Contoso Arlington Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      9982.008,
+      737
+    ],
+    [
+      94,
+      "Contoso Grand Prairie Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      4686.985,
+      1741
+    ],
+    [
+      95,
+      "Contoso Desoto Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      24985.002,
+      178
+    ],
+    [
+      96,
+      "Contoso Richardson Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      2680,
+      1734
+    ],
+    [
+      97,
+      "Contoso Lewisville Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      3481.3199999999997,
+      1734
+    ],
+    [
+      98,
+      "Contoso Denton Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      3085.194,
+      1692
+    ],
+    [
+      99,
+      "Contoso Fort Worth Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      32980.5525,
+      160
+    ],
+    [
+      100,
+      "Contoso Plano Store",
+      2495,
+      null,
+      12383.604,
+      590
+    ],
+    [
+      101,
+      "Contoso Miami No.1 Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      15170.814,
+      752
+    ],
+    [
+      102,
+      "Contoso Miami No.2 Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      18976,
+      290
+    ],
+    [
+      102,
+      "Contoso Miami No.2 Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      3792,
+      1441
+    ],
+    [
+      103,
+      "Contoso Jacksonville Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      21570.61,
+      462
+    ],
+    [
+      104,
+      "Contoso Tallahassee No.1 Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      4153.1625,
+      1734
+    ],
+    [
+      105,
+      "Contoso Tallahassee No.2 Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      9586.404,
+      737
+    ],
+    [
+      107,
+      "Contoso Sebring Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      31305.656000000003,
+      295
+    ],
+    [
+      108,
+      "Contoso Lakeland Store",
+      2495,
+      null,
+      14378.607,
+      590
+    ],
+    [
+      109,
+      "Contoso Fort Lauderdale Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      5307.852,
+      1418
+    ],
+    [
+      110,
+      "Contoso Orlando Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      5519.164,
+      1692
+    ],
+    [
+      111,
+      "Contoso Tampa Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      8790.7005,
+      737
+    ],
+    [
+      112,
+      "Contoso Key West Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      20864.112,
+      295
+    ],
+    [
+      113,
+      "Contoso Cape Canaveral Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      11992,
+      393
+    ],
+    [
+      114,
+      "Contoso Albany Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      3291.9179999999997,
+      1780
+    ],
+    [
+      115,
+      "Contoso New York No.1 Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      24987.500999999997,
+      140
+    ],
+    [
+      116,
+      "Contoso Rochester No.1 Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4737.629999999999,
+      1418
+    ],
+    [
+      117,
+      "Contoso New York No.2 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      27981.303,
+      160
+    ],
+    [
+      118,
+      "Contoso Syracuse Store",
+      2495,
+      null,
+      7992,
+      590
+    ],
+    [
+      118,
+      "Contoso Syracuse Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      18976,
+      379
+    ],
+    [
+      119,
+      "Contoso Buffalo Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9585.405,
+      786
+    ],
+    [
+      120,
+      "Contoso Plattsburgh Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      3079.99,
+      1734
+    ],
+    [
+      121,
+      "Contoso Brooklyn Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      4059.188,
+      1552
+    ],
+    [
+      122,
+      "Contoso Oswego Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      8784.7065,
+      752
+    ],
+    [
+      122,
+      "Contoso Oswego Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      2946.66,
+      1734
+    ],
+    [
+      123,
+      "Contoso Ithaca Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4548.030000000001,
+      1441
+    ],
+    [
+      124,
+      "Contoso Rochester No.2 Store",
+      2496,
+      null,
+      8790.201000000001,
+      703
+    ],
+    [
+      125,
+      "Contoso Queens Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9585.405,
+      786
+    ],
+    [
+      126,
+      "Contoso Elmira Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9190.8,
+      786
+    ],
+    [
+      127,
+      "Contoso Poestenkill Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      3348.66,
+      1734
+    ],
+    [
+      128,
+      "Contoso Trenton No.1 Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      3411.852,
+      1418
+    ],
+    [
+      129,
+      "Contoso Trenton No.2 Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      4285.32,
+      1741
+    ],
+    [
+      130,
+      "Contoso Newark No.1 Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      8788.203000000001,
+      752
+    ],
+    [
+      130,
+      "Contoso Newark No.1 Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4170.4890000000005,
+      1441
+    ],
+    [
+      131,
+      "Contoso Newark No.2 Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      6253.719,
+      1542
+    ],
+    [
+      132,
+      "Contoso Jersey City Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      23703.396,
+      295
+    ],
+    [
+      133,
+      "Contoso Paterson Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      13787.802,
+      363
+    ],
+    [
+      134,
+      "Contoso Clifton Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      3978.7560000000003,
+      1418
+    ],
+    [
+      134,
+      "Contoso Clifton Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      3979.4669999999996,
+      1441
+    ],
+    [
+      135,
+      "Contoso East Orange Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      9585.404999999999,
+      756
+    ],
+    [
+      136,
+      "Contoso Passaic Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4360.8,
+      1418
+    ],
+    [
+      137,
+      "Contoso Bayonne Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      6065.304,
+      1441
+    ],
+    [
+      138,
+      "Contoso Vineland Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      23715.256,
+      295
+    ],
+    [
+      139,
+      "Contoso New Brunswick Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4923.912,
+      1441
+    ],
+    [
+      140,
+      "Contoso Hackensack Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      6167.952,
+      1552
+    ],
+    [
+      141,
+      "Contoso Atlantic City Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      8389.601999999999,
+      756
+    ],
+    [
+      142,
+      "Contoso Montclair Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      23710.512000000002,
+      290
+    ],
+    [
+      143,
+      "Contoso Hoboken Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      7014.489,
+      1542
+    ],
+    [
+      144,
+      "Contoso Morristown Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      2946.995,
+      1741
+    ],
+    [
+      145,
+      "Contoso Cape May Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      14979.507,
+      462
+    ],
+    [
+      146,
+      "Contoso Boston Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      8788.203000000001,
+      752
+    ],
+    [
+      147,
+      "Contoso Worcester No.1 Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      8787.204,
+      756
+    ],
+    [
+      148,
+      "Contoso Worcester No.2 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      27986.301,
+      160
+    ],
+    [
+      149,
+      "Contoso New Bedford Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      34971.005999999994,
+      178
+    ],
+    [
+      150,
+      "Contoso Attleboro Store",
+      2496,
+      null,
+      8789.202000000001,
+      703
+    ],
+    [
+      151,
+      "Contoso Lowell Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      21988.701,
+      178
+    ],
+    [
+      152,
+      "Contoso Leominster Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      9980.009999999998,
+      756
+    ],
+    [
+      153,
+      "Contoso Hingham Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      7782.808,
+      462
+    ],
+    [
+      154,
+      "Contoso Quincy Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      6966.325,
+      1741
+    ],
+    [
+      155,
+      "Contoso Framingham Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4925.808,
+      1418
+    ],
+    [
+      156,
+      "Contoso Cambridge Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      15580.404,
+      786
+    ],
+    [
+      157,
+      "Contoso Somerville Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      4216.716,
+      1552
+    ],
+    [
+      158,
+      "Contoso Haverhill Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      32978.053499999995,
+      178
+    ],
+    [
+      159,
+      "Contoso Lynn Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      3602.4,
+      1542
+    ],
+    [
+      160,
+      "Contoso Northampton Store",
+      2496,
+      null,
+      13184.302500000002,
+      703
+    ],
+    [
+      161,
+      "Contoso Holyoke Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      9586.404,
+      752
+    ],
+    [
+      162,
+      "Contoso Pittsfield Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      20974.008,
+      462
+    ],
+    [
+      163,
+      "Contoso Falmouth Store",
+      2515,
+      "Contoso In-Line Coupler E180 White",
+      3478.64,
+      1809
+    ],
+    [
+      164,
+      "Contoso Provincetown Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      12383.604,
+      786
+    ],
+    [
+      165,
+      "Contoso Nantucket Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      3528,
+      1780
+    ],
+    [
+      166,
+      "Contoso Bangor Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      11988,
+      756
+    ],
+    [
+      167,
+      "Contoso Bar Harbor Store",
+      2496,
+      null,
+      14379.606,
+      703
+    ],
+    [
+      168,
+      "Contoso Kennebunkport Store",
+      2495,
+      null,
+      9190.8,
+      590
+    ],
+    [
+      169,
+      "Contoso Lewiston Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      5055.918,
+      1780
+    ],
+    [
+      170,
+      "Contoso Orono Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      4358.904,
+      1441
+    ],
+    [
+      171,
+      "Contoso South Portland Store",
+      2495,
+      null,
+      10785.204,
+      590
+    ],
+    [
+      172,
+      "Contoso Hartford Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      13578.408,
+      737
+    ],
+    [
+      173,
+      "Contoso Bridgeport Store",
+      2497,
+      null,
+      12786.201000000001,
+      764
+    ],
+    [
+      173,
+      "Contoso Bridgeport Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      30361.6,
+      379
+    ],
+    [
+      174,
+      "Contoso Waterbury Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      4553.99,
+      1734
+    ],
+    [
+      175,
+      "Contoso Old Saybrook Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      14982.505000000001,
+      393
+    ],
+    [
+      176,
+      "Contoso Darien Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      6823.704,
+      1418
+    ],
+    [
+      177,
+      "Contoso New Haven Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      10381.608,
+      786
+    ],
+    [
+      178,
+      "Contoso Litchfield County Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      4357.956,
+      1542
+    ],
+    [
+      179,
+      "Contoso New London Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      8791.2,
+      737
+    ],
+    [
+      179,
+      "Contoso New London Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3571.5820000000003,
+      1642
+    ],
+    [
+      180,
+      "Contoso Norfolk Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      23705.768,
+      374
+    ],
+    [
+      181,
+      "Contoso Virginia Beach Store",
+      2496,
+      null,
+      5186.808,
+      703
+    ],
+    [
+      181,
+      "Contoso Virginia Beach Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      5188.806,
+      737
+    ],
+    [
+      182,
+      "Contoso Winchester Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3897.6,
+      1642
+    ],
+    [
+      183,
+      "Contoso Anchorage Store",
+      2495,
+      null,
+      17578.404,
+      590
+    ],
+    [
+      184,
+      "Contoso Alexandria Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      6632.682,
+      1418
+    ],
+    [
+      185,
+      "Contoso Roanoke Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      9586.404,
+      752
+    ],
+    [
+      186,
+      "Contoso Charlottesville Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      9586.403999999999,
+      786
+    ],
+    [
+      187,
+      "Contoso Fredericksburg Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      9978.011999999999,
+      752
+    ],
+    [
+      188,
+      "Contoso Martinsville Store",
+      2496,
+      null,
+      16782.201,
+      703
+    ],
+    [
+      189,
+      "Contoso Greenville Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      4153.1625,
+      1741
+    ],
+    [
+      190,
+      "Contoso Charleston Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      19185.701,
+      363
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      7788.804,
+      462
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      5186.808,
+      737
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      5194.8,
+      756
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      2463.852,
+      1441
+    ],
+    [
+      191,
+      "Contoso Annapolis Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      1742,
+      1734
+    ],
+    [
+      192,
+      "Contoso Baltimore Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      5360,
+      1741
+    ],
+    [
+      193,
+      "Contoso Howard Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      8528.682,
+      1441
+    ],
+    [
+      194,
+      "Contoso Ridgely Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      8150.43,
+      1441
+    ],
+    [
+      195,
+      "Contoso Queen Anne's County Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      3571.176,
+      1552
+    ],
+    [
+      196,
+      "Contoso Parkville Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      26976.004,
+      363
+    ],
+    [
+      197,
+      "Contoso Back River Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      9588.402,
+      756
+    ],
+    [
+      198,
+      "Contoso North Harford Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      3792,
+      1418
+    ],
+    [
+      199,
+      "Contoso North America Online Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      590513.7000000001,
+      140
+    ],
+    [
+      200,
+      "Contoso Catalog Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      95151.708,
+      1441
+    ],
+    [
+      201,
+      "Contoso London Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      7992,
+      737
+    ],
+    [
+      202,
+      "Contoso Edinburgh Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      8790.5007,
+      752
+    ],
+    [
+      203,
+      "Contoso Glasgow Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      13188.0521,
+      393
+    ],
+    [
+      204,
+      "Contoso York Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      4171.2,
+      1542
+    ],
+    [
+      205,
+      "Contoso Carlisle Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      5845.2632,
+      1552
+    ],
+    [
+      206,
+      "Contoso Manchester Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      7987.2047999999995,
+      756
+    ],
+    [
+      207,
+      "Contoso Lancashire Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3897.6,
+      1642
+    ],
+    [
+      208,
+      "Contoso West Yorkshire Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      3980.652,
+      1542
+    ],
+    [
+      209,
+      "Contoso Baildon Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      3246.376,
+      1692
+    ],
+    [
+      210,
+      "Contoso Cheshire Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      4154,
+      1734
+    ],
+    [
+      211,
+      "Contoso Stockport Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      18989.900999999998,
+      160
+    ],
+    [
+      212,
+      "Contoso Liverpool Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      7192.0521,
+      462
+    ],
+    [
+      212,
+      "Contoso Liverpool Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      1948.2316,
+      1642
+    ],
+    [
+      213,
+      "Contoso Knotty Ash Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      19177.0068,
+      363
+    ],
+    [
+      214,
+      "Contoso Leeds Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      3895.8948,
+      1552
+    ],
+    [
+      215,
+      "Contoso Paris Store",
+      2496,
+      null,
+      9586.9035,
+      703
+    ],
+    [
+      216,
+      "Contoso Marseille Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      27975.3054,
+      178
+    ],
+    [
+      217,
+      "Contoso Lyon Store",
+      2497,
+      null,
+      8791.2,
+      764
+    ],
+    [
+      218,
+      "Contoso Toulouse Store",
+      2488,
+      "Contoso Rubberized Skin BlackBerry E100 Black",
+      7194.1507,
+      462
+    ],
+    [
+      218,
+      "Contoso Toulouse Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      4793.8014,
+      756
+    ],
+    [
+      218,
+      "Contoso Toulouse Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      1948.8,
+      1642
+    ],
+    [
+      219,
+      "Contoso Nice Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      2947.531,
+      1734
+    ],
+    [
+      220,
+      "Contoso Nantes Store",
+      2496,
+      null,
+      11180.0088,
+      703
+    ],
+    [
+      221,
+      "Contoso Strasbourg Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      17073.656,
+      295
+    ],
+    [
+      222,
+      "Contoso Roma Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      11385.6,
+      379
+    ],
+    [
+      223,
+      "Contoso Venezia Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      9488,
+      290
+    ],
+    [
+      223,
+      "Contoso Venezia Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      3996,
+      756
+    ],
+    [
+      224,
+      "Contoso Firenze Store",
+      2515,
+      "Contoso In-Line Coupler E180 White",
+      2948,
+      1809
+    ],
+    [
+      225,
+      "Contoso Torino Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      29971.256699999998,
+      140
+    ],
+    [
+      226,
+      "Contoso Milan Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      9578.61,
+      393
+    ],
+    [
+      227,
+      "Contoso Naples Store",
+      2495,
+      null,
+      11987.001,
+      590
+    ],
+    [
+      228,
+      "Contoso Berlin Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      12591.599999999999,
+      393
+    ],
+    [
+      230,
+      "Contoso koln No.2 Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      26561.656,
+      374
+    ],
+    [
+      230,
+      "Contoso koln No.2 Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      11178.81,
+      786
+    ],
+    [
+      231,
+      "Contoso Hofheim Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      3980.178,
+      1418
+    ],
+    [
+      232,
+      "Contoso koln No.1 Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3572.8,
+      1642
+    ],
+    [
+      233,
+      "Contoso Landstuhl Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      25979.604,
+      178
+    ],
+    [
+      234,
+      "Contoso Dusseldorf Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      7188.804,
+      752
+    ],
+    [
+      235,
+      "Contoso Ramstein Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      3412.8,
+      1542
+    ],
+    [
+      235,
+      "Contoso Ramstein Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      2921.576,
+      1642
+    ],
+    [
+      236,
+      "Contoso Baumholder Store",
+      2496,
+      null,
+      7588.404,
+      703
+    ],
+    [
+      237,
+      "Contoso Giebelstadt Store",
+      2496,
+      null,
+      13184.402399999999,
+      703
+    ],
+    [
+      238,
+      "Contoso obamberg Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      17992.8,
+      160
+    ],
+    [
+      239,
+      "Contoso Munich Store",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      3572.8,
+      1692
+    ],
+    [
+      240,
+      "Contoso Amsterdam Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      7195.2,
+      393
+    ],
+    [
+      241,
+      "Contoso Copenhagen Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      7987.9041,
+      737
+    ],
+    [
+      242,
+      "Contoso Stockholm Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      2544.66,
+      1734
+    ],
+    [
+      243,
+      "Contoso Madrid Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3248,
+      1642
+    ],
+    [
+      244,
+      "Contoso Ljubljana Store",
+      2495,
+      null,
+      8788.4028,
+      590
+    ],
+    [
+      245,
+      "Contoso Bucharest Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      9578.61,
+      363
+    ],
+    [
+      246,
+      "Contoso Berne Store",
+      2496,
+      null,
+      7990.6014000000005,
+      703
+    ],
+    [
+      247,
+      "Contoso Warsaw Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      18976,
+      379
+    ],
+    [
+      248,
+      "Contoso Valletta Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      5521.6,
+      1552
+    ],
+    [
+      249,
+      "Contoso Dublin Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      15171.312,
+      290
+    ],
+    [
+      250,
+      "Contoso Athens Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      11584.404,
+      756
+    ],
+    [
+      251,
+      "Contoso Singapore Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      20763.216,
+      752
+    ],
+    [
+      252,
+      "Contoso Canberra Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      80911.3725,
+      160
+    ],
+    [
+      253,
+      "Contoso Sydney No.1 Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      29556.414000000004,
+      752
+    ],
+    [
+      254,
+      "Contoso Yerevan Store",
+      2508,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Silver",
+      11374.104,
+      1441
+    ],
+    [
+      255,
+      "Contoso New Delhi Store",
+      2516,
+      "Contoso In-Line Coupler E180 Black",
+      6164,
+      1734
+    ],
+    [
+      256,
+      "Contoso Mumbai Store",
+      2515,
+      "Contoso In-Line Coupler E180 White",
+      6158.974999999999,
+      1809
+    ],
+    [
+      257,
+      "Contoso Kolkata Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      8706.314999999999,
+      1741
+    ],
+    [
+      258,
+      "Contoso Thimphu No.1 Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      21576.606,
+      363
+    ],
+    [
+      259,
+      "Contoso Hong Kong No.1 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      55940.115000000005,
+      160
+    ],
+    [
+      260,
+      "Contoso Tehran No.1 Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      32249.712,
+      379
+    ],
+    [
+      261,
+      "Contoso Damascus No.1 Store",
+      2495,
+      null,
+      23150.826,
+      590
+    ],
+    [
+      262,
+      "Contoso Bangkok No.1 Store",
+      2495,
+      null,
+      24362.1135,
+      590
+    ],
+    [
+      263,
+      "Contoso Moscow  No.1 Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      2350.7946,
+      1780
+    ],
+    [
+      264,
+      "Contoso Ashgabat No.1 Store",
+      2497,
+      null,
+      17181.3015,
+      764
+    ],
+    [
+      265,
+      "Contoso Islamabad No.1 Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      4230.513,
+      1780
+    ],
+    [
+      267,
+      "Contoso Tokyo No.1 Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      5492.325,
+      1741
+    ],
+    [
+      268,
+      "Contoso Tokyo No.2 Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      12988.955,
+      1552
+    ],
+    [
+      269,
+      "Contoso Yokohama Store",
+      2494,
+      "Reusable Phone Screen Protector E120",
+      6346.871999999999,
+      1780
+    ],
+    [
+      270,
+      "Contoso Osaka No.1 Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      35368.1555,
+      363
+    ],
+    [
+      271,
+      "Contoso Nagoya Store",
+      2497,
+      null,
+      18373.108500000002,
+      764
+    ],
+    [
+      272,
+      "Contoso Sapporo Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      48962.90700000001,
+      178
+    ],
+    [
+      273,
+      "Contoso Kyoto Store",
+      2497,
+      null,
+      9187.803,
+      764
+    ],
+    [
+      274,
+      "Contoso Seoul Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      22372.605000000003,
+      752
+    ],
+    [
+      275,
+      "Contoso Busan Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      11754.251999999999,
+      1418
+    ],
+    [
+      276,
+      "Contoso Bishkek Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      18759.7215,
+      737
+    ],
+    [
+      277,
+      "Contoso Shanghai No.1 Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      43623.452000000005,
+      290
+    ],
+    [
+      278,
+      "Contoso Urumqi Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      12986.316,
+      1552
+    ],
+    [
+      279,
+      "Contoso Beijing Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      28352.119500000004,
+      756
+    ],
+    [
+      280,
+      "Contoso Guangzhou Store",
+      2507,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 White",
+      4926.756,
+      1542
+    ],
+    [
+      281,
+      "Contoso Shanghai No.2 Store",
+      2503,
+      "Contoso Touch Stylus Pen E150 Silver",
+      18773.208,
+      756
+    ],
+    [
+      282,
+      "Contoso Ottawa No.1 Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      12315.424,
+      379
+    ],
+    [
+      282,
+      "Contoso Ottawa No.1 Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      2107.952,
+      1642
+    ],
+    [
+      283,
+      "Contoso Ottawa No.2 Store",
+      2489,
+      "Contoso Rubberized Skin BlackBerry E100 Silver",
+      12586.353500000001,
+      363
+    ],
+    [
+      284,
+      "Contoso Toronto No.1 Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      24640.336,
+      290
+    ],
+    [
+      285,
+      "Contoso Toronto No.2 Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      24967.509,
+      140
+    ],
+    [
+      286,
+      "Contoso Toronto No.3 Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      3571.5820000000003,
+      1642
+    ],
+    [
+      287,
+      "Contoso Montreal No.1 Store",
+      2501,
+      "Contoso Phone Tough Skin Case E140 Pink",
+      23708.14,
+      290
+    ],
+    [
+      288,
+      "Contoso Montreal No.2 Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      34142.568,
+      379
+    ],
+    [
+      289,
+      "Contoso Vancouver  No.1 Store",
+      2493,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Red",
+      21989.9505,
+      160
+    ],
+    [
+      289,
+      "Contoso Vancouver  No.1 Store",
+      2495,
+      null,
+      8787.204,
+      590
+    ],
+    [
+      290,
+      "Contoso Vancouver  No.2 Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      15578.405999999999,
+      737
+    ],
+    [
+      291,
+      "Contoso Calgary  Store",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      4359.852,
+      1418
+    ],
+    [
+      292,
+      "Contoso Thimphu No.2 Store",
+      2499,
+      "Contoso Phone Tough Skin Case E140 White",
+      67332.77799999999,
+      295
+    ],
+    [
+      293,
+      "Contoso Hong Kong No.2 Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      11200.931,
+      1552
+    ],
+    [
+      294,
+      "Contoso Tehran No.2 Store",
+      2496,
+      null,
+      12783.204,
+      703
+    ],
+    [
+      294,
+      "Contoso Tehran No.2 Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      5192.74,
+      1642
+    ],
+    [
+      295,
+      "Contoso Damascus No.2 Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      5760.66,
+      1741
+    ],
+    [
+      296,
+      "Contoso Bangkok No.2 Store",
+      2504,
+      "Contoso Touch Stylus Pen E150 White",
+      23567.409,
+      752
+    ],
+    [
+      297,
+      "Contoso Moscow  No.2 Store",
+      2515,
+      "Contoso In-Line Coupler E180 White",
+      9376.582999999999,
+      1809
+    ],
+    [
+      298,
+      "Contoso Ashgabat  No.2 Store",
+      2500,
+      "Contoso Phone Tough Skin Case E140 Silver",
+      32249.712,
+      374
+    ],
+    [
+      299,
+      "Contoso Islamabad  No.2 Store",
+      2490,
+      "Contoso Rubberized Skin BlackBerry E100 White",
+      23972.008,
+      393
+    ],
+    [
+      300,
+      "Contoso Sydney  No.2 Store",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      44940.7665,
+      140
+    ],
+    [
+      301,
+      "Contoso Osaka No.2 Store",
+      2502,
+      "Contoso Touch Stylus Pen E150 Black",
+      22766.7105,
+      737
+    ],
+    [
+      301,
+      "Contoso Osaka No.2 Store",
+      2511,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Silver",
+      9254.567,
+      1552
+    ],
+    [
+      302,
+      "Contoso Taipei  Store",
+      2498,
+      "Contoso Phone Tough Skin Case E140 Black",
+      48371.01,
+      379
+    ],
+    [
+      303,
+      "Contoso Lisbon Store",
+      2505,
+      "Contoso Touch Stylus Pen E150 Red",
+      8388.603,
+      786
+    ],
+    [
+      304,
+      "Contoso Saint Petersburg Store",
+      2492,
+      "Cigarette Lighter Adapter for Contoso Phones E110 White",
+      23979.9042,
+      178
+    ],
+    [
+      305,
+      "Contoso Nizhny Novgorod Store",
+      2510,
+      "Contoso Original K1m Li-Ion Standard Battery E170 White",
+      4869.158,
+      1642
+    ],
+    [
+      306,
+      "Contoso Europe Online Store",
+      2495,
+      null,
+      194962.5423,
+      590
+    ],
+    [
+      307,
+      "Contoso Asia Online Store",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      75941.98750000002,
+      1741
+    ],
+    [
+      308,
+      "Contoso North America Reseller",
+      2491,
+      "Cigarette Lighter Adapter for Contoso Phones E110 Black",
+      290801.133,
+      140
+    ],
+    [
+      309,
+      "Contoso Europe Reseller",
+      2506,
+      "Contoso Rubberized Snap-On Cover Hard Case Cell Phone Protector E160 Pink",
+      47563.24559999999,
+      1418
+    ],
+    [
+      310,
+      "Contoso Asia Reseller",
+      2509,
+      "Contoso Original K1m Li-Ion Standard Battery E170 Black",
+      51293.228,
+      1692
+    ]
+  ]
+}

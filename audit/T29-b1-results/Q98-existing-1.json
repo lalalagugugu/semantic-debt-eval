@@ -1,0 +1,89 @@
+{
+  "columns": [
+    {
+      "name": "ProductCategoryName",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "peak_quarter_share_pct",
+      "type": "Float64"
+    },
+    {
+      "name": "peak_quarter",
+      "type": "String"
+    },
+    {
+      "name": "annual_sales_amount",
+      "type": "Float64"
+    },
+    {
+      "name": "rank",
+      "type": "UInt64"
+    }
+  ],
+  "rows": [
+    [
+      "Games and Toys",
+      30.31206621136811,
+      "Q3",
+      2057197.8850002415,
+      1
+    ],
+    [
+      "TV and Video",
+      28.26883861099645,
+      "Q3",
+      108528145.79749484,
+      2
+    ],
+    [
+      "Audio",
+      28.207863043652697,
+      "Q3",
+      16095707.246500088,
+      3
+    ],
+    [
+      "Cell phones",
+      27.990345804641276,
+      "Q3",
+      62248458.6851285,
+      4
+    ],
+    [
+      "Computers",
+      27.647339613839215,
+      "Q2",
+      179034949.1609814,
+      5
+    ],
+    [
+      null,
+      27.493586908318402,
+      "Q3",
+      49265904.899110004,
+      6
+    ],
+    [
+      "Home Appliances",
+      27.353927369510032,
+      "Q3",
+      282211447.6438673,
+      7
+    ],
+    [
+      "Cameras and camcorders",
+      27.320760531877124,
+      "Q3",
+      149428309.15838093,
+      8
+    ],
+    [
+      "Music, Movies and Audio Books",
+      26.744514745688104,
+      "Q2",
+      8857910.869299844,
+      9
+    ]
+  ]
+}

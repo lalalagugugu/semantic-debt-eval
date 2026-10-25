@@ -1,0 +1,23 @@
+{
+  "columns": [
+    {
+      "name": "sales_amount",
+      "type": "Float64"
+    },
+    {
+      "name": "share_pct",
+      "type": "Float64"
+    },
+    {
+      "name": "total_sales",
+      "type": "Float64"
+    }
+  ],
+  "rows": [
+    [
+      225348067.6200995,
+      26.27267145117044,
+      857728031.3458962
+    ]
+  ]
+}

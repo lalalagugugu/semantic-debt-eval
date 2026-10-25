@@ -1,0 +1,88 @@
+{
+  "columns": [
+    {
+      "name": "m.EmployeeKey",
+      "type": "Int32"
+    },
+    {
+      "name": "manager_name",
+      "type": "String"
+    },
+    {
+      "name": "direct_reports",
+      "type": "UInt64"
+    },
+    {
+      "name": "avg_team_tenure_years",
+      "type": "Nullable(Float64)"
+    }
+  ],
+  "rows": [
+    [
+      9,
+      "Terry Adams",
+      89,
+      10.832106683893592
+    ],
+    [
+      6,
+      "Yoichiro Okada",
+      65,
+      9.989364502711526
+    ],
+    [
+      10,
+      "David Probst",
+      44,
+      10.439673946860806
+    ],
+    [
+      8,
+      "Aaron Painter",
+      33,
+      10.928172899425466
+    ],
+    [
+      7,
+      "Pilar Ackerman",
+      33,
+      9.527388878518241
+    ],
+    [
+      1,
+      "Kim Abercrombie",
+      6,
+      10.121641553633918
+    ],
+    [
+      2,
+      "Sagiv Hadaya",
+      6,
+      9.820179364327208
+    ],
+    [
+      3,
+      "Luka Abrus",
+      5,
+      10.983897114449368
+    ],
+    [
+      18,
+      "Pieter Uittenbogaard",
+      5,
+      10.527158167140165
+    ],
+    [
+      5,
+      "Humberto Acevedo",
+      3,
+      10.509269372478775
+    ],
+    [
+      4,
+      "Kirk Nason",
+      3,
+      10.855399815492664
+    ]
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "columns": [
+    {
+      "name": "product1_key",
+      "type": "Int32"
+    },
+    {
+      "name": "product1_name",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "product2_key",
+      "type": "Int32"
+    },
+    {
+      "name": "product2_name",
+      "type": "Nullable(String)"
+    },
+    {
+      "name": "common_orders",
+      "type": "UInt64"
+    },
+    {
+      "name": "lift_ratio",
+      "type": "Float64"
+    }
+  ],
+  "rows": [
+    [
+      758,
+      "Contoso Connectivity Starter Kit Smart Buy M680 Black",
+      768,
+      "Contoso ADSL Modem Splitter/Filter X 1 E100 Black",
+      17,
+      71.94855620970003
+    ],
+    [
+      1336,
+      "Contoso Expandable 4-Handset Cordless Phone System M206 Black",
+      1466,
+      "Contoso Pen Touch Screen Phones M320 Black",
+      16,
+      68.7180654338549
+    ],
+    [
+      1466,
+      "Contoso Pen Touch Screen Phones M320 Black",
+      2517,
+      "Contoso In-Line Coupler E180 Silver",
+      16,
+      50.85136842105263
+    ],
+    [
+      1080,
+      "Contoso SLR Camera X143 Silver",
+      1259,
+      "Contoso Cyber Shot Digital Cameras Adapter E306 Black",
+      15,
+      59.962266649013635
+    ],
+    [
+      2122,
+      "Contoso Coffee Maker Super-Auto 12C X1250 Silver",
+      2137,
+      "Contoso Coffee Maker Auto 5C E0900 Grey",
+      15,
+      58.513565891472865
+    ],
+    [
+      608,
+      "Contoso Screen 100in E010 Silver",
+      610,
+      "Contoso Screen 80in E080 Silver",
+      14,
+      67.74070512820512
+    ],
+    [
+      2070,
+      "Contoso Microwave 1.0CuFt E0110 Grey",
+      2091,
+      "Contoso Water Heater 4.3GPM M1250 Blue",
+      14,
+      57.983813443072705
+    ],
+    [
+      577,
+      "Contoso Projector 720p M620 Black",
+      597,
+      "Contoso Screen 85in E085 White",
+      13,
+      58.40907738095238
+    ],
+    [
+      1317,
+      "Contoso Dual Handset Cordless Phone System  E20 Black",
+      1337,
+      "Contoso Expandable1-Handset Cordless Phone System M207 Black",
+      13,
+      54.22893064382426
+    ],
+    [
+      1358,
+      "Contoso Electronic Private Automatic Branch Exchange M90 White",
+      1468,
+      "Contoso Touch Screen Phones - CRT M11 Black",
+      13,
+      57.72191176470588
+    ]
+  ]
+}

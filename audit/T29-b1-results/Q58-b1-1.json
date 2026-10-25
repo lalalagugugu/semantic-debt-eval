@@ -1,0 +1,13 @@
+{
+  "columns": [
+    {
+      "name": "max_order_sales_amount",
+      "type": "Float64"
+    }
+  ],
+  "rows": [
+    [
+      476068.099999998
+    ]
+  ]
+}
