@@ -2444,12 +2444,12 @@
       "refs": [
         {
           "interpretation": "原参考解读",
-          "sql": "SELECT DateKey, daily_sales, avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as moving_avg_7d FROM (SELECT DateKey, sum(SalesAmount) as daily_sales FROM retail.FactOnlineSales WHERE DateKey >= '2009-12-01' AND DateKey <= '2009-12-31' GROUP BY DateKey) ORDER BY DateKey",
+          "sql": "SELECT DateKey, daily_sales, moving_avg_7d FROM (SELECT DateKey, daily_sales, avg(daily_sales) OVER (ORDER BY DateKey ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS moving_avg_7d FROM (SELECT DateKey, sum(SalesAmount) AS daily_sales FROM retail.FactOnlineSales WHERE DateKey >= '2009-11-25' AND DateKey <= '2009-12-31' GROUP BY DateKey)) WHERE DateKey >= '2009-12-01' ORDER BY DateKey",
           "result_path": "refs/cube/Q30-1.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "用户已确认：从12月1日起输出，前6天使用12月内已有日期，第7天起为完整7日窗口，不使用11月数据；当前参考不改动。",
+      "scoring_notes": "2026-10-28用户裁定：含当日及前6天，跨月取满7天；先算窗口再筛2009年12月。不接受12月初截断窗口。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -2464,7 +2464,7 @@
           "items": [
             "可从数据发现"
           ],
-          "notes": "明确线上和时间范围；先按日求和再做7行窗口；12月首几日窗口截短。"
+          "notes": "明确线上和时间范围；先按日求和，含11月25日起的数据计算7日窗口，再筛12月输出。"
         },
         "persona": "分析师",
         "summary_coverage_evidence": "audit/T06-summary-coverage.json#/records/29",
@@ -6799,10 +6799,37 @@
           "interpretation": "以经理姓名标识，同名经理不合并门店；无员工映射保留门店及NULL姓名",
           "sql": "WITH stores AS (SELECT s.EmployeeKey AS manager_key,StoreName,sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.EmployeeKey,StoreName HAVING total_sales>5000000) SELECT if(e.EmployeeKey=0,NULL,e.FirstName||' '||e.LastName) AS manager_name,s.StoreName,s.total_sales, s.manager_key AS manager_key\nFROM stores s LEFT JOIN retail.DimEmployee e ON s.manager_key=e.EmployeeKey ORDER BY total_sales DESC",
           "result_path": "refs/cube/Q65-2.csv"
+        },
+        {
+          "interpretation": "按经理键汇总其全部门店的全渠道销售额，再筛超过500万美元；经理级结果",
+          "sql": "WITH managers AS (SELECT s.EmployeeKey AS manager_key,sum(f.SalesAmount) AS total_sales FROM retail.FactSales f JOIN retail.DimStore s ON f.StoreKey=s.StoreKey GROUP BY s.EmployeeKey HAVING total_sales>5000000) SELECT if(e.EmployeeKey=0,NULL,e.FirstName||' '||e.LastName) AS manager_name,m.total_sales,m.manager_key AS manager_key FROM managers m LEFT JOIN retail.DimEmployee e ON m.manager_key=e.EmployeeKey ORDER BY total_sales DESC",
+          "result_path": "refs/cube/Q65-3.csv",
+          "rules": {
+            "ordered": false,
+            "top_n": null,
+            "tie_columns": [],
+            "value_kinds": [
+              "other",
+              "amount",
+              "other"
+            ],
+            "value_types": [
+              "Nullable(String)",
+              "Float64",
+              "Nullable(Float64)"
+            ],
+            "required_columns": [
+              0,
+              2
+            ],
+            "identifier_columns": [
+              2
+            ]
+          }
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。",
+      "scoring_notes": "已批准：移除原参考中题干未声明的LIMIT，保留既有指标、筛选条件与排序，比较完整结果集。\n2026-10-28用户裁定：逐门店筛选与按经理汇总后筛选两种问法解读均接受；经理不按姓名合并。",
       "labels": {
         "q_level": "Q1",
         "complexity_source": {
@@ -7326,10 +7353,16 @@
           "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, (sales) AS sales_amount\nFROM ranked\nWHERE subcategory IS NOT NULL\nORDER BY sales_amount DESC",
           "result_path": "refs/cube/Q71-1.csv",
           "postprocess": "selection"
+        },
+        {
+          "interpretation": "包含品类与子品类均未归属的销售汇总组",
+          "sql": "WITH ranked AS (\n  SELECT pc.ProductCategoryName AS category, psc.ProductSubcategoryName AS subcategory,\n         sum(f.SalesAmount) AS sales,\n         row_number() OVER (PARTITION BY pc.ProductCategoryName ORDER BY sum(f.SalesAmount) DESC) AS rn\n  FROM retail.FactOnlineSales f\n  LEFT JOIN (SELECT ProductKey,toNullable(ProductName) AS ProductName,ProductSubcategoryKey,BrandName,ColorName,AvailableForSaleDate FROM retail.DimProduct) p ON f.ProductKey = p.ProductKey\n  LEFT JOIN (SELECT ProductSubcategoryKey,toNullable(ProductSubcategoryName) AS ProductSubcategoryName,ProductCategoryKey FROM retail.DimProductSubcategory) psc ON p.ProductSubcategoryKey = psc.ProductSubcategoryKey\n  LEFT JOIN (SELECT ProductCategoryKey,toNullable(ProductCategoryName) AS ProductCategoryName FROM retail.DimProductCategory) pc ON psc.ProductCategoryKey = pc.ProductCategoryKey\n  WHERE toYear(f.DateKey) = 2009\n  GROUP BY pc.ProductCategoryName, psc.ProductSubcategoryName\n)\nSELECT category, subcategory, (sales) AS sales_amount\nFROM ranked\nORDER BY sales_amount DESC",
+          "result_path": "refs/cube/Q71-2.csv",
+          "postprocess": "selection"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "按组挑选题中，挑选对象为NULL的组不属于答案；汇总题保留空属性分组的口径不适用于没有可标识挑选对象的这一行。",
+      "scoring_notes": "2026-10-28用户裁定：未归属组有销售金额，但不能标识子品类；列出或省略该行均接受。其余品类内最高子品类规则不变。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
@@ -15565,10 +15598,15 @@
           "interpretation": "原参考解读",
           "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       (r.avg_tenure_years) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
           "result_path": "refs/cube/Q82-1.csv"
+        },
+        {
+          "interpretation": "按H06仅断开员工18到上级1的关系；其他员工和关系保留",
+          "sql": "WITH reports AS (\n  SELECT ParentEmployeeKey AS mgr_key,\n         count() AS direct_reports,\n         avg(dateDiff('day', toDate(HireDate), toDate('2009-12-31')) / 365.25) AS avg_tenure_years\n  FROM retail.DimEmployee\n  WHERE ParentEmployeeKey IS NOT NULL AND HireDate IS NOT NULL\n    AND NOT (EmployeeKey = 18 AND ParentEmployeeKey = 1)\n  GROUP BY mgr_key\n)\nSELECT m.FirstName || ' ' || m.LastName AS manager_name,\n       m.Title,\n       r.direct_reports,\n       (r.avg_tenure_years) AS avg_team_tenure_years\nFROM reports r\nJOIN retail.DimEmployee m ON m.EmployeeKey = toInt32(r.mgr_key)\nORDER BY r.direct_reports DESC, manager_name",
+          "result_path": "refs/cube/Q82-2.csv"
         }
       ],
       "scoring": "deterministic",
-      "scoring_notes": "已批准：截止2009-12-31，入职天数/365.25，直属下属等权平均；去掉LIMIT25。",
+      "scoring_notes": "已批准：截止2009-12-31，入职天数/365.25，直属下属等权平均；去掉LIMIT25。\n2026-10-28用户裁定：保留原始成环关系或按H06仅断开18→1均接受；年限始终为入职天数÷365.25，不接受整年差。",
       "labels": {
         "q_level": "Q2",
         "complexity_source": {
