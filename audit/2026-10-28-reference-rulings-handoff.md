@@ -37,3 +37,20 @@ uv run --offline --no-sync python scripts/build_refs.py --question Q30 --questio
 全量SQL构建尝试在无关Q119因“selection object has inconsistent ranking values”失败，未写盘；不修改Q119。随后使用上述定向构建成功。重算既有参考时Q65-2、Q117-1出现浮点字符串差异；按本次范围保留其旧CSV及相应清单字段（Q117仅更新rules），没有将重算噪声混入补丁。新数值参考保存本轮SQL产出，不声称跨引擎数值已核对。
 
 已执行 `uv run --offline --no-sync python scripts/validate_rules.py --write-review` 更新现有审阅表，再执行 `uv run --offline --no-sync python scripts/validate_rules.py`：122题140份参考rules、类型、SQL/CSV哈希及审阅表一致。没有运行pandas独立复算，没有重评模型结果，没有打tag。
+
+## 2026-10-28：跨厂商独立核对通过
+
+用户在本会话转交Claude Code协调会话（主仓库semantic-debt）的独立核对结论：通过。以下为收到的验收证据，本Codex会话未执行或代做pandas独立复算。
+
+- 核对的题库提交：`4846d8ff34436223319ee7cc557d677435bebfb5`。核对方以git archive导出refs/，另读questions/new.yaml与refs/PRESENTATION.json的改动。
+- 独立性：执行方只依据题面口径与主仓库decisions/2026-10-28-reference-rulings-five-questions.md独立实现；算完后才读结果CSV，未读SQL与计算脚本。
+- Q71-2：9/9行一致，未归属组NULL行金额一致。
+- Q65-3：260/260行一致，经理集合与合计一致。
+- Q82-2：11/11行一致，直属人数与平均年限逐行一致。
+- Q30-1：31/31行一致，日销售额与跨月7日均值逐日一致。
+- 上述数值相对误差均≤1e-9。
+- Q117-1：必答列仅删除c7，其余c1–c6、c8、c9不变；展示配置覆盖为[1,2,3,4,5,6,8,9]；CSV未改动。与裁定一致。
+- 独立脚本：`$SEMDEBT_DATA_DIR/recompute_eval_v13_refs.py`。
+- 复现命令：`uv run python "$SEMDEBT_DATA_DIR/recompute_eval_v13_refs.py" <仓库外输出目录>`。
+
+用户已授权记录通过证据、打eval-v1.3 tag并开PR，由用户合并。本节取代上文历史的“待独立复算”状态；自核对提交以来仅追加审计文档，参考数据与规则保持核对版本。eval-v1.2保持原指向。
