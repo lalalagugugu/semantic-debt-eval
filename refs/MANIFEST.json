@@ -2465,7 +2465,7 @@
     {
       "question_id": "Q30",
       "result_path": "refs/cube/Q30-1.csv",
-      "sql_sha256": "0373ad5bf9bbd83dc8b0ca3de38609c18c7ee356a59a70b50a6db058c513974c",
+      "sql_sha256": "c399968cf3d11ec0cc35b9dae1249722de2ea175293391ab442655b8092e00e6",
       "row_count": 31,
       "columns": [
         {
@@ -2491,7 +2491,7 @@
       "tie_column": null,
       "postprocess": null,
       "postprocess_details": null,
-      "sha256": "51d30a3d622eee68a7d9bae9e2a7abc70834d23da3095521610f47ae8369682c",
+      "sha256": "1c6daa547b28f14b7db7d44585daffc4ce6a04ed4ed5f641137ffa7f7d883c8f",
       "value_types": [
         "Date",
         "Float64",
@@ -22912,7 +22912,6 @@
           4,
           5,
           6,
-          7,
           8,
           9
         ],
@@ -56611,7 +56610,301 @@
       },
       "selection_checks": null,
       "presentation_sha256": "e2aa21d868695255c65f6be5c697520fccd8f1e29f1004c4a1c1a8d8c0d99174"
+    },
+    {
+      "question_id": "Q65",
+      "result_path": "refs/cube/Q65-3.csv",
+      "sql_sha256": "5c2443d5327ab1d7eac1110d77e34ce7e3aa88f5d3a3a44925f87e734d07d43f",
+      "row_count": 260,
+      "columns": [
+        {
+          "name": "manager_name",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "total_sales",
+          "type": "Float64"
+        },
+        {
+          "name": "manager_key",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "amount",
+        "other"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "e0bdab529b71a2a569f29bf03dd59618d4ed82f00442a9bbd858c7697bf53b41",
+      "value_types": [
+        "Nullable(String)",
+        "Float64",
+        "Nullable(Float64)"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "amount",
+          "other"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Float64",
+          "Nullable(Float64)"
+        ],
+        "required_columns": [
+          0,
+          2
+        ],
+        "identifier_columns": [
+          2
+        ]
+      },
+      "selection_checks": null
+    },
+    {
+      "question_id": "Q71",
+      "result_path": "refs/cube/Q71-2.csv",
+      "sql_sha256": "2a0e18f62b3e1305234f11585e13137d0915ddb5b64eb224f5af47469b638f65",
+      "row_count": 9,
+      "columns": [
+        {
+          "name": "category",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "subcategory",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "sales_amount",
+          "type": "Float64"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "amount"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": "selection",
+      "postprocess_details": null,
+      "sha256": "6d70d67eef83dafe9199698be66a2e15db926fa40c5272a7e3dfb677fa319761",
+      "value_types": [
+        "Nullable(String)",
+        "Nullable(String)",
+        "Float64"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "amount"
+        ],
+        "value_types": [
+          "Nullable(String)",
+          "Nullable(String)",
+          "Float64"
+        ],
+        "selection": {
+          "version": 1,
+          "stages": [
+            {
+              "parent": null,
+              "where": [],
+              "group_columns": [
+                0
+              ],
+              "object_columns": [
+                1
+              ],
+              "order_by": [
+                {
+                  "column": 2,
+                  "descending": true
+                }
+              ],
+              "n": 1
+            }
+          ],
+          "output_order": []
+        },
+        "required_columns": [
+          0,
+          1,
+          2
+        ]
+      },
+      "selection_checks": [
+        [
+          {
+            "group": [
+              "Audio"
+            ],
+            "objects": 3,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Cameras and camcorders"
+            ],
+            "objects": 4,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Cell phones"
+            ],
+            "objects": 4,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Computers"
+            ],
+            "objects": 5,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Games and Toys"
+            ],
+            "objects": 1,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Home Appliances"
+            ],
+            "objects": 8,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "Music, Movies and Audio Books"
+            ],
+            "objects": 1,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              "TV and Video"
+            ],
+            "objects": 4,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          },
+          {
+            "group": [
+              null
+            ],
+            "objects": 1,
+            "required": 1,
+            "strict": 0,
+            "boundary": 1
+          }
+        ]
+      ]
+    },
+    {
+      "question_id": "Q82",
+      "result_path": "refs/cube/Q82-2.csv",
+      "sql_sha256": "25a1483c7df1e56b76a522ceee44cd013a076a8c5c891453e3090d180d0d0eeb",
+      "row_count": 11,
+      "columns": [
+        {
+          "name": "manager_name",
+          "type": "String"
+        },
+        {
+          "name": "Title",
+          "type": "Nullable(String)"
+        },
+        {
+          "name": "direct_reports",
+          "type": "UInt64"
+        },
+        {
+          "name": "avg_team_tenure_years",
+          "type": "Nullable(Float64)"
+        }
+      ],
+      "value_kinds": [
+        "other",
+        "other",
+        "count",
+        "other"
+      ],
+      "ordered": false,
+      "top_n": null,
+      "tie_column": null,
+      "postprocess": null,
+      "postprocess_details": null,
+      "sha256": "f09a07359873f4764faf29cf0ef64974d7467539d455a1f84810648906967740",
+      "value_types": [
+        "String",
+        "Nullable(String)",
+        "UInt64",
+        "Nullable(Float64)"
+      ],
+      "value_kind_source": "inferred",
+      "value_kind_warnings": [],
+      "rules": {
+        "ordered": false,
+        "top_n": null,
+        "tie_columns": [],
+        "value_kinds": [
+          "other",
+          "other",
+          "count",
+          "other"
+        ],
+        "value_types": [
+          "String",
+          "Nullable(String)",
+          "UInt64",
+          "Nullable(Float64)"
+        ],
+        "required_columns": [
+          0,
+          2,
+          3
+        ]
+      },
+      "selection_checks": null
     }
   ],
-  "presentation_sha256": "aea1f9f2f8ac3d5b156b36187ba7b16e26fc89804635b666f43237ed82a36e1d"
+  "presentation_sha256": "83b6aa5fdb5ee97cca76cb52e0e348767cbc4503f9ed56cdd0f3dfece54f0828"
 }

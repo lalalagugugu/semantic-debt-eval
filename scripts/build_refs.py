@@ -415,13 +415,27 @@ def main():
     path = REPO / "refs/MANIFEST.json"
     if args.question:
         previous = json.loads(path.read_text())
-        if {key: value for key, value in previous.items() if key != "records"} != {key: value for key, value in manifest.items() if key != "records"}:
+        if previous.get("presentation_sha256") != manifest.get("presentation_sha256"):
+            old_presentation_bytes = subprocess.check_output(['git', 'show', 'HEAD:refs/PRESENTATION.json'], cwd=REPO)
+            if hashlib.sha256(old_presentation_bytes).hexdigest() != previous.get("presentation_sha256"):
+                raise ValueError("targeted build requires the previous presentation in HEAD")
+            selected_paths = {ref["result_path"] for question in questions for ref in question["refs"]}
+            def unselected_presentation(spec):
+                return {key: {path: value for path, value in section.items() if path not in selected_paths}
+                        if isinstance(section, dict) else section for key, section in spec.items()}
+            if unselected_presentation(json.loads(old_presentation_bytes)) != unselected_presentation(presentation):
+                raise ValueError("targeted build cannot change unselected presentation rules")
+        runtime_keys = set(previous) | set(manifest)
+        runtime_keys -= {"records", "presentation_sha256"}
+        if any(previous.get(key) != manifest.get(key) for key in runtime_keys):
             raise ValueError("targeted build cannot mix runtime or quantization versions")
         replacements = {record["result_path"]: record for record in records}
         expected = {ref["result_path"] for question in all_questions for ref in question["refs"]}
-        if expected != {record["result_path"] for record in previous["records"]}:
-            raise ValueError("targeted build cannot add/remove references; use a full build")
+        previous_paths = {record["result_path"] for record in previous["records"]}
+        if previous_paths - expected or expected - previous_paths - replacements.keys():
+            raise ValueError("targeted build cannot remove references or add unselected references; use a full build")
         manifest["records"] = [replacements.get(record["result_path"], record) for record in previous["records"]]
+        manifest["records"].extend(record for record in records if record["result_path"] not in previous_paths)
     content = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     if args.check:
         if path.read_text() != content:
