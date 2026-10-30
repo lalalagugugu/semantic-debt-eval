@@ -75,7 +75,7 @@
     "scorer_sha256": "3d7fb59b1ac205dce95883d266f35441fbc16f7cd7709189af9fea270a635838",
     "selection_sha256": "326307d66a141f1a9a4ec400a8d34400a92bca9773fdc9f6f6921598798d3ce2",
     "reference_manifest_sha256": "de4ce79d7f15796ae9c69bacad53312f552c0db9a1242e447c1921e595991e90",
-    "raw_candidates_path": "/Users/yuhuang/dev/semdebt/data/rules-backfill/20261016T060255Z/candidates.jsonl",
+    "raw_candidates_path": "<home>/dev/semdebt/data/rules-backfill/20261016T060255Z/candidates.jsonl",
     "raw_candidates_sha256": "b6cc390d63452b8c412cc0845dd7631a92e07a8b4b782b43cccde6a100e772fb",
     "contract_counts": {
       "correct": 251,
