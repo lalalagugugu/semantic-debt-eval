@@ -2,7 +2,7 @@
   "status": "executed_both_algorithms_before_full_rebuild",
   "baseline_sha256": "fc82ae20da6e7ae2a52709da5ed2f9bab0cee40956ebaaf0aca893de18ab9a02",
   "unit_policy_sha256": "7413327151dc85b9ff08233a191ce238dfe6722058b0c1fa71c0649facc540db",
-  "raw_directory": "/Users/yuhuang/dev/semdebt/data/t05-finalize/20261016T054321Z-purchase-events-full",
+  "raw_directory": "<home>/dev/semdebt/data/t05-finalize/20261016T054321Z-purchase-events-full",
   "scanned_questions": 122,
   "compared_questions": 18,
   "different_questions": 9,

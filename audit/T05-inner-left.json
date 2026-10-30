@@ -3,7 +3,7 @@
   "max_execution_time": 0,
   "max_threads": 1,
   "completed": true,
-  "raw_directory": "/Users/yuhuang/dev/semdebt/data/t05-finalize/20261016T051321Z-joins",
+  "raw_directory": "<home>/dev/semdebt/data/t05-finalize/20261016T051321Z-joins",
   "records": [
     {
       "question_id": "Q11",
