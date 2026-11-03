@@ -12,7 +12,7 @@
   "selection_sha256": "326307d66a141f1a9a4ec400a8d34400a92bca9773fdc9f6f6921598798d3ce2",
   "question_sha256": "6068299fee64b07870a70fd3487b89c45fa55b30d9cc977af5edae9db0f7a1ee",
   "raw_candidates_sha256": "b6cc390d63452b8c412cc0845dd7631a92e07a8b4b782b43cccde6a100e772fb",
-  "raw_candidates_path": "/Users/yuhuang/dev/semdebt/data/rules-backfill/20261016T060255Z/candidates.jsonl",
+  "raw_candidates_path": "<home>/dev/semdebt/data/rules-backfill/20261016T060255Z/candidates.jsonl",
   "contract_counts": {
     "correct": 251,
     "wrong": 304,
