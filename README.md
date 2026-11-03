@@ -6,7 +6,7 @@
 
 ## 许可
 
-版权人：Yu HUANG。许可范围见 [LICENSE](LICENSE)：
+版权人：Yu HUANG。代码许可见 [LICENSE](LICENSE)，内容许可范围见 [LICENSE-CONTENT.md](LICENSE-CONTENT.md)：
 
 - 本项目代码采用 [MIT](LICENSES/MIT.txt)。
 - 本项目新增题、对 Cube 题目的中文化与改写、参考答案及文档中的原创贡献采用 [CC BY 4.0](LICENSES/CC-BY-4.0.txt)，保留上游内容的原有声明。

@@ -1,0 +1,56 @@
+# Content license scope
+
+Copyright (c) 2026 Yu HUANG
+
+This repository uses different licenses for code and content. A file's
+location does not override the third-party exceptions below.
+
+## Project code — MIT
+
+Original project software, including Python and shell scripts, configuration
+and schema code, and original code snippets embedded in documentation, is
+licensed under the MIT License. See LICENSE for the full text (also retained
+in LICENSES/MIT.txt).
+Reference-answer SQL is content covered by the next section, rather than
+by this software grant.
+
+## Project content — CC BY 4.0
+
+Yu HUANG licenses the project's original contributions to the following
+content under Creative Commons Attribution 4.0 International (CC BY 4.0):
+
+- Newly authored evaluation questions.
+- Chinese translations and adaptations of the Cube benchmark questions.
+- Reference answers, including original or modified reference SQL and the
+  project's original contributions to reference-result compilations.
+- Documentation, design documents, task descriptions, reports, and audit
+  narratives and annotations, excluding code covered above.
+
+See LICENSES/CC-BY-4.0.txt for the full text:
+https://creativecommons.org/licenses/by/4.0/
+
+For attribution, identify Yu HUANG and this repository, retain applicable
+third-party attribution, link to the license, and indicate changes:
+https://github.com/lalalagugugu/semantic-debt-eval
+
+These grants cover only rights in the project's own contributions that the
+licensor is entitled to license. They do not claim ownership of source data
+or replace third-party terms. Applying this notice does not modify frozen
+question or reference files, recorded file hashes, or Git history.
+
+## Third-party content and source data
+
+vendor/cube/ retains its existing NOTICE.md and upstream notices. At the
+recorded upstream commit, the upstream README states "MIT." but there is no
+standalone LICENSE file. This repository does not supply a replacement
+upstream license or invent an upstream copyright attribution. See:
+vendor/cube/NOTICE.md
+
+Unmodified upstream material, including material quoted or incorporated in
+project files, retains its upstream notices. The project's CC BY 4.0 grant
+applies to its own translations, adaptations, and other original
+contributions, not to an exclusive relicensing of the underlying material.
+
+Underlying Contoso data and third-party published execution results retain
+their own provenance and applicable terms; they are not relicensed by these
+project licenses. Dependency software also retains its own licenses.
